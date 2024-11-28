@@ -1,18 +1,12 @@
 import React from 'react';
-import { StatusBar, useColorScheme } from 'react-native';
-import { HomeScreen } from './screens/HomeScreen';
+import { SafeAreaView } from 'react-native';
+import BrawlStarsCompatibility from './components/BrawlStarsCompatibility';
 
-const App: React.FC = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
+const App = () => {
   return (
-    <>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={isDarkMode ? '#000000' : '#FFFFFF'}
-      />
-      <HomeScreen />
-    </>
+    <SafeAreaView style={{ flex: 1 }}>
+      <BrawlStarsCompatibility />
+    </SafeAreaView>
   );
 };
 
