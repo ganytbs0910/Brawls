@@ -6,52 +6,37 @@ import {
   TouchableOpacity,
   StyleSheet,
   SafeAreaView,
+  Modal,
+  Pressable,
 } from 'react-native';
-
-const characterNames = ["シェリー", "ニタ", "コルト", "ブル", "ブロック", "エルプリモ", "バーリー", "ポコ", "ローサ", "ジェシー", "ダイナマイク", "ティック", "8ビット", "リコ", "ダリル", "ペニー", "カール", "ジャッキー", "ガス", "ボウ", "Emz", "ストゥー", "エリザベス", "パム", "フランケン", "ビビ", "ビー", "ナーニ", "エドガー", "グリフ", "グロム", "ボニー", "ゲイル", "コレット", "ベル", "アッシュ", "ローラ", "サム", "マンディ", "メイジー", "ハンク", "パール", "ラリー&ローリー", "アンジェロ", "ベリー", "シェイド", "モーティス", "タラ", "ジーン", "MAX", "ミスターP", "スプラウト", "バイロン", "スクウィーク", "ルー", "ラフス", "バズ", "ファング", "イヴ", "ジャネット", "オーティス", "バスター", "グレイ", "R-T", "ウィロー", "ダグ", "チャック", "チャーリー", "ミコ", "メロディー", "リリー", "クランシー", "モー", "ジュジュ", "スパイク", "クロウ", "レオン", "サンディ", "アンバー", "メグ", "サージ", "チェスター", "コーデリアス", "キット", "ドラコ", "ケンジ"];
-
-type Compatibility = {
-  [key: string]: { [key: string]: number };
-};
+import { CharacterCompatibility } from '../types/types';
+import { allCharacterData, CHARACTER_MAP } from '../data/characterCompatibility';
 
 const BrawlStarsCompatibility: React.FC = () => {
-  const [selectedCharacter, setSelectedCharacter] = useState<string | null>(null);
-  const [compatibility, setCompatibility] = useState<Compatibility>({});
+  const [selectedCharacter, setSelectedCharacter] = useState<CharacterCompatibility | null>(null);
+  const [modalVisible, setModalVisible] = useState(false);
 
-  // 相性データを生成する関数（実際のアプリではAPIやデータベースから取得することを想定）
-  const generateCompatibility = (character: string) => {
-    const result: { [key: string]: number } = {};
-    characterNames.forEach(opponent => {
-      if (opponent !== character) {
-        // ランダムな相性値を生成（実際のアプリでは実データを使用）
-        result[opponent] = Math.floor(Math.random() * 11);
-      }
-    });
-    return result;
-  };
-
-  const handleCharacterSelect = (character: string) => {
-    if (!compatibility[character]) {
-      const newCompatibility = {...compatibility};
-      newCompatibility[character] = generateCompatibility(character);
-      setCompatibility(newCompatibility);
+  const handleCharacterSelect = (characterName: string) => {
+    const character = Object.values(allCharacterData).find(char => char.name === characterName);
+    if (character) {
+      setSelectedCharacter(character);
+      setModalVisible(true);
     }
-    setSelectedCharacter(character);
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <Text style={styles.title}>ブロウルスターズ キャラクター相性表</Text>
-        
+
         {/* キャラクター選択ボタン */}
         <View style={styles.buttonContainer}>
-          {characterNames.map((character) => (
+          {Object.values(CHARACTER_MAP).map((character) => (
             <TouchableOpacity
               key={character}
               style={[
                 styles.button,
-                selectedCharacter === character && styles.selectedButton
+                selectedCharacter?.name === character && styles.selectedButton
               ]}
               onPress={() => handleCharacterSelect(character)}
             >
@@ -60,41 +45,59 @@ const BrawlStarsCompatibility: React.FC = () => {
           ))}
         </View>
 
-        {/* 相性表示 */}
-        {selectedCharacter && compatibility[selectedCharacter] && (
-          <View style={styles.compatibilityContainer}>
-            <Text style={styles.subtitle}>
-              {selectedCharacter}の相性表
-            </Text>
-            {Object.entries(compatibility[selectedCharacter])
-              .sort(([, a], [, b]) => b - a)
-              .map(([opponent, value]) => (
-                <View key={opponent} style={styles.compatibilityRow}>
-                  <Text style={styles.characterName}>{opponent}</Text>
-                  <View style={styles.scoreContainer}>
-                    <Text style={styles.score}>{value}/10</Text>
-                    <View 
-                      style={[
-                        styles.scoreBar,
-                        { width: `${value * 10}%`, backgroundColor: getScoreColor(value) }
-                      ]} 
-                    />
+        {/* 相性表示モーダル */}
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => setModalVisible(false)}
+        >
+          <View style={styles.modalOverlay}>
+            <View style={styles.modalView}>
+              <ScrollView>
+                {selectedCharacter && (
+                  <View style={styles.compatibilityContainer}>
+                    <Text style={styles.modalTitle}>
+                      {selectedCharacter.name}の相性表
+                    </Text>
+                    {Object.entries(selectedCharacter.compatibilityScores)
+                      .sort(([, a], [, b]) => b - a)
+                      .map(([opponent, value]) => (
+                        <View key={opponent} style={styles.compatibilityRow}>
+                          <Text style={styles.characterName}>{opponent}</Text>
+                          <View style={styles.scoreContainer}>
+                            <Text style={styles.score}>{value}/10</Text>
+                            <View
+                              style={[
+                                styles.scoreBar,
+                                { width: `${value * 10}%`, backgroundColor: getScoreColor(value) }
+                              ]}
+                            />
+                          </View>
+                        </View>
+                      ))}
                   </View>
-                </View>
-              ))}
+                )}
+              </ScrollView>
+              <Pressable
+                style={styles.closeButton}
+                onPress={() => setModalVisible(false)}
+              >
+                <Text style={styles.closeButtonText}>閉じる</Text>
+              </Pressable>
+            </View>
           </View>
-        )}
+        </Modal>
       </ScrollView>
     </SafeAreaView>
   );
 };
 
-// スコアに応じた色を返す関数
 const getScoreColor = (score: number): string => {
-  if (score >= 8) return '#4CAF50';  // 緑
-  if (score >= 6) return '#2196F3';  // 青
-  if (score >= 4) return '#FFC107';  // 黄
-  return '#F44336';  // 赤
+  if (score >= 8) return '#4CAF50';
+  if (score >= 6) return '#2196F3';
+  if (score >= 4) return '#FFC107';
+  return '#F44336';
 };
 
 const styles = StyleSheet.create({
@@ -107,11 +110,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     padding: 10,
-  },
-  subtitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginVertical: 10,
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -132,6 +130,33 @@ const styles = StyleSheet.create({
   buttonText: {
     textAlign: 'center',
     fontSize: 12,
+  },
+  modalOverlay: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalView: {
+    width: '90%',
+    maxHeight: '80%',
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 15,
   },
   compatibilityContainer: {
     padding: 10,
@@ -157,6 +182,18 @@ const styles = StyleSheet.create({
   scoreBar: {
     height: 20,
     borderRadius: 10,
+  },
+  closeButton: {
+    backgroundColor: '#2196F3',
+    borderRadius: 20,
+    padding: 10,
+    marginTop: 15,
+    elevation: 2,
+  },
+  closeButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
 
