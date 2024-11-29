@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import BrawlStarsCompatibility from './components/BrawlStarsCompatibility';
 import TeamCompatibility from './components/TeamCompatibility';
-import BrawlStarsRankings from './components/BrawlStarsRankings.tsx';
+import BrawlStarsRankings from './components/BrawlStarsRankings';
+import Home from './components/Home';
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState<'single' | 'team' | 'rankings'>('single');
+  const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings'>('home');
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        {activeTab === 'single' ? (
+        {activeTab === 'home' ? (
+          <Home />
+        ) : activeTab === 'single' ? (
           <BrawlStarsCompatibility />
         ) : activeTab === 'team' ? (
           <TeamCompatibility />
@@ -20,6 +23,14 @@ const App = () => {
       </View>
 
       <View style={styles.tabBar}>
+        <TouchableOpacity
+          style={[styles.tab, activeTab === 'home' && styles.activeTab]}
+          onPress={() => setActiveTab('home')}
+        >
+          <Text style={[styles.tabText, activeTab === 'home' && styles.activeTabText]}>
+            ホーム
+          </Text>
+        </TouchableOpacity>
         <TouchableOpacity
           style={[styles.tab, activeTab === 'single' && styles.activeTab]}
           onPress={() => setActiveTab('single')}
