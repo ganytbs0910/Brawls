@@ -2,17 +2,20 @@ import React, { useState } from 'react';
 import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import BrawlStarsCompatibility from './components/BrawlStarsCompatibility';
 import TeamCompatibility from './components/TeamCompatibility';
+import BrawlStarsRankings from './components/BrawlStarsRankings.tsx';
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState<'single' | 'team'>('single');
+  const [activeTab, setActiveTab] = useState<'single' | 'team' | 'rankings'>('single');
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
         {activeTab === 'single' ? (
           <BrawlStarsCompatibility />
-        ) : (
+        ) : activeTab === 'team' ? (
           <TeamCompatibility />
+        ) : (
+          <BrawlStarsRankings />
         )}
       </View>
 
@@ -31,6 +34,14 @@ const App = () => {
         >
           <Text style={[styles.tabText, activeTab === 'team' && styles.activeTabText]}>
             3vs3チーム分析
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.tab, activeTab === 'rankings' && styles.activeTab]}
+          onPress={() => setActiveTab('rankings')}
+        >
+          <Text style={[styles.tabText, activeTab === 'rankings' && styles.activeTabText]}>
+            最強ランキング
           </Text>
         </TouchableOpacity>
       </View>

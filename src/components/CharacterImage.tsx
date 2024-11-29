@@ -9,7 +9,6 @@ interface CharacterImageProps {
 }
 
 const CharacterImage: React.FC<CharacterImageProps> = ({ characterName, size = 50, style }) => {
-  // 日本語名からキャラクター識別子への変換マップ
   const nameToIdentifier: { [key: string]: CharacterName } = {
     'シェリー': 'shelly',
     'ニタ': 'nita',
@@ -33,19 +32,79 @@ const CharacterImage: React.FC<CharacterImageProps> = ({ characterName, size = 5
     'ボウ': 'bo',
     'Emz': 'emz',
     'ストゥー': 'stu',
-    // ... 他のキャラクター名のマッピング
+    'エリザベス': 'piper',
+    'パム': 'pam',
+    'フランケン': 'frank',
+    'ビビ': 'bibi',
+    'ビー': 'bea',
+    'ナーニ': 'nani',
+    'エドガー': 'edgar',
+    'グリフ': 'griff',
+    'グロム': 'grom',
+    'ボニー': 'bonnie',
+    'ゲイル': 'gale',
+    'コレット': 'colette',
+    'ベル': 'belle',
+    'アッシュ': 'ash',
+    'ローラ': 'lola',
+    'サム': 'sam',
+    'マンディ': 'mandy',
+    'メイジー': 'maisie',
+    'ハンク': 'hank',
+    'パール': 'pearl',
+    'ラリー&ローリー': 'larryandLawrie',
+    'アンジェロ': 'angelo',
+    'ベリー': 'berry',
+    'シェイド': 'shade',
+    'モーティス': 'mortis',
+    'タラ': 'tara',
+    'ジーン': 'gene',
+    'MAX': 'max',
+    'ミスターP': 'mrp',
+    'スプラウト': 'sprout',
+    'バイロン': 'byron',
+    'スクウィーク': 'squeak',
+    'ルー': 'lou',
+    'ラフス': 'ruffs',
+    'バズ': 'buzz',
+    'ファング': 'fang',
+    'イヴ': 'eve',
+    'ジャネット': 'janet',
+    'オーティス': 'otis',
+    'バスター': 'buster',
+    'グレイ': 'gray',
+    'R-T': 'rt',
+    'ウィロー': 'willow',
+    'ダグ': 'doug',
+    'チャック': 'chuck',
+    'チャーリー': 'charlie',
+    'ミコ': 'mico',
+    'メロディー': 'melodie',
+    'リリー': 'lily',
+    'クランシー': 'clancy',
+    'モー': 'moe',
+    'ジュジュ': 'juju',
+    'スパイク': 'spike',
+    'クロウ': 'crow',
+    'レオン': 'leon',
+    'サンディ': 'sandy',
+    'アンバー': 'amber',
+    'メグ': 'meg',
+    'サージ': 'surge',
+    'チェスター': 'chester',
+    'コーデリアス': 'cordelius',
+    'キット': 'kit',
+    'ドラコ': 'draco',
+    'ケンジ': 'kenji'
   };
 
-  // 日本語名を識別子に変換
-  const identifier = nameToIdentifier[characterName] as CharacterName;
-
-  // 画像ソースの取得
   const getImageSource = () => {
+    const identifier = nameToIdentifier[characterName];
     if (identifier && isValidCharacterName(identifier)) {
       return CHARACTER_IMAGES[identifier];
     }
     console.warn(`Invalid character name: ${characterName} (${identifier})`);
-    return CHARACTER_IMAGES.shelly; // デフォルトとしてシェリーの画像を使用
+    return CHARACTER_IMAGES.shelly;
   };
 
   return (
