@@ -66,7 +66,7 @@ const BrawlStarsCompatibility: React.FC = () => {
                         style={styles.modalCharacterImage}
                       />
                       <Text style={styles.modalTitle}>
-                        {selectedCharacter.name}の相性表
+                        {selectedCharacter.name}の得意キャラ
                       </Text>
                     </View>
                     {Object.entries(selectedCharacter.compatibilityScores)

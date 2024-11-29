@@ -25,6 +25,8 @@ interface CharacterRecommendation {
   reason: string;
 }
 
+type AnalysisMode = 'COUNTER_PICK' | 'STRONG_AGAINST';
+
 const CharacterImage: React.FC<{ characterName: string; size: number }> = ({ characterName, size }) => {
   const englishName = JAPANESE_TO_ENGLISH_MAP[characterName];
   
@@ -50,14 +52,21 @@ const TeamCompatibility: React.FC = () => {
   const [selectedTeam, setSelectedTeam] = useState<string[]>([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [recommendations, setRecommendations] = useState<CharacterRecommendation[]>([]);
+  const [analysisMode, setAnalysisMode] = useState<AnalysisMode>('COUNTER_PICK');
 
   const handleCharacterSelect = (character: string) => {
-    if (selectedTeam.length < 3 && !selectedTeam.includes(character)) {
+    if (selectedTeam.includes(character)) {
+      setSelectedTeam(selectedTeam.filter(char => char !== character));
+      setModalVisible(false);
+      return;
+    }
+
+    if (selectedTeam.length < 3) {
       const newTeam = [...selectedTeam, character];
       setSelectedTeam(newTeam);
       
       if (newTeam.length === 3) {
-        calculateRecommendations(newTeam);
+        calculateRecommendations(newTeam, analysisMode);
         setModalVisible(true);
       }
     }
@@ -68,15 +77,27 @@ const TeamCompatibility: React.FC = () => {
     setModalVisible(false);
   };
 
-  const calculateTeamScore = (team: string[], opponent: string): number => {
+  const calculateTeamScore = (team: string[], opponent: string, mode: AnalysisMode): number => {
     let totalScore = 0;
     const opponentId = getCharacterId(opponent);
     
     if (opponentId && allCharacterData[opponentId]) {
       team.forEach(teamMember => {
-        const memberScore = allCharacterData[opponentId].compatibilityScores[teamMember];
-        if (memberScore) {
-          totalScore += memberScore;
+        if (mode === 'COUNTER_PICK') {
+          // 相手キャラに対する相性スコア
+          const memberScore = allCharacterData[opponentId].compatibilityScores[teamMember];
+          if (memberScore) {
+            totalScore += memberScore;
+          }
+        } else {
+          // チームメンバーから見た相手キャラへの相性スコア
+          const teamMemberId = getCharacterId(teamMember);
+          if (teamMemberId && allCharacterData[teamMemberId]) {
+            const memberScore = allCharacterData[teamMemberId].compatibilityScores[opponent];
+            if (memberScore) {
+              totalScore += memberScore;
+            }
+          }
         }
       });
     }
@@ -99,12 +120,12 @@ const TeamCompatibility: React.FC = () => {
     return '#F44336';
   };
 
-  const calculateRecommendations = (team: string[]) => {
+  const calculateRecommendations = (team: string[], mode: AnalysisMode) => {
     const recommendations: CharacterRecommendation[] = [];
     
     Object.values(CHARACTER_MAP).forEach(character => {
       if (!team.includes(character)) {
-        const score = calculateTeamScore(team, character);
+        const score = calculateTeamScore(team, character, mode);
         recommendations.push({
           character,
           score,
@@ -117,10 +138,28 @@ const TeamCompatibility: React.FC = () => {
     setRecommendations(recommendations.slice(0, 5));
   };
 
+  const toggleAnalysisMode = () => {
+    const newMode = analysisMode === 'COUNTER_PICK' ? 'STRONG_AGAINST' : 'COUNTER_PICK';
+    setAnalysisMode(newMode);
+    if (selectedTeam.length === 3) {
+      calculateRecommendations(selectedTeam, newMode);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <Text style={styles.title}>3vs3 弱点発見</Text>
+        <View style={styles.headerContainer}>
+          <Text style={styles.title}>3vs3 弱点発見</Text>
+          <TouchableOpacity 
+            style={styles.modeToggleButton}
+            onPress={toggleAnalysisMode}
+          >
+            <Text style={styles.modeToggleText}>
+              {analysisMode === 'COUNTER_PICK' ? '対策キャラ表示' : '得意キャラ表示'}
+            </Text>
+          </TouchableOpacity>
+        </View>
 
         <View style={styles.selectedTeamContainer}>
           {[0, 1, 2].map((index) => (
@@ -154,7 +193,6 @@ const TeamCompatibility: React.FC = () => {
                 selectedTeam.includes(character) && styles.selectedButton
               ]}
               onPress={() => handleCharacterSelect(character)}
-              disabled={selectedTeam.includes(character)}
             >
               <CharacterImage characterName={character} size={40} />
               <Text style={[
@@ -178,7 +216,11 @@ const TeamCompatibility: React.FC = () => {
               <ScrollView>
                 <View style={styles.compatibilityContainer}>
                   <View style={styles.modalHeader}>
-                    <Text style={styles.modalTitle}>選択中のチーム</Text>
+                    <Text style={styles.modalTitle}>
+                      {analysisMode === 'COUNTER_PICK' 
+                        ? 'このチームに強いキャラクター' 
+                        : 'このチームが得意とするキャラクター'}
+                    </Text>
                   </View>
                   <View style={styles.selectedTeamPreview}>
                     {selectedTeam.map((character, index) => (
@@ -231,11 +273,26 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  headerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10,
+  },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    textAlign: 'center',
-    padding: 10,
+  },
+  modeToggleButton: {
+    backgroundColor: '#2196F3',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 15,
+  },
+  modeToggleText: {
+    color: 'white',
+    fontSize: 12,
+    fontWeight: 'bold',
   },
   selectedTeamContainer: {
     flexDirection: 'row',
