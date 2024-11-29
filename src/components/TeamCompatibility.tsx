@@ -5,17 +5,46 @@ import {
   ScrollView,
   TouchableOpacity,
   StyleSheet,
+  SafeAreaView,
   Modal,
+  Pressable,
+  Image,
 } from 'react-native';
 import { CharacterCompatibility } from '../types/types';
-import { allCharacterData, CHARACTER_MAP } from '../data/characterCompatibility';
-import CharacterImage from './CharacterImage';
+import { 
+  allCharacterData, 
+  CHARACTER_MAP, 
+  getCharacterId, 
+  JAPANESE_TO_ENGLISH_MAP 
+} from '../data/characterCompatibility';
+import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages';
 
 interface CharacterRecommendation {
   character: string;
   score: number;
   reason: string;
 }
+
+const CharacterImage: React.FC<{ characterName: string; size: number }> = ({ characterName, size }) => {
+  const englishName = JAPANESE_TO_ENGLISH_MAP[characterName];
+  
+  if (!englishName) {
+    console.warn(`No English name mapping found for: ${characterName}`);
+    return null;
+  }
+
+  if (!isValidCharacterName(englishName)) {
+    console.warn(`Invalid character image key: ${englishName}`);
+    return null;
+  }
+
+  return (
+    <Image
+      source={CHARACTER_IMAGES[englishName]}
+      style={{ width: size, height: size }}
+    />
+  );
+};
 
 const TeamCompatibility: React.FC = () => {
   const [selectedTeam, setSelectedTeam] = useState<string[]>([]);
@@ -39,34 +68,43 @@ const TeamCompatibility: React.FC = () => {
     setModalVisible(false);
   };
 
-  const calculateCharacterScore = (character: string, team: string[]): number => {
+  const calculateTeamScore = (team: string[], opponent: string): number => {
     let totalScore = 0;
-
-    for (const teamMember of team) {
-      const char1 = allCharacterData[character];
-      const char2 = allCharacterData[teamMember];
-      if (char1 && char2) {
-        totalScore += char1.compatibilityScores[teamMember] || 0;
-        totalScore += char2.compatibilityScores[character] || 0;
-      }
+    const opponentId = getCharacterId(opponent);
+    
+    if (opponentId && allCharacterData[opponentId]) {
+      team.forEach(teamMember => {
+        const memberScore = allCharacterData[opponentId].compatibilityScores[teamMember];
+        if (memberScore) {
+          totalScore += memberScore;
+        }
+      });
     }
 
-    return totalScore / (team.length * 2);
+    return totalScore;
   };
 
   const getRecommendationReason = (score: number): string => {
-    if (score >= 8) return '非常に高い相性';
-    if (score >= 7) return '高い相性';
-    if (score >= 6) return '良い相性';
-    return '平均的な相性';
+    if (score >= 24) return '最高の相性';
+    if (score >= 21) return '非常に高い相性';
+    if (score >= 18) return '高い相性';
+    if (score >= 15) return '良好な相性';
+    return '標準的な相性';
+  };
+
+  const getScoreColor = (score: number): string => {
+    if (score >= 24) return '#4CAF50';
+    if (score >= 18) return '#2196F3';
+    if (score >= 15) return '#FFC107';
+    return '#F44336';
   };
 
   const calculateRecommendations = (team: string[]) => {
     const recommendations: CharacterRecommendation[] = [];
     
-    Object.keys(allCharacterData).forEach(character => {
+    Object.values(CHARACTER_MAP).forEach(character => {
       if (!team.includes(character)) {
-        const score = calculateCharacterScore(character, team);
+        const score = calculateTeamScore(team, character);
         recommendations.push({
           character,
           score,
@@ -80,107 +118,111 @@ const TeamCompatibility: React.FC = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>3vs3 チーム編成</Text>
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <Text style={styles.title}>3vs3 弱点発見</Text>
 
-      {/* 選択中のチーム表示 */}
-      <View style={styles.selectedTeamContainer}>
-        {[0, 1, 2].map((index) => (
-          <View key={index} style={styles.teamSlot}>
-            {selectedTeam[index] ? (
-              <View style={styles.selectedCharacter}>
-                <CharacterImage characterName={selectedTeam[index]} size={60} />
-                <Text style={styles.selectedCharacterText}>
-                  {selectedTeam[index]}
-                </Text>
-                <TouchableOpacity
-                  style={styles.removeButton}
-                  onPress={() => removeCharacter(selectedTeam[index])}
-                >
-                  <Text style={styles.removeButtonText}>×</Text>
-                </TouchableOpacity>
-              </View>
-            ) : (
-              <Text style={styles.emptySlot}>選択してください</Text>
-            )}
-          </View>
-        ))}
-      </View>
+        <View style={styles.selectedTeamContainer}>
+          {[0, 1, 2].map((index) => (
+            <View key={index} style={styles.teamSlot}>
+              {selectedTeam[index] ? (
+                <View style={styles.selectedCharacter}>
+                  <CharacterImage characterName={selectedTeam[index]} size={60} />
+                  <Text style={styles.selectedCharacterText}>
+                    {selectedTeam[index]}
+                  </Text>
+                  <TouchableOpacity
+                    style={styles.removeButton}
+                    onPress={() => removeCharacter(selectedTeam[index])}
+                  >
+                    <Text style={styles.removeButtonText}>×</Text>
+                  </TouchableOpacity>
+                </View>
+              ) : (
+                <Text style={styles.emptySlot}>選択してください</Text>
+              )}
+            </View>
+          ))}
+        </View>
 
-      {/* キャラクター選択エリア */}
-      <ScrollView style={styles.characterList}>
-        <View style={styles.characterGrid}>
+        <View style={styles.buttonContainer}>
           {Object.values(CHARACTER_MAP).map((character) => (
             <TouchableOpacity
               key={character}
               style={[
-                styles.characterButton,
-                selectedTeam.includes(character) && styles.characterButtonSelected
+                styles.button,
+                selectedTeam.includes(character) && styles.selectedButton
               ]}
               onPress={() => handleCharacterSelect(character)}
               disabled={selectedTeam.includes(character)}
             >
               <CharacterImage characterName={character} size={40} />
               <Text style={[
-                styles.characterButtonText,
-                selectedTeam.includes(character) && styles.characterButtonTextSelected
+                styles.buttonText,
+                selectedTeam.includes(character) && styles.selectedButtonText
               ]}>
                 {character}
               </Text>
             </TouchableOpacity>
           ))}
         </View>
-      </ScrollView>
 
-      {/* おすすめキャラクター表示モーダル */}
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)}
-      >
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>おすすめのキャラクター</Text>
-            <View style={styles.selectedTeamPreview}>
-              {selectedTeam.map((character, index) => (
-                <View key={index} style={styles.previewCharacter}>
-                  <CharacterImage characterName={character} size={40} />
-                  <Text style={styles.previewCharacterText}>{character}</Text>
-                </View>
-              ))}
-            </View>
-            {recommendations.map((recommendation, index) => (
-              <View key={index} style={styles.recommendationItem}>
-                <View style={styles.recommendationRankContainer}>
-                  <Text style={styles.recommendationRank}>#{index + 1}</Text>
-                </View>
-                <View style={styles.recommendationCharacterContainer}>
-                  <CharacterImage characterName={recommendation.character} size={40} />
-                  <View style={styles.recommendationInfo}>
-                    <Text style={styles.recommendationCharacter}>
-                      {recommendation.character}
-                    </Text>
-                    <Text style={styles.recommendationReason}>
-                      {recommendation.reason}
-                    </Text>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => setModalVisible(false)}
+        >
+          <View style={styles.modalOverlay}>
+            <View style={styles.modalView}>
+              <ScrollView>
+                <View style={styles.compatibilityContainer}>
+                  <View style={styles.modalHeader}>
+                    <Text style={styles.modalTitle}>選択中のチーム</Text>
                   </View>
+                  <View style={styles.selectedTeamPreview}>
+                    {selectedTeam.map((character, index) => (
+                      <View key={index} style={styles.previewCharacter}>
+                        <CharacterImage characterName={character} size={40} />
+                        <Text style={styles.previewCharacterText}>{character}</Text>
+                      </View>
+                    ))}
+                  </View>
+                  {recommendations.map((recommendation, index) => (
+                    <View key={index} style={styles.compatibilityRow}>
+                      <View style={styles.opponentInfo}>
+                        <Text style={styles.rankText}>#{index + 1}</Text>
+                        <CharacterImage characterName={recommendation.character} size={30} />
+                        <Text style={styles.characterName}>{recommendation.character}</Text>
+                      </View>
+                      <View style={styles.scoreContainer}>
+                        <Text style={styles.score}>{recommendation.score.toFixed(1)}</Text>
+                        <View
+                          style={[
+                            styles.scoreBar,
+                            { 
+                              width: `${(recommendation.score / 30) * 100}%`,
+                              backgroundColor: getScoreColor(recommendation.score)
+                            }
+                          ]}
+                        />
+                      </View>
+                      <Text style={styles.reasonText}>{recommendation.reason}</Text>
+                    </View>
+                  ))}
                 </View>
-                <Text style={styles.recommendationScore}>
-                  {recommendation.score.toFixed(1)}
-                </Text>
-              </View>
-            ))}
-            <TouchableOpacity
-              style={styles.closeButton}
-              onPress={() => setModalVisible(false)}
-            >
-              <Text style={styles.closeButtonText}>閉じる</Text>
-            </TouchableOpacity>
+              </ScrollView>
+              <Pressable
+                style={styles.closeButton}
+                onPress={() => setModalVisible(false)}
+              >
+                <Text style={styles.closeButtonText}>閉じる</Text>
+              </Pressable>
+            </View>
           </View>
-        </View>
-      </Modal>
-    </View>
+        </Modal>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -188,90 +230,77 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    padding: 16,
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 16,
+    padding: 10,
   },
   selectedTeamContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 20,
+    justifyContent: 'space-evenly',
+    padding: 10,
+    marginBottom: 10,
   },
   teamSlot: {
-    width: '30%',
-    aspectRatio: 1,
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 8,
+    width: 100,
+    height: 100,
+    borderWidth: 2,
+    borderColor: '#e0e0e0',
+    borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
   selectedCharacter: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#e3f2fd',
-    borderRadius: 8,
-    justifyContent: 'center',
     alignItems: 'center',
-    padding: 4,
   },
   selectedCharacterText: {
-    fontSize: 14,
-    textAlign: 'center',
-    color: '#1976d2',
-    marginTop: 4,
+    marginTop: 5,
+    fontSize: 12,
   },
   emptySlot: {
     color: '#bdbdbd',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    padding: 5,
+  },
+  button: {
+    padding: 8,
+    margin: 4,
+    backgroundColor: '#f0f0f0',
+    borderRadius: 5,
+    width: 80,
+    alignItems: 'center',
+  },
+  selectedButton: {
+    backgroundColor: '#2196F3',
+  },
+  buttonText: {
+    textAlign: 'center',
     fontSize: 12,
+    marginTop: 4,
+  },
+  selectedButtonText: {
+    color: '#fff',
   },
   removeButton: {
     position: 'absolute',
-    top: 4,
-    right: 4,
+    top: -5,
+    right: -5,
+    backgroundColor: '#ff5252',
     width: 20,
     height: 20,
     borderRadius: 10,
-    backgroundColor: '#ef5350',
     justifyContent: 'center',
     alignItems: 'center',
   },
   removeButtonText: {
     color: '#fff',
-    fontSize: 14,
-  },
-  characterList: {
-    flex: 1,
-  },
-  characterGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-  },
-  characterButton: {
-    width: '23%',
-    aspectRatio: 1,
-    margin: '1%',
-    backgroundColor: '#f5f5f5',
-    borderRadius: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 4,
-  },
-  characterButtonSelected: {
-    backgroundColor: '#2196F3',
-  },
-  characterButtonText: {
     fontSize: 12,
-    color: '#333',
-    marginTop: 4,
-  },
-  characterButtonTextSelected: {
-    color: '#fff',
   },
   modalOverlay: {
     flex: 1,
@@ -279,87 +308,98 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  modalContent: {
+  modalView: {
     width: '90%',
-    backgroundColor: '#fff',
-    borderRadius: 16,
-    padding: 16,
     maxHeight: '80%',
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalHeader: {
+    alignItems: 'center',
+    marginBottom: 15,
   },
   modalTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 16,
   },
   selectedTeamPreview: {
     flexDirection: 'row',
     justifyContent: 'center',
     marginBottom: 20,
-    paddingBottom: 16,
+    paddingBottom: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    borderBottomColor: '#e0e0e0',
   },
   previewCharacter: {
     alignItems: 'center',
-    marginHorizontal: 8,
+    marginHorizontal: 10,
   },
   previewCharacterText: {
+    marginTop: 5,
     fontSize: 12,
-    marginTop: 4,
-    color: '#666',
   },
-  recommendationItem: {
+  compatibilityContainer: {
+    padding: 10,
+  },
+  compatibilityRow: {
+    marginVertical: 10,
+  },
+  opponentInfo: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    marginBottom: 5,
   },
-  recommendationRankContainer: {
-    width: 40,
-    alignItems: 'center',
-  },
-  recommendationRank: {
+  rankText: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#2196F3',
+    marginRight: 10,
+    width: 30,
   },
-  recommendationCharacterContainer: {
-    flex: 1,
+  characterName: {
+    marginLeft: 10,
+    fontSize: 14,
+  },
+  scoreContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginLeft: 8,
+    marginTop: 5,
   },
-  recommendationInfo: {
-    marginLeft: 12,
-  },
-  recommendationCharacter: {
-    fontSize: 16,
-    fontWeight: '500',
-  },
-  recommendationReason: {
-    fontSize: 12,
-    color: '#666',
-    marginTop: 2,
-  },
-  recommendationScore: {
+  score: {
+    marginRight: 10,
     fontSize: 14,
     fontWeight: 'bold',
-    color: '#2196F3',
-    marginLeft: 8,
+    width: 30,
+  },
+  scoreBar: {
+    height: 10,
+    borderRadius: 5,
+    flex: 1,
+  },
+  reasonText: {
+    fontSize: 12,
+    color: '#666',
+    marginTop: 5,
   },
   closeButton: {
-    marginTop: 16,
-    padding: 12,
     backgroundColor: '#2196F3',
-    borderRadius: 8,
+    borderRadius: 20,
+    padding: 10,
+    marginTop: 15,
+    elevation: 2,
   },
   closeButtonText: {
-    color: '#fff',
-    textAlign: 'center',
-    fontSize: 16,
+    color: 'white',
     fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
 
