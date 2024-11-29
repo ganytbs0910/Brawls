@@ -80,7 +80,7 @@ export const nitaData: CharacterCompatibility = {
     "スパイク": 0,
     "クロウ": 0,
     "レオン": 0,
-    "サンディ": 0,
+    "サンディ": 10,
     "アンバー": 0,
     "メグ": 0,
     "サージ": 0,
