@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { CharacterCompatibility } from '../types/types';
 import { allCharacterData, CHARACTER_MAP } from '../data/characterCompatibility';
+import CharacterImage from './CharacterImage';
 
 const BrawlStarsCompatibility: React.FC = () => {
   const [selectedCharacter, setSelectedCharacter] = useState<CharacterCompatibility | null>(null);
@@ -40,6 +41,7 @@ const BrawlStarsCompatibility: React.FC = () => {
               ]}
               onPress={() => handleCharacterSelect(character)}
             >
+              <CharacterImage characterName={character} size={40} />
               <Text style={styles.buttonText}>{character}</Text>
             </TouchableOpacity>
           ))}
@@ -57,14 +59,24 @@ const BrawlStarsCompatibility: React.FC = () => {
               <ScrollView>
                 {selectedCharacter && (
                   <View style={styles.compatibilityContainer}>
-                    <Text style={styles.modalTitle}>
-                      {selectedCharacter.name}の相性表
-                    </Text>
+                    <View style={styles.modalHeader}>
+                      <CharacterImage 
+                        characterName={selectedCharacter.name} 
+                        size={60} 
+                        style={styles.modalCharacterImage}
+                      />
+                      <Text style={styles.modalTitle}>
+                        {selectedCharacter.name}の相性表
+                      </Text>
+                    </View>
                     {Object.entries(selectedCharacter.compatibilityScores)
                       .sort(([, a], [, b]) => b - a)
                       .map(([opponent, value]) => (
                         <View key={opponent} style={styles.compatibilityRow}>
-                          <Text style={styles.characterName}>{opponent}</Text>
+                          <View style={styles.opponentInfo}>
+                            <CharacterImage characterName={opponent} size={30} />
+                            <Text style={styles.characterName}>{opponent}</Text>
+                          </View>
                           <View style={styles.scoreContainer}>
                             <Text style={styles.score}>{value}/10</Text>
                             <View
@@ -122,7 +134,8 @@ const styles = StyleSheet.create({
     margin: 4,
     backgroundColor: '#f0f0f0',
     borderRadius: 5,
-    minWidth: 80,
+    width: 80,
+    alignItems: 'center',
   },
   selectedButton: {
     backgroundColor: '#2196F3',
@@ -130,6 +143,7 @@ const styles = StyleSheet.create({
   buttonText: {
     textAlign: 'center',
     fontSize: 12,
+    marginTop: 4,
   },
   modalOverlay: {
     flex: 1,
@@ -152,11 +166,17 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
+  modalHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  modalCharacterImage: {
+    marginRight: 10,
+  },
   modalTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 15,
   },
   compatibilityContainer: {
     padding: 10,
@@ -166,9 +186,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 4,
   },
+  opponentInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: 120,
+  },
   characterName: {
-    width: 100,
     fontSize: 14,
+    marginLeft: 8,
   },
   scoreContainer: {
     flex: 1,

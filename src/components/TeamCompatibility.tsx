@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { CharacterCompatibility } from '../types/types';
 import { allCharacterData, CHARACTER_MAP } from '../data/characterCompatibility';
+import CharacterImage from './CharacterImage';
 
 interface CharacterRecommendation {
   character: string;
@@ -41,7 +42,6 @@ const TeamCompatibility: React.FC = () => {
   const calculateCharacterScore = (character: string, team: string[]): number => {
     let totalScore = 0;
 
-    // 選択されたチームとの相性を計算
     for (const teamMember of team) {
       const char1 = allCharacterData[character];
       const char2 = allCharacterData[teamMember];
@@ -51,7 +51,7 @@ const TeamCompatibility: React.FC = () => {
       }
     }
 
-    return totalScore / (team.length * 2); // 平均スコアを計算
+    return totalScore / (team.length * 2);
   };
 
   const getRecommendationReason = (score: number): string => {
@@ -64,9 +64,7 @@ const TeamCompatibility: React.FC = () => {
   const calculateRecommendations = (team: string[]) => {
     const recommendations: CharacterRecommendation[] = [];
     
-    // 全キャラクターについて相性を計算
     Object.keys(allCharacterData).forEach(character => {
-      // 既に選択されているキャラクターは除外
       if (!team.includes(character)) {
         const score = calculateCharacterScore(character, team);
         recommendations.push({
@@ -77,9 +75,8 @@ const TeamCompatibility: React.FC = () => {
       }
     });
 
-    // スコアで降順ソート
     recommendations.sort((a, b) => b.score - a.score);
-    setRecommendations(recommendations.slice(0, 5)); // 上位5キャラクターを表示
+    setRecommendations(recommendations.slice(0, 5));
   };
 
   return (
@@ -92,6 +89,7 @@ const TeamCompatibility: React.FC = () => {
           <View key={index} style={styles.teamSlot}>
             {selectedTeam[index] ? (
               <View style={styles.selectedCharacter}>
+                <CharacterImage characterName={selectedTeam[index]} size={60} />
                 <Text style={styles.selectedCharacterText}>
                   {selectedTeam[index]}
                 </Text>
@@ -122,6 +120,7 @@ const TeamCompatibility: React.FC = () => {
               onPress={() => handleCharacterSelect(character)}
               disabled={selectedTeam.includes(character)}
             >
+              <CharacterImage characterName={character} size={40} />
               <Text style={[
                 styles.characterButtonText,
                 selectedTeam.includes(character) && styles.characterButtonTextSelected
@@ -143,21 +142,29 @@ const TeamCompatibility: React.FC = () => {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>おすすめのキャラクター</Text>
-            <Text style={styles.modalSubtitle}>
-              選択中: {selectedTeam.join(', ')}
-            </Text>
+            <View style={styles.selectedTeamPreview}>
+              {selectedTeam.map((character, index) => (
+                <View key={index} style={styles.previewCharacter}>
+                  <CharacterImage characterName={character} size={40} />
+                  <Text style={styles.previewCharacterText}>{character}</Text>
+                </View>
+              ))}
+            </View>
             {recommendations.map((recommendation, index) => (
               <View key={index} style={styles.recommendationItem}>
                 <View style={styles.recommendationRankContainer}>
                   <Text style={styles.recommendationRank}>#{index + 1}</Text>
                 </View>
-                <View style={styles.recommendationInfo}>
-                  <Text style={styles.recommendationCharacter}>
-                    {recommendation.character}
-                  </Text>
-                  <Text style={styles.recommendationReason}>
-                    {recommendation.reason}
-                  </Text>
+                <View style={styles.recommendationCharacterContainer}>
+                  <CharacterImage characterName={recommendation.character} size={40} />
+                  <View style={styles.recommendationInfo}>
+                    <Text style={styles.recommendationCharacter}>
+                      {recommendation.character}
+                    </Text>
+                    <Text style={styles.recommendationReason}>
+                      {recommendation.reason}
+                    </Text>
+                  </View>
                 </View>
                 <Text style={styles.recommendationScore}>
                   {recommendation.score.toFixed(1)}
@@ -216,6 +223,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     textAlign: 'center',
     color: '#1976d2',
+    marginTop: 4,
   },
   emptySlot: {
     color: '#bdbdbd',
@@ -252,6 +260,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
+    padding: 4,
   },
   characterButtonSelected: {
     backgroundColor: '#2196F3',
@@ -259,6 +268,7 @@ const styles = StyleSheet.create({
   characterButtonText: {
     fontSize: 12,
     color: '#333',
+    marginTop: 4,
   },
   characterButtonTextSelected: {
     color: '#fff',
@@ -280,13 +290,24 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 8,
-  },
-  modalSubtitle: {
-    fontSize: 14,
-    color: '#666',
-    textAlign: 'center',
     marginBottom: 16,
+  },
+  selectedTeamPreview: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 20,
+    paddingBottom: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  },
+  previewCharacter: {
+    alignItems: 'center',
+    marginHorizontal: 8,
+  },
+  previewCharacterText: {
+    fontSize: 12,
+    marginTop: 4,
+    color: '#666',
   },
   recommendationItem: {
     flexDirection: 'row',
@@ -297,15 +318,21 @@ const styles = StyleSheet.create({
   },
   recommendationRankContainer: {
     width: 40,
+    alignItems: 'center',
   },
   recommendationRank: {
     fontSize: 16,
     fontWeight: 'bold',
     color: '#2196F3',
   },
-  recommendationInfo: {
+  recommendationCharacterContainer: {
     flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
     marginLeft: 8,
+  },
+  recommendationInfo: {
+    marginLeft: 12,
   },
   recommendationCharacter: {
     fontSize: 16,
