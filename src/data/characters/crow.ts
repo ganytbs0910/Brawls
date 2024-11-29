@@ -53,7 +53,7 @@ export const crowData: CharacterCompatibility = {
     "モーティス": 0,
     "タラ": 0,
     "ジーン": 0,
-    "MAX": 0,
+    "MAX": 10,
     "ミスターP": 0,
     "スプラウト": 0,
     "バイロン": 0,

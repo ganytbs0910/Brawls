@@ -13,7 +13,7 @@ export const busterData: CharacterCompatibility = {
     "バーリー": 0,
     "ポコ": 0,
     "ローサ": 0,
-    "ジェシー": 0,
+    "ジェシー": 7,
     "ダイナマイク": 0,
     "ティック": 0,
     "8ビット": 0,

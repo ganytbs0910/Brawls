@@ -8,7 +8,7 @@ export const darrylData: CharacterCompatibility = {
     "ニタ": 0,
     "コルト": 0,
     "ブル": 0,
-    "ブロック": 0,
+    "ブロック": 8,
     "エルプリモ": 0,
     "バーリー": 0,
     "ポコ": 0,

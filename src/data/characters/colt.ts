@@ -16,7 +16,7 @@ export const coltData: CharacterCompatibility = {
     "ダイナマイク": 0,
     "ティック": 0,
     "8ビット": 0,
-    "リコ": 0,
+    "リコ": 8,
     "ダリル": 0,
     "ペニー": 0,
     "カール": 0,

@@ -20,7 +20,7 @@ export const nitaData: CharacterCompatibility = {
     "ダリル": 0,
     "ペニー": 0,
     "カール": 0,
-    "ジャッキー": 0,
+    "ジャッキー": 8,
     "ガス": 0,
     "ボウ": 0,
     "Emz": 0,

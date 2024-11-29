@@ -14,7 +14,7 @@ export const stuData: CharacterCompatibility = {
     "ポコ": 0,
     "ローサ": 0,
     "ジェシー": 0,
-    "ダイナマイク": 0,
+    "ダイナマイク": 9,
     "ティック": 0,
     "8ビット": 0,
     "リコ": 0,

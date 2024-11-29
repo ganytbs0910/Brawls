@@ -20,7 +20,7 @@ export const fangData: CharacterCompatibility = {
     "リコ": 0,
     "ダリル": 0,
     "ペニー": 0,
-    "カール": 0,
+    "カール": 9,
     "ジャッキー": 0,
     "ガス": 0,
     "ボウ": 0,

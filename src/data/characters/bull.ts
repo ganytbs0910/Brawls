@@ -88,7 +88,7 @@ export const bullData: CharacterCompatibility = {
     "コーデリアス": 0,
     "キット": 0,
     "ドラコ": 0,
-    "ケンジ": 0
+    "ケンジ": 9
   },
   "explanation": {}
 };
