@@ -1,90 +1,90 @@
 import { CharacterCompatibility } from '../types/types';
-import { sherryData } from './characters/sherry';
-import { nitaData } from './characters/nita';
-import { coltData } from './characters/colt';
-import { bullData } from './characters/bull';
-import { brockData } from './characters/brock';
-import { elPrimoData } from './characters/elprimo';
-import { barleyData } from './characters/barley';
-import { pocoData } from './characters/poco';
-import { rosaData } from './characters/rosa';
-import { jessieData } from './characters/jessie';
-import { dynamikeData } from './characters/dynamike';
-import { tickData } from './characters/tick';
-import { eightBitData } from './characters/eightbit';
-import { ricoData } from './characters/rico';
-import { darrylData } from './characters/darryl';
-import { pennyData } from './characters/penny';
-import { carlData } from './characters/carl';
-import { jackyData } from './characters/jacky';
-import { gusData } from './characters/gus';
-import { boData } from './characters/bo';
-import { emzData } from './characters/emz';
-import { stuData } from './characters/stu';
-import { elizabethData } from './characters/elizabeth';
-import { pamData } from './characters/pam';
-import { frankData } from './characters/frank';
-import { bibiData } from './characters/bibi';
-import { beaData } from './characters/bea';
-import { naniData } from './characters/nani';
-import { edgarData } from './characters/edgar';
-import { griffData } from './characters/griff';
-import { gromData } from './characters/grom';
-import { bonnieData } from './characters/bonnie';
-import { galeData } from './characters/gale';
-import { coletteData } from './characters/colette';
-import { belleData } from './characters/belle';
-import { ashData } from './characters/ash';
-import { lolaData } from './characters/lola';
-import { samData } from './characters/sam';
-import { mandyData } from './characters/mandy';
-import { maisieData } from './characters/maisie';
-import { hankData } from './characters/hank';
-import { pearlData } from './characters/pearl';
-import { larryandLawrieData } from './characters/larryandLawrie';
-import { angeloData } from './characters/angelo';
-import { berryData } from './characters/berry';
-import { shadeData } from './characters/shade';
-import { mortisData } from './characters/mortis';
-import { taraData } from './characters/tara';
-import { geneData } from './characters/gene';
-import { maxData } from './characters/max';
-import { mrpData } from './characters/mrp';
-import { sproutData } from './characters/sprout';
-import { byronData } from './characters/byron';
-import { squeakData } from './characters/squeak';
-import { louData } from './characters/lou';
-import { ruffsData } from './characters/ruffs';
-import { buzzData } from './characters/buzz';
-import { fangData } from './characters/fang';
-import { eveData } from './characters/eve';
-import { janetData } from './characters/janet';
-import { otisData } from './characters/otis';
-import { busterData } from './characters/buster';
-import { grayData } from './characters/gray';
-import { rtData } from './characters/rt';
-import { willowData } from './characters/willow';
-import { dougData } from './characters/doug';
-import { chuckData } from './characters/chuck';
-import { charlieData } from './characters/charlie';
-import { micoData } from './characters/mico';
-import { melodyData } from './characters/melody';
-import { lilyData } from './characters/lily';
-import { clancyData } from './characters/clancy';
-import { moeData } from './characters/moe';
-import { jujuData } from './characters/juju';
-import { spikeData } from './characters/spike';
-import { crowData } from './characters/crow';
-import { leonData } from './characters/leon';
-import { sandyData } from './characters/sandy';
-import { amberData } from './characters/amber';
-import { megData } from './characters/meg';
-import { surgeData } from './characters/surge';
-import { chesterData } from './characters/chester';
-import { cordeliusData } from './characters/cordelius';
-import { kitData } from './characters/kit';
-import { dracoData } from './characters/draco';
-import { kenjiData } from './characters/kenji';
+import { shellyData } from './characters/shellyData';
+import { nitaData } from './characters/nitaData';
+import { coltData } from './characters/coltData';
+import { bullData } from './characters/bullData';
+import { brockData } from './characters/brockData';
+import { elPrimoData } from './characters/elPrimoData';
+import { barleyData } from './characters/barleyData';
+import { pocoData } from './characters/pocoData';
+import { rosaData } from './characters/rosaData';
+import { jessieData } from './characters/jessieData';
+import { dynamikeData } from './characters/dynamikeData';
+import { tickData } from './characters/tickData';
+import { eightBitData } from './characters/eightBitData';
+import { ricoData } from './characters/ricoData';
+import { darrylData } from './characters/darrylData';
+import { pennyData } from './characters/pennyData';
+import { carlData } from './characters/carlData';
+import { jackyData } from './characters/jackyData';
+import { gusData } from './characters/gusData';
+import { boData } from './characters/boData';
+import { emzData } from './characters/emzData';
+import { stuData } from './characters/stuData';
+import { piperData } from './characters/piperData';
+import { pamData } from './characters/pamData';
+import { frankData } from './characters/frankData';
+import { bibiData } from './characters/bibiData';
+import { beaData } from './characters/beaData';
+import { naniData } from './characters/naniData';
+import { edgarData } from './characters/edgarData';
+import { griffData } from './characters/griffData';
+import { gromData } from './characters/gromData';
+import { bonnieData } from './characters/bonnieData';
+import { galeData } from './characters/galeData';
+import { coletteData } from './characters/coletteData';
+import { belleData } from './characters/belleData';
+import { ashData } from './characters/ashData';
+import { lolaData } from './characters/lolaData';
+import { samData } from './characters/samData';
+import { mandyData } from './characters/mandyData';
+import { maisieData } from './characters/maisieData';
+import { hankData } from './characters/hankData';
+import { pearlData } from './characters/pearlData';
+import { larryandLawrieData } from './characters/larryandLawrieData';
+import { angeloData } from './characters/angeloData';
+import { berryData } from './characters/berryData';
+import { shadeData } from './characters/shadeData';
+import { mortisData } from './characters/mortisData';
+import { taraData } from './characters/taraData';
+import { geneData } from './characters/geneData';
+import { maxData } from './characters/maxData';
+import { mrpData } from './characters/mrpData';
+import { sproutData } from './characters/sproutData';
+import { byronData } from './characters/byronData';
+import { squeakData } from './characters/squeakData';
+import { louData } from './characters/louData';
+import { ruffsData } from './characters/ruffsData';
+import { buzzData } from './characters/buzzData';
+import { fangData } from './characters/fangData';
+import { eveData } from './characters/eveData';
+import { janetData } from './characters/janetData';
+import { otisData } from './characters/otisData';
+import { busterData } from './characters/busterData';
+import { grayData } from './characters/grayData';
+import { rtData } from './characters/rtData';
+import { willowData } from './characters/willowData';
+import { dougData } from './characters/dougData';
+import { chuckData } from './characters/chuckData';
+import { charlieData } from './characters/charlieData';
+import { micoData } from './characters/micoData';
+import { melodieData } from './characters/melodieData';
+import { lilyData } from './characters/lilyData';
+import { clancyData } from './characters/clancyData';
+import { moeData } from './characters/moeData';
+import { jujuData } from './characters/jujuData';
+import { spikeData } from './characters/spikeData';
+import { crowData } from './characters/crowData';
+import { leonData } from './characters/leonData';
+import { sandyData } from './characters/sandyData';
+import { amberData } from './characters/amberData';
+import { megData } from './characters/megData';
+import { surgeData } from './characters/surgeData';
+import { chesterData } from './characters/chesterData';
+import { cordeliusData } from './characters/cordeliusData';
+import { kitData } from './characters/kitData';
+import { dracoData } from './characters/dracoData';
+import { kenjiData } from './characters/kenjiData';
 
 export const CHARACTER_MAP: { [key: number]: string } = {
   1: "シェリー", 2: "ニタ", 3: "コルト", 4: "ブル", 5: "ブロック", 6: "エルプリモ", 7: "バーリー", 8: "ポコ",
@@ -124,17 +124,17 @@ export const JAPANESE_TO_ENGLISH_MAP: { [key: string]: string } = {
 };
 
 export const allCharacterData: { [key: number]: CharacterCompatibility } = {
-  1: sherryData, 2: nitaData, 3: coltData, 4: bullData, 5: brockData, 6: elPrimoData, 7: barleyData, 8: pocoData,
+  1: shellyData, 2: nitaData, 3: coltData, 4: bullData, 5: brockData, 6: elPrimoData, 7: barleyData, 8: pocoData,
   9: rosaData, 10: jessieData, 11: dynamikeData, 12: tickData, 13: eightBitData, 14: ricoData, 15: darrylData,
   16: pennyData, 17: carlData, 18: jackyData, 19: gusData, 20: boData, 21: emzData, 22: stuData,
-  23: elizabethData, 24: pamData, 25: frankData, 26: bibiData, 27: beaData, 28: naniData, 29: edgarData,
+  23: piperData, 24: pamData, 25: frankData, 26: bibiData, 27: beaData, 28: naniData, 29: edgarData,
   30: griffData, 31: gromData, 32: bonnieData, 33: galeData, 34: coletteData, 35: belleData, 36: ashData,
   37: lolaData, 38: samData, 39: mandyData, 40: maisieData, 41: hankData, 42: pearlData,
   43: larryandLawrieData, 44: angeloData, 45: berryData, 46: shadeData, 47: mortisData, 48: taraData,
   49: geneData, 50: maxData, 51: mrpData, 52: sproutData, 53: byronData, 54: squeakData, 55: louData,
   56: ruffsData, 57: buzzData, 58: fangData, 59: eveData, 60: janetData, 61: otisData, 62: busterData,
   63: grayData, 64: rtData, 65: willowData, 66: dougData, 67: chuckData, 68: charlieData, 69: micoData,
-  70: melodyData, 71: lilyData, 72: clancyData, 73: moeData, 74: jujuData, 75: spikeData, 76: crowData,
+  70: melodieData, 71: lilyData, 72: clancyData, 73: moeData, 74: jujuData, 75: spikeData, 76: crowData,
   77: leonData, 78: sandyData, 79: amberData, 80: megData, 81: surgeData, 82: chesterData, 83: cordeliusData,
   84: kitData, 85: dracoData, 86: kenjiData
 };
