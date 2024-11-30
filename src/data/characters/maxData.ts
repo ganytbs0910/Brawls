@@ -56,7 +56,7 @@ export const maxData: CharacterCompatibility = {
     //アタッカー
     "シェリー": 0,
     "ニタ": 0,
-    "コルト": 0,
+    "コルト": 9,
     "8ビット": 0,
     "リコ": 0,
     "カール": 0,

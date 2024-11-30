@@ -57,7 +57,7 @@ export const coltData: CharacterCompatibility = {
     "シェリー": 0,
     "ニタ": 0,
     "8ビット": 0,
-    "リコ": 0,
+    "リコ": 8,
     "カール": 0,
     "コレット": 0,
     "ローラ": 0,
