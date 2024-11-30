@@ -32,7 +32,7 @@ export const amberData: CharacterCompatibility = {
     //アサシン
     "ストゥー": 4,
     "エドガー": 3,
-    "シェイド": 3
+    "シェイド": 3,
     "モーティス": 0,
     "ファング": 0,
     "ミコ": 0,
