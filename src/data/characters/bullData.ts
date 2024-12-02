@@ -5,8 +5,8 @@ export const bullData: CharacterCompatibility = {
   "name": "ブル",
   "compatibilityScores": {
     //タンク
-    "エルプリモ": 5,
-    "ローサ": 4,
+    "エルプリモ": 4,
+    "ローサ": 3,
     "ダリル": 5,
     "ジャッキー": 6,
     "フランケン": 3,
@@ -18,7 +18,7 @@ export const bullData: CharacterCompatibility = {
     "バズ": 7,
     "ダグ": 3,
     "メグ": 3,
-    "ドラコ": 4,
+    "ドラコ": 1,
     //投げ
     "バーリー": 1,
     "ダイナマイク": 2,

@@ -18,7 +18,7 @@ export const dougData: CharacterCompatibility = {
     "バスター": 9,
     "バズ": 8,
     "メグ": 2,
-    "ドラコ": 9,
+    "ドラコ": 7,
     //投げ
     "バーリー": 1,
     "ダイナマイク": 0,

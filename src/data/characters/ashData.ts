@@ -6,7 +6,7 @@ export const ashData: CharacterCompatibility = {
   "compatibilityScores": {
     //タンク
     "ブル": 7,
-    "エルプリモ": 5,
+    "エルプリモ": 3,
     "ローサ": 3,
     "ダリル": 4,
     "ジャッキー": 4,
@@ -18,7 +18,7 @@ export const ashData: CharacterCompatibility = {
     "バズ": 3,
     "ダグ": 6,
     "メグ": 6,
-    "ドラコ": 7,
+    "ドラコ": 6,
     //投げ
     "バーリー": 2,
     "ダイナマイク": 0,

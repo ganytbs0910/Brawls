@@ -18,7 +18,7 @@ export const bibiData: CharacterCompatibility = {
     "バズ": 4,
     "ダグ": 3,
     "メグ": 4,
-    "ドラコ": 5,
+    "ドラコ": 3,
     //投げ
     "バーリー": 2,
     "ダイナマイク": 8,

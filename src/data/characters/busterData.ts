@@ -18,7 +18,7 @@ export const busterData: CharacterCompatibility = {
     "バズ": 0,
     "ダグ": 0,
     "メグ": 3,
-    "ドラコ": 2,
+    "ドラコ": 3,
     //投げ
     "バーリー": 2,
     "ダイナマイク": 1,
