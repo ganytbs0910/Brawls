@@ -21,7 +21,7 @@ export const ashData: CharacterCompatibility = {
     "ドラコ": 6,
     //投げ
     "バーリー": 2,
-    "ダイナマイク": 0,
+    "ダイナマイク": 6,
     "ティック": 4,
     "グロム": 4,
     "ラリー&ローリー": 0,

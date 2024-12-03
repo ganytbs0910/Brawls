@@ -22,7 +22,7 @@ export const frankData: CharacterCompatibility = {
     //投げ
     "バーリー": 5,
     "ダイナマイク": 3,
-    "ティック": 7,
+    "ティック": 8,
     "グロム": 7,
     "ラリー&ローリー": 1,
     "スプラウト": 6,
