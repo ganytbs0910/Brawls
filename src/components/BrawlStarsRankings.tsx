@@ -103,7 +103,9 @@ const BrawlStarsRankings: React.FC = () => {
       <Text style={styles.title}>現環境最強キャラランキング</Text>
       {rankings.map((item) => (
         <View key={item.rank} style={styles.rankingItem}>
-          <Text style={styles.rankNumber}>{item.rank}位</Text>
+          <View style={styles.rankContainer}>
+            <Text style={styles.rankNumber} numberOfLines={1}>{item.rank}位</Text>
+          </View>
           <View style={styles.characterInfo}>
             <CharacterImage characterName={item.characterName} size={40} style={styles.characterImage} />
             <View style={styles.textContainer}>
@@ -136,10 +138,12 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#e0e0e0',
   },
+  rankContainer: {
+    width: 45,
+  },
   rankNumber: {
     fontSize: 18,
     fontWeight: 'bold',
-    width: 40,
     color: '#2196F3',
   },
   characterInfo: {
