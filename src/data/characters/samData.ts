@@ -36,7 +36,7 @@ export const samData: CharacterCompatibility = {
     "ファング": 4,
     "ミコ": 6,
     "リリー": 7,
-    "メロディー" 7,
+    "メロディー": 7,
     "クロウ": 2,
     "レオン": 6,
     "コーデリアス": 0,

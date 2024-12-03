@@ -86,7 +86,7 @@ export const angeloData: CharacterCompatibility = {
     "ボウ": 8,
     "Emz": 8,
     "グリフ": 8,
-    "ゲイル": ,
+    "ゲイル": 8,
     "ジーン": 10,
     "ミスターP": 5,
     "スクウィーク": 8,
@@ -94,7 +94,7 @@ export const angeloData: CharacterCompatibility = {
     "オーティス": 8,
     "チャック": 7,
     "チャーリー": 2,
-    "アンバー": ,
+    "アンバー": 8,
     "サンディ": 8,
   },
   "explanation": {}
