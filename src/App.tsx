@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
-import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
+import React, { useState, useRef } from 'react';
+import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image, Animated, Dimensions } from 'react-native';
 import BrawlStarsCompatibility from './components/BrawlStarsCompatibility';
 import TeamCompatibility from './components/TeamCompatibility';
 import BrawlStarsRankings from './components/BrawlStarsRankings';
 import Home from './components/Home';
 
+const { width } = Dimensions.get('window');
+const TAB_WIDTH = width / 4;
+
 const App = () => {
   const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings'>('home');
+  const slideAnimation = useRef(new Animated.Value(0)).current;
+  const animatedValues = useRef({
+    home: new Animated.Value(1),
+    single: new Animated.Value(0),
+    team: new Animated.Value(0),
+    rankings: new Animated.Value(0),
+  }).current;
 
   const tabs = [
     {
@@ -31,6 +41,28 @@ const App = () => {
     },
   ];
 
+  const handleTabPress = (tabKey: typeof activeTab, index: number) => {
+    const animations = Object.keys(animatedValues).map((key) =>
+      Animated.timing(animatedValues[key], {
+        toValue: key === tabKey ? 1 : 0,
+        duration: 200,
+        useNativeDriver: true,
+      })
+    );
+
+    Animated.parallel([
+      ...animations,
+      Animated.spring(slideAnimation, {
+        toValue: index * TAB_WIDTH,
+        tension: 68,
+        friction: 12,
+        useNativeDriver: true,
+      }),
+    ]).start();
+
+    setActiveTab(tabKey);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -46,19 +78,55 @@ const App = () => {
       </View>
 
       <View style={styles.tabBar}>
-        {tabs.map((tab) => (
+        <Animated.View 
+          style={[
+            styles.activeIndicator,
+            {
+              transform: [{ translateX: slideAnimation }],
+            },
+          ]} 
+        />
+        {tabs.map((tab, index) => (
           <TouchableOpacity
             key={tab.key}
-            style={[styles.tab, activeTab === tab.key && styles.activeTab]}
-            onPress={() => setActiveTab(tab.key as typeof activeTab)}
+            style={styles.tab}
+            onPress={() => handleTabPress(tab.key as typeof activeTab, index)}
           >
-            <Image
-              source={tab.icon}
-              style={[styles.tabIcon, activeTab === tab.key && styles.activeTabIcon]}
-            />
-            <Text style={[styles.tabText, activeTab === tab.key && styles.activeTabText]}>
-              {tab.label}
-            </Text>
+            <Animated.View
+              style={[
+                styles.tabContent,
+                {
+                  transform: [
+                    {
+                      scale: animatedValues[tab.key].interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [0.8, 1],
+                      }),
+                    },
+                  ],
+                  opacity: animatedValues[tab.key].interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [0.7, 1],
+                  }),
+                },
+              ]}
+            >
+              <Image
+                source={tab.icon}
+                style={[
+                  styles.tabIcon,
+                  activeTab === tab.key && styles.activeTabIcon,
+                ]}
+              />
+              <Text
+                style={[
+                  styles.tabText,
+                  activeTab === tab.key && styles.activeTabText,
+                ]}
+              >
+                {tab.label}
+              </Text>
+            </Animated.View>
           </TouchableOpacity>
         ))}
       </View>
@@ -85,9 +153,15 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     alignItems: 'center',
   },
-  activeTab: {
-    borderTopWidth: 2,
-    borderTopColor: '#2196F3',
+  tabContent: {
+    alignItems: 'center',
+  },
+  activeIndicator: {
+    position: 'absolute',
+    top: 0,
+    width: TAB_WIDTH,
+    height: 2,
+    backgroundColor: '#2196F3',
   },
   tabIcon: {
     width: 24,
