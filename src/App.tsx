@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 import BrawlStarsCompatibility from './components/BrawlStarsCompatibility';
 import TeamCompatibility from './components/TeamCompatibility';
 import BrawlStarsRankings from './components/BrawlStarsRankings';
@@ -7,6 +7,29 @@ import Home from './components/Home';
 
 const App = () => {
   const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings'>('home');
+
+  const tabs = [
+    {
+      key: 'home',
+      label: 'ホーム',
+      icon: require('../assets/AppIcon/home.png'),
+    },
+    {
+      key: 'single',
+      label: 'キャラ相性',
+      icon: require('../assets/AppIcon/compatibility.png'),
+    },
+    {
+      key: 'team',
+      label: 'チーム分析',
+      icon: require('../assets/AppIcon/analysis.png'),
+    },
+    {
+      key: 'rankings',
+      label: 'ランキング',
+      icon: require('../assets/AppIcon/ranking.png'),
+    },
+  ];
 
   return (
     <SafeAreaView style={styles.container}>
@@ -23,38 +46,21 @@ const App = () => {
       </View>
 
       <View style={styles.tabBar}>
-        <TouchableOpacity
-          style={[styles.tab, activeTab === 'home' && styles.activeTab]}
-          onPress={() => setActiveTab('home')}
-        >
-          <Text style={[styles.tabText, activeTab === 'home' && styles.activeTabText]}>
-            ホーム
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.tab, activeTab === 'single' && styles.activeTab]}
-          onPress={() => setActiveTab('single')}
-        >
-          <Text style={[styles.tabText, activeTab === 'single' && styles.activeTabText]}>
-            キャラクター相性
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.tab, activeTab === 'team' && styles.activeTab]}
-          onPress={() => setActiveTab('team')}
-        >
-          <Text style={[styles.tabText, activeTab === 'team' && styles.activeTabText]}>
-            3vs3チーム分析
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.tab, activeTab === 'rankings' && styles.activeTab]}
-          onPress={() => setActiveTab('rankings')}
-        >
-          <Text style={[styles.tabText, activeTab === 'rankings' && styles.activeTabText]}>
-            最強ランキング
-          </Text>
-        </TouchableOpacity>
+        {tabs.map((tab) => (
+          <TouchableOpacity
+            key={tab.key}
+            style={[styles.tab, activeTab === tab.key && styles.activeTab]}
+            onPress={() => setActiveTab(tab.key as typeof activeTab)}
+          >
+            <Image
+              source={tab.icon}
+              style={[styles.tabIcon, activeTab === tab.key && styles.activeTabIcon]}
+            />
+            <Text style={[styles.tabText, activeTab === tab.key && styles.activeTabText]}>
+              {tab.label}
+            </Text>
+          </TouchableOpacity>
+        ))}
       </View>
     </SafeAreaView>
   );
@@ -76,15 +82,24 @@ const styles = StyleSheet.create({
   },
   tab: {
     flex: 1,
-    paddingVertical: 12,
+    paddingVertical: 8,
     alignItems: 'center',
   },
   activeTab: {
     borderTopWidth: 2,
     borderTopColor: '#2196F3',
   },
+  tabIcon: {
+    width: 24,
+    height: 24,
+    marginBottom: 4,
+    tintColor: '#666',
+  },
+  activeTabIcon: {
+    tintColor: '#2196F3',
+  },
   tabText: {
-    fontSize: 14,
+    fontSize: 12,
     color: '#666',
   },
   activeTabText: {
