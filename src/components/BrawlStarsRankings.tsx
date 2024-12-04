@@ -1,5 +1,7 @@
 import React from 'react';
 import { ScrollView, View, Text, StyleSheet } from 'react-native';
+import { useLanguage } from '../hooks/useLanguage';
+import { translations } from '../i18n/translations';
 import CharacterImage from './CharacterImage';
 
 interface RankingItem {
@@ -9,6 +11,13 @@ interface RankingItem {
 }
 
 const BrawlStarsRankings: React.FC = () => {
+  const { currentLanguage } = useLanguage();
+  const t = translations[currentLanguage];
+
+  const getCharacterInfo = (originalName: string) => {
+    return t.rankings.characters[originalName];
+  };
+
   const rankings: RankingItem[] = [
     { rank: 1, characterName: "シェイド", description: "罠設置と長距離攻撃" },
     { rank: 2, characterName: "ストゥー", description: "現環境最強のブロッカー。高いHPと強力な範囲攻撃が特徴" },
@@ -96,15 +105,21 @@ const BrawlStarsRankings: React.FC = () => {
     { rank: 84, characterName: "グロム", description: "凍結効果と範囲攻撃" },
     { rank: 85, characterName: "ダグ", description: "特殊な攻撃と効果" },
     { rank: 86, characterName: "ミコ", description: "タレット設置と電撃攻撃" }
-];
+  ].map(item => ({
+    rank: item.rank,
+    characterName: getCharacterInfo(item.characterName).name,
+    description: getCharacterInfo(item.characterName).description
+  }));
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>現環境最強キャラランキング</Text>
+      <Text style={styles.title}>{t.rankings.title}</Text>
       {rankings.map((item) => (
         <View key={item.rank} style={styles.rankingItem}>
           <View style={styles.rankContainer}>
-            <Text style={styles.rankNumber} numberOfLines={1}>{item.rank}位</Text>
+            <Text style={styles.rankNumber} numberOfLines={1}>
+              {item.rank}{t.rankings.rankSuffix}
+            </Text>
           </View>
           <View style={styles.characterInfo}>
             <CharacterImage characterName={item.characterName} size={40} style={styles.characterImage} />

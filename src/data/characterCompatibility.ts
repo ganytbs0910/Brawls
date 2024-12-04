@@ -1,3 +1,4 @@
+//characterCompatibility.ts
 import { CharacterCompatibility } from '../types/types';
 import { shellyData } from './characters/shellyData';
 import { nitaData } from './characters/nitaData';

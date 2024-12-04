@@ -1,3 +1,4 @@
+//characterImages.ts
 export const CHARACTER_IMAGES = {
   'shelly': require('../../assets/BrawlerIcons/shelly_portrait.png'),
   'nita': require('../../assets/BrawlerIcons/nita_portrait.png'),

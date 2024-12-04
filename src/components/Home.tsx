@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Animated, ScrollView, Dimensions, Share } from 'react-native';
+import { useLanguage } from '../hooks/useLanguage';
+import { translations } from '../i18n/translations';
 import { privacyPolicyContent } from '../contents/privacyPolicy';
 import { termsContent } from '../contents/terms';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-type ScreenType = 'home' | 'settings' | 'privacy' | 'terms';
+type ScreenType = 'home' | 'settings' | 'privacy' | 'terms' | 'language';
 
 interface ScreenState {
   type: ScreenType;
@@ -13,42 +15,89 @@ interface ScreenState {
   zIndex: number;
 }
 
-const PrivacyPolicy = ({ onClose }: { onClose: () => void }) => (
-  <View style={styles.settingsContainer}>
-    <View style={styles.settingsHeader}>
-      <Text style={styles.settingsTitle}>プライバシーポリシー</Text>
-      <TouchableOpacity onPress={onClose} style={styles.backButton}>
-        <Text style={styles.backButtonText}>←</Text>
-      </TouchableOpacity>
-    </View>
-    <ScrollView style={styles.contentContainer}>
-      <Text style={styles.contentText}>{privacyPolicyContent}</Text>
-    </ScrollView>
-  </View>
-);
-
-const Terms = ({ onClose }: { onClose: () => void }) => (
-  <View style={styles.settingsContainer}>
-    <View style={styles.settingsHeader}>
-      <Text style={styles.settingsTitle}>利用規約</Text>
-      <TouchableOpacity onPress={onClose} style={styles.backButton}>
-        <Text style={styles.backButtonText}>←</Text>
-      </TouchableOpacity>
-    </View>
-    <ScrollView style={styles.contentContainer}>
-      <Text style={styles.contentText}>{termsContent}</Text>
-    </ScrollView>
-  </View>
-);
-
-const Settings = ({ onClose, onNavigate, onShare }: { 
-  onClose: () => void; 
-  onNavigate: (screen: ScreenType) => void;
-  onShare: () => void;
+const LanguageSettings = ({ onClose, currentLanguage, onLanguageChange }: {
+  onClose: () => void;
+  currentLanguage: string;
+  onLanguageChange: (language: string) => void;
 }) => (
   <View style={styles.settingsContainer}>
     <View style={styles.settingsHeader}>
-      <Text style={styles.settingsTitle}>設定</Text>
+      <Text style={styles.settingsTitle}>{translations[currentLanguage].settings.language}</Text>
+      <TouchableOpacity onPress={onClose} style={styles.backButton}>
+        <Text style={styles.backButtonText}>←</Text>
+      </TouchableOpacity>
+    </View>
+    <View style={styles.settingsContent}>
+      {Object.keys(translations.ja.languages).map((lang) => (
+        <TouchableOpacity 
+          key={lang}
+          style={[
+            styles.languageItem,
+            currentLanguage === lang && styles.selectedLanguageItem
+          ]}
+          onPress={() => onLanguageChange(lang)}
+        >
+          <Text style={[
+            styles.languageText,
+            currentLanguage === lang && styles.selectedLanguageText
+          ]}>
+            {translations[currentLanguage].languages[lang]}
+          </Text>
+        </TouchableOpacity>
+      ))}
+    </View>
+  </View>
+);
+
+const PrivacyPolicy = ({ onClose, currentLanguage }: { 
+  onClose: () => void;
+  currentLanguage: string;
+}) => (
+  <View style={styles.settingsContainer}>
+    <View style={styles.settingsHeader}>
+      <Text style={styles.settingsTitle}>
+        {translations[currentLanguage].settings.privacy}
+      </Text>
+      <TouchableOpacity onPress={onClose} style={styles.backButton}>
+        <Text style={styles.backButtonText}>←</Text>
+      </TouchableOpacity>
+    </View>
+    <ScrollView style={styles.contentContainer}>
+      <Text style={styles.contentText}>{privacyPolicyContent[currentLanguage]}</Text>
+    </ScrollView>
+  </View>
+);
+
+const Terms = ({ onClose, currentLanguage }: { 
+  onClose: () => void;
+  currentLanguage: string;
+}) => (
+  <View style={styles.settingsContainer}>
+    <View style={styles.settingsHeader}>
+      <Text style={styles.settingsTitle}>
+        {translations[currentLanguage].settings.terms}
+      </Text>
+      <TouchableOpacity onPress={onClose} style={styles.backButton}>
+        <Text style={styles.backButtonText}>←</Text>
+      </TouchableOpacity>
+    </View>
+    <ScrollView style={styles.contentContainer}>
+      <Text style={styles.contentText}>{termsContent[currentLanguage]}</Text>
+    </ScrollView>
+  </View>
+);
+
+const Settings = ({ onClose, onNavigate, onShare, currentLanguage }: { 
+  onClose: () => void; 
+  onNavigate: (screen: ScreenType) => void;
+  onShare: () => void;
+  currentLanguage: string;
+}) => (
+  <View style={styles.settingsContainer}>
+    <View style={styles.settingsHeader}>
+      <Text style={styles.settingsTitle}>
+        {translations[currentLanguage].settings.title}
+      </Text>
       <TouchableOpacity onPress={onClose} style={styles.backButton}>
         <Text style={styles.backButtonText}>←</Text>
       </TouchableOpacity>
@@ -56,27 +105,45 @@ const Settings = ({ onClose, onNavigate, onShare }: {
     <View style={styles.settingsContent}>
       <TouchableOpacity 
         style={styles.settingsItem}
+        onPress={() => onNavigate('language')}
+      >
+        <Text style={styles.settingsItemText}>
+          {translations[currentLanguage].settings.language}
+        </Text>
+        <Text style={styles.settingsValueText}>
+          {translations[currentLanguage].languages[currentLanguage]}
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity 
+        style={styles.settingsItem}
         onPress={onShare}
       >
-        <Text style={styles.settingsItemText}>友達にシェア</Text>
+        <Text style={styles.settingsItemText}>
+          {translations[currentLanguage].settings.share}
+        </Text>
       </TouchableOpacity>
       <TouchableOpacity 
         style={styles.settingsItem}
         onPress={() => onNavigate('privacy')}
       >
-        <Text style={styles.settingsItemText}>プライバシーポリシー</Text>
+        <Text style={styles.settingsItemText}>
+          {translations[currentLanguage].settings.privacy}
+        </Text>
       </TouchableOpacity>
       <TouchableOpacity 
         style={styles.settingsItem}
         onPress={() => onNavigate('terms')}
       >
-        <Text style={styles.settingsItemText}>利用規約</Text>
+        <Text style={styles.settingsItemText}>
+          {translations[currentLanguage].settings.terms}
+        </Text>
       </TouchableOpacity>
     </View>
   </View>
 );
 
 const Home: React.FC = () => {
+  const { currentLanguage, changeLanguage } = useLanguage();
   const [screenStack, setScreenStack] = useState<ScreenState[]>([
     { type: 'home', translateX: new Animated.Value(0), zIndex: 0 }
   ]);
@@ -84,8 +151,8 @@ const Home: React.FC = () => {
   const handleShare = async () => {
     try {
       const result = await Share.share({
-        message: 'Brawl Stars Helperをチェックしてみてください！\nhttps://play.google.com/store/apps/details?id=com.your.app.id',
-        title: 'Brawl Stars Helper'
+        message: translations[currentLanguage].home.welcome + '\nhttps://play.google.com/store/apps/details?id=com.your.app.id',
+        title: translations[currentLanguage].home.title
       });
     } catch (error) {
       console.error(error);
@@ -125,11 +192,36 @@ const Home: React.FC = () => {
   const renderScreenContent = (screen: ScreenState) => {
     switch (screen.type) {
       case 'settings':
-        return <Settings onClose={goBack} onNavigate={showScreen} onShare={handleShare} />;
+        return (
+          <Settings 
+            onClose={goBack} 
+            onNavigate={showScreen} 
+            onShare={handleShare}
+            currentLanguage={currentLanguage}
+          />
+        );
       case 'privacy':
-        return <PrivacyPolicy onClose={goBack} />;
+        return (
+          <PrivacyPolicy 
+            onClose={goBack}
+            currentLanguage={currentLanguage}
+          />
+        );
       case 'terms':
-        return <Terms onClose={goBack} />;
+        return (
+          <Terms 
+            onClose={goBack}
+            currentLanguage={currentLanguage}
+          />
+        );
+      case 'language':
+        return (
+          <LanguageSettings
+            onClose={goBack}
+            currentLanguage={currentLanguage}
+            onLanguageChange={changeLanguage}
+          />
+        );
       default:
         return null;
     }
@@ -138,7 +230,9 @@ const Home: React.FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Brawl Stars Helper</Text>
+        <Text style={styles.title}>
+          {translations[currentLanguage].home.title}
+        </Text>
         <TouchableOpacity
           style={styles.settingsButton}
           onPress={() => showScreen('settings')}
@@ -152,7 +246,7 @@ const Home: React.FC = () => {
 
       <View style={styles.content}>
         <Text style={styles.welcomeText}>
-          ブロスタヘルパーへようこそ！
+          {translations[currentLanguage].home.welcome}
         </Text>
       </View>
 
@@ -249,9 +343,16 @@ const styles = StyleSheet.create({
     padding: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#e0e0e0',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   settingsItemText: {
     fontSize: 16,
+  },
+  settingsValueText: {
+    fontSize: 14,
+    color: '#666',
   },
   contentContainer: {
     flex: 1,
@@ -260,7 +361,22 @@ const styles = StyleSheet.create({
   contentText: {
     fontSize: 16,
     lineHeight: 24,
-  }
+  },
+  languageItem: {
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+  },
+  selectedLanguageItem: {
+    backgroundColor: '#e3f2fd',
+  },
+  languageText: {
+    fontSize: 16,
+  },
+  selectedLanguageText: {
+    color: '#2196F3',
+    fontWeight: 'bold',
+  },
 });
 
 export default Home;
