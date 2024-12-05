@@ -1,10 +1,9 @@
-import { CharacterCompatibility } from '../types/types';
+import { CharacterCompatibility } from '../types/types'
 
 export const surgeData: CharacterCompatibility = {
   "id": 61,
   "name": "サージ",
   "compatibilityScores": {
-    //タンク
     "ブル": 10,
     "エルプリモ": 10,
     "ローサ": 9,
@@ -14,22 +13,20 @@ export const surgeData: CharacterCompatibility = {
     "ビビ": 9,
     "アッシュ": 8,
     "サム": 10,
-    "ハンク": 4,
+    "ハンク": 3,
     "バスター": 9,
     "バズ": 10,
     "ダグ": 10,
     "メグ": 7,
     "ドラコ": 8,
-    //投げ
-    "バーリー": 1,
+    "バーリー": 4,
     "ダイナマイク": 3,
     "ティック": 3,
     "グロム": 3,
-    "ラリー&ローリー": 0,
-    "スプラウト": 2,
+    "ラリー&ローリー": 2,
+    "スプラウト": 3,
     "ウィロー": 1,
-    "ジュジュ": 0,
-    //アサシン
+    "ジュジュ": 3,
     "ストゥー": 3,
     "エドガー": 10,
     "シェイド": 2,
@@ -42,7 +39,6 @@ export const surgeData: CharacterCompatibility = {
     "レオン": 6,
     "コーデリアス": 5,
     "ケンジ": 9,
-    //スナイパー
     "ブロック": 4,
     "エリザベス": 2,
     "ビー": 1,
@@ -51,12 +47,11 @@ export const surgeData: CharacterCompatibility = {
     "ベル": 2,
     "マンディ": 3,
     "メイジー": 5,
-    "アンジェロ": 3,
+    "アンジェロ": 6,
     "ジャネット": 4,
-    //アタッカー
     "シェリー": 7,
     "ニタ": 2,
-    "コルト": 2, 
+    "コルト": 2,
     "8ビット": 3,
     "リコ": 3,
     "カール": 8,
@@ -70,7 +65,6 @@ export const surgeData: CharacterCompatibility = {
     "モー": 5,
     "スパイク": 4,
     "チェスター": 7,
-    //サポート
     "ポコ": 9,
     "ガス": 4,
     "パム": 8,
@@ -80,13 +74,12 @@ export const surgeData: CharacterCompatibility = {
     "ラフス": 4,
     "グレイ": 5,
     "キット": 7,
-    //コントローラー
     "ジェシー": 7,
     "ペニー": 6,
     "ボウ": 8,
     "Emz": 9,
     "グリフ": 9,
-    "ゲイル": 8,
+    "ゲイル": 7,
     "ジーン": 3,
     "ミスターP": 3,
     "スクウィーク": 3,
@@ -94,8 +87,8 @@ export const surgeData: CharacterCompatibility = {
     "オーティス": 4,
     "チャック": 10,
     "チャーリー": 3,
-    "アンバー": 6,
-    "サンディ": 8,
+    "アンバー": 7,
+    "サンディ": 8
   },
   "explanation": {}
-};
+}

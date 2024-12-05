@@ -1,17 +1,16 @@
-import { CharacterCompatibility } from '../types/types';
+import { CharacterCompatibility } from '../types/types'
 
 export const darrylData: CharacterCompatibility = {
   "id": 4,
   "name": "ダリル",
   "compatibilityScores": {
-    //タンク
     "ブル": 5,
-    "エルプリモ": 5,
+    "エルプリモ": 4,
     "ローサ": 4,
-    "ジャッキー": 6,
+    "ジャッキー": 7,
     "フランケン": 8,
     "ビビ": 9,
-    "アッシュ": 8,
+    "アッシュ": 9,
     "サム": 8,
     "ハンク": 6,
     "バスター": 8,
@@ -19,7 +18,6 @@ export const darrylData: CharacterCompatibility = {
     "ダグ": 1,
     "メグ": 7,
     "ドラコ": 6,
-    //投げ
     "バーリー": 8,
     "ダイナマイク": 9,
     "ティック": 9,
@@ -28,7 +26,6 @@ export const darrylData: CharacterCompatibility = {
     "スプラウト": 9,
     "ウィロー": 5,
     "ジュジュ": 4,
-    //アサシン
     "ストゥー": 2,
     "エドガー": 8,
     "シェイド": 2,
@@ -41,7 +38,6 @@ export const darrylData: CharacterCompatibility = {
     "レオン": 3,
     "コーデリアス": 0,
     "ケンジ": 7,
-    //スナイパー
     "ブロック": 4,
     "エリザベス": 3,
     "ビー": 3,
@@ -50,10 +46,9 @@ export const darrylData: CharacterCompatibility = {
     "ベル": 3,
     "マンディ": 4,
     "メイジー": 1,
-    "アンジェロ": 3,
+    "アンジェロ": 9,
     "ジャネット": 4,
-    //アタッカー
-    "シェリー": 2,
+    "シェリー": 1,
     "ニタ": 1,
     "コルト": 2,
     "8ビット": 1,
@@ -65,12 +60,11 @@ export const darrylData: CharacterCompatibility = {
     "タラ": 2,
     "イヴ": 3,
     "R-T": 2,
-    "クランシー": 2,
-    "モー": 1,
+    "クランシー": 1,
+    "モー": 2,
     "スパイク": 2,
-    "サージ": 0,
+    "サージ": 1,
     "チェスター": 2,
-    //サポート
     "ポコ": 10,
     "ガス": 3,
     "パム": 4,
@@ -80,22 +74,21 @@ export const darrylData: CharacterCompatibility = {
     "ラフス": 7,
     "グレイ": 6,
     "キット": 7,
-    //コントローラー
     "ジェシー": 3,
     "ペニー": 5,
     "ボウ": 8,
     "Emz": 5,
     "グリフ": 4,
-    "ゲイル": 0,
+    "ゲイル": 1,
     "ジーン": 10,
     "ミスターP": 8,
     "スクウィーク": 7,
     "ルー": 2,
-    "オーティス": 0,
+    "オーティス": 1,
     "チャック": 9,
     "チャーリー": 3,
-    "アンバー": 2,
-    "サンディ": 7,
+    "アンバー": 3,
+    "サンディ": 7
   },
   "explanation": {}
-};
+}

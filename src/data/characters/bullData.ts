@@ -1,25 +1,23 @@
-import { CharacterCompatibility } from '../types/types';
+import { CharacterCompatibility } from '../types/types'
 
 export const bullData: CharacterCompatibility = {
   "id": 1,
   "name": "ブル",
   "compatibilityScores": {
-    //タンク
     "エルプリモ": 4,
     "ローサ": 3,
     "ダリル": 5,
     "ジャッキー": 6,
-    "フランケン": 3,
-    "ビビ": 7,
+    "フランケン": 2,
+    "ビビ": 8,
     "アッシュ": 4,
-    "サム": 9,
+    "サム": 10,
     "ハンク": 6,
     "バスター": 7,
-    "バズ": 7,
+    "バズ": 8,
     "ダグ": 3,
     "メグ": 3,
     "ドラコ": 1,
-    //投げ
     "バーリー": 1,
     "ダイナマイク": 2,
     "ティック": 3,
@@ -28,8 +26,7 @@ export const bullData: CharacterCompatibility = {
     "スプラウト": 3,
     "ウィロー": 0,
     "ジュジュ": 0,
-    //アサシン
-    "ストゥー": 0,
+    "ストゥー": 2,
     "エドガー": 10,
     "シェイド": 3,
     "モーティス": 10,
@@ -41,19 +38,17 @@ export const bullData: CharacterCompatibility = {
     "レオン": 4,
     "コーデリアス": 0,
     "ケンジ": 9,
-    //スナイパー
     "ブロック": 3,
     "エリザベス": 2,
-    "ビー": 0,
+    "ビー": 1,
     "ナーニ": 1,
     "ボニー": 2,
-    "ベル": 0,
-    "マンディ": 1,
+    "ベル": 4,
+    "マンディ": 3,
     "メイジー": 0,
-    "アンジェロ": 4,
+    "アンジェロ": 8,
     "ジャネット": 3,
-    //アタッカー
-    "シェリー": 1,
+    "シェリー": 0,
     "ニタ": 0,
     "コルト": 1,
     "8ビット": 1,
@@ -70,7 +65,6 @@ export const bullData: CharacterCompatibility = {
     "スパイク": 1,
     "サージ": 0,
     "チェスター": 2,
-    //サポート
     "ポコ": 7,
     "ガス": 3,
     "パム": 6,
@@ -80,7 +74,6 @@ export const bullData: CharacterCompatibility = {
     "ラフス": 3,
     "グレイ": 6,
     "キット": 8,
-    //コントローラー
     "ジェシー": 3,
     "ペニー": 3,
     "ボウ": 3,
@@ -95,7 +88,7 @@ export const bullData: CharacterCompatibility = {
     "チャック": 9,
     "チャーリー": 1,
     "アンバー": 2,
-    "サンディ": 1,
+    "サンディ": 1
   },
   "explanation": {}
-};
+}

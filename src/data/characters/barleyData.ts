@@ -1,10 +1,9 @@
-import { CharacterCompatibility } from '../types/types';
+import { CharacterCompatibility } from '../types/types'
 
 export const barleyData: CharacterCompatibility = {
   "id": 16,
   "name": "バーリー",
   "compatibilityScores": {
-    //タンク
     "ブル": 9,
     "エルプリモ": 8,
     "ローサ": 8,
@@ -20,7 +19,6 @@ export const barleyData: CharacterCompatibility = {
     "ダグ": 9,
     "メグ": 7,
     "ドラコ": 8,
-    //投げ
     "ダイナマイク": 7,
     "ティック": 4,
     "グロム": 4,
@@ -28,7 +26,6 @@ export const barleyData: CharacterCompatibility = {
     "スプラウト": 4,
     "ウィロー": 7,
     "ジュジュ": 3,
-    //アサシン
     "ストゥー": 2,
     "エドガー": 1,
     "シェイド": 0,
@@ -41,7 +38,6 @@ export const barleyData: CharacterCompatibility = {
     "レオン": 3,
     "コーデリアス": 8,
     "ケンジ": 3,
-    //スナイパー
     "ブロック": 0,
     "エリザベス": 2,
     "ビー": 3,
@@ -52,7 +48,6 @@ export const barleyData: CharacterCompatibility = {
     "メイジー": 4,
     "アンジェロ": 2,
     "ジャネット": 7,
-    //アタッカー
     "シェリー": 5,
     "ニタ": 8,
     "コルト": 2,
@@ -70,7 +65,6 @@ export const barleyData: CharacterCompatibility = {
     "スパイク": 7,
     "サージ": 6,
     "チェスター": 5,
-    //サポート
     "ポコ": 5,
     "ガス": 3,
     "パム": 8,
@@ -80,7 +74,6 @@ export const barleyData: CharacterCompatibility = {
     "ラフス": 6,
     "グレイ": 1,
     "キット": 3,
-    //コントローラー
     "ジェシー": 6,
     "ペニー": 5,
     "ボウ": 5,
@@ -95,7 +88,7 @@ export const barleyData: CharacterCompatibility = {
     "チャック": 7,
     "チャーリー": 10,
     "アンバー": 7,
-    "サンディ": 8,
+    "サンディ": 8
   },
   "explanation": {}
-};
+}

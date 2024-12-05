@@ -1,27 +1,25 @@
-import { CharacterCompatibility } from '../types/types';
+import { CharacterCompatibility } from '../types/types'
 
 export const amberData: CharacterCompatibility = {
   "id": 85,
   "name": "アンバー",
   "compatibilityScores": {
-    //タンク
     "ブル": 8,
     "エルプリモ": 8,
-    "ローサ": 4,
+    "ローサ": 8,
     "ダリル": 7,
     "ジャッキー": 7,
-    "フランケン": 7,
-    "ビビ": 7,
+    "フランケン": 5,
+    "ビビ": 6,
     "アッシュ": 7,
     "サム": 7,
     "ハンク": 3,
-    "バスター": 5,
-    "バズ": 3,
+    "バスター": 4,
+    "バズ": 4,
     "ダグ": 8,
     "メグ": 8,
     "ドラコ": 7,
-    //投げ
-    "バーリー": 2,
+    "バーリー": 3,
     "ダイナマイク": 2,
     "ティック": 2,
     "グロム": 3,
@@ -29,7 +27,6 @@ export const amberData: CharacterCompatibility = {
     "スプラウト": 2,
     "ウィロー": 2,
     "ジュジュ": 2,
-    //アサシン
     "ストゥー": 4,
     "エドガー": 3,
     "シェイド": 3,
@@ -42,7 +39,6 @@ export const amberData: CharacterCompatibility = {
     "レオン": 5,
     "コーデリアス": 4,
     "ケンジ": 6,
-    //スナイパー
     "ブロック": 4,
     "エリザベス": 2,
     "ビー": 2,
@@ -51,9 +47,8 @@ export const amberData: CharacterCompatibility = {
     "ベル": 2,
     "マンディ": 3,
     "メイジー": 3,
-    "アンジェロ": 3,
+    "アンジェロ": 2,
     "ジャネット": 7,
-    //アタッカー
     "シェリー": 7,
     "ニタ": 6,
     "コルト": 3,
@@ -71,7 +66,6 @@ export const amberData: CharacterCompatibility = {
     "スパイク": 4,
     "サージ": 3,
     "チェスター": 6,
-    //サポート
     "ポコ": 3,
     "ガス": 1,
     "パム": 9,
@@ -81,7 +75,6 @@ export const amberData: CharacterCompatibility = {
     "ラフス": 7,
     "グレイ": 3,
     "キット": 3,
-    //コントローラー
     "ジェシー": 7,
     "ペニー": 6,
     "ボウ": 7,
@@ -91,11 +84,11 @@ export const amberData: CharacterCompatibility = {
     "ジーン": 7,
     "ミスターP": 4,
     "スクウィーク": 6,
-    "ルー": 0,
+    "ルー": 7,
     "オーティス": 7,
     "チャック": 7,
     "チャーリー": 8,
-    "サンディ": 5,
+    "サンディ": 5
   },
   "explanation": {}
-};
+}

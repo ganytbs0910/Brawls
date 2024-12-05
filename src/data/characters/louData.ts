@@ -1,10 +1,9 @@
-import { CharacterCompatibility } from '../types/types';
+import { CharacterCompatibility } from '../types/types'
 
 export const louData: CharacterCompatibility = {
   "id": 81,
   "name": "ルー",
   "compatibilityScores": {
-    //タンク
     "ブル": 10,
     "エルプリモ": 9,
     "ローサ": 9,
@@ -20,7 +19,6 @@ export const louData: CharacterCompatibility = {
     "ダグ": 10,
     "メグ": 7,
     "ドラコ": 7,
-    //投げ
     "バーリー": 0,
     "ダイナマイク": 2,
     "ティック": 3,
@@ -29,7 +27,6 @@ export const louData: CharacterCompatibility = {
     "スプラウト": 0,
     "ウィロー": 0,
     "ジュジュ": 0,
-    //アサシン
     "ストゥー": 3,
     "エドガー": 8,
     "シェイド": 4,
@@ -42,7 +39,6 @@ export const louData: CharacterCompatibility = {
     "レオン": 5,
     "コーデリアス": 4,
     "ケンジ": 8,
-    //スナイパー
     "ブロック": 4,
     "エリザベス": 2,
     "ビー": 2,
@@ -53,7 +49,6 @@ export const louData: CharacterCompatibility = {
     "メイジー": 5,
     "アンジェロ": 2,
     "ジャネット": 6,
-    //アタッカー
     "シェリー": 6,
     "ニタ": 6,
     "コルト": 3,
@@ -71,17 +66,15 @@ export const louData: CharacterCompatibility = {
     "スパイク": 6,
     "サージ": 7,
     "チェスター": 3,
-    //サポート
     "ポコ": 8,
     "ガス": 2,
     "パム": 4,
-    "ベリー": 0,
+    "ベリー": 10,
     "MAX": 3,
     "バイロン": 2,
     "ラフス": 2,
     "グレイ": 3,
     "キット": 3,
-    //コントローラー
     "ジェシー": 5,
     "ペニー": 5,
     "ボウ": 5,
@@ -95,7 +88,7 @@ export const louData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 3,
     "アンバー": 3,
-    "サンディ": 7,
+    "サンディ": 7
   },
   "explanation": {}
-};
+}

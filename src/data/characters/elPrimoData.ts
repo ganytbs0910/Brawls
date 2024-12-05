@@ -1,14 +1,13 @@
-import { CharacterCompatibility } from '../types/types';
+import { CharacterCompatibility } from '../types/types'
 
 export const elPrimoData: CharacterCompatibility = {
   "id": 2,
   "name": "エルプリモ",
   "compatibilityScores": {
-    //タンク
     "ブル": 6,
     "ローサ": 8,
-    "ダリル": 8,
-    "ジャッキー": 7,
+    "ダリル": 6,
+    "ジャッキー": 8,
     "フランケン": 10,
     "ビビ": 10,
     "アッシュ": 7,
@@ -16,10 +15,9 @@ export const elPrimoData: CharacterCompatibility = {
     "ハンク": 7,
     "バスター": 8,
     "バズ": 10,
-    "ダグ": 3,
+    "ダグ": 2,
     "メグ": 2,
     "ドラコ": 3,
-    //投げ
     "バーリー": 2,
     "ダイナマイク": 3,
     "ティック": 4,
@@ -28,8 +26,7 @@ export const elPrimoData: CharacterCompatibility = {
     "スプラウト": 3,
     "ウィロー": 2,
     "ジュジュ": 1,
-    //アサシン
-    "ストゥー": 0,
+    "ストゥー": 3,
     "エドガー": 8,
     "シェイド": 3,
     "モーティス": 6,
@@ -41,7 +38,6 @@ export const elPrimoData: CharacterCompatibility = {
     "レオン": 2,
     "コーデリアス": 0,
     "ケンジ": 7,
-    //スナイパー
     "ブロック": 3,
     "エリザベス": 2,
     "ビー": 2,
@@ -49,11 +45,10 @@ export const elPrimoData: CharacterCompatibility = {
     "ボニー": 3,
     "ベル": 2,
     "マンディ": 3,
-    "メイジー": 0,
-    "アンジェロ": 2,
+    "メイジー": 2,
+    "アンジェロ": 8,
     "ジャネット": 3,
-    //アタッカー
-    "シェリー": 0,
+    "シェリー": 1,
     "ニタ": 0,
     "コルト": 1,
     "8ビット": 2,
@@ -65,12 +60,11 @@ export const elPrimoData: CharacterCompatibility = {
     "タラ": 4,
     "イヴ": 5,
     "R-T": 4,
-    "クランシー": 0,
+    "クランシー": 1,
     "モー": 0,
     "スパイク": 1,
     "サージ": 0,
     "チェスター": 2,
-    //サポート
     "ポコ": 8,
     "ガス": 3,
     "パム": 3,
@@ -80,22 +74,21 @@ export const elPrimoData: CharacterCompatibility = {
     "ラフス": 6,
     "グレイ": 4,
     "キット": 3,
-    //コントローラー
     "ジェシー": 3,
     "ペニー": 3,
     "ボウ": 4,
     "Emz": 2,
     "グリフ": 2,
-    "ゲイル": 0,
+    "ゲイル": 1,
     "ジーン": 7,
-    "ミスターP": 7,
+    "ミスターP": 9,
     "スクウィーク": 3,
     "ルー": 1,
-    "オーティス": 0,
+    "オーティス": 1,
     "チャック": 9,
     "チャーリー": 2,
-    "アンバー": 1,
-    "サンディ": 2,
+    "アンバー": 2,
+    "サンディ": 2
   },
   "explanation": {}
-};
+}
