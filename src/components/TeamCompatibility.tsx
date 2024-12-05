@@ -84,13 +84,11 @@ const TeamCompatibility: React.FC = () => {
     if (opponentId && allCharacterData[opponentId]) {
       team.forEach(teamMember => {
         if (mode === 'COUNTER_PICK') {
-          // 相手キャラに対する相性スコア
           const memberScore = allCharacterData[opponentId].compatibilityScores[teamMember];
           if (memberScore) {
             totalScore += memberScore;
           }
         } else {
-          // チームメンバーから見た相手キャラへの相性スコア
           const teamMemberId = getCharacterId(teamMember);
           if (teamMemberId && allCharacterData[teamMemberId]) {
             const memberScore = allCharacterData[teamMemberId].compatibilityScores[opponent];
@@ -232,13 +230,18 @@ const TeamCompatibility: React.FC = () => {
                   </View>
                   {recommendations.map((recommendation, index) => (
                     <View key={index} style={styles.compatibilityRow}>
-                      <View style={styles.opponentInfo}>
-                        <Text style={styles.rankText}>#{index + 1}</Text>
-                        <CharacterImage characterName={recommendation.character} size={30} />
-                        <Text style={styles.characterName}>{recommendation.character}</Text>
+                      <View style={styles.compatibilityContent}>
+                        <View style={styles.opponentInfo}>
+                          <Text style={styles.rankText}>#{index + 1}</Text>
+                          <CharacterImage characterName={recommendation.character} size={30} />
+                          <Text style={styles.characterName}>{recommendation.character}</Text>
+                        </View>
+                        <View style={styles.scoreGroup}>
+                          <Text style={styles.score}>{recommendation.score.toFixed(1)}</Text>
+                          <Text style={styles.reasonText}>{recommendation.reason}</Text>
+                        </View>
                       </View>
-                      <View style={styles.scoreContainer}>
-                        <Text style={styles.score}>{recommendation.score.toFixed(1)}</Text>
+                      <View style={styles.scoreBarContainer}>
                         <View
                           style={[
                             styles.scoreBar,
@@ -249,7 +252,6 @@ const TeamCompatibility: React.FC = () => {
                           ]}
                         />
                       </View>
-                      <Text style={styles.reasonText}>{recommendation.reason}</Text>
                     </View>
                   ))}
                 </View>
@@ -410,10 +412,19 @@ const styles = StyleSheet.create({
   compatibilityRow: {
     marginVertical: 10,
   },
+  compatibilityContent: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 5,
+  },
   opponentInfo: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 5,
+  },
+  scoreGroup: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   rankText: {
     fontSize: 16,
@@ -425,26 +436,21 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     fontSize: 14,
   },
-  scoreContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 5,
-  },
   score: {
-    marginRight: 10,
     fontSize: 14,
     fontWeight: 'bold',
-    width: 30,
-  },
-  scoreBar: {
-    height: 10,
-    borderRadius: 5,
-    flex: 1,
+    marginRight: 8,
   },
   reasonText: {
     fontSize: 12,
     color: '#666',
+  },
+  scoreBarContainer: {
     marginTop: 5,
+  },
+  scoreBar: {
+    height: 10,
+    borderRadius: 5,
   },
   closeButton: {
     backgroundColor: '#2196F3',
