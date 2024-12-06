@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View, Text, StyleSheet } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useLanguage } from '../hooks/useLanguage';
 import { translations } from '../i18n/translations';
 import CharacterImage from './CharacterImage';
@@ -10,12 +10,66 @@ interface RankingItem {
   description: string;
 }
 
-const BrawlStarsRankings: React.FC = () => {
+interface CharacterType {
+  id: string;
+  characters: string[];
+}
+
+const BrawlStarsRankings: React.FC<{ selectedType: string }> = ({ selectedType }) => {
   const { currentLanguage } = useLanguage();
   const t = translations[currentLanguage];
 
   const getCharacterInfo = (originalName: string) => {
     return t.rankings.characters[originalName];
+  };
+
+  // キャラクタータイプごとのリスト
+  const characterTypes: { [key: string]: string[] } = {
+    all: [
+      "シェイド", "ストゥー", "ガス", "モー", "ケンジ", "サージ", "バイロン", "ダリル", 
+      "フランケン", "リコ", "ラリー&ローリー", "ジュジュ", "ペニー", "クランシー", "MAX",
+      "サンディ", "キット", "ニタ", "メロディー", "バスター", "エリザベス", "マンディ",
+      "アンジェロ", "R-T", "オーティス", "ラフス", "クロウ", "モーティス", "ベル", "ジーン",
+      "ローラ", "コレット", "ドラコ", "グレイ", "カール", "チェスター", "ビー", "アンバー",
+      "パール", "リリー", "ゲイル", "イヴ", "バーリー", "ティック", "ダイナマイク", "コーデリアス",
+      "タラ", "8ビット", "コルト", "スクウィーク", "グリフ", "メイジー", "ナーニ", "ジェシー",
+      "バズ", "Emz", "メグ", "エルプリモ", "ビビ", "ローサ", "チャック", "パム",
+      "ジャッキー", "ウィロー", "スプラウト", "ベリー", "チャーリー", "レオン", "スパイク",
+      "ルー", "ポコ", "シェリー", "ジャネット", "ブロック", "ボニー", "ボウ", "サム",
+      "ファング", "Mr.P", "エドガー", "ハンク", "ブル", "アッシュ", "グロム", "ダグ", "ミコ"
+    ],
+    tank: [ // タンク
+      "ブル", "エルプリモ", "ローサ", "ダリル", "ジャッキー", 
+      "フランケン", "ビビ", "アッシュ", "サム", "ハンク", 
+      "バスター", "バズ", "ダグ", "メグ", "ドラコ"
+    ],
+    thrower: [ // 投げ
+      "バーリー", "ダイナマイク", "ティック", "グロム", 
+      "ラリー&ローリー", "スプラウト", "ウィロー", "ジュジュ"
+    ],
+    assassin: [ // アサシン
+      "ストゥー", "エドガー", "シェイド", "モーティス", "ファング", 
+      "ミコ", "リリー", "メロディー", "クロウ", "レオン", 
+      "コーデリアス", "ケンジ"
+    ],
+    sniper: [ // スナイパー
+      "ブロック", "エリザベス", "ビー", "ナーニ", "ボニー", 
+      "ベル", "マンディ", "メイジー", "アンジェロ", "ジャネット"
+    ],
+    attacker: [ // アタッカー
+      "シェリー", "ニタ", "8ビット", "リコ", "カール", 
+      "コレット", "ローラ", "パール", "タラ", "イヴ", 
+      "R-T", "クランシー", "モー", "スパイク", "サージ", "チェスター"
+    ],
+    support: [ // サポート
+      "ポコ", "ガス", "パム", "ベリー", "MAX", "バイロン", 
+      "ラフス", "グレイ", "キット"
+    ],
+    controller: [ // コントローラー
+      "ジェシー", "ペニー", "ボウ", "Emz", "グリフ", "ゲイル", 
+      "ジーン", "Mr.P", "スクウィーク", "ルー", "オーティス", 
+      "チャック", "チャーリー", "アンバー", "サンディ"
+    ]
   };
 
   const rankings: RankingItem[] = [
@@ -111,10 +165,26 @@ const BrawlStarsRankings: React.FC = () => {
     description: getCharacterInfo(item.characterName).description
   }));
 
+  const getFilteredRankings = () => {
+    if (selectedType === 'all') {
+      return rankings;
+    }
+
+    const filteredRankings = rankings.filter(item =>
+      characterTypes[selectedType].includes(item.characterName)
+    );
+
+    return filteredRankings.map((item, index) => ({
+      ...item,
+      rank: index + 1
+    }));
+  };
+
+  const filteredRankings = getFilteredRankings();
+
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>{t.rankings.title}</Text>
-      {rankings.map((item) => (
+      {filteredRankings.map((item) => (
         <View key={item.rank} style={styles.rankingItem}>
           <View style={styles.rankContainer}>
             <Text style={styles.rankNumber} numberOfLines={1}>
@@ -139,12 +209,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     padding: 16,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 16,
-    textAlign: 'center',
   },
   rankingItem: {
     flexDirection: 'row',

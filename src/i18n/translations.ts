@@ -4,6 +4,16 @@ export const translations = {
     rankings: {
       title: '現環境最強キャラランキング',
       rankSuffix: '位',
+      types: {
+        all: '総合',
+        tank: 'タンク',
+        thrower: '投げ',
+        assassin: 'アサシン',
+        sniper: 'スナイパー',
+        attacker: 'アタッカー',
+        support: 'サポート',
+        controller: 'コントローラー'
+      },
       characters: {
         "シェイド": {name: "シェイド", description: "罠設置と長距離攻撃" },
         "ストゥー": {name: "ストゥー", description: "現環境最強のブロッカー。高いHPと強力な範囲攻撃が特徴" },

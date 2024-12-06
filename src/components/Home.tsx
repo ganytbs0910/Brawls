@@ -4,6 +4,7 @@ import { useLanguage } from '../hooks/useLanguage';
 import { translations } from '../i18n/translations';
 import { privacyPolicyContent } from '../contents/privacyPolicy';
 import { termsContent } from '../contents/terms';
+import BrawlStarsRankings from './BrawlStarsRankings';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -147,12 +148,13 @@ const Home: React.FC = () => {
   const [screenStack, setScreenStack] = useState<ScreenState[]>([
     { type: 'home', translateX: new Animated.Value(0), zIndex: 0 }
   ]);
+  const [selectedRankingType, setSelectedRankingType] = useState('all');
 
   const handleShare = async () => {
     try {
       const result = await Share.share({
-        message: translations[currentLanguage].home.welcome + '\nhttps://play.google.com/store/apps/details?id=com.your.app.id',
-        title: translations[currentLanguage].home.title
+        message: translations[currentLanguage].home.shareMessage,
+        title: translations[currentLanguage].home.shareTitle
       });
     } catch (error) {
       console.error(error);
@@ -227,6 +229,17 @@ const Home: React.FC = () => {
     }
   };
 
+  const rankingTypes = [
+    { id: 'all', name: translations[currentLanguage].rankings.types.all },
+    { id: 'tank', name: translations[currentLanguage].rankings.types.tank },
+    { id: 'thrower', name: translations[currentLanguage].rankings.types.thrower },
+    { id: 'assassin', name: translations[currentLanguage].rankings.types.assassin },
+    { id: 'sniper', name: translations[currentLanguage].rankings.types.sniper },
+    { id: 'attacker', name: translations[currentLanguage].rankings.types.attacker },
+    { id: 'support', name: translations[currentLanguage].rankings.types.support },
+    { id: 'controller', name: translations[currentLanguage].rankings.types.controller }
+  ];
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -244,10 +257,35 @@ const Home: React.FC = () => {
         </TouchableOpacity>
       </View>
 
+      <View style={styles.rankingTypeContainer}>
+        <ScrollView 
+          horizontal 
+          showsHorizontalScrollIndicator={false}
+          style={styles.tabScroll}
+          contentContainerStyle={styles.tabScrollContent}
+        >
+          {rankingTypes.map((type) => (
+            <TouchableOpacity
+              key={type.id}
+              style={[
+                styles.typeTab,
+                selectedRankingType === type.id && styles.selectedTypeTab
+              ]}
+              onPress={() => setSelectedRankingType(type.id)}
+            >
+              <Text style={[
+                styles.typeText,
+                selectedRankingType === type.id && styles.selectedTypeText
+              ]}>
+                {type.name}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </View>
+
       <View style={styles.content}>
-        <Text style={styles.welcomeText}>
-          {translations[currentLanguage].home.welcome}
-        </Text>
+        <BrawlStarsRankings selectedType={selectedRankingType} />
       </View>
 
       {screenStack.map((screen, index) => (
@@ -296,12 +334,38 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    padding: 16,
   },
-  welcomeText: {
-    fontSize: 18,
-    textAlign: 'center',
-    marginTop: 20,
+  rankingTypeContainer: {
+    backgroundColor: '#fff',
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+  },
+  tabScroll: {
+    flexGrow: 0,
+    height: 50,
+  },
+  tabScrollContent: {
+    paddingHorizontal: 12,
+  },
+  typeTab: {
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    marginHorizontal: 4,
+    borderRadius: 20,
+    backgroundColor: '#f5f5f5',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  selectedTypeTab: {
+    backgroundColor: '#2196F3',
+  },
+  typeText: {
+    fontSize: 14,
+    color: '#666',
+  },
+  selectedTypeText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
   settingsOverlay: {
     position: 'absolute',
