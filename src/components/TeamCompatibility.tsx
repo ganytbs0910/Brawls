@@ -113,8 +113,8 @@ const TeamCompatibility: React.FC = () => {
 
   const getScoreColor = (score: number): string => {
     if (score >= 24) return '#4CAF50';
-    if (score >= 18) return '#2196F3';
-    if (score >= 15) return '#FFC107';
+    if (score >= 21) return '#2196F3';
+    if (score >= 18) return '#FFC107';
     return '#F44336';
   };
 
@@ -133,7 +133,7 @@ const TeamCompatibility: React.FC = () => {
     });
 
     recommendations.sort((a, b) => b.score - a.score);
-    setRecommendations(recommendations.slice(0, 5));
+    setRecommendations(recommendations.slice(0, 10)); // Changed from 5 to 10
   };
 
   const toggleAnalysisMode = () => {
@@ -210,14 +210,14 @@ const TeamCompatibility: React.FC = () => {
           onRequestClose={() => setModalVisible(false)}
         >
           <View style={styles.modalOverlay}>
-            <View style={styles.modalView}>
+            <View style={[styles.modalView, { maxHeight: '90%' }]}>  // Increased maxHeight for more content
               <ScrollView>
                 <View style={styles.compatibilityContainer}>
                   <View style={styles.modalHeader}>
                     <Text style={styles.modalTitle}>
                       {analysisMode === 'COUNTER_PICK' 
-                        ? 'このチームが苦手なキャラ' 
-                        : 'このチームが得意なキャラ'}
+                        ? 'このチームが苦手なキャラ (TOP10)' 
+                        : 'このチームが得意なキャラ (TOP10)'}
                     </Text>
                   </View>
                   <View style={styles.selectedTeamPreview}>
