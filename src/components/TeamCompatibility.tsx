@@ -148,13 +148,13 @@ const TeamCompatibility: React.FC = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View style={styles.headerContainer}>
-          <Text style={styles.title}>3vs3 弱点発見</Text>
+          <Text style={styles.title}>3vs3 ガチバトルピック表</Text>
           <TouchableOpacity 
             style={styles.modeToggleButton}
             onPress={toggleAnalysisMode}
           >
             <Text style={styles.modeToggleText}>
-              {analysisMode === 'COUNTER_PICK' ? '対策キャラ表示' : '得意キャラ表示'}
+              {analysisMode === 'COUNTER_PICK' ? '苦手キャラ一覧' : '得意キャラ一覧'}
             </Text>
           </TouchableOpacity>
         </View>
@@ -216,8 +216,8 @@ const TeamCompatibility: React.FC = () => {
                   <View style={styles.modalHeader}>
                     <Text style={styles.modalTitle}>
                       {analysisMode === 'COUNTER_PICK' 
-                        ? 'このチームに強いキャラクター' 
-                        : 'このチームが得意とするキャラクター'}
+                        ? 'このチームが苦手なキャラ' 
+                        : 'このチームが得意なキャラ'}
                     </Text>
                   </View>
                   <View style={styles.selectedTeamPreview}>
