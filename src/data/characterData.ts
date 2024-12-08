@@ -1,4 +1,6 @@
 // src/data/characterData.ts
+import { CharacterData, CharacterRole, RankingItem } from '../types/types';
+
 export const characterTypes: { [key: string]: string[] } = {
   all: [
     "シェイド", "ストゥー", "ガス", "モー", "ケンジ", "サージ", "バイロン", "ダリル", 
@@ -152,3 +154,124 @@ export const rankingTypes = [
   { id: 'support', nameKey: 'rankings.types.support' },
   { id: 'controller', nameKey: 'rankings.types.controller' }
 ];
+
+export const charactersData: Record<string, CharacterData> = {
+  'シェリー': {
+    id: 'shelly',
+    name: 'シェリー',
+    description: '近距離での戦闘が得意な初期キャラクター。ショットガンで広範囲にダメージを与える。',
+    role: 'シューター',
+    rarity: 'レア',
+    releaseDate: '2018-06-15',
+    stats: {
+      health: 5600,
+      speed: 720,
+      attack: 420,
+      defense: 3
+    },
+    normalAttack: {
+      name: 'ショットガンショット',
+      description: '近距離で威力を発揮する広範囲攻撃',
+      damage: 420,
+      range: 7.67
+    },
+    superSkill: {
+      name: 'スーパーシェル',
+      description: 'より強力なショットガンの弾を発射し、壁を破壊できる',
+      damage: 448,
+      range: 8.67,
+      cooldown: 0
+    },
+    gadget1: {
+      name: 'ダッシュフォワード',
+      description: '前方に素早く移動し、敵を押しのける',
+      cooldown: 3.5
+    },
+    gadget2: {
+      name: 'クレイピジョン',
+      description: '上空に的を放ち、次の攻撃のダメージが増加',
+      cooldown: 3
+    },
+    starPower1: {
+      name: 'シェルショック',
+      description: 'スーパースキルが敵の移動速度を4秒間低下させる'
+    },
+    starPower2: {
+      name: 'バンドエイド',
+      description: '体力が40%以下になると20秒かけて2000回復する'
+    },
+    recommendations: {
+      bestModes: ['ブロウル', 'ハイスト', 'ジェムグラブ'],
+      bestMaps: ['スネークプレイリー', 'ハードロック鉱山'],
+      goodPartners: ['ボー', 'エメラルド', 'ポコ'],
+      counters: ['パム', 'ブルー', 'コルト']
+    }
+  },
+  'ニタ': {
+    id: 'nita',
+    name: 'ニタ',
+    description: 'クマを召喚して戦うアタッカー。近距離での戦闘が得意。',
+    role: 'アタッカー',
+    rarity: 'レア',
+    releaseDate: '2018-06-15',
+    stats: {
+      health: 5800,
+      speed: 720,
+      attack: 1120,
+      defense: 3
+    },
+    normalAttack: {
+      name: 'ルプチャー',
+      description: '衝撃波を放って敵にダメージを与える',
+      damage: 1120,
+      range: 6.67
+    },
+    superSkill: {
+      name: 'クマ召喚',
+      description: 'バトルクマを召喚して敵を攻撃',
+      damage: 800,
+      range: 4,
+      cooldown: 0
+    },
+    gadget1: {
+      name: 'クマトラップ',
+      description: 'クマが3秒間スタン効果を与える',
+      cooldown: 4
+    },
+    starPower1: {
+      name: 'クマの怒り',
+      description: 'クマの攻撃速度が50%上昇'
+    },
+    recommendations: {
+      bestModes: ['ジェムグラブ', 'ブロウル', 'ハイスト'],
+      bestMaps: ['クリスタルマイン', 'スネークプレイリー'],
+      goodPartners: ['ポコ', 'ジーン', 'サンディ'],
+      counters: ['エメラルド', 'コルト', 'リコ']
+    }
+  },
+  // ... 残りのキャラクターデータ ...
+};
+
+export const getCharacterData = (characterId: string): CharacterData | undefined => {
+  return charactersData[characterId];
+};
+
+export const getAllCharacters = (): CharacterData[] => {
+  return Object.values(charactersData);
+};
+
+export const getCharactersByRole = (role: CharacterRole): CharacterData[] => {
+  return Object.values(charactersData).filter(char => char.role === role);
+};
+
+export const getCharacterRanking = (characterName: string): number => {
+  const rankingItem = characterRankings.find(item => item.characterName === characterName);
+  return rankingItem?.rank ?? -1;
+};
+
+export const getCharactersByType = (type: string): CharacterData[] => {
+  const characterNames = characterTypes[type] || [];
+  return characterNames
+    .map(name => charactersData[name])
+    .filter((char): char is CharacterData => char !== undefined);
+};

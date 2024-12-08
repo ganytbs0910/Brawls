@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { useLanguage } from '../hooks/useLanguage';
 import { translations } from '../i18n/translations';
 import CharacterImage from './CharacterImage';
 import { characterTypes, characterRankings, rankingTypes } from '../data/characterData';
+import { RootStackParamList } from '../App';
+
+type RankingsScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Rankings'>;
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const BrawlStarsRankings: React.FC = () => {
+  const navigation = useNavigation<RankingsScreenNavigationProp>();
   const { currentLanguage } = useLanguage();
   const [selectedRankingType, setSelectedRankingType] = useState('all');
 
@@ -15,6 +21,10 @@ const BrawlStarsRankings: React.FC = () => {
     ...type,
     name: translations[currentLanguage].rankings.types[type.id]
   }));
+
+  const handleCharacterPress = (characterName: string) => {
+    navigation.navigate('CharacterDetails', { characterName });
+  };
 
   const getFilteredRankings = () => {
     if (!selectedRankingType || !characterTypes[selectedRankingType]) {
@@ -86,7 +96,11 @@ const BrawlStarsRankings: React.FC = () => {
                   {item.rank}{translations[currentLanguage].rankings.rankSuffix}
                 </Text>
               </View>
-              <View style={styles.characterInfo}>
+              <TouchableOpacity 
+                style={styles.characterInfo}
+                onPress={() => handleCharacterPress(item.characterName)}
+                activeOpacity={0.7}
+              >
                 <CharacterImage characterName={item.characterName} size={40} style={styles.characterImage} />
                 <View style={styles.textContainer}>
                   <Text style={styles.characterName}>
@@ -96,7 +110,7 @@ const BrawlStarsRankings: React.FC = () => {
                     {translations[currentLanguage].rankings.characters[item.characterName]?.description || item.description}
                   </Text>
                 </View>
-              </View>
+              </TouchableOpacity>
             </View>
           ))}
         </ScrollView>

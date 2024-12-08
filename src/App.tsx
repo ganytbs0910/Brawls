@@ -1,12 +1,49 @@
+// App.tsx
 import React, { useState, useRef } from 'react';
 import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image, Animated, Dimensions } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import BrawlStarsCompatibility from './components/BrawlStarsCompatibility';
 import TeamCompatibility from './components/TeamCompatibility';
 import BrawlStarsRankings from './components/BrawlStarsRankings';
+import CharacterDetails from './components/CharacterDetails';
 import Home from './components/Home';
 
 const { width } = Dimensions.get('window');
 const TAB_WIDTH = width / 4;
+
+export type RootStackParamList = {
+  Rankings: undefined;
+  CharacterDetails: { characterName: string };
+};
+
+const Stack = createStackNavigator<RootStackParamList>();
+
+const RankingsStack = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false // タブバーの上にヘッダーを重ねないようにする
+      }}
+    >
+      <Stack.Screen name="Rankings" component={BrawlStarsRankings} />
+      <Stack.Screen 
+        name="CharacterDetails" 
+        component={CharacterDetails}
+        options={{
+          headerShown: true, // 詳細画面ではヘッダーを表示
+          headerStyle: {
+            backgroundColor: '#fff',
+          },
+          headerTintColor: '#2196F3',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
 
 const App = () => {
   const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings'>('home');
@@ -63,18 +100,27 @@ const App = () => {
     setActiveTab(tabKey);
   };
 
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'home':
+        return <Home />;
+      case 'single':
+        return <BrawlStarsCompatibility />;
+      case 'team':
+        return <TeamCompatibility />;
+      case 'rankings':
+        return (
+          <NavigationContainer independent>
+            <RankingsStack />
+          </NavigationContainer>
+        );
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        {activeTab === 'home' ? (
-          <Home />
-        ) : activeTab === 'single' ? (
-          <BrawlStarsCompatibility />
-        ) : activeTab === 'team' ? (
-          <TeamCompatibility />
-        ) : (
-          <BrawlStarsRankings />
-        )}
+        {renderContent()}
       </View>
 
       <View style={styles.tabBar}>
