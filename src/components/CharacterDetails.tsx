@@ -38,34 +38,6 @@ const CharacterDetails: React.FC = () => {
           </View>
         </View>
 
-        <View style={styles.infoCard}>
-          <Text style={styles.sectionTitle}>ステータス</Text>
-          <View style={styles.statsGrid}>
-            {Object.entries(character.stats).map(([key, value]) => (
-              <View key={key} style={styles.statItem}>
-                <Text style={styles.statLabel}>{key}</Text>
-                <Text style={styles.statValue}>{value}</Text>
-              </View>
-            ))}
-          </View>
-        </View>
-
-        <View style={styles.infoCard}>
-          <Text style={styles.sectionTitle}>通常攻撃</Text>
-          <Text style={styles.skillName}>{character.normalAttack.name}</Text>
-          <Text style={styles.description}>{character.normalAttack.description}</Text>
-          <View style={styles.skillStats}>
-            <Text>ダメージ: {character.normalAttack.damage}</Text>
-            <Text>範囲: {character.normalAttack.range}</Text>
-          </View>
-        </View>
-
-        <View style={styles.infoCard}>
-          <Text style={styles.sectionTitle}>スーパースキル</Text>
-          <Text style={styles.skillName}>{character.superSkill.name}</Text>
-          <Text style={styles.description}>{character.superSkill.description}</Text>
-        </View>
-
         {character.starPowers && character.starPowers.length > 0 && (
           <View style={styles.infoCard}>
             <Text style={styles.sectionTitle}>スターパワー</Text>
@@ -92,18 +64,6 @@ const CharacterDetails: React.FC = () => {
             ))}
           </View>
         )}
-
-        <View style={styles.infoCard}>
-          <Text style={styles.sectionTitle}>おすすめ</Text>
-          <Text style={styles.subTitle}>おすすめモード</Text>
-          <Text style={styles.description}>{character.recommendations.bestModes.join(', ')}</Text>
-          
-          <Text style={styles.subTitle}>相性の良いキャラクター</Text>
-          <Text style={styles.description}>{character.recommendations.goodPartners.join(', ')}</Text>
-          
-          <Text style={styles.subTitle}>カウンター</Text>
-          <Text style={styles.description}>{character.recommendations.counters.join(', ')}</Text>
-        </View>
       </View>
     </ScrollView>
   );

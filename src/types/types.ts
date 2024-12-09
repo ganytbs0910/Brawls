@@ -9,7 +9,7 @@ export interface CharacterCompatibility {
   };
 }
 
-export type CharacterRole = 'タンク' | '投擲' | '暗殺者' | 'スナイパー' | 'アタッカー' | 'サポート' | 'コントローラー';
+export type CharacterRole = 'タンク' | 'グレネーディア' | 'アサシン' | 'スナイパー' | 'アタッカー' | 'サポート' | 'コントローラー';
 export type CharacterRarity = 'ノーマル' | 'レア' | 'スーパーレア' | 'エピック' | 'ミシック' | 'レジェンダリー' | 'クロマティック' | 'スターター';
 
 

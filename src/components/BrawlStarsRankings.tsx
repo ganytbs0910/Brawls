@@ -19,8 +19,8 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 const typeNames: Record<string, string> = {
   all: '全体',
   tank: 'タンク',
-  thrower: '投擲',
-  assassin: '暗殺者',
+  thrower: '投げ',
+  assassin: 'アサシン',
   sniper: 'スナイパー',
   attacker: 'アタッカー',
   support: 'サポート',

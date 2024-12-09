@@ -122,34 +122,24 @@ export const nameMap: Record<string, string> = {
 };
 
 export const roleMap: Record<string, string> = {
-  'Tank': 'タンク',
-  'Artillery': '投擲',
-  'アーティラリー': '投擲',
-  'Assassin': '暗殺者',
-  'アサシン': '暗殺者',
-  'Marksman': 'スナイパー',
-  'マークスマン': 'スナイパー',
-  'Damage Dealer': 'アタッカー',
-  'ダメージディーラー': 'アタッカー',
-  'Support': 'サポート',
-  'Controller': 'コントローラー',
-  'コントローラー': 'コントローラー',
-  'Fighter': 'ファイター',
-  'Hybrid': 'ハイブリッド'
+  all: '全体',
+  tank: 'タンク',
+  thrower: 'グレネーディア',
+  assassin: 'アサシン',
+  sniper: 'スナイパー',
+  attacker: 'アタッカー',
+  support: 'サポート',
+  controller: 'コントローラー'
 };
 
 export const rarityMap: Record<string, string> = {
   'Common': 'ノーマル',
   'Rare': 'レア',
   'Super Rare': 'スーパーレア',
-  'Epic': 'エピック',
-  'Mythic': 'ミシック',
+  'Epic': 'ハイパーレア',
+  'Mythic': 'ウルトラレア',
   'Legendary': 'レジェンダリー',
-  'Chromatic': 'クロマティック',
   'Starting': 'スターター',
-  'エピック': 'エピック',
-  'ミシック': 'ミシック',
-  'レジェンダリー': 'レジェンダリー'
 };
 
 export const rankingTypes = [
@@ -179,18 +169,20 @@ let charactersDataCache: Record<string, CharacterData> = {};
 
 const getCharacterType = (className: string): string => {
   const typeMap: Record<string, string> = {
-    'Tank': 'tank',
-    'Artillery': 'thrower',
-    'アーティラリー': 'thrower',
-    'Assassin': 'assassin',
-    'アサシン': 'assassin',
-    'Marksman': 'sniper',
-    'マークスマン': 'sniper',
-    'Damage Dealer': 'attacker',
-    'ダメージディーラー': 'attacker',
-    'Support': 'support',
-    'Controller': 'controller',
-    'コントローラー': 'controller'
+     'Tank': 'tank',
+  'タンク': 'tank',
+  'Artillery': 'thrower',
+  'アーティラリー': 'thrower',
+  'Assassin': 'assassin',
+  'アサシン': 'assassin',
+  'Marksman': 'sniper',
+  'マークスマン': 'sniper',
+  'Damage Dealer': 'attacker',
+  'ダメージディーラー': 'attacker',
+  'Support': 'support',
+  'サポート': 'support',
+  'Controller': 'controller',
+  'コントローラー': 'controller'
   };
   return typeMap[className] || 'all';
 };

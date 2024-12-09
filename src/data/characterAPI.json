@@ -22,7 +22,7 @@
       [
         {
           "id": 23000848,
-          "name": "守護のグリグリ",
+          "name": "グリグリシールド",
           "path": "Guarded-Gris-Gris",
           "version": 1,
           "description": "グリグリは保護シールドと共に召喚されます。"
@@ -450,7 +450,7 @@
 {
  "id": 16000078,
  "avatarId": 28000429,
- "name": "メロディ",
+ "name": "メロディー",
  "path": "Melodie",
  "version": 1,
  "class": {
@@ -499,7 +499,7 @@
 {
   "id": 16000077,
   "avatarId": 28000387,
-  "name": "ラリー＆ローリー",
+  "name": "ラリー&ローリー",
   "path": "Larry-&-Lawrie", 
   "version": 1,
   "class": {
@@ -842,7 +842,7 @@
 {
  "id": 16000070,
  "avatarId": 28000288,
- "name": "コーデリウス",
+ "name": "コーデリアス",
  "path": "Cordelius",
  "version": 1,
  "class": {
@@ -1038,7 +1038,7 @@
 {
  "id": 16000066,
  "avatarId": 28000245,
- "name": "アールティー",
+ "name": "R-T",
  "path": "R-T",
  "version": 1,
  "class": {
@@ -1920,7 +1920,7 @@
 {
  "id": 16000047,
  "avatarId": 28000066,
- "name": "スクイーク",
+ "name": "スクウィーク",
  "path": "Squeak",
  "version": 1,
  "class": {
@@ -2018,7 +2018,7 @@
 {
   "id": 16000045,
   "avatarId": 28000062,
-  "name": "Stu",
+  "name": "ストゥー",
   "path": "Stu",
   "version": 1,
   "class": {
@@ -2468,7 +2468,7 @@
 {
   "id": 16000036,
   "avatarId": 28000052,
-  "name": "ナニ",
+  "name": "ナーニ",
   "path": "Nani",
   "version": 1,
   "class": {
@@ -2718,7 +2718,7 @@
 {
   "id": 16000030,
   "avatarId": 28000045,
-  "name": "エムズ",
+  "name": "Emz",
   "path": "Emz",
   "version": 1,
   "class": {
@@ -2868,7 +2868,7 @@
 {
   "id": 16000027,
   "avatarId": 28000043,
-  "name": "8-ビット",
+  "name": "8ビット",
   "path": "8-Bit",
   "version": 1,
   "class": {
@@ -3018,7 +3018,7 @@
 {
   "id": 16000024,
   "avatarId": 28000040,
-  "name": "ローザ",
+  "name": "ローサ",
   "path": "Rosa",
   "version": 1,
   "class": {
@@ -3218,7 +3218,7 @@
 {
   "id": 16000020,
   "avatarId": 28000036,
-  "name": "フランク",
+  "name": "フランケン",
   "path": "Frank",
   "version": 1,
   "class": {
@@ -3468,7 +3468,7 @@
 {
   "id": 16000015,
   "avatarId": 28000018,
-  "name": "パイパー",
+  "name": "エリザベス",
   "path": "Piper",
   "version": 1,
   "class": {
