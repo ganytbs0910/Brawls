@@ -1,4 +1,3 @@
-// components/CharacterDetails.tsx
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
@@ -67,19 +66,30 @@ const CharacterDetails: React.FC = () => {
           <Text style={styles.description}>{character.superSkill.description}</Text>
         </View>
 
-        {character.gadget1 && (
+        {character.starPowers && character.starPowers.length > 0 && (
           <View style={styles.infoCard}>
-            <Text style={styles.sectionTitle}>ガジェット1</Text>
-            <Text style={styles.skillName}>{character.gadget1.name}</Text>
-            <Text style={styles.description}>{character.gadget1.description}</Text>
+            <Text style={styles.sectionTitle}>スターパワー</Text>
+            {character.starPowers.map((starPower, index) => (
+              <View key={index} style={styles.powerItem}>
+                <Text style={styles.skillName}>{starPower.name}</Text>
+                <Text style={styles.description}>{starPower.description}</Text>
+              </View>
+            ))}
           </View>
         )}
 
-        {character.gadget2 && (
+        {character.gadgets && character.gadgets.length > 0 && (
           <View style={styles.infoCard}>
-            <Text style={styles.sectionTitle}>ガジェット2</Text>
-            <Text style={styles.skillName}>{character.gadget2.name}</Text>
-            <Text style={styles.description}>{character.gadget2.description}</Text>
+            <Text style={styles.sectionTitle}>ガジェット</Text>
+            {character.gadgets.map((gadget, index) => (
+              <View key={index} style={styles.powerItem}>
+                <Text style={styles.skillName}>{gadget.name}</Text>
+                <Text style={styles.description}>{gadget.description}</Text>
+                {gadget.cooldown && (
+                  <Text style={styles.cooldown}>クールダウン: {gadget.cooldown}秒</Text>
+                )}
+              </View>
+            ))}
           </View>
         )}
 
@@ -175,6 +185,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 12,
     marginBottom: 4,
+  },
+  powerItem: {
+    marginBottom: 16,
+    paddingBottom: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+  },
+  cooldown: {
+    fontSize: 14,
+    color: '#666',
+    marginTop: 4,
   },
 });
 
