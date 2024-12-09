@@ -1,119 +1,115 @@
 {
   "list": [
     {
-  "id": 16000087,
-  "avatarId": 28000648,
-  "name": "ジュジュ",
-  "path": "Juju",
-  "fankit": "juju",
-  "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Juju",
-  "class": {
-    "id": 4,
-    "name": "アーティラリー"
-  },
-  "rarity": {
-    "id": 5,
-    "name": "ミシック",
-    "color": "#fe5e72"
-  },
-  "unlock": null,
-  "description": "ジュジュは骨董品店を所有しており、彼女の「ペット」のブードゥー人形グリグリ（グレゴリーと発音）が常に一緒にいます。彼女は自然の要素を操ることができますが、スターパークの多くの訪問者に販売する人形を作る腕の立つ人形作家でもあります。",
-  "descriptionHtml": "ジュジュは骨董品店を所有しており、彼女の「ペット」のブードゥー人形グリグリ（グレゴリーと発音）が常に一緒にいます。彼女は自然の要素を操ることができますが、スターパークの多くの訪問者に販売する人形を作る腕の立つ人形作家でもあります。",
-  "starPowers": [
-    {
-      "id": 23000848,
-      "name": "守護のグリグリ",
-      "path": "Guarded-Gris-Gris",
+      "id": 16000087,
+      "avatarId": 28000648,
+      "name": "ジュジュ",
+      "path": "Juju",
       "version": 1,
-      "description": "グリグリは保護シールドと共に召喚されます。"
+      "class": 
+      {
+        "id": 4,
+        "name": "アーティラリー"
+      },
+      "rarity": 
+      {
+        "id": 5,
+        "name": "ミシック",
+        "color": "#fe5e72"
+      },
+      "description": "ジュジュは骨董品店を所有しており、彼女の「ペット」のブードゥー人形グリグリ（グレゴリーと発音）が常に一緒にいます。彼女は自然の要素を操ることができますが、スターパークの多くの訪問者に販売する人形を作る腕の立つ人形作家でもあります。",
+      "starPowers": 
+      [
+        {
+          "id": 23000848,
+          "name": "守護のグリグリ",
+          "path": "Guarded-Gris-Gris",
+          "version": 1,
+          "description": "グリグリは保護シールドと共に召喚されます。"
+        },
+        {
+          "id": 23000849,
+          "name": "痺れる針",
+          "path": "Numbing-Needles",
+          "version": 1,
+          "description": "グリグリの攻撃は敵を〈VALUE〉秒間減速させるようになります"
+        }
+      ],
+      "gadgets": 
+      [
+        {
+          "id": 23000850,
+          "name": "ブードゥーの子",
+          "path": "Voodoo-Chile",
+          "version": 1,
+          "description": "ジュジュの次のメイン攻撃は3つの要素すべての力を持ちます。"
+        },
+        {
+          "id": 23000851,
+          "name": "エレメンタリスト",
+          "path": "Elementalist",
+          "version": 1,
+          "description": "ジュジュは現在立っている環境に基づいて一時的なバフを得ます。\n土：ダメージ軽減\n草：透明化\n水：移動速度上昇"
+        }
+      ]
+    },     
+    {
+      "id": 16000086,
+      "avatarId": 28000649,
+      "name": "シェイド",
+      "path": "Shade",
+      "version": 1,
+      "class": 
+      {
+        "id": 6,
+        "name": "アサシン"
+      },
+      "rarity": 
+      {
+        "id": 4,
+        "name": "エピック",
+        "color": "#d850ff"
+      },
+      "description": "このクールなサングラスを持つ謎の衣服の束については、あまり知られていません。ガスによって発見され、シェイドと名付けられ、現在は2人の不気味なブローラーがゴーストステーションで一緒に出没しています。",
+      "starPowers": [
+        {
+          "id": 23000832,
+          "name": "幽霊スピードスター",
+          "path": "Spooky-Speedster",
+          "version": 1,
+          "description": "シェイドのメイン攻撃の中心部で敵に命中すると、短時間の移動速度上昇を得ます。"
+        },
+        {
+          "id": 23000833,
+          "name": "硬化パーカー",
+          "path": "Hardened-Hoodie",
+          "version": 1,
+          "description": "霊体化フォーム中、シェイドはx%のダメージ軽減を得ます。"
+        }
+      ],
+      "gadgets": [
+        {
+          "id": 23000834,
+          "name": "長腕",
+          "path": "Longarms",
+          "version": 1,
+          "description": "次のメイン攻撃の射程がx%延長されます。"
+        },
+        {
+          "id": 23000835,
+          "name": "驚かし",
+          "path": "Jump-Scare",
+          "version": 1,
+          "description": "シェイドは近くの敵を驚かせ、x秒間減速させます。"
+        }
+      ]
     },
-    {
-      "id": 23000849,
-      "name": "痺れる針",
-      "path": "Numbing-Needles",
-      "version": 1,
-      "description": "グリグリの攻撃は敵を〈VALUE〉秒間減速させるようになります"
-    }
-  ],
-  "gadgets": [
-    {
-      "id": 23000850,
-      "name": "ブードゥーの子",
-      "path": "Voodoo-Chile",
-      "version": 1,
-      "description": "ジュジュの次のメイン攻撃は3つの要素すべての力を持ちます。"
-    },
-    {
-      "id": 23000851,
-      "name": "エレメンタリスト",
-      "path": "Elementalist",
-      "version": 1,
-      "description": "ジュジュは現在立っている環境に基づいて一時的なバフを得ます。\n土：ダメージ軽減\n草：透明化\n水：移動速度上昇"
-    }
-  ]
-},
-{
-  "id": 16000086,
-  "avatarId": 28000649,
-  "name": "シェイド",
-  "path": "Shade",
-  "fankit": "shade",
-  "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Shade",
-  "class": {
-    "id": 6,
-    "name": "アサシン"
-  },
-  "rarity": {
-    "id": 4,
-    "name": "エピック",
-    "color": "#d850ff"
-  },
-  "unlock": null,
-  "description": "このクールなサングラスを持つ謎の衣服の束については、あまり知られていません。ガスによって発見され、シェイドと名付けられ、現在は2人の不気味なブローラーがゴーストステーションで一緒に出没しています。",
-  "descriptionHtml": "このクールなサングラスを持つ謎の衣服の束については、あまり知られていません。ガスによって発見され、シェイドと名付けられ、現在は2人の不気味なブローラーがゴーストステーションで一緒に出没しています。",
-  "starPowers": [
-    {
-      "id": 23000832,
-      "name": "幽霊スピードスター",
-      "path": "Spooky-Speedster",
-      "version": 1,
-      "description": "シェイドのメイン攻撃の中心部で敵に命中すると、短時間の移動速度上昇を得ます。"
-    },
-    {
-      "id": 23000833,
-      "name": "硬化パーカー",
-      "path": "Hardened-Hoodie",
-      "version": 1,
-      "description": "霊体化フォーム中、シェイドはx%のダメージ軽減を得ます。"
-    }
-  ],
-  "gadgets": [
-    {
-      "id": 23000834,
-      "name": "長腕",
-      "path": "Longarms",
-      "version": 1,
-      "description": "次のメイン攻撃の射程がx%延長されます。"
-    },
-    {
-      "id": 23000835,
-      "name": "驚かし",
-      "path": "Jump-Scare",
-      "version": 1,
-      "description": "シェイドは近くの敵を驚かせ、x秒間減速させます。"
-    }
-  ]
-},
 {
   "id": 16000085,
   "avatarId": 28000593,
   "name": "ケンジ",
   "path": "Kenji",
-  "fankit": "samurai",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Kenji",
   "class": {
     "id": 6,
     "name": "アサシン"
@@ -123,9 +119,7 @@
     "name": "レジェンダリー",
     "color": "#fff11e"
   },
-  "unlock": null,
   "description": "この腕利きの寿司職人は、スターパークでレストランを経営する充実した生活を送っていますが、過去について何か隠しているような感じがします...でも、寿司があまりにも美味しいので、誰も気にしていません！",
-  "descriptionHtml": "この腕利きの寿司職人は、スターパークでレストランを経営する充実した生活を送っていますが、過去について何か隠しているような感じがします...でも、寿司があまりにも美味しいので、誰も気にしていません！",
   "starPowers": [
     {
       "id": 23000815,
@@ -164,9 +158,7 @@
   "avatarId": 28000663,
   "name": "モー",
   "path": "Moe",
-  "fankit": "digger",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Moe",
   "class": {
     "id": 1,
     "name": "ダメージディーラー"
@@ -176,7 +168,6 @@
     "name": "ミシック",
     "color": "#fe5e72"
   },
-  "unlock": null,
   "description": "モーは目の見えないネズミで、グロムによってスターパークの下水道で発見され、すぐに引き取られました！現在はスターパークのメンテナンスチームの一員として、特別な掘削機ドリラーを使って下水道トンネルを移動しています...そして、アッシュの嘆きの種となっているように、公園中で少々の破壊活動も行っています。",
   "starPowers": [
     {
@@ -216,9 +207,7 @@
   "avatarId": 28000531,
   "name": "クランシー",
   "path": "Clancy",
-  "fankit": "clancy",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Clancy",
   "class": {
     "id": 1,
     "name": "ダメージディーラー"
@@ -228,7 +217,6 @@
     "name": "ミシック",
     "color": "#fe5e72"
   },
-  "unlock": null,
   "description": "クランシーには後戻りはありません（ハンクに命令されない限り）。偽の甲殻類の生活を完全に受け入れ、仲間のためなら何でもします。",
   "starPowers": [
     {
@@ -268,9 +256,7 @@
   "avatarId": 28000532,
   "name": "ベリー",
   "path": "Berry",
-  "fankit": "berry",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Berry",
   "class": {
     "id": 7,
     "name": "サポート"
@@ -280,7 +266,6 @@
     "name": "エピック",
     "color": "#d850ff"
   },
-  "unlock": null,
   "description": "マンディのキャンディショップで働くのに何が問題になるでしょうか？全てです！幸いにも、ベリーは働き者の忍耐力とタフさを持っています。仕事の毎秒が嫌いなようですが、シフトの終わりには一瞬の笑顔を見せることがあります。",
   "starPowers": [
     {
@@ -320,9 +305,7 @@
  "avatarId": 28000464,
  "name": "リリー", 
  "path": "Lily",
- "fankit": "lily",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Lily",
  "class": {
    "id": 6,
    "name": "アサシン"
@@ -332,7 +315,6 @@
    "name": "ミシック",
    "color": "#fe5e72"
  },
- "unlock": null,
  "description": "心は根っからのオタクで魔女の知識マニア、リリーの知識欲は彼女を魔法の森へと導き、そこでホタルと食虫植物に関する事件が彼女の人生を永遠に変えることになりました...",
  "starPowers": [
    {
@@ -372,9 +354,7 @@
  "avatarId": 28000465,
  "name": "ドラコ",
  "path": "Draco", 
- "fankit": "draco",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Draco",
  "class": {
    "id": 2,
    "name": "タンク"
@@ -384,7 +364,6 @@
    "name": "レジェンダリー",
    "color": "#fff11e" 
  },
- "unlock": null,
  "description": "空気で膨らむドラゴンに乗り、花火を打ち上げ、ドラコは毎晩ショーストッピングなフィナーレを約束します。エレキギターを轟かせ、炎を吐く乗り物で観客を魅了し、ファンタジーを最高潮に盛り上げます！",
  "starPowers": [
    {
@@ -424,9 +403,7 @@
  "avatarId": 28000430,
  "name": "アンジェロ",
  "path": "Angelo",
- "fankit": "angelo",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Angelo",
  "class": {
    "id": 3,
    "name": "マークスマン"
@@ -436,7 +413,6 @@
    "name": "エピック",
    "color": "#d850ff"
  },
- "unlock": null,
  "description": "アンジェロはラブスワンプの住人で、キューピッドから蚊に変身しました。運河周辺を飛び回り、恋する二人を魅了する魅力を放ち、時には少々とがった刺激も必要とします。",
  "starPowers": [
    {
@@ -476,9 +452,7 @@
  "avatarId": 28000429,
  "name": "メロディ",
  "path": "Melodie",
- "fankit": "melodie",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Melodie",
  "class": {
    "id": 6,
    "name": "アサシン"
@@ -488,7 +462,6 @@
    "name": "ミシック",
    "color": "#fe5e72"
  },
- "unlock": null,
  "description": "カラオケとなると、メロディは容赦しません。カワイイ外見と悪魔的な歌声を武器に、彼女は常に注目の的となります。",
  "starPowers": [
    {
@@ -523,15 +496,12 @@
    }
  ]
 },
-```json
 {
   "id": 16000077,
   "avatarId": 28000387,
   "name": "ラリー＆ローリー",
   "path": "Larry-&-Lawrie", 
-  "fankit": "larry&lawrie",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Larry-&-Lawrie",
   "class": {
     "id": 4,
     "name": "アーティラリー"
@@ -541,7 +511,6 @@
     "name": "エピック",
     "color": "#d850ff"
   },
-  "unlock": null,
   "description": "ラリーは双子の兄弟ローリーの監視の下、スターパークの来場者にチケットを販売しています。ラリーはルールが大好きで、ルールは人生を楽にしてくれます！ローリーはルールそのものよりも、ルールを執行することが好きです。2人は良いチームを組んでいます。",
   "starPowers": [
     {
@@ -581,9 +550,7 @@
   "avatarId": 28000382,
   "name": "キット",
   "path": "Kit",
-  "fankit": "kit", 
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Kit",
   "class": {
     "id": 7,
     "name": "サポート"
@@ -593,7 +560,6 @@
     "name": "レジェンダリー",
     "color": "#fff11e"
   },
-  "unlock": null,
   "description": "スタートゥーンスタジオで熱狂的なファンにサインを求められ続けるカートゥーンスーパースターのキットは、外見ではなく演技力で評価され、業界で再び注目を集められるようになることを夢見ています。",
   "starPowers": [
     {
@@ -633,9 +599,7 @@
   "avatarId": 28000381,
   "name": "ミコ",
   "path": "Mico",
-  "fankit": "mico",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Mico",
   "class": {
     "id": 6,
     "name": "アサシン"
@@ -645,7 +609,6 @@
     "name": "ミシック", 
     "color": "#fe5e72"
   },
-  "unlock": null,
   "description": "ミコはブロールウッドの音響担当ですが、自慢話や有名人の名前を出すので、本人が有名人だと思われても仕方ありません。短気で不安定な性格で、冗談が通じません。決して彼のことを面白いと言わないでください...",
   "starPowers": [
     {
@@ -685,9 +648,7 @@
  "avatarId": 28000333,
  "name": "チャーリー",
  "path": "Charlie",
- "fankit": "charlie",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Charlie",
  "class": {
    "id": 5,
    "name": "コントローラー"
@@ -697,7 +658,6 @@
    "name": "ミシック",
    "color": "#fe5e72"
  },
- "unlock": null,
  "description": "小さな小さなチャーリー\n奇妙なショーを披露した\n髪を下ろして\nあなたのお金を持ち逃げした\n群衆が入ってきて\nサーカステントは満員に\nそしてチャーリーは逃げ出した\n全てのお金を持って！",
  "starPowers": [
    {
@@ -737,9 +697,7 @@
  "avatarId": 28000320,
  "name": "チャック",
  "path": "Chuck",
- "fankit": "chuck",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Chuck",
  "class": {
    "id": 1,
    "name": "ダメージディーラー"
@@ -749,7 +707,6 @@
    "name": "ミシック",
    "color": "#fe5e72"
  },
- "unlock": null,
  "description": "かつての優れた指揮者が、今は列車の運転手として、コンサートホールの交響曲をゴーストステーションの不協和音と交換しました。全ては音楽における次の大きな発見を求めて！",
  "starPowers": [
    {
@@ -789,9 +746,7 @@
  "avatarId": 28000319,
  "name": "パール",
  "path": "Pearl",
- "fankit": "pearl",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Pearl",
  "class": {
    "id": 1,
    "name": "ダメージディーラー"
@@ -801,7 +756,6 @@
    "name": "エピック",
    "color": "#d850ff"
  },
- "unlock": null,
  "description": "予想に反して、パールは彼女の武装解除するような温かい性格のおかげで、ベルとサムの硬い心の中に入り込むことができました。それに、チョコレートクッキーに抵抗できる人がいるでしょうか？",
  "starPowers": [
    {
@@ -841,9 +795,7 @@
  "avatarId": 28000289,
  "name": "ダグ",
  "path": "Doug",
- "fankit": "doug",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Doug",
  "class": {
    "id": 7,
    "name": "サポート"
@@ -853,7 +805,6 @@
    "name": "ミシック",
    "color": "#fe5e72"
  },
- "unlock": null,
  "description": "ダグのホットドッグは友達の賞味期限を延ばしてくれます。",
  "starPowers": [
    {
@@ -893,9 +844,7 @@
  "avatarId": 28000288,
  "name": "コーデリウス",
  "path": "Cordelius",
- "fankit": "cordelius",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Cordelius",
  "class": {
    "id": 6,
    "name": "アサシン"
@@ -905,7 +854,6 @@
    "name": "レジェンダリー", 
    "color": "#fff11e"
  },
- "unlock": null,
  "description": "魔法の森の庭師兼管理人。キノコに取り憑かれており、見知らぬ人に対して敵対的です。",
  "starPowers": [
    {
@@ -945,9 +893,7 @@
  "avatarId": 28000266,
  "name": "ハンク",
  "path": "Hank",
- "fankit": "hank",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Hank",
  "class": {
    "id": 2,
    "name": "タンク"
@@ -957,7 +903,6 @@
    "name": "エピック",
    "color": "#d850ff"
  },
- "unlock": null,
  "description": "ハンクは、世界中のキッチンや市場から海の生き物を解放するという使命を持った一匹のエビによるタンク部隊です。シェフの皆さん、警告を受け取ったと思ってください！",
  "starPowers": [
    {
@@ -997,9 +942,7 @@
  "avatarId": 28000265,
  "name": "メイジー",
  "path": "Maisie",
- "fankit": "maisie",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Maisie",
  "class": {
    "id": 3,
    "name": "マークスマン"
@@ -1009,7 +952,6 @@
    "name": "エピック",
    "color": "#d850ff"
  },
- "unlock": null,
  "description": "メイジーは安全管理者として働いていますが、心の奥底では危険な状況を楽しんでいます。時々、彼女自身がその状況を作り出しているかのように感じることさえあります。",
  "starPowers": [
    {
@@ -1049,9 +991,7 @@
  "avatarId": 28000246,
  "name": "ウィロー",
  "path": "Willow",
- "fankit": "willow",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Willow",
  "class": {
    "id": 5,
    "name": "コントローラー"
@@ -1061,7 +1001,6 @@
    "name": "ミシック",
    "color": "#fe5e72"
  },
- "unlock": null,
  "description": "ウィローはラブスワンプのゴンドラの船頭として働いています。ロマンチックな夜を求めるカップルたちに、想像しうる最も不気味で不安な時間を提供します。",
  "starPowers": [
    {
@@ -1101,9 +1040,7 @@
  "avatarId": 28000245,
  "name": "アールティー",
  "path": "R-T",
- "fankit": "rt",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/R-T",
  "class": {
    "id": 1,
    "name": "ダメージディーラー"
@@ -1113,7 +1050,6 @@
    "name": "ミシック",
    "color": "#fe5e72"
  },
- "unlock": null,
  "description": "アールティーは役立つ情報キオスクとして設計されていますが、安全上の理由からスターパーク内のすべての活動を監視する任務も与えられています。",
  "starPowers": [
    {
@@ -1153,9 +1089,7 @@
  "avatarId": 28000184,
  "name": "マンディ",
  "path": "Mandy",
- "fankit": "mandy",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Mandy",
  "class": {
    "id": 3,
    "name": "マークスマン"
@@ -1165,7 +1099,6 @@
    "name": "エピック",
    "color": "#d850ff"
  },
- "unlock": null,
  "description": "マンディはキャンディストアを経営しており、コスチュームを着て甘いお菓子を配っています。彼女は演技にちょっと入れ込みすぎで、キャンディ王国を鉄の握力で支配しています。",
  "starPowers": [
    {
@@ -1205,9 +1138,7 @@
  "avatarId": 28000183,
  "name": "グレイ",
  "path": "Gray",
- "fankit": "gray",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Gray",
  "class": {
    "id": 7,
    "name": "サポート"
@@ -1217,7 +1148,6 @@
    "name": "ミシック",
    "color": "#fe5e72"
  },
- "unlock": null,
  "description": "グレイは古い無声映画のキャラクターとして自分を演出しています。演技に真剣に取り組んでいますが、指で銃を撃つ時に口を閉じ忘れることがあります。",
  "starPowers": [
    {
@@ -1257,9 +1187,7 @@
  "avatarId": 28000185,
  "name": "チェスター",
  "path": "Chester",
- "fankit": "chester",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Chester",
  "class": {
    "id": 1,
    "name": "ダメージディーラー"
@@ -1269,7 +1197,6 @@
    "name": "レジェンダリー",
    "color": "#fff11e"
  },
- "unlock": null,
  "description": "チェスターは目に付く誰に対しても意地悪な冗談を言い、相手の心を傷つけようとします。憎まれれば憎まれるほど良い...特にその相手がマンディなら最高です！",
  "starPowers": [
    {
@@ -1309,9 +1236,7 @@
  "avatarId": 28000160,
  "name": "バスター",
  "path": "Buster",
- "fankit": "buster",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Buster",
  "class": {
    "id": 2,
    "name": "タンク"
@@ -1321,7 +1246,6 @@
    "name": "ミシック",
    "color": "#fe5e72"
  },
- "unlock": null,
  "description": "バスターは働いている映画館から映写機を持ち出し、小道具のように遊んでいます。危険で非常に不適切な行為です！",
  "starPowers": [
    {
@@ -1361,9 +1285,7 @@
  "avatarId": 28000150,
  "name": "ガス",
  "path": "Gus",
- "fankit": "gus",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Gus",
  "class": {
    "id": 7,
    "name": "サポート"
@@ -1373,7 +1295,6 @@
    "name": "スーパーレア",
    "color": "#5ab3ff"
  },
- "unlock": null,
  "description": "ガスはまるで幽霊の子供のように見えるため、よく幽霊と間違えられます。恐れを知らない純真さのおかげで、彼は超自然的なものすべてに夢中になっているのかもしれません。",
  "starPowers": [
    {
@@ -1413,9 +1334,7 @@
  "avatarId": 28000149,
  "name": "サム",
  "path": "Sam",
- "fankit": "sam", 
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Sam",
  "class": {
    "id": 6,
    "name": "アサシン"
@@ -1425,7 +1344,6 @@
    "name": "エピック",
    "color": "#d850ff"
  },
- "unlock": null,
  "description": "工場労働者から指名手配されているゴールドアームギャングのメンバーとなったサムは、ベルが最新の強盗でやり過ぎないよう常に見守っています！",
  "starPowers": [
    {
@@ -1465,9 +1383,7 @@
  "avatarId": 28000105,
  "name": "オーティス",
  "path": "Otis",
- "fankit": "otis",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Otis",
  "class": {
    "id": 5,
    "name": "コントローラー"  
@@ -1477,7 +1393,6 @@
    "name": "ミシック",
    "color": "#fe5e72"
  },
- "unlock": null,
  "description": "オーティスは壁にインクを撃って作品を作る新進のストリートアーティストです。誰も彼の正体を知らず、それが彼の神秘性を高めています！",
  "starPowers": [
    {
@@ -1517,9 +1432,7 @@
  "avatarId": 28000086,
  "name": "ボニー",
  "path": "Bonnie",
- "fankit": "bonnie",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Bonnie",
  "class": {
    "id": 3,
    "name": "マークスマン"
@@ -1529,7 +1442,6 @@
    "name": "エピック",
    "color": "#d850ff"
  },
- "unlock": null,
  "description": "ボニーは制御不能で完全に破壊的なエネルギーの塊です。彼女の夢は大砲から発射されて月まで行くことです！",
  "starPowers": [
    {
@@ -1569,9 +1481,7 @@
  "avatarId": 28000085,
  "name": "ジャネット",
  "path": "Janet",
- "fankit": "janet",
  "version": 1, 
- "link": "https://brawlify.com/brawlers/detail/Janet",
  "class": {
    "id": 3,
    "name": "マークスマン"
@@ -1581,7 +1491,6 @@
    "name": "ミシック",
    "color": "#fe5e72"
  },
- "unlock": null,
  "description": "ジャネットは頂点に到達するためなら何でもします！おまけに、彼女のパフォーマンススキルは、妹のボニーがトラブルに巻き込まれた時の救助に役立ちます。",
  "starPowers": [
    {
@@ -1621,9 +1530,7 @@
  "avatarId": 28000082,
  "name": "イヴ",
  "path": "Eve",
- "fankit": "eve",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Eve",
  "class": {
    "id": 1,
    "name": "ダメージディーラー"
@@ -1633,7 +1540,6 @@
    "name": "ミシック",
    "color": "#fe5e72"
  },
- "unlock": null,
  "description": "イヴの人生の目的は大切な赤ちゃんたちを育て、守ることです！良い住処を見つけるためなら何でもします...できればラフスの毛皮の中に。",
  "starPowers": [
    {
@@ -1673,9 +1579,7 @@
  "avatarId": 28000081,
  "name": "ファング",
  "path": "Fang",
- "fankit": "fang",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Fang",
  "class": {
    "id": 6,
    "name": "アサシン"
@@ -1685,7 +1589,6 @@
    "name": "ミシック",
    "color": "#fe5e72"
  },
- "unlock": null,
  "description": "ファングはカンフー映画を見すぎて、実際に映画の中で生活しているようなものです。自信に満ち、魅力的で、手を使えるときでも代わりに蹴ることを選びます！",
  "starPowers": [
    {
@@ -1725,9 +1628,7 @@
  "avatarId": 28000075,
  "name": "ローラ",
  "path": "Lola",
- "fankit": "lola",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Lola", 
  "class": {
    "id": 1,
    "name": "ダメージディーラー"
@@ -1737,7 +1638,6 @@
    "name": "エピック",
    "color": "#d850ff"  
  },
- "unlock": null,
  "description": "ローラは部屋に入る時は必ず存在感を示します。自分の望むものを手に入れるため、騒ぎを起こす芸術の達人で、それを誇りにしています！",
  "starPowers": [
    {
@@ -1777,9 +1677,7 @@
  "avatarId": 28000074,
  "name": "メグ",
  "path": "Meg",
- "fankit": "meg",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Meg",
  "class": {
    "id": 2,
    "name": "タンク"
@@ -1789,7 +1687,6 @@
    "name": "レジェンダリー",
    "color": "#fff11e"
  },
- "unlock": null,
  "description": "信頼できるメカスーツと共に舞台裏で働くことに満足しているメグは、マックスとサージが観客を楽しませている間、本当の問題に対処しています。",
  "starPowers": [
    {
@@ -1829,9 +1726,7 @@
  "avatarId": 28000071,
  "name": "アッシュ",
  "path": "Ash",
- "fankit": "ash",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Ash",
  "class": {
    "id": 2,
    "name": "タンク"
@@ -1841,7 +1736,6 @@
    "name": "エピック",
    "color": "#d850ff"
  },
- "unlock": null,
  "description": "アッシュは公園を清潔に保つという感謝されない仕事を持っています。割れたガラスとネズミの噛みつきから身を守るためにゴミ箱に入っています。それが彼を不機嫌にさせています！",
  "starPowers": [
    {
@@ -1881,9 +1775,7 @@
  "avatarId": 28000068,
  "name": "グリフ",
  "path": "Griff",
- "fankit": "griff",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Griff",
  "class": {
    "id": 5,
    "name": "コントローラー"
@@ -1893,7 +1785,6 @@
    "name": "エピック",
    "color": "#d850ff"
  },
- "unlock": null,
  "description": "グリフは裕福で成功した起業家のように振る舞いますが、彼の経営するのは失敗続きのスターパークギフトショップだけです。奇妙なことに、銀行から電話がある時は決して姿を見せません。",
  "starPowers": [
    {
@@ -1933,9 +1824,7 @@
  "avatarId": 28000067,
  "name": "バズ",
  "path": "Buzz",
- "fankit": "buzz",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Buzz",
  "class": {
    "id": 6,
    "name": "アサシン"
@@ -1945,7 +1834,6 @@
    "name": "ミシック",
    "color": "#fe5e72"
  },
- "unlock": null,
  "description": "バズはベロシラピッズウォーターパークのライフガードで、ルールに厳格な人物です。彼は明らかに、持っているわずかな権限を最大限に振るうことを楽しんでいます。",
  "starPowers": [
    {
@@ -1985,9 +1873,7 @@
  "avatarId": 28000080,
  "name": "グロム",
  "path": "Grom",
- "fankit": "grom",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Grom",
  "class": {
    "id": 4,
    "name": "アーティラリー"
@@ -1997,7 +1883,6 @@
    "name": "エピック",
    "color": "#d850ff"
  },
- "unlock": null,
  "description": "グロムは屈強な警備員で、唯一の弱点は幼稚園で働いていた時の flashback です。あの子供たちは容赦なかったのです。",
  "starPowers": [
    {
@@ -2037,9 +1922,7 @@
  "avatarId": 28000066,
  "name": "スクイーク",
  "path": "Squeak",
- "fankit": "squeak",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Squeak",
  "class": {
    "id": 5,
    "name": "コントローラー"
@@ -2049,7 +1932,6 @@
    "name": "ミシック", 
    "color": "#fe5e72"
  },
- "unlock": null,
  "description": "スクイークは創造主のラフスを愛する幸せなエネルギーの塊です。彼と一緒にいるのは楽しいことですが、それは少なくとも、彼が犬のよだれでできているということを知らない場合に限ります。",
  "starPowers": [
    {
@@ -2089,9 +1971,7 @@
  "avatarId": 28000065,
  "name": "ベル",
  "path": "Belle",
- "fankit": "belle",
  "version": 1,
- "link": "https://brawlify.com/brawlers/detail/Belle",
  "class": {
    "id": 3,
    "name": "マークスマン"
@@ -2101,7 +1981,6 @@
    "name": "エピック",
    "color": "#d850ff"
  },
- "unlock": null,
  "description": "悪名高いゴールドアームギャングのリーダー、ベルはお金以上のものを追い求めています。彼女はスターパークの真実を突き止め、それを倒すことを望んでいます！",
  "starPowers": [
    {
@@ -2141,9 +2020,7 @@
   "avatarId": 28000062,
   "name": "Stu",
   "path": "Stu",
-  "fankit": "stu",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Stu",
   "class": {
     "id": 6,
     "name": "アサシン"
@@ -2153,27 +2030,21 @@
     "name": "エピック",
     "color": "#d850ff"
   },
-  "unlock": null,
   "description": "長年のスタント演技のキャリアで、あまりにも多くの衝突、打撲、ガソリンの煙を浴びすぎたため、スチューは最近車輪の上でふらつきがちです。",
-  "descriptionHtml": "長年のスタント演技のキャリアで、あまりにも多くの衝突、打撲、ガソリンの煙を浴びすぎたため、スチューは最近車輪の上でふらつきがちです。",
   "starPowers": [
     {
       "id": 23000362,
       "name": "ゼロ抵抗",
       "path": "Zero-Drag",
       "version": 1,
-      "description": "スチューのニトロブーストスーパーのダッシュ距離がx%増加します。",
-      "descriptionHtml": "スチューのニトロブーストスーパーのダッシュ距離が\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E増加します。",
-      "released": true
+      "description": "スチューのニトロブーストスーパーのダッシュ距離がx%増加します。"
     },
     {
       "id": 23000363,
       "name": "ガソリン回復",
       "path": "Gaso-Heal",
       "version": 1,
-      "description": "ニトロブーストスーパーを使用するとスチューの体力がx回復します。",
-      "descriptionHtml": "ニトロブーストスーパーを使用するとスチューの体力が\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E回復します。",
-      "released": true
+      "description": "ニトロブーストスーパーを使用するとスチューの体力がx回復します。"
     }
   ],
   "gadgets": [
@@ -2182,18 +2053,14 @@
       "name": "スピードゾーン",
       "path": "Speed-Zone",
       "version": 1,
-      "description": "スチューはブースターを設置し、その効果範囲内にいる自身、チームメイト、その他の味方の移動速度を上昇させます。",
-      "descriptionHtml": "スチューはブースターを設置し、その効果範囲内にいる自身、チームメイト、その他の味方の移動速度を上昇させます。",
-      "released": true
+      "description": "スチューはブースターを設置し、その効果範囲内にいる自身、チームメイト、その他の味方の移動速度を上昇させます。"
     },
     {
       "id": 23000401,
       "name": "ブレイクスルー",
       "path": "Breakthrough",
       "version": 1,
-      "description": "スチューの次のスーパーは障害物を突き破り、破片を前方に飛ばします。各破片は当たった敵にxダメージを与えます。",
-      "descriptionHtml": "スチューの次のスーパーは障害物を突き破り、破片を前方に飛ばします。各破片は当たった敵に\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージを与えます。",
-      "released": true
+      "description": "スチューの次のスーパーは障害物を突き破り、破片を前方に飛ばします。各破片は当たった敵にxダメージを与えます。"
     }
   ],
   "videos": []
@@ -2203,9 +2070,7 @@
   "avatarId": 28000059,
   "name": "ラフス",
   "path": "Ruffs",
-  "fankit": "ruffs",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Ruffs",
   "class": {
     "id": 7,
     "name": "サポート"
@@ -2215,27 +2080,21 @@
     "name": "ミシック",
     "color": "#fe5e72"
   },
-  "unlock": null,
   "description": "ラフスは忠実で規律正しい宇宙大佐で、厳格な船の運営とすべてを規則通りに行います。でも心の奥底では、ただ良い子でいたいだけなのです！",
-  "descriptionHtml": "ラフスは忠実で規律正しい宇宙大佐で、厳格な船の運営とすべてを規則通りに行います。でも心の奥底では、ただ良い子でいたいだけなのです！",
   "starPowers": [
     {
       "id": 23000345,
       "name": "制空権",
       "path": "Air-Superiority",
       "version": 1,
-      "description": "補給投下に爆弾が追加され、ドロップのダメージがx%増加し、壁も破壊できるようになります。",
-      "descriptionHtml": "補給投下に爆弾が追加され、ドロップのダメージが\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E増加し、壁も破壊できるようになります。",
-      "released": true
+      "description": "補給投下に爆弾が追加され、ドロップのダメージがx%増加し、壁も破壊できるようになります。"
     },
     {
       "id": 23000346,
       "name": "臨時昇進",
       "path": "Field-Promotion",
       "version": 1,
-      "description": "この能力が有効な間、範囲内の味方ブローラーの最大体力が毎秒x増加します。",
-      "descriptionHtml": "この能力が有効な間、範囲内の味方ブローラーの最大体力が毎秒\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E増加します。",
-      "released": true
+      "description": "この能力が有効な間、範囲内の味方ブローラーの最大体力が毎秒x増加します。"
     }
   ],
   "gadgets": [
@@ -2244,18 +2103,14 @@
       "name": "掩護",
       "path": "Take-Cover",
       "version": 1,
-      "description": "ラフスは掩護用の土嚢をx個設置します。各土嚢はラフスの最大体力のx%を持ちます。",
-      "descriptionHtml": "ラフスは掩護用の土嚢を\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E個設置します。各土嚢はラフスの最大体力の\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003Eを持ちます。",
-      "released": true
+      "description": "ラフスは掩護用の土嚢をx個設置します。各土嚢はラフスの最大体力のx%を持ちます。"
     },
     {
       "id": 23000402,
       "name": "空中支援",
       "path": "Air-Support",
       "version": 1,
-      "description": "ラフスは最も近い敵の周りに弾幕を呼び寄せ、各ヒットでxダメージを与えます。",
-      "descriptionHtml": "ラフスは最も近い敵の周りに弾幕を呼び寄せ、各ヒットで\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージを与えます。",
-      "released": true
+      "description": "ラフスは最も近い敵の周りに弾幕を呼び寄せ、各ヒットでxダメージを与えます。"
     }
   ],
   "videos": []
@@ -2265,9 +2120,7 @@
   "avatarId": 28000058,
   "name": "エドガー",
   "path": "Edgar",
-  "fankit": "edgar",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Edgar",
   "class": {
     "id": 6,
     "name": "アサシン"
@@ -2277,27 +2130,21 @@
     "name": "エピック",
     "color": "#d850ff"
   },
-  "unlock": null,
   "description": "エドガーは誰も自分のことを理解していないと信じています。特に母親は、これは一時的な段階だと考えています。彼の魂の闇が永遠のものだと知っているのは、彼だけなのです。",
-  "descriptionHtml": "エドガーは誰も自分のことを理解していないと信じています。特に母親は、これは一時的な段階だと考えています。彼の魂の闇が永遠のものだと知っているのは、彼だけなのです。",
   "starPowers": [
     {
       "id": 23000338,
       "name": "ハードランディング",
       "path": "Hard-Landing",
       "version": 1,
-      "description": "エドガーのスーパーは着地時に近くの敵にxダメージも与えます。",
-      "descriptionHtml": "エドガーのスーパーは着地時に近くの敵に\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージも与えます。",
-      "released": true
+      "description": "エドガーのスーパーは着地時に近くの敵にxダメージも与えます。"
     },
     {
       "id": 23000339,
       "name": "格闘技",
       "path": "Fisticuffs",
       "version": 1,
-      "description": "エドガーが与えたダメージからの回復量がx%増加します。",
-      "descriptionHtml": "エドガーが与えたダメージからの回復量が\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E増加します。",
-      "released": true
+      "description": "エドガーが与えたダメージからの回復量がx%増加します。"
     }
   ],
   "gadgets": [
@@ -2306,18 +2153,14 @@
       "name": "飛翔",
       "path": "Lets-Fly",
       "version": 1,
-      "description": "エドガーのスーパーのチャージ速度が、x秒間x%上昇します。",
-      "descriptionHtml": "エドガーのスーパーのチャージ速度が、\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E上昇します。",
-      "released": true
+      "description": "エドガーのスーパーのチャージ速度が、x秒間x%上昇します。"
     },
     {
       "id": 23000403,
       "name": "ハードコア",
       "path": "Hardcore",
       "version": 1,
-      "description": "エドガーは次のxダメージから保護するシールドを獲得します。シールドは時間とともに弱くなります。",
-      "descriptionHtml": "エドガーは次の\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージから保護するシールドを獲得します。シールドは時間とともに弱くなります。",
-      "released": true
+      "description": "エドガーは次のxダメージから保護するシールドを獲得します。シールドは時間とともに弱くなります。"
     }
   ],
   "videos": []
@@ -2327,9 +2170,7 @@
   "avatarId": 28000057,
   "name": "バイロン",
   "path": "Byron",
-  "fankit": "byron",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Byron",
   "class": {
     "id": 7,
     "name": "サポート"
@@ -2339,27 +2180,21 @@
     "name": "ミシック",
     "color": "#fe5e72"
   },
-  "unlock": null,
   "description": "バイロンは様々な方法で治療したり害を与えたりする多くの調合薬や薬用酒を発明しました...でもそのほとんどは害を与える方に分類されます。",
-  "descriptionHtml": "バイロンは様々な方法で治療したり害を与えたりする多くの調合薬や薬用酒を発明しました...でもそのほとんどは害を与える方に分類されます。",
   "starPowers": [
     {
       "id": 23000331,
       "name": "不調",
       "path": "Malaise",
       "version": 1,
-      "description": "バイロンのスーパーは、敵がx秒間あらゆる源からの回復量をx%減少させる効果も追加します。",
-      "descriptionHtml": "バイロンのスーパーは、敵が\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間あらゆる源からの回復量を\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E減少させる効果も追加します。",
-      "released": true
+      "description": "バイロンのスーパーは、敵がx秒間あらゆる源からの回復量をx%減少させる効果も追加します。"
     },
     {
       "id": 23000332,
       "name": "注射",
       "path": "Injection",
       "version": 1,
-      "description": "x秒ごとに、次の通常攻撃が対象を貫通します。",
-      "descriptionHtml": "Every \u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒ごとに、次の通常攻撃が対象を貫通します。",
-      "released": true
+      "description": "x秒ごとに、次の通常攻撃が対象を貫通します。"
     }
   ],
   "gadgets": [
@@ -2368,18 +2203,14 @@
       "name": "腕への注射",
       "path": "Shot-In-The-Arm",
       "version": 1,
-      "description": "バイロンは自身の弾を1つ使用して、x秒間毎秒x回復します。",
-      "descriptionHtml": "バイロンは自身の弾を1つ使用して、\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間毎秒\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E回復します。",
-      "released": true
+      "description": "バイロンは自身の弾を1つ使用して、x秒間毎秒x回復します。"
     },
     {
       "id": 23000461,
       "name": "ブースターショット",
       "path": "Booster-Shots",
       "version": 1,
-      "description": "バイロンの次の攻撃は1発の代わりにx発の矢を放ち、それぞれのダメージと回復量がx%減少します。",
-      "descriptionHtml": "バイロンの次の攻撃は1発の代わりに\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E発の矢を放ち、それぞれのダメージと回復量が\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E減少します。",
-      "released": true
+      "description": "バイロンの次の攻撃は1発の代わりにx発の矢を放ち、それぞれのダメージと回復量がx%減少します。"
     }
   ],
   "videos": []
@@ -2389,9 +2220,7 @@
   "avatarId": 28000056,
   "name": "ルー",
   "path": "Lou",
-  "fankit": "lou",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Lou",
   "class": {
     "id": 5,
     "name": "コントローラー"
@@ -2401,27 +2230,21 @@
     "name": "ミシック",
     "color": "#fe5e72"
   },
-  "unlock": null,
   "description": "ルーはまだ一度も売り上げのないロボットのかき氷販売員です。雪山の頂上に店を構えているのが原因かもしれません。",
-  "descriptionHtml": "ルーはまだ一度も売り上げのないロボットのかき氷販売員です。雪山の頂上に店を構えているのが原因かもしれません。",
   "starPowers": [
     {
       "id": 23000324,
       "name": "スーパークール",
       "path": "Supercool",
       "version": 1,
-      "description": "ルーのスーパーの範囲内にいる敵は、x%早く凍結します。",
-      "descriptionHtml": "ルーのスーパーの範囲内にいる敵は、\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E早く凍結します。",
-      "released": true
+      "description": "ルーのスーパーの範囲内にいる敵は、x%早く凍結します。"
     },
     {
       "id": 23000325,
       "name": "低体温症",
       "path": "Hypothermia",
       "version": 1,
-      "description": "敵は、ルーの攻撃による凍結度に応じて最大x%のダメージを失います。",
-      "descriptionHtml": "敵は、ルーの攻撃による凍結度に応じて最大\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003Eのダメージを失います。",
-      "released": true
+      "description": "敵は、ルーの攻撃による凍結度に応じて最大x%のダメージを失います。"
     }
   ],
   "gadgets": [
@@ -2430,18 +2253,14 @@
       "name": "アイスブロック",
       "path": "Ice-Block",
       "version": 1,
-      "description": "ルーは氷で身を守り、x秒間無敵になります。",
-      "descriptionHtml": "ルーは氷で身を守り、\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間無敵になります。",
-      "released": true
+      "description": "ルーは氷で身を守り、x秒間無敵になります。"
     },
     {
       "id": 23000400,
       "name": "クライオシロップ",
       "path": "Cryo-Syrup",
       "version": 1,
-      "description": "ルーのスーパー内にいる敵の凍結メーターを即座にx%上昇させます。",
-      "descriptionHtml": "ルーのスーパー内にいる敵の凍結メーターを即座に\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E上昇させます。",
-      "released": true
+      "description": "ルーのスーパー内にいる敵の凍結メーターを即座にx%上昇させます。"
     }
   ],
   "videos": []
@@ -2451,9 +2270,7 @@
   "avatarId": 28000055,
   "name": "アンバー",
   "path": "Amber",
-  "fankit": "amber",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Amber",
   "class": {
     "id": 5,
     "name": "コントローラー"
@@ -2463,25 +2280,21 @@
     "name": "レジェンダリー",
     "color": "#fff11e"
   },
-  "unlock": null,
   "description": "アンバーは文字通り熱を持ち込みます！少し不器用なのにも関わらず、自身の火の能力に自信過剰です。彼女にとっては、安全よりも見せ場が大事なのです。",
-  "descriptionHtml": "アンバーは文字通り熱を持ち込みます！少し不器用なのにも関わらず、自身の火の能力に自信過剰です。彼女にとっては、安全よりも見せ場が大事なのです。",
   "starPowers": [
     {
       "id": 23000307,
       "name": "暴走する炎",
       "path": "Wild-Flames",
       "version": 1,
-      "description": "アンバーは地面に2つの燃料たまりを同時に作ることができ、その近くにいる時にスーパーを自動的にチャージします。",
-      "descriptionHtml": "アンバーは地面に2つの燃料たまりを同時に作ることができ、その近くにいる時にスーパーを自動的にチャージします。"
+      "description": "アンバーは地面に2つの燃料たまりを同時に作ることができ、その近くにいる時にスーパーを自動的にチャージします。"
     },
     {
       "id": 23000308,
       "name": "灼熱サイフォン",
       "path": "Scorchin-Siphon",
       "version": 1,
-      "description": "火炎液体の水たまりの近くにいる時、アンバーは火炎放射のリロードがx%速くなります。",
-      "descriptionHtml": "火炎液体の水たまりの近くにいる時、アンバーは火炎放射のリロードが\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E速くなります。"
+      "description": "火炎液体の水たまりの近くにいる時、アンバーは火炎放射のリロードがx%速くなります。"
     }
   ],
   "gadgets": [
@@ -2490,16 +2303,14 @@
       "name": "着火装置",
       "path": "Fire-Starters",
       "version": 1,
-      "description": "アンバーはx秒間速く走り、その間火炎液体を撒き散らし、後から着火することができます。",
-      "descriptionHtml": "アンバーは\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間速く走り、その間火炎液体を撒き散らし、後から着火することができます。"
+      "description": "アンバーはx秒間速く走り、その間火炎液体を撒き散らし、後から着火することができます。"
     },
     {
       "id": 23000488,
       "name": "ダンシングフレイム",
       "path": "Dancing-Flames",
       "version": 1,
-      "description": "アンバーはx秒間、自身の周りにx個の炎を軌道上に作り出し、ヒットするとxダメージを与えます。",
-      "descriptionHtml": "アンバーは\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間、自身の周りに\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E個の炎を軌道上に作り出し、ヒットすると\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージを与えます。"
+      "description": "アンバーはx秒間、自身の周りにx個の炎を軌道上に作り出し、ヒットするとxダメージを与えます。"
     }
   ],
   "videos": []
@@ -2509,9 +2320,7 @@
   "avatarId": 28000054,
   "name": "コレット",
   "path": "Colette",
-  "fankit": "colette",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Colette",
   "class": {
     "id": 1,
     "name": "ダメージディーラー"
@@ -2521,25 +2330,21 @@
     "name": "エピック",
     "color": "#d850ff"
   },
-  "unlock": null,
   "description": "コレットはすべてのブローラーのフィギュア、ぬいぐるみ、おもちゃを集めています。彼女は執着していますか？はい。現実との接点を失っていますか？それもはい。",
-  "descriptionHtml": "コレットはすべてのブローラーのフィギュア、ぬいぐるみ、おもちゃを集めています。彼女は執着していますか？はい。現実との接点を失っていますか？それもはい。",
   "starPowers": [
     {
       "id": 23000300,
       "name": "押し込め！",
       "path": "Push-It",
       "version": 1,
-      "description": "コレットのチャージに当たった敵ブローラーは全て、攻撃の最も遠い地点まで運ばれます！",
-      "descriptionHtml": "コレットのチャージに当たった敵ブローラーは全て、攻撃の最も遠い地点まで運ばれます！"
+      "description": "コレットのチャージに当たった敵ブローラーは全て、攻撃の最も遠い地点まで運ばれます！"
     },
     {
       "id": 23000301,
       "name": "集団課税",
       "path": "Mass-Tax",
       "version": 1,
-      "description": "コレットのスーパーは、x秒間x%のシールドを与えます。当たった敵ブローラー1体につきx%の追加防御力を得ます。",
-      "descriptionHtml": "コレットのスーパーは、\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003Eのシールドを与えます。当たった敵ブローラー1体につき\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003Eの追加防御力を得ます。"
+      "description": "コレットのスーパーは、x秒間x%のシールドを与えます。当たった敵ブローラー1体につきx%の追加防御力を得ます。"
     }
   ],
   "gadgets": [
@@ -2548,16 +2353,14 @@
       "name": "ダメよ",
       "path": "Na-Ah",
       "version": 1,
-      "description": "コレットの次の攻撃は追加でxダメージを与えます。",
-      "descriptionHtml": "コレットの次の攻撃は追加で\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージを与えます。"
+      "description": "コレットの次の攻撃は追加でxダメージを与えます。"
     },
     {
       "id": 23000457,
       "name": "捕まえた！",
       "path": "Gotcha",
       "version": 1,
-      "description": "発動時、コレットの攻撃はx秒間、与えたダメージのx%分を回復します。",
-      "descriptionHtml": "発動時、コレットの攻撃は\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間、与えたダメージの\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E分を回復します。"
+      "description": "発動時、コレットの攻撃はx秒間、与えたダメージのx%分を回復します。"
     }
   ],
   "videos": []
@@ -2567,9 +2370,7 @@
   "avatarId": 28000053,
   "name": "サージ",
   "path": "Surge",
-  "fankit": "surge",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Surge",
   "class": {
     "id": 1,
     "name": "ダメージディーラー"
@@ -2579,25 +2380,21 @@
     "name": "レジェンダリー",
     "color": "#fff11e"
   },
-  "unlock": null,
   "description": "サージはいつでもパーティーを始める準備ができているパワーアップしたソーダファウンテンです！ビート、ムーブ、そして尽きることのないエネルギードリンクを持っています。",
-  "descriptionHtml": "サージはいつでもパーティーを始める準備ができているパワーアップしたソーダファウンテンです！ビート、ムーブ、そして尽きることのないエネルギードリンクを持っています。",
   "starPowers": [
     {
       "id": 23000283,
       "name": "最大まで",
       "path": "To-The-Max",
       "version": 1,
-      "description": "サージの通常攻撃が壁に当たると分裂するようになります。",
-      "descriptionHtml": "サージの通常攻撃が壁に当たると分裂するようになります。"
+      "description": "サージの通常攻撃が壁に当たると分裂するようになります。"
     },
     {
       "id": 23000284,
       "name": "アイスコールド提供",
       "path": "Serve-Ice-Cold",
       "version": 1,
-      "description": "サージは試合中ずっとステージ1のスーパーアップグレードを維持します。",
-      "descriptionHtml": "サージは試合中ずっとステージ1のスーパーアップグレードを維持します。"
+      "description": "サージは試合中ずっとステージ1のスーパーアップグレードを維持します。"
     }
   ],
   "gadgets": [
@@ -2606,16 +2403,14 @@
       "name": "パワーサージ",
       "path": "Power-Surge",
       "version": 1,
-      "description": "サージは回路を過負荷にし、x秒間アップグレードステージをx上昇させます。",
-      "descriptionHtml": "サージは回路を過負荷にし、\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間アップグレードステージを\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E上昇させます。"
+      "description": "サージは回路を過負荷にし、x秒間アップグレードステージをx上昇させます。"
     },
     {
       "id": 23000485,
       "name": "パワーシールド",
       "path": "Power-Shield",
       "version": 1,
-      "description": "次のx秒以内に、サージは次に受けるダメージのx%を吸収し、そのエネルギーでx弾薬をリロードします。",
-      "descriptionHtml": "次の\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒以内に、サージは次に受けるダメージの\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003Eを吸収し、そのエネルギーで\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E弾薬をリロードします。"
+      "description": "次のx秒以内に、サージは次に受けるダメージのx%を吸収し、そのエネルギーでx弾薬をリロードします。"
     }
   ],
   "videos": []
@@ -2625,9 +2420,7 @@
   "avatarId": 28000050,
   "name": "スプラウト",
   "path": "Sprout",
-  "fankit": "sprout",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Sprout",
   "class": {
     "id": 4,
     "name": "アーティラリー"
@@ -2637,25 +2430,21 @@
     "name": "ミシック",
     "color": "#fe5e72"
   },
-  "unlock": null,
   "description": "スプラウトは一見ローザのバイオドームを手伝う可愛い園芸ロボットに見えますが、実は奇妙なピンクの種のための腕と車輪付きの培養器なのです！",
-  "descriptionHtml": "スプラウトは一見ローザのバイオドームを手伝う可愛い園芸ロボットに見えますが、実は奇妙なピンクの種のための腕と車輪付きの培養器なのです！",
   "starPowers": [
     {
       "id": 23000240,
       "name": "過成長",
       "path": "Overgrowth",
       "version": 1,
-      "description": "x秒ごとに、次のシードボムがより大きな爆発範囲で炸裂します。",
-      "descriptionHtml": "x秒ごとに、次のシードボムがより大きな爆発範囲で炸裂します。"
+      "description": "x秒ごとに、次のシードボムがより大きな爆発範囲で炸裂します。"
     },
     {
       "id": 23000241,
       "name": "光合成",
       "path": "Photosynthesis",
       "version": 1,
-      "description": "スプラウトは茂みの中にいる間、全ての攻撃から部分的に身を守るシールドを発動します。",
-      "descriptionHtml": "スプラウトは茂みの中にいる間、全ての攻撃から部分的に身を守るシールドを発動します。"
+      "description": "スプラウトは茂みの中にいる間、全ての攻撃から部分的に身を守るシールドを発動します。"
     }
   ],
   "gadgets": [
@@ -2664,16 +2453,14 @@
       "name": "ガーデンマルチ",
       "path": "Garden-Mulcher",
       "version": 1,
-      "description": "スプラウトは茂みを消費してx体力を回復します。",
-      "descriptionHtml": "スプラウトは茂みを消費して\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E体力を回復します。"
+      "description": "スプラウトは茂みを消費してx体力を回復します。"
     },
     {
       "id": 23000315,
       "name": "移植",
       "path": "Transplant",
       "version": 1,
-      "description": "スプラウトは現在の生垣を破壊しますが、即座にスーパーが完全チャージされます。",
-      "descriptionHtml": "スプラウトは現在の生垣を破壊しますが、即座にスーパーが完全チャージされます。"
+      "description": "スプラウトは現在の生垣を破壊しますが、即座にスーパーが完全チャージされます。"
     }
   ],
   "videos": []
@@ -2683,9 +2470,7 @@
   "avatarId": 28000052,
   "name": "ナニ",
   "path": "Nani",
-  "fankit": "nani",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Nani",
   "class": {
     "id": 3,
     "name": "マークスマン"
@@ -2695,25 +2480,21 @@
     "name": "エピック",
     "color": "#d850ff"
   },
-  "unlock": null,
   "description": "元々は防犯カメラだったナニは、ジェシーの監視のために改造されました。残念ながら、この早熟な少女に付いていくのがやっとです！",
-  "descriptionHtml": "元々は防犯カメラだったナニは、ジェシーの監視のために改造されました。残念ながら、この早熟な少女に付いていくのがやっとです！",
   "starPowers": [
     {
       "id": 23000234,
       "name": "オートフォーカス",
       "path": "Autofocus",
       "version": 1,
-      "description": "ピープは移動距離に応じて最大x追加ダメージを与えます。",
-      "descriptionHtml": "ピープは移動距離に応じて最大\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E追加ダメージを与えます。"
+      "description": "ピープは移動距離に応じて最大x追加ダメージを与えます。"
     },
     {
       "id": 23000235,
       "name": "強化スチール",
       "path": "Tempered-Steel",
       "version": 1,
-      "description": "ナニはスーパー発動中、受けるダメージがx%減少します。",
-      "descriptionHtml": "ナニはスーパー発動中、受けるダメージが\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E減少します。"
+      "description": "ナニはスーパー発動中、受けるダメージがx%減少します。"
     }
   ],
   "gadgets": [
@@ -2722,16 +2503,14 @@
       "name": "ワープタイム",
       "path": "Warpin-Time",
       "version": 1,
-      "description": "ナニはピープの最後の位置にテレポートし、スーパーを終了します。",
-      "descriptionHtml": "ナニはピープの最後の位置にテレポートし、スーパーを終了します。"
+      "description": "ナニはピープの最後の位置にテレポートし、スーパーを終了します。"
     },
     {
       "id": 23000353,
       "name": "リターントゥーセンダー",
       "path": "Return-To-Sender",
       "version": 1,
-      "description": "次のx秒間、ナニが敵から最初に受けたダメージのx%を敵に跳ね返します。",
-      "descriptionHtml": "次の\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間、ナニが敵から最初に受けたダメージの\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003Eを敵に跳ね返します。"
+      "description": "次のx秒間、ナニが敵から最初に受けたダメージのx%を敵に跳ね返します。"
     }
   ],
   "videos": []
@@ -2741,9 +2520,7 @@
   "avatarId": 28000051,
   "name": "ゲイル",
   "path": "Gale",
-  "fankit": "gale",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Gale",
   "class": {
     "id": 5,
     "name": "コントローラー"
@@ -2753,25 +2530,21 @@
     "name": "エピック",
     "color": "#d850ff"
   },
-  "unlock": null,
   "description": "ゲイルの仕事は除雪機を使ってミスターPのスノーテル周辺の除雪をすることです。ただし、お客様がいる時は作業を止めるとは言われていませんでした...",
-  "descriptionHtml": "ゲイルの仕事は除雪機を使ってミスターPのスノーテル周辺の除雪をすることです。ただし、お客様がいる時は作業を止めるとは言われていませんでした...",
   "starPowers": [
     {
       "id": 23000228,
       "name": "吹雪の一撃",
       "path": "Blustery-Blow",
       "version": 1,
-      "description": "ゲイルのスーパーで敵が障害物に押し付けられると、x秒間スタンさせるようになります。",
-      "descriptionHtml": "ゲイルのスーパーで敵が障害物に押し付けられると、\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間スタンさせるようになります。"
+      "description": "ゲイルのスーパーで敵が障害物に押し付けられると、x秒間スタンさせるようになります。"
     },
     {
       "id": 23000229,
       "name": "凍らせる雪",
       "path": "Freezing-Snow",
       "version": 1,
-      "description": "ゲイルの雪玉が敵をx秒間スローにするようになります。",
-      "descriptionHtml": "ゲイルの雪玉が敵を\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間スローにするようになります。"
+      "description": "ゲイルの雪玉が敵をx秒間スローにするようになります。"
     }
   ],
   "gadgets": [
@@ -2780,16 +2553,14 @@
       "name": "スプリングイジェクター",
       "path": "Spring-Ejector",
       "version": 1,
-      "description": "ゲイルは足元にジャンプパッドを設置し、味方も敵も空中に打ち上げます。",
-      "descriptionHtml": "ゲイルは足元にジャンプパッドを設置し、味方も敵も空中に打ち上げます。"
+      "description": "ゲイルは足元にジャンプパッドを設置し、味方も敵も空中に打ち上げます。"
     },
     {
       "id": 23000407,
       "name": "ツイスター",
       "path": "Twister",
       "version": 1,
-      "description": "ゲイルはリーフブロワーを使用して局所的な竜巻を作り出し、通り抜けようとする敵を押し返します。",
-      "descriptionHtml": "ゲイルはリーフブロワーを使用して局所的な竜巻を作り出し、通り抜けようとする敵を押し返します。"
+      "description": "ゲイルはリーフブロワーを使用して局所的な竜巻を作り出し、通り抜けようとする敵を押し返します。"
     }
   ],
   "videos": []
@@ -2799,9 +2570,7 @@
   "avatarId": 28000049,
   "name": "ジャッキー",
   "path": "Jacky",
-  "fankit": "jacky",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Jacky",
   "class": {
     "id": 2,
     "name": "タンク"
@@ -2811,25 +2580,21 @@
     "name": "スーパーレア",
     "color": "#5ab3ff"
   },
-  "unlock": null,
   "description": "ジャッキーは過激な言葉を使って自分の荒々しい仕事の経験を語らずにはいられない鉱夫です！幸い、その悪態は削岩機の騒音でかき消されています。",
-  "descriptionHtml": "ジャッキーは過激な言葉を使って自分の荒々しい仕事の経験を語らずにはいられない鉱夫です！幸い、その悪態は削岩機の騒音でかき消されています。",
   "starPowers": [
     {
       "id": 23000222,
       "name": "カウンタークラッシュ",
       "path": "Counter-Crush",
       "version": 1,
-      "description": "ダメージを受けた時、ジャッキーはそのダメージのx%をグラウンドブレイカーの反撃として返します。",
-      "descriptionHtml": "ダメージを受けた時、ジャッキーはそのダメージの\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003Eをグラウンドブレイカーの反撃として返します。"
+      "description": "ダメージを受けた時、ジャッキーはそのダメージのx%をグラウンドブレイカーの反撃として返します。"
     },
     {
       "id": 23000223,
       "name": "頑丈なヘルメット",
       "path": "Hardy-Hard-Hat",
       "version": 1,
-      "description": "ジャッキーのヘルメットは受けるダメージをx%軽減します。",
-      "descriptionHtml": "ジャッキーのヘルメットは受けるダメージを\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E軽減します。"
+      "description": "ジャッキーのヘルメットは受けるダメージをx%軽減します。"
     }
   ],
   "gadgets": [
@@ -2838,16 +2603,14 @@
       "name": "空気圧ブースター",
       "path": "Pneumatic-Booster",
       "version": 1,
-      "description": "ジャッキーは勢いを得て、x秒間移動速度がx%上昇します。",
-      "descriptionHtml": "ジャッキーは勢いを得て、\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間移動速度が\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E上昇します。"
+      "description": "ジャッキーは勢いを得て、x秒間移動速度がx%上昇します。"
     },
     {
       "id": 23000486,
       "name": "再建",
       "path": "Rebuild",
       "version": 1,
-      "description": "ジャッキーは自分の周りの小さな範囲の環境を再構築します。",
-      "descriptionHtml": "ジャッキーは自分の周りの小さな範囲の環境を再構築します。"
+      "description": "ジャッキーは自分の周りの小さな範囲の環境を再構築します。"
     }
   ],
   "videos": []
@@ -2857,9 +2620,7 @@
   "avatarId": 28000047,
   "name": "マックス",
   "path": "Max",
-  "fankit": "max",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Max",
   "class": {
     "id": 7,
     "name": "サポート"
@@ -2869,25 +2630,21 @@
     "name": "ミシック",
     "color": "#fe5e72"
   },
-  "unlock": null,
   "description": "エネルギードリンクを燃料に、誰かが助けを必要とする場面に急行するマックス。多くのことはできませんが...とにかく速いです！",
-  "descriptionHtml": "エネルギードリンクを燃料に、誰かが助けを必要とする場面に急行するマックス。多くのことはできませんが...とにかく速いです！",
   "starPowers": [
     {
       "id": 23000210,
       "name": "スーパーチャージ",
       "path": "Super-Charged",
       "version": 1,
-      "description": "マックスは移動中にスーパーをチャージできるようになります。",
-      "descriptionHtml": "マックスは移動中にスーパーをチャージできるようになります。"
+      "description": "マックスは移動中にスーパーをチャージできるようになります。"
     },
     {
       "id": 23000211,
       "name": "走って撃て",
       "path": "Run-N-Gun",
       "version": 1,
-      "description": "マックスは移動中のリロードが速くなります。",
-      "descriptionHtml": "マックスは移動中のリロードが速くなります。"
+      "description": "マックスは移動中のリロードが速くなります。"
     }
   ],
   "gadgets": [
@@ -2896,16 +2653,14 @@
       "name": "フェーズシフター",
       "path": "Phase-Shifter",
       "version": 1,
-      "description": "マックスは前方にダッシュし、ダッシュ中は敵からのすべてのダメージを無効化します。",
-      "descriptionHtml": "マックスは前方にダッシュし、ダッシュ中は敵からのすべてのダメージを無効化します。"
+      "description": "マックスは前方にダッシュし、ダッシュ中は敵からのすべてのダメージを無効化します。"
     },
     {
       "id": 23000311,
       "name": "スニーキースニーカーズ",
       "path": "Sneaky-Sneakers",
       "version": 1,
-      "description": "マックスはx秒後に選んだ場所に瞬間移動し、その間に受けたダメージを回復します。",
-      "descriptionHtml": "マックスは\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒後に選んだ場所に瞬間移動し、その間に受けたダメージを回復します。"
+      "description": "マックスはx秒後に選んだ場所に瞬間移動し、その間に受けたダメージを回復します。"
     }
   ],
   "videos": []
@@ -2915,9 +2670,7 @@
   "avatarId": 28000048,
   "name": "ミスターP",
   "path": "Mr-P",
-  "fankit": "mr.p",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Mr-P",
   "class": {
     "id": 5,
     "name": "コントローラー"
@@ -2927,25 +2680,21 @@
     "name": "ミシック",
     "color": "#fe5e72"
   },
-  "unlock": null,
   "description": "ミスターPはホテル経営で手一杯です。まるで彼の意味不明な言葉が理解できるかのように、従業員たちにもっと早く働けと怒鳴りつけています！",
-  "descriptionHtml": "ミスターPはホテル経営で手一杯です。まるで彼の意味不明な言葉が理解できるかのように、従業員たちにもっと早く働けと怒鳴りつけています！",
   "starPowers": [
     {
       "id": 23000204,
       "name": "丁寧な取り扱い",
       "path": "Handle-With-Care",
       "version": 1,
-      "description": "x秒ごとに、ミスターPの次の詰め込みすぎたスーツケースの爆発ダメージがx%増加します。",
-      "descriptionHtml": "x秒ごとに、ミスターPの次の詰め込みすぎたスーツケースの爆発ダメージが\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E増加します。"
+      "description": "x秒ごとに、ミスターPの次の詰め込みすぎたスーツケースの爆発ダメージがx%増加します。"
     },
     {
       "id": 23000205,
       "name": "回転ドア",
       "path": "Revolving-Door",
       "version": 1,
-      "description": "本拠地から出現するすべてのロボポーターの体力がx%、ダメージがx%増加します。",
-      "descriptionHtml": "本拠地から出現するすべてのロボポーターの体力が\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E、ダメージが\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E増加します。"
+      "description": "本拠地から出現するすべてのロボポーターの体力がx%、ダメージがx%増加します。"
     }
   ],
   "gadgets": [
@@ -2954,16 +2703,14 @@
       "name": "サービスベル",
       "path": "Service-Bell",
       "version": 1,
-      "description": "ミスターPは現在のポーターのダメージをx、体力をx増加させます。",
-      "descriptionHtml": "ミスターPは現在のポーターのダメージを\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E、体力を\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E増加させます。"
+      "description": "ミスターPは現在のポーターのダメージをx、体力をx増加させます。"
     },
     {
       "id": 23000349,
       "name": "ポーター増援",
       "path": "Porter-Reinforcements",
       "version": 1,
-      "description": "次の攻撃が着弾地点に弱いポーターを召喚します。",
-      "descriptionHtml": "次の攻撃が着弾地点に弱いポーターを召喚します。"
+      "description": "次の攻撃が着弾地点に弱いポーターを召喚します。"
     }
   ],
   "videos": []
@@ -2973,9 +2720,7 @@
   "avatarId": 28000045,
   "name": "エムズ",
   "path": "Emz",
-  "fankit": "emz",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Emz",
   "class": {
     "id": 5,
     "name": "コントローラー"
@@ -2985,25 +2730,21 @@
     "name": "エピック",
     "color": "#d850ff"
   },
-  "unlock": null,
   "description": "エムズは叔父のモーティスの霊安室で働いているはずですが、ほとんど姿を見せません。自分のヘアスプレーブランドをオンラインで売り込むのに忙しすぎるのです。",
-  "descriptionHtml": "エムズは叔父のモーティスの霊安室で働いているはずですが、ほとんど姿を見せません。自分のヘアスプレーブランドをオンラインで売り込むのに忙しすぎるのです。",
   "starPowers": [
     {
       "id": 23000198,
       "name": "バッドカルマ",
       "path": "Bad-Karma",
       "version": 1,
-      "description": "エムズの毒性ヘアスプレーの雲の中にとどまる敵は、ヒットごとにx%ずつ増加するダメージを受けます。",
-      "descriptionHtml": "エムズの毒性ヘアスプレーの雲の中にとどまる敵は、ヒットごとに\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003Eずつ増加するダメージを受けます。"
+      "description": "エムズの毒性ヘアスプレーの雲の中にとどまる敵は、ヒットごとにx%ずつ増加するダメージを受けます。"
     },
     {
       "id": 23000199,
       "name": "ハイプ",
       "path": "Hype",
       "version": 1,
-      "description": "エムズはスーパーの効果範囲内にいる敵ブローラー1体につき毎秒x体力を回復します。",
-      "descriptionHtml": "エムズはスーパーの効果範囲内にいる敵ブローラー1体につき毎秒\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E体力を回復します。"
+      "description": "エムズはスーパーの効果範囲内にいる敵ブローラー1体につき毎秒x体力を回復します。"
     }
   ],
   "gadgets": [
@@ -3012,16 +2753,14 @@
       "name": "フレンドゾーナー",
       "path": "Friendzoner",
       "version": 1,
-      "description": "エムズは周囲の敵を押し返し、同時にxダメージを与えます。",
-      "descriptionHtml": "エムズは周囲の敵を押し返し、同時に\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージを与えます。"
+      "description": "エムズは周囲の敵を押し返し、同時にxダメージを与えます。"
     },
     {
       "id": 23000459,
       "name": "アシッドスプレー",
       "path": "Acid-Spray",
       "version": 1,
-      "description": "エムズの次のヘアスプレーの噴射は壁を貫通できますが、ダメージがx%減少します。",
-      "descriptionHtml": "エムズの次のヘアスプレーの噴射は壁を貫通できますが、ダメージが\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E減少します。"
+      "description": "エムズの次のヘアスプレーの噴射は壁を貫通できますが、ダメージがx%減少します。"
     }
   ],
   "videos": []
@@ -3031,9 +2770,7 @@
   "avatarId": 28000046,
   "name": "ビー",
   "path": "Bea",
-  "fankit": "bea",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Bea",
   "class": {
     "id": 3,
     "name": "マークスマン"
@@ -3043,25 +2780,21 @@
     "name": "エピック",
     "color": "#d850ff"
   },
-  "unlock": null,
   "description": "ビーは虫たちの生活を観察して過ごし、もし彼らの言葉が理解できたら何を言うのか...あるいは虫になるとはどんな感じなのかを想像しています。",
-  "descriptionHtml": "ビーは虫たちの生活を観察して過ごし、もし彼らの言葉が理解できたら何を言うのか...あるいは虫になるとはどんな感じなのかを想像しています。",
   "starPowers": [
     {
       "id": 23000192,
       "name": "インスタントビーロード",
       "path": "Insta-Beaload",
       "version": 1,
-      "description": "スーパーチャージ弾を外した場合、一度だけビーのビッグスティングが即座にスーパーチャージされます。",
-      "descriptionHtml": "スーパーチャージ弾を外した場合、一度だけビーのビッグスティングが即座にスーパーチャージされます。"
+      "description": "スーパーチャージ弾を外した場合、一度だけビーのビッグスティングが即座にスーパーチャージされます。"
     },
     {
       "id": 23000193,
       "name": "ハニカム",
       "path": "Honeycomb",
       "version": 1,
-      "description": "ビッグスティングがスーパーチャージされている間、ビーはx%のシールドを得ます。",
-      "descriptionHtml": "ビッグスティングがスーパーチャージされている間、ビーは\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003Eのシールドを得ます。"
+      "description": "ビッグスティングがスーパーチャージされている間、ビーはx%のシールドを得ます。"
     }
   ],
   "gadgets": [
@@ -3070,16 +2803,14 @@
       "name": "ハニーモラセス",
       "path": "Honey-Molasses",
       "version": 1,
-      "description": "ビーは周囲に粘着性のはちみつが飛び散る巣箱を設置します。はちみつを踏んだ敵の移動速度が低下します。",
-      "descriptionHtml": "ビーは周囲に粘着性のはちみつが飛び散る巣箱を設置します。はちみつを踏んだ敵の移動速度が低下します。"
+      "description": "ビーは周囲に粘着性のはちみつが飛び散る巣箱を設置します。はちみつを踏んだ敵の移動速度が低下します。"
     },
     {
       "id": 23000312,
       "name": "怒れる巣箱",
       "path": "Rattled-Hive",
       "version": 1,
-      "description": "ビーはx匹の怒ったミツバチを放ち、遠くに行くほど多くのダメージ（最大xダメージ）を与えます。",
-      "descriptionHtml": "ビーは\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E匹の怒ったミツバチを放ち、遠くに行くほど多くのダメージ（最大\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージ）を与えます。"
+      "description": "ビーはx匹の怒ったミツバチを放ち、遠くに行くほど多くのダメージ（最大xダメージ）を与えます。"
     }
   ],
   "videos": []
@@ -3089,9 +2820,7 @@
   "avatarId": 28000044,
   "name": "サンディ",
   "path": "Sandy",
-  "fankit": "sandy",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Sandy",
   "class": {
     "id": 5,
     "name": "コントローラー"
@@ -3101,25 +2830,21 @@
     "name": "レジェンダリー",
     "color": "#fff11e"
   },
-  "unlock": null,
   "description": "サンディが稀に目を覚ますと、お姉さんのタラの店の手伝いをしようとします。でもすぐにまた眠りに落ちてしまうのです。",
-  "descriptionHtml": "サンディが稀に目を覚ますと、お姉さんのタラの店の手伝いをしようとします。でもすぐにまた眠りに落ちてしまうのです。",
   "starPowers": [
     {
       "id": 23000186,
       "name": "荒れ狂う砂",
       "path": "Rude-Sands",
       "version": 1,
-      "description": "砂嵐が敵に毎秒xダメージを与えるようになります。",
-      "descriptionHtml": "砂嵐が敵に毎秒\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージを与えるようになります。"
+      "description": "砂嵐が敵に毎秒xダメージを与えるようになります。"
     },
     {
       "id": 23000187,
       "name": "癒しの風",
       "path": "Healing-Winds",
       "version": 1,
-      "description": "砂嵐が味方ブローラーの体力を毎秒x回復するようになります。",
-      "descriptionHtml": "砂嵐が味方ブローラーの体力を毎秒\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E回復するようになります。"
+      "description": "砂嵐が味方ブローラーの体力を毎秒x回復するようになります。"
     }
   ],
   "gadgets": [
@@ -3128,16 +2853,14 @@
       "name": "睡眠スティミュレーター",
       "path": "Sleep-Stimulator",
       "version": 1,
-      "description": "サンディはx秒間眠り、体力が完全に回復します。",
-      "descriptionHtml": "サンディは\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間眠り、体力が完全に回復します。"
+      "description": "サンディはx秒間眠り、体力が完全に回復します。"
     },
     {
       "id": 23000405,
       "name": "スイートドリーム",
       "path": "Sweet-Dreams",
       "version": 1,
-      "description": "サンディの次の攻撃は敵をx秒間眠らせます。ただし、ダメージを受けると目を覚まします。",
-      "descriptionHtml": "サンディの次の攻撃は敵を\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間眠らせます。ただし、ダメージを受けると目を覚まします。"
+      "description": "サンディの次の攻撃は敵をx秒間眠らせます。ただし、ダメージを受けると目を覚まします。"
     }
   ],
   "videos": []
@@ -3147,9 +2870,7 @@
   "avatarId": 28000043,
   "name": "8-ビット",
   "path": "8-Bit",
-  "fankit": "8bit",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/8-Bit",
   "class": {
     "id": 1,
     "name": "ダメージディーラー"
@@ -3159,25 +2880,21 @@
     "name": "スーパーレア",
     "color": "#5ab3ff"
   },
-  "unlock": null,
   "description": "その過酷な難易度で有名なアーケードゲーム、8-ビットは常にプレイヤーを嫌っていました。今は銃の1つを失い、以前にも増して怒っています。",
-  "descriptionHtml": "その過酷な難易度で有名なアーケードゲーム、8-ビットは常にプレイヤーを嫌っていました。今は銃の1つを失い、以前にも増して怒っています。",
   "starPowers": [
     {
       "id": 23000168,
       "name": "強化ブースター",
       "path": "Boosted-Booster",
       "version": 1,
-      "description": "ダメージブースターの範囲がx%増加し、ダメージボーナスが追加でx%上昇します。",
-      "descriptionHtml": "ダメージブースターの範囲が\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E増加し、ダメージボーナスが追加で\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E上昇します。"
+      "description": "ダメージブースターの範囲がx%増加し、ダメージボーナスが追加でx%上昇します。"
     },
     {
       "id": 23000181,
       "name": "プラグイン",
       "path": "Plugged-In",
       "version": 1,
-      "description": "8-ビットがダメージブースターの近くにいる時、プラグインして移動速度が上昇します。",
-      "descriptionHtml": "8-ビットがダメージブースターの近くにいる時、プラグインして移動速度が上昇します。"
+      "description": "8-ビットがダメージブースターの近くにいる時、プラグインして移動速度が上昇します。"
     }
   ],
   "gadgets": [
@@ -3186,16 +2903,14 @@
       "name": "チートカートリッジ",
       "path": "Cheat-Cartridge",
       "version": 1,
-      "description": "8-ビットは即座にダメージブースターにテレポートします。",
-      "descriptionHtml": "8-ビットは即座にダメージブースターにテレポートします。"
+      "description": "8-ビットは即座にダメージブースターにテレポートします。"
     },
     {
       "id": 23000318,
       "name": "エクストラクレジット",
       "path": "Extra-Credits",
       "version": 1,
-      "description": "8-ビットの次の攻撃の発射弾数がx発に増加します。",
-      "descriptionHtml": "8-ビットの次の攻撃の発射弾数が\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E発に増加します。"
+      "description": "8-ビットの次の攻撃の発射弾数がx発に増加します。"
     }
   ],
   "videos": []
@@ -3205,9 +2920,7 @@
   "avatarId": 28000041,
   "name": "ビビ",
   "path": "Bibi",
-  "fankit": "bibi",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Bibi",
   "class": {
     "id": 2,
     "name": "タンク"
@@ -3217,25 +2930,21 @@
     "name": "エピック",
     "color": "#d850ff"
   },
-  "unlock": null,
   "description": "ビビは野球バットを持った気の強いパンクです。実は少しオタクな一面もありますが、決して見せません。イメージを保たなければならないのです！",
-  "descriptionHtml": "ビビは野球バットを持った気の強いパンクです。実は少しオタクな一面もありますが、決して見せません。イメージを保たなければならないのです！",
   "starPowers": [
     {
       "id": 23000134,
       "name": "ホームラン",
       "path": "Home-Run",
       "version": 1,
-      "description": "ホームランゲージが満タンの時、ビビの移動速度がx%上昇します。",
-      "descriptionHtml": "ホームランゲージが満タンの時、ビビの移動速度が\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E上昇します。"
+      "description": "ホームランゲージが満タンの時、ビビの移動速度がx%上昇します。"
     },
     {
       "id": 23000146,
       "name": "バッティングスタンス",
       "path": "Batting-Stance",
       "version": 1,
-      "description": "ホームランゲージが満タンの時、ビビはすべてのダメージをx%軽減します。",
-      "descriptionHtml": "ホームランゲージが満タンの時、ビビはすべてのダメージを\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E軽減します。"
+      "description": "ホームランゲージが満タンの時、ビビはすべてのダメージをx%軽減します。"
     }
   ],
   "gadgets": [
@@ -3244,16 +2953,14 @@
       "name": "ビタミンブースター",
       "path": "Vitamin-Booster",
       "version": 1,
-      "description": "ビビはx秒間、毎秒x体力を回復します。",
-      "descriptionHtml": "ビビは\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間、毎秒\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E体力を回復します。"
+      "description": "ビビはx秒間、毎秒x体力を回復します。"
     },
     {
       "id": 23000458,
       "name": "エクストラスティッキー",
       "path": "Extra-Sticky",
       "version": 1,
-      "description": "ビビの次の唾玉は当たった敵をx秒間スローにします！",
-      "descriptionHtml": "ビビの次の唾玉は当たった敵を\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間スローにします！"
+      "description": "ビビの次の唾玉は当たった敵をx秒間スローにします！"
     }
   ],
   "videos": []
@@ -3263,9 +2970,7 @@
   "avatarId": 28000039,
   "name": "カール",
   "path": "Carl",
-  "fankit": "carl",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Carl",
   "class": {
     "id": 1,
     "name": "ダメージディーラー"
@@ -3275,25 +2980,21 @@
     "name": "スーパーレア",
     "color": "#5ab3ff"
   },
-  "unlock": null,
   "description": "カールはあらゆる種類の岩や石に魅了される採掘ロボットです。彼の最新の執着、ジェムの効果について話をさせないようにしましょう！",
-  "descriptionHtml": "カールはあらゆる種類の岩や石に魅了される採掘ロボットです。彼の最新の執着、ジェムの効果について話をさせないようにしましょう！",
   "starPowers": [
     {
       "id": 23000129,
       "name": "パワースロー",
       "path": "Power-Throw",
       "version": 1,
-      "description": "カールのツルハシの投げ速度がx%上昇し、より速く往復できます。",
-      "descriptionHtml": "カールのツルハシの投げ速度が\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E上昇し、より速く往復できます。"
+      "description": "カールのツルハシの投げ速度がx%上昇し、より速く往復できます。"
     },
     {
       "id": 23000145,
       "name": "防御ピルエット",
       "path": "Protective-Pirouette",
       "version": 1,
-      "description": "カールのスーパー中、受けるダメージがx%減少します。",
-      "descriptionHtml": "カールのスーパー中、受けるダメージが\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E減少します。"
+      "description": "カールのスーパー中、受けるダメージがx%減少します。"
     }
   ],
   "gadgets": [
@@ -3302,16 +3003,14 @@
       "name": "ヒートイジェクター",
       "path": "Heat-Ejector",
       "version": 1,
-      "description": "次に投げるツルハシは後ろに熱い岩の跡を残します！触れた敵は炎上し、毎秒xダメージを受けます。",
-      "descriptionHtml": "次に投げるツルハシは後ろに熱い岩の跡を残します！触れた敵は炎上し、毎秒\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージを受けます。"
+      "description": "次に投げるツルハシは後ろに熱い岩の跡を残します！触れた敵は炎上し、毎秒xダメージを受けます。"
     },
     {
       "id": 23000317,
       "name": "フライングフック",
       "path": "Flying-Hook",
       "version": 1,
-      "description": "カールの次の攻撃で、ツルハシは攻撃の最遠点まで彼を引っ張ります。",
-      "descriptionHtml": "カールの次の攻撃で、ツルハシは攻撃の最遠点まで彼を引っ張ります。"
+      "description": "カールの次の攻撃で、ツルハシは攻撃の最遠点まで彼を引っ張ります。"
     }
   ],
   "videos": []
@@ -3321,9 +3020,7 @@
   "avatarId": 28000040,
   "name": "ローザ",
   "path": "Rosa",
-  "fankit": "rosa",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Rosa",
   "class": {
     "id": 2,
     "name": "タンク"
@@ -3333,25 +3030,21 @@
     "name": "レア",
     "color": "#68fd58"
   },
-  "unlock": null,
   "description": "ローザは植物との強い絆を持つ植物学者です。彼女はボクサーでもあり、実験体が制御不能になった時は躊躇なくパンチを食らわせます！",
-  "descriptionHtml": "ローザは植物との強い絆を持つ植物学者です。彼女はボクサーでもあり、実験体が制御不能になった時は躊躇なくパンチを食らわせます！",
   "starPowers": [
     {
       "id": 23000124,
       "name": "プラントライフ",
       "path": "Plant-Life",
       "version": 1,
-      "description": "茂みの中にいる時、ローザは毎秒x体力を回復します。",
-      "descriptionHtml": "茂みの中にいる時、ローザは毎秒\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E体力を回復します。"
+      "description": "茂みの中にいる時、ローザは毎秒x体力を回復します。"
     },
     {
       "id": 23000147,
       "name": "トゲのグローブ",
       "path": "Thorny-Gloves",
       "version": 1,
-      "description": "スーパー発動中、ローザのパンチのダメージが+x増加します。",
-      "descriptionHtml": "スーパー発動中、ローザのパンチのダメージが\u003Cspan style=\"color:#00cc00;\"\u003E+x\u003C/span\u003E増加します。"
+      "description": "スーパー発動中、ローザのパンチのダメージが+x増加します。"
     }
   ],
   "gadgets": [
@@ -3360,16 +3053,14 @@
       "name": "グロウライト",
       "path": "Grow-Light",
       "version": 1,
-      "description": "ローザは周囲の地面を肥沃にし、即座に茂みを生やして優れた隠れ場所を作り出します。",
-      "descriptionHtml": "ローザは周囲の地面を肥沃にし、即座に茂みを生やして優れた隠れ場所を作り出します。"
+      "description": "ローザは周囲の地面を肥沃にし、即座に茂みを生やして優れた隠れ場所を作り出します。"
     },
     {
       "id": 23000348,
       "name": "不快な茂み",
       "path": "Unfriendly-Bushes",
       "version": 1,
-      "description": "茂みに隠れているすべての敵にxダメージを与え、x秒間スローにします。",
-      "descriptionHtml": "茂みに隠れているすべての敵に\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージを与え、\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間スローにします。"
+      "description": "茂みに隠れているすべての敵にxダメージを与え、x秒間スローにします。"
     }
   ],
   "videos": []
@@ -3379,9 +3070,7 @@
   "avatarId": 28000037,
   "name": "レオン",
   "path": "Leon",
-  "fankit": "leon",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Leon",
   "class": {
     "id": 6,
     "name": "アサシン"
@@ -3391,25 +3080,21 @@
     "name": "レジェンダリー",
     "color": "#fff11e"
   },
-  "unlock": null,
   "description": "レオンは他人と一緒にいるのが好きではないため、透明になる能力が重宝します。妹のニタだけが、彼と心を通わせることができるようです。",
-  "descriptionHtml": "レオンは他人と一緒にいるのが好きではないため、透明になる能力が重宝します。妹のニタだけが、彼と心を通わせることができるようです。",
   "starPowers": [
     {
       "id": 23000119,
       "name": "スモークトレイル",
       "path": "Smoke-Trails",
       "version": 1,
-      "description": "レオンがスーパーを使用すると、透明化している間移動速度がx%上昇します。",
-      "descriptionHtml": "レオンがスーパーを使用すると、透明化している間移動速度が\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E上昇します。"
+      "description": "レオンがスーパーを使用すると、透明化している間移動速度がx%上昇します。"
     },
     {
       "id": 23000141,
       "name": "インビジヒール",
       "path": "Invisiheal",
       "version": 1,
-      "description": "スーパー発動中、レオンは毎秒x体力を回復します。",
-      "descriptionHtml": "スーパー発動中、レオンは毎秒\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E体力を回復します。"
+      "description": "スーパー発動中、レオンは毎秒x体力を回復します。"
     }
   ],
   "gadgets": [
@@ -3418,16 +3103,14 @@
       "name": "クローンプロジェクター",
       "path": "Clone-Projector",
       "version": 1,
-      "description": "レオンは敵を惑わすために自身の幻影を作り出します。",
-      "descriptionHtml": "レオンは敵を惑わすために自身の幻影を作り出します。"
+      "description": "レオンは敵を惑わすために自身の幻影を作り出します。"
     },
     {
       "id": 23000408,
       "name": "ロリポップドロップ",
       "path": "Lollipop-Drop",
       "version": 1,
-      "description": "レオンはチーム全体が隠れることができるステルスエリアを作り出します。ロリポップは時間とともにゆっくりと体力が減少します。",
-      "descriptionHtml": "レオンはチーム全体が隠れることができるステルスエリアを作り出します。ロリポップは時間とともにゆっくりと体力が減少します。"
+      "description": "レオンはチーム全体が隠れることができるステルスエリアを作り出します。ロリポップは時間とともにゆっくりと体力が減少します。"
     }
   ],
   "videos": []
@@ -3437,9 +3120,7 @@
   "avatarId": 28000042,
   "name": "ティック",
   "path": "Tick",
-  "fankit": "tick",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Tick",
   "class": {
     "id": 4,
     "name": "アーティラリー"
@@ -3449,25 +3130,21 @@
     "name": "スーパーレア",
     "color": "#5ab3ff"
   },
-  "unlock": null,
   "description": "ティックはペニーが次の大きな計画を立てる間、ペットのように彼女について回ります。物を爆破する以外はあまり役に立ちませんが、それで十分なのです！",
-  "descriptionHtml": "ティックはペニーが次の大きな計画を立てる間、ペットのように彼女について回ります。物を爆破する以外はあまり役に立ちませんが、それで十分なのです！",
   "starPowers": [
     {
       "id": 23000114,
       "name": "メンテナンス済み",
       "path": "Well-Oiled",
       "version": 1,
-      "description": "ティックがダメージを受けず攻撃もしていない時、通常よりx秒早く体力の回復を開始します。",
-      "descriptionHtml": "ティックがダメージを受けず攻撃もしていない時、通常より\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒早く体力の回復を開始します。"
+      "description": "ティックがダメージを受けず攻撃もしていない時、通常よりx秒早く体力の回復を開始します。"
     },
     {
       "id": 23000161,
       "name": "オートマティックリロード",
       "path": "Automa-Tick-Reload",
       "version": 1,
-      "description": "ティックのリロード時間がx%短くなります。",
-      "descriptionHtml": "ティックのリロード時間が\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E短くなります。"
+      "description": "ティックのリロード時間がx%短くなります。"
     }
   ],
   "gadgets": [
@@ -3476,16 +3153,14 @@
       "name": "マインマニア",
       "path": "Mine-Mania",
       "version": 1,
-      "description": "ティックの次の攻撃でx個の地雷を発射します。",
-      "descriptionHtml": "ティックの次の攻撃で\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E個の地雷を発射します。"
+      "description": "ティックの次の攻撃でx個の地雷を発射します。"
     },
     {
       "id": 23000355,
       "name": "ラストフーラー",
       "path": "Last-Hurrah",
       "version": 1,
-      "description": "ティックはx秒間x%のシールドを得ます。その後、爆発してxダメージを与えます。",
-      "descriptionHtml": "ティックは\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003Eのシールドを得ます。その後、爆発して\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージを与えます。"
+      "description": "ティックはx秒間x%のシールドを得ます。その後、爆発してxダメージを与えます。"
     }
   ],
   "videos": []
@@ -3495,9 +3170,7 @@
   "avatarId": 28000038,
   "name": "ジーン",
   "path": "Gene",
-  "fankit": "gene",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Gene",
   "class": {
     "id": 5,
     "name": "コントローラー"
@@ -3507,25 +3180,21 @@
     "name": "ミシック",
     "color": "#fe5e72"
   },
-  "unlock": null,
   "description": "ほとんどの人はジーンを衣装を着た面白い小さな男として見ていますが、実は彼の人格は体とティーポットの間で分裂しているのです。",
-  "descriptionHtml": "ほとんどの人はジーンを衣装を着た面白い小さな男として見ていますが、実は彼の人格は体とティーポットの間で分裂しているのです。",
   "starPowers": [
     {
       "id": 23000109,
       "name": "マジックパフ",
       "path": "Magic-Puffs",
       "version": 1,
-      "description": "ジーンは周囲の味方ブローラーの体力を毎秒x回復します。",
-      "descriptionHtml": "ジーンは周囲の味方ブローラーの体力を毎秒\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E回復します。"
+      "description": "ジーンは周囲の味方ブローラーの体力を毎秒x回復します。"
     },
     {
       "id": 23000159,
       "name": "スピリットスラップ",
       "path": "Spirit-Slap",
       "version": 1,
-      "description": "ジーンのマジックハンドはヒット時にxダメージを与えるようになります。",
-      "descriptionHtml": "ジーンのマジックハンドはヒット時に\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージを与えるようになります。"
+      "description": "ジーンのマジックハンドはヒット時にxダメージを与えるようになります。"
     }
   ],
   "gadgets": [
@@ -3534,16 +3203,14 @@
       "name": "ランプブローアウト",
       "path": "Lamp-Blowout",
       "version": 1,
-      "description": "ジーンの近くの敵を即座に押し返します。範囲内に敵ブローラーが1体でもいる場合、ジーンは最大体力のx%を回復します。",
-      "descriptionHtml": "ジーンの近くの敵を即座に押し返します。範囲内に敵ブローラーが1体でもいる場合、ジーンは最大体力の\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003Eを回復します。"
+      "description": "ジーンの近くの敵を即座に押し返します。範囲内に敵ブローラーが1体でもいる場合、ジーンは最大体力のx%を回復します。"
     },
     {
       "id": 23000352,
       "name": "復讐の霊",
       "path": "Vengeful-Spirits",
       "version": 1,
-      "description": "ジーンは広範囲内の見える敵全てに追尾ミサイルを発射し、距離に応じて最大xダメージを与えます。",
-      "descriptionHtml": "ジーンは広範囲内の見える敵全てに追尾ミサイルを発射し、距離に応じて最大\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージを与えます。"
+      "description": "ジーンは広範囲内の見える敵全てに追尾ミサイルを発射し、距離に応じて最大xダメージを与えます。"
     }
   ],
   "videos": []
@@ -3553,9 +3220,7 @@
   "avatarId": 28000036,
   "name": "フランク",
   "path": "Frank",
-  "fankit": "frank",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Frank",
   "class": {
     "id": 2,
     "name": "タンク"
@@ -3565,25 +3230,21 @@
     "name": "エピック",
     "color": "#d850ff"
   },
-  "unlock": null,
   "description": "フランクは善良な巨人で、昼は霊安室を手伝い、夜はクラブでDJをしています。あまり睡眠を取れていませんが、それが見た目に出ています。",
-  "descriptionHtml": "フランクは善良な巨人で、昼は霊安室を手伝い、夜はクラブでDJをしています。あまり睡眠を取れていませんが、それが見た目に出ています。",
   "starPowers": [
     {
       "id": 23000104,
       "name": "パワーグラブ",
       "path": "Power-Grab",
       "version": 1,
-      "description": "フランクは倒したブローラーのパワーを奪い、x秒間ダメージがx%上昇します！",
-      "descriptionHtml": "フランクは倒したブローラーのパワーを奪い、\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間ダメージが\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E上昇します！"
+      "description": "フランクは倒したブローラーのパワーを奪い、x秒間ダメージがx%上昇します！"
     },
     {
       "id": 23000153,
       "name": "スポンジ",
       "path": "Sponge",
       "version": 1,
-      "description": "フランクの体力が+x増加します。",
-      "descriptionHtml": "フランクの体力が\u003Cspan style=\"color:#00cc00;\"\u003E+x\u003C/span\u003E増加します。"
+      "description": "フランクの体力が+x増加します。"
     }
   ],
   "gadgets": [
@@ -3592,16 +3253,14 @@
       "name": "アクティブノイズキャンセリング",
       "path": "Active-Noise-Canceling",
       "version": 1,
-      "description": "フランクは自身の無効化効果を解除し、一時的にスタン、スロー、ノックバックに対して無効になります。",
-      "descriptionHtml": "フランクは自身の無効化効果を解除し、一時的にスタン、スロー、ノックバックに対して無効になります。"
+      "description": "フランクは自身の無効化効果を解除し、一時的にスタン、スロー、ノックバックに対して無効になります。"
     },
     {
       "id": 23000351,
       "name": "抗えない引力",
       "path": "Irresistible-Attraction",
       "version": 1,
-      "description": "フランクの次の攻撃は追加でx%のダメージを与え、敵を引き寄せます。",
-      "descriptionHtml": "フランクの次の攻撃は追加で\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003Eのダメージを与え、敵を引き寄せます。"
+      "description": "フランクの次の攻撃は追加でx%のダメージを与え、敵を引き寄せます。"
     }
   ],
   "videos": []
@@ -3611,9 +3270,7 @@
   "avatarId": 28000035,
   "name": "ペニー",
   "path": "Penny",
-  "fankit": "penny",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Penny",
   "class": {
     "id": 4,
     "name": "アーティラリー"
@@ -3623,25 +3280,21 @@
     "name": "スーパーレア",
     "color": "#5ab3ff"
   },
-  "unlock": null,
   "description": "ペニーは古い地図の研究や船乗りの歌の謎解きには興味がありません。彼女は物を爆破して好きな物を奪うために海賊になったのです！",
-  "descriptionHtml": "ペニーは古い地図の研究や船乗りの歌の謎解きには興味がありません。彼女は物を爆破して好きな物を奪うために海賊になったのです！",
   "starPowers": [
     {
       "id": 23000099,
       "name": "重い財布",
       "path": "Heavy-Coffers",
       "version": 1,
-      "description": "ペニーの金貨の袋は、各ヒット後にx%広い円錐形で破裂します。",
-      "descriptionHtml": "ペニーの金貨の袋は、各ヒット後に\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E広い円錐形で破裂します。"
+      "description": "ペニーの金貨の袋は、各ヒット後にx%広い円錐形で破裂します。"
     },
     {
       "id": 23000142,
       "name": "マスターブラスター",
       "path": "Master-Blaster",
       "version": 1,
-      "description": "ペニーの大砲は着地時にxダメージを与え、近くの敵をノックバックさせます。",
-      "descriptionHtml": "ペニーの大砲は着地時に\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージを与え、近くの敵をノックバックさせます。"
+      "description": "ペニーの大砲は着地時にxダメージを与え、近くの敵をノックバックさせます。"
     }
   ],
   "gadgets": [
@@ -3650,16 +3303,14 @@
       "name": "塩の樽",
       "path": "Salty-Barrel",
       "version": 1,
-      "description": "ペニーは敵の弾を遮断する塩の樽を設置します。自身の金貨の袋を破裂させるのにも使えます。",
-      "descriptionHtml": "ペニーは敵の弾を遮断する塩の樽を設置します。自身の金貨の袋を破裂させるのにも使えます。"
+      "description": "ペニーは敵の弾を遮断する塩の樽を設置します。自身の金貨の袋を破裂させるのにも使えます。"
     },
     {
       "id": 23000287,
       "name": "信頼の望遠鏡",
       "path": "Trusty-Spyglass",
       "version": 1,
-      "description": "ペニーの大砲は、範囲内の見える敵の位置すべてに砲撃を放ちます。",
-      "descriptionHtml": "ペニーの大砲は、範囲内の見える敵の位置すべてに砲撃を放ちます。"
+      "description": "ペニーの大砲は、範囲内の見える敵の位置すべてに砲撃を放ちます。"
     }
   ],
   "videos": []
@@ -3669,9 +3320,7 @@
   "avatarId": 28000034,
   "name": "ダリル",
   "path": "Darryl",
-  "fankit": "darryl",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Darryl",
   "class": {
     "id": 2,
     "name": "タンク"
@@ -3681,25 +3330,21 @@
     "name": "スーパーレア",
     "color": "#5ab3ff"
   },
-  "unlock": null,
   "description": "ダリルは仕事を避けるために海賊船長の帽子を被りましたが、今では船を守らなければならなくなりました！指揮を執るのに実際の努力が必要だとは誰が知っていたでしょう？",
-  "descriptionHtml": "ダリルは仕事を避けるために海賊船長の帽子を被りましたが、今では船を守らなければならなくなりました！指揮を執るのに実際の努力が必要だとは誰が知っていたでしょう？",
   "starPowers": [
     {
       "id": 23000094,
       "name": "スチールフープ",
       "path": "Steel-Hoops",
       "version": 1,
-      "description": "バレルロール後、x秒間ダリルの受けるダメージがx%減少します。",
-      "descriptionHtml": "バレルロール後、\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間ダリルの受けるダメージが\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E減少します。"
+      "description": "バレルロール後、x秒間ダリルの受けるダメージがx%減少します。"
     },
     {
       "id": 23000157,
       "name": "ローリングリロード",
       "path": "Rolling-Reload",
       "version": 1,
-      "description": "ダリルがスーパーを使用すると、x秒間リロード速度が2倍になります。",
-      "descriptionHtml": "ダリルがスーパーを使用すると、\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間リロード速度が2倍になります。"
+      "description": "ダリルがスーパーを使用すると、x秒間リロード速度が2倍になります。"
     }
   ],
   "gadgets": [
@@ -3708,16 +3353,14 @@
       "name": "反動ローテーター",
       "path": "Recoiling-Rotator",
       "version": 1,
-      "description": "ダリルは回転しながらあらゆる方向に弾を放ちます。各弾はxダメージを与え、敵に当たるとスーパーをx%チャージします！",
-      "descriptionHtml": "ダリルは回転しながらあらゆる方向に弾を放ちます。各弾は\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージを与え、敵に当たるとスーパーを\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003Eチャージします！"
+      "description": "ダリルは回転しながらあらゆる方向に弾を放ちます。各弾はxダメージを与え、敵に当たるとスーパーをx%チャージします！"
     },
     {
       "id": 23000313,
       "name": "タルバレル",
       "path": "Tar-Barrel",
       "version": 1,
-      "description": "ダリルは自身の周りにx秒間スロー効果のある範囲を作り出します。",
-      "descriptionHtml": "ダリルは自身の周りに\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間スロー効果のある範囲を作り出します。"
+      "description": "ダリルは自身の周りにx秒間スロー効果のある範囲を作り出します。"
     }
   ],
   "videos": []
@@ -3727,9 +3370,7 @@
   "avatarId": 28000029,
   "name": "タラ",
   "path": "Tara",
-  "fankit": "tara",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Tara",
   "class": {
     "id": 1,
     "name": "ダメージディーラー"
@@ -3739,25 +3380,21 @@
     "name": "ミシック",
     "color": "#fe5e72"
   },
-  "unlock": null,
   "description": "タラはカードで大きな困難が待ち受けているのを見ました！でも落胆しないで...彼女にはそれを助けるための素晴らしい魔法のお守りが販売用に揃っています。",
-  "descriptionHtml": "タラはカードで大きな困難が待ち受けているのを見ました！でも落胆しないで...彼女にはそれを助けるための素晴らしい魔法のお守りが販売用に揃っています。",
   "starPowers": [
     {
       "id": 23000093,
       "name": "ブラックポータル",
       "path": "Black-Portal",
       "version": 1,
-      "description": "タラのスーパーは次元のポータルを開きます！タラの影のバージョンが現れて敵を攻撃します。",
-      "descriptionHtml": "タラのスーパーは次元のポータルを開きます！タラの影のバージョンが現れて敵を攻撃します。"
+      "description": "タラのスーパーは次元のポータルを開きます！タラの影のバージョンが現れて敵を攻撃します。"
     },
     {
       "id": 23000160,
       "name": "癒しの影",
       "path": "Healing-Shade",
       "version": 1,
-      "description": "タラのスーパーは次元のポータルを開きます！タラの影のバージョンが現れてタラとチームメイトを回復します。",
-      "descriptionHtml": "タラのスーパーは次元のポータルを開きます！タラの影のバージョンが現れてタラとチームメイトを回復します。"
+      "description": "タラのスーパーは次元のポータルを開きます！タラの影のバージョンが現れてタラとチームメイトを回復します。"
     }
   ],
   "gadgets": [
@@ -3766,16 +3403,14 @@
       "name": "サイキックエンハンサー",
       "path": "Psychic-Enhancer",
       "version": 1,
-      "description": "タラと味方は、x秒間茂みの中にいる敵も含めてすべての敵を見ることができます。",
-      "descriptionHtml": "タラと味方は、\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間茂みの中にいる敵も含めてすべての敵を見ることができます。"
+      "description": "タラと味方は、x秒間茂みの中にいる敵も含めてすべての敵を見ることができます。"
     },
     {
       "id": 23000356,
       "name": "彼方からの支援",
       "path": "Support-From-Beyond",
       "version": 1,
-      "description": "タラは自身の周りに3体の弱い影を召喚し、敵を攻撃してx秒後に消滅します。",
-      "descriptionHtml": "タラは自身の周りに3体の弱い影を召喚し、敵を攻撃して\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒後に消滅します。"
+      "description": "タラは自身の周りに3体の弱い影を召喚し、敵を攻撃してx秒後に消滅します。"
     }
   ],
   "videos": []
@@ -3785,9 +3420,7 @@
   "avatarId": 28000028,
   "name": "パム",
   "path": "Pam",
-  "fankit": "pam",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Pam",
   "class": {
     "id": 7,
     "name": "サポート"
@@ -3797,25 +3430,21 @@
     "name": "エピック",
     "color": "#d850ff"
   },
-  "unlock": null,
   "description": "パムはスクラップヤードで膨大な仕事をこなし、必ずやり遂げます！ただ、それが娘のジェシーと離れ離れになる原因になっているのが残念です...",
-  "descriptionHtml": "パムはスクラップヤードで膨大な仕事をこなし、必ずやり遂げます！ただ、それが娘のジェシーと離れ離れになる原因になっているのが残念です...",
   "starPowers": [
     {
       "id": 23000092,
       "name": "ママのハグ",
       "path": "Mamas-Hug",
       "version": 1,
-      "description": "パムがスクラップストームで敵ブローラーにヒットすると、自身と近くの味方ブローラーの体力がx回復します。",
-      "descriptionHtml": "パムがスクラップストームで敵ブローラーにヒットすると、自身と近くの味方ブローラーの体力が\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E回復します。"
+      "description": "パムがスクラップストームで敵ブローラーにヒットすると、自身と近くの味方ブローラーの体力がx回復します。"
     },
     {
       "id": 23000139,
       "name": "ママのスクイーズ",
       "path": "Mamas-Squeeze",
       "version": 1,
-      "description": "回復タレットが敵に毎秒xダメージも与えるようになります。",
-      "descriptionHtml": "回復タレットが敵に毎秒\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージも与えるようになります。"
+      "description": "回復タレットが敵に毎秒xダメージも与えるようになります。"
     }
   ],
   "gadgets": [
@@ -3824,16 +3453,14 @@
       "name": "パルスモジュレーター",
       "path": "Pulse-Modulator",
       "version": 1,
-      "description": "パムはタレットにパルスを発生させ、タレットの範囲内の味方（自身を含む）の体力をx回復させます。",
-      "descriptionHtml": "パムはタレットにパルスを発生させ、タレットの範囲内の味方（自身を含む）の体力を\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E回復させます。"
+      "description": "パムはタレットにパルスを発生させ、タレットの範囲内の味方（自身を含む）の体力をx回復させます。"
     },
     {
       "id": 23000404,
       "name": "スクラップサッカー",
       "path": "Scrapsucker",
       "version": 1,
-      "description": "パムの次の攻撃の各ヒットは、敵ブローラーの最大弾薬のx%を除去します。パムはその弾薬のx%を回収します。",
-      "descriptionHtml": "パムの次の攻撃の各ヒットは、敵ブローラーの最大弾薬の\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003Eを除去します。パムはその弾薬の\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003Eを回収します。"
+      "description": "パムの次の攻撃の各ヒットは、敵ブローラーの最大弾薬のx%を除去します。パムはその弾薬のx%を回収します。"
     }
   ],
   "videos": []
@@ -3843,9 +3470,7 @@
   "avatarId": 28000018,
   "name": "パイパー",
   "path": "Piper",
-  "fankit": "piper",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Piper",
   "class": {
     "id": 3,
     "name": "マークスマン"
@@ -3855,25 +3480,21 @@
     "name": "エピック",
     "color": "#d850ff"
   },
-  "unlock": null,
   "description": "パイパーはパイやクッキー、その他の甘いお菓子を配る地元の村のパン屋になることだけを望んでいます！ただし、彼女の過去については尋ねないでください。",
-  "descriptionHtml": "パイパーはパイやクッキー、その他の甘いお菓子を配る地元の村のパン屋になることだけを望んでいます！ただし、彼女の過去については尋ねないでください。",
   "starPowers": [
     {
       "id": 23000091,
       "name": "待ち伏せ",
       "path": "Ambush",
       "version": 1,
-      "description": "パイパーが茂みに隠れている時、攻撃が（最大射程で）+xの追加ダメージを与えます。",
-      "descriptionHtml": "パイパーが茂みに隠れている時、攻撃が（最大射程で）\u003Cspan style=\"color:#00cc00;\"\u003E+x\u003C/span\u003Eの追加ダメージを与えます。"
+      "description": "パイパーが茂みに隠れている時、攻撃が（最大射程で）+xの追加ダメージを与えます。"
     },
     {
       "id": 23000152,
       "name": "スナッピースナイピング",
       "path": "Snappy-Sniping",
       "version": 1,
-      "description": "パイパーの攻撃が敵に当たると、即座にx弾薬をリロードします。",
-      "descriptionHtml": "パイパーの攻撃が敵に当たると、即座に\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E弾薬をリロードします。"
+      "description": "パイパーの攻撃が敵に当たると、即座にx弾薬をリロードします。"
     }
   ],
   "gadgets": [
@@ -3882,16 +3503,14 @@
       "name": "オートエイマー",
       "path": "Auto-Aimer",
       "version": 1,
-      "description": "パイパーは最も近い敵に防御射撃を放ち、xダメージを与えながら押し返してスローにします。",
-      "descriptionHtml": "パイパーは最も近い敵に防御射撃を放ち、\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージを与えながら押し返してスローにします。"
+      "description": "パイパーは最も近い敵に防御射撃を放ち、xダメージを与えながら押し返してスローにします。"
     },
     {
       "id": 23000291,
       "name": "自家製レシピ",
       "path": "Homemade-Recipe",
       "version": 1,
-      "description": "発動時、パイパーの次の通常攻撃が敵に追尾します。",
-      "descriptionHtml": "発動時、パイパーの次の通常攻撃が敵に追尾します。"
+      "description": "発動時、パイパーの次の通常攻撃が敵に追尾します。"
     }
   ],
   "videos": []
@@ -3901,9 +3520,7 @@
   "avatarId": 28000015,
   "name": "ボウ",
   "path": "Bo",
-  "fankit": "bo",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Bo",
   "class": {
     "id": 5,
     "name": "コントローラー"
@@ -3913,25 +3530,21 @@
     "name": "エピック",
     "color": "#d850ff"
   },
-  "unlock": null,
   "description": "ボウはランブルジャングルで長い間生き延びてきました。ギフトショップのセールで手に入れたおもちゃを使っているのを考えると、さらに印象的です。",
-  "descriptionHtml": "ボウはランブルジャングルで長い間生き延びてきました。ギフトショップのセールで手に入れたおもちゃを使っているのを考えると、さらに印象的です。",
   "starPowers": [
     {
       "id": 23000090,
       "name": "旋回する鷲",
       "path": "Circling-Eagle",
       "version": 1,
-      "description": "ボウは通常よりx%長い距離から茂みに隠れている敵を発見できます。",
-      "descriptionHtml": "ボウは通常より\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E長い距離から茂みに隠れている敵を発見できます。"
+      "description": "ボウは通常よりx%長い距離から茂みに隠れている敵を発見できます。"
     },
     {
       "id": 23000148,
       "name": "熊の罠",
       "path": "Snare-A-Bear",
       "version": 1,
-      "description": "ノックバックの代わりに、ボウの罠が敵をx秒間スタンさせるようになります！",
-      "descriptionHtml": "ノックバックの代わりに、ボウの罠が敵を\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間スタンさせるようになります！"
+      "description": "ノックバックの代わりに、ボウの罠が敵をx秒間スタンさせるようになります！"
     }
   ],
   "gadgets": [
@@ -3940,16 +3553,14 @@
       "name": "スーパートーテム",
       "path": "Super-Totem",
       "version": 1,
-      "description": "ボウは味方のスーパーチャージ速度をx%増加させるトーテムを設置します。トーテムは時間とともに体力が減少します。",
-      "descriptionHtml": "ボウは味方のスーパーチャージ速度を\u003Cspan style=\"color:#00cc00;\"\u003Ex%\u003C/span\u003E増加させるトーテムを設置します。トーテムは時間とともに体力が減少します。"
+      "description": "ボウは味方のスーパーチャージ速度をx%増加させるトーテムを設置します。トーテムは時間とともに体力が減少します。"
     },
     {
       "id": 23000289,
       "name": "トリップワイヤー",
       "path": "Tripwire",
       "version": 1,
-      "description": "ボウはx秒後に全ての地雷を起爆させます。遅延中、地雷は敵から完全に見えなくなります。",
-      "descriptionHtml": "ボウは\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒後に全ての地雷を起爆させます。遅延中、地雷は敵から完全に見えなくなります。"
+      "description": "ボウはx秒後に全ての地雷を起爆させます。遅延中、地雷は敵から完全に見えなくなります。"
     }
   ],
   "videos": []
@@ -3959,9 +3570,7 @@
   "avatarId": 28000013,
   "name": "ポコ",
   "path": "Poco",
-  "fankit": "poco",
   "version": 1,
-  "link": "https://brawlify.com/brawlers/detail/Poco",
   "class": {
     "id": 7,
     "name": "サポート"
@@ -3971,25 +3580,21 @@
     "name": "レア",
     "color": "#68fd58"
   },
-  "unlock": null,
   "description": "ポコは音楽が人生を変えられると信じています。その熱意のあまり、人々に止められても演奏を止めません！",
-  "descriptionHtml": "ポコは音楽が人生を変えられると信じています。その熱意のあまり、人々に止められても演奏を止めません！",
   "starPowers": [
     {
       "id": 23000089,
       "name": "ダ・カーポ",
       "path": "Da-Capo",
       "version": 1,
-      "description": "ポコの攻撃が味方ブローラーに当たると、体力をx回復させるようになります。",
-      "descriptionHtml": "ポコの攻撃が味方ブローラーに当たると、体力を\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E回復させるようになります。"
+      "description": "ポコの攻撃が味方ブローラーに当たると、体力をx回復させるようになります。"
     },
     {
       "id": 23000144,
       "name": "スクリーチングソロ",
       "path": "Screeching-Solo",
       "version": 1,
-      "description": "ポコのスーパーが敵にもxダメージを与えるようになります。",
-      "descriptionHtml": "ポコのスーパーが敵にも\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003Eダメージを与えるようになります。"
+      "description": "ポコのスーパーが敵にもxダメージを与えるようになります。"
     }
   ],
   "gadgets": [
@@ -3998,21 +3603,18 @@
       "name": "チューニングフォーク",
       "path": "Tuning-Fork",
       "version": 1,
-      "description": "ポコと近くの味方全員が、x秒間毎秒x体力を回復します。",
-      "descriptionHtml": "ポコと近くの味方全員が、\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間毎秒\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E体力を回復します。"
+      "description": "ポコと近くの味方全員が、x秒間毎秒x体力を回復します。"
     },
     {
       "id": 23000350,
       "name": "プロテクティブチューン",
       "path": "Protective-Tunes",
       "version": 1,
-      "description": "広範囲の味方ブローラーの悪影響を除去し、x秒間の免疫を付与します。",
-      "descriptionHtml": "広範囲の味方ブローラーの悪影響を除去し、\u003Cspan style=\"color:#00cc00;\"\u003Ex\u003C/span\u003E秒間の免疫を付与します。"
+      "description": "広範囲の味方ブローラーの悪影響を除去し、x秒間の免疫を付与します。"
     }
   ],
   "videos": []
 },
-[
   {
     "id": 16000012,
     "name": "クロウ",
@@ -4126,9 +3728,7 @@
         "description": "エルプリモは最も近い敵に小さな隕石を召喚します。xダメージを与え、壁を破壊します。"
       }
     ]
-  }
-],
-[
+  },
   {
     "id": 16000009,
     "name": "ダイナマイク",
@@ -4508,7 +4108,7 @@
         "description": "発動後、次のx秒間、シェリーの通常攻撃の射撃が狭い範囲に集中し、射程が増加します。"
       }
     ],
-},
-    ]
-]
+    "videos": []
+    }
+  ]
 }

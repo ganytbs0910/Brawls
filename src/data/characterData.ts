@@ -1,4 +1,5 @@
 import { CharacterData } from '../types/types';
+import characterData from '../data/characterAPI.json';
 
 interface BrawlifyCharacter {
   id: number;
@@ -14,13 +15,11 @@ interface BrawlifyCharacter {
     id: number;
     name: string;
     description: string;
-    imageUrl: string;
   }>;
   gadgets: Array<{
     id: number;
     name: string;
     description: string;
-    imageUrl: string;
   }>;
 }
 
@@ -115,17 +114,26 @@ export const nameMap: Record<string, string> = {
   'Block': 'ブロック',
   'Mico': 'ミコ',
   'Surge': 'サージ',
-  'Colette': 'コレット'
+  'Colette': 'コレット',
+  'Moe': 'モー',
+  'Melodie': 'メロディー',
+  'Stu': 'スチュー',
+  'Gale': 'ゲイル'
 };
 
 export const roleMap: Record<string, string> = {
   'Tank': 'タンク',
   'Artillery': '投擲',
+  'アーティラリー': '投擲',
   'Assassin': '暗殺者',
+  'アサシン': '暗殺者',
   'Marksman': 'スナイパー',
+  'マークスマン': 'スナイパー',
   'Damage Dealer': 'アタッカー',
+  'ダメージディーラー': 'アタッカー',
   'Support': 'サポート',
   'Controller': 'コントローラー',
+  'コントローラー': 'コントローラー',
   'Fighter': 'ファイター',
   'Hybrid': 'ハイブリッド'
 };
@@ -138,7 +146,10 @@ export const rarityMap: Record<string, string> = {
   'Mythic': 'ミシック',
   'Legendary': 'レジェンダリー',
   'Chromatic': 'クロマティック',
-  'Starting': 'スターター'
+  'Starting': 'スターター',
+  'エピック': 'エピック',
+  'ミシック': 'ミシック',
+  'レジェンダリー': 'レジェンダリー'
 };
 
 export const rankingTypes = [
@@ -170,24 +181,28 @@ const getCharacterType = (className: string): string => {
   const typeMap: Record<string, string> = {
     'Tank': 'tank',
     'Artillery': 'thrower',
+    'アーティラリー': 'thrower',
     'Assassin': 'assassin',
+    'アサシン': 'assassin',
     'Marksman': 'sniper',
+    'マークスマン': 'sniper',
     'Damage Dealer': 'attacker',
+    'ダメージディーラー': 'attacker',
     'Support': 'support',
-    'Controller': 'controller'
+    'Controller': 'controller',
+    'コントローラー': 'controller'
   };
   return typeMap[className] || 'all';
 };
 
 const updateCharacterTypes = (brawlers: any[]) => {
-  characterTypes.all = brawlers.map(brawler => nameMap[brawler.name] || brawler.name);
+  characterTypes.all = brawlers.map(brawler => brawler.name);
   
   brawlers.forEach(brawler => {
-    const japaneseName = nameMap[brawler.name] || brawler.name;
     const type = getCharacterType(brawler.class.name).toLowerCase();
     
     if (characterTypes[type]) {
-      characterTypes[type].push(japaneseName);
+      characterTypes[type].push(brawler.name);
     }
   });
 };
@@ -196,11 +211,16 @@ const processCharactersData = (brawlers: BrawlifyCharacter[]): Record<string, Ch
   const processedData: Record<string, CharacterData> = {};
 
   brawlers.forEach((brawler) => {
-    const japaneseName = nameMap[brawler.name] || brawler.name;
+    const characterName = brawler.name;
     
-    processedData[japaneseName] = {
+    if (!characterName) {
+      console.warn(`Missing character name for brawler:`, brawler);
+      return;
+    }
+    
+    processedData[characterName] = {
       id: brawler.id.toString(),
-      name: japaneseName,
+      name: characterName,
       description: brawler.description,
       role: roleMap[brawler.class.name] || brawler.class.name,
       rarity: rarityMap[brawler.rarity.name] || brawler.rarity.name,
@@ -247,21 +267,24 @@ const processCharactersData = (brawlers: BrawlifyCharacter[]): Record<string, Ch
 const generateCharacterRankings = (brawlers: BrawlifyCharacter[]) => {
   characterRankings = brawlers.map((brawler, index) => ({
     rank: index + 1,
-    characterName: nameMap[brawler.name] || brawler.name,
+    characterName: brawler.name,
     description: brawler.description
   }));
 };
 
-export const fetchAndProcessCharactersData = async (): Promise<Record<string, CharacterData>> => {
-  const response = await fetch('https://api.brawlify.com/v1/brawlers');
-  const data = await response.json();
-  
-  const processedData = processCharactersData(data.list);
-  updateCharacterTypes(data.list);
-  generateCharacterRankings(data.list);
+export const initializeCharacterData = (): Record<string, CharacterData> => {
+  const brawlers = characterData.list;
+  const processedData = processCharactersData(brawlers);
+  updateCharacterTypes(brawlers);
+  generateCharacterRankings(brawlers);
   
   charactersDataCache = processedData;
   return processedData;
+};
+
+// Backwards compatibility function
+export const fetchAndProcessCharactersData = async (): Promise<Record<string, CharacterData>> => {
+  return initializeCharacterData();
 };
 
 export const getCharacterData = (characterId: string): CharacterData | undefined => {
@@ -291,5 +314,8 @@ export const getCharactersByType = (type: string): CharacterData[] => {
 export const getCharacterRankings = (): RankingItem[] => {
   return characterRankings;
 };
+
+// Initialize data when module is loaded
+initializeCharacterData();
 
 export type { CharacterData, BrawlifyCharacter };
