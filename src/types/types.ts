@@ -9,16 +9,16 @@ export interface CharacterCompatibility {
   };
 }
 
-export type CharacterRole = 'タンク' | 'アタッカー' | 'サポート' | 'アサシン' | 'シューター';
+export type CharacterRole = 'タンク' | '投擲' | '暗殺者' | 'スナイパー' | 'アタッカー' | 'サポート' | 'コントローラー';
+export type CharacterRarity = 'ノーマル' | 'レア' | 'スーパーレア' | 'エピック' | 'ミシック' | 'レジェンダリー' | 'クロマティック' | 'スターター';
 
-export type CharacterRarity = 'レア' | 'スーパーレア' | 'エピック' | 'クロマティック' | 'レジェンダリー';
 
 export interface CharacterSkill {
+  id: number;
   name: string;
   description: string;
-  damage?: number;
-  range?: number;
-  cooldown?: number;
+  imageUrl: string;
+  recommendationScore: number;
 }
 
 export interface CharacterStats {
@@ -34,6 +34,11 @@ export interface CharacterData {
   description: string;
   role: CharacterRole;
   rarity: CharacterRarity;
+  images: {
+    default: string;
+    borderless: string;
+    emoji: string;
+  };
   releaseDate: string;
   stats: CharacterStats;
   normalAttack: {
@@ -41,6 +46,10 @@ export interface CharacterData {
     description: string;
     damage: number;
     range: number;
+  };
+  skills: {
+    starPowers: CharacterSkill[];
+    gadgets: CharacterSkill[];
   };
   superSkill: CharacterSkill;
   gadget1?: CharacterSkill;
@@ -53,10 +62,15 @@ export interface CharacterData {
     goodPartners: string[];
     counters: string[];
   };
-  compatibility?: CharacterCompatibility; // 既存の相性データとの連携用（必要に応じて）
+  compatibility?: CharacterCompatibility;
 }
 
-// 型定義の再エクスポート
+export interface RankingItem {
+  rank: number;
+  characterName: string;
+  description: string;
+}
+
 export type { 
   CharacterCompatibility,
   CharacterRole,

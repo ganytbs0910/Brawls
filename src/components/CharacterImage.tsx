@@ -4,6 +4,7 @@ import { CHARACTER_IMAGES, isValidCharacterName, CharacterName } from '../data/c
 
 interface CharacterImageProps {
   characterName: string;
+  imageUrl?: string;
   size?: number;
   style?: object;
 }

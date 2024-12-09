@@ -1,26 +1,53 @@
-import React, { useState } from 'react';
-import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Dimensions, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { useLanguage } from '../hooks/useLanguage';
-import { translations } from '../i18n/translations';
 import CharacterImage from './CharacterImage';
-import { characterTypes, characterRankings, rankingTypes } from '../data/characterData';
+import { 
+  fetchAndProcessCharactersData, 
+  getCharacterRankings, 
+  getCharacterData,
+  characterTypes, 
+  rankingTypes 
+} from '../data/characterData';
 import { RootStackParamList } from '../App';
+import { RankingItem } from '../types/types';
 
 type RankingsScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Rankings'>;
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
+const typeNames: Record<string, string> = {
+  all: '全体',
+  tank: 'タンク',
+  thrower: '投擲',
+  assassin: '暗殺者',
+  sniper: 'スナイパー',
+  attacker: 'アタッカー',
+  support: 'サポート',
+  controller: 'コントローラー'
+};
 
 const BrawlStarsRankings: React.FC = () => {
   const navigation = useNavigation<RankingsScreenNavigationProp>();
-  const { currentLanguage } = useLanguage();
   const [selectedRankingType, setSelectedRankingType] = useState('all');
+  const [isLoading, setIsLoading] = useState(true);
+  const [rankings, setRankings] = useState<RankingItem[]>([]);
 
-  const localizedRankingTypes = rankingTypes.map(type => ({
-    ...type,
-    name: translations[currentLanguage].rankings.types[type.id]
-  }));
+  useEffect(() => {
+    const initializeData = async () => {
+      try {
+        await fetchAndProcessCharactersData();
+        const allRankings = getCharacterRankings();
+        setRankings(allRankings);
+      } catch (error) {
+        console.error('Failed to fetch rankings:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    initializeData();
+  }, []);
 
   const handleCharacterPress = (characterName: string) => {
     navigation.navigate('CharacterDetails', { characterName });
@@ -28,36 +55,60 @@ const BrawlStarsRankings: React.FC = () => {
 
   const getFilteredRankings = () => {
     if (!selectedRankingType || !characterTypes[selectedRankingType]) {
-      console.warn(`無効なselectedType: ${selectedRankingType}, allに戻します`);
-      return characterRankings;
+      console.warn(`無効なタイプです: ${selectedRankingType}, 全体表示に戻します`);
+      return rankings;
     }
 
     if (selectedRankingType === 'all') {
-      return characterRankings;
+      // キャラクターデータを取得して画像URLを追加
+      return rankings.map(item => {
+        const characterData = getCharacterData(item.characterName);
+        return {
+          ...item,
+          imageUrl: characterData?.images?.borderless || '',
+        };
+      });
     }
 
     const characterList = characterTypes[selectedRankingType];
     if (!Array.isArray(characterList)) {
-      console.warn(`タイプ ${selectedRankingType} のキャラクターリストが無効です、allに戻します`);
-      return characterRankings;
+      console.warn(`タイプ ${selectedRankingType} のキャラクターリストが無効です。全体表示に戻します`);
+      return rankings;
     }
 
-    const filteredRankings = characterRankings.filter(item =>
+    const filteredRankings = rankings.filter(item =>
       characterList.includes(item.characterName)
     );
 
-    return filteredRankings.map((item, index) => ({
-      ...item,
-      rank: index + 1
-    }));
+    // キャラクターデータを取得して画像URLを追加
+    return filteredRankings.map((item, index) => {
+      const characterData = getCharacterData(item.characterName);
+      return {
+        ...item,
+        rank: index + 1,
+        imageUrl: characterData?.images?.borderless || '',
+      };
+    });
   };
+
+  if (isLoading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#2196F3" />
+      </View>
+    );
+  }
+
+  // ランキングタイプに日本語名を設定
+  const localizedRankingTypes = rankingTypes.map(type => ({
+    ...type,
+    name: typeNames[type.id] || type.id
+  }));
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>
-          {translations[currentLanguage].rankings.title}
-        </Text>
+        <Text style={styles.title}>キャラクターランキング</Text>
       </View>
 
       <View style={styles.rankingTypeContainer}>
@@ -93,7 +144,7 @@ const BrawlStarsRankings: React.FC = () => {
             <View key={item.rank} style={styles.rankingItem}>
               <View style={styles.rankContainer}>
                 <Text style={styles.rankNumber} numberOfLines={1}>
-                  {item.rank}{translations[currentLanguage].rankings.rankSuffix}
+                  {item.rank}位
                 </Text>
               </View>
               <TouchableOpacity 
@@ -101,13 +152,18 @@ const BrawlStarsRankings: React.FC = () => {
                 onPress={() => handleCharacterPress(item.characterName)}
                 activeOpacity={0.7}
               >
-                <CharacterImage characterName={item.characterName} size={40} style={styles.characterImage} />
+                <CharacterImage 
+                  characterName={item.characterName}
+                  imageUrl={item.imageUrl}
+                  size={40} 
+                  style={styles.characterImage}
+                />
                 <View style={styles.textContainer}>
                   <Text style={styles.characterName}>
-                    {translations[currentLanguage].rankings.characters[item.characterName]?.name || item.characterName}
+                    {item.characterName}
                   </Text>
-                  <Text style={styles.description}>
-                    {translations[currentLanguage].rankings.characters[item.characterName]?.description || item.description}
+                  <Text style={styles.description} numberOfLines={2}>
+                    {item.description}
                   </Text>
                 </View>
               </TouchableOpacity>
@@ -122,6 +178,12 @@ const BrawlStarsRankings: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#fff',
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#fff',
   },
   header: {
