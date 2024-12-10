@@ -1,3 +1,4 @@
+//types.ts
 export interface CharacterCompatibility {
   id: number;
   name: string;
