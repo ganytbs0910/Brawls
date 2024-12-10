@@ -32,7 +32,7 @@ const RankingsStack = () => {
         options={{
           headerShown: true,
           headerStyle: {
-            backgroundColor: '#65BBE9',
+            backgroundColor: '#21A0DB',
             elevation: 0, // Android
             shadowOpacity: 0, // iOS
           },
