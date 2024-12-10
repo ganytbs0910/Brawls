@@ -1,5 +1,6 @@
 import { CharacterData } from '../types/types';
 import characterData from '../data/characterAPI.json';
+import { generateCustomRankings } from './customRankings';
 
 interface BrawlifyCharacter {
   id: number;
@@ -164,25 +165,17 @@ export const characterTypes: { [key: string]: string[] } = {
   controller: []
 };
 
-let characterRankings: RankingItem[] = [];
 let charactersDataCache: Record<string, CharacterData> = {};
 
 const getCharacterType = (className: string): string => {
   const typeMap: Record<string, string> = {
-     'Tank': 'tank',
-  'タンク': 'tank',
-  'Artillery': 'thrower',
-  'アーティラリー': 'thrower',
-  'Assassin': 'assassin',
-  'アサシン': 'assassin',
-  'Marksman': 'sniper',
-  'マークスマン': 'sniper',
-  'Damage Dealer': 'attacker',
-  'ダメージディーラー': 'attacker',
-  'Support': 'support',
-  'サポート': 'support',
-  'Controller': 'controller',
-  'コントローラー': 'controller'
+    'タンク': 'tank',
+    'アサシン': 'assassin',
+    'サポート': 'support',
+    'コントローラー': 'controller',
+    'グレネーディア': 'thrower',
+    'スナイパー': 'sniper',
+    'アタッカー': 'attacker',
   };
   return typeMap[className] || 'all';
 };
@@ -216,25 +209,6 @@ const processCharactersData = (brawlers: BrawlifyCharacter[]): Record<string, Ch
       description: brawler.description,
       role: roleMap[brawler.class.name] || brawler.class.name,
       rarity: rarityMap[brawler.rarity.name] || brawler.rarity.name,
-      stats: {
-        health: 3600,
-        speed: 720,
-        attack: 1000,
-        defense: 3
-      },
-      normalAttack: {
-        name: '通常攻撃',
-        description: '基本的な攻撃を行う',
-        damage: 1000,
-        range: 6.67
-      },
-      superSkill: {
-        name: 'スーパースキル',
-        description: '特殊な攻撃を行う',
-        damage: 1500,
-        range: 8,
-        cooldown: 0
-      },
       starPowers: brawler.starPowers.map(sp => ({
         name: sp.name,
         description: sp.description
@@ -256,25 +230,15 @@ const processCharactersData = (brawlers: BrawlifyCharacter[]): Record<string, Ch
   return processedData;
 };
 
-const generateCharacterRankings = (brawlers: BrawlifyCharacter[]) => {
-  characterRankings = brawlers.map((brawler, index) => ({
-    rank: index + 1,
-    characterName: brawler.name,
-    description: brawler.description
-  }));
-};
-
 export const initializeCharacterData = (): Record<string, CharacterData> => {
   const brawlers = characterData.list;
   const processedData = processCharactersData(brawlers);
   updateCharacterTypes(brawlers);
-  generateCharacterRankings(brawlers);
   
   charactersDataCache = processedData;
   return processedData;
 };
 
-// Backwards compatibility function
 export const fetchAndProcessCharactersData = async (): Promise<Record<string, CharacterData>> => {
   return initializeCharacterData();
 };
@@ -291,8 +255,9 @@ export const getCharactersByRole = (role: string): CharacterData[] => {
   return Object.values(charactersDataCache).filter(char => char.role === role);
 };
 
-export const getCharacterRanking = (characterName: string): number => {
-  const ranking = characterRankings.find(item => item.characterName === characterName);
+export const getCharacterRanking = (characterName: string, rankingType: string = 'all'): number => {
+  const rankings = generateCustomRankings(charactersDataCache, rankingType);
+  const ranking = rankings.find(item => item.characterName === characterName);
   return ranking ? ranking.rank : -1;
 };
 
@@ -303,11 +268,10 @@ export const getCharactersByType = (type: string): CharacterData[] => {
     .filter((char): char is CharacterData => char !== undefined);
 };
 
-export const getCharacterRankings = (): RankingItem[] => {
-  return characterRankings;
+export const getCharacterRankings = (rankingType: string = 'all'): RankingItem[] => {
+  return generateCustomRankings(charactersDataCache, rankingType);
 };
 
-// Initialize data when module is loaded
 initializeCharacterData();
 
 export type { CharacterData, BrawlifyCharacter };
