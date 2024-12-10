@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, Animated, ScrollView, Dimensions, Share } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Animated, ScrollView, Dimensions, Share, SafeAreaView } from 'react-native';
 import { useLanguage } from '../hooks/useLanguage';
 import { translations } from '../i18n/translations';
 import { privacyPolicyContent } from '../contents/privacyPolicy';
@@ -228,7 +228,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>
           {translations[currentLanguage].home.title}
@@ -239,7 +239,7 @@ const Home: React.FC = () => {
         >
           <Image 
             source={require('../../assets/AppIcon/settings_icon.png')} 
-            style={[styles.settingsIcon, { tintColor: '#000000' }]}
+            style={[styles.settingsIcon, { tintColor: '#ffffff' }]}
           />
         </TouchableOpacity>
       </View>
@@ -264,7 +264,7 @@ const Home: React.FC = () => {
           </Animated.View>
         )
       ))}
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -274,16 +274,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   header: {
+    height: 60,
+    backgroundColor: '#65BBE9',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 16,
+    width: '100%',
+    paddingHorizontal: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+    borderBottomColor: '#4FA8D6',
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: '#fff',
   },
   settingsButton: {
     padding: 8,
@@ -307,26 +311,22 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   settingsHeader: {
+    height: 60,
+    backgroundColor: '#65BBE9',
     flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
-    padding: 16,
+    width: '100%',
+    paddingHorizontal: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+    borderBottomColor: '#4FA8D6',
   },
   settingsTitle: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: '#fff',
     flex: 1,
     textAlign: 'center',
-  },
-  backButton: {
-    position: 'absolute',
-    left: 16,
-    padding: 8,
-  },
-  backButtonText: {
-    fontSize: 24,
-    color: '#2196F3',
   },
   settingsContent: {
     flex: 1,
@@ -345,6 +345,15 @@ const styles = StyleSheet.create({
   settingsValueText: {
     fontSize: 14,
     color: '#666',
+  },
+  backButton: {
+    position: 'absolute',
+    left: 16,
+    padding: 8,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: '#fff',
   },
   contentContainer: {
     flex: 1,

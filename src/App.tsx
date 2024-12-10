@@ -1,4 +1,3 @@
-// App.tsx
 import React, { useState, useRef } from 'react';
 import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image, Animated, Dimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -23,7 +22,7 @@ const RankingsStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: false // タブバーの上にヘッダーを重ねないようにする
+        headerShown: false 
       }}
     >
       <Stack.Screen name="Rankings" component={BrawlStarsRankings} />
@@ -31,11 +30,13 @@ const RankingsStack = () => {
         name="CharacterDetails" 
         component={CharacterDetails}
         options={{
-          headerShown: true, // 詳細画面ではヘッダーを表示
+          headerShown: true,
           headerStyle: {
-            backgroundColor: '#fff',
+            backgroundColor: '#65BBE9',
+            elevation: 0, // Android
+            shadowOpacity: 0, // iOS
           },
-          headerTintColor: '#2196F3',
+          headerTintColor: '#fff',
           headerTitleStyle: {
             fontWeight: 'bold',
           }
@@ -207,7 +208,7 @@ const styles = StyleSheet.create({
     top: 0,
     width: TAB_WIDTH,
     height: 2,
-    backgroundColor: '#2196F3',
+    backgroundColor: '#65BBE9', // メインカラーに合わせて変更
   },
   tabIcon: {
     width: 24,
@@ -216,14 +217,14 @@ const styles = StyleSheet.create({
     tintColor: '#666',
   },
   activeTabIcon: {
-    tintColor: '#2196F3',
+    tintColor: '#65BBE9', // メインカラーに合わせて変更
   },
   tabText: {
     fontSize: 12,
     color: '#666',
   },
   activeTabText: {
-    color: '#2196F3',
+    color: '#65BBE9', // メインカラーに合わせて変更
     fontWeight: 'bold',
   },
 });

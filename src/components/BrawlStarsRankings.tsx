@@ -60,7 +60,6 @@ const BrawlStarsRankings: React.FC = () => {
     }
 
     if (selectedRankingType === 'all') {
-      // キャラクターデータを取得して画像URLを追加
       return rankings.map(item => {
         const characterData = getCharacterData(item.characterName);
         return {
@@ -80,7 +79,6 @@ const BrawlStarsRankings: React.FC = () => {
       characterList.includes(item.characterName)
     );
 
-    // キャラクターデータを取得して画像URLを追加
     return filteredRankings.map((item, index) => {
       const characterData = getCharacterData(item.characterName);
       return {
@@ -99,7 +97,6 @@ const BrawlStarsRankings: React.FC = () => {
     );
   }
 
-  // ランキングタイプに日本語名を設定
   const localizedRankingTypes = rankingTypes.map(type => ({
     ...type,
     name: typeNames[type.id] || type.id
@@ -187,16 +184,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   header: {
+    height: 60,
+    backgroundColor: '#65BBE9',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
-    padding: 16,
+    width: '100%',
     borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+    borderBottomColor: '#4FA8D6',
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: '#fff',
+    textAlign: 'center',
   },
   content: {
     flex: 1,
@@ -205,33 +206,37 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderBottomWidth: 1,
     borderBottomColor: '#e0e0e0',
+    paddingVertical: 8,
   },
   tabScroll: {
     flexGrow: 0,
-    height: 50,
+    height: 36,
   },
   tabScrollContent: {
-    paddingHorizontal: 12,
+    paddingHorizontal: 8,
   },
   typeTab: {
-    paddingHorizontal: 20,
-    paddingVertical: 12,
+    paddingHorizontal: 14,
+    paddingVertical: 6,
     marginHorizontal: 4,
-    borderRadius: 20,
+    borderRadius: 16,
     backgroundColor: '#f5f5f5',
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
   },
   selectedTypeTab: {
-    backgroundColor: '#2196F3',
+    backgroundColor: '#e3f2fd',
+    borderColor: '#2196F3',
   },
   typeText: {
-    fontSize: 14,
+    fontSize: 13,
     color: '#666',
   },
   selectedTypeText: {
-    color: '#fff',
-    fontWeight: 'bold',
+    color: '#2196F3',
+    fontWeight: '600',
   },
   rankingItem: {
     flexDirection: 'row',

@@ -12,7 +12,7 @@ export const translations = {
         sniper: 'スナイパー',
         attacker: 'アタッカー',
         support: 'サポート',
-        controller: 'コントローラー'
+      controller: 'コントローラー'
       },
       characters: {
         "シェイド": {name: "シェイド", description: "罠設置と長距離攻撃" },

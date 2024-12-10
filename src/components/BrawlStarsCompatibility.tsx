@@ -25,11 +25,20 @@ const BrawlStarsCompatibility: React.FC = () => {
     }
   };
 
+  const getScoreColor = (score: number): string => {
+    if (score >= 8) return '#4CAF50';
+    if (score >= 6) return '#2196F3';
+    if (score >= 4) return '#FFC107';
+    return '#F44336';
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <Text style={styles.title}>ブロウルスターズ キャラクター相性表</Text>
+      <View style={styles.header}>
+        <Text style={styles.title}>キャラクター相性表</Text>
+      </View>
 
+      <ScrollView>
         {/* キャラクター選択ボタン */}
         <View style={styles.buttonContainer}>
           {Object.values(CHARACTER_MAP).map((character) => (
@@ -66,7 +75,7 @@ const BrawlStarsCompatibility: React.FC = () => {
                         style={styles.modalCharacterImage}
                       />
                       <Text style={styles.modalTitle}>
-                        {selectedCharacter.name}の得意キャラ
+                        {selectedCharacter.name}の相性
                       </Text>
                     </View>
                     {Object.entries(selectedCharacter.compatibilityScores)
@@ -105,23 +114,26 @@ const BrawlStarsCompatibility: React.FC = () => {
   );
 };
 
-const getScoreColor = (score: number): string => {
-  if (score >= 8) return '#4CAF50';
-  if (score >= 6) return '#2196F3';
-  if (score >= 4) return '#FFC107';
-  return '#F44336';
-};
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
   },
+  header: {
+    height: 60,
+    backgroundColor: '#65BBE9',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    borderBottomWidth: 1,
+    borderBottomColor: '#4FA8D6',
+  },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: '#fff',
     textAlign: 'center',
-    padding: 10,
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -147,9 +159,9 @@ const styles = StyleSheet.create({
   },
   modalOverlay: {
     flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   modalView: {
     width: '90%',

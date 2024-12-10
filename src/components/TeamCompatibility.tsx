@@ -8,45 +8,22 @@ import {
   SafeAreaView,
   Modal,
   Pressable,
-  Image,
 } from 'react-native';
 import { CharacterCompatibility } from '../types/types';
 import { 
   allCharacterData, 
   CHARACTER_MAP, 
-  getCharacterId, 
-  JAPANESE_TO_ENGLISH_MAP 
+  getCharacterId 
 } from '../data/characterCompatibility';
-import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages';
+import CharacterImage from './CharacterImage';
+
+type AnalysisMode = 'COUNTER_PICK' | 'STRONG_AGAINST';
 
 interface CharacterRecommendation {
   character: string;
   score: number;
   reason: string;
 }
-
-type AnalysisMode = 'COUNTER_PICK' | 'STRONG_AGAINST';
-
-const CharacterImage: React.FC<{ characterName: string; size: number }> = ({ characterName, size }) => {
-  const englishName = JAPANESE_TO_ENGLISH_MAP[characterName];
-  
-  if (!englishName) {
-    console.warn(`No English name mapping found for: ${characterName}`);
-    return null;
-  }
-
-  if (!isValidCharacterName(englishName)) {
-    console.warn(`Invalid character image key: ${englishName}`);
-    return null;
-  }
-
-  return (
-    <Image
-      source={CHARACTER_IMAGES[englishName]}
-      style={{ width: size, height: size }}
-    />
-  );
-};
 
 const TeamCompatibility: React.FC = () => {
   const [selectedTeam, setSelectedTeam] = useState<string[]>([]);
@@ -133,7 +110,7 @@ const TeamCompatibility: React.FC = () => {
     });
 
     recommendations.sort((a, b) => b.score - a.score);
-    setRecommendations(recommendations.slice(0, 10)); // Changed from 5 to 10
+    setRecommendations(recommendations.slice(0, 10));
   };
 
   const toggleAnalysisMode = () => {
@@ -146,19 +123,19 @@ const TeamCompatibility: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <View style={styles.headerContainer}>
-          <Text style={styles.title}>3vs3 ガチバトルピック表</Text>
-          <TouchableOpacity 
-            style={styles.modeToggleButton}
-            onPress={toggleAnalysisMode}
-          >
-            <Text style={styles.modeToggleText}>
-              {analysisMode === 'COUNTER_PICK' ? '苦手キャラ一覧' : '得意キャラ一覧'}
-            </Text>
-          </TouchableOpacity>
-        </View>
+      <View style={styles.header}>
+        <Text style={styles.title}>3vs3 ガチバトルピック表</Text>
+        <TouchableOpacity 
+          style={styles.modeToggleButton}
+          onPress={toggleAnalysisMode}
+        >
+          <Text style={styles.modeToggleText}>
+            {analysisMode === 'COUNTER_PICK' ? '苦手キャラ一覧' : '得意キャラ一覧'}
+          </Text>
+        </TouchableOpacity>
+      </View>
 
+      <ScrollView>
         <View style={styles.selectedTeamContainer}>
           {[0, 1, 2].map((index) => (
             <View key={index} style={styles.teamSlot}>
@@ -210,7 +187,7 @@ const TeamCompatibility: React.FC = () => {
           onRequestClose={() => setModalVisible(false)}
         >
           <View style={styles.modalOverlay}>
-            <View style={[styles.modalView, { maxHeight: '90%' }]}>  // Increased maxHeight for more content
+            <View style={styles.modalView}>
               <ScrollView>
                 <View style={styles.compatibilityContainer}>
                   <View style={styles.modalHeader}>
@@ -275,24 +252,32 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  headerContainer: {
+  header: {
+    height: 60,
+    backgroundColor: '#65BBE9',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 10,
+    width: '100%',
+    paddingHorizontal: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#4FA8D6',
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: '#fff',
   },
   modeToggleButton: {
-    backgroundColor: '#2196F3',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 15,
+    borderWidth: 1,
+    borderColor: '#fff',
   },
   modeToggleText: {
-    color: 'white',
+    color: '#fff',
     fontSize: 12,
     fontWeight: 'bold',
   },
@@ -369,7 +354,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     width: '90%',
-    maxHeight: '80%',
+    maxHeight: '90%',
     backgroundColor: 'white',
     borderRadius: 20,
     padding: 20,
