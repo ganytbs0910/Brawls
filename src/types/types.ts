@@ -1,4 +1,3 @@
-//types.ts
 export interface CharacterCompatibility {
   id: number;
   name: string;
@@ -13,13 +12,11 @@ export interface CharacterCompatibility {
 export type CharacterRole = 'タンク' | 'グレネーディア' | 'アサシン' | 'スナイパー' | 'アタッカー' | 'サポート' | 'コントローラー';
 export type CharacterRarity = 'ノーマル' | 'レア' | 'スーパーレア' | 'エピック' | 'ミシック' | 'レジェンダリー' | 'クロマティック' | 'スターター';
 
-
 export interface CharacterSkill {
-  id: number;
   name: string;
   description: string;
-  imageUrl: string;
-  recommendationScore: number;
+  recommendationLevel?: number;
+  recommendationReason?: string;
 }
 
 export interface CharacterStats {
@@ -35,35 +32,14 @@ export interface CharacterData {
   description: string;
   role: CharacterRole;
   rarity: CharacterRarity;
-  images: {
-    default: string;
-    borderless: string;
-    emoji: string;
-  };
-  releaseDate: string;
-  stats: CharacterStats;
-  normalAttack: {
-    name: string;
-    description: string;
-    damage: number;
-    range: number;
-  };
-  skills: {
-    starPowers: CharacterSkill[];
-    gadgets: CharacterSkill[];
-  };
-  superSkill: CharacterSkill;
-  gadget1?: CharacterSkill;
-  gadget2?: CharacterSkill;
-  starPower1?: CharacterSkill;
-  starPower2?: CharacterSkill;
+  starPowers: CharacterSkill[];
+  gadgets: CharacterSkill[];
   recommendations: {
     bestModes: string[];
     bestMaps: string[];
     goodPartners: string[];
     counters: string[];
   };
-  compatibility?: CharacterCompatibility;
 }
 
 export interface RankingItem {

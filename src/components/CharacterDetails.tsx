@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { RootStackParamList } from '../App';
 import { getCharacterData } from '../data/characterData';
@@ -11,6 +11,30 @@ const CharacterDetails: React.FC = () => {
   const route = useRoute<CharacterDetailsRouteProp>();
   const { characterName } = route.params;
   const character = getCharacterData(characterName);
+
+  const renderRecommendationLevel = (level?: number) => {
+    if (!level) return null;
+    
+    const getRecommendationColor = (level: number) => {
+      switch (level) {
+        case 5: return '#4CAF50';
+        case 4: return '#8BC34A';
+        case 3: return '#FFC107';
+        case 2: return '#FF9800';
+        case 1: return '#F44336';
+        default: return '#757575';
+      }
+    };
+
+    return (
+      <View style={styles.recommendationContainer}>
+        <Text style={styles.recommendationLabel}>おすすめ度:</Text>
+        <View style={[styles.recommendationBar, { backgroundColor: getRecommendationColor(level) }]}>
+          <Text style={styles.recommendationText}>{level}/5</Text>
+        </View>
+      </View>
+    );
+  };
 
   if (!character) {
     return (
@@ -45,6 +69,10 @@ const CharacterDetails: React.FC = () => {
               <View key={index} style={styles.powerItem}>
                 <Text style={styles.skillName}>{starPower.name}</Text>
                 <Text style={styles.description}>{starPower.description}</Text>
+                {renderRecommendationLevel(starPower.recommendationLevel)}
+                {starPower.recommendationReason && (
+                  <Text style={styles.recommendationReason}>{starPower.recommendationReason}</Text>
+                )}
               </View>
             ))}
           </View>
@@ -57,6 +85,10 @@ const CharacterDetails: React.FC = () => {
               <View key={index} style={styles.powerItem}>
                 <Text style={styles.skillName}>{gadget.name}</Text>
                 <Text style={styles.description}>{gadget.description}</Text>
+                {renderRecommendationLevel(gadget.recommendationLevel)}
+                {gadget.recommendationReason && (
+                  <Text style={styles.recommendationReason}>{gadget.recommendationReason}</Text>
+                )}
               </View>
             ))}
           </View>
@@ -137,23 +169,49 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     marginTop: 8,
   },
-  subTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginTop: 12,
-    marginBottom: 4,
-  },
-  powerItem: {
-    marginBottom: 16,
-    paddingBottom: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
-  },
-  cooldown: {
-    fontSize: 14,
-    color: '#666',
-    marginTop: 4,
-  },
+  recommendationContainer: {
+        marginTop: 8,
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    recommendationLabel: {
+        fontSize: 14,
+        marginRight: 8,
+        color: '#666',
+    },
+    recommendationBar: {
+        padding: 4,
+        borderRadius: 4,
+        minWidth: 40,
+    },
+    recommendationText: {
+        color: '#fff',
+        textAlign: 'center',
+        fontWeight: 'bold',
+    },
+    recommendationReason: {
+        fontSize: 14,
+        color: '#666',
+        marginTop: 4,
+        fontStyle: 'italic',
+    },
+    subTitle: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginTop: 12,
+        marginBottom: 4,
+    },
+    powerItem: {
+        marginBottom: 16,
+        paddingBottom: 16,
+        borderBottomWidth: 1,
+        borderBottomColor: '#e0e0e0',
+    },
+    cooldown: {
+        fontSize: 14,
+        color: '#666',
+        marginTop: 4,
+    },
 });
 
 export default CharacterDetails;

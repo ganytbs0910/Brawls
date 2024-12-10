@@ -2,6 +2,22 @@ import { CharacterData } from '../types/types';
 import characterData from '../data/characterAPI.json';
 import { generateCustomRankings } from './customRankings';
 
+interface BrawlifyStarPower {
+  id: number;
+  name: string;
+  description: string;
+  recommendationLevel?: number;
+  recommendationReason?: string;
+}
+
+interface BrawlifyGadget {
+  id: number;
+  name: string;
+  description: string;
+  recommendationLevel?: number;
+  recommendationReason?: string;
+}
+
 interface BrawlifyCharacter {
   id: number;
   name: string;
@@ -12,16 +28,8 @@ interface BrawlifyCharacter {
   rarity: {
     name: string;
   };
-  starPowers: Array<{
-    id: number;
-    name: string;
-    description: string;
-  }>;
-  gadgets: Array<{
-    id: number;
-    name: string;
-    description: string;
-  }>;
+  starPowers: Array<BrawlifyStarPower>;
+  gadgets: Array<BrawlifyGadget>;
 }
 
 export interface RankingItem {
@@ -137,8 +145,8 @@ export const rarityMap: Record<string, string> = {
   'Common': 'ノーマル',
   'Rare': 'レア',
   'Super Rare': 'スーパーレア',
-  'Epic': 'ハイパーレア',
-  'Mythic': 'ウルトラレア',
+  'Epic': 'エピック',
+  'Mythic': 'ミシック',
   'Legendary': 'レジェンダリー',
   'Starting': 'スターター',
 };
@@ -211,11 +219,15 @@ const processCharactersData = (brawlers: BrawlifyCharacter[]): Record<string, Ch
       rarity: rarityMap[brawler.rarity.name] || brawler.rarity.name,
       starPowers: brawler.starPowers.map(sp => ({
         name: sp.name,
-        description: sp.description
+        description: sp.description,
+        recommendationLevel: sp.recommendationLevel,
+        recommendationReason: sp.recommendationReason
       })),
       gadgets: brawler.gadgets.map(gadget => ({
         name: gadget.name,
         description: gadget.description,
+        recommendationLevel: gadget.recommendationLevel,
+        recommendationReason: gadget.recommendationReason
       })),
       recommendations: {
         bestModes: [],
