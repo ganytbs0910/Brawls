@@ -216,7 +216,6 @@ const processCharactersData = (brawlers: BrawlifyCharacter[]): Record<string, Ch
       gadgets: brawler.gadgets.map(gadget => ({
         name: gadget.name,
         description: gadget.description,
-        cooldown: 3
       })),
       recommendations: {
         bestModes: [],

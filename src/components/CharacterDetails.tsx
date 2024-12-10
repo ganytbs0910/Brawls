@@ -57,9 +57,6 @@ const CharacterDetails: React.FC = () => {
               <View key={index} style={styles.powerItem}>
                 <Text style={styles.skillName}>{gadget.name}</Text>
                 <Text style={styles.description}>{gadget.description}</Text>
-                {gadget.cooldown && (
-                  <Text style={styles.cooldown}>クールダウン: {gadget.cooldown}秒</Text>
-                )}
               </View>
             ))}
           </View>
