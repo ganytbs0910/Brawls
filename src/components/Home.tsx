@@ -1,9 +1,21 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, Animated, ScrollView, Dimensions, Share, SafeAreaView } from 'react-native';
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  TouchableOpacity, 
+  Image, 
+  Animated, 
+  ScrollView, 
+  Dimensions, 
+  Share, 
+  SafeAreaView 
+} from 'react-native';
 import { useLanguage } from '../hooks/useLanguage';
 import { translations } from '../i18n/translations';
 import { privacyPolicyContent } from '../contents/privacyPolicy';
 import { termsContent } from '../contents/terms';
+import { DailyTip } from '../components/DailyTip';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -15,14 +27,20 @@ interface ScreenState {
   zIndex: number;
 }
 
-const LanguageSettings = ({ onClose, currentLanguage, onLanguageChange }: {
+const LanguageSettings = ({ 
+  onClose, 
+  currentLanguage, 
+  onLanguageChange 
+}: {
   onClose: () => void;
   currentLanguage: string;
   onLanguageChange: (language: string) => void;
 }) => (
   <View style={styles.settingsContainer}>
     <View style={styles.settingsHeader}>
-      <Text style={styles.settingsTitle}>{translations[currentLanguage].settings.language}</Text>
+      <Text style={styles.settingsTitle}>
+        {translations[currentLanguage].settings.language}
+      </Text>
       <TouchableOpacity onPress={onClose} style={styles.backButton}>
         <Text style={styles.backButtonText}>←</Text>
       </TouchableOpacity>
@@ -49,7 +67,10 @@ const LanguageSettings = ({ onClose, currentLanguage, onLanguageChange }: {
   </View>
 );
 
-const PrivacyPolicy = ({ onClose, currentLanguage }: { 
+const PrivacyPolicy = ({ 
+  onClose, 
+  currentLanguage 
+}: { 
   onClose: () => void;
   currentLanguage: string;
 }) => (
@@ -63,12 +84,17 @@ const PrivacyPolicy = ({ onClose, currentLanguage }: {
       </TouchableOpacity>
     </View>
     <ScrollView style={styles.contentContainer}>
-      <Text style={styles.contentText}>{privacyPolicyContent[currentLanguage]}</Text>
+      <Text style={styles.contentText}>
+        {privacyPolicyContent[currentLanguage]}
+      </Text>
     </ScrollView>
   </View>
 );
 
-const Terms = ({ onClose, currentLanguage }: { 
+const Terms = ({ 
+  onClose, 
+  currentLanguage 
+}: { 
   onClose: () => void;
   currentLanguage: string;
 }) => (
@@ -82,12 +108,19 @@ const Terms = ({ onClose, currentLanguage }: {
       </TouchableOpacity>
     </View>
     <ScrollView style={styles.contentContainer}>
-      <Text style={styles.contentText}>{termsContent[currentLanguage]}</Text>
+      <Text style={styles.contentText}>
+        {termsContent[currentLanguage]}
+      </Text>
     </ScrollView>
   </View>
 );
 
-const Settings = ({ onClose, onNavigate, onShare, currentLanguage }: { 
+const Settings = ({ 
+  onClose, 
+  onNavigate, 
+  onShare, 
+  currentLanguage 
+}: { 
   onClose: () => void; 
   onNavigate: (screen: ScreenType) => void;
   onShare: () => void;
@@ -244,9 +277,9 @@ const Home: React.FC = () => {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.content}>
-        {/* ここにホームタブのコンテンツを実装 */}
-      </View>
+      <ScrollView style={styles.content}>
+        <DailyTip />
+      </ScrollView>
 
       {screenStack.map((screen, index) => (
         index > 0 && (
@@ -329,7 +362,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   settingsContent: {
-    flex: 1,
+flex: 1,
   },
   settingsItem: {
     padding: 16,
