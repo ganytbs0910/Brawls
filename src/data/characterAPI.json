@@ -28,7 +28,9 @@
           "id": 23000849,
           "name": "痺れる針",
           "path": "Numbing-Needles",
-          "description": "グリグリの攻撃は敵を〈VALUE〉秒間減速させるようになります"
+          "description": "グリグリの攻撃は敵を〈VALUE〉秒間減速させるようになります",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -78,7 +80,9 @@
           "id": 23000833,
           "name": "硬化パーカー",
           "path": "Hardened-Hoodie",
-          "description": "霊体化フォーム中、シェイドはx%のダメージ軽減を得ます。"
+          "description": "霊体化フォーム中、シェイドはx%のダメージ軽減を得ます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -128,7 +132,9 @@
           "id": 23000816,
           "name": "にぎりの宿敵",
           "path": "Nigiri-Nemesis",
-          "description": "x秒間ダメージを受けなかった後、次の敵の攻撃からx%のダメージ軽減を得ます。"
+          "description": "x秒間ダメージを受けなかった後、次の敵の攻撃からx%のダメージ軽減を得ます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -178,7 +184,9 @@
           "id": 23000805,
           "name": "スピード違反",
           "path": "Speeding-Ticket",
-          "description": "モーのドリラーの移動速度が上昇します。"
+          "description": "モーのドリラーの移動速度が上昇します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -228,7 +236,9 @@
           "id": 23000773,
           "name": "士気上昇",
           "path": "Pumping-Up",
-          "description": "クランシーは敵を倒すたびに弾薬を全回復します。"
+          "description": "クランシーは敵を倒すたびに弾薬を全回復します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -278,7 +288,9 @@
           "id": 23000765,
           "name": "混乱を作る",
           "path": "Making-A-Mess",
-          "description": "アイスクリームのない領域では、ベリーの基本攻撃の衝撃時のダメージがx%上昇します。"
+          "description": "アイスクリームのない領域では、ベリーの基本攻撃の衝撃時のダメージがx%上昇します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -328,7 +340,9 @@
           "id": 23000753,
           "name": "警戒",
           "path": "Vigilance",
-          "description": "スーパーのチャージ範囲内に敵がいる間、移動速度がx%上昇します"
+          "description": "スーパーのチャージ範囲内に敵がいる間、移動速度がx%上昇します",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -378,7 +392,9 @@
           "id": 23000735,
           "name": "シュレッディング",
           "path": "Shredding",
-          "description": "ドラゴンソロの発動時にxの回復も行うようになります。"
+          "description": "ドラゴンソロの発動時にxの回復も行うようになります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -428,7 +444,9 @@
           "id": 23000676,
           "name": "流れ",
           "path": "Flow",
-          "description": "水に入った後、アンジェロは移動速度がx%上昇します。"
+          "description": "水に入った後、アンジェロは移動速度がx%上昇します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -478,7 +496,9 @@
           "id": 23000668,
           "name": "延長ミックス",
           "path": "Extended-Mix",
-          "description": "メロディの音符は消えるまでの持続時間がx%延長されます。"
+          "description": "メロディの音符は消えるまでの持続時間がx%延長されます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -528,7 +548,9 @@
           "id": 23000660,
           "name": "プロトコル・アシスト",
           "path": "Protocol-Assist",
-          "description": "ローリーが範囲内にいる間、彼が敵にダメージを与えるたびに弾薬をx%リロードします。"
+          "description": "ローリーが範囲内にいる間、彼が敵にダメージを与えるたびに弾薬をx%リロードします。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -578,7 +600,9 @@
           "id": 23000647,
           "name": "過度の愛着",
           "path": "Overly-Attached",
-          "description": "キットは味方のブローラーにx秒長く取り付くことができます。"
+          "description": "キットは味方のブローラーにx秒長く取り付くことができます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -628,7 +652,9 @@
           "id": 23000638,
           "name": "レコードスマッシュ",
           "path": "Record-Smash",
-          "description": "ミコはブローラー以外に対してx%の追加ダメージを与えます。"
+          "description": "ミコはブローラー以外に対してx%の追加ダメージを与えます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -678,7 +704,9 @@
           "id": 23000624,
           "name": "粘液",
           "path": "Slimy",
-          "description": "繭はx秒間粘液の跡を残し、その上を歩く敵を減速させます。"
+          "description": "繭はx秒間粘液の跡を残し、その上を歩く敵を減速させます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -728,7 +756,9 @@
           "id": 23000610,
           "name": "切符確認",
           "path": "Tickets-Please",
-          "description": "スーパーで敵を突き抜けると、その敵の弾薬をx%奪います。"
+          "description": "スーパーで敵を突き抜けると、その敵の弾薬をx%奪います。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -778,7 +808,9 @@
           "id": 23000602,
           "name": "ヒートシールド",
           "path": "Heat-Shield",
-          "description": "熱がx%を超えている間、受けるダメージがx%減少します。"
+          "description": "熱がx%を超えている間、受けるダメージがx%減少します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -828,7 +860,9 @@
           "id": 23000594,
           "name": "セルフサービス",
           "path": "Self-Service",
-          "description": "スナックアタックはダグもxだけ回復させます。"
+          "description": "スナックアタックはダグもxだけ回復させます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -878,7 +912,9 @@
           "id": 23000586,
           "name": "キノコ王国",
           "path": "Mushroom-Kingdom",
-          "description": "コーデリウスはスーパー使用後、影の領域にxつのキノコを出現させ、拾った味方は回復し、敵はx体力のダメージを受けます。"
+          "description": "コーデリウスはスーパー使用後、影の領域にxつのキノコを出現させ、拾った味方は回復し、敵はx体力のダメージを受けます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -928,7 +964,9 @@
           "id": 23000578,
           "name": "隠れる",
           "path": "Take-Cover",
-          "description": "壁の近くにいる時、ハンクの受けるダメージがx%減少します。"
+          "description": "壁の近くにいる時、ハンクの受けるダメージがx%減少します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -978,7 +1016,9 @@
           "id": 23000570,
           "name": "震動",
           "path": "Tremors",
-          "description": "ショックウェーブに命中した敵はx秒間減速します。"
+          "description": "ショックウェーブに命中した敵はx秒間減速します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1028,7 +1068,9 @@
           "id": 23000562,
           "name": "執着",
           "path": "Obsession",
-          "description": "呪われた敵は精神支配中の移動速度がx%上昇します。"
+          "description": "呪われた敵は精神支配中の移動速度がx%上昇します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1078,7 +1120,9 @@
           "id": 23000554,
           "name": "記録",
           "path": "Recording",
-          "description": "分裂時、アールティーとその脚部の受けるダメージがx%減少します。"
+          "description": "分裂時、アールティーとその脚部の受けるダメージがx%減少します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1128,7 +1172,9 @@
           "id": 23000544,
           "name": "ハードキャンディ",
           "path": "Hard-Candy",
-          "description": "フォーカス中、マンディはx%のシールドを得ます。"
+          "description": "フォーカス中、マンディはx%のシールドを得ます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1178,7 +1224,9 @@
           "id": 23000536,
           "name": "新しい視点",
           "path": "New-Perspective",
-          "description": "グレイまたは味方がドアを使用すると、<VALUE>体力を回復します。"
+          "description": "グレイまたは味方がドアを使用すると、<VALUE>体力を回復します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1228,7 +1276,9 @@
           "id": 23000528,
           "name": "先読み",
           "path": "Sneak-Peek",
-          "description": "チェスターは常に次のスーパーが何になるかを知ることができます。"
+          "description": "チェスターは常に次のスーパーが何になるかを知ることができます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1278,7 +1328,9 @@
           "id": 23000520,
           "name": "ケブラーベスト",
           "path": "Kevlar-Vest",
-          "description": "モンタージュ中、バスターは受けるダメージがx%減少し、ノックバック、減速、スタンに対して免疫になります。"
+          "description": "モンタージュ中、バスターは受けるダメージがx%減少し、ノックバック、減速、スタンに対して免疫になります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1328,7 +1380,9 @@
           "id": 23000512,
           "name": "スピリットアニマル",
           "path": "Spirit-Animal",
-          "description": "スプーキーはチームメイトのダメージをx秒間x%増加させます。"
+          "description": "スプーキーはチームメイトのダメージをx秒間x%増加させます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1378,7 +1432,9 @@
           "id": 23000504,
           "name": "遠隔充電",
           "path": "Remote-Recharge",
-          "description": "ナックルバスターが地上にあり、敵の近くにいる間、サムのスーパーをチャージします。"
+          "description": "ナックルバスターが地上にあり、敵の近くにいる間、サムのスーパーをチャージします。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1428,7 +1484,9 @@
           "id": 23000496,
           "name": "インク補充",
           "path": "Ink-Refills",
-          "description": "オーティスはx%多くのインク滴を発射するようになります。"
+          "description": "オーティスはx%多くのインク滴を発射するようになります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1478,7 +1536,9 @@
           "id": 23000479,
           "name": "親知らず",
           "path": "Wisdom-Tooth",
-          "description": "ルーズトゥースが命中時に砕け散り、近くの敵にx%の追加ダメージを与えます。"
+          "description": "ルーズトゥースが命中時に砕け散り、近くの敵にx%の追加ダメージを与えます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1528,7 +1588,9 @@
           "id": 23000471,
           "name": "ボーカルウォームアップ",
           "path": "Vocal-Warm-Up",
-          "description": "ジャネットの攻撃の集中がx%速くなります。"
+          "description": "ジャネットの攻撃の集中がx%速くなります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1578,7 +1640,9 @@
           "id": 23000453,
           "name": "ハッピーサプライズ",
           "path": "Happy-Surprise",
-          "description": "x秒ごとに、エッグシューターの次の大きな卵が敵に命中すると孵化した子供が出現します。"
+          "description": "x秒ごとに、エッグシューターの次の大きな卵が敵に命中すると孵化した子供が出現します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1628,7 +1692,9 @@
           "id": 23000439,
           "name": "神聖な足底",
           "path": "Divine-Soles",
-          "description": "x秒ごとに1回、受けるダメージをx軽減します。最大軽減量は受けるダメージのx%です。"
+          "description": "x秒ごとに1回、受けるダメージをx軽減します。最大軽減量は受けるダメージのx%です。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1678,7 +1744,9 @@
           "id": 23000432,
           "name": "キスで封印",
           "path": "Sealed-With-A-Kiss",
-          "description": "ローラのエゴからの投射物は、その軌道上にいる味方をx回復させます。"
+          "description": "ローラのエゴからの投射物は、その軌道上にいる味方をx回復させます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1728,7 +1796,9 @@
           "id": 23000422,
           "name": "ヘビーメタル",
           "path": "Heavy-Metal",
-          "description": "メカスーツが消滅する時、爆発を起こし近くの敵にxダメージを与え、押し退けます。"
+          "description": "メカスーツが消滅する時、爆発を起こし近くの敵にxダメージを与え、押し退けます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1778,7 +1848,9 @@
           "id": 23000415,
           "name": "激怒",
           "path": "Mad-As-Heck",
-          "description": "アッシュは怒りの度合いに応じて、最大x%のリロード速度上昇を徐々に得ます。"
+          "description": "アッシュは怒りの度合いに応じて、最大x%のリロード速度上昇を徐々に得ます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1828,7 +1900,9 @@
           "id": 23000398,
           "name": "ビジネスの回復力",
           "path": "Business-Resilience",
-          "description": "x秒ごとに、グリフは失った体力の最大x%を回復します。"
+          "description": "x秒ごとに、グリフは失った体力の最大x%を回復します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1878,7 +1952,9 @@
           "id": 23000391,
           "name": "鋭い目",
           "path": "Eyes-Sharp",
-          "description": "バズのスーパーチャージエリアがx%増加します。"
+          "description": "バズのスーパーチャージエリアがx%増加します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1928,7 +2004,9 @@
           "id": 23000384,
           "name": "Xファクター",
           "path": "X-Factor",
-          "description": "グロムのメイン攻撃の分裂は最大射程で最大+x%の追加ダメージを与えます。"
+          "description": "グロムのメイン攻撃の分裂は最大射程で最大+x%の追加ダメージを与えます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -1978,7 +2056,9 @@
           "id": 23000377,
           "name": "超粘着",
           "path": "Super-Sticky",
-          "description": "スクイークのスーパーによる粘着ボムの二次爆発も、敵をx秒間減速させます。"
+          "description": "スクイークのスーパーによる粘着ボムの二次爆発も、敵をx秒間減速させます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2028,7 +2108,9 @@
           "id": 23000370,
           "name": "接地",
           "path": "Grounded",
-          "description": "ベルのスーパーでマークされた敵は、x秒間攻撃をリロードできなくなります。"
+          "description": "ベルのスーパーでマークされた敵は、x秒間攻撃をリロードできなくなります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2078,7 +2160,9 @@
           "id": 23000363,
           "name": "ガソリン回復",
           "path": "Gaso-Heal",
-          "description": "ニトロブーストスーパーを使用するとスチューの体力がx回復します。"
+          "description": "ニトロブーストスーパーを使用するとスチューの体力がx回復します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2129,7 +2213,9 @@
           "id": 23000346,
           "name": "臨時昇進",
           "path": "Field-Promotion",
-          "description": "この能力が有効な間、範囲内の味方ブローラーの最大体力が毎秒x増加します。"
+          "description": "この能力が有効な間、範囲内の味方ブローラーの最大体力が毎秒x増加します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2180,7 +2266,9 @@
           "id": 23000339,
           "name": "格闘技",
           "path": "Fisticuffs",
-          "description": "エドガーが与えたダメージからの回復量がx%増加します。"
+          "description": "エドガーが与えたダメージからの回復量がx%増加します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2231,7 +2319,9 @@
           "id": 23000332,
           "name": "注射",
           "path": "Injection",
-          "description": "x秒ごとに、次の通常攻撃が対象を貫通します。"
+          "description": "x秒ごとに、次の通常攻撃が対象を貫通します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2282,7 +2372,9 @@
           "id": 23000325,
           "name": "低体温症",
           "path": "Hypothermia",
-          "description": "敵は、ルーの攻撃による凍結度に応じて最大x%のダメージを失います。"
+          "description": "敵は、ルーの攻撃による凍結度に応じて最大x%のダメージを失います。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2333,7 +2425,9 @@
           "id": 23000308,
           "name": "灼熱サイフォン",
           "path": "Scorchin-Siphon",
-          "description": "火炎液体の水たまりの近くにいる時、アンバーは火炎放射のリロードがx%速くなります。"
+          "description": "火炎液体の水たまりの近くにいる時、アンバーは火炎放射のリロードがx%速くなります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2384,7 +2478,9 @@
           "id": 23000301,
           "name": "集団課税",
           "path": "Mass-Tax",
-          "description": "コレットのスーパーは、x秒間x%のシールドを与えます。当たった敵ブローラー1体につきx%の追加防御力を得ます。"
+          "description": "コレットのスーパーは、x秒間x%のシールドを与えます。当たった敵ブローラー1体につきx%の追加防御力を得ます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2435,7 +2531,9 @@
           "id": 23000284,
           "name": "アイスコールド提供",
           "path": "Serve-Ice-Cold",
-          "description": "サージは試合中ずっとステージ1のスーパーアップグレードを維持します。"
+          "description": "サージは試合中ずっとステージ1のスーパーアップグレードを維持します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2486,7 +2584,9 @@
           "id": 23000241,
           "name": "光合成",
           "path": "Photosynthesis",
-          "description": "スプラウトは茂みの中にいる間、全ての攻撃から部分的に身を守るシールドを発動します。"
+          "description": "スプラウトは茂みの中にいる間、全ての攻撃から部分的に身を守るシールドを発動します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2537,7 +2637,9 @@
           "id": 23000235,
           "name": "強化スチール",
           "path": "Tempered-Steel",
-          "description": "ナニはスーパー発動中、受けるダメージがx%減少します。"
+          "description": "ナニはスーパー発動中、受けるダメージがx%減少します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2588,7 +2690,9 @@
           "id": 23000229,
           "name": "凍らせる雪",
           "path": "Freezing-Snow",
-          "description": "ゲイルの雪玉が敵をx秒間スローにするようになります。"
+          "description": "ゲイルの雪玉が敵をx秒間スローにするようになります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2639,7 +2743,9 @@
           "id": 23000223,
           "name": "頑丈なヘルメット",
           "path": "Hardy-Hard-Hat",
-          "description": "ジャッキーのヘルメットは受けるダメージをx%軽減します。"
+          "description": "ジャッキーのヘルメットは受けるダメージをx%軽減します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2690,7 +2796,9 @@
           "id": 23000211,
           "name": "走って撃て",
           "path": "Run-N-Gun",
-          "description": "マックスは移動中のリロードが速くなります。"
+          "description": "マックスは移動中のリロードが速くなります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2741,7 +2849,9 @@
           "id": 23000205,
           "name": "回転ドア",
           "path": "Revolving-Door",
-          "description": "本拠地から出現するすべてのロボポーターの体力がx%、ダメージがx%増加します。"
+          "description": "本拠地から出現するすべてのロボポーターの体力がx%、ダメージがx%増加します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2792,7 +2902,9 @@
           "id": 23000199,
           "name": "ハイプ",
           "path": "Hype",
-          "description": "エムズはスーパーの効果範囲内にいる敵ブローラー1体につき毎秒x体力を回復します。"
+          "description": "エムズはスーパーの効果範囲内にいる敵ブローラー1体につき毎秒x体力を回復します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2843,7 +2955,9 @@
           "id": 23000193,
           "name": "ハニカム",
           "path": "Honeycomb",
-          "description": "ビッグスティングがスーパーチャージされている間、ビーはx%のシールドを得ます。"
+          "description": "ビッグスティングがスーパーチャージされている間、ビーはx%のシールドを得ます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2894,7 +3008,9 @@
           "id": 23000187,
           "name": "癒しの風",
           "path": "Healing-Winds",
-          "description": "砂嵐が味方ブローラーの体力を毎秒x回復するようになります。"
+          "description": "砂嵐が味方ブローラーの体力を毎秒x回復するようになります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2945,7 +3061,9 @@
           "id": 23000181,
           "name": "プラグイン",
           "path": "Plugged-In",
-          "description": "8-ビットがダメージブースターの近くにいる時、プラグインして移動速度が上昇します。"
+          "description": "8-ビットがダメージブースターの近くにいる時、プラグインして移動速度が上昇します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -2996,7 +3114,9 @@
           "id": 23000146,
           "name": "バッティングスタンス",
           "path": "Batting-Stance",
-          "description": "ホームランゲージが満タンの時、ビビはすべてのダメージをx%軽減します。"
+          "description": "ホームランゲージが満タンの時、ビビはすべてのダメージをx%軽減します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3047,7 +3167,9 @@
           "id": 23000145,
           "name": "防御ピルエット",
           "path": "Protective-Pirouette",
-          "description": "カールのスーパー中、受けるダメージがx%減少します。"
+          "description": "カールのスーパー中、受けるダメージがx%減少します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3098,7 +3220,9 @@
           "id": 23000147,
           "name": "トゲのグローブ",
           "path": "Thorny-Gloves",
-          "description": "スーパー発動中、ローザのパンチのダメージが+x増加します。"
+          "description": "スーパー発動中、ローザのパンチのダメージが+x増加します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3149,7 +3273,9 @@
           "id": 23000141,
           "name": "インビジヒール",
           "path": "Invisiheal",
-          "description": "スーパー発動中、レオンは毎秒x体力を回復します。"
+          "description": "スーパー発動中、レオンは毎秒x体力を回復します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3200,7 +3326,9 @@
           "id": 23000161,
           "name": "オートマティックリロード",
           "path": "Automa-Tick-Reload",
-          "description": "ティックのリロード時間がx%短くなります。"
+          "description": "ティックのリロード時間がx%短くなります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3251,7 +3379,9 @@
           "id": 23000159,
           "name": "スピリットスラップ",
           "path": "Spirit-Slap",
-          "description": "ジーンのマジックハンドはヒット時にxダメージを与えるようになります。"
+          "description": "ジーンのマジックハンドはヒット時にxダメージを与えるようになります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3302,7 +3432,9 @@
           "id": 23000153,
           "name": "スポンジ",
           "path": "Sponge",
-          "description": "フランクの体力が+x増加します。"
+          "description": "フランクの体力が+x増加します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3353,7 +3485,9 @@
           "id": 23000142,
           "name": "マスターブラスター",
           "path": "Master-Blaster",
-          "description": "ペニーの大砲は着地時にxダメージを与え、近くの敵をノックバックさせます。"
+          "description": "ペニーの大砲は着地時にxダメージを与え、近くの敵をノックバックさせます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3404,7 +3538,9 @@
           "id": 23000157,
           "name": "ローリングリロード",
           "path": "Rolling-Reload",
-          "description": "ダリルがスーパーを使用すると、x秒間リロード速度が2倍になります。"
+          "description": "ダリルがスーパーを使用すると、x秒間リロード速度が2倍になります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3455,7 +3591,9 @@
           "id": 23000160,
           "name": "癒しの影",
           "path": "Healing-Shade",
-          "description": "タラのスーパーは次元のポータルを開きます！タラの影のバージョンが現れてタラとチームメイトを回復します。"
+          "description": "タラのスーパーは次元のポータルを開きます！タラの影のバージョンが現れてタラとチームメイトを回復します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3506,7 +3644,9 @@
           "id": 23000139,
           "name": "ママのスクイーズ",
           "path": "Mamas-Squeeze",
-          "description": "回復タレットが敵に毎秒xダメージも与えるようになります。"
+          "description": "回復タレットが敵に毎秒xダメージも与えるようになります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3557,7 +3697,9 @@
           "id": 23000152,
           "name": "スナッピースナイピング",
           "path": "Snappy-Sniping",
-          "description": "パイパーの攻撃が敵に当たると、即座にx弾薬をリロードします。"
+          "description": "パイパーの攻撃が敵に当たると、即座にx弾薬をリロードします。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3608,7 +3750,9 @@
           "id": 23000148,
           "name": "熊の罠",
           "path": "Snare-A-Bear",
-          "description": "ノックバックの代わりに、ボウの罠が敵をx秒間スタンさせるようになります！"
+          "description": "ノックバックの代わりに、ボウの罠が敵をx秒間スタンさせるようになります！",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3659,7 +3803,9 @@
           "id": 23000144,
           "name": "スクリーチングソロ",
           "path": "Screeching-Solo",
-          "description": "ポコのスーパーが敵にもxダメージを与えるようになります。"
+          "description": "ポコのスーパーが敵にもxダメージを与えるようになります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3710,7 +3856,9 @@
           "id": 23000143,
           "name": "キャリオンクロウ",
           "path": "Carrion-Crow",
-          "description": "体力がx%以下の敵に対して、通常攻撃とスーパーのダメージが+x%増加します。"
+          "description": "体力がx%以下の敵に対して、通常攻撃とスーパーのダメージが+x%増加します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3761,7 +3909,9 @@
           "id": 23000154,
           "name": "コイルドスネーク",
           "path": "Coiled-Snake",
-          "description": "長距離ダッシュのチャージ時間がx秒短縮されます。"
+          "description": "長距離ダッシュのチャージ時間がx秒短縮されます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3812,7 +3962,9 @@
           "id": 23000140,
           "name": "メテオラッシュ",
           "path": "Meteor-Rush",
-          "description": "スーパースキル使用後、x秒間移動速度がx%上昇します。"
+          "description": "スーパースキル使用後、x秒間移動速度がx%上昇します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3863,7 +4015,9 @@
           "id": 23000155,
           "name": "デモリション",
           "path": "Demolition",
-          "description": "スーパースキルのダメージが+x増加します。"
+          "description": "スーパースキルのダメージが+x増加します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -3904,35 +4058,37 @@
       "starPowers": [
         {
           "id": 23000084,
-          "name": "ベアウィズミー",
+          "name": "森の絆",
           "path": "Bear-With-Me",
-          "description": "クマが敵に攻撃を当てるたびにニタの体力がx回復します。ニタが敵にダメージを与えると、クマの体力がx回復します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "クマが敵に攻撃を当てるたびにニタのHPが1040回復します。ニタが敵にダメージを与えるとクマのHPが1040回復します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "クマとニタの生存力が増すため前線を押し続けやすくなる。"
         },
         {
           "id": 23000136,
           "name": "ハイパーベア",
           "path": "Hyper-Bear",
-          "description": "クマの攻撃速度が上昇し、攻撃間隔がx%短縮されます。"
+          "description": "クマの攻撃速度が上がる。攻撃の間隔が60%短縮されます。",
+          "recommendationLevel": 4,
+          "recommendationReason": "強奪でのみ非常に強力。"
         }
       ],
       "gadgets": [
         {
           "id": 23000249,
-          "name": "ベアパウ",
+          "name": "クマの手",
           "path": "Bear-Paws",
-          "description": "クマが地面を叩きつけ、範囲内の敵全てをスタンさせます。",
+          "description": "クマが地面を強烈に叩きつけ、効果範囲内の全ての絵t機を気絶させる",
           "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "タンクが多い状況ではかなり強力で、サッカーでのみ使用されることが多い。"
         },
         {
           "id": 23000314,
-          "name": "フォークスファー",
+          "name": "フェイクファー",
           "path": "Faux-Fur",
-          "description": "x秒間、クマが受けるダメージをx%軽減するシールドを展開します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "クマへのダメージを3秒間にわたって35%減少させるシールドを発動する。",
+          "recommendationLevel": 5,
+          "recommendationReason": "クマの生存能力が向上することで前線を押し上げる能力が上がるため安定して強い。"
         }
       ],
       "videos": []
@@ -3965,7 +4121,9 @@
           "id": 23000149,
           "name": "ショッキー",
           "path": "Shocky",
-          "description": "タレットの攻撃が敵の間で跳ね返るようになります。跳ね返り後の射程は通常のx%になります。"
+          "description": "タレットの攻撃が敵の間で跳ね返るようになります。跳ね返り後の射程は通常のx%になります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -4016,7 +4174,9 @@
           "id": 23000158,
           "name": "エクストラノクシャス",
           "path": "Extra-Noxious",
-          "description": "攻撃の毎秒ダメージが+x増加します。"
+          "description": "攻撃の毎秒ダメージが+x増加します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
       ],
       "gadgets": [
@@ -4057,35 +4217,37 @@
       "starPowers": [
         {
           "id": 23000081,
-          "name": "ファータライズ",
+          "name": "栄養補給",
           "path": "Fertilize",
-          "description": "スーパースキルの範囲内にいる間、毎秒x体力を回復します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "必殺技を発動した際、自身がその効果範囲に入ることでHPが毎秒1400回復する。",
+          "recommendationLevel": 3,
+          "recommendationReason": "生存性が大幅に向上するため前線をキープしやすいが、もう一つのガジェットが優秀すぎる。"
         },
         {
           "id": 23000151,
-          "name": "カーブボール",
+          "name": "カーブシュート",
           "path": "Curveball",
-          "description": "サボテンの破片が曲線を描いて飛び、敵に当てやすくなります。"
+          "description": "サボテンの破片が曲線を描いて飛び、敵に当てやすくなります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "弾がカーブするため実質射程が伸びる。また、これがないと弾を避けられやすいためほぼ必須。"
         }
       ],
       "gadgets": [
         {
           "id": 23000247,
-          "name": "ポッピングピンクッション",
+          "name": "破裂トゲクッション",
           "path": "Popping-Pincushion",
-          "description": "全方向にx波の針を発射し、1ヒットごとにxダメージを与えます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "全方向に3回大量の針を発射し、ヒットごとに1080ダメージを与えます。",
+          "recommendationLevel": 3,
+          "recommendationReason": "強奪やアサシン系のキャラが多いときはかなり強いが、強奪でのスパイクが弱いのが難点。"
         },
         {
           "id": 23000406,
           "name": "ライフプラント",
           "path": "Life-Plant",
-          "description": "体力xのサボテンを設置して味方の掩蔽を作ります。破壊されると、近くの味方全員の体力をx回復させます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "体力2800のサボテンを設置して味方の盾を作ります。破壊されると、近くの味方全員の体力を1680回復させます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "盾としての性能が非常に高く、回復の効果も良いため汎用性が非常に高い。"
         }
       ],
       "videos": []
@@ -4108,17 +4270,19 @@
       "starPowers": [
         {
           "id": 23000080,
-          "name": "スーパーバウンシー",
+          "name": "スーパーバウンド",
           "path": "Super-Bouncy",
-          "description": "通常攻撃とスーパースキルの弾が、最初の跳ね返り後にスーパーチャージされ、+xダメージを与えます！",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "通常の攻撃および必殺技の弾丸が最初のバウンドでさらにパワーを帯び、ダメージが256増加する。",
+          "recommendationLevel": 5,
+          "recommendationReason": "火力がかなり上昇するため安定性とタンクを倒しやすくなるため強力。"
         },
         {
           "id": 23000156,
           "name": "ロボリトリート",
           "path": "Robo-Retreat",
-          "description": "体力がx%を下回ると、移動速度がx%上昇します！"
+          "description": "体力が40%を下回ると、移動速度が34%上昇します！",
+          "recommendationLevel": 5,
+          "recommendationReason": "移動速度がかなり早くなるため扱うのは難しいが、使いこなすと全然死なない強力な効果となる。"
         }
       ],
       "gadgets": [
@@ -4127,16 +4291,16 @@
           "name": "マルチボールランチャー",
           "path": "Multiball-Launcher",
           "description": "全方向に跳ね返る弾を連射します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationLevel": 5,
+          "recommendationReason": "接近してきたキャラクターを一瞬で倒すことが出来るため、どの敵でもどのタイミングでも最強。"
         },
         {
           "id": 23000409,
-          "name": "バウンシーキャッスル",
+          "name": "バウンシングヒール",
           "path": "Bouncy-Castle",
-          "description": "次の通常攻撃は、弾が跳ね返るたびにx体力を回復します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "次の通常攻撃が跳ね返るたびにHPが256回復する。",
+          "recommendationLevel": 2,
+          "recommendationReason": "壁がないと使用しづらく、敵を倒せるもう一つのガジェットの方が強い。"
         }
       ],
       "videos": []
@@ -4148,7 +4312,7 @@
       "path": "Brock",
       "class": {
         "id": 3,
-        "name": "マークスマン"
+        "name": "スナイパー"
       },
       "rarity": {
         "id": 2,
@@ -4159,17 +4323,19 @@
       "starPowers": [
         {
           "id": 23000079,
-          "name": "モアロケット",
+          "name": "集中豪雨",
           "path": "More-Rockets",
-          "description": "ロケットレインのロケット数がx%増加します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "必殺技で発射するロケットが44%増加します。",
+          "recommendationLevel": 1,
+          "recommendationReason": "誰も使わないでください。"
         },
         {
           "id": 23000150,
-          "name": "ロケットNo.4",
+          "name": "第4のロケット",
           "path": "Rocket-No-4",
-          "description": "ランチャーに4発目のロケットを装填し、弾薬容量が増加します（水筒を入れていた4番目の筒を空けることになりました）。"
+          "description": "ランチャーに4発目のロケットを装填し、弾薬容量が増加します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "装弾数が増えることで安定性が上昇するため非常に強力"
         }
       ],
       "gadgets": [
@@ -4177,17 +4343,17 @@
           "id": 23000245,
           "name": "ロケットレース",
           "path": "Rocket-Laces",
-          "description": "足元を爆破して空中に飛び上がります。爆発は近くの敵にxダメージを与えます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "足元を爆破して空中に飛び上がります。爆発は近くの敵に580ダメージを与えます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "バトロワで使用していない人は戦犯レベルで最強ガジェット。生存能力が段違いに上がる。"
         },
         {
           "id": 23000316,
-          "name": "ロケットフューエル",
+          "name": "ロケット燃料",
           "path": "Rocket-Fuel",
-          "description": "次の攻撃が、より大きく、強力で、速い、壁を破壊するメガロケットになります。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "次の通常攻撃で、大きさと速度が増したど迫力のロケットを発射し、壁までも破壊する。",
+          "recommendationLevel": 5,
+          "recommendationReason": "壁が多いマップで即座に壁を破壊できるため不利な地形を一気に有利な地形にすることができる"
         }
       ],
       "videos": []
@@ -4210,17 +4376,19 @@
       "starPowers": [
         {
           "id": 23000078,
-          "name": "バーサーカー",
+          "name": "暴れウシ",
           "path": "Berserker",
-          "description": "体力がx%を下回ると、リロード速度が2倍になります！",
+          "description": "HPが60%を以下になると、リロード速度が2倍に！",
           "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "強奪では非常に多く使用される。"
         },
         {
           "id": 23000137,
           "name": "タフガイ",
           "path": "Tough-Guy",
-          "description": "体力がx%を下回ると、受けるダメージをx%軽減するシールドを展開します。"
+          "description": "HPが40%以下になると、受けるダメージがすべて30%低減される。",
+          "recommendationLevel": 5,
+          "recommendationReason": "ダメージ計算を狂わせつつ耐久力が増すため汎用性が非常に高い。"
         }
       ],
       "gadgets": [
@@ -4228,17 +4396,17 @@
           "id": 23000272,
           "name": "Tボーンインジェクター",
           "path": "T-Bone-Injector",
-          "description": "即座に体力をx回復します。",
+          "description": "即座に体力を2000回復します。",
           "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "スターパワーの「暴れウシ」と併用して強奪で多く使用される"
         },
         {
           "id": 23000310,
-          "name": "ストンパー",
+          "name": "グランドシェーカー",
           "path": "Stomper",
           "description": "スーパースキルの突進を中断し、強力な踏みつけで周囲の敵をx秒間減速させます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationLevel": 5,
+          "recommendationReason": "スローダウンとショットガンの攻撃の相性が非常に良く汎用性が高い。"
         }
       ],
       "videos": []
@@ -4261,17 +4429,19 @@
       "starPowers": [
         {
           "id": 23000077,
-          "name": "スリックブーツ",
+          "name": "スイスイブーツ",
           "path": "Slick-Boots",
-          "description": "移動速度がx%上昇します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "移動速度が13%上昇します。",
+          "recommendationLevel": 2,
+          "recommendationReason": "移動速度はかなり早くなるが、射程を伸ばして射程外から敵を攻撃した方が強い。"
         },
         {
           "id": 23000138,
           "name": "マグナムスペシャル",
           "path": "Magnum-Special",
-          "description": "攻撃の射程と弾速がx%上昇します。"
+          "description": "攻撃の射程と弾速11%上昇します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "射程と弾速が伸びるため攻撃を当てやすく敵の射程外から攻撃することができる"
         }
       ],
       "gadgets": [
@@ -4279,17 +4449,17 @@
           "id": 23000273,
           "name": "スピードローダー",
           "path": "Speedloader",
-          "description": "即座にx発の弾を装填します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "即座に2発の弾をリロードする。",
+          "recommendationLevel": 5,
+          "recommendationReason": "強奪や壁が少ないマップでは使用率が非常に高く汎用性が非常に高い。"
         },
         {
           "id": 23000319,
           "name": "シルバーバレット",
           "path": "Silver-Bullet",
-          "description": "次の攻撃が、通常の弾x発分のダメージを与え、障害物と敵を貫通する強力な一撃になります。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "次の攻撃で、通常攻撃の弾丸2発分の威力を持つ強力なショットを1発放つ。このショットは障害物と敵を貫通する。",
+          "recommendationLevel": 5,
+          "recommendationReason": "壁が多いマップで即座に壁を破壊できるため不利な地形を一気に有利な地形にすることができる"
         }
       ],
       "videos": []
@@ -4314,25 +4484,27 @@
           "id": 23000076,
           "name": "シェルショック",
           "path": "Shell-Shock",
-          "description": "スーパースキルで敵をx秒間減速させます！",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "スーパーシェルが敵の動きを2秒間鈍らせる！",
+          "recommendationLevel": 5,
+          "recommendationReason": "ウルトでスローダウンからのガジェット「クレイピジョン」のオートエイム連打の相性がかなり良い"
         },
         {
           "id": 23000135,
           "name": "バンドエイド",
           "path": "Band-Aid",
-          "description": "体力がx%を下回ると、即座にx体力を回復します。バンドエイドはx秒で再使用可能になります。"
+          "description": "HPが40%を下回ると、瞬時に2220回復する。再び発動するまでに15秒かかる。",
+          "recommendationLevel": 4,
+          "recommendationReason": "バトロワで主に使用される。生存性が大幅に向上しかなり安定度が増す"
         }
       ],
       "gadgets": [
         {
           "id": 23000255,
-          "name": "ファストフォワード",
+          "name": "全速前進",
           "path": "Fast-Forward",
-          "description": "不要な足取りを省いて前方にダッシュします！",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "無駄のない軽やかな足取りで前に素早くダッシュする！",
+          "recommendationLevel": 1,
+          "recommendationReason": "誰も使用しないでください。"
         },
         {
           "id": 23000288,
@@ -4340,7 +4512,7 @@
           "path": "Clay-Pigeons",
           "description": "発動後x秒間、通常攻撃の射撃範囲が狭くなる代わりに射程が延長されます。",
           "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "射程と弾速が増すためダメージが入りやすく、スタパ「シェルショック」との併用が非常に強力。"
         }
       ],
       "videos": []
