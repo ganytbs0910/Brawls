@@ -26,25 +26,24 @@
       "size" : "40x40"
     },
     {
-      "filename" : "app-icon-2x.png",
+      "filename" : "app-icon-120.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "app-icon-2x 1.png",
+      "filename" : "app-icon-120 1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "app-icon-3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
-      "filename" : "app-icon-1024.png",
+      "filename" : "app-icon.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
