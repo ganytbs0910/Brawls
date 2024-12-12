@@ -6,10 +6,11 @@ import BrawlStarsCompatibility from './components/BrawlStarsCompatibility';
 import TeamCompatibility from './components/TeamCompatibility';
 import BrawlStarsRankings from './components/BrawlStarsRankings';
 import CharacterDetails from './components/CharacterDetails';
+import PickPrediction from './components/PickPrediction'; // 新しいコンポーネント
 import Home from './components/Home';
 
 const { width } = Dimensions.get('window');
-const TAB_WIDTH = width / 4;
+const TAB_WIDTH = width / 5; // 5タブに変更
 
 export type RootStackParamList = {
   Rankings: undefined;
@@ -33,8 +34,8 @@ const RankingsStack = () => {
           headerShown: true,
           headerStyle: {
             backgroundColor: '#21A0DB',
-            elevation: 0, // Android
-            shadowOpacity: 0, // iOS
+            elevation: 0,
+            shadowOpacity: 0,
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
@@ -47,13 +48,14 @@ const RankingsStack = () => {
 };
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings'>('home');
+  const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings' | 'prediction'>('home');
   const slideAnimation = useRef(new Animated.Value(0)).current;
   const animatedValues = useRef({
     home: new Animated.Value(1),
     single: new Animated.Value(0),
     team: new Animated.Value(0),
     rankings: new Animated.Value(0),
+    prediction: new Animated.Value(0), // 新しいタブのアニメーション値
   }).current;
 
   const tabs = [
@@ -71,6 +73,11 @@ const App = () => {
       key: 'team',
       label: 'チーム分析',
       icon: require('../assets/AppIcon/analysis.png'),
+    },
+    {
+      key: 'prediction',
+      label: 'ピック想定',
+      icon: require('../assets/AppIcon/prediction.png'), // 新しいアイコンが必要
     },
     {
       key: 'rankings',
@@ -109,6 +116,8 @@ const App = () => {
         return <BrawlStarsCompatibility />;
       case 'team':
         return <TeamCompatibility />;
+      case 'prediction':
+        return <PickPrediction />; // 新しいコンポーネント
       case 'rankings':
         return (
           <NavigationContainer independent>
@@ -208,7 +217,7 @@ const styles = StyleSheet.create({
     top: 0,
     width: TAB_WIDTH,
     height: 2,
-    backgroundColor: '#65BBE9', // メインカラーに合わせて変更
+    backgroundColor: '#65BBE9',
   },
   tabIcon: {
     width: 24,
@@ -217,14 +226,14 @@ const styles = StyleSheet.create({
     tintColor: '#666',
   },
   activeTabIcon: {
-    tintColor: '#65BBE9', // メインカラーに合わせて変更
+    tintColor: '#65BBE9',
   },
   tabText: {
     fontSize: 12,
     color: '#666',
   },
   activeTabText: {
-    color: '#65BBE9', // メインカラーに合わせて変更
+    color: '#65BBE9',
     fontWeight: 'bold',
   },
 });
