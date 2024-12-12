@@ -20,17 +20,17 @@
           "id": 23000848,
           "name": "グリグリシールド",
           "path": "Guarded-Gris-Gris",
-          "description": "グリグリは保護シールドと共に召喚されます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "召喚したグリグリにシールドが付与される。",
+          "recommendationLevel": 3,
+          "recommendationReason": "強力な必殺技のグリグリの耐久力が増すことで前線の押し上げをしやすくなる。"
         },
         {
           "id": 23000849,
-          "name": "痺れる針",
+          "name": "スローニードル",
           "path": "Numbing-Needles",
-          "description": "グリグリの攻撃は敵を〈VALUE〉秒間減速させるようになります",
+          "description": "グリグリの攻撃は敵を1.0秒間減速させるようになります",
           "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "一撃喰らうと距離次第で攻撃を避けられなくなるため超強力。"
         }
       ],
       "gadgets": [
@@ -70,37 +70,37 @@
       "starPowers": [
         {
           "id": 23000832,
-          "name": "幽霊スピードスター",
+          "name": "ポルターヘイスト",
           "path": "Spooky-Speedster",
           "description": "シェイドのメイン攻撃の中心部で敵に命中すると、短時間の移動速度上昇を得ます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationLevel": 1,
+          "recommendationReason": "使わないでください。"
         },
         {
           "id": 23000833,
-          "name": "硬化パーカー",
+          "name": "スペクトルアーマー",
           "path": "Hardened-Hoodie",
-          "description": "霊体化フォーム中、シェイドはx%のダメージ軽減を得ます。",
+          "description": "霊体化フォーム中、シェイドは30%のダメージ軽減を得ます。",
           "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "弱点の脆さをカバーする超優秀スタパ"
         }
       ],
       "gadgets": [
         {
           "id": 23000834,
-          "name": "長腕",
+          "name": "ロングアーム",
           "path": "Longarms",
-          "description": "次のメイン攻撃の射程がx%延長されます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "次のメイン攻撃の射程が50%延長されます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "ウルトを着実に貯めるための良いガジェ"
         },
         {
           "id": 23000835,
-          "name": "驚かし",
+          "name": "ジャンプスケア",
           "path": "Jump-Scare",
           "description": "シェイドは近くの敵を驚かせ、x秒間減速させます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationLevel": 2,
+          "recommendationReason": "別にいらねぇ。"
         }
       ]
     },
@@ -122,37 +122,37 @@
       "starPowers": [
         {
           "id": 23000815,
-          "name": "刀の心得",
+          "name": "名刀「たちわりおろし」",
           "path": "Studied-The-Blade",
-          "description": "スラシミの斬撃の射程がx%延長されます",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "必殺技の射程距離が30%延長されます",
+          "recommendationLevel": 1,
+          "recommendationReason": "別にいらない。"
         },
         {
           "id": 23000816,
           "name": "にぎりの宿敵",
           "path": "Nigiri-Nemesis",
-          "description": "x秒間ダメージを受けなかった後、次の敵の攻撃からx%のダメージ軽減を得ます。",
+          "description": "5秒間ダメージを受けなかった後、次の敵の攻撃から60%のダメージ軽減を得ます。",
           "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "このダメージ軽減がこいつの凶悪さと言っても過言ではない"
         }
       ],
       "gadgets": [
         {
           "id": 23000817,
-          "name": "出汁ダッシュ",
+          "name": "攻法「出汁走り」",
           "path": "Dashi-Dash",
-          "description": "次のx秒間、ケンジの基本攻撃はダッシュのみを使用します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "３秒にわたり、通常攻撃が突撃のみになる。",
+          "recommendationLevel": 1,
+          "recommendationReason": "いらねぇ"
         },
         {
           "id": 23000818,
-          "name": "細巻き回復",
+          "name": "療法「活き造り」",
           "path": "Hosomaki-Healing",
-          "description": "過去x秒間に受けたダメージのx%を即座に回復します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "過去3秒間に受けたダメージの50%を即座に回復します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "回復しすぎです。"
         }
       ]
     },
@@ -174,37 +174,37 @@
       "starPowers": [
         {
           "id": 23000804,
-          "name": "飛び石",
+          "name": "石切り",
           "path": "Skipping-Stones",
           "description": "モーの基本攻撃がもう1回跳ねるようになります。攻撃の射程は変わりません。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationLevel": 5,
+          "recommendationReason": "ウルトの回転率と火力の総上げで絶対に使用するべきスターパワー"
         },
         {
           "id": 23000805,
-          "name": "スピード違反",
+          "name": "マイナーズ・ハイ",
           "path": "Speeding-Ticket",
-          "description": "モーのドリラーの移動速度が上昇します。",
+          "description": "ドリラーの移動速度が上昇します。",
           "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "使わないでください。"
         }
       ],
       "gadgets": [
         {
           "id": 23000806,
-          "name": "怪しい掘削",
+          "name": "ここ掘れチューチュー",
           "path": "Dodgy-Digging",
-          "description": "モーは「借りてきた」物を掘り出し、x秒間スーパー充填率がx%上昇します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "モーは「借りてきた」物を掘り出し、ウルトのチャージ率を5秒間にわたって50%上昇させる。",
+          "recommendationLevel": 5,
+          "recommendationReason": "ウルトが最強なのでそのチャージ率上昇が非常に強力。"
         },
         {
           "id": 23000807,
-          "name": "ネズミ競争",
+          "name": "ラットレース",
           "path": "Rat-Race",
           "description": "モーはドリラーで短距離をダッシュし、その過程で壁を破壊しブローラーをノックバックさせます。",
           "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "壁破壊が味方にいない状況で割と使用される。"
         }
       ]
     },
@@ -226,37 +226,37 @@
       "starPowers": [
         {
           "id": 23000772,
-          "name": "偵察",
+          "name": "早手の斥候",
           "path": "Recon",
-          "description": "クランシーは試合開始時にxトークンを持っています。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "トークンゲージが3溜まった状態でバトルがスタートする",
+          "recommendationLevel": 5,
+          "recommendationReason": "第一形態が弱すぎるのでカバーできる有龍なスタパ。"
         },
         {
           "id": 23000773,
-          "name": "士気上昇",
+          "name": "熟練の兵士",
           "path": "Pumping-Up",
           "description": "クランシーは敵を倒すたびに弾薬を全回復します。",
-          "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationLevel": 3,
+          "recommendationReason": "初期状態が弱すぎるので敵を倒せないのが難点。"
         }
       ],
       "gadgets": [
         {
           "id": 23000774,
-          "name": "素早い射撃",
+          "name": "刹那の鼓動",
           "path": "Snappy-Shooting",
-          "description": "クランシーはx秒間トークンを2倍獲得します。",
+          "description": "クランシーは5秒間トークンを2倍獲得します。",
           "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "第一形態が弱すぎるのでカバーできる有龍なスタパ。"
         },
         {
           "id": 23000775,
           "name": "戦術的撤退",
           "path": "Tactical-Retreat",
-          "description": "クランシーはダッシュしx弾を補充します",
+          "description": "クランシーはダッシュし1弾を補充します",
           "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "機動力が上がるため攻守共に優れている"
         }
       ]
     },
@@ -280,35 +280,35 @@
           "id": 23000764,
           "name": "床は大丈夫",
           "path": "Floor-Is-Fine",
-          "description": "ベリーは自分の溶けたアイスクリームの上に立っている時、リロード速度がx%上昇します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "ベリーは自分の溶けたアイスクリームの上に立っている時、リロード速度が50%上昇します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "リロード速度の上昇率が高すぎて最強。"
         },
         {
           "id": 23000765,
           "name": "混乱を作る",
           "path": "Making-A-Mess",
-          "description": "アイスクリームのない領域では、ベリーの基本攻撃の衝撃時のダメージがx%上昇します。",
-          "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "アイスクリームのない領域では、ベリーの基本攻撃の衝撃時のダメージが20%上昇します。",
+          "recommendationLevel": 2,
+          "recommendationReason": "もう片方のガジェットが強すぎてちょっと話にならない。"
         }
       ],
       "gadgets": [
         {
           "id": 23000766,
-          "name": "友情は素晴らしい",
+          "name": "フレンドシップ",
           "path": "Friendship-Is-Great",
-          "description": "ベリーは尻尾を振り、敵をノックバックし近くの味方をx回復させます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "ベリーは尻尾を振り、敵をノックバックし近くの味方を1000回復させます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "タンクやアサシンへの対抗策として超有能ガジェット。"
         },
         {
           "id": 23000767,
           "name": "健康的な添加物",
           "path": "Healthy-Additives",
           "description": "ベリーの次のメイン攻撃エリアの持続時間がx%延長されます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationLevel": 3,
+          "recommendationReason": "強奪では優秀だがそれ以外では一切見かけない。"
         }
       ]
     },
@@ -330,37 +330,37 @@
       "starPowers": [
         {
           "id": 23000752,
-          "name": "トゲトゲ",
+          "name": "フラワースティンガー",
           "path": "Spiky",
-          "description": "敵にテレポート後、リリーの次の攻撃がx増加したダメージを与えます",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "敵にテレポート後、リリーの次の攻撃が1060増加したダメージを与えます",
+          "recommendationLevel": 2,
+          "recommendationReason": "上昇する火力が低すぎて使い物にならない。"
         },
         {
           "id": 23000753,
-          "name": "警戒",
+          "name": "警戒態勢",
           "path": "Vigilance",
-          "description": "スーパーのチャージ範囲内に敵がいる間、移動速度がx%上昇します",
+          "description": "スーパーのチャージ範囲内に敵がいる間、移動速度が15%上昇します",
           "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "弾除けと敵への接近がやりやすくなるためかなり強力"
         }
       ],
       "gadgets": [
         {
           "id": 23000754,
-          "name": "消失",
+          "name": "ゲッタウェイ",
           "path": "Vanish",
-          "description": "リリーはx秒間影の領域に入ります",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "リリーは3秒間影の領域に入ります",
+          "recommendationLevel": 5,
+          "recommendationReason": "超必須ガジェットでこれがないとウルトが貯まらない。"
         },
         {
           "id": 23000755,
           "name": "植え替え",
           "path": "Repot",
           "description": "次の開花は投げ攻撃となり、リリーは衝突地点にテレポートします",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationLevel": 1,
+          "recommendationReason": "意味ねぇ。"
         }
       ]
     },
@@ -382,17 +382,17 @@
       "starPowers": [
         {
           "id": 23000734,
-          "name": "暴露",
+          "name": "エクスポーズ",
           "path": "Expose",
-          "description": "x秒ごとに、次の槍突きが命中した敵を暴露状態にします。暴露された敵はx秒間、受けるダメージがx%増加します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "5秒ごとに、次の槍突きが命中した敵を暴露状態にします。暴露された敵は5秒間、受けるダメージが35%増加します。",
+          "recommendationLevel": 3,
+          "recommendationReason": "強奪の特殊戦術と一部の変態の間で使用される。"
         },
         {
           "id": 23000735,
-          "name": "シュレッディング",
+          "name": "速弾き",
           "path": "Shredding",
-          "description": "ドラゴンソロの発動時にxの回復も行うようになります。",
+          "description": "ドラゴンソロの発動時に2750の回復も行うようになります。",
           "recommendationLevel": 5,
           "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
         }
@@ -403,16 +403,16 @@
           "name": "アッパーカット",
           "path": "Upper-Cut",
           "description": "次の槍突きは敵を短時間空中に投げ上げます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationLevel": 1,
+          "recommendationReason": "使わないでください。"
         },
         {
           "id": 23000737,
           "name": "最後の抵抗",
           "path": "Last-Stand",
-          "description": "ドラコはx秒間、体力が1未満にならなくなります。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "ドラコは2秒間、体力が1未満にならなくなります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "ウルトの状態での無敵無双が最強のため必須ガジェット。"
         }
       ]
     },
@@ -434,37 +434,37 @@
       "starPowers": [
         {
           "id": 23000675,
-          "name": "強化",
+          "name": "エネルギー転化",
           "path": "Empower",
-          "description": "スーパー内にいる間、アンジェロは毎秒xの回復を得ます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "スーパー内にいる間、アンジェロは毎秒600の回復を得ます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "回復しにくいキャラクターのためこの回復が非常に重宝される。"
         },
         {
           "id": 23000676,
-          "name": "流れ",
+          "name": "空中浮遊",
           "path": "Flow",
-          "description": "水に入った後、アンジェロは移動速度がx%上昇します。",
-          "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "水に入った後、アンジェロは移動速度が25%上昇します。",
+          "recommendationLevel": 4,
+          "recommendationReason": "水のあるノックアウトや賞金稼ぎで稀に使用される。"
         }
       ],
       "gadgets": [
         {
           "id": 23000677,
-          "name": "刺す飛行",
+          "name": "激痛テイクオフ",
           "path": "Stinging-Flight",
-          "description": "x秒間空中に飛び上がります。離陸時に近くの敵からx体力を吸収します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "1.0秒間空中に飛び上がります。離陸時に近くの敵からHP660を吸収します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "賞金稼ぎとノックアウト、バトロワの超優秀な効果を発揮する。"
         },
         {
           "id": 23000678,
-          "name": "達人の矢",
+          "name": "ピアシングアロー",
           "path": "Master-Fletcher",
           "description": "次の狙い撃ちは敵と環境を貫通します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationLevel": 5,
+          "recommendationReason": "基本的にはこちらのガジェットで壁裏の敵を葬るのが非常に強力。"
         }
       ]
     },
@@ -486,25 +486,25 @@
       "starPowers": [
         {
           "id": 23000667,
-          "name": "速いビート",
+          "name": "アップテンポ",
           "path": "Fast-Beats",
-          "description": "メロディは周りを回る音符1つにつき移動速度がx%上昇します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "メロディは周りを回る音符1つにつき移動速度が6%上昇します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "最大18％の移動速度上昇がかなり優秀"
         },
         {
           "id": 23000668,
-          "name": "延長ミックス",
+          "name": "ボーナストラック",
           "path": "Extended-Mix",
-          "description": "メロディの音符は消えるまでの持続時間がx%延長されます。",
-          "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "メロディの音符は消えるまでの持続時間が25%延長されます。",
+          "recommendationLevel": 2,
+          "recommendationReason": "いつ使えるの。"
         }
       ],
       "gadgets": [
         {
           "id": 23000669,
-          "name": "完璧なピッチ",
+          "name": "フォルテシモ",
           "path": "Perfect-Pitch",
           "description": "メロディの音符はx秒間、移動速度がx%上昇し、軌道がx%広くなります。",
           "recommendationLevel": 4,
@@ -3584,8 +3584,8 @@
           "name": "ブラックポータル",
           "path": "Black-Portal",
           "description": "タラのスーパーは次元のポータルを開きます！タラの影のバージョンが現れて敵を攻撃します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationLevel": 3,
+          "recommendationReason": "投げの敵が多い時は強いが、刺さらない時が多い。"
         },
         {
           "id": 23000160,
@@ -3593,25 +3593,25 @@
           "path": "Healing-Shade",
           "description": "タラのスーパーは次元のポータルを開きます！タラの影のバージョンが現れてタラとチームメイトを回復します。",
           "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "回復量も多く体力の低い味方を追従するため影自体の生存時間も長く強力。"
         }
       ],
       "gadgets": [
         {
           "id": 23000266,
-          "name": "サイキックエンハンサー",
+          "name": "サイキック活性化剤",
           "path": "Psychic-Enhancer",
-          "description": "タラと味方は、x秒間茂みの中にいる敵も含めてすべての敵を見ることができます。",
+          "description": "タラと味方は、4秒間茂みの中にいる敵も含めてすべての敵を見ることができます。",
           "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "草むらが多いマップでは使えるが汎用性は低い。"
         },
         {
           "id": 23000356,
           "name": "彼方からの支援",
           "path": "Support-From-Beyond",
-          "description": "タラは自身の周りに3体の弱い影を召喚し、敵を攻撃してx秒後に消滅します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "タラは自身の周りに3体の弱い影を召喚し、敵を攻撃して6秒後に消滅します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "守りでも攻めでも非常に強力でいつでも使える。"
         }
       ],
       "videos": []
@@ -3636,17 +3636,17 @@
           "id": 23000092,
           "name": "ママのハグ",
           "path": "Mamas-Hug",
-          "description": "パムがスクラップストームで敵ブローラーにヒットすると、自身と近くの味方ブローラーの体力がx回復します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "メタルストームで敵を攻撃するたびに、自身と近くの味方の体力が96回復します。",
+          "recommendationLevel": 3,
+          "recommendationReason": "回復量と効果の範囲が狭く少し微妙。"
         },
         {
           "id": 23000139,
           "name": "ママのスクイーズ",
           "path": "Mamas-Squeeze",
-          "description": "回復タレットが敵に毎秒xダメージも与えるようになります。",
+          "description": "回復タレットが敵に毎秒960ダメージも与えるようになります。",
           "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "確実に敵を倒したい時や壁裏に配置する時に使用すると非常に強力なものとなる。￥"
         }
       ],
       "gadgets": [
@@ -3654,17 +3654,17 @@
           "id": 23000257,
           "name": "パルスモジュレーター",
           "path": "Pulse-Modulator",
-          "description": "パムはタレットにパルスを発生させ、タレットの範囲内の味方（自身を含む）の体力をx回復させます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "パムはタレットにパルスを発生させ、タレットの範囲内の味方と自分の体力を1920回復させます。",
+          "recommendationLevel": 1,
+          "recommendationReason": "回復量が微量なのと使用条件が厳しく汎用性に欠ける。"
         },
         {
           "id": 23000404,
           "name": "スクラップサッカー",
           "path": "Scrapsucker",
-          "description": "パムの次の攻撃の各ヒットは、敵ブローラーの最大弾薬のx%を除去します。パムはその弾薬のx%を回収します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "パムの次の攻撃の各ヒットは、敵ブローラーの最大弾薬の25%を除去します。パムはその弾薬の50%を回収します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "タンクやアサシンに攻撃を当てると基本的にタイマンが負けなくなるため超強力。"
         }
       ],
       "videos": []
@@ -3689,17 +3689,17 @@
           "id": 23000091,
           "name": "待ち伏せ",
           "path": "Ambush",
-          "description": "パイパーが茂みに隠れている時、攻撃が（最大射程で）+xの追加ダメージを与えます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "パイパーが茂みに隠れている時、攻撃が（最大射程で）+1190の追加ダメージを与えます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "草むらがあるマップではかなり重宝する。"
         },
         {
           "id": 23000152,
           "name": "スナッピースナイピング",
           "path": "Snappy-Sniping",
-          "description": "パイパーの攻撃が敵に当たると、即座にx弾薬をリロードします。",
+          "description": "パイパーの攻撃が敵に当たると、即座に0.4発の弾を瞬時にリロードします。",
           "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "汎用性があまりにも高いためどの状況でも使用できるため、一番無難。"
         }
       ],
       "gadgets": [
@@ -3740,19 +3740,19 @@
       "starPowers": [
         {
           "id": 23000090,
-          "name": "旋回する鷲",
+          "name": "鷹の目",
           "path": "Circling-Eagle",
-          "description": "ボウは通常よりx%長い距離から茂みに隠れている敵を発見できます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "ボウは通常より150%長い距離から茂みに隠れている敵を発見できます。",
+          "recommendationLevel": 2,
+          "recommendationReason": "草むらだらけの「ジグザグ草原」というマップでは重宝するがそれ以外では基本使えない。"
         },
         {
           "id": 23000148,
-          "name": "熊の罠",
+          "name": "ベアトラップ",
           "path": "Snare-A-Bear",
-          "description": "ノックバックの代わりに、ボウの罠が敵をx秒間スタンさせるようになります！",
+          "description": "ノックバックの代わりに、ボウの罠が敵を2秒間スタンさせるようになります！",
           "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "地雷に引っ掛かれば死は免れなくなるため恐ろしすぎる効果が付与される。"
         }
       ],
       "gadgets": [
@@ -3760,17 +3760,17 @@
           "id": 23000263,
           "name": "スーパートーテム",
           "path": "Super-Totem",
-          "description": "ボウは味方のスーパーチャージ速度をx%増加させるトーテムを設置します。トーテムは時間とともに体力が減少します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "ボウは味方のスーパーチャージ速度を50%増加させるトーテムを設置します。トーテムは時間とともに体力が減少します。",
+          "recommendationLevel": 2,
+          "recommendationReason": "動画の企画や何らかの戦術以外では基本使用されない。"
         },
         {
           "id": 23000289,
           "name": "トリップワイヤー",
           "path": "Tripwire",
-          "description": "ボウはx秒後に全ての地雷を起爆させます。遅延中、地雷は敵から完全に見えなくなります。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "1.5秒後に全ての地雷を起爆させます。遅延中、地雷は敵から完全に見えなくなります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "破壊したい壁や狙いすまして敵を地雷に引っ掛けるなど攻撃の幅が広く強力。"
         }
       ],
       "videos": []
@@ -3795,35 +3795,35 @@
           "id": 23000089,
           "name": "ダ・カーポ",
           "path": "Da-Capo",
-          "description": "ポコの攻撃が味方ブローラーに当たると、体力をx回復させるようになります。",
+          "description": "ポコの攻撃が味方ブローラーに当たると、体力を962回復させるようになります。",
           "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "タンクとの相性が良く強引に前線を押し上げられるきっかけとなる。"
         },
         {
           "id": 23000144,
-          "name": "スクリーチングソロ",
+          "name": "咽び泣くギター",
           "path": "Screeching-Solo",
-          "description": "ポコのスーパーが敵にもxダメージを与えるようになります。",
+          "description": "ポコのスーパーが敵にも1520ダメージを与えるようになります。",
           "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "広い範囲で壁を貫通して攻撃を与えられるため、確定キルや回復阻止などを狙えるため強力"
         }
       ],
       "gadgets": [
         {
           "id": 23000267,
-          "name": "チューニングフォーク",
+          "name": "癒しの音叉",
           "path": "Tuning-Fork",
-          "description": "ポコと近くの味方全員が、x秒間毎秒x体力を回復します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "ポコと近くの味方全員が、5秒間毎秒740体力を回復します。",
+          "recommendationLevel": 5,
+          "recommendationReason": "回復量がかなり多いためかなり強気で前線を押し上げられるきっかけとなる"
         },
         {
           "id": 23000350,
-          "name": "プロテクティブチューン",
+          "name": "守りのメロディー",
           "path": "Protective-Tunes",
-          "description": "広範囲の味方ブローラーの悪影響を除去し、x秒間の免疫を付与します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "味方の状態異常を癒す効果を広範囲に発動し、状態異常攻撃を4秒間無効にする。",
+          "recommendationLevel": 3,
+          "recommendationReason": "効果こそ強力だが使用するタイミングが難しいため安定性に欠ける。"
         }
       ],
       "videos": []
@@ -3846,37 +3846,37 @@
       "starPowers": [
         {
           "id": 23000088,
-          "name": "エクストラトキシック",
+          "name": "猛毒",
           "path": "Extra-Toxic",
-          "description": "クロウの毒が敵の力を奪い、毒状態の敵の与えるダメージがx%減少します。",
+          "description": "クロウの毒が敵の力を奪い、毒状態の敵の与えるダメージが15%減少します。",
           "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "敵の攻撃力が下がるため死亡するリスクが減少する。"
         },
         {
           "id": 23000143,
           "name": "キャリオンクロウ",
           "path": "Carrion-Crow",
-          "description": "体力がx%以下の敵に対して、通常攻撃とスーパーのダメージが+x%増加します。",
+          "description": "体力が50%以下の敵に対して、通常攻撃とスーパーのダメージが+40%増加します。",
           "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "低体力の敵をかなり倒しやすくなるためアサシンとの相性が良い。"
         }
       ],
       "gadgets": [
         {
           "id": 23000243,
-          "name": "ディフェンスブースター",
+          "name": "防御ブースター",
           "path": "Defense-Booster",
-          "description": "x秒間、受けるダメージをx%軽減するシールドを展開します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "3秒間、受けるダメージを40%軽減するシールドを展開します。",
+          "recommendationLevel": 3,
+          "recommendationReason": "耐久力が大幅に上昇して強いが元の体力が低すぎるため相性が悪い。"
         },
         {
           "id": 23000286,
           "name": "スローイングトキシン",
           "path": "Slowing-Toxin",
-          "description": "毒状態の敵全てをx秒間減速させます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "毒状態の敵全てを2秒間減速させます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "好きなタイミングで敵に遅延をかけることができるため超強力。"
         }
       ],
       "videos": []
@@ -3899,19 +3899,19 @@
       "starPowers": [
         {
           "id": 23000087,
-          "name": "クリーピーハーベスト",
+          "name": "魂狩り",
           "path": "Creepy-Harvest",
-          "description": "倒した相手の生命エネルギーを刈り取り、最大体力のx%を回復します。",
+          "description": "倒した相手の生命エネルギーを刈り取り、最大体力の20%を回復します。",
           "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "複数の敵を倒そうとする際に安定度が増すためモーティス初心者には優しい。"
         },
         {
           "id": 23000154,
-          "name": "コイルドスネーク",
+          "name": "蛇の跳躍",
           "path": "Coiled-Snake",
-          "description": "長距離ダッシュのチャージ時間がx秒短縮されます。",
+          "description": "長距離ダッシュのチャージ時間が2秒短縮されます。",
           "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "機動力が大幅に増えるため攻撃のチャンスが増えるが、体力管理が難しくなる上級者向けの強力なスターパワー"
         }
       ],
       "gadgets": [
@@ -3952,19 +3952,19 @@
       "starPowers": [
         {
           "id": 23000086,
-          "name": "エルフエゴ",
+          "name": "バーニングドロップ",
           "path": "El-Fuego",
-          "description": "スーパースキルに巻き込まれた敵に4秒間で合計xダメージを与える炎上効果を付与します。",
+          "description": "スーパースキルに巻き込まれた敵に4秒間で合計1800ダメージを与える炎上効果を付与します。",
           "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "火力が上がり敵を倒し切りやすくなる。"
         },
         {
           "id": 23000140,
-          "name": "メテオラッシュ",
+          "name": "流星雨",
           "path": "Meteor-Rush",
-          "description": "スーパースキル使用後、x秒間移動速度がx%上昇します。",
+          "description": "スーパースキル使用後、4秒間移動速度が25%上昇します。",
           "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "必殺技で敵を倒してから次の敵を倒すのに必須となる。"
         }
       ],
       "gadgets": [
@@ -3973,16 +3973,16 @@
           "name": "スープレックスサプリメント",
           "path": "Suplex-Supplement",
           "description": "範囲内の最も近い敵をつかみ、パンケーキのように背後に投げ飛ばします。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationLevel": 5,
+          "recommendationReason": "確定シュートや一瞬攻撃できない状況を作れるのがかなり強力。"
         },
         {
           "id": 23000292,
           "name": "アステロイドベルト",
           "path": "Asteroid-Belt",
-          "description": "最も近い敵に小隕石を落下させます。xダメージを与え、壁を破壊します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "最も近い敵に小隕石を落下させます。3040ダメージを与え、壁を破壊します。",
+          "recommendationLevel": 1,
+          "recommendationReason": "よほど特別な戦術がない限りタンクで壁を壊すのはナンセンス。"
         }
       ],
       "videos": []
@@ -4005,37 +4005,37 @@
       "starPowers": [
         {
           "id": 23000085,
-          "name": "ダイナジャンプ",
+          "name": "爆風ジャンプ",
           "path": "Dyna-Jump",
           "description": "爆発の衝撃波を利用して、障害物を飛び越えることができます！",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationLevel": 3,
+          "recommendationReason": "使用の難易度があまりにも高すぎるため、強力だがオススメができない。"
         },
         {
           "id": 23000155,
-          "name": "デモリション",
+          "name": "解体屋",
           "path": "Demolition",
-          "description": "スーパースキルのダメージが+x増加します。",
+          "description": "必殺技のダメージが+1600増加します。",
           "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "火力の底上げで一撃で倒せるようになる敵が多くかなり強い"
         }
       ],
       "gadgets": [
         {
           "id": 23000258,
-          "name": "フィジェットスピナー",
+          "name": "危機一髪スピナー",
           "path": "Fidget-Spinner",
-          "description": "移動速度が上昇し、周囲に複数のダイナマイトを投げながら激しく回転します。各ダイナマイトは敵にxダメージを与えます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "移動速度が上昇し、周囲に複数のダイナマイトを投げながら激しく回転します。各ダイナマイトは敵に2400ダメージを与えます。",
+          "recommendationLevel": 3,
+          "recommendationReason": "弱くはないがもう片方のガジェットが優秀すぎる。"
         },
         {
           "id": 23000294,
           "name": "サッチェルチャージ",
           "path": "Satchel-Charge",
-          "description": "発動後、次の通常攻撃は敵をx秒間スタンさせます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "発動後、次の通常攻撃は敵を1.5秒間スタンさせます。",
+          "recommendationLevel": 5,
+          "recommendationReason": "これを当てて数発攻撃を打つと確実に敵を倒せるため最強のガジェットの一つとされている。"
         }
       ],
       "videos": []
@@ -4111,19 +4111,19 @@
       "starPowers": [
         {
           "id": 23000083,
-          "name": "エナジャイズ",
+          "name": "リチャージ",
           "path": "Energize",
-          "description": "攻撃でタレットに命中すると、失った体力のx%を修復します。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "攻撃でタレットに命中すると、失ったHPを1060を回復できる。",
+          "recommendationLevel": 5,
+          "recommendationReason": "タレットの生存力が増すため前線を押し続けやすくなる。"
         },
         {
           "id": 23000149,
-          "name": "ショッキー",
+          "name": "ショッキング",
           "path": "Shocky",
-          "description": "タレットの攻撃が敵の間で跳ね返るようになります。跳ね返り後の射程は通常のx%になります。",
-          "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "タレットの攻撃が敵の間で跳ね返るようになります。跳ね返り後の射程は通常の51%になります。",
+          "recommendationLevel": 3,
+          "recommendationReason": "使用するタイミングが限られすぎていて汎用性が低すぎる。"
         }
       ],
       "gadgets": [
@@ -4132,16 +4132,16 @@
           "name": "スパークプラグ",
           "path": "Spark-Plug",
           "description": "タレットから衝撃波を放ち、範囲内の敵全てを減速させます。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationLevel": 5,
+          "recommendationReason": "タレットを投げて直後に打つと確実にスローダウンを与えられるため強力"
         },
         {
           "id": 23000295,
           "name": "リコイルスプリング",
           "path": "Recoil-Spring",
-          "description": "x秒間、タレットの攻撃速度が2倍になります。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "5秒間、タレットの攻撃速度が2倍になります。",
+          "recommendationLevel": 3,
+          "recommendationReason": "強奪でのみ非常に強力。"
         }
       ],
       "videos": []
@@ -4164,37 +4164,37 @@
       "starPowers": [
         {
           "id": 23000082,
-          "name": "メディカルユース",
+          "name": "百薬の長",
           "path": "Medical-Use",
-          "description": "攻撃するたびに体力をx回復します。",
+          "description": "通常攻撃するたびにHPが480回復する",
           "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationReason": "耐久力が非常に高くになるため、前線のキープ力がかなり上昇する"
         },
         {
           "id": 23000158,
-          "name": "エクストラノクシャス",
+          "name": "超猛毒",
           "path": "Extra-Noxious",
-          "description": "攻撃の毎秒ダメージが+x増加します。",
-          "recommendationLevel": 5,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "自身の攻撃に毎秒+200ダメージを追加",
+          "recommendationLevel": 2,
+          "recommendationReason": "被弾しない自信のある強気すぎる人以外は使用できない。"
         }
       ],
       "gadgets": [
         {
           "id": 23000250,
-          "name": "スティッキーシロップミキサー",
+          "name": "ネバネバシロップミキサー",
           "path": "Sticky-Syrup-Mixer",
           "description": "粘着性の液体を散布し、触れた敵を減速させる水たまりを作ります。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "recommendationLevel": 3,
+          "recommendationReason": "タンクが多い時のみ、減速で逃げ切れるため重宝する"
         },
         {
           "id": 23000293,
-          "name": "ハーバルトニック",
+          "name": "薬草の強壮剤",
           "path": "Herbal-Tonic",
-          "description": "近くの味方に回復ポーションを投げ、範囲内で毎秒x体力を回復する場を作ります。",
-          "recommendationLevel": 4,
-          "recommendationReason": "生存性が大幅に向上し、グリグリの継続的なダメージ出力を確保できます。特に長期戦で真価を発揮します。"
+          "description": "近くの味方に回復ポーションを投げ、範囲内で毎秒720体力を回復する場を作ります。",
+          "recommendationLevel": 5,
+          "recommendationReason": "味方全員の生存力が上昇し、一気に前線を押し上げるきっかけとなる。"
         }
       ],
       "videos": []
