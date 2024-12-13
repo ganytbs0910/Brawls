@@ -169,6 +169,59 @@ const PickPrediction: React.FC = () => {
     return recommendations.sort((a, b) => b.score - a.score).slice(0, 10);
   };
 
+  const calculateTeamAdvantage = (teamAChars: string[], teamBChars: string[]): {
+    teamAScore: number;
+    teamBScore: number;
+    advantageTeam: Team | null;
+    difference: number;
+  } => {
+    let teamAScore = 0;
+    let teamBScore = 0;
+
+    // チームAの各キャラクターについて、チームBの全キャラクターとの相性スコアを計算
+    teamAChars.forEach(aChar => {
+      teamBChars.forEach(bChar => {
+        const aId = getCharacterId(aChar);
+        if (aId && allCharacterData[aId]) {
+          const score = allCharacterData[aId].compatibilityScores[bChar] || 0;
+          teamAScore += score;
+        }
+      });
+    });
+
+    // チームBの各キャラクターについて、チームAの全キャラクターとの相性スコアを計算
+    teamBChars.forEach(bChar => {
+      teamAChars.forEach(aChar => {
+        const bId = getCharacterId(bChar);
+        if (bId && allCharacterData[bId]) {
+          const score = allCharacterData[bId].compatibilityScores[aChar] || 0;
+          teamBScore += score;
+        }
+      });
+    });
+
+    // スコアを平均化
+    const totalMatches = teamAChars.length * teamBChars.length;
+    if (totalMatches > 0) {
+      teamAScore = teamAScore / totalMatches;
+      teamBScore = teamBScore / totalMatches;
+    }
+
+    const difference = Math.abs(teamAScore - teamBScore);
+    let advantageTeam: Team | null = null;
+    
+    if (difference > 1) { // 1点以上の差がある場合のみ有利不利を判定
+      advantageTeam = teamAScore > teamBScore ? 'A' : 'B';
+    }
+
+    return {
+      teamAScore,
+      teamBScore,
+      advantageTeam,
+      difference
+    };
+  };
+
   const getRecommendationReason = (score: number): string => {
     if (score >= 24) return '最高の選択';
     if (score >= 21) return '非常に良い選択';
@@ -279,6 +332,35 @@ const PickPrediction: React.FC = () => {
     );
   };
 
+  const renderAdvantageMessage = () => {
+    if (gameState.teamA.length === 3 && gameState.teamB.length === 3) {
+      const advantage = calculateTeamAdvantage(gameState.teamA, gameState.teamB);
+      
+      return (
+        <View style={styles.advantageContainer}>
+          <Text style={styles.advantageTitle}>試合予測</Text>
+          <View style={styles.scoreComparisonContainer}>
+            <Text style={styles.teamScore}>
+              チームA: {advantage.teamAScore.toFixed(1)}
+            </Text>
+            <Text style={styles.teamScore}>
+              チームB: {advantage.teamBScore.toFixed(1)}
+            </Text>
+          </View>
+          <Text style={[
+            styles.advantageText,
+            { color: advantage.advantageTeam ? '#21A0DB' : '#666' }
+          ]}>
+            {advantage.advantageTeam 
+              ? `チーム${advantage.advantageTeam}が有利 (差: ${advantage.difference.toFixed(1)})`
+              : '両チーム互角'}
+          </Text>
+        </View>
+      );
+    }
+    return null;
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.fixedHeader}>
@@ -299,6 +381,7 @@ const PickPrediction: React.FC = () => {
       </View>
 
       <ScrollView style={styles.scrollContent}>
+        {renderAdvantageMessage()}
         {gameState.recommendations.length > 0 && (
           <View style={styles.recommendationsContainer}>
             <Text style={styles.recommendationsTitle}>おすすめキャラクター</Text>
@@ -466,6 +549,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 10,
     marginHorizontal: 10,
+    backgroundColor: '#fff',
   },
   teamContainer: {
     width: '48%',
@@ -507,6 +591,35 @@ const styles = StyleSheet.create({
   emptySlot: {
     fontSize: 10,
     color: '#bdbdbd',
+  },
+  advantageContainer: {
+    backgroundColor: '#f5f5f5',
+    margin: 10,
+    padding: 12,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  advantageTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 8,
+  },
+  scoreComparisonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 20,
+    marginBottom: 8,
+  },
+  teamScore: {
+    fontSize: 14,
+    color: '#666',
+    fontWeight: '500',
+  },
+  advantageText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   recommendationsContainer: {
     padding: 8,
@@ -582,6 +695,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 5,
     marginTop: 10,
+    paddingBottom: 20,
   },
   characterButton: {
     padding: 8,
