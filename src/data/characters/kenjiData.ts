@@ -5,7 +5,7 @@ export const kenjiData: CharacterCompatibility = {
   "name": "ケンジ",
   "compatibilityScores": {
     "ブル": 1,
-    "エルプリモ": 3,
+    "エルプリモ": 2,
     "ローサ": 2,
     "ダリル": 3,
     "ジャッキー": 1,
@@ -82,7 +82,7 @@ export const kenjiData: CharacterCompatibility = {
     "ゲイル": 3,
     "ジーン": 9,
     "ミスターP": 8,
-    "スクウィーク": 10,
+    "スクウィーク": 7,
     "ルー": 2,
     "オーティス": 1,
     "チャック": 6,

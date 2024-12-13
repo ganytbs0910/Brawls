@@ -5,8 +5,8 @@ export const rtData: CharacterCompatibility = {
   "name": "R-T",
   "compatibilityScores": {
     "ブル": 9,
-    "エルプリモ": 6,
-    "ローサ": 6,
+    "エルプリモ": 7,
+    "ローサ": 7,
     "ダリル": 8,
     "ジャッキー": 8,
     "フランケン": 5,

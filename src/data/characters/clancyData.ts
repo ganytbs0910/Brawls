@@ -30,7 +30,7 @@ export const clancyData: CharacterCompatibility = {
     "ストゥー": 2,
     "エドガー": 10,
     "シェイド": 1,
-    "モーティス": 10,
+    "モーティス": 8,
     "ファング": 7,
     "ミコ": 8,
     "リリー": 8,

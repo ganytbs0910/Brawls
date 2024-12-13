@@ -5,7 +5,7 @@ export const grayData: CharacterCompatibility = {
   "name": "グレイ",
   "compatibilityScores": {
     "ブル": 4,
-    "エルプリモ": 6,
+    "エルプリモ": 4,
     "ローサ": 4,
     "ダリル": 4,
     "ジャッキー": 4,

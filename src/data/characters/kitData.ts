@@ -4,8 +4,8 @@ export const kitData: CharacterCompatibility = {
   "id": 71,
   "name": "キット",
   "compatibilityScores": {
-    "ブル": 2,
-    "エルプリモ": 7,
+    "ブル": 3,
+    "エルプリモ": 3,
     "ローサ": 3,
     "ダリル": 3,
     "ジャッキー": 3,

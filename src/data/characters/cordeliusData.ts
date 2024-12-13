@@ -54,7 +54,7 @@ export const cordeliusData: CharacterCompatibility = {
     "8ビット": 4,
     "リコ": 3,
     "カール": 7,
-    "コレット": 5,
+    "コレット": 10,
     "ローラ": 4,
     "パール": 5,
     "タラ": 2,

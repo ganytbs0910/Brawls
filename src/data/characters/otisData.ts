@@ -6,7 +6,7 @@ export const otisData: CharacterCompatibility = {
   "compatibilityScores": {
     "ブル": 10,
     "エルプリモ": 9,
-    "ローサ": 8,
+    "ローサ": 9,
     "ダリル": 9,
     "ジャッキー": 8,
     "フランケン": 9,

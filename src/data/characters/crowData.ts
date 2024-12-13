@@ -4,7 +4,7 @@ export const crowData: CharacterCompatibility = {
   "id": 32,
   "name": "クロウ",
   "compatibilityScores": {
-    "ブル": 8,
+    "ブル": 9,
     "エルプリモ": 8,
     "ローサ": 7,
     "ダリル": 8,
@@ -33,6 +33,9 @@ export const crowData: CharacterCompatibility = {
     "モーティス": 7,
     "ファング": 6,
     "ミコ": 7,
+    "リリー": 6,
+    "メロディー": 3,
+    "レオン": 7,
     "コーデリアス": 6,
     "ケンジ": 7,
     "ブロック": 4,

@@ -4,8 +4,8 @@ export const geneData: CharacterCompatibility = {
   "id": 78,
   "name": "ジーン",
   "compatibilityScores": {
-    "ブル": 3,
-    "エルプリモ": 3,
+    "ブル": 2,
+    "エルプリモ": 2,
     "ローサ": 2,
     "ダリル": 0,
     "ジャッキー": 2,
@@ -85,7 +85,7 @@ export const geneData: CharacterCompatibility = {
     "スクウィーク": 6,
     "ルー": 7,
     "オーティス": 6,
-    "チャック": 2,
+    "チャック": 5,
     "チャーリー": 5,
     "アンバー": 3,
     "サンディ": 6

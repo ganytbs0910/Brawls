@@ -5,8 +5,8 @@ export const eveData: CharacterCompatibility = {
   "name": "イヴ",
   "compatibilityScores": {
     "ブル": 8,
-    "エルプリモ": 5,
-    "ローサ": 4,
+    "エルプリモ": 6,
+    "ローサ": 6,
     "ダリル": 7,
     "ジャッキー": 6,
     "フランケン": 8,

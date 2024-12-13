@@ -4,9 +4,9 @@ export const griffData: CharacterCompatibility = {
   "id": 76,
   "name": "グリフ",
   "compatibilityScores": {
-    "ブル": 9,
-    "エルプリモ": 8,
-    "ローサ": 7,
+    "ブル": 10,
+    "エルプリモ": 9,
+    "ローサ": 9,
     "ダリル": 6,
     "ジャッキー": 7,
     "フランケン": 6,

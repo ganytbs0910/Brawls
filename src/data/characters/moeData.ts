@@ -4,8 +4,8 @@ export const moeData: CharacterCompatibility = {
   "id": 59,
   "name": "モー",
   "compatibilityScores": {
-    "ブル": 8,
-    "エルプリモ": 10,
+    "ブル": 9,
+    "エルプリモ": 9,
     "ローサ": 9,
     "ダリル": 8,
     "ジャッキー": 9,

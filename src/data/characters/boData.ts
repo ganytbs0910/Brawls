@@ -6,7 +6,7 @@ export const boData: CharacterCompatibility = {
   "compatibilityScores": {
     "ブル": 7,
     "エルプリモ": 6,
-    "ローサ": 5,
+    "ローサ": 6,
     "ダリル": 2,
     "ジャッキー": 6,
     "フランケン": 6,

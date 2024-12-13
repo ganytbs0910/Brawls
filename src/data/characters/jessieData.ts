@@ -58,7 +58,7 @@ export const jessieData: CharacterCompatibility = {
     "コレット": 5,
     "ローラ": 6,
     "パール": 4,
-    "タラ": 7,
+    "タラ": 8,
     "イヴ": 5,
     "R-T": 3,
     "クランシー": 6,

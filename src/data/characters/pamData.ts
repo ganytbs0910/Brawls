@@ -5,7 +5,7 @@ export const pamData: CharacterCompatibility = {
   "name": "パム",
   "compatibilityScores": {
     "ブル": 4,
-    "エルプリモ": 7,
+    "エルプリモ": 4,
     "ローサ": 3,
     "ダリル": 6,
     "ジャッキー": 3,

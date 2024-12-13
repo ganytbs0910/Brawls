@@ -40,7 +40,7 @@ export const angeloData: CharacterCompatibility = {
     "コーデリアス": 7,
     "ケンジ": 5,
     "ブロック": 9,
-    "エリザベス": 8,
+    "エリザベス": 9,
     "ビー": 4,
     "ナーニ": 6,
     "ボニー": 8,

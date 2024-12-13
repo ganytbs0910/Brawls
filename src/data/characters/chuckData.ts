@@ -81,7 +81,7 @@ export const chuckData: CharacterCompatibility = {
     "Emz": 2,
     "グリフ": 3,
     "ゲイル": 2,
-    "ジーン": 8,
+    "ジーン": 5,
     "ミスターP": 2,
     "スクウィーク": 4,
     "ルー": 2,

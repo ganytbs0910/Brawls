@@ -27,7 +27,7 @@ export const mrpData: CharacterCompatibility = {
     "スプラウト": 3,
     "ウィロー": 1,
     "ジュジュ": 1,
-    "ストゥー": 4,
+    "ストゥー": 10,
     "エドガー": 3,
     "シェイド": 2,
     "モーティス": 7,
@@ -54,7 +54,7 @@ export const mrpData: CharacterCompatibility = {
     "コルト": 5,
     "8ビット": 7,
     "リコ": 5,
-    "カール": 3,
+    "カール": 4,
     "コレット": 6,
     "ローラ": 5,
     "パール": 4,
@@ -64,7 +64,7 @@ export const mrpData: CharacterCompatibility = {
     "クランシー": 3,
     "モー": 5,
     "スパイク": 5,
-    "サージ": 7,
+    "サージ": 8,
     "チェスター": 4,
     "ポコ": 7,
     "ガス": 6,
@@ -88,7 +88,7 @@ export const mrpData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 4,
     "アンバー": 6,
-    "サンディ": 10
+    "サンディ": 8
   },
   "explanation": {}
 }
