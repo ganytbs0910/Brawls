@@ -20,7 +20,7 @@ const CharacterImage: React.FC<CharacterImageProps> = ({ characterName, size = 5
   'ボニー': 'bonnie', 'ゲイル': 'gale', 'コレット': 'colette', 'ベル': 'belle', 'アッシュ': 'ash',
   'ローラ': 'lola', 'サム': 'sam', 'マンディ': 'mandy', 'メイジー': 'maisie', 'ハンク': 'hank',
   'パール': 'pearl', 'ラリー&ローリー': 'larryandLawrie', 'アンジェロ': 'angelo', 'ベリー': 'berry',
-  'シェイド': 'shade', 'モーティス': 'mortis', 'タラ': 'tara', 'ジーン': 'gene', 'MAX': 'max',
+  'シェイド': 'shade', 'モーティス': 'mortis', 'タラ': 'tara', 'ジーン': 'gene', 'Max': 'max',
   'ミスターP': 'mrp', 'スプラウト': 'sprout', 'バイロン': 'byron', 'スクウィーク': 'squeak', 'ルー': 'lou',
   'ラフス': 'ruffs', 'バズ': 'buzz', 'ファング': 'fang', 'イヴ': 'eve', 'ジャネット': 'janet',
   'オーティス': 'otis', 'バスター': 'buster', 'グレイ': 'gray', 'R-T': 'rt', 'ウィロー': 'willow',

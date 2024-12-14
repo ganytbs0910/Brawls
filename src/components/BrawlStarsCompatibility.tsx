@@ -16,6 +16,7 @@ import CharacterImage from './CharacterImage';
 const BrawlStarsCompatibility: React.FC = () => {
   const [selectedCharacter, setSelectedCharacter] = useState<CharacterCompatibility | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
+  const [showStrengths, setShowStrengths] = useState(true);
 
   const handleCharacterSelect = (characterName: string) => {
     const character = Object.values(allCharacterData).find(char => char.name === characterName);
@@ -32,14 +33,31 @@ const BrawlStarsCompatibility: React.FC = () => {
     return '#F44336';
   };
 
+  const toggleView = () => {
+    setShowStrengths(!showStrengths);
+  };
+
+  const filterAndSortCompatibility = (scores: Record<string, number>) => {
+    return Object.entries(scores)
+      .sort(([, a], [, b]) => showStrengths ? b - a : a - b)
+      .filter(([, score]) => showStrengths ? score >= 6 : score <= 4);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>キャラクター相性表</Text>
+        <TouchableOpacity 
+          style={styles.toggleButton}
+          onPress={toggleView}
+        >
+          <Text style={styles.toggleButtonText}>
+            {showStrengths ? '得意' : '苦手'}
+          </Text>
+        </TouchableOpacity>
       </View>
 
       <ScrollView>
-        {/* キャラクター選択ボタン */}
         <View style={styles.buttonContainer}>
           {Object.values(CHARACTER_MAP).map((character) => (
             <TouchableOpacity
@@ -56,7 +74,6 @@ const BrawlStarsCompatibility: React.FC = () => {
           ))}
         </View>
 
-        {/* 相性表示モーダル */}
         <Modal
           animationType="slide"
           transparent={true}
@@ -75,11 +92,10 @@ const BrawlStarsCompatibility: React.FC = () => {
                         style={styles.modalCharacterImage}
                       />
                       <Text style={styles.modalTitle}>
-                        {selectedCharacter.name}の相性
+                        {selectedCharacter.name}の{showStrengths ? '得意' : '苦手'}なキャラクター
                       </Text>
                     </View>
-                    {Object.entries(selectedCharacter.compatibilityScores)
-                      .sort(([, a], [, b]) => b - a)
+                    {filterAndSortCompatibility(selectedCharacter.compatibilityScores)
                       .map(([opponent, value]) => (
                         <View key={opponent} style={styles.compatibilityRow}>
                           <View style={styles.opponentInfo}>
@@ -87,7 +103,10 @@ const BrawlStarsCompatibility: React.FC = () => {
                             <Text style={styles.characterName}>{opponent}</Text>
                           </View>
                           <View style={styles.scoreContainer}>
-                            <Text style={styles.score}>{value}/10</Text>
+                            <Text style={[
+                              styles.score,
+                              { color: getScoreColor(value) }
+                            ]}>{value}/10</Text>
                             <View
                               style={[
                                 styles.scoreBar,
@@ -123,17 +142,27 @@ const styles = StyleSheet.create({
     height: 60,
     backgroundColor: '#21A0DB',
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
     borderBottomWidth: 1,
     borderBottomColor: '#4FA8D6',
+    paddingHorizontal: 16,
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
     color: '#fff',
-    textAlign: 'center',
+  },
+  toggleButton: {
+    backgroundColor: '#fff',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 15,
+  },
+  toggleButtonText: {
+    color: '#21A0DB',
+    fontWeight: 'bold',
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -215,6 +244,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 0,
     zIndex: 1,
+    fontWeight: 'bold',
   },
   scoreBar: {
     height: 20,
