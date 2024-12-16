@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   View, 
   Text, 
@@ -9,10 +9,9 @@ import {
   ScrollView, 
   Dimensions, 
   Share, 
-  SafeAreaView 
+  SafeAreaView,
+  ActivityIndicator
 } from 'react-native';
-import { useLanguage } from '../hooks/useLanguage';
-import { translations } from '../i18n/translations';
 import { privacyPolicyContent } from '../contents/privacyPolicy';
 import { termsContent } from '../contents/terms';
 import { DailyTip } from '../components/DailyTip';
@@ -27,6 +26,84 @@ interface ScreenState {
   zIndex: number;
 }
 
+interface MapData {
+  id: number;
+  name: string;
+  disabled: boolean;
+  imageUrl: string;
+  gameMode: {
+    name: string;
+    color: string;
+    imageUrl: string;
+  };
+}
+
+const MapList: React.FC = () => {
+  const [maps, setMaps] = useState<MapData[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchMaps();
+  }, []);
+
+  const fetchMaps = async () => {
+    try {
+      const response = await fetch('https://api.brawlify.com/v1/maps');
+      const data = await response.json();
+      
+      // Filter active maps (not disabled)
+      const activeMaps = data.list.filter((map: MapData) => !map.disabled);
+      setMaps(activeMaps);
+      setLoading(false);
+    } catch (err) {
+      setError('マップデータの取得に失敗しました');
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#21A0DB" />
+      </View>
+    );
+  }
+
+  if (error) {
+    return (
+      <View style={styles.errorContainer}>
+        <Text style={styles.errorText}>{error}</Text>
+      </View>
+    );
+  }
+
+  return (
+    <View style={styles.mapListContainer}>
+      <Text style={styles.sectionTitle}>アクティブなマップ</Text>
+      {maps.map((map) => (
+        <View key={map.id} style={styles.mapCard}>
+          <Image 
+            source={{ uri: map.imageUrl }} 
+            style={styles.mapImage}
+            resizeMode="cover"
+          />
+          <View style={styles.mapInfo}>
+            <Text style={styles.mapName}>{map.name}</Text>
+            <View style={[styles.gameModeTag, { backgroundColor: map.gameMode.color }]}>
+              <Image 
+                source={{ uri: map.gameMode.imageUrl }} 
+                style={styles.gameModeIcon}
+              />
+              <Text style={styles.gameModeText}>{map.gameMode.name}</Text>
+            </View>
+          </View>
+        </View>
+      ))}
+    </View>
+  );
+};
+
 const LanguageSettings = ({ 
   onClose, 
   currentLanguage, 
@@ -38,31 +115,40 @@ const LanguageSettings = ({
 }) => (
   <View style={styles.settingsContainer}>
     <View style={styles.settingsHeader}>
-      <Text style={styles.settingsTitle}>
-        {translations[currentLanguage].settings.language}
-      </Text>
+      <Text style={styles.settingsTitle}>言語設定</Text>
       <TouchableOpacity onPress={onClose} style={styles.backButton}>
         <Text style={styles.backButtonText}>←</Text>
       </TouchableOpacity>
     </View>
     <View style={styles.settingsContent}>
-      {Object.keys(translations.ja.languages).map((lang) => (
-        <TouchableOpacity 
-          key={lang}
-          style={[
-            styles.languageItem,
-            currentLanguage === lang && styles.selectedLanguageItem
-          ]}
-          onPress={() => onLanguageChange(lang)}
-        >
-          <Text style={[
-            styles.languageText,
-            currentLanguage === lang && styles.selectedLanguageText
-          ]}>
-            {translations[currentLanguage].languages[lang]}
-          </Text>
-        </TouchableOpacity>
-      ))}
+      <TouchableOpacity 
+        style={[
+          styles.languageItem,
+          currentLanguage === 'ja' && styles.selectedLanguageItem
+        ]}
+        onPress={() => onLanguageChange('ja')}
+      >
+        <Text style={[
+          styles.languageText,
+          currentLanguage === 'ja' && styles.selectedLanguageText
+        ]}>
+          日本語
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity 
+        style={[
+          styles.languageItem,
+          currentLanguage === 'en' && styles.selectedLanguageItem
+        ]}
+        onPress={() => onLanguageChange('en')}
+      >
+        <Text style={[
+          styles.languageText,
+          currentLanguage === 'en' && styles.selectedLanguageText
+        ]}>
+          English
+        </Text>
+      </TouchableOpacity>
     </View>
   </View>
 );
@@ -76,9 +162,7 @@ const PrivacyPolicy = ({
 }) => (
   <View style={styles.settingsContainer}>
     <View style={styles.settingsHeader}>
-      <Text style={styles.settingsTitle}>
-        {translations[currentLanguage].settings.privacy}
-      </Text>
+      <Text style={styles.settingsTitle}>プライバシーポリシー</Text>
       <TouchableOpacity onPress={onClose} style={styles.backButton}>
         <Text style={styles.backButtonText}>←</Text>
       </TouchableOpacity>
@@ -100,9 +184,7 @@ const Terms = ({
 }) => (
   <View style={styles.settingsContainer}>
     <View style={styles.settingsHeader}>
-      <Text style={styles.settingsTitle}>
-        {translations[currentLanguage].settings.terms}
-      </Text>
+      <Text style={styles.settingsTitle}>利用規約</Text>
       <TouchableOpacity onPress={onClose} style={styles.backButton}>
         <Text style={styles.backButtonText}>←</Text>
       </TouchableOpacity>
@@ -128,9 +210,7 @@ const Settings = ({
 }) => (
   <View style={styles.settingsContainer}>
     <View style={styles.settingsHeader}>
-      <Text style={styles.settingsTitle}>
-        {translations[currentLanguage].settings.title}
-      </Text>
+      <Text style={styles.settingsTitle}>設定</Text>
       <TouchableOpacity onPress={onClose} style={styles.backButton}>
         <Text style={styles.backButtonText}>←</Text>
       </TouchableOpacity>
@@ -140,52 +220,44 @@ const Settings = ({
         style={styles.settingsItem}
         onPress={() => onNavigate('language')}
       >
-        <Text style={styles.settingsItemText}>
-          {translations[currentLanguage].settings.language}
-        </Text>
+        <Text style={styles.settingsItemText}>言語設定</Text>
         <Text style={styles.settingsValueText}>
-          {translations[currentLanguage].languages[currentLanguage]}
+          {currentLanguage === 'ja' ? '日本語' : 'English'}
         </Text>
       </TouchableOpacity>
       <TouchableOpacity 
         style={styles.settingsItem}
         onPress={onShare}
       >
-        <Text style={styles.settingsItemText}>
-          {translations[currentLanguage].settings.share}
-        </Text>
+        <Text style={styles.settingsItemText}>共有</Text>
       </TouchableOpacity>
       <TouchableOpacity 
         style={styles.settingsItem}
         onPress={() => onNavigate('privacy')}
       >
-        <Text style={styles.settingsItemText}>
-          {translations[currentLanguage].settings.privacy}
-        </Text>
+        <Text style={styles.settingsItemText}>プライバシーポリシー</Text>
       </TouchableOpacity>
       <TouchableOpacity 
         style={styles.settingsItem}
         onPress={() => onNavigate('terms')}
       >
-        <Text style={styles.settingsItemText}>
-          {translations[currentLanguage].settings.terms}
-        </Text>
+        <Text style={styles.settingsItemText}>利用規約</Text>
       </TouchableOpacity>
     </View>
   </View>
 );
 
 const Home: React.FC = () => {
-  const { currentLanguage, changeLanguage } = useLanguage();
+  const [currentLanguage, setCurrentLanguage] = useState('ja');
   const [screenStack, setScreenStack] = useState<ScreenState[]>([
     { type: 'home', translateX: new Animated.Value(0), zIndex: 0 }
   ]);
 
   const handleShare = async () => {
     try {
-      const result = await Share.share({
-        message: translations[currentLanguage].home.shareMessage,
-        title: translations[currentLanguage].home.shareTitle
+      await Share.share({
+        message: 'ブロールスターズのマップ情報',
+        title: 'マップ共有'
       });
     } catch (error) {
       console.error(error);
@@ -222,6 +294,11 @@ const Home: React.FC = () => {
     });
   };
 
+  const handleLanguageChange = (language: string) => {
+    setCurrentLanguage(language);
+    goBack();
+  };
+
   const renderScreenContent = (screen: ScreenState) => {
     switch (screen.type) {
       case 'settings':
@@ -252,7 +329,7 @@ const Home: React.FC = () => {
           <LanguageSettings
             onClose={goBack}
             currentLanguage={currentLanguage}
-            onLanguageChange={changeLanguage}
+            onLanguageChange={handleLanguageChange}
           />
         );
       default:
@@ -263,9 +340,7 @@ const Home: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>
-          {translations[currentLanguage].home.title}
-        </Text>
+        <Text style={styles.title}>ブロールスターズ マップ情報</Text>
         <TouchableOpacity
           style={styles.settingsButton}
           onPress={() => showScreen('settings')}
@@ -279,6 +354,7 @@ const Home: React.FC = () => {
 
       <ScrollView style={styles.content}>
         <DailyTip />
+        <MapList />
       </ScrollView>
 
       {screenStack.map((screen, index) => (
@@ -362,7 +438,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   settingsContent: {
-flex: 1,
+    flex: 1,
   },
   settingsItem: {
     padding: 16,
@@ -410,6 +486,73 @@ flex: 1,
   selectedLanguageText: {
     color: '#2196F3',
     fontWeight: 'bold',
+  },
+  mapListContainer: {
+    padding: 16,
+  },
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    color: '#333',
+  },
+  mapCard: {
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    marginBottom: 16,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  mapImage: {
+    width: '100%',
+    height: 200,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+  },
+  mapInfo: {
+    padding: 12,
+  },
+  mapName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+  gameModeTag: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 4,
+    alignSelf: 'flex-start',
+  },
+  gameModeIcon: {
+    width: 20,
+    height: 20,
+    marginRight: 4,
+  },
+  gameModeText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 16,
+  },
+  errorContainer: {
+    padding: 16,
+    alignItems: 'center',
+  },
+  errorText: {
+    color: 'red',
+    textAlign: 'center',
   },
 });
 
