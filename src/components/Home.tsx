@@ -15,6 +15,7 @@ import {
 import { privacyPolicyContent } from '../contents/privacyPolicy';
 import { termsContent } from '../contents/terms';
 import { DailyTip } from '../components/DailyTip';
+import mapData from '../data/mapAPI.json';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -47,13 +48,9 @@ const MapList: React.FC = () => {
     fetchMaps();
   }, []);
 
-  const fetchMaps = async () => {
+  const fetchMaps = () => {
     try {
-      const response = await fetch('https://api.brawlify.com/v1/maps');
-      const data = await response.json();
-      
-      // Filter active maps (not disabled)
-      const activeMaps = data.list.filter((map: MapData) => !map.disabled);
+      const activeMaps = mapData.list.filter((map: MapData) => !map.disabled);
       setMaps(activeMaps);
       setLoading(false);
     } catch (err) {
@@ -508,7 +505,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-  },
+    },
   mapImage: {
     width: '100%',
     height: 200,
