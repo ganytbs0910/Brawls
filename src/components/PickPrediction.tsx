@@ -134,6 +134,7 @@ const PickPrediction: React.FC = () => {
       if (!opposingTeamChars.includes(character) && !ownTeamChars.includes(character)) {
         let totalScore = 0;
         
+        // 相手チームとの相性スコアを合算
         opposingTeamChars.forEach(opposingChar => {
           const characterId = getCharacterId(character);
           const opposingId = getCharacterId(opposingChar);
@@ -144,6 +145,7 @@ const PickPrediction: React.FC = () => {
           }
         });
 
+        // 味方との相性スコアをボーナスとして加算（50%のウェイト）
         ownTeamChars.forEach(ownChar => {
           const characterId = getCharacterId(character);
           const ownId = getCharacterId(ownChar);
@@ -154,14 +156,10 @@ const PickPrediction: React.FC = () => {
           }
         });
 
-        const averageScore = opposingTeamChars.length + ownTeamChars.length > 0 
-          ? totalScore / (opposingTeamChars.length + (ownTeamChars.length * 0.5))
-          : 0;
-
         recommendations.push({
           character,
-          score: averageScore,
-          reason: getRecommendationReason(averageScore)
+          score: totalScore,
+          reason: getRecommendationReason(totalScore)
         });
       }
     });
@@ -200,17 +198,10 @@ const PickPrediction: React.FC = () => {
       });
     });
 
-    // スコアを平均化
-    const totalMatches = teamAChars.length * teamBChars.length;
-    if (totalMatches > 0) {
-      teamAScore = teamAScore / totalMatches;
-      teamBScore = teamBScore / totalMatches;
-    }
-
     const difference = Math.abs(teamAScore - teamBScore);
     let advantageTeam: Team | null = null;
     
-    if (difference > 1) { // 1点以上の差がある場合のみ有利不利を判定
+    if (difference > 1) {
       advantageTeam = teamAScore > teamBScore ? 'A' : 'B';
     }
 
@@ -223,17 +214,17 @@ const PickPrediction: React.FC = () => {
   };
 
   const getRecommendationReason = (score: number): string => {
-    if (score >= 24) return '最高の選択';
-    if (score >= 21) return '非常に良い選択';
-    if (score >= 18) return '良い選択';
-    if (score >= 15) return '標準的な選択';
+    if (score >= 72) return '最高の選択';  // 3体に対して24点以上
+    if (score >= 63) return '非常に良い選択';  // 3体に対して21点以上
+    if (score >= 54) return '良い選択';  // 3体に対して18点以上
+    if (score >= 45) return '標準的な選択';  // 3体に対して15点以上
     return '要検討';
   };
 
   const getScoreColor = (score: number): string => {
-    if (score >= 24) return '#4CAF50';
-    if (score >= 21) return '#2196F3';
-    if (score >= 18) return '#FFC107';
+    if (score >= 72) return '#4CAF50';
+    if (score >= 63) return '#2196F3';
+    if (score >= 54) return '#FFC107';
     return '#F44336';
   };
 
