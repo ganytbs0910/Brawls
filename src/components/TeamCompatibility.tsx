@@ -60,14 +60,16 @@ const TeamCompatibility: React.FC = () => {
     
     if (opponentId && allCharacterData[opponentId]) {
       team.forEach(teamMember => {
-        if (mode === 'COUNTER_PICK') {
-          const memberScore = allCharacterData[opponentId].compatibilityScores[teamMember];
-          if (memberScore) {
-            totalScore += memberScore;
-          }
-        } else {
-          const teamMemberId = getCharacterId(teamMember);
-          if (teamMemberId && allCharacterData[teamMemberId]) {
+        const teamMemberId = getCharacterId(teamMember);
+        if (teamMemberId && allCharacterData[teamMemberId]) {
+          if (mode === 'COUNTER_PICK') {
+            // 相手が自分たちに対して強い = 自分たちが苦手
+            const memberScore = allCharacterData[opponentId].compatibilityScores[teamMember];
+            if (memberScore) {
+              totalScore += memberScore;
+            }
+          } else {
+            // 自分たちが相手に対して強い = 得意
             const memberScore = allCharacterData[teamMemberId].compatibilityScores[opponent];
             if (memberScore) {
               totalScore += memberScore;
@@ -77,15 +79,23 @@ const TeamCompatibility: React.FC = () => {
       });
     }
 
-    return totalScore;
+    return mode === 'COUNTER_PICK' ? totalScore : totalScore;
   };
 
-  const getRecommendationReason = (score: number): string => {
-    if (score >= 24) return '最高の相性';
-    if (score >= 21) return '非常に高い相性';
-    if (score >= 18) return '高い相性';
-    if (score >= 15) return '良好な相性';
-    return '標準的な相性';
+  const getRecommendationReason = (score: number, mode: AnalysisMode): string => {
+    if (mode === 'COUNTER_PICK') {
+      if (score >= 24) return '最も警戒が必要';
+      if (score >= 21) return '非常に警戒が必要';
+      if (score >= 18) return '警戒が必要';
+      if (score >= 15) return 'やや警戒が必要';
+      return '通常の警戒';
+    } else {
+      if (score >= 24) return '最高の相性';
+      if (score >= 21) return '非常に高い相性';
+      if (score >= 18) return '高い相性';
+      if (score >= 15) return '良好な相性';
+      return '標準的な相性';
+    }
   };
 
   const getScoreColor = (score: number): string => {
@@ -104,11 +114,13 @@ const TeamCompatibility: React.FC = () => {
         recommendations.push({
           character,
           score,
-          reason: getRecommendationReason(score)
+          reason: getRecommendationReason(score, mode)
         });
       }
     });
 
+    // COUNTER_PICKモードの場合は警戒度の高い順（スコアの高い順）
+    // STRONG_AGAINSTモードの場合は相性の良い順（スコアの高い順）
     recommendations.sort((a, b) => b.score - a.score);
     setRecommendations(recommendations.slice(0, 10));
   };
@@ -418,37 +430,37 @@ const styles = StyleSheet.create({
     width: 30,
   },
   characterName: {
-    marginLeft: 10,
-    fontSize: 14,
-  },
-  score: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    marginRight: 8,
-  },
-  reasonText: {
-    fontSize: 12,
-    color: '#666',
-  },
-  scoreBarContainer: {
-    marginTop: 5,
-  },
-  scoreBar: {
-    height: 10,
-    borderRadius: 5,
-  },
-  closeButton: {
-    backgroundColor: '#2196F3',
-    borderRadius: 20,
-    padding: 10,
-    marginTop: 15,
-    elevation: 2,
-  },
-  closeButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
+        marginLeft: 10,
+        fontSize: 14,
+    },
+    score: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        marginRight: 8,
+    },
+    reasonText: {
+        fontSize: 12,
+        color: '#666',
+    },
+    scoreBarContainer: {
+        marginTop: 5,
+    },
+    scoreBar: {
+        height: 10,
+        borderRadius: 5,
+    },
+    closeButton: {
+        backgroundColor: '#2196F3',
+        borderRadius: 20,
+        padding: 10,
+        marginTop: 15,
+        elevation: 2,
+    },
+    closeButtonText: {
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
 });
 
 export default TeamCompatibility;

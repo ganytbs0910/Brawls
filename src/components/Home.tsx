@@ -19,7 +19,7 @@ import mapData from '../data/mapAPI.json';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-type ScreenType = 'home' | 'settings' | 'privacy' | 'terms' | 'language';
+type ScreenType = 'home' | 'settings' | 'privacy' | 'terms';
 
 interface ScreenState {
   type: ScreenType;
@@ -101,62 +101,7 @@ const MapList: React.FC = () => {
   );
 };
 
-const LanguageSettings = ({ 
-  onClose, 
-  currentLanguage, 
-  onLanguageChange 
-}: {
-  onClose: () => void;
-  currentLanguage: string;
-  onLanguageChange: (language: string) => void;
-}) => (
-  <View style={styles.settingsContainer}>
-    <View style={styles.settingsHeader}>
-      <Text style={styles.settingsTitle}>言語設定</Text>
-      <TouchableOpacity onPress={onClose} style={styles.backButton}>
-        <Text style={styles.backButtonText}>←</Text>
-      </TouchableOpacity>
-    </View>
-    <View style={styles.settingsContent}>
-      <TouchableOpacity 
-        style={[
-          styles.languageItem,
-          currentLanguage === 'ja' && styles.selectedLanguageItem
-        ]}
-        onPress={() => onLanguageChange('ja')}
-      >
-        <Text style={[
-          styles.languageText,
-          currentLanguage === 'ja' && styles.selectedLanguageText
-        ]}>
-          日本語
-        </Text>
-      </TouchableOpacity>
-      <TouchableOpacity 
-        style={[
-          styles.languageItem,
-          currentLanguage === 'en' && styles.selectedLanguageItem
-        ]}
-        onPress={() => onLanguageChange('en')}
-      >
-        <Text style={[
-          styles.languageText,
-          currentLanguage === 'en' && styles.selectedLanguageText
-        ]}>
-          English
-        </Text>
-      </TouchableOpacity>
-    </View>
-  </View>
-);
-
-const PrivacyPolicy = ({ 
-  onClose, 
-  currentLanguage 
-}: { 
-  onClose: () => void;
-  currentLanguage: string;
-}) => (
+const PrivacyPolicy = ({ onClose }: { onClose: () => void }) => (
   <View style={styles.settingsContainer}>
     <View style={styles.settingsHeader}>
       <Text style={styles.settingsTitle}>プライバシーポリシー</Text>
@@ -165,20 +110,12 @@ const PrivacyPolicy = ({
       </TouchableOpacity>
     </View>
     <ScrollView style={styles.contentContainer}>
-      <Text style={styles.contentText}>
-        {privacyPolicyContent[currentLanguage]}
-      </Text>
+      <Text style={styles.contentText}>{privacyPolicyContent}</Text>
     </ScrollView>
   </View>
 );
 
-const Terms = ({ 
-  onClose, 
-  currentLanguage 
-}: { 
-  onClose: () => void;
-  currentLanguage: string;
-}) => (
+const Terms = ({ onClose }: { onClose: () => void }) => (
   <View style={styles.settingsContainer}>
     <View style={styles.settingsHeader}>
       <Text style={styles.settingsTitle}>利用規約</Text>
@@ -187,9 +124,7 @@ const Terms = ({
       </TouchableOpacity>
     </View>
     <ScrollView style={styles.contentContainer}>
-      <Text style={styles.contentText}>
-        {termsContent[currentLanguage]}
-      </Text>
+      <Text style={styles.contentText}>{termsContent}</Text>
     </ScrollView>
   </View>
 );
@@ -197,13 +132,11 @@ const Terms = ({
 const Settings = ({ 
   onClose, 
   onNavigate, 
-  onShare, 
-  currentLanguage 
+  onShare
 }: { 
   onClose: () => void; 
   onNavigate: (screen: ScreenType) => void;
   onShare: () => void;
-  currentLanguage: string;
 }) => (
   <View style={styles.settingsContainer}>
     <View style={styles.settingsHeader}>
@@ -213,15 +146,6 @@ const Settings = ({
       </TouchableOpacity>
     </View>
     <View style={styles.settingsContent}>
-      <TouchableOpacity 
-        style={styles.settingsItem}
-        onPress={() => onNavigate('language')}
-      >
-        <Text style={styles.settingsItemText}>言語設定</Text>
-        <Text style={styles.settingsValueText}>
-          {currentLanguage === 'ja' ? '日本語' : 'English'}
-        </Text>
-      </TouchableOpacity>
       <TouchableOpacity 
         style={styles.settingsItem}
         onPress={onShare}
@@ -245,7 +169,6 @@ const Settings = ({
 );
 
 const Home: React.FC = () => {
-  const [currentLanguage, setCurrentLanguage] = useState('ja');
   const [screenStack, setScreenStack] = useState<ScreenState[]>([
     { type: 'home', translateX: new Animated.Value(0), zIndex: 0 }
   ]);
@@ -291,11 +214,6 @@ const Home: React.FC = () => {
     });
   };
 
-  const handleLanguageChange = (language: string) => {
-    setCurrentLanguage(language);
-    goBack();
-  };
-
   const renderScreenContent = (screen: ScreenState) => {
     switch (screen.type) {
       case 'settings':
@@ -304,29 +222,18 @@ const Home: React.FC = () => {
             onClose={goBack} 
             onNavigate={showScreen} 
             onShare={handleShare}
-            currentLanguage={currentLanguage}
           />
         );
       case 'privacy':
         return (
           <PrivacyPolicy 
             onClose={goBack}
-            currentLanguage={currentLanguage}
           />
         );
       case 'terms':
         return (
           <Terms 
             onClose={goBack}
-            currentLanguage={currentLanguage}
-          />
-        );
-      case 'language':
-        return (
-          <LanguageSettings
-            onClose={goBack}
-            currentLanguage={currentLanguage}
-            onLanguageChange={handleLanguageChange}
           />
         );
       default:
@@ -448,10 +355,6 @@ const styles = StyleSheet.create({
   settingsItemText: {
     fontSize: 16,
   },
-  settingsValueText: {
-    fontSize: 14,
-    color: '#666',
-  },
   backButton: {
     position: 'absolute',
     left: 16,
@@ -468,21 +371,6 @@ const styles = StyleSheet.create({
   contentText: {
     fontSize: 16,
     lineHeight: 24,
-  },
-  languageItem: {
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
-  },
-  selectedLanguageItem: {
-    backgroundColor: '#e3f2fd',
-  },
-  languageText: {
-    fontSize: 16,
-  },
-  selectedLanguageText: {
-    color: '#2196F3',
-    fontWeight: 'bold',
   },
   mapListContainer: {
     padding: 16,
@@ -505,7 +393,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-    },
+  },
   mapImage: {
     width: '100%',
     height: 200,

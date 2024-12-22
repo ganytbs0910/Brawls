@@ -239,14 +239,16 @@ const styles = StyleSheet.create({
   scoreContainer: {
     flex: 1,
     marginLeft: 10,
+    flexDirection: 'row',  // 横並びに変更
+    alignItems: 'center',  // 中央揃え
   },
   score: {
-    position: 'absolute',
-    right: 0,
-    zIndex: 1,
+    marginLeft: 8,        // スコアバーとの間隔を設定
     fontWeight: 'bold',
+    minWidth: 45,         // スコアテキストの最小幅を設定
   },
   scoreBar: {
+    flex: 1,              // 残りのスペースを使用
     height: 20,
     borderRadius: 10,
   },
