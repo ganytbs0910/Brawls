@@ -9,13 +9,11 @@ import {
   ScrollView, 
   Dimensions, 
   Share, 
-  SafeAreaView,
-  ActivityIndicator
+  SafeAreaView
 } from 'react-native';
 import { privacyPolicyContent } from '../contents/privacyPolicy';
 import { termsContent } from '../contents/terms';
 import { DailyTip } from '../components/DailyTip';
-import mapData from '../data/mapAPI.json';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -27,151 +25,17 @@ interface ScreenState {
   zIndex: number;
 }
 
-interface MapData {
-  id: number;
-  name: string;
-  disabled: boolean;
-  imageUrl: string;
-  gameMode: {
-    name: string;
-    color: string;
-    imageUrl: string;
-  };
-}
-
-const MapList: React.FC = () => {
-  const [maps, setMaps] = useState<MapData[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetchMaps();
-  }, []);
-
-  const fetchMaps = () => {
-    try {
-      const activeMaps = mapData.list.filter((map: MapData) => !map.disabled);
-      setMaps(activeMaps);
-      setLoading(false);
-    } catch (err) {
-      setError('マップデータの取得に失敗しました');
-      setLoading(false);
-    }
-  };
-
-  if (loading) {
-    return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#21A0DB" />
-      </View>
-    );
-  }
-
-  if (error) {
-    return (
-      <View style={styles.errorContainer}>
-        <Text style={styles.errorText}>{error}</Text>
-      </View>
-    );
-  }
-
-  return (
-    <View style={styles.mapListContainer}>
-      <Text style={styles.sectionTitle}>アクティブなマップ</Text>
-      {maps.map((map) => (
-        <View key={map.id} style={styles.mapCard}>
-          <Image 
-            source={{ uri: map.imageUrl }} 
-            style={styles.mapImage}
-            resizeMode="cover"
-          />
-          <View style={styles.mapInfo}>
-            <Text style={styles.mapName}>{map.name}</Text>
-            <View style={[styles.gameModeTag, { backgroundColor: map.gameMode.color }]}>
-              <Image 
-                source={{ uri: map.gameMode.imageUrl }} 
-                style={styles.gameModeIcon}
-              />
-              <Text style={styles.gameModeText}>{map.gameMode.name}</Text>
-            </View>
-          </View>
-        </View>
-      ))}
-    </View>
-  );
-};
-
-const PrivacyPolicy = ({ onClose }: { onClose: () => void }) => (
-  <View style={styles.settingsContainer}>
-    <View style={styles.settingsHeader}>
-      <Text style={styles.settingsTitle}>プライバシーポリシー</Text>
-      <TouchableOpacity onPress={onClose} style={styles.backButton}>
-        <Text style={styles.backButtonText}>←</Text>
-      </TouchableOpacity>
-    </View>
-    <ScrollView style={styles.contentContainer}>
-      <Text style={styles.contentText}>{privacyPolicyContent}</Text>
-    </ScrollView>
-  </View>
-);
-
-const Terms = ({ onClose }: { onClose: () => void }) => (
-  <View style={styles.settingsContainer}>
-    <View style={styles.settingsHeader}>
-      <Text style={styles.settingsTitle}>利用規約</Text>
-      <TouchableOpacity onPress={onClose} style={styles.backButton}>
-        <Text style={styles.backButtonText}>←</Text>
-      </TouchableOpacity>
-    </View>
-    <ScrollView style={styles.contentContainer}>
-      <Text style={styles.contentText}>{termsContent}</Text>
-    </ScrollView>
-  </View>
-);
-
-const Settings = ({ 
-  onClose, 
-  onNavigate, 
-  onShare
-}: { 
-  onClose: () => void; 
-  onNavigate: (screen: ScreenType) => void;
-  onShare: () => void;
-}) => (
-  <View style={styles.settingsContainer}>
-    <View style={styles.settingsHeader}>
-      <Text style={styles.settingsTitle}>設定</Text>
-      <TouchableOpacity onPress={onClose} style={styles.backButton}>
-        <Text style={styles.backButtonText}>←</Text>
-      </TouchableOpacity>
-    </View>
-    <View style={styles.settingsContent}>
-      <TouchableOpacity 
-        style={styles.settingsItem}
-        onPress={onShare}
-      >
-        <Text style={styles.settingsItemText}>共有</Text>
-      </TouchableOpacity>
-      <TouchableOpacity 
-        style={styles.settingsItem}
-        onPress={() => onNavigate('privacy')}
-      >
-        <Text style={styles.settingsItemText}>プライバシーポリシー</Text>
-      </TouchableOpacity>
-      <TouchableOpacity 
-        style={styles.settingsItem}
-        onPress={() => onNavigate('terms')}
-      >
-        <Text style={styles.settingsItemText}>利用規約</Text>
-      </TouchableOpacity>
-    </View>
-  </View>
-);
-
 const Home: React.FC = () => {
   const [screenStack, setScreenStack] = useState<ScreenState[]>([
     { type: 'home', translateX: new Animated.Value(0), zIndex: 0 }
   ]);
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleShare = async () => {
     try {
@@ -214,27 +78,181 @@ const Home: React.FC = () => {
     });
   };
 
+  const getNextUpdateTime = (hour: number) => {
+    const next = new Date(currentTime);
+    next.setHours(hour, 0, 0, 0);
+    if (next < currentTime) next.setDate(next.getDate() + 1);
+    const diff = next - currentTime;
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    return `${hours}時間${minutes}分`;
+  };
+
+  const changeDate = (days: number) => {
+    const newDate = new Date(selectedDate);
+    newDate.setDate(newDate.getDate() + days);
+    setSelectedDate(newDate);
+  };
+
+  const getMapForDate = (gameMode: string, daysOffset: number) => {
+    const maps = {
+      battleRoyale: [
+        "天国と地獄", "空飛ぶ絨毯", "囚われた島", "狙撃手たちの楽園",
+        "岩壁の決戦", "安全センター", "ガイコツ川", "酸性湖",
+        "激動の洞窟", "暗い廊下", "ダブルトラブル", "枯れた川"
+      ],
+      knockout: [
+        "白熱対戦", "新たなる地平", "オープンフィールド", "生い茂る廃墟",
+        "バキューン神殿", "極小列島", "双頭の川", "ベルの岩",
+        "密林の奥地", "燃える不死鳥", "四段階層", "ゴールドアームの渓谷"
+      ],
+      emeraldHunt: [
+        "ごつごつ坑道", "ラストストップ", "トロッコの狂気", "オープンスペース",
+        "廃れたアーケード", "アンダーマイン", "クリスタルアーケード", "サボテンの罠",
+        "ダブルレール", "森林伐採", "クールロック", "エメラルドの要塞"
+      ],
+      heist: [
+        "オープンビジネス", "安全地帯", "パラレルワールド", "安全地帯・改",
+        "炎のリング", "大いなる湖", "ウォータースポーツ", "GG 2.0",
+        "ビートルバトル", "ホットポテト", "喧騒居住地", "どんぱち谷"
+      ],
+      brawlBall: [
+        "サスペンダーズ", "合流地点", "凍てつく波紋", "ツルツルロード",
+        "大波", "ガクブル公園", "クールシェイプ", "フロスティトラック"
+      ],
+      duel: [
+        "暴徒のオアシス", "流れ星", "常勝街道", "スパイスプロダクション",
+        "ジグザグ草原", "禅の庭園", "大いなる入口", "グランドカナル",
+        "猿の迷路", "果てしなき不運", "隠れ家", "不屈の精神"
+      ]
+    };
+  
+    const baseDate = new Date(2024, 11, 23);
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + daysOffset);
+    
+    const daysDiff = Math.floor((targetDate.getTime() - baseDate.getTime()) / (1000 * 60 * 60 * 24));
+    const modeMapList = maps[gameMode as keyof typeof maps] || [];
+    const mapIndex = daysDiff % modeMapList.length;
+    
+    return modeMapList[mapIndex];
+  };
+
+  const formatDate = (date: Date) => {
+    return `${date.getMonth() + 1}月${date.getDate()}日`;
+  };
+
+  const currentMaps = {
+    battleRoyale: getMapForDate("battleRoyale", selectedDate.getDate() - new Date().getDate()),
+    emeraldHunt: getMapForDate("emeraldHunt", selectedDate.getDate() - new Date().getDate()),
+    heist: getMapForDate("heist", selectedDate.getDate() - new Date().getDate()),
+    brawlBall: getMapForDate("brawlBall", selectedDate.getDate() - new Date().getDate()),
+    knockout: getMapForDate("knockout", selectedDate.getDate() - new Date().getDate()),
+    duel: getMapForDate("duel", selectedDate.getDate() - new Date().getDate())
+  };
+
+  const modes = [
+    {
+      name: "バトルロワイヤル",
+      currentMap: currentMaps.battleRoyale,
+      updateTime: 5,
+      color: "#EF4444"
+    },
+    {
+      name: "エメラルドハント",
+      currentMap: currentMaps.emeraldHunt,
+      updateTime: 11,
+      color: "#10B981"
+    },
+    {
+      name: "ノックアウト",
+      currentMap: currentMaps.knockout,
+      updateTime: 11,
+      color: "#8B5CF6"
+    },
+    {
+      name: "ホットゾーン＆強奪",
+      currentMap: currentMaps.heist,
+      updateTime: 23,
+      color: "#F97316",
+      isRotating: true
+    },
+    {
+      name: "5対5ブロストライカー＆殲滅",
+      currentMap: currentMaps.brawlBall,
+      updateTime: 17,
+      color: "#3B82F6",
+      isRotating: true
+    },
+    {
+      name: "デュエル＆殲滅＆賞金稼ぎ",
+      currentMap: currentMaps.duel,
+      updateTime: 17,
+      color: "#EC4899",
+      isRotating: true
+    }
+  ];
+
   const renderScreenContent = (screen: ScreenState) => {
     switch (screen.type) {
       case 'settings':
         return (
-          <Settings 
-            onClose={goBack} 
-            onNavigate={showScreen} 
-            onShare={handleShare}
-          />
+          <View style={styles.settingsContainer}>
+            <View style={styles.settingsHeader}>
+              <Text style={styles.settingsTitle}>設定</Text>
+              <TouchableOpacity onPress={goBack} style={styles.backButton}>
+                <Text style={styles.backButtonText}>←</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.settingsContent}>
+              <TouchableOpacity 
+                style={styles.settingsItem}
+                onPress={handleShare}
+              >
+                <Text style={styles.settingsItemText}>共有</Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={styles.settingsItem}
+                onPress={() => showScreen('privacy')}
+              >
+                <Text style={styles.settingsItemText}>プライバシーポリシー</Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={styles.settingsItem}
+                onPress={() => showScreen('terms')}
+              >
+                <Text style={styles.settingsItemText}>利用規約</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         );
       case 'privacy':
         return (
-          <PrivacyPolicy 
-            onClose={goBack}
-          />
+          <View style={styles.settingsContainer}>
+            <View style={styles.settingsHeader}>
+              <Text style={styles.settingsTitle}>プライバシーポリシー</Text>
+              <TouchableOpacity onPress={goBack} style={styles.backButton}>
+                <Text style={styles.backButtonText}>←</Text>
+              </TouchableOpacity>
+            </View>
+            <ScrollView style={styles.contentContainer}>
+              <Text style={styles.contentText}>{privacyPolicyContent}</Text>
+            </ScrollView>
+          </View>
         );
       case 'terms':
         return (
-          <Terms 
-            onClose={goBack}
-          />
+          <View style={styles.settingsContainer}>
+            <View style={styles.settingsHeader}>
+              <Text style={styles.settingsTitle}>利用規約</Text>
+              <TouchableOpacity onPress={goBack} style={styles.backButton}>
+                <Text style={styles.backButtonText}>←</Text>
+              </TouchableOpacity>
+            </View>
+            <ScrollView style={styles.contentContainer}>
+              <Text style={styles.contentText}>{termsContent}</Text>
+            </ScrollView>
+          </View>
         );
       default:
         return null;
@@ -258,7 +276,37 @@ const Home: React.FC = () => {
 
       <ScrollView style={styles.content}>
         <DailyTip />
-        <MapList />
+        <View style={styles.modeContainer}>
+          <View style={styles.dateHeader}>
+            <TouchableOpacity onPress={() => changeDate(-1)}>
+              <Text style={styles.dateArrow}>←</Text>
+            </TouchableOpacity>
+            <Text style={styles.dateText}>{formatDate(selectedDate)}</Text>
+            <TouchableOpacity onPress={() => changeDate(1)}>
+              <Text style={styles.dateArrow}>→</Text>
+            </TouchableOpacity>
+          </View>
+          {modes.map((mode, index) => (
+            <View key={index} style={styles.modeCard}>
+              <View style={styles.modeHeader}>
+                <View style={[styles.modeTag, { backgroundColor: mode.color }]}>
+                  <Text style={styles.modeTagText}>{mode.name}</Text>
+                </View>
+                {selectedDate.getDate() === new Date().getDate() && (
+                  <Text style={styles.updateTime}>
+                    更新まで {getNextUpdateTime(mode.updateTime)}
+                  </Text>
+                )}
+              </View>
+              <Text style={styles.mapName}>{mode.currentMap}</Text>
+              {mode.isRotating && (
+                <Text style={styles.rotatingNote}>
+                  ※モードとマップはローテーションします
+                </Text>
+              )}
+            </View>
+          ))}
+        </View>
       </ScrollView>
 
       {screenStack.map((screen, index) => (
@@ -327,7 +375,7 @@ const styles = StyleSheet.create({
     height: 60,
     backgroundColor: '#21A0DB',
     flexDirection: 'row',
-    justifyContent: 'center',
+  justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
     paddingHorizontal: 16,
@@ -372,19 +420,20 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
   },
-  mapListContainer: {
+  modeContainer: {
     padding: 16,
   },
-  sectionTitle: {
+  modeTitle: {
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 16,
     color: '#333',
   },
-  mapCard: {
+  modeCard: {
     backgroundColor: '#fff',
     borderRadius: 8,
     marginBottom: 16,
+    padding: 16,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -394,50 +443,52 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
-  mapImage: {
-    width: '100%',
-    height: 200,
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
+  modeHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
   },
-  mapInfo: {
-    padding: 12,
+  modeTag: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+  },
+  modeTagText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 14,
+  },
+  updateTime: {
+    color: '#666',
+    fontSize: 14,
   },
   mapName: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 8,
+    marginTop: 8,
+    color: '#333',
   },
-  gameModeTag: {
+  rotatingNote: {
+    color: '#666',
+    fontSize: 12,
+    marginTop: 4,
+  },
+  dateHeader: {
     flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 4,
-    alignSelf: 'flex-start',
-  },
-  gameModeIcon: {
-    width: 20,
-    height: 20,
-    marginRight: 4,
-  },
-  gameModeText: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  loadingContainer: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 16,
+    marginBottom: 16,
   },
-  errorContainer: {
-    padding: 16,
-    alignItems: 'center',
+  dateText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginHorizontal: 16,
   },
-  errorText: {
-    color: 'red',
-    textAlign: 'center',
+  dateArrow: {
+    fontSize: 24,
+    color: '#21A0DB',
+    paddingHorizontal: 16,
   },
 });
 
