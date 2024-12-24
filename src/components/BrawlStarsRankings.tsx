@@ -1,44 +1,85 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Dimensions, ActivityIndicator } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import CharacterImage from './CharacterImage';
 import { 
   fetchAndProcessCharactersData, 
-  getCharacterRankings, 
-  getCharacterData,
-  characterTypes, 
-  rankingTypes 
+  getCharacterRankings,
+  getCharacterData
 } from '../data/characterData';
 import { RootStackParamList } from '../App';
 import { RankingItem } from '../types/types';
+import { getAllRoles, getRoleDisplayName, generateCustomRankings } from '../data/customRankings';
 
 type RankingsScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Rankings'>;
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
-const typeNames: Record<string, string> = {
-  all: '全体',
-  tank: 'タンク',
-  thrower: '投げ',
-  assassin: 'アサシン',
-  sniper: 'スナイパー',
-  attacker: 'アタッカー',
-  support: 'サポート',
-  controller: 'コントローラー'
+const RoleSelector: React.FC<{
+  selectedRole: string;
+  onRoleChange: (role: string) => void;
+}> = ({ selectedRole, onRoleChange }) => {
+  const roles = getAllRoles();
+  const firstRow = roles.slice(0, Math.ceil(roles.length / 2));
+  const secondRow = roles.slice(Math.ceil(roles.length / 2));
+
+  return (
+    <View style={styles.roleSelectorContainer}>
+      <View style={styles.roleRow}>
+        {firstRow.map(role => (
+          <TouchableOpacity
+            key={role}
+            style={[
+              styles.roleButton,
+              selectedRole === role && styles.selectedRoleButton
+            ]}
+            onPress={() => onRoleChange(role)}
+          >
+            <Text style={[
+              styles.roleButtonText,
+              selectedRole === role && styles.selectedRoleButtonText
+            ]}>
+              {getRoleDisplayName(role)}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+      <View style={styles.roleRow}>
+        {secondRow.map(role => (
+          <TouchableOpacity
+            key={role}
+            style={[
+              styles.roleButton,
+              selectedRole === role && styles.selectedRoleButton
+            ]}
+            onPress={() => onRoleChange(role)}
+          >
+            <Text style={[
+              styles.roleButtonText,
+              selectedRole === role && styles.selectedRoleButtonText
+            ]}>
+              {getRoleDisplayName(role)}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+    </View>
+  );
 };
 
 const BrawlStarsRankings: React.FC = () => {
   const navigation = useNavigation<RankingsScreenNavigationProp>();
-  const [selectedRankingType, setSelectedRankingType] = useState('all');
   const [isLoading, setIsLoading] = useState(true);
   const [rankings, setRankings] = useState<RankingItem[]>([]);
+  const [selectedRole, setSelectedRole] = useState('all');
+  const [characters, setCharacters] = useState({});
 
   useEffect(() => {
     const initializeData = async () => {
       try {
-        await fetchAndProcessCharactersData();
-        const allRankings = getCharacterRankings();
-        setRankings(allRankings);
+        const chars = await fetchAndProcessCharactersData();
+        setCharacters(chars);
+        const roleRankings = generateCustomRankings(chars, selectedRole);
+        setRankings(roleRankings);
       } catch (error) {
         console.error('Failed to fetch rankings:', error);
       } finally {
@@ -47,46 +88,14 @@ const BrawlStarsRankings: React.FC = () => {
     };
 
     initializeData();
-  }, []);
+  }, [selectedRole]);
+
+  const handleRoleChange = (role: string) => {
+    setSelectedRole(role);
+  };
 
   const handleCharacterPress = (characterName: string) => {
     navigation.navigate('CharacterDetails', { characterName });
-  };
-
-  const getFilteredRankings = () => {
-    if (!selectedRankingType || !characterTypes[selectedRankingType]) {
-      console.warn(`無効なタイプです: ${selectedRankingType}, 全体表示に戻します`);
-      return rankings;
-    }
-
-    if (selectedRankingType === 'all') {
-      return rankings.map(item => {
-        const characterData = getCharacterData(item.characterName);
-        return {
-          ...item,
-          imageUrl: characterData?.images?.borderless || '',
-        };
-      });
-    }
-
-    const characterList = characterTypes[selectedRankingType];
-    if (!Array.isArray(characterList)) {
-      console.warn(`タイプ ${selectedRankingType} のキャラクターリストが無効です。全体表示に戻します`);
-      return rankings;
-    }
-
-    const filteredRankings = rankings.filter(item =>
-      characterList.includes(item.characterName)
-    );
-
-    return filteredRankings.map((item, index) => {
-      const characterData = getCharacterData(item.characterName);
-      return {
-        ...item,
-        rank: index + 1,
-        imageUrl: characterData?.images?.borderless || '',
-      };
-    });
   };
 
   if (isLoading) {
@@ -97,75 +106,51 @@ const BrawlStarsRankings: React.FC = () => {
     );
   }
 
-  const localizedRankingTypes = rankingTypes.map(type => ({
-    ...type,
-    name: typeNames[type.id] || type.id
-  }));
-
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>キャラクターランキング</Text>
       </View>
 
-      <View style={styles.rankingTypeContainer}>
-        <ScrollView 
-          horizontal 
-          showsHorizontalScrollIndicator={false}
-          style={styles.tabScroll}
-          contentContainerStyle={styles.tabScrollContent}
-        >
-          {localizedRankingTypes.map((type) => (
-            <TouchableOpacity
-              key={type.id}
-              style={[
-                styles.typeTab,
-                selectedRankingType === type.id && styles.selectedTypeTab
-              ]}
-              onPress={() => setSelectedRankingType(type.id)}
-            >
-              <Text style={[
-                styles.typeText,
-                selectedRankingType === type.id && styles.selectedTypeText
-              ]}>
-                {type.name}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
-      </View>
+      <RoleSelector 
+        selectedRole={selectedRole} 
+        onRoleChange={handleRoleChange} 
+      />
 
       <View style={styles.content}>
         <ScrollView>
-          {getFilteredRankings().map((item) => (
-            <View key={item.rank} style={styles.rankingItem}>
-              <View style={styles.rankContainer}>
-                <Text style={styles.rankNumber} numberOfLines={1}>
-                  {item.rank}位
-                </Text>
-              </View>
-              <TouchableOpacity 
-                style={styles.characterInfo}
-                onPress={() => handleCharacterPress(item.characterName)}
-                activeOpacity={0.7}
-              >
-                <CharacterImage 
-                  characterName={item.characterName}
-                  imageUrl={item.imageUrl}
-                  size={40} 
-                  style={styles.characterImage}
-                />
-                <View style={styles.textContainer}>
-                  <Text style={styles.characterName}>
-                    {item.characterName}
-                  </Text>
-                  <Text style={styles.description} numberOfLines={2}>
-                    {item.description}
+          {rankings.map((item) => {
+            const characterData = getCharacterData(item.characterName);
+            return (
+              <View key={item.rank} style={styles.rankingItem}>
+                <View style={styles.rankContainer}>
+                  <Text style={styles.rankNumber} numberOfLines={1}>
+                    {item.rank}位
                   </Text>
                 </View>
-              </TouchableOpacity>
-            </View>
-          ))}
+                <TouchableOpacity 
+                  style={styles.characterInfo}
+                  onPress={() => handleCharacterPress(item.characterName)}
+                  activeOpacity={0.7}
+                >
+                  <CharacterImage 
+                    characterName={item.characterName}
+                    imageUrl={characterData?.images?.borderless || ''}
+                    size={40} 
+                    style={styles.characterImage}
+                  />
+                  <View style={styles.textContainer}>
+                    <Text style={styles.characterName}>
+                      {item.characterName}
+                    </Text>
+                    <Text style={styles.description} numberOfLines={2}>
+                      {item.description}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+            );
+          })}
         </ScrollView>
       </View>
     </View>
@@ -199,44 +184,42 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
   },
-  content: {
-    flex: 1,
-  },
-  rankingTypeContainer: {
-    backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+  roleSelectorContainer: {
+    backgroundColor: '#f5f5f5',
     paddingVertical: 8,
   },
-  tabScroll: {
-    flexGrow: 0,
-    height: 36,
+  roleRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    paddingHorizontal: 4,
+    marginBottom: 4,
   },
-  tabScrollContent: {
-    paddingHorizontal: 8,
-  },
-  typeTab: {
-    paddingHorizontal: 14,
+  roleButton: {
+    paddingHorizontal: 12,
     paddingVertical: 6,
     marginHorizontal: 4,
+    marginVertical: 2,
     borderRadius: 16,
-    backgroundColor: '#f5f5f5',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: '#fff',
     borderWidth: 1,
     borderColor: '#e0e0e0',
+    minWidth: 80,
   },
-  selectedTypeTab: {
-    backgroundColor: '#e3f2fd',
+  selectedRoleButton: {
+    backgroundColor: '#2196F3',
     borderColor: '#2196F3',
   },
-  typeText: {
-    fontSize: 13,
+  roleButtonText: {
     color: '#666',
+    fontSize: 12,
+    textAlign: 'center',
   },
-  selectedTypeText: {
-    color: '#2196F3',
-    fontWeight: '600',
+  selectedRoleButtonText: {
+    color: '#fff',
+  },
+  content: {
+    flex: 1,
   },
   rankingItem: {
     flexDirection: 'row',
