@@ -82,7 +82,7 @@ const mapImages = {
   "喧騒居住地": require('../../assets/MapImages/Noisy_Neighbors.png'),
   "どんぱち谷": require('../../assets/MapImages/Kaboom_Canyon.png'),
 
-  // 5対5ブロストライカー＆殲滅
+  // 5vs5ブロストライカー
   "サスペンダーズ": require('../../assets/MapImages/Suspenders.png'),
   "合流地点": require('../../assets/MapImages/Riverbank_Crossing.png'),
   "凍てつく波紋": require('../../assets/MapImages/Freezing_Ripples.png'),
@@ -104,7 +104,21 @@ const mapImages = {
   "猿の迷路": require('../../assets/MapImages/Monkey_Maze.png'),
   "果てしなき不運": require('../../assets/MapImages/Infinite_Doom.png'),
   "隠れ家": require('../../assets/MapImages/Hideout.png'),
-  "不屈の精神": require('../../assets/MapImages/No_Surrender.png')
+  "不屈の精神": require('../../assets/MapImages/No_Surrender.png'),
+
+  // ブロストライカー
+  "セカンドチャンス": require('../../assets/MapImages/Second_Try.png'),
+  "静かな広場": require('../../assets/MapImages/Sneaky_Fields.png'),
+  "サニーサッカー": require('../../assets/MapImages/Sunny_Soccer.png'),
+  "スーパービーチ": require('../../assets/MapImages/Super_Beach.png'),
+  "トリッキー": require('../../assets/MapImages/Trickey.png'),
+  "トリプル・ドリブル": require('../../assets/MapImages/Triple_Dribble.png'),
+  "鉄壁の守り": require('../../assets/MapImages/Backyard_Bowl.png'),
+  "ビーチボール": require('../../assets/MapImages/Beach_Ball.png'),
+  "中央コート": require('../../assets/MapImages/Center_Stage.png'),
+  "ペナルティキック": require('../../assets/MapImages/Penalty_Kick.png'),
+  "ピンボールドリーム": require('../../assets/MapImages/Pinball_Dreams.png'),
+  "狭き門": require('../../assets/MapImages/Pinhole_Punt.png')
 };
 
 const Home: React.FC = () => {
@@ -198,10 +212,16 @@ const Home: React.FC = () => {
         "炎のリング", "大いなる湖", "ウォータースポーツ", "GG 2.0",
         "ビートルバトル", "ホットポテト", "喧騒居住地", "どんぱち谷", "オープンビジネス"
       ],
-      brawlBall: [
+      brawlBall5v5: [
         "ガクブル公園", "クールシェイプ", "フロスティトラック",
         "サスペンダーズ", "合流地点", "凍てつく波紋", 
-        "ツルツルロード", "大波", 
+        "ツルツルロード", "大波"
+      ],
+      brawlBall: [
+        "セカンドチャンス", "静かな広場", "サニーサッカー", 
+        "スーパービーチ", "トリッキー", "トリプル・ドリブル",
+        "鉄壁の守り", "ビーチボール", "中央コート",
+        "ペナルティキック", "ピンボールドリーム", "狭き門"
       ],
       duel: [
         "暴徒のオアシス", "流れ星", "常勝街道", "スパイスプロダクション",
@@ -230,6 +250,7 @@ const Home: React.FC = () => {
     emeraldHunt: getMapForDate("emeraldHunt", selectedDate.getDate() - new Date().getDate()),
     heist: getMapForDate("heist", selectedDate.getDate() - new Date().getDate()),
     brawlBall: getMapForDate("brawlBall", selectedDate.getDate() - new Date().getDate()),
+    brawlBall5v5: getMapForDate("brawlBall5v5", selectedDate.getDate() - new Date().getDate()),
     knockout: getMapForDate("knockout", selectedDate.getDate() - new Date().getDate()),
     duel: getMapForDate("duel", selectedDate.getDate() - new Date().getDate())
   };
@@ -261,10 +282,17 @@ const Home: React.FC = () => {
       isRotating: true
     },
     {
-      name: "5対5ブロストライカー＆殲滅",
-      currentMap: currentMaps.brawlBall,
+      name: "5vs5ブロストライカー",
+      currentMap: currentMaps.brawlBall5v5,
       updateTime: 17,
       color: "#808080",
+      isRotating: true
+    },
+    {
+      name: "ブロストライカー",
+      currentMap: currentMaps.brawlBall,
+      updateTime: 17,
+      color: "#4169E1",
       isRotating: true
     },
     {
@@ -383,7 +411,10 @@ const Home: React.FC = () => {
               </View>
               <View style={styles.mapContent}>
                 <Text style={styles.mapName}>{mode.currentMap}</Text>
-                {(mode.name === "バトルロワイヤル" || mode.name === "エメラルドハント" || mode.name === "ノックアウト" || mode.name === "ホットゾーン＆強奪" || mode.name === "5対5ブロストライカー＆殲滅" || mode.name === "デュエル＆殲滅＆賞金稼ぎ") && (
+                {(mode.name === "バトルロワイヤル" || mode.name === "エメラルドハント" || 
+                  mode.name === "ノックアウト" || mode.name === "ホットゾーン＆強奪" || 
+                  mode.name === "5vs5ブロストライカー" || mode.name === "ブロストライカー" || 
+                  mode.name === "デュエル＆殲滅＆賞金稼ぎ") && (
                   <Image 
                     source={mapImages[mode.currentMap]}
                     style={styles.mapImage}
