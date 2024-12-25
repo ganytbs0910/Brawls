@@ -25,6 +25,88 @@ interface ScreenState {
   zIndex: number;
 }
 
+// マップ画像のインポート
+const mapImages = {
+  "天国と地獄": require('../../assets/MapImages/Feast_Or_Famine.png'),
+  "空飛ぶ絨毯": require('../../assets/MapImages/Flying_Fantasies.png'),
+  "囚われた島": require('../../assets/MapImages/Island_Invasion.png'),
+  "狙撃手たちの楽園": require('../../assets/MapImages/Marksmans_Paradise.png'),
+  "岩壁の決戦": require('../../assets/MapImages/Rockwall_Brawl.png'),
+  "安全センター": require('../../assets/MapImages/Safety_Center.png'),
+  "ガイコツ川": require('../../assets/MapImages/Skull_Creek.png'),
+  "酸性湖": require('../../assets/MapImages/Acid_Lakes.png'),
+  "激動の洞窟": require('../../assets/MapImages/Cavern_Churn.png'),
+  "暗い廊下": require('../../assets/MapImages/Dark_Passage.png'),
+  "ダブルトラブル": require('../../assets/MapImages/Double_Trouble.png'),
+  "枯れた川": require('../../assets/MapImages/Dried_Up_River.png'),
+
+  // ノックアウト
+  "白熱対戦": require('../../assets/MapImages/H_for.png'),
+  "新たなる地平": require('../../assets/MapImages/New_Horizons.png'),
+  "オープンフィールド": require('../../assets/MapImages/Out_In_The_Open.png'),
+  "生い茂る廃墟": require('../../assets/MapImages/Overgrown_Ruins.png'),
+  "バキューン神殿": require('../../assets/MapImages/Temple_Of_Vroom.png'),
+  "極小列島": require('../../assets/MapImages/Tiny_Islands.png'),
+  "双頭の川": require('../../assets/MapImages/Two_Rivers.png'),
+  "ベルの岩": require('../../assets/MapImages/Belles_Rock.png'),
+  "密林の奥地": require('../../assets/MapImages/Deep_Forest.png'),
+  "燃える不死鳥": require('../../assets/MapImages/Flaring_Phoenix.png'),
+  "四段階層": require('../../assets/MapImages/Four_Levels.png'),
+  "ゴールドアームの渓谷": require('../../assets/MapImages/Goldarm_Gulch.png'),
+
+  // エメラルドハント
+  "ごつごつ坑道": require('../../assets/MapImages/Hard_Rock_Mine.png'),
+  "ラストストップ": require('../../assets/MapImages/Last_Stop.png'),
+  "トロッコの狂気": require('../../assets/MapImages/Minecart_Madness.png'),
+  "オープンスペース": require('../../assets/MapImages/Open_Space.png'),
+  "廃れたアーケード": require('../../assets/MapImages/Rustic_Arcade.png'),
+  "アンダーマイン": require('../../assets/MapImages/Undermine.png'),
+  "クリスタルアーケード": require('../../assets/MapImages/Crystal_Arcade.png'),
+  "サボテンの罠": require('../../assets/MapImages/Deathcap_Trap.png'),
+  "ダブルレール": require('../../assets/MapImages/Double_Swoosh.png'),
+  "森林伐採": require('../../assets/MapImages/Forest_Clearing.png'),
+  "クールロック": require('../../assets/MapImages/The_Cooler_Hard_Rock.png'),
+  "エメラルドの要塞": require('../../assets/MapImages/Gem_Fort.png'),
+
+  // ホットゾーン＆強奪
+  "オープンビジネス": require('../../assets/MapImages/Open_Business.png'),
+  "安全地帯": require('../../assets/MapImages/Safe_Zone.png'),
+  "パラレルワールド": require('../../assets/MapImages/Parallel_Plays.png'),
+  "安全地帯・改": require('../../assets/MapImages/Safe(r)_Zone.png'),
+  "炎のリング": require('../../assets/MapImages/Ring_Of_Fire.png'),
+  "大いなる湖": require('../../assets/MapImages/The_Great_Lake.png'),
+  "ウォータースポーツ": require('../../assets/MapImages/Watersport.png'),
+  "GG 2.0": require('../../assets/MapImages/Gg_2.0.png'),
+  "ビートルバトル": require('../../assets/MapImages/Dueling_Beetles.png'),
+  "ホットポテト": require('../../assets/MapImages/Hot_Potato.png'),
+  "喧騒居住地": require('../../assets/MapImages/Noisy_Neighbors.png'),
+  "どんぱち谷": require('../../assets/MapImages/Kaboom_Canyon.png'),
+
+  // 5対5ブロストライカー＆殲滅
+  "サスペンダーズ": require('../../assets/MapImages/Suspenders.png'),
+  "合流地点": require('../../assets/MapImages/Riverbank_Crossing.png'),
+  "凍てつく波紋": require('../../assets/MapImages/Freezing_Ripples.png'),
+  "ツルツルロード": require('../../assets/MapImages/Slippery_Road.png'),
+  "大波": require('../../assets/MapImages/Great_Waves.png'),
+  "ガクブル公園": require('../../assets/MapImages/Icy_Ice_Park.png'),
+  "クールシェイプ": require('../../assets/MapImages/Cool_Shapes.png'),
+  "フロスティトラック": require('../../assets/MapImages/Frosty_Tracks.png'),
+
+  // デュエル＆殲滅＆賞金稼ぎ
+  "暴徒のオアシス": require('../../assets/MapImages/Slayers_Paradise.png'),
+  "流れ星": require('../../assets/MapImages/Shooting_Star.png'),
+  "常勝街道": require('../../assets/MapImages/Warriors_Way.png'),
+  "スパイスプロダクション": require('../../assets/MapImages/Spice_Production.png'),
+  "ジグザグ草原": require('../../assets/MapImages/Snake_Prairie.png'),
+  "禅の庭園": require('../../assets/MapImages/Zen_Garden.png'),
+  "大いなる入口": require('../../assets/MapImages/The_Great_Open.png'),
+  "グランドカナル": require('../../assets/MapImages/Canal_Grande.png'),
+  "猿の迷路": require('../../assets/MapImages/Monkey_Maze.png'),
+  "果てしなき不運": require('../../assets/MapImages/Infinite_Doom.png'),
+  "隠れ家": require('../../assets/MapImages/Hideout.png'),
+  "不屈の精神": require('../../assets/MapImages/No_Surrender.png')
+};
+
 const Home: React.FC = () => {
   const [screenStack, setScreenStack] = useState<ScreenState[]>([
     { type: 'home', translateX: new Animated.Value(0), zIndex: 0 }
@@ -156,39 +238,39 @@ const Home: React.FC = () => {
       name: "バトルロワイヤル",
       currentMap: currentMaps.battleRoyale,
       updateTime: 5,
-      color: "#EF4444"
+      color: "#90EE90"
     },
     {
       name: "エメラルドハント",
       currentMap: currentMaps.emeraldHunt,
       updateTime: 11,
-      color: "#10B981"
+      color: "#DA70D6"
     },
     {
       name: "ノックアウト",
       currentMap: currentMaps.knockout,
       updateTime: 11,
-      color: "#8B5CF6"
+      color: "#FFA500"
     },
     {
       name: "ホットゾーン＆強奪",
       currentMap: currentMaps.heist,
       updateTime: 23,
-      color: "#F97316",
+      color: "#FF69B4",
       isRotating: true
     },
     {
       name: "5対5ブロストライカー＆殲滅",
       currentMap: currentMaps.brawlBall,
       updateTime: 17,
-      color: "#3B82F6",
+      color: "#808080",
       isRotating: true
     },
     {
       name: "デュエル＆殲滅＆賞金稼ぎ",
       currentMap: currentMaps.duel,
       updateTime: 17,
-      color: "#EC4899",
+      color: "#FF0000",
       isRotating: true
     }
   ];
@@ -298,7 +380,16 @@ const Home: React.FC = () => {
                   </Text>
                 )}
               </View>
-              <Text style={styles.mapName}>{mode.currentMap}</Text>
+              <View style={styles.mapContent}>
+                <Text style={styles.mapName}>{mode.currentMap}</Text>
+                {(mode.name === "バトルロワイヤル" || mode.name === "エメラルドハント" || mode.name === "ノックアウト" || mode.name === "ホットゾーン＆強奪" || mode.name === "5対5ブロストライカー＆殲滅" || mode.name === "デュエル＆殲滅＆賞金稼ぎ") && (
+                  <Image 
+                    source={mapImages[mode.currentMap]}
+                    style={styles.mapImage}
+                    resizeMode="contain"
+                  />
+                )}
+              </View>
               {mode.isRotating && (
                 <Text style={styles.rotatingNote}>
                   ※モードとマップはローテーションします
@@ -319,8 +410,7 @@ const Home: React.FC = () => {
                 transform: [{ translateX: screen.translateX }],
                 zIndex: screen.zIndex
               },
-            ]}
-          >
+            ]}>
             {renderScreenContent(screen)}
           </Animated.View>
         )
@@ -375,7 +465,7 @@ const styles = StyleSheet.create({
     height: 60,
     backgroundColor: '#21A0DB',
     flexDirection: 'row',
-  justifyContent: 'center',
+    justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
     paddingHorizontal: 16,
@@ -463,11 +553,23 @@ const styles = StyleSheet.create({
     color: '#666',
     fontSize: 14,
   },
+  mapContent: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   mapName: {
     fontSize: 18,
     fontWeight: 'bold',
     marginTop: 8,
     color: '#333',
+    flex: 1,
+  },
+  mapImage: {
+    width: 120,
+    height: 80,
+    borderRadius: 8,
+    marginLeft: 16,
   },
   rotatingNote: {
     color: '#666',
