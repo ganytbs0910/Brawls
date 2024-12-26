@@ -25,6 +25,50 @@ interface ScreenState {
   zIndex: number;
 }
 
+// Define rotating modes configuration
+const rotatingModes = {
+  heist: {
+    modes: [
+      {
+        name: "ホットゾーン",
+        icon: require('../../assets/GameModeIcons/hot_zone_icon.png')
+      },
+      {
+        name: "強奪",
+        icon: require('../../assets/GameModeIcons/heist_icon.png')
+      }
+    ]
+  },
+  brawlBall5v5: {
+    modes: [
+      {
+        name: "5vs5ブロストライカー",
+        icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
+      },
+      {
+        name: "5vs5殲滅",
+        icon: require('../../assets/GameModeIcons/wipeout_icon.png')
+      }
+    ]
+  },
+  duel: {
+    modes: [
+      {
+        name: "賞金稼ぎ",
+        icon: require('../../assets/GameModeIcons/bounty_icon.png')
+      },
+      {
+        name: "デュエル",
+        icon: require('../../assets/GameModeIcons/duels_icon.png')
+      },
+      {
+        name: "殲滅",
+        icon: require('../../assets/GameModeIcons/wipeout_icon.png')
+      }
+    ]
+  }
+};
+
 // マップ画像のインポート
 const mapImages = {
   "天国と地獄": require('../../assets/MapImages/Feast_Or_Famine.png'),
@@ -174,6 +218,21 @@ const Home: React.FC = () => {
     });
   };
 
+  const getCurrentMode = (modeType: string, date: Date) => {
+    if (!rotatingModes[modeType]) return null;
+    
+    const modes = rotatingModes[modeType].modes;
+    const baseDate = new Date(2024, 11, 27); // 12/27を基準日に
+    const daysDiff = Math.floor((date.getTime() - baseDate.getTime()) / (1000 * 60 * 60 * 24));
+    const rotationIndex = daysDiff % modes.length;
+    return modes[rotationIndex >= 0 ? rotationIndex : (modes.length + rotationIndex)];
+  };
+
+  const getCurrentModeName = (modeType: string, date: Date) => {
+    const mode = getCurrentMode(modeType, date);
+    return mode?.name;
+  };
+
   const getNextUpdateTime = (hour: number) => {
     const next = new Date(currentTime);
     next.setHours(hour, 0, 0, 0);
@@ -260,47 +319,54 @@ const Home: React.FC = () => {
       name: "バトルロワイヤル",
       currentMap: currentMaps.battleRoyale,
       updateTime: 5,
-      color: "#90EE90"
+      color: "#90EE90",
+      icon: require('../../assets/GameModeIcons/showdown_icon.png')
     },
     {
       name: "エメラルドハント",
       currentMap: currentMaps.emeraldHunt,
       updateTime: 11,
-      color: "#DA70D6"
+      color: "#DA70D6",
+      icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
     },
     {
-      name: "ノックアウト",
-      currentMap: currentMaps.knockout,
-      updateTime: 11,
-      color: "#FFA500"
-    },
-    {
-      name: "ホットゾーン＆強奪",
+      name: getCurrentModeName("heist", selectedDate) || "ホットゾーン＆強奪",
       currentMap: currentMaps.heist,
       updateTime: 23,
       color: "#FF69B4",
-      isRotating: true
-    },
-    {
-      name: "5vs5ブロストライカー",
-      currentMap: currentMaps.brawlBall5v5,
-      updateTime: 17,
-      color: "#808080",
-      isRotating: true
+      isRotating: true,
+      icon: getCurrentMode("heist", selectedDate)?.icon || require('../../assets/GameModeIcons/heist_icon.png')
     },
     {
       name: "ブロストライカー",
       currentMap: currentMaps.brawlBall,
       updateTime: 17,
       color: "#4169E1",
-      isRotating: true
+      isRotating: true,
+      icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
     },
     {
-      name: "デュエル＆殲滅＆賞金稼ぎ",
+      name: getCurrentModeName("brawlBall5v5", selectedDate) || "5vs5ブロストライカー",
+      currentMap: currentMaps.brawlBall5v5,
+      updateTime: 17,
+      color: "#808080",
+      isRotating: true,
+      icon: getCurrentMode("brawlBall5v5", selectedDate)?.icon || require('../../assets/GameModeIcons/brawl_ball_icon.png')
+    },
+    {
+      name: getCurrentModeName("duel", selectedDate) || "デュエル＆殲滅＆賞金稼ぎ",
       currentMap: currentMaps.duel,
       updateTime: 17,
       color: "#FF0000",
-      isRotating: true
+      isRotating: true,
+      icon: getCurrentMode("duel", selectedDate)?.icon || require('../../assets/GameModeIcons/bounty_icon.png')
+    },
+    {
+      name: "ノックアウト",
+      currentMap: currentMaps.knockout,
+      updateTime: 11,
+      color: "#FFA500",
+      icon: require('../../assets/GameModeIcons/knock_out_icon.png')
     }
   ];
 
@@ -401,6 +467,7 @@ const Home: React.FC = () => {
             <View key={index} style={styles.modeCard}>
               <View style={styles.modeHeader}>
                 <View style={[styles.modeTag, { backgroundColor: mode.color }]}>
+                  <Image source={mode.icon} style={styles.modeIcon} />
                   <Text style={styles.modeTagText}>{mode.name}</Text>
                 </View>
                 {selectedDate.getDate() === new Date().getDate() && (
@@ -412,9 +479,9 @@ const Home: React.FC = () => {
               <View style={styles.mapContent}>
                 <Text style={styles.mapName}>{mode.currentMap}</Text>
                 {(mode.name === "バトルロワイヤル" || mode.name === "エメラルドハント" || 
-                  mode.name === "ノックアウト" || mode.name === "ホットゾーン＆強奪" || 
-                  mode.name === "5vs5ブロストライカー" || mode.name === "ブロストライカー" || 
-                  mode.name === "デュエル＆殲滅＆賞金稼ぎ") && (
+                  mode.name === "ノックアウト" || getCurrentModeName("heist", selectedDate) || 
+                  getCurrentModeName("brawlBall5v5", selectedDate) || mode.name === "ブロストライカー" || 
+                  getCurrentModeName("duel", selectedDate)) && (
                   <Image 
                     source={mapImages[mode.currentMap]}
                     style={styles.mapImage}
@@ -572,9 +639,16 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   modeTag: {
-    paddingHorizontal: 12,
+paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  modeIcon: {
+    width: 24,
+    height: 24,
+    marginRight: 8,
   },
   modeTagText: {
     color: '#fff',
@@ -598,8 +672,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   mapImage: {
-    width: 120,
-    height: 80,
+    width: 80,
+    height: 53,
     borderRadius: 8,
     marginLeft: 16,
   },
