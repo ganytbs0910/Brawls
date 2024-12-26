@@ -4,6 +4,9 @@ PODS:
   - FBLazyVector (0.76.3)
   - fmt (9.1.0)
   - glog (0.3.5)
+  - Google-Mobile-Ads-SDK (11.13.0):
+    - GoogleUserMessagingPlatform (>= 1.1)
+  - GoogleUserMessagingPlatform (2.7.0)
   - hermes-engine (0.76.3):
     - hermes-engine/Pre-built (= 0.76.3)
   - hermes-engine/Pre-built (0.76.3)
@@ -1638,6 +1641,29 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - RNGoogleMobileAds (14.7.2):
+    - DoubleConversion
+    - glog
+    - Google-Mobile-Ads-SDK (= 11.13.0)
+    - GoogleUserMessagingPlatform (= 2.7.0)
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNScreens (4.3.0):
     - DoubleConversion
     - glog
@@ -1692,6 +1718,7 @@ DEPENDENCIES:
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - fmt (from `../node_modules/react-native/third-party-podspecs/fmt.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - Google-Mobile-Ads-SDK
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCT-Folly/Fabric (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
@@ -1755,11 +1782,14 @@ DEPENDENCIES:
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNCMaskedView (from `../node_modules/@react-native-masked-view/masked-view`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNGoogleMobileAds (from `../node_modules/react-native-google-mobile-ads`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
+    - Google-Mobile-Ads-SDK
+    - GoogleUserMessagingPlatform
     - SocketRocket
 
 EXTERNAL SOURCES:
@@ -1896,6 +1926,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-masked-view/masked-view"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNGoogleMobileAds:
+    :path: "../node_modules/react-native-google-mobile-ads"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   Yoga:
@@ -1907,6 +1939,8 @@ SPEC CHECKSUMS:
   FBLazyVector: be7314029d6ec6b90f0f75ce1195b8130ed9ac4f
   fmt: 10c6e61f4be25dc963c36bd73fc7b1705fe975be
   glog: 08b301085f15bcbb6ff8632a8ebaf239aae04e6a
+  Google-Mobile-Ads-SDK: 14f57f2dc33532a24db288897e26494640810407
+  GoogleUserMessagingPlatform: a8b56893477f67212fbc8411c139e61d463349f5
   hermes-engine: 0555a84ea495e8e3b4bde71b597cd87fbb382888
   RCT-Folly: bf5c0376ffe4dd2cf438dcf86db385df9fdce648
   RCTDeprecation: 2c5e1000b04ab70b53956aa498bf7442c3c6e497
@@ -1968,10 +2002,11 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: fe98f1b459a87b80f12207da80c50b3a3abb6081
   RNCMaskedView: c22a01dd2d0744c16b56e06eb8720512b900988c
   RNGestureHandler: 0e5ae8d72ef4afb855e98dcdbe60f27d938abe13
+  RNGoogleMobileAds: fc241f8ae494fda089940c54585f25826f878304
   RNScreens: 44a3e358d5ccd7815c5ae9148988c562826992b2
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: 3deb2471faa9916c8a82dda2a22d3fba2620ad37
 
-PODFILE CHECKSUM: f56f5ac68287f49659606d6d8cf559d98d3c29d9
+PODFILE CHECKSUM: a40b64ebf48b0bdbbaeece259a9493bb2b18a7cf
 
 COCOAPODS: 1.16.2

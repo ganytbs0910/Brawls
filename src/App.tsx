@@ -1,16 +1,20 @@
-import React, { useState, useRef } from 'react';
+// App.tsx
+import React, { useState, useRef, useEffect } from 'react';
 import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image, Animated, Dimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+
 import BrawlStarsCompatibility from './components/BrawlStarsCompatibility';
 import TeamCompatibility from './components/TeamCompatibility';
 import BrawlStarsRankings from './components/BrawlStarsRankings';
 import CharacterDetails from './components/CharacterDetails';
-import PickPrediction from './components/PickPrediction'; // 新しいコンポーネント
+import PickPrediction from './components/PickPrediction';
 import Home from './components/Home';
+import AdMobService from './services/AdMobService';
+import { BannerAdComponent } from './components/BannerAdComponent';
 
 const { width } = Dimensions.get('window');
-const TAB_WIDTH = width / 5; // 5タブに変更
+const TAB_WIDTH = width / 5;
 
 export type RootStackParamList = {
   Rankings: undefined;
@@ -21,11 +25,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 const RankingsStack = () => {
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false 
-      }}
-    >
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Rankings" component={BrawlStarsRankings} />
       <Stack.Screen 
         name="CharacterDetails" 
@@ -49,14 +49,29 @@ const RankingsStack = () => {
 
 const App = () => {
   const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings' | 'prediction'>('home');
+  const [adService, setAdService] = useState<AdMobService | null>(null);
   const slideAnimation = useRef(new Animated.Value(0)).current;
+  
   const animatedValues = useRef({
     home: new Animated.Value(1),
     single: new Animated.Value(0),
     team: new Animated.Value(0),
     rankings: new Animated.Value(0),
-    prediction: new Animated.Value(0), // 新しいタブのアニメーション値
+    prediction: new Animated.Value(0),
   }).current;
+
+  useEffect(() => {
+    const initAdMob = async () => {
+      try {
+        const instance = await AdMobService.initialize();
+        setAdService(instance);
+      } catch (error) {
+        console.error('AdMob initialization failed:', error);
+      }
+    };
+    
+    initAdMob();
+  }, []);
 
   const tabs = [
     {
@@ -77,7 +92,7 @@ const App = () => {
     {
       key: 'prediction',
       label: 'ピック想定',
-      icon: require('../assets/AppIcon/prediction.png'), // 新しいアイコンが必要
+      icon: require('../assets/AppIcon/prediction.png'),
     },
     {
       key: 'rankings',
@@ -86,7 +101,7 @@ const App = () => {
     },
   ];
 
-  const handleTabPress = (tabKey: typeof activeTab, index: number) => {
+  const handleTabPress = async (tabKey: typeof activeTab, index: number) => {
     const animations = Object.keys(animatedValues).map((key) =>
       Animated.timing(animatedValues[key], {
         toValue: key === tabKey ? 1 : 0,
@@ -105,6 +120,10 @@ const App = () => {
       }),
     ]).start();
 
+    if (activeTab !== tabKey && adService) {
+      await adService.showInterstitial();
+    }
+
     setActiveTab(tabKey);
   };
 
@@ -117,7 +136,7 @@ const App = () => {
       case 'team':
         return <TeamCompatibility />;
       case 'prediction':
-        return <PickPrediction />; // 新しいコンポーネント
+        return <PickPrediction />;
       case 'rankings':
         return (
           <NavigationContainer independent>
@@ -132,6 +151,8 @@ const App = () => {
       <View style={styles.content}>
         {renderContent()}
       </View>
+
+      <BannerAdComponent />
 
       <View style={styles.tabBar}>
         <Animated.View 

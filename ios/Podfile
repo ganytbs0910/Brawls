@@ -16,6 +16,7 @@ end
 
 target 'Brawl' do
   config = use_native_modules!
+  pod 'Google-Mobile-Ads-SDK'
 
   use_react_native!(
     :path => config[:reactNativePath],
