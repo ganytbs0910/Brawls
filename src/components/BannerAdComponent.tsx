@@ -1,26 +1,17 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+import { Platform } from 'react-native';
 import { AD_CONFIG } from '../config/AdConfig';
 
-export const BannerAdComponent: React.FC = () => {
+export const BannerAdComponent = () => {
+  // TestIdsを使用しない
   return (
-    <View style={styles.container}>
-      <BannerAd
-        unitId={AD_CONFIG.IOS_BANNER_ID}
-        size={BannerAdSize.BANNER}
-        requestOptions={{
-          requestNonPersonalizedAdsOnly: true,
-        }}
-      />
-    </View>
+    <BannerAd
+      unitId={AD_CONFIG.IOS_BANNER_ID}
+      size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+      requestOptions={{
+        requestNonPersonalizedAdsOnly: true,
+      }}
+    />
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
-  },
-});

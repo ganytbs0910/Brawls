@@ -101,31 +101,28 @@ const App = () => {
     },
   ];
 
-  const handleTabPress = async (tabKey: typeof activeTab, index: number) => {
-    const animations = Object.keys(animatedValues).map((key) =>
-      Animated.timing(animatedValues[key], {
-        toValue: key === tabKey ? 1 : 0,
-        duration: 200,
-        useNativeDriver: true,
-      })
-    );
+  // App.tsxのhandleTabPress関数から広告表示を削除
+const handleTabPress = async (tabKey: typeof activeTab, index: number) => {
+  const animations = Object.keys(animatedValues).map((key) =>
+    Animated.timing(animatedValues[key], {
+      toValue: key === tabKey ? 1 : 0,
+      duration: 200,
+      useNativeDriver: true,
+    })
+  );
 
-    Animated.parallel([
-      ...animations,
-      Animated.spring(slideAnimation, {
-        toValue: index * TAB_WIDTH,
-        tension: 68,
-        friction: 12,
-        useNativeDriver: true,
-      }),
-    ]).start();
+  Animated.parallel([
+    ...animations,
+    Animated.spring(slideAnimation, {
+      toValue: index * TAB_WIDTH,
+      tension: 68,
+      friction: 12,
+      useNativeDriver: true,
+    }),
+  ]).start();
 
-    if (activeTab !== tabKey && adService) {
-      await adService.showInterstitial();
-    }
-
-    setActiveTab(tabKey);
-  };
+  setActiveTab(tabKey);
+};
 
   const renderContent = () => {
     switch (activeTab) {

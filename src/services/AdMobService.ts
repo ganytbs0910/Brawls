@@ -38,15 +38,14 @@ class AdMobService {
   }
 
   private initInterstitial() {
-    try {
-      const adUnitId = __DEV__ ? TestIds.INTERSTITIAL : AD_CONFIG.IOS_INTERSTITIAL_ID;
-      this.interstitial = InterstitialAd.createForAdRequest(adUnitId, {
-        requestNonPersonalizedAdsOnly: true,
-      });
-    } catch (error) {
-      console.error('Interstitial initialization error:', error);
-    }
+  try {　
+    this.interstitial = InterstitialAd.createForAdRequest(AD_CONFIG.IOS_INTERSTITIAL_ID, {
+      requestNonPersonalizedAdsOnly: true,
+    });
+  } catch (error) {
+    console.error('Interstitial initialization error:', error);
   }
+}
 
   async loadInterstitial(): Promise<boolean> {
     if (!this.interstitial || this.isLoading) return false;

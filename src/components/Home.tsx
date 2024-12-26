@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { 
   View, 
   Text, 
@@ -20,6 +20,8 @@ import {
   getCurrentMode, 
   getMapForDate 
 } from '../utils/gameData';
+import AdMobService from '../services/AdMobService';
+import { BannerAdComponent } from '../components/BannerAdComponent';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -37,8 +39,19 @@ const Home: React.FC = () => {
   ]);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const adService = useRef<AdMobService | null>(null);
 
   useEffect(() => {
+    const initAdService = async () => {
+      try {
+        const instance = await AdMobService.initialize();
+        adService.current = instance;
+      } catch (error) {
+        console.error('AdMob initialization error:', error);
+      }
+    };
+    
+    initAdService();
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
@@ -51,6 +64,12 @@ const Home: React.FC = () => {
       });
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  const handleSupportClick = async () => {
+    if (adService.current) {
+      await adService.current.showInterstitial();
     }
   };
 
@@ -195,6 +214,12 @@ const Home: React.FC = () => {
               </TouchableOpacity>
               <TouchableOpacity 
                 style={styles.settingsItem}
+                onPress={handleSupportClick}
+              >
+                <Text style={styles.settingsItemText}>広告を見て支援する</Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={styles.settingsItem}
                 onPress={() => showScreen('privacy')}
               >
                 <Text style={styles.settingsItemText}>プライバシーポリシー</Text>
@@ -308,6 +333,8 @@ const Home: React.FC = () => {
           ))}
         </View>
       </ScrollView>
+
+      <BannerAdComponent />
 
       {screenStack.map((screen, index) => (
         index > 0 && (
