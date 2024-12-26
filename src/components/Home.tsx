@@ -334,7 +334,6 @@ const Home: React.FC = () => {
         </View>
       </ScrollView>
 
-      <BannerAdComponent />
 
       {screenStack.map((screen, index) => (
         index > 0 && (
