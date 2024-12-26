@@ -1,16 +1,14 @@
-// App.tsx
 import React, { useState, useRef, useEffect } from 'react';
 import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image, Animated, Dimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import BrawlStarsCompatibility from './components/BrawlStarsCompatibility';
-import TeamCompatibility from './components/TeamCompatibility';
+import TeamBoard from './components/TeamBoard';
 import BrawlStarsRankings from './components/BrawlStarsRankings';
 import CharacterDetails from './components/CharacterDetails';
 import PickPrediction from './components/PickPrediction';
 import Home from './components/Home';
-import AdMobService from './services/AdMobService';
 import { BannerAdComponent } from './components/BannerAdComponent';
 
 const { width } = Dimensions.get('window');
@@ -49,7 +47,6 @@ const RankingsStack = () => {
 
 const App = () => {
   const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings' | 'prediction'>('home');
-  const [adService, setAdService] = useState<AdMobService | null>(null);
   const slideAnimation = useRef(new Animated.Value(0)).current;
   
   const animatedValues = useRef({
@@ -59,19 +56,6 @@ const App = () => {
     rankings: new Animated.Value(0),
     prediction: new Animated.Value(0),
   }).current;
-
-  useEffect(() => {
-    const initAdMob = async () => {
-      try {
-        const instance = await AdMobService.initialize();
-        setAdService(instance);
-      } catch (error) {
-        console.error('AdMob initialization failed:', error);
-      }
-    };
-    
-    initAdMob();
-  }, []);
 
   const tabs = [
     {
@@ -86,8 +70,8 @@ const App = () => {
     },
     {
       key: 'team',
-      label: 'チーム分析',
-      icon: require('../assets/AppIcon/analysis.png'),
+      label: 'チーム募集',
+      icon: require('../assets/AppIcon/analysis.png'), // チーム募集用のアイコンに変更
     },
     {
       key: 'prediction',
@@ -101,28 +85,27 @@ const App = () => {
     },
   ];
 
-  // App.tsxのhandleTabPress関数から広告表示を削除
-const handleTabPress = async (tabKey: typeof activeTab, index: number) => {
-  const animations = Object.keys(animatedValues).map((key) =>
-    Animated.timing(animatedValues[key], {
-      toValue: key === tabKey ? 1 : 0,
-      duration: 200,
-      useNativeDriver: true,
-    })
-  );
+  const handleTabPress = (tabKey: typeof activeTab, index: number) => {
+    const animations = Object.keys(animatedValues).map((key) =>
+      Animated.timing(animatedValues[key], {
+        toValue: key === tabKey ? 1 : 0,
+        duration: 200,
+        useNativeDriver: true,
+      })
+    );
 
-  Animated.parallel([
-    ...animations,
-    Animated.spring(slideAnimation, {
-      toValue: index * TAB_WIDTH,
-      tension: 68,
-      friction: 12,
-      useNativeDriver: true,
-    }),
-  ]).start();
+    Animated.parallel([
+      ...animations,
+      Animated.spring(slideAnimation, {
+        toValue: index * TAB_WIDTH,
+        tension: 68,
+        friction: 12,
+        useNativeDriver: true,
+      }),
+    ]).start();
 
-  setActiveTab(tabKey);
-};
+    setActiveTab(tabKey);
+  };
 
   const renderContent = () => {
     switch (activeTab) {
@@ -131,7 +114,7 @@ const handleTabPress = async (tabKey: typeof activeTab, index: number) => {
       case 'single':
         return <BrawlStarsCompatibility />;
       case 'team':
-        return <TeamCompatibility />;
+        return <TeamBoard />;
       case 'prediction':
         return <PickPrediction />;
       case 'rankings':
