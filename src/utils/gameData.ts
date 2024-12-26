@@ -175,13 +175,13 @@ export const getCurrentMode = (modeType: string, date: Date): GameMode | null =>
 };
 
 export const getMapForDate = (gameMode: keyof GameMaps, daysOffset: number): string => {
-  const baseDate = new Date(2024, 11, 23);
-  const targetDate = new Date();
-  targetDate.setDate(targetDate.getDate() + daysOffset);
+  const baseDate = new Date(2024, 0, 1);  // 2024年1月1日を基準日に
+  const today = new Date();
+  const targetDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + daysOffset);
   
   const daysDiff = Math.floor((targetDate.getTime() - baseDate.getTime()) / (1000 * 60 * 60 * 24));
   const modeMapList = maps[gameMode] || [];
   const mapIndex = daysDiff % modeMapList.length;
   
-  return modeMapList[mapIndex];
+  return modeMapList[mapIndex >= 0 ? mapIndex : (modeMapList.length + mapIndex)];
 };

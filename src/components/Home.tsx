@@ -267,6 +267,11 @@ const Home: React.FC = () => {
             <TouchableOpacity onPress={() => changeDate(1)}>
               <Text style={styles.dateArrow}>→</Text>
             </TouchableOpacity>
+            <TouchableOpacity 
+              style={styles.todayButton} 
+              onPress={() => setSelectedDate(new Date())}>
+              <Text style={styles.todayButtonText}>Today</Text>
+            </TouchableOpacity>
           </View>
           {modes.map((mode, index) => (
             <View key={index} style={styles.modeCard}>
@@ -324,185 +329,197 @@ const Home: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
- container: {
-   flex: 1,
-   backgroundColor: '#fff',
- },
- header: {
-   height: 60,
-   backgroundColor: '#21A0DB',
-   flexDirection: 'row',
-   justifyContent: 'space-between',
-   alignItems: 'center',
-   width: '100%',
-   paddingHorizontal: 16,
-   borderBottomWidth: 1,
-   borderBottomColor: '#4FA8D6',
- },
- title: {
-   fontSize: 20,
-   fontWeight: 'bold',
-   color: '#fff',
- },
- settingsButton: {
-   padding: 8,
- },
- settingsIcon: {
-   width: 24,
-   height: 24,
- },
- content: {
-   flex: 1,
- },
- settingsOverlay: {
-   position: 'absolute',
-   top: 0,
-   right: 0,
-   bottom: 0,
-   width: '100%',
-   backgroundColor: '#fff',
- },
- settingsContainer: {
-   flex: 1,
- },
- settingsHeader: {
-   height: 60,
-   backgroundColor: '#21A0DB',
-   flexDirection: 'row',
-   justifyContent: 'center',
-   alignItems: 'center',
-   width: '100%',
-   paddingHorizontal: 16,
-   borderBottomWidth: 1,
-   borderBottomColor: '#4FA8D6',
- },
- settingsTitle: {
-   fontSize: 20,
-   fontWeight: 'bold',
-   color: '#fff',
-   flex: 1,
-   textAlign: 'center',
- },
- settingsContent: {
-   flex: 1,
- },
- settingsItem: {
-   padding: 16,
-   borderBottomWidth: 1,
-   borderBottomColor: '#e0e0e0',
-   flexDirection: 'row',
-   justifyContent: 'space-between',
-   alignItems: 'center',
- },
- settingsItemText: {
-   fontSize: 16,
- },
- backButton: {
-   position: 'absolute',
-   left: 16,
-   padding: 8,
- },
- backButtonText: {
-   fontSize: 24,
-   color: '#fff',
- },
- contentContainer: {
-   flex: 1,
-   padding: 16,
- },
- contentText: {
-   fontSize: 16,
-   lineHeight: 24,
- },
- modeContainer: {
-   padding: 16,
- },
- modeTitle: {
-   fontSize: 20,
-   fontWeight: 'bold',
-   marginBottom: 16,
-   color: '#333',
- },
- modeCard: {
-   backgroundColor: '#fff',
-   borderRadius: 8,
-   marginBottom: 16,
-   padding: 16,
-   shadowColor: '#000',
-   shadowOffset: {
-     width: 0,
-     height: 2,
-   },
-   shadowOpacity: 0.25,
-   shadowRadius: 3.84,
-   elevation: 5,
- },
- modeHeader: {
-   flexDirection: 'row',
-   justifyContent: 'space-between',
-   alignItems: 'center',
-   marginBottom: 8,
- },
- modeTag: {
-   paddingHorizontal: 12,
-   paddingVertical: 6,
-   borderRadius: 16,
-   flexDirection: 'row',
-   alignItems: 'center',
- },
- modeIcon: {
-   width: 24,
-   height: 24,
-   marginRight: 8,
- },
- modeTagText: {
-   color: '#fff',
-   fontWeight: 'bold',
-   fontSize: 14,
- },
- updateTime: {
-   color: '#666',
-   fontSize: 14,
- },
- mapContent: {
-   flexDirection: 'row',
-   justifyContent: 'space-between',
-   alignItems: 'center',
- },
- mapName: {
-   fontSize: 18,
-   fontWeight: 'bold',
-   marginTop: 8,
-   color: '#333',
-   flex: 1,
- },
- mapImage: {
-   width: 80,
-   height: 53,
-   borderRadius: 8,
-   marginLeft: 16,
- },
- rotatingNote: {
-   color: '#666',
-   fontSize: 12,
-   marginTop: 4,
- },
- dateHeader: {
-   flexDirection: 'row',
-   justifyContent: 'center',
-   alignItems: 'center',
-   marginBottom: 16,
- },
- dateText: {
-   fontSize: 18,
-   fontWeight: 'bold',
-   marginHorizontal: 16,
- },
- dateArrow: {
-   fontSize: 24,
-   color: '#21A0DB',
-   paddingHorizontal: 16,
- },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  header: {
+    height: 60,
+    backgroundColor: '#21A0DB',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+    paddingHorizontal: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#4FA8D6',
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+  settingsButton: {
+    padding: 8,
+  },
+  settingsIcon: {
+    width: 24,
+    height: 24,
+  },
+  content: {
+    flex: 1,
+  },
+  settingsOverlay: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    width: '100%',
+    backgroundColor: '#fff',
+  },
+  settingsContainer: {
+    flex: 1,
+  },
+  settingsHeader: {
+    height: 60,
+    backgroundColor: '#21A0DB',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    paddingHorizontal: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#4FA8D6',
+  },
+  settingsTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#fff',
+    flex: 1,
+    textAlign: 'center',
+  },
+  settingsContent: {
+    flex: 1,
+  },
+  settingsItem: {
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  settingsItemText: {
+    fontSize: 16,
+  },
+  backButton: {
+    position: 'absolute',
+    left: 16,
+    padding: 8,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: '#fff',
+  },
+  contentContainer: {
+    flex: 1,
+    padding: 16,
+  },
+  contentText: {
+    fontSize: 16,
+    lineHeight: 24,
+  },
+  modeContainer: {
+    padding: 16,
+  },
+  modeTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    color: '#333',
+  },
+  modeCard: {
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    marginBottom: 16,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  modeHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  modeTag: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  modeIcon: {
+    width: 24,
+    height: 24,
+    marginRight: 8,
+  },
+  modeTagText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 14,
+  },
+  updateTime: {
+    color: '#666',
+    fontSize: 14,
+  },
+  mapContent: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  mapName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 8,
+    color: '#333',
+    flex: 1,
+  },
+  mapImage: {
+    width: 80,
+    height: 53,
+    borderRadius: 8,
+    marginLeft: 16,
+  },
+  rotatingNote: {
+    color: '#666',
+    fontSize: 12,
+    marginTop: 4,
+  },
+  dateHeader: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  dateText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginHorizontal: 16,
+  },
+  dateArrow: {
+    fontSize: 24,
+    color: '#21A0DB',
+    paddingHorizontal: 16,
+  },
+  todayButton: {
+    backgroundColor: '#21A0DB',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+    marginLeft: 16,
+  },
+  todayButtonText: {
+    color: '#fff',
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
 });
 
 export default Home;
