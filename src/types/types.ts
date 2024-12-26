@@ -56,3 +56,24 @@ export type {
   CharacterStats,
   CharacterData
 };
+
+export interface GameMode {
+  name: string;
+  icon: any;
+}
+
+export interface RotatingMode {
+  modes: GameMode[];
+}
+
+export interface RotatingModes {
+  [key: string]: RotatingMode;
+}
+
+export interface MapImages {
+  [key: string]: any;
+}
+
+export interface GameMaps {
+  [key: string]: string[];
+}
