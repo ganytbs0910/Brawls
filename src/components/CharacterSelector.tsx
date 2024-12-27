@@ -10,17 +10,11 @@ import {
   Alert
 } from 'react-native';
 
+// Character Interface
 export interface Character {
   id: string;
   name: string;
   icon: any;
-}
-
-interface CharacterSelectorProps {
-  onSelect: (character: Character | null) => void;
-  selectedCharacterId?: string;
-  title: string;
-  isRequired?: boolean;
 }
 
 // キャラクターデータの配列
@@ -112,25 +106,72 @@ export const characters: Character[] = [
   { id: 'draco', name: 'ドラコ', icon: require('../../assets/BrawlerIcons/draco_pin.png') },
   { id: 'kenji', name: 'ケンジ', icon: require('../../assets/BrawlerIcons/kenji_pin.png') }
 ];
+
+interface CharacterSelectorProps {
+  onSelect: (character: Character | null) => void;
+  selectedCharacterId?: string;
+  title: string;
+  isRequired?: boolean;
+  multiSelect?: boolean;
+  selectedCharacters?: Character[];
+  maxSelections?: number;
+}
+
 export const CharacterSelector: React.FC<CharacterSelectorProps> = ({ 
   onSelect, 
   selectedCharacterId,
   title,
-  isRequired = false
+  isRequired = false,
+  multiSelect = false,
+  selectedCharacters = [],
+  maxSelections = 5
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(
-    selectedCharacterId ? characters.find(c => c.id === selectedCharacterId) || null : characters[0]
-  );
+  const [tempSelectedCharacters, setTempSelectedCharacters] = useState<Character[]>(selectedCharacters);
 
   const handleSelect = (character: Character) => {
-    if (character.id === 'none' && isRequired) {
-      Alert.alert('エラー', 'このキャラクター選択は必須です');
+    if (!multiSelect) {
+      if (character.id === 'none' && isRequired) {
+        Alert.alert('エラー', 'このキャラクター選択は必須です');
+        return;
+      }
+      onSelect(character.id === 'none' ? null : character);
+      setModalVisible(false);
       return;
     }
-    setSelectedCharacter(character);
-    onSelect(character.id === 'none' ? null : character);
+
+    // マルチセレクトモードの処理
+    setTempSelectedCharacters(prev => {
+      const isAlreadySelected = prev.some(c => c.id === character.id);
+      
+      if (isAlreadySelected) {
+        // 選択解除
+        return prev.filter(c => c.id !== character.id);
+      } else {
+        // 新規選択
+        if (prev.length >= maxSelections) {
+          Alert.alert('エラー', `最大${maxSelections}体まで選択できます`);
+          return prev;
+        }
+        return [...prev, character];
+      }
+    });
+  };
+
+  const handleConfirm = () => {
+    if (multiSelect) {
+      tempSelectedCharacters.forEach(character => {
+        onSelect(character);
+      });
+    }
     setModalVisible(false);
+  };
+
+  const isCharacterSelected = (character: Character) => {
+    if (multiSelect) {
+      return tempSelectedCharacters.some(c => c.id === character.id);
+    }
+    return selectedCharacterId === character.id;
   };
 
   return (
@@ -139,15 +180,38 @@ export const CharacterSelector: React.FC<CharacterSelectorProps> = ({
       
       <TouchableOpacity
         style={styles.characterSelectButton}
-        onPress={() => setModalVisible(true)}
+        onPress={() => {
+          setTempSelectedCharacters(selectedCharacters);
+          setModalVisible(true);
+        }}
       >
-        {selectedCharacter ? (
-          <View style={styles.selectedCharacterContainer}>
-            <Image source={selectedCharacter.icon} style={styles.selectedCharacterIcon} />
-            <Text style={styles.selectedCharacterName}>{selectedCharacter.name}</Text>
+        {multiSelect ? (
+          <View style={styles.selectedCharactersPreview}>
+            {selectedCharacters.length > 0 ? (
+              selectedCharacters.map((char, index) => (
+                <View key={char.id} style={styles.selectedCharacterChip}>
+                  <Image source={char.icon} style={styles.selectedCharacterIcon} />
+                  <Text style={styles.selectedCharacterName}>{char.name}</Text>
+                </View>
+              ))
+            ) : (
+              <Text style={styles.placeholderText}>キャラクターを選択 (最大{maxSelections}体)</Text>
+            )}
           </View>
         ) : (
-          <Text style={styles.placeholderText}>キャラクターを選択</Text>
+          selectedCharacterId ? (
+            <View style={styles.selectedCharacterContainer}>
+              <Image 
+                source={characters.find(c => c.id === selectedCharacterId)?.icon} 
+                style={styles.selectedCharacterIcon} 
+              />
+              <Text style={styles.selectedCharacterName}>
+                {characters.find(c => c.id === selectedCharacterId)?.name}
+              </Text>
+            </View>
+          ) : (
+            <Text style={styles.placeholderText}>キャラクターを選択</Text>
+          )
         )}
       </TouchableOpacity>
 
@@ -159,7 +223,10 @@ export const CharacterSelector: React.FC<CharacterSelectorProps> = ({
       >
         <View style={styles.characterModalOverlay}>
           <View style={styles.characterModalView}>
-            <Text style={styles.modalTitle}>キャラクター選択</Text>
+            <Text style={styles.modalTitle}>
+              キャラクター選択
+              {multiSelect && ` (${tempSelectedCharacters.length}/${maxSelections})`}
+            </Text>
             
             <ScrollView style={styles.characterGrid}>
               <View style={styles.characterGridContainer}>
@@ -168,7 +235,7 @@ export const CharacterSelector: React.FC<CharacterSelectorProps> = ({
                     key={character.id}
                     style={[
                       styles.characterGridItem,
-                      selectedCharacter?.id === character.id && styles.selectedCharacterGridItem
+                      isCharacterSelected(character) && styles.selectedCharacterGridItem
                     ]}
                     onPress={() => handleSelect(character)}
                   >
@@ -179,12 +246,23 @@ export const CharacterSelector: React.FC<CharacterSelectorProps> = ({
               </View>
             </ScrollView>
 
-            <TouchableOpacity
-              style={[styles.modalButton, styles.cancelButton]}
-              onPress={() => setModalVisible(false)}
-            >
-              <Text style={styles.cancelButtonText}>閉じる</Text>
-            </TouchableOpacity>
+            <View style={styles.modalButtonContainer}>
+              <TouchableOpacity
+                style={[styles.modalButton, styles.cancelButton]}
+                onPress={() => setModalVisible(false)}
+              >
+                <Text style={styles.cancelButtonText}>キャンセル</Text>
+              </TouchableOpacity>
+              
+              {multiSelect && (
+                <TouchableOpacity
+                  style={[styles.modalButton, styles.confirmButton]}
+                  onPress={handleConfirm}
+                >
+                  <Text style={styles.confirmButtonText}>確定</Text>
+                </TouchableOpacity>
+              )}
+            </View>
           </View>
         </View>
       </Modal>
@@ -206,12 +284,22 @@ const styles = StyleSheet.create({
     borderColor: '#e0e0e0',
     borderRadius: 8,
     padding: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
   },
   selectedCharacterContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  selectedCharactersPreview: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  selectedCharacterChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#f0f0f0',
+    padding: 4,
+    borderRadius: 4,
   },
   selectedCharacterIcon: {
     width: 30,
@@ -276,17 +364,31 @@ const styles = StyleSheet.create({
     fontSize: 10,
     textAlign: 'center',
   },
+  modalButtonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 16,
+    gap: 8,
+  },
   modalButton: {
+    flex: 1,
     padding: 12,
     borderRadius: 8,
-    marginTop: 16,
   },
   cancelButton: {
     backgroundColor: '#f0f0f0',
   },
+  confirmButton: {
+    backgroundColor: '#21A0DB',
+  },
   cancelButtonText: {
     textAlign: 'center',
     color: '#666',
+    fontWeight: 'bold',
+  },
+  confirmButtonText: {
+    textAlign: 'center',
+    color: '#fff',
     fontWeight: 'bold',
   },
 });

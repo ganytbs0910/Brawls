@@ -1,4 +1,3 @@
-// TeamBoard.tsx
 import React, { useState, useEffect } from 'react';
 import {
   View,
@@ -70,303 +69,6 @@ const TeamBoard: React.FC = () => {
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
   const [characterTrophies, setCharacterTrophies] = useState('');
   const [wantedCharacters, setWantedCharacters] = useState<Character[]>([]);
-
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-    },
-    content: {
-      flex: 1,
-    },
-    loadingContainer: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    header: {
-      height: 60,
-      backgroundColor: '#21A0DB',
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      paddingHorizontal: 16,
-    },
-    title: {
-      fontSize: 20,
-      fontWeight: 'bold',
-      color: '#fff',
-    },
-    createButton: {
-      backgroundColor: '#fff',
-      paddingHorizontal: 16,
-      paddingVertical: 8,
-      borderRadius: 20,
-    },
-    createButtonText: {
-      color: '#21A0DB',
-      fontWeight: 'bold',
-    },
-    postCard: {
-      backgroundColor: '#fff',
-      margin: 8,
-      padding: 16,
-      borderRadius: 8,
-      borderWidth: 1,
-      borderColor: '#e0e0e0',
-    },
-    postHeader: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      marginBottom: 12,
-    },
-    modeTagContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      paddingHorizontal: 12,
-      paddingVertical: 4,
-      borderRadius: 16,
-    },
-    modeTag: {
-      color: '#fff',
-      fontSize: 12,
-      marginLeft: 4,
-      fontWeight: '500',
-    },
-    postModeIcon: {
-      width: 16,
-      height: 16,
-      resizeMode: 'contain',
-    },
-    timestamp: {
-      fontSize: 12,
-      color: '#666',
-    },
-    characterInfo: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      marginBottom: 8,
-      backgroundColor: '#f5f5f5',
-      padding: 8,
-      borderRadius: 8,
-    },
-    postCharacterIcon: {
-      width: 24,
-      height: 24,
-      marginRight: 8,
-    },
-    trophyText: {
-      fontSize: 14,
-      color: '#666',
-    },
-    wantedCharactersContainer: {
-      marginTop: 12,
-      padding: 8,
-      backgroundColor: '#f5f5f5',
-      borderRadius: 8,
-    },
-    wantedCharactersTitle: {
-      fontSize: 14,
-      fontWeight: 'bold',
-      marginBottom: 8,
-    },
-    wantedCharactersList: {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      gap: 8,
-    },
-    wantedCharacterItem: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      backgroundColor: 'white',
-      padding: 4,
-      borderRadius: 4,
-    },
-    wantedCharacterIcon: {
-      width: 24,
-      height: 24,
-      marginRight: 4,
-    },
-    wantedCharacterName: {
-      fontSize: 12,
-    },
-    noPreference: {
-      color: '#666',
-      fontStyle: 'italic',
-    },
-    descriptionContainer: {
-      marginTop: 8,
-    },
-    description: {
-      color: '#333',
-      lineHeight: 20,
-    },
-    modalOverlay: {
-      flex: 1,
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    modalView: {
-      width: '90%',
-      maxHeight: '90%',
-      backgroundColor: 'white',
-      borderRadius: 20,
-      padding: 20,
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 4,
-      elevation: 5,
-    },
-    modalTitle: {
-      fontSize: 20,
-      fontWeight: 'bold',
-      marginBottom: 20,
-      textAlign: 'center',
-    },
-    modeSelectorContainer: {
-      marginBottom: 16,
-    },
-    inputContainer: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      marginBottom: 8,
-    },
-    inputLabel: {
-      fontSize: 14,
-      fontWeight: 'bold',
-      marginBottom: 8,
-    },
-    charCount: {
-      fontSize: 12,
-      color: '#666',
-    },
-    modeButton: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      padding: 8,
-      marginRight: 8,
-      backgroundColor: '#f0f0f0',
-      borderRadius: 8,
-      minWidth: 100,
-    },
-    selectedModeButton: {
-      backgroundColor: '#21A0DB',
-    },
-    modeIcon: {
-      width: 24,
-      height: 24,
-      marginRight: 8,
-    },
-    modeButtonText: {
-      textAlign: 'center',
-      fontSize: 14,
-    },
-    selectedModeButtonText: {
-      color: '#fff',
-    },
-    input: {
-      borderWidth: 1,
-      borderColor: '#e0e0e0',
-      borderRadius: 8,
-      padding: 12,
-      marginBottom: 16,
-    },
-    multilineInput: {
-      height: 100,
-      textAlignVertical: 'top',
-    },
-    modalButtons: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      marginTop: 20,
-    },
-    modalButton: {
-      flex: 1,
-      padding: 12,
-      borderRadius: 8,
-      marginHorizontal: 8,
-    },
-    cancelButton: {
-      backgroundColor: '#f0f0f0',
-    },
-    submitButton: {
-      backgroundColor: '#21A0DB',
-    },
-    cancelButtonText: {
-      textAlign: 'center',
-      color: '#666',
-      fontWeight: 'bold',
-    },
-    submitButtonText: {
-      textAlign: 'center',
-      color: '#fff',
-      fontWeight: 'bold',
-    },
-    wantedCharactersSection: {
-      marginTop: 16,
-      marginBottom: 16,
-    },
-    sectionTitle: {
-      fontSize: 16,
-      fontWeight: 'bold',
-      marginBottom: 12,
-    },
-    selectedWantedCharacters: {
-      marginTop: 8,
-      gap: 8,
-    },
-    selectedWantedCharacterItem: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      backgroundColor: '#f0f0f0',
-      padding: 8,
-      borderRadius: 8,
-    },
-    selectedWantedCharacterIcon: {
-      width: 24,
-      height: 24,
-      marginRight: 8,
-    },
-    selectedWantedCharacterName: {
-      flex: 1,
-      fontSize: 14,
-    },
-    removeCharacter: {
-      fontSize: 18,
-      color: '#666',
-      padding: 4,
-    }
-  });
-
-  const handleAddWantedCharacter = (character: Character | null) => {
-    if (!character) {
-      setWantedCharacters([]); 
-      return;
-    }
-    
-    if (wantedCharacters.length >= 5) {
-      Alert.alert('エラー', '募集キャラクターは5体まで選択できます');
-      return;
-    }
-
-    if (wantedCharacters.some(c => c.id === character.id)) {
-      Alert.alert('エラー', '既に選択されているキャラクターです');
-      return;
-    }
-
-    setWantedCharacters([...wantedCharacters, character]);
-  };
-
-  const handleRemoveWantedCharacter = (characterId: string) => {
-    setWantedCharacters(wantedCharacters.filter(c => c.id !== characterId));
-  };
 
   const getCurrentModes = (): GameMode[] => {
     const currentDate = new Date();
@@ -656,24 +358,27 @@ const TeamBoard: React.FC = () => {
               <View style={styles.wantedCharactersSection}>
                 <Text style={styles.sectionTitle}>募集キャラクター (最大5体)</Text>
                 <CharacterSelector
-                  title="キャラクターを追加"
-                  onSelect={handleAddWantedCharacter}
-                  isRequired={false}
+                  title="募集キャラクターを選択"
+                  onSelect={(character) => {
+                    if (!character) return;
+                    setWantedCharacters(prev => {
+                      // すでに選択されている場合は削除
+                      if (prev.some(c => c.id === character.id)) {
+                        return prev.filter(c => c.id !== character.id);
+                      }
+                      // 最大数チェック
+                      if (prev.length >= 5) {
+                        Alert.alert('エラー', '募集キャラクターは5体まで選択できます');
+                        return prev;
+                      }
+                      // 新規追加
+                      return [...prev, character];
+                    });
+                  }}
+                  multiSelect={true}
+                  selectedCharacters={wantedCharacters}
+                  maxSelections={5}
                 />
-                
-                <View style={styles.selectedWantedCharacters}>
-                  {wantedCharacters.map((character) => (
-                    <TouchableOpacity
-                      key={character.id}
-                      style={styles.selectedWantedCharacterItem}
-                      onPress={() => handleRemoveWantedCharacter(character.id)}
-                    >
-                      <Image source={character.icon} style={styles.selectedWantedCharacterIcon} />
-                      <Text style={styles.selectedWantedCharacterName}>{character.name}</Text>
-                      <Text style={styles.removeCharacter}>×</Text>
-                    </TouchableOpacity>
-                  ))}
-                </View>
               </View>
 
               <View style={styles.inputContainer}>
@@ -723,5 +428,254 @@ const TeamBoard: React.FC = () => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  content: {
+    flex: 1,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  header: {
+    height: 60,
+    backgroundColor: '#21A0DB',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+  createButton: {
+    backgroundColor: '#fff',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+  },
+  createButtonText: {
+    color: '#21A0DB',
+    fontWeight: 'bold',
+  },
+  postCard: {
+    backgroundColor: '#fff',
+    margin: 8,
+    padding: 16,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+  },
+  postHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  modeTagContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderRadius: 16,
+  },
+  modeTag: {
+    color: '#fff',
+    fontSize: 12,
+    marginLeft: 4,
+    fontWeight: '500',
+  },
+  postModeIcon: {
+    width: 16,
+    height: 16,
+    resizeMode: 'contain',
+  },
+  timestamp: {
+    fontSize: 12,
+    color: '#666',
+  },
+  characterInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+    backgroundColor: '#f5f5f5',
+    padding: 8,
+    borderRadius: 8,
+  },
+  postCharacterIcon: {
+    width: 24,
+    height: 24,
+    marginRight: 8,
+  },
+  trophyText: {
+    fontSize: 14,
+    color: '#666',
+  },
+  wantedCharactersContainer: {
+    marginTop: 12,
+    padding: 8,
+    backgroundColor: '#f5f5f5',
+    borderRadius: 8,
+  },
+  wantedCharactersTitle: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+  wantedCharactersList: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  wantedCharacterItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    padding: 4,
+    borderRadius: 4,
+  },
+  wantedCharacterIcon: {
+    width: 24,
+    height: 24,
+    marginRight: 4,
+  },
+  wantedCharacterName: {
+    fontSize: 12,
+  },
+  noPreference: {
+    color: '#666',
+    fontStyle: 'italic',
+  },
+  descriptionContainer: {
+    marginTop: 8,
+  },
+  description: {
+    color: '#333',
+    lineHeight: 20,
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalView: {
+    width: '90%',
+    maxHeight: '90%',
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  modeSelectorContainer: {
+    marginBottom: 16,
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  inputLabel: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+  charCount: {
+    fontSize: 12,
+    color: '#666',
+  },
+  modeButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 8,
+    marginRight: 8,
+    backgroundColor: '#f0f0f0',
+    borderRadius: 8,
+    minWidth: 100,
+  },
+  selectedModeButton: {
+    backgroundColor: '#21A0DB',
+  },
+  modeIcon: {
+    width: 24,
+    height: 24,
+    marginRight: 8,
+  },
+  modeButtonText: {
+    textAlign: 'center',
+    fontSize: 14,
+  },
+  selectedModeButtonText: {
+    color: '#fff',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+    borderRadius: 8,
+    padding: 12,
+    marginBottom: 16,
+  },
+  multilineInput: {
+    height: 100,
+    textAlignVertical: 'top',
+  },
+  modalButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 20,
+  },
+  modalButton: {
+    flex: 1,
+    padding: 12,
+    borderRadius: 8,
+    marginHorizontal: 8,
+  },
+  cancelButton: {
+    backgroundColor: '#f0f0f0',
+  },
+  submitButton: {
+    backgroundColor: '#21A0DB',
+  },
+  cancelButtonText: {
+    textAlign: 'center',
+    color: '#666',
+    fontWeight: 'bold',
+  },
+  submitButtonText: {
+    textAlign: 'center',
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  wantedCharactersSection: {
+    marginTop: 16,
+    marginBottom: 16,
+  },
+  sectionTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 12,
+  },
+});
 
 export default TeamBoard;
