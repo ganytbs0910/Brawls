@@ -1,3 +1,4 @@
+// TeamBoard.tsx
 import React, { useState, useEffect } from 'react';
 import {
   View,
@@ -10,6 +11,8 @@ import {
   TextInput,
   Alert,
   ActivityIndicator,
+  Linking,
+  Image
 } from 'react-native';
 import { initializeApp } from 'firebase/app';
 import { 
@@ -19,14 +22,10 @@ import {
   query, 
   orderBy, 
   onSnapshot,
-  Timestamp,
-  where,
-  getDocs
+  Timestamp
 } from 'firebase/firestore';
-import CharacterImage from './CharacterImage';
-import { CHARACTER_MAP } from '../data/characterCompatibility';
+import { getCurrentMode } from '../utils/gameData';
 
-// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDCuES9P2UaLjQnYNVj0HhakM8o01TR5bQ",
   authDomain: "brawlstatus-eebf8.firebaseapp.com",
@@ -37,31 +36,93 @@ const firebaseConfig = {
   measurementId: "G-V7C3C0GKQK"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 interface TeamPost {
   id: string;
-  selectedCharacters: string[];
-  playerName: string;
+  selectedMode: string;
+  inviteLink: string;
   description: string;
   createdAt: Timestamp;
-  requirements: string;
+}
+
+interface GameMode {
+  name: string;
+  currentMap: string;
+  updateTime: number;
+  color: string;
+  icon: any;
+  isRotating?: boolean;
 }
 
 const TeamBoard: React.FC = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [createPostModal, setCreatePostModal] = useState(false);
-  const [selectedCharacters, setSelectedCharacters] = useState<string[]>([]);
-  const [playerName, setPlayerName] = useState('');
+  const [selectedMode, setSelectedMode] = useState('');
+  const [inviteLink, setInviteLink] = useState('');
   const [description, setDescription] = useState('');
-  const [requirements, setRequirements] = useState('');
   const [posts, setPosts] = useState<TeamPost[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const getCurrentModes = (): GameMode[] => {
+    const currentDate = new Date();
+    
+    return [
+      {
+        name: "バトルロワイヤル",
+        currentMap: "current_map",
+        updateTime: 5,
+        color: "#90EE90",
+        icon: require('../../assets/GameModeIcons/showdown_icon.png')
+      },
+      {
+        name: "エメラルドハント",
+        currentMap: "current_map",
+        updateTime: 11,
+        color: "#DA70D6",
+        icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
+      },
+      {
+        name: getCurrentMode("heist", currentDate)?.name || "ホットゾーン＆強奪",
+        currentMap: "current_map",
+        updateTime: 23,
+        color: "#FF69B4",
+        icon: getCurrentMode("heist", currentDate)?.icon || require('../../assets/GameModeIcons/heist_icon.png')
+      },
+      {
+        name: "ブロストライカー",
+        currentMap: "current_map",
+        updateTime: 17,
+        color: "#4169E1",
+        icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
+      },
+      {
+        name: getCurrentMode("brawlBall5v5", currentDate)?.name || "5vs5ブロストライカー",
+        currentMap: "current_map",
+        updateTime: 17,
+        color: "#808080",
+        icon: getCurrentMode("brawlBall5v5", currentDate)?.icon || require('../../assets/GameModeIcons/brawl_ball_icon.png')
+      },
+      {
+        name: getCurrentMode("duel", currentDate)?.name || "デュエル＆殲滅＆賞金稼ぎ",
+        currentMap: "current_map",
+        updateTime: 17,
+        color: "#FF0000",
+        icon: getCurrentMode("duel", currentDate)?.icon || require('../../assets/GameModeIcons/bounty_icon.png')
+      },
+      {
+        name: "ノックアウト",
+        currentMap: "current_map",
+        updateTime: 11,
+        color: "#FFA500",
+        icon: require('../../assets/GameModeIcons/knock_out_icon.png')
+      }
+    ];
+  };
+
+  const modes = getCurrentModes();
+
   useEffect(() => {
-    // Subscribe to posts
     const q = query(
       collection(db, 'teamPosts'), 
       orderBy('createdAt', 'desc')
@@ -79,42 +140,54 @@ const TeamBoard: React.FC = () => {
     return () => unsubscribe();
   }, []);
 
-  const handleCharacterSelect = (character: string) => {
-    if (selectedCharacters.includes(character)) {
-      setSelectedCharacters(selectedCharacters.filter(char => char !== character));
-      return;
-    }
+  const validateInviteLink = (link: string): boolean => {
+    const baseUrl = 'https://link.brawlstars.com/invite/gameroom';
+    const urlMatch = link.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
+    if (!urlMatch) return false;
+    
+    const cleanUrl = urlMatch[1];
+    return cleanUrl.startsWith(baseUrl);
+  };
 
-    if (selectedCharacters.length < 3) {
-      setSelectedCharacters([...selectedCharacters, character]);
+  const handleOpenLink = async (url: string) => {
+    try {
+      const canOpen = await Linking.canOpenURL(url);
+      if (canOpen) {
+        await Linking.openURL(url);
+      } else {
+        Alert.alert('エラー', 'このリンクを開けません');
+      }
+    } catch (error) {
+      Alert.alert('エラー', 'リンクを開く際にエラーが発生しました');
     }
   };
 
   const createPost = async () => {
-    if (selectedCharacters.length === 0) {
-      Alert.alert('エラー', 'キャラクターを選択してください');
+    if (!selectedMode) {
+      Alert.alert('エラー', 'モードを選択してください');
       return;
     }
 
-    if (!playerName.trim()) {
-      Alert.alert('エラー', 'プレイヤー名を入力してください');
+    if (!inviteLink || !validateInviteLink(inviteLink)) {
+      Alert.alert('エラー', '有効な招待リンクを入力してください');
       return;
     }
 
     try {
+      const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
+      const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
+
       await addDoc(collection(db, 'teamPosts'), {
-        selectedCharacters,
-        playerName: playerName.trim(),
+        selectedMode,
+        inviteLink: cleanInviteLink,
         description: description.trim(),
-        requirements: requirements.trim(),
         createdAt: Timestamp.now()
       });
 
-      setSelectedCharacters([]);
-      setPlayerName('');
+      setSelectedMode('');
+      setInviteLink('');
       setDescription('');
-      setRequirements('');
-      setCreatePostModal(false);
+      setModalVisible(false);
       Alert.alert('成功', '投稿が作成されました');
     } catch (error) {
       Alert.alert('エラー', '投稿の作成に失敗しました');
@@ -135,109 +208,94 @@ const TeamBoard: React.FC = () => {
         <Text style={styles.title}>チーム募集掲示板</Text>
         <TouchableOpacity 
           style={styles.createButton}
-          onPress={() => setCreatePostModal(true)}
+          onPress={() => setModalVisible(true)}
         >
           <Text style={styles.createButtonText}>投稿する</Text>
         </TouchableOpacity>
       </View>
 
-      <ScrollView>
+      <ScrollView style={styles.content}>
         {posts.map((post) => (
           <View key={post.id} style={styles.postCard}>
             <View style={styles.postHeader}>
-              <Text style={styles.playerName}>{post.playerName}</Text>
+              <Text style={styles.modeTag}>{post.selectedMode}</Text>
               <Text style={styles.timestamp}>
                 {post.createdAt.toDate().toLocaleString()}
               </Text>
             </View>
             
-            <View style={styles.charactersContainer}>
-              {post.selectedCharacters.map((character, index) => (
-                <View key={index} style={styles.characterItem}>
-                  <CharacterImage characterName={character} size={40} />
-                  <Text style={styles.characterName}>{character}</Text>
-                </View>
-              ))}
-            </View>
+            <TouchableOpacity 
+              style={styles.inviteLinkContainer}
+              onPress={() => handleOpenLink(post.inviteLink)}
+            >
+              <Text style={styles.inviteLink}>{post.inviteLink}</Text>
+            </TouchableOpacity>
             
             {post.description && (
               <Text style={styles.description}>{post.description}</Text>
-            )}
-            
-            {post.requirements && (
-              <View style={styles.requirementsContainer}>
-                <Text style={styles.requirementsLabel}>募集要件:</Text>
-                <Text style={styles.requirements}>{post.requirements}</Text>
-              </View>
             )}
           </View>
         ))}
       </ScrollView>
 
-      {/* Create Post Modal */}
       <Modal
         animationType="slide"
         transparent={true}
-        visible={createPostModal}
-        onRequestClose={() => setCreatePostModal(false)}
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
       >
         <View style={styles.modalOverlay}>
           <View style={styles.modalView}>
             <ScrollView>
               <Text style={styles.modalTitle}>新規投稿</Text>
               
-              <Text style={styles.inputLabel}>キャラクター選択</Text>
-              <View style={styles.characterSelection}>
-                {Object.values(CHARACTER_MAP).map((character) => (
-                  <TouchableOpacity
-                    key={character}
-                    style={[
-                      styles.characterButton,
-                      selectedCharacters.includes(character) && styles.selectedCharacterButton
-                    ]}
-                    onPress={() => handleCharacterSelect(character)}
-                  >
-                    <CharacterImage characterName={character} size={30} />
-                    <Text style={[
-                      styles.characterButtonText,
-                      selectedCharacters.includes(character) && styles.selectedCharacterButtonText
-                    ]}>
-                      {character}
-                    </Text>
-                  </TouchableOpacity>
-                ))}
+              <View style={styles.modeSelectorContainer}>
+                <Text style={styles.inputLabel}>モード選択</Text>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                  {modes.map((mode, index) => (
+                    <TouchableOpacity
+                      key={index}
+                      style={[
+                        styles.modeButton,
+                        selectedMode === mode.name && styles.selectedModeButton,
+                        { backgroundColor: selectedMode === mode.name ? mode.color : '#f0f0f0' }
+                      ]}
+                      onPress={() => setSelectedMode(mode.name)}
+                    >
+                      <Image source={mode.icon} style={styles.modeIcon} />
+                      <Text style={[
+                        styles.modeButtonText,
+                        selectedMode === mode.name && styles.selectedModeButtonText
+                      ]}>
+                        {mode.name}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </ScrollView>
               </View>
 
-              <Text style={styles.inputLabel}>プレイヤー名</Text>
+              <Text style={styles.inputLabel}>招待リンク</Text>
               <TextInput
                 style={styles.input}
-                value={playerName}
-                onChangeText={setPlayerName}
-                placeholder="プレイヤー名を入力"
+                value={inviteLink}
+                onChangeText={setInviteLink}
+                placeholder="招待リンクを貼り付け"
+                multiline
               />
 
-              <Text style={styles.inputLabel}>説明</Text>
+              <Text style={styles.inputLabel}>コメント (任意)</Text>
               <TextInput
                 style={[styles.input, styles.multilineInput]}
                 value={description}
                 onChangeText={setDescription}
-                placeholder="説明を入力"
-                multiline
-              />
-
-              <Text style={styles.inputLabel}>募集要件</Text>
-              <TextInput
-                style={[styles.input, styles.multilineInput]}
-                value={requirements}
-                onChangeText={setRequirements}
-                placeholder="募集要件を入力"
+                placeholder="募集に関する詳細や要望を入力"
                 multiline
               />
 
               <View style={styles.modalButtons}>
                 <TouchableOpacity
                   style={[styles.modalButton, styles.cancelButton]}
-                  onPress={() => setCreatePostModal(false)}
+                  onPress={() => setModalVisible(false)}
                 >
                   <Text style={styles.cancelButtonText}>キャンセル</Text>
                 </TouchableOpacity>
@@ -260,6 +318,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  content: {
+    flex: 1,
   },
   loadingContainer: {
     flex: 1,
@@ -303,41 +364,31 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 12,
   },
-  playerName: {
-    fontSize: 16,
-    fontWeight: 'bold',
+  modeTag: {
+    backgroundColor: '#21A0DB',
+    color: '#fff',
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderRadius: 16,
+    fontSize: 12,
   },
   timestamp: {
     fontSize: 12,
     color: '#666',
   },
-  charactersContainer: {
-    flexDirection: 'row',
-    marginBottom: 12,
-  },
-  characterItem: {
-    alignItems: 'center',
-    marginRight: 16,
-  },
-  characterName: {
-    fontSize: 12,
-    marginTop: 4,
-  },
-  description: {
-    marginBottom: 12,
-    lineHeight: 20,
-  },
-  requirementsContainer: {
+  inviteLinkContainer: {
     backgroundColor: '#f5f5f5',
     padding: 12,
     borderRadius: 8,
+    marginVertical: 8,
   },
-  requirementsLabel: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    marginBottom: 4,
+  inviteLink: {
+    color: '#21A0DB',
+    textDecorationLine: 'underline',
   },
-  requirements: {
+  description: {
+    marginTop: 8,
+    color: '#333',
     lineHeight: 20,
   },
   modalOverlay: {
@@ -367,10 +418,37 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     textAlign: 'center',
   },
+  modeSelectorContainer: {
+    marginBottom: 16,
+  },
   inputLabel: {
     fontSize: 14,
     fontWeight: 'bold',
     marginBottom: 8,
+  },
+  modeButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 8,
+    marginRight: 8,
+    backgroundColor: '#f0f0f0',
+    borderRadius: 8,
+    minWidth: 100,
+  },
+  selectedModeButton: {
+    backgroundColor: '#21A0DB',
+  },
+  modeIcon: {
+    width: 24,
+    height: 24,
+    marginRight: 8,
+  },
+  modeButtonText: {
+    textAlign: 'center',
+    fontSize: 14,
+  },
+  selectedModeButtonText: {
+    color: '#fff',
   },
   input: {
     borderWidth: 1,
@@ -382,29 +460,6 @@ const styles = StyleSheet.create({
   multilineInput: {
     height: 100,
     textAlignVertical: 'top',
-  },
-  characterSelection: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginBottom: 16,
-  },
-  characterButton: {
-    padding: 8,
-    margin: 4,
-    backgroundColor: '#f0f0f0',
-    borderRadius: 8,
-    alignItems: 'center',
-    width: 70,
-  },
-  selectedCharacterButton: {
-    backgroundColor: '#21A0DB',
-  },
-  characterButtonText: {
-    fontSize: 10,
-    marginTop: 4,
-  },
-  selectedCharacterButtonText: {
-    color: '#fff',
   },
   modalButtons: {
     flexDirection: 'row',

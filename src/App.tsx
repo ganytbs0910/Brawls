@@ -71,7 +71,7 @@ const App = () => {
     {
       key: 'team',
       label: 'チーム募集',
-      icon: require('../assets/AppIcon/analysis.png'), // チーム募集用のアイコンに変更
+      icon: require('../assets/AppIcon/analysis.png'),
     },
     {
       key: 'prediction',
