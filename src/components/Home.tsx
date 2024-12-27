@@ -14,6 +14,8 @@ import {
 import { privacyPolicyContent } from '../contents/privacyPolicy';
 import { termsContent } from '../contents/terms';
 import { DailyTip } from '../components/DailyTip';
+import { RewardedAd, RewardedAdEventType } from 'react-native-google-mobile-ads';
+import { AD_CONFIG } from '../config/AdConfig';
 import { 
   rotatingModes, 
   mapImages, 
@@ -39,7 +41,35 @@ const Home: React.FC = () => {
   ]);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [isRewardedAdReady, setIsRewardedAdReady] = useState(false);
   const adService = useRef<AdMobService | null>(null);
+
+  const rewarded = useRef(
+    RewardedAd.createForAdRequest(AD_CONFIG.IOS_REWARDED_ID, {
+      requestNonPersonalizedAdsOnly: true,
+      keywords: ['game', 'mobile game'],
+    })
+  ).current;
+
+  useEffect(() => {
+    const unsubscribeLoaded = rewarded.addAdEventListener(RewardedAdEventType.LOADED, () => {
+      setIsRewardedAdReady(true);
+    });
+
+    const unsubscribeEarned = rewarded.addAdEventListener(
+      RewardedAdEventType.EARNED_REWARD,
+      reward => {
+        console.log('User earned reward of ', reward);
+      },
+    );
+
+    rewarded.load();
+
+    return () => {
+      unsubscribeLoaded();
+      unsubscribeEarned();
+    };
+  }, [rewarded]);
 
   useEffect(() => {
     const initAdService = async () => {
@@ -55,6 +85,14 @@ const Home: React.FC = () => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
+
+  const showRewardedAd = async () => {
+    if (isRewardedAdReady) {
+      await rewarded.show();
+      setIsRewardedAdReady(false);
+      rewarded.load();
+    }
+  };
 
   const handleShare = async () => {
     try {
@@ -216,7 +254,23 @@ const Home: React.FC = () => {
                 style={styles.settingsItem}
                 onPress={handleSupportClick}
               >
-                <Text style={styles.settingsItemText}>広告を見て支援する</Text>
+                <Text style={styles.settingsItemText}>広告を見て支援する（小）</Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={[
+                  styles.settingsItem,
+                  !isRewardedAdReady && styles.settingsItemDisabled
+                ]}
+                onPress={showRewardedAd}
+                disabled={!isRewardedAdReady}
+              >
+                <Text style={[
+                  styles.settingsItemText,
+                  !isRewardedAdReady && styles.settingsItemTextDisabled
+                ]}>
+                  広告を見て支援する（大）
+                  {!isRewardedAdReady && ' (準備中)'}
+                </Text>
               </TouchableOpacity>
               <TouchableOpacity 
                 style={styles.settingsItem}
@@ -334,7 +388,6 @@ const Home: React.FC = () => {
         </View>
       </ScrollView>
 
-
       {screenStack.map((screen, index) => (
         index > 0 && (
           <Animated.View 
@@ -425,8 +478,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
+  settingsItemDisabled: {
+    opacity: 0.5,
+  },
   settingsItemText: {
     fontSize: 16,
+  },
+  settingsItemTextDisabled: {
+    color: '#999',
   },
   backButton: {
     position: 'absolute',
