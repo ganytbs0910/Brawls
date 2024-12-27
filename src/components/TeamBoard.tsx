@@ -63,6 +63,8 @@ const TeamBoard: React.FC = () => {
   const [description, setDescription] = useState('');
   const [posts, setPosts] = useState<TeamPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [inviteLinkLength, setInviteLinkLength] = useState(0);
+  const [descriptionLength, setDescriptionLength] = useState(0);
 
   const getCurrentModes = (): GameMode[] => {
     const currentDate = new Date();
@@ -147,6 +149,16 @@ const TeamBoard: React.FC = () => {
     
     const cleanUrl = urlMatch[1];
     return cleanUrl.startsWith(baseUrl);
+  };
+
+  const handleInviteLinkChange = (text: string) => {
+    setInviteLink(text);
+    setInviteLinkLength(text.length);
+  };
+
+  const handleDescriptionChange = (text: string) => {
+    setDescription(text);
+    setDescriptionLength(text.length);
   };
 
   const handleOpenLink = async (url: string) => {
@@ -274,22 +286,30 @@ const TeamBoard: React.FC = () => {
                 </ScrollView>
               </View>
 
-              <Text style={styles.inputLabel}>招待リンク</Text>
+              <View style={styles.inputContainer}>
+                <Text style={styles.inputLabel}>招待リンク</Text>
+                <Text style={styles.charCount}>{inviteLinkLength}/75</Text>
+              </View>
               <TextInput
                 style={styles.input}
                 value={inviteLink}
-                onChangeText={setInviteLink}
+                onChangeText={handleInviteLinkChange}
                 placeholder="招待リンクを貼り付け"
                 multiline
+                maxLength={75}
               />
 
-              <Text style={styles.inputLabel}>コメント (任意)</Text>
+              <View style={styles.inputContainer}>
+                <Text style={styles.inputLabel}>コメント (任意)</Text>
+                <Text style={styles.charCount}>{descriptionLength}/100</Text>
+              </View>
               <TextInput
                 style={[styles.input, styles.multilineInput]}
                 value={description}
-                onChangeText={setDescription}
+                onChangeText={handleDescriptionChange}
                 placeholder="募集に関する詳細や要望を入力"
                 multiline
+                maxLength={100}
               />
 
               <View style={styles.modalButtons}>
@@ -421,10 +441,20 @@ const styles = StyleSheet.create({
   modeSelectorContainer: {
     marginBottom: 16,
   },
+  inputContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
   inputLabel: {
     fontSize: 14,
     fontWeight: 'bold',
     marginBottom: 8,
+  },
+  charCount: {
+    fontSize: 12,
+    color: '#666',
   },
   modeButton: {
     flexDirection: 'row',
