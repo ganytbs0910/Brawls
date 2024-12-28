@@ -1,4 +1,3 @@
-// src/components/MapDetailScreen.tsx
 import React from 'react';
 import { 
   View, 
@@ -10,6 +9,7 @@ import {
   Dimensions
 } from 'react-native';
 import { getMapDetails } from '../data/mapDetails';
+import CharacterImage from './CharacterImage';
 import type { MapDetail } from '../types';
 
 interface MapDetailScreenProps {
@@ -19,6 +19,7 @@ interface MapDetailScreenProps {
   modeIcon: any;
   onClose: () => void;
   mapImage: any;
+  onCharacterPress?: (characterName: string) => void; // 新しく追加したprop
 }
 
 const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
@@ -27,7 +28,8 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
   modeColor,
   modeIcon,
   onClose,
-  mapImage
+  mapImage,
+  onCharacterPress
 }) => {
   const mapDetail = getMapDetails(mapName);
 
@@ -85,17 +87,30 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
 
         <Text style={styles.sectionTitle}>おすすめブロウラー</Text>
         {mapDetail.recommendedBrawlers.map((brawler, index) => (
-          <View key={index} style={styles.brawlerItem}>
-            <View style={styles.brawlerHeader}>
-              <Text style={styles.brawlerName}>{brawler.name}</Text>
-              {brawler.power && (
-                <View style={styles.powerContainer}>
-                  <Text style={styles.powerText}>強さ: {brawler.power}/5</Text>
+          <TouchableOpacity
+            key={index}
+            style={styles.brawlerItem}
+            onPress={() => onCharacterPress?.(brawler.name)}
+          >
+            <View style={styles.brawlerRow}>
+              <CharacterImage
+                characterName={brawler.name}
+                size={48}
+                style={styles.brawlerImage}
+              />
+              <View style={styles.brawlerContent}>
+                <View style={styles.brawlerHeader}> 
+                  <Text style={styles.brawlerName}>{brawler.name}</Text>
+                  {brawler.power && (
+                    <View style={styles.powerContainer}>
+                      <Text style={styles.powerText}>強さ: {brawler.power}/5</Text>
+                    </View>
+                  )}
                 </View>
-              )}
+                <Text style={styles.brawlerReason}>{brawler.reason}</Text>
+              </View>
             </View>
-            <Text style={styles.brawlerReason}>{brawler.reason}</Text>
-          </View>
+          </TouchableOpacity>
         ))}
 
         <Text style={styles.sectionTitle}>戦術</Text>
@@ -123,6 +138,7 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
 };
 
 const styles = StyleSheet.create({
+  // ... (スタイルは前回と同じ)
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -241,6 +257,17 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 12,
     marginBottom: 12,
+  },
+  brawlerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  brawlerImage: {
+    marginRight: 12,
+    borderRadius: 24,
+  },
+  brawlerContent: {
+    flex: 1,
   },
   brawlerHeader: {
     flexDirection: 'row',
