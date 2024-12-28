@@ -77,3 +77,35 @@ export interface MapImages {
 export interface GameMaps {
   [key: string]: string[];
 }
+
+interface MapDetail {
+  id: string;
+  name: string;
+  description: string;
+  recommendedBrawlers: Array<{
+    name: string;
+    reason: string;
+  }>;
+  tactics: Array<{
+    title: string;
+    description: string;
+  }>;
+  tips: string[];
+}
+
+type ScreenType = 'home' | 'settings' | 'privacy' | 'terms' | 'mapDetail';
+
+interface ScreenState {
+  type: ScreenType;
+  translateX: Animated.Value;
+  zIndex: number;
+}
+
+interface MapDetailScreenProps {
+  mapName: string;
+  modeName: string;
+  modeColor: string;
+  modeIcon: any;
+  mapImage: any;
+  onClose: () => void;
+}

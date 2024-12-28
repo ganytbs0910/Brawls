@@ -1,3 +1,4 @@
+// src/components/Home.tsx
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   View, 
@@ -24,15 +25,20 @@ import {
 } from '../utils/gameData';
 import AdMobService from '../services/AdMobService';
 import { BannerAdComponent } from '../components/BannerAdComponent';
+import MapDetailScreen from './MapDetailScreen';
+import { MapDetail, GameMode, ScreenType, ScreenState } from '../types';
+import { getMapDetails } from '../data/mapDetails';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-type ScreenType = 'home' | 'settings' | 'privacy' | 'terms';
-
-interface ScreenState {
-  type: ScreenType;
-  translateX: Animated.Value;
-  zIndex: number;
+// MapDetailScreenPropsの型定義
+interface MapDetailScreenProps {
+  mapName: string;
+  modeName: string;
+  modeColor: string;
+  modeIcon: any;
+  mapImage: any;
+  onClose: () => void;
 }
 
 const Home: React.FC = () => {
@@ -42,6 +48,7 @@ const Home: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [isRewardedAdReady, setIsRewardedAdReady] = useState(false);
+  const [mapDetailProps, setMapDetailProps] = useState<Omit<MapDetailScreenProps, 'onClose'> | null>(null);
   const adService = useRef<AdMobService | null>(null);
 
   const rewarded = useRef(
@@ -108,6 +115,23 @@ const Home: React.FC = () => {
   const handleSupportClick = async () => {
     if (adService.current) {
       await adService.current.showInterstitial();
+    }
+  };
+
+  const handleMapClick = (mode: any) => {
+    const mapDetail = getMapDetails(mode.currentMap);
+    
+    if (mapDetail) {
+      setMapDetailProps({
+        mapName: mode.currentMap,
+        modeName: mode.name,
+        modeColor: mode.color,
+        modeIcon: mode.icon,
+        mapImage: mapImages[mode.currentMap]
+      });
+      showScreen('mapDetail');
+    } else {
+      console.warn(`Map details not found for: ${mode.currentMap}`);
     }
   };
 
@@ -234,6 +258,13 @@ const Home: React.FC = () => {
 
   const renderScreenContent = (screen: ScreenState) => {
     switch (screen.type) {
+      case 'mapDetail':
+        return mapDetailProps ? (
+          <MapDetailScreen
+            {...mapDetailProps}
+            onClose={goBack}
+          />
+        ) : null;
       case 'settings':
         return (
           <View style={styles.settingsContainer}>
@@ -352,7 +383,7 @@ const Home: React.FC = () => {
               <Text style={styles.todayButtonText}>Today</Text>
             </TouchableOpacity>
           </View>
-          {modes.map((mode, index) => (
+{modes.map((mode, index) => (
             <View key={index} style={styles.modeCard}>
               <View style={styles.modeHeader}>
                 <View style={[styles.modeTag, { backgroundColor: mode.color }]}>
@@ -365,7 +396,11 @@ const Home: React.FC = () => {
                   </Text>
                 )}
               </View>
-              <View style={styles.mapContent}>
+              <TouchableOpacity 
+                style={styles.mapContent}
+                onPress={() => handleMapClick(mode)}
+                activeOpacity={0.7}
+              >
                 <Text style={styles.mapName}>{mode.currentMap}</Text>
                 {(mode.name === "バトルロワイヤル" || mode.name === "エメラルドハント" || 
                   mode.name === "ノックアウト" || getCurrentModeName("heist", selectedDate) || 
@@ -377,7 +412,7 @@ const Home: React.FC = () => {
                     resizeMode="contain"
                   />
                 )}
-              </View>
+              </TouchableOpacity>
               {mode.isRotating && (
                 <Text style={styles.rotatingNote}>
                   ※モードとマップはローテーションします
@@ -507,11 +542,33 @@ const styles = StyleSheet.create({
   modeContainer: {
     padding: 16,
   },
-  modeTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  dateHeader: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     marginBottom: 16,
-    color: '#333',
+  },
+  dateText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginHorizontal: 16,
+  },
+  dateArrow: {
+    fontSize: 24,
+    color: '#21A0DB',
+    paddingHorizontal: 16,
+  },
+  todayButton: {
+    backgroundColor: '#21A0DB',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+    marginLeft: 16,
+  },
+  todayButtonText: {
+    color: '#fff',
+    fontSize: 14,
+    fontWeight: 'bold',
   },
   modeCard: {
     backgroundColor: '#fff',
@@ -558,11 +615,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    padding: 12,
+    backgroundColor: '#f8f8f8',
+    borderRadius: 8,
+    marginTop: 8,
   },
   mapName: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginTop: 8,
     color: '#333',
     flex: 1,
   },
@@ -576,34 +636,6 @@ const styles = StyleSheet.create({
     color: '#666',
     fontSize: 12,
     marginTop: 4,
-  },
-  dateHeader: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 16,
-  },
-  dateText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginHorizontal: 16,
-  },
-  dateArrow: {
-    fontSize: 24,
-    color: '#21A0DB',
-    paddingHorizontal: 16,
-  },
-  todayButton: {
-    backgroundColor: '#21A0DB',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 16,
-    marginLeft: 16,
-  },
-  todayButtonText: {
-    color: '#fff',
-    fontSize: 14,
-    fontWeight: 'bold',
   },
 });
 
