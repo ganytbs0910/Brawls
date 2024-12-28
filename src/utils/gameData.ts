@@ -2,12 +2,12 @@ export const rotatingModes: RotatingModes = {
   heist: {
     modes: [
       {
-        name: "ホットゾーン",
-        icon: require('../../assets/GameModeIcons/hot_zone_icon.png')
-      },
-      {
         name: "強奪",
         icon: require('../../assets/GameModeIcons/heist_icon.png')
+      },
+      {
+        name: "ホットゾーン",
+        icon: require('../../assets/GameModeIcons/hot_zone_icon.png')
       }
     ]
   },
@@ -131,9 +131,9 @@ export const maps: GameMaps = {
     "激動の洞窟", "暗い廊下", "ダブルトラブル", "枯れた川", "天国と地獄"
   ],
   knockout: [
-    "白熱対戦", "新たなる地平", "オープンフィールド", "生い茂る廃墟",
+    "新たなる地平", "オープンフィールド", "生い茂る廃墟", 
     "バキューン神殿", "極小列島", "双頭の川", "ベルの岩",
-    "密林の奥地", "燃える不死鳥", "四段階層", "ゴールドアームの渓谷"
+    "密林の奥地", "燃える不死鳥", "四段階層", "ゴールドアームの渓谷", "白熱対戦", 
   ],
   emeraldHunt: [
     "ごつごつ坑道", "ラストストップ", "トロッコの狂気", "オープンスペース",
@@ -146,9 +146,8 @@ export const maps: GameMaps = {
     "ビートルバトル", "ホットポテト", "喧騒居住地", "どんぱち谷", "オープンビジネス"
   ],
   brawlBall5v5: [
-    "ガクブル公園", "クールシェイプ", "フロスティトラック",
-    "サスペンダーズ", "合流地点", "凍てつく波紋", 
-    "ツルツルロード", "大波"
+    "大波", "ガクブル公園", "クールシェイプ", "フロスティトラック",
+    "サスペンダーズ", "合流地点", "凍てつく波紋", "ツルツルロード",
   ],
   brawlBall: [
     "セカンドチャンス", "静かな広場", "サニーサッカー", 
@@ -163,7 +162,6 @@ export const maps: GameMaps = {
   ]
 };
 
-// Utility functions
 export const getCurrentMode = (modeType: string, date: Date): GameMode | null => {
   if (!rotatingModes[modeType]) return null;
   
@@ -175,11 +173,12 @@ export const getCurrentMode = (modeType: string, date: Date): GameMode | null =>
 };
 
 export const getMapForDate = (gameMode: keyof GameMaps, daysOffset: number): string => {
-  const baseDate = new Date(2024, 0, 1);  // 2024年1月1日を基準日に
+  // 基準日を2024年1月1日に設定し、+5の調整を加える
+  const baseDate = new Date(2024, 0, 1);
   const today = new Date();
   const targetDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + daysOffset);
   
-  const daysDiff = Math.floor((targetDate.getTime() - baseDate.getTime()) / (1000 * 60 * 60 * 24));
+  const daysDiff = Math.floor((targetDate.getTime() - baseDate.getTime()) / (1000 * 60 * 60 * 24)) + 5;
   const modeMapList = maps[gameMode] || [];
   const mapIndex = daysDiff % modeMapList.length;
   
