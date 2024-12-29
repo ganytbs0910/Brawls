@@ -19,13 +19,15 @@ const RoleSelector: React.FC<{
   onRoleChange: (role: string) => void;
 }> = ({ selectedRole, onRoleChange }) => {
   const roles = getAllRoles();
-  const firstRow = roles.slice(0, Math.ceil(roles.length / 2));
-  const secondRow = roles.slice(Math.ceil(roles.length / 2));
 
   return (
     <View style={styles.roleSelectorContainer}>
-      <View style={styles.roleRow}>
-        {firstRow.map(role => (
+      <ScrollView 
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.roleScrollContent}
+      >
+        {roles.map(role => (
           <TouchableOpacity
             key={role}
             style={[
@@ -42,31 +44,14 @@ const RoleSelector: React.FC<{
             </Text>
           </TouchableOpacity>
         ))}
-      </View>
-      <View style={styles.roleRow}>
-        {secondRow.map(role => (
-          <TouchableOpacity
-            key={role}
-            style={[
-              styles.roleButton,
-              selectedRole === role && styles.selectedRoleButton
-            ]}
-            onPress={() => onRoleChange(role)}
-          >
-            <Text style={[
-              styles.roleButtonText,
-              selectedRole === role && styles.selectedRoleButtonText
-            ]}>
-              {getRoleDisplayName(role)}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </View>
+      </ScrollView>
     </View>
   );
 };
 
+// BrawlStarsRankingsコンポーネントは変更なし
 const BrawlStarsRankings: React.FC = () => {
+  // 既存のコード
   const navigation = useNavigation<RankingsScreenNavigationProp>();
   const [isLoading, setIsLoading] = useState(true);
   const [rankings, setRankings] = useState<RankingItem[]>([]);
@@ -158,6 +143,7 @@ const BrawlStarsRankings: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
+  // 既存のスタイル
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -184,22 +170,18 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
   },
+  // 修正したロールセレクター関連のスタイル
   roleSelectorContainer: {
     backgroundColor: '#f5f5f5',
     paddingVertical: 8,
   },
-  roleRow: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    paddingHorizontal: 4,
-    marginBottom: 4,
+  roleScrollContent: {
+    paddingHorizontal: 12,
   },
   roleButton: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
     marginHorizontal: 4,
-    marginVertical: 2,
     borderRadius: 16,
     backgroundColor: '#fff',
     borderWidth: 1,
@@ -218,6 +200,7 @@ const styles = StyleSheet.create({
   selectedRoleButtonText: {
     color: '#fff',
   },
+  // 既存のスタイル（続き）
   content: {
     flex: 1,
   },

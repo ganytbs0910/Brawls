@@ -352,6 +352,47 @@ const PickPrediction: React.FC = () => {
     return null;
   };
 
+  const renderRecommendation = (rec: CharacterRecommendation, index: number) => {
+    const isSelectable = !(gameState.teamA.includes(rec.character) || 
+                          gameState.teamB.includes(rec.character));
+
+    return (
+      <TouchableOpacity
+        key={index}
+        style={[
+          styles.recommendationRow,
+          isSelectable && styles.selectableRecommendation,
+          !isSelectable && styles.disabledRecommendation
+        ]}
+        onPress={() => isSelectable && handleCharacterSelect(rec.character)}
+        disabled={!isSelectable}
+      >
+        <View style={styles.recommendationContent}>
+          <View style={styles.characterInfo}>
+            <Text style={styles.rankText}>#{index + 1}</Text>
+            <CharacterImage characterName={rec.character} size={25} />
+            <Text style={styles.characterName}>{rec.character}</Text>
+          </View>
+          <View style={styles.scoreInfo}>
+            <Text style={styles.score}>{rec.score.toFixed(1)}</Text>
+            <Text style={styles.reasonText}>{rec.reason}</Text>
+          </View>
+        </View>
+        <View style={styles.scoreBarContainer}>
+          <View
+            style={[
+              styles.scoreBar,
+              { 
+                width: `${(rec.score / 30) * 100}%`,
+                backgroundColor: getScoreColor(rec.score)
+              }
+            ]}
+          />
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.fixedHeader}>
@@ -379,32 +420,7 @@ const PickPrediction: React.FC = () => {
             {(expandedRecommendations 
               ? gameState.recommendations 
               : gameState.recommendations.slice(0, 3)
-            ).map((rec, index) => (
-              <View key={index} style={styles.recommendationRow}>
-                <View style={styles.recommendationContent}>
-                  <View style={styles.characterInfo}>
-                    <Text style={styles.rankText}>#{index + 1}</Text>
-                    <CharacterImage characterName={rec.character} size={25} />
-                    <Text style={styles.characterName}>{rec.character}</Text>
-                  </View>
-                  <View style={styles.scoreInfo}>
-                    <Text style={styles.score}>{rec.score.toFixed(1)}</Text>
-                    <Text style={styles.reasonText}>{rec.reason}</Text>
-                  </View>
-                </View>
-                <View style={styles.scoreBarContainer}>
-                  <View
-                    style={[
-                      styles.scoreBar,
-                      { 
-                        width: `${(rec.score / 30) * 100}%`,
-                        backgroundColor: getScoreColor(rec.score)
-                      }
-                    ]}
-                  />
-                </View>
-              </View>
-            ))}
+            ).map((rec, index) => renderRecommendation(rec, index))}
             {gameState.recommendations.length > 3 && !expandedRecommendations && (
               <TouchableOpacity 
                 style={styles.expandButton}
@@ -629,6 +645,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 6,
     padding: 6,
+  },
+  selectableRecommendation: {
+    cursor: 'pointer',
+  },
+  disabledRecommendation: {
+    opacity: 0.6,
   },
   recommendationContent: {
     flexDirection: 'row',
