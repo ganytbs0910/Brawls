@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { 
+  ScrollView, 
+  View, 
+  Text, 
+  StyleSheet, 
+  TouchableOpacity, 
+  ActivityIndicator,
+  Image
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import CharacterImage from './CharacterImage';
@@ -49,9 +57,7 @@ const RoleSelector: React.FC<{
   );
 };
 
-// BrawlStarsRankingsコンポーネントは変更なし
 const BrawlStarsRankings: React.FC = () => {
-  // 既存のコード
   const navigation = useNavigation<RankingsScreenNavigationProp>();
   const [isLoading, setIsLoading] = useState(true);
   const [rankings, setRankings] = useState<RankingItem[]>([]);
@@ -95,6 +101,14 @@ const BrawlStarsRankings: React.FC = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>キャラクターランキング</Text>
+        <TouchableOpacity 
+          style={styles.searchButton}
+        >
+          <Image 
+            source={require('../../assets/AppIcon/search.png')}
+            style={styles.searchIcon}
+          />
+        </TouchableOpacity>
       </View>
 
       <RoleSelector 
@@ -104,13 +118,13 @@ const BrawlStarsRankings: React.FC = () => {
 
       <View style={styles.content}>
         <ScrollView>
-          {rankings.map((item) => {
+          {rankings.map((item, index) => {
             const characterData = getCharacterData(item.characterName);
             return (
               <View key={item.rank} style={styles.rankingItem}>
                 <View style={styles.rankContainer}>
                   <Text style={styles.rankNumber} numberOfLines={1}>
-                    {item.rank}位
+                    {index + 1}位
                   </Text>
                 </View>
                 <TouchableOpacity 
@@ -143,7 +157,6 @@ const BrawlStarsRankings: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  // 既存のスタイル
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -158,9 +171,9 @@ const styles = StyleSheet.create({
     height: 60,
     backgroundColor: '#21A0DB',
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    width: '100%',
+    paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#4FA8D6',
   },
@@ -168,9 +181,19 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     color: '#fff',
+    flex: 1,
     textAlign: 'center',
   },
-  // 修正したロールセレクター関連のスタイル
+  searchButton: {
+    padding: 8,
+    position: 'absolute',
+    right: 16,
+  },
+  searchIcon: {
+    width: 24,
+    height: 24,
+    tintColor: '#fff',
+  },
   roleSelectorContainer: {
     backgroundColor: '#f5f5f5',
     paddingVertical: 8,
@@ -200,7 +223,6 @@ const styles = StyleSheet.create({
   selectedRoleButtonText: {
     color: '#fff',
   },
-  // 既存のスタイル（続き）
   content: {
     flex: 1,
   },
