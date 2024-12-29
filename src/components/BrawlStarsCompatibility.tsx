@@ -43,6 +43,10 @@ const BrawlStarsCompatibility: React.FC = () => {
       .filter(([, score]) => showStrengths ? score >= 6 : score <= 4);
   };
 
+  const getScoreBarWidth = (score: number): number => {
+    return score * 10; // スコア×10でピクセル幅を計算（10点=100px）
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -110,7 +114,10 @@ const BrawlStarsCompatibility: React.FC = () => {
                             <View
                               style={[
                                 styles.scoreBar,
-                                { width: `${value * 10}%`, backgroundColor: getScoreColor(value) }
+                                { 
+                                  width: getScoreBarWidth(value), // 数値でピクセル指定
+                                  backgroundColor: getScoreColor(value) 
+                                }
                               ]}
                             />
                           </View>
@@ -239,18 +246,18 @@ const styles = StyleSheet.create({
   scoreContainer: {
     flex: 1,
     marginLeft: 10,
-    flexDirection: 'row',  // 横並びに変更
-    alignItems: 'center',  // 中央揃え
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   score: {
-    marginLeft: 8,        // スコアバーとの間隔を設定
+    marginLeft: 8,
     fontWeight: 'bold',
-    minWidth: 45,         // スコアテキストの最小幅を設定
+    minWidth: 45,
   },
   scoreBar: {
-    flex: 1,              // 残りのスペースを使用
     height: 20,
     borderRadius: 10,
+    maxWidth: 100, // バーの最大幅を100pxに変更
   },
   closeButton: {
     backgroundColor: '#2196F3',
