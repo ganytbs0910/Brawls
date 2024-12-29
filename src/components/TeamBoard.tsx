@@ -24,7 +24,9 @@ import {
   query, 
   orderBy, 
   onSnapshot,
-  Timestamp
+  Timestamp,
+  limit,
+  getDocs
 } from 'firebase/firestore';
 import { getCurrentMode } from '../utils/gameData';
 import CharacterSelector, { Character, characters } from './CharacterSelector';
@@ -72,6 +74,9 @@ const TeamBoard: React.FC = () => {
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
   const [characterTrophies, setCharacterTrophies] = useState('');
   const [wantedCharacters, setWantedCharacters] = useState<Character[]>([]);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [lastRefreshTime, setLastRefreshTime] = useState(0);
+  const REFRESH_COOLDOWN = 3000; // 3秒のクールダウン
   const scrollViewRef = useRef<ScrollView>(null);
   const inviteLinkInputRef = useRef<TextInput>(null);
 
@@ -142,7 +147,8 @@ const TeamBoard: React.FC = () => {
   useEffect(() => {
     const q = query(
       collection(db, 'teamPosts'), 
-      orderBy('createdAt', 'desc')
+      orderBy('createdAt', 'desc'),
+      limit(20)
     );
 
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
@@ -156,6 +162,38 @@ const TeamBoard: React.FC = () => {
 
     return () => unsubscribe();
   }, []);
+
+  const handleRefresh = () => {
+    const currentTime = Date.now();
+    if (currentTime - lastRefreshTime < REFRESH_COOLDOWN) {
+      Alert.alert('エラー', '更新は3秒後に可能になります');
+      return;
+    }
+
+    setIsRefreshing(true);
+    setLastRefreshTime(currentTime);
+
+    const q = query(
+      collection(db, 'teamPosts'),
+      orderBy('createdAt', 'desc'),
+      limit(20)
+    );
+
+    getDocs(q)
+      .then((querySnapshot) => {
+        const postData: TeamPost[] = [];
+        querySnapshot.forEach((doc) => {
+          postData.push({ id: doc.id, ...doc.data() } as TeamPost);
+        });
+        setPosts(postData);
+      })
+      .catch((error) => {
+        Alert.alert('エラー', '更新に失敗しました');
+      })
+      .finally(() => {
+        setIsRefreshing(false);
+      });
+  };
 
   const validateInviteLink = (link: string): boolean => {
     const baseUrl = 'https://link.brawlstars.com/invite/gameroom';
@@ -180,7 +218,23 @@ const TeamBoard: React.FC = () => {
     try {
       const canOpen = await Linking.canOpenURL(url);
       if (canOpen) {
-        await Linking.openURL(url);
+        Alert.alert(
+          'チーム参加の確認',
+          'チームリンクに参加しますか？',
+          [
+            {
+              text: 'キャンセル',
+              style: 'cancel'
+            },
+            {
+              text: '参加する',
+              onPress: async () => {
+                await Linking.openURL(url);
+              }
+            }
+          ],
+          { cancelable: true }
+        );
       } else {
         Alert.alert('エラー', 'このリンクを開けません');
       }
@@ -251,12 +305,23 @@ const TeamBoard: React.FC = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>チーム募集掲示板</Text>
-        <TouchableOpacity 
-          style={styles.createButton}
-          onPress={() => setModalVisible(true)}
-        >
-          <Text style={styles.createButtonText}>投稿する</Text>
-        </TouchableOpacity>
+        <View style={styles.headerButtons}>
+          <TouchableOpacity 
+            style={[styles.refreshButton, isRefreshing && styles.refreshButtonDisabled]}
+            onPress={handleRefresh}
+            disabled={isRefreshing}
+          >
+            <Text style={styles.refreshButtonText}>
+              {isRefreshing ? '更新中...' : '更新'}
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={styles.createButton}
+            onPress={() => setModalVisible(true)}
+          >
+            <Text style={styles.createButtonText}>投稿する</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
       <ScrollView style={styles.content}>
@@ -464,7 +529,6 @@ const TeamBoard: React.FC = () => {
     </SafeAreaView>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -491,13 +555,31 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
   },
+  headerButtons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   createButton: {
     backgroundColor: '#fff',
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,
   },
+  refreshButton: {
+    backgroundColor: '#fff',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+    marginRight: 8,
+  },
+  refreshButtonDisabled: {
+    opacity: 0.5,
+  },
   createButtonText: {
+    color: '#21A0DB',
+    fontWeight: 'bold',
+  },
+  refreshButtonText: {
     color: '#21A0DB',
     fontWeight: 'bold',
   },
