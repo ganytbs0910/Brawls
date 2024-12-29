@@ -514,7 +514,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
   },
   header: {
-    height: 80,
+    height: 65,
     backgroundColor: '#21A0DB',
     justifyContent: 'center',
     alignItems: 'center',
