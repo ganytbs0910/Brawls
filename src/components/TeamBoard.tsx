@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -11,7 +11,10 @@ import {
   Alert,
   ActivityIndicator,
   Linking,
-  Image
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  Keyboard
 } from 'react-native';
 import { initializeApp } from 'firebase/app';
 import { 
@@ -69,6 +72,8 @@ const TeamBoard: React.FC = () => {
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
   const [characterTrophies, setCharacterTrophies] = useState('');
   const [wantedCharacters, setWantedCharacters] = useState<Character[]>([]);
+  const scrollViewRef = useRef<ScrollView>(null);
+  const inviteLinkInputRef = useRef<TextInput>(null);
 
   const getCurrentModes = (): GameMode[] => {
     const currentDate = new Date();
@@ -113,6 +118,26 @@ const TeamBoard: React.FC = () => {
   };
 
   const modes = getCurrentModes();
+
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      'keyboardDidShow',
+      () => {
+        setTimeout(() => {
+          inviteLinkInputRef.current?.measure((x, y, width, height, pageX, pageY) => {
+            scrollViewRef.current?.scrollTo({
+              y: pageY - 100,
+              animated: true
+            });
+          });
+        }, 100);
+      }
+    );
+
+    return () => {
+      keyboardDidShowListener.remove();
+    };
+  }, []);
 
   useEffect(() => {
     const q = query(
@@ -306,9 +331,12 @@ const TeamBoard: React.FC = () => {
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
       >
-        <View style={styles.modalOverlay}>
+        <KeyboardAvoidingView 
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={styles.modalOverlay}
+        >
           <View style={styles.modalView}>
-            <ScrollView>
+            <ScrollView ref={scrollViewRef}>
               <Text style={styles.modalTitle}>新規投稿</Text>
               
               <View style={styles.modeSelectorContainer}>
@@ -362,16 +390,13 @@ const TeamBoard: React.FC = () => {
                   onSelect={(character) => {
                     if (!character) return;
                     setWantedCharacters(prev => {
-                      // すでに選択されている場合は削除
                       if (prev.some(c => c.id === character.id)) {
                         return prev.filter(c => c.id !== character.id);
                       }
-                      // 最大数チェック
                       if (prev.length >= 5) {
                         Alert.alert('エラー', '募集キャラクターは5体まで選択できます');
                         return prev;
                       }
-                      // 新規追加
                       return [...prev, character];
                     });
                   }}
@@ -386,12 +411,23 @@ const TeamBoard: React.FC = () => {
                 <Text style={styles.charCount}>{inviteLinkLength}/125</Text>
               </View>
               <TextInput
-                style={styles.input}
+                ref={inviteLinkInputRef}
+                style={[styles.input, styles.inviteLinkInput]}
                 value={inviteLink}
                 onChangeText={handleInviteLinkChange}
                 placeholder="招待リンクを貼り付け"
                 multiline
                 maxLength={125}
+                onFocus={() => {
+                  setTimeout(() => {
+                    inviteLinkInputRef.current?.measure((x, y, width, height, pageX, pageY) => {
+                      scrollViewRef.current?.scrollTo({
+                        y: pageY - 100,
+                        animated: true
+                      });
+                    });
+                  }, 100);
+                }}
               />
 
               <View style={styles.inputContainer}>
@@ -423,7 +459,7 @@ const TeamBoard: React.FC = () => {
               </View>
             </ScrollView>
           </View>
-        </View>
+        </KeyboardAvoidingView>
       </Modal>
     </SafeAreaView>
   );
@@ -639,6 +675,11 @@ const styles = StyleSheet.create({
   multilineInput: {
     height: 100,
     textAlignVertical: 'top',
+  },
+  inviteLinkInput: {
+    minHeight: 60,
+    paddingTop: 12,
+    paddingBottom: 12,
   },
   modalButtons: {
     flexDirection: 'row',

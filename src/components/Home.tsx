@@ -108,12 +108,19 @@ const Home: React.FC = () => {
 
   const handleShare = async () => {
     try {
+      const appStoreUrl = 'https://apps.apple.com/jp/app/brawl-status/id6738936691';
       await Share.share({
-        message: 'ブロールスターズのマップ情報',
-        title: 'マップ共有'
+        message: 'ブロールスターズのマップ情報をチェックできるアプリ「Brawl Status」を見つけました！\n\nApp Storeからダウンロード：\n' + appStoreUrl,
+        url: appStoreUrl, // iOS での共有シートにリンクを表示
+        title: 'Brawl Status - マップ情報アプリ'
+      }, {
+        // iOS専用の設定
+        dialogTitle: 'Brawl Statusを共有', // Androidでのみ使用
+        subject: 'Brawl Status - ブロールスターズマップ情報アプリ', // メール共有時の件名
+        tintColor: '#21A0DB' // iOSでの共有シートのアクセントカラー
       });
     } catch (error) {
-      console.error(error);
+      console.error('Share error:', error);
     }
   };
 
