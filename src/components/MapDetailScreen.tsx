@@ -19,7 +19,7 @@ interface MapDetailScreenProps {
   modeIcon: any;
   onClose: () => void;
   mapImage: any;
-  onCharacterPress?: (characterName: string) => void; // 新しく追加したprop
+  onCharacterPress?: (characterName: string) => void;
 }
 
 const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
@@ -91,6 +91,7 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
             key={index}
             style={styles.brawlerItem}
             onPress={() => onCharacterPress?.(brawler.name)}
+            activeOpacity={0.7}
           >
             <View style={styles.brawlerRow}>
               <CharacterImage
@@ -138,7 +139,6 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
 };
 
 const styles = StyleSheet.create({
-  // ... (スタイルは前回と同じ)
   container: {
     flex: 1,
     backgroundColor: '#fff',

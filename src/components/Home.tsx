@@ -12,6 +12,9 @@ import {
   Share, 
   SafeAreaView
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../App';
 import { privacyPolicyContent } from '../contents/privacyPolicy';
 import { termsContent } from '../contents/terms';
 import { DailyTip } from '../components/DailyTip';
@@ -29,19 +32,21 @@ import MapDetailScreen from './MapDetailScreen';
 import { MapDetail, GameMode, ScreenType, ScreenState } from '../types';
 import { getMapDetails } from '../data/mapDetails';
 
+type RankingsScreenNavigationProp = StackNavigationProp<RootStackParamList>;
+
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-// MapDetailScreenPropsの型定義
 interface MapDetailScreenProps {
   mapName: string;
   modeName: string;
   modeColor: string;
   modeIcon: any;
-  mapImage: any;
+  modeImage: any;
   onClose: () => void;
 }
 
 const Home: React.FC = () => {
+  const navigation = useNavigation<RankingsScreenNavigationProp>();
   const [screenStack, setScreenStack] = useState<ScreenState[]>([
     { type: 'home', translateX: new Animated.Value(0), zIndex: 0 }
   ]);
@@ -133,6 +138,10 @@ const Home: React.FC = () => {
     } else {
       console.warn(`Map details not found for: ${mode.currentMap}`);
     }
+  };
+
+  const handleCharacterPress = (characterName: string) => {
+    navigation.navigate('CharacterDetails', { characterName });
   };
 
   const showScreen = (screenType: ScreenType) => {
@@ -263,6 +272,7 @@ const Home: React.FC = () => {
           <MapDetailScreen
             {...mapDetailProps}
             onClose={goBack}
+            onCharacterPress={handleCharacterPress}  // 追加
           />
         ) : null;
       case 'settings':
@@ -374,7 +384,7 @@ const Home: React.FC = () => {
               <Text style={styles.dateArrow}>←</Text>
             </TouchableOpacity>
             <Text style={styles.dateText}>{formatDate(selectedDate)}</Text>
-            <TouchableOpacity onPress={() => changeDate(1)}>
+<TouchableOpacity onPress={() => changeDate(1)}>
               <Text style={styles.dateArrow}>→</Text>
             </TouchableOpacity>
             <TouchableOpacity 
@@ -383,7 +393,7 @@ const Home: React.FC = () => {
               <Text style={styles.todayButtonText}>Today</Text>
             </TouchableOpacity>
           </View>
-{modes.map((mode, index) => (
+          {modes.map((mode, index) => (
             <View key={index} style={styles.modeCard}>
               <View style={styles.modeHeader}>
                 <View style={[styles.modeTag, { backgroundColor: mode.color }]}>

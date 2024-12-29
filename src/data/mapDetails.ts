@@ -1,3 +1,4 @@
+//maoDetails.ts
 import { MapDetail, GameMode } from '../types';
 
 export const mapDetails: Record<string, MapDetail> = {

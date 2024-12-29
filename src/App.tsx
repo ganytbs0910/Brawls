@@ -15,12 +15,14 @@ const { width } = Dimensions.get('window');
 const TAB_WIDTH = width / 5;
 
 export type RootStackParamList = {
+  Main: undefined;
   Rankings: undefined;
   CharacterDetails: { characterName: string };
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
 
+// ランキングタブ用のスタックナビゲーター
 const RankingsStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -42,6 +44,33 @@ const RankingsStack = () => {
         }}
       />
     </Stack.Navigator>
+  );
+};
+
+// ホームタブ用のスタックナビゲーター
+const HomeStack = () => {
+  return (
+    <NavigationContainer independent>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Main" component={Home} />
+        <Stack.Screen 
+          name="CharacterDetails" 
+          component={CharacterDetails}
+          options={{
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: '#21A0DB',
+              elevation: 0,
+              shadowOpacity: 0,
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            }
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
@@ -110,7 +139,7 @@ const App = () => {
   const renderContent = () => {
     switch (activeTab) {
       case 'home':
-        return <Home />;
+        return <HomeStack />;
       case 'single':
         return <BrawlStarsCompatibility />;
       case 'team':
