@@ -1162,37 +1162,37 @@
       "starPowers": [
         {
           "id": 23000543,
-          "name": "狙い目",
+          "name": "視界良好",
           "path": "In-My-Sights",
-          "description": "フォーカス中、マンディのキャンディの発射速度がx%上昇します。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "集中力ゲージが溜まっている間は、キャンディの発射速度が15％上昇する",
+          "recommendationLevel": 5,
+          "recommendationReason": "敵に弾を当てやすくなるためかなり使える。"
         },
         {
           "id": 23000544,
           "name": "ハードキャンディ",
           "path": "Hard-Candy",
-          "description": "フォーカス中、マンディはx%のシールドを得ます。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "description": "集中力ゲージが溜まっている間、シールドを発動してダメージを40％軽減する。",
+          "recommendationLevel": 4,
+          "recommendationReason": "シールドの軽減率が非常に高いため、近距離の撃ち合いなどでたまに使える。"
         }
       ],
       "gadgets": [
         {
           "id": 23000545,
-          "name": "カラメル化",
+          "name": "キャラメトル",
           "path": "Caramelize",
-          "description": "マンディのキャンディディスペンサーの次のキャンディは、命中時に敵をx秒間減速させます。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "次の通常攻撃が命中すると、敵を2.5秒間にわたってスローダウンする。",
+          "recommendationLevel": 5,
+          "recommendationReason": "この攻撃を当てた後にオートエイムウルトが当たるようになるのとスローダウンが長いためかなり強い"
         },
         {
           "id": 23000546,
-          "name": "クッキーのかけら",
+          "name": "クッキースクランブル",
           "path": "Cookie-Crumbs",
-          "description": "マンディのキャンディディスペンサーの次のキャンディは、敵と環境を貫通します。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "次の通常攻撃が敵と障害物を貫通するようになる。",
+          "recommendationLevel": 5,
+          "recommendationReason": "壁裏に逃げた敵をキルするのにかなり使える"
         }
       ]
     },
@@ -1214,37 +1214,37 @@
       "starPowers": [
         {
           "id": 23000535,
-          "name": "偽の怪我",
+          "name": "マリーシア",
           "path": "Fake-Injury",
-          "description": "グレイが最大体力の時、次に受けるダメージが<VALUE>%減少します。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "HPが満タンのとき、受けるダメージが50％軽減される。",
+          "recommendationLevel": 5,
+          "recommendationReason": "ノックアウトや賞金稼ぎなどで単発攻撃の敵が多い状況では最強の部類の耐久力を付与できる。"
         },
         {
           "id": 23000536,
-          "name": "新しい視点",
+          "name": "ワープマジック",
           "path": "New-Perspective",
-          "description": "グレイまたは味方がドアを使用すると、<VALUE>体力を回復します。",
+          "description": "作り出したワープ地点を自身や味方が通過すると、HPが1320回復する。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "回復量が多くタンクとの組み合わせが非常に強力。"
         }
       ],
       "gadgets": [
         {
           "id": 23000537,
-          "name": "ステッキ",
+          "name": "ウォーキングステッキ",
           "path": "Walking-Cane",
-          "description": "グレイの指銃の次の命中は、ステッキを発射し敵を少し引き寄せます。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "次の通常攻撃でステッキを発射し、命中すると敵を自分の方へ少しだけ引き寄せる。",
+          "recommendationLevel": 5,
+          "recommendationReason": "壁破壊と投げキャラクターメタとして有効かつ壁裏の敵をキルするのにも使える汎用性の高さが人気。"
         },
         {
           "id": 23000538,
           "name": "グランドピアノ",
           "path": "Grand-Piano",
-          "description": "グレイの指銃の次の命中は、地面に標的を残し、そこにピアノが落下して敵にダメージを与えます。誰かが怪我をしたら大変ですよね？",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "次に通常攻撃を発射すると地面に目印が付き、そこにピアノを落として敵を下敷きにする。余計な怪我人が出ないことを祈るばかりだ…",
+          "recommendationLevel": 3,
+          "recommendationReason": "壁を確実に破壊できるので初心者にも優しい。"
         }
       ]
     },
@@ -1266,37 +1266,37 @@
       "starPowers": [
         {
           "id": 23000527,
-          "name": "シングルベロマニア",
+          "name": "ドデかい一撃",
           "path": "Single-Bellomania",
-          "description": "チェスターの攻撃シーケンスの最初のベルがx%のダメージを与えます。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "通常攻撃の1段階目のダメージが150%増加する。",
+          "recommendationLevel": 5,
+          "recommendationReason": "火力不足の一撃目を補えるため弱点を減らすことができる。"
         },
         {
           "id": 23000528,
-          "name": "先読み",
+          "name": "ネタばらし",
           "path": "Sneak-Peek",
-          "description": "チェスターは常に次のスーパーが何になるかを知ることができます。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "description": "自分が次に繰り出す必殺技の種類が常に表示される。",
+          "recommendationLevel": 1,
+          "recommendationReason": "ウルトが溜まると必殺技の種類はわかるのでマジで不要。"
         }
       ],
       "gadgets": [
         {
           "id": 23000529,
-          "name": "スパイシーダイス",
+          "name": "ダイスロール",
           "path": "Spicy-Dice",
-          "description": "チェスターは現在のものとは異なる新しいランダムなスーパーを獲得します。",
+          "description": "表示されている必殺技がランダムに入れ替わる。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "状況によって不要なウルトを変更させられるので運次第でかなり強力"
         },
         {
           "id": 23000530,
-          "name": "キャンディービーンズ",
+          "name": "ドッキリキャンディ",
           "path": "Candy-Beans",
-          "description": "チェスターは帽子から謎の味のキャンディービーンズを食べ、x秒間ランダムなバフを得ます。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "食べるまで味がわからないキャンディを帽子から取り出し、5秒にわたってステータスがランダムに強化される。",
+          "recommendationLevel": 5,
+          "recommendationReason": "リロード上昇や持続回復など超強力な効果が出ることもあり、使い得でかなり強い。"
         }
       ]
     },
@@ -1320,17 +1320,17 @@
           "id": 23000519,
           "name": "ブロックバスター",
           "path": "Blockbuster",
-          "description": "スーパーのチャージエリア内の味方1人につき、バスターのレンズフレアのダメージがx%増加します。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "通常攻撃のダメージを、必殺技チャージエリア内の味方1人につき15％増加させる。",
+          "recommendationLevel": 5,
+          "recommendationReason": "性能とこの効果の相性が良く、火力の上昇率も高いためかなり強力。"
         },
         {
           "id": 23000520,
-          "name": "ケブラーベスト",
+          "name": "防弾チョッキ",
           "path": "Kevlar-Vest",
-          "description": "モンタージュ中、バスターは受けるダメージがx%減少し、ノックバック、減速、スタンに対して免疫になります。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "description": "モンタージュを使用中、バスターの被ダメージを10％減少させ、ノックバック、スローダウン、気絶を無効にする",
+          "recommendationLevel": 3,
+          "recommendationReason": "効果自体は悪くないが、そこまで恩恵を感じることができないのが惜しい。"
         }
       ],
       "gadgets": [
@@ -1338,17 +1338,17 @@
           "id": 23000521,
           "name": "ユーティリティベルト",
           "path": "Utility-Belt",
-          "description": "スーパーのチャージエリア内の味方1人につき、バスターは自身と近くの味方全員をx回復させます。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "必殺技チャージエリアにいる味方1体につき、自分と周囲にいる味方のHPを900回復させる。",
+          "recommendationLevel": 3,
+          "recommendationReason": "全員回復させられるためホットゾーンなどでたまに使用される。"
         },
         {
           "id": 23000522,
           "name": "スローモーリプレイ",
           "path": "Slo-Mo-Replay",
           "description": "バスターの次のレンズフレアは敵を引き寄せます。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "敵を引き寄せたら基本的にキルを取れるのでどのタイミングでも強力。"
         }
       ]
     },
@@ -1370,37 +1370,37 @@
       "starPowers": [
         {
           "id": 23000511,
-          "name": "体力ボナンザ",
+          "name": "ヒールアップ",
           "path": "Health-Bonanza",
-          "description": "スピリットからの回復量がx%増加します。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "ゴースト回収によるHPの回復量を100％増加させる。",
+          "recommendationLevel": 3,
+          "recommendationReason": "回復量が増えるがなかなか回復が欲しいタイミングでゴーストを拾うのが難しく使いづらい。"
         },
         {
           "id": 23000512,
           "name": "スピリットアニマル",
           "path": "Spirit-Animal",
-          "description": "スプーキーはチームメイトのダメージをx秒間x%増加させます。",
+          "description": "味方1人のダメージ量を5秒にわたって25%増加させる。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "効果時間と火力の上昇率が高く、味方にも効果を付与できるためいつでも強力"
         }
       ],
       "gadgets": [
         {
           "id": 23000513,
-          "name": "クーキーポッパー",
+          "name": "ゴーストクラッカー",
           "path": "Kooky-Popper",
-          "description": "未回収のスピリットをすべて爆発させ、近くの敵にxダメージを与えます。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "回収していないゴーストをすべて破裂させて、近くにいる敵に2240ダメージを与える。",
+          "recommendationLevel": 5,
+          "recommendationReason": "キルを取るのに紛れもなく最強のガジェット。ダメージ計算ができると効力が化ける。"
         },
         {
           "id": 23000514,
           "name": "ソウルスイッチャー",
           "path": "Soul-Switcher",
-          "description": "ガスは体力をx%失いますが、即座にスピリットをx%獲得します。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "HPの5%犠牲にして、瞬時にゴーストのゲージを100%チャージする。",
+          "recommendationLevel": 3,
+          "recommendationReason": "ゴーストを生成しても欲しいタイミングで拾うのが難しいので使いづらい。"
         }
       ]
     },
@@ -1422,19 +1422,19 @@
       "starPowers": [
         {
           "id": 23000503,
-          "name": "心強い回復",
+          "name": "　元気復活",
           "path": "Hearty-Recovery",
-          "description": "ナックルバスターを回収すると、サムは失った体力のx%を即座に回復します。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "ナックルバスターを呼び戻すと、失ったHPの20%を瞬時に回復する。",
+          "recommendationLevel": 5,
+          "recommendationReason": "これがないと貧弱超雑魚になるので必須中の必須。"
         },
         {
           "id": 23000504,
-          "name": "遠隔充電",
+          "name": "リモートチャージ",
           "path": "Remote-Recharge",
-          "description": "ナックルバスターが地上にあり、敵の近くにいる間、サムのスーパーをチャージします。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "description": "地上のナックルバスターの近くに敵がいると、必殺技がチャージされる。",
+          "recommendationLevel": 1,
+          "recommendationReason": "使ってる人がいたら笑ってあげて欲しい。"
         }
       ],
       "gadgets": [
@@ -1442,17 +1442,17 @@
           "id": 23000505,
           "name": "磁場",
           "path": "Magnetic-Field",
-          "description": "ナックルバスターが地上にある間、サムはそれを起動して近くの敵を引き寄せることができます。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "ナックルバスターが地上にある状態で発動すると、近くの敵がナックルに引き寄せられる。",
+          "recommendationLevel": 5,
+          "recommendationReason": "確定シュートや無防備にさせられるのでかなり優秀。"
         },
         {
           "id": 23000506,
-          "name": "パルス反発",
+          "name": "パルスウェーブ",
           "path": "Pulse-Repellent",
-          "description": "地面に着地後、サムが次に設置するナックルバスターは電気パルスを放出し、敵をノックバックさせます。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "次にナックルバスターを発動すると、地上に落ちると同時に電磁パルスが発生して敵をノックバックする。",
+          "recommendationLevel": 3,
+          "recommendationReason": "ノックバックの距離が長く使いこなすのが難しすぎる。"
         }
       ]
     },
@@ -1474,37 +1474,37 @@
       "starPowers": [
         {
           "id": 23000495,
-          "name": "ステンシルのり",
+          "name": "ぺったんこシール",
           "path": "Stencil-Glue",
-          "description": "シルは敵を力いっぱい絞り上げます。敵は攻撃できない時間がx%延長されます。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "ヒトデのシルが全力で敵にへばりつき、敵の攻撃を封じる時間が33%長くなる。",
+          "recommendationLevel": 2,
+          "recommendationReason": "火力不足であまり封じる効果が長くなる恩恵を感じにくい。"
         },
         {
           "id": 23000496,
-          "name": "インク補充",
+          "name": "詰替用インク",
           "path": "Ink-Refills",
-          "description": "オーティスはx%多くのインク滴を発射するようになります。",
+          "description": "オーティスの放つインク玉が33％増える。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "火力もウルトのチャージ効率も上がるため超必須のスタパ。"
         }
       ],
       "gadgets": [
         {
           "id": 23000497,
-          "name": "休眠スター",
+          "name": "スリープスター",
           "path": "Dormant-Star",
-          "description": "次のヒトデが敵に当たらなかった場合、敵が近づくまで地面に休眠状態で留まります。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "次にシルを投げたときに敵に当たらなかった場合は地面に張り付き、敵が近付くまで目を覚まさない。",
+          "recommendationLevel": 3,
+          "recommendationReason": "ウルトを外しまくる人なら割と良い。"
         },
         {
           "id": 23000498,
-          "name": "太めの飛沫",
+          "name": "黒潮",
           "path": "Phat-Splatter",
-          "description": "オーティスの次の攻撃は巨大なインクボールを発射し、水たまりを残してx秒間かけてxダメージを与えます。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "次にオーティスが放つ攻撃が巨大なインク玉となり、落ちた場所にインクの水たまりを作る。水たまりは3.8秒にわたって、敵に1150ずつダメージを与える。",
+          "recommendationLevel": 5,
+          "recommendationReason": "敵の侵入を防ぐエリアを作り出せ、確実に回復阻止したい時や敵の密集地帯でかなり有用。"
         }
       ]
     },
@@ -1526,17 +1526,17 @@
       "starPowers": [
         {
           "id": 23000478,
-          "name": "黒色火薬",
+          "name": "ブラックパウダー",
           "path": "Black-Powder",
-          "description": "ボニーのスターランチャーの射程がx%増加します。",
-          "recommendationLevel": 4,
+          "description": "必殺技の射程が36%伸びる。",
+          "recommendationLevel": 5,
           "recommendationReason": ""
         },
         {
           "id": 23000479,
           "name": "親知らず",
           "path": "Wisdom-Tooth",
-          "description": "ルーズトゥースが命中時に砕け散り、近くの敵にx%の追加ダメージを与えます。",
+          "description": "大砲の移動速度とリロード速度が5秒にわたって30%上昇する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -1552,9 +1552,9 @@
         },
         {
           "id": 23000481,
-          "name": "クラッシュテスト",
+          "name": "衝突試験",
           "path": "Crash-Test",
-          "description": "ボニーは前方にダッシュし、敵をノックバックさせ命中時にxダメージを与えます。",
+          "description": "前方にダッシュして敵をノックバックしながら2320ダメージを与える。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -1578,17 +1578,17 @@
       "starPowers": [
         {
           "id": 23000470,
-          "name": "ステージビュー",
+          "name": "特等席",
           "path": "Stage-View",
-          "description": "ジェットパックで空中にいる間、ジャネットは自分の周りの広い範囲の茂みを明らかにします。",
+          "description": "飛行中は周囲のやぶの中が広範囲にわたって見えるようになる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000471,
-          "name": "ボーカルウォームアップ",
+          "name": "発声練習",
           "path": "Vocal-Warm-Up",
-          "description": "ジャネットの攻撃の集中がx%速くなります。",
+          "description": "通常攻撃のエイムの集約速度が30％上昇する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -1596,17 +1596,17 @@
       "gadgets": [
         {
           "id": 23000472,
-          "name": "ドロップ・ザ・ベース",
+          "name": "低音スピーカー",
           "path": "Drop-The-Bass",
-          "description": "ジャネットはスピーカーを設置し、破壊されるまでエリア内の全敵に毎秒xダメージを与えます。",
+          "description": "重低音を轟かすスピーカーを投入し、破壊されるまで効果範囲内の敵に毎秒200ダメージを与える。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000473,
-          "name": "バックステージパス",
+          "name": "舞台裏直行券",
           "path": "Backstage-Pass",
-          "description": "ジャネットの次のハイノートは壁を越えても彼女を後方に押し戻します。攻撃の集中度が高いほど、より遠くまで押し戻されます。",
+          "description": "次の通常攻撃で、反動を使って大きく後ろにジャンプする。壁を越えることも可能で、エイムが集約されているほど、後退する距離も長くなる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -1630,17 +1630,17 @@
       "starPowers": [
         {
           "id": 23000452,
-          "name": "不自然な順序",
+          "name": "摂理への冒涜",
           "path": "Unnatural-Order",
-          "description": "エッグシューターによって発射される卵の順序を逆転させます。",
-          "recommendationLevel": 4,
+          "description": "通常攻撃で撃ち出されるタマゴの順番が逆になる。",
+          "recommendationLevel": 5,
           "recommendationReason": ""
         },
         {
           "id": 23000453,
-          "name": "ハッピーサプライズ",
+          "name": "ベビーシャワー",
           "path": "Happy-Surprise",
-          "description": "x秒ごとに、エッグシューターの次の大きな卵が敵に命中すると孵化した子供が出現します。",
+          "description": "通常攻撃の一番大きなタマゴが命中すると、そのタマゴから5秒ごとにベビーが産まれる。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -1648,17 +1648,17 @@
       "gadgets": [
         {
           "id": 23000454,
-          "name": "行かなきゃ",
+          "name": "ベビーシッター",
           "path": "Gotta-Go",
-          "description": "イヴは跳び退き、孵化した子供を残していきます。",
+          "description": "ベビーを1体その場に産み落とし、大きくジャンプする。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000455,
-          "name": "母性愛",
+          "name": "無条件の愛",
           "path": "Motherly-Love",
-          "description": "アクティブな大きな卵から生まれた孵化した子供は、ダメージを与える代わりに味方を時間とともに回復させるようになります。",
+          "description": "タマゴから産まれるベビーが時間とともに味方を回復する。ただし、敵には攻撃を加えなくなる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -1682,17 +1682,17 @@
       "starPowers": [
         {
           "id": 23000438,
-          "name": "フレッシュキック",
+          "name": "ボーナススニーカー",
           "path": "Fresh-Kicks",
-          "description": "ファングがスーパーで敵ブローラーを倒すと、スーパーが即座に再チャージされ、再び使用できるようになります！",
+          "description": "必殺技で敵を倒すとゲージが満タンにチャージされ、すぐにもう一度使えるようになる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000439,
-          "name": "神聖な足底",
+          "name": "厚底シューズ",
           "path": "Divine-Soles",
-          "description": "x秒ごとに1回、受けるダメージをx軽減します。最大軽減量は受けるダメージのx%です。",
+          "description": "3秒につき1度、敵の攻撃を688ダメージ低減する。最大低減率は、受けたダメージの90%となる。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -1700,17 +1700,17 @@
       "gadgets": [
         {
           "id": 23000440,
-          "name": "コーンフー",
+          "name": "ポップシュート",
           "path": "Corn-Fu",
-          "description": "ファングはトウモロコシの粒を空中に投げ、ポップコーンの雨を降らせます！各粒の破裂でxダメージを与えます。",
+          "description": "小型の爆弾を空中にばらまいて、ポップコーンさながらに破裂させる。爆弾は1つにつき1088ダメージを与える。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000464,
-          "name": "回し蹴り",
+          "name": "まわし蹴り",
           "path": "Roundhouse-Kick",
-          "description": "ファングは回転して周囲の敵全てを攻撃し、x秒間スタンさせます。",
+          "description": "回転して周囲にいる敵全員を蹴り散らす。命中した敵は0.5秒間気絶して動けなくなる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -1734,17 +1734,17 @@
       "starPowers": [
         {
           "id": 23000431,
-          "name": "即興",
+          "name": "即興劇",
           "path": "Improvise",
-          "description": "最後の弾丸の時、ローラは追加でx%のダメージを与えます。",
+          "description": "残りの弾数が1発の状態で攻撃すると、敵に30%の追加ダメージを与える。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000432,
-          "name": "キスで封印",
+          "name": "痛いの飛んでけ",
           "path": "Sealed-With-A-Kiss",
-          "description": "ローラのエゴからの投射物は、その軌道上にいる味方をx回復させます。",
+          "description": "分身から放たれる弾丸の軌道上にいる味方のHPを224回復する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -1752,9 +1752,9 @@
       "gadgets": [
         {
           "id": 23000433,
-          "name": "フリーズフレーム",
+          "name": "シェったーチャンス",
           "path": "Freeze-Frame",
-          "description": "ローラのエゴがポーズを決めて停止します！x秒間x%のシールドを得ます。",
+          "description": "分身が動きを止めてポーズを決めると、4秒間にわたってシールドが発動し、分身の受けるダメージを50%低減する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -1762,7 +1762,7 @@
           "id": 23000456,
           "name": "スタントダブル",
           "path": "Stunt-Double",
-          "description": "ローラと彼女のエゴが位置を交換します。彼女はx回復します。",
+          "description": "ローラと分身の位置が入れ替わり、ローラのHPが1520回復する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -1788,7 +1788,7 @@
           "id": 23000421,
           "name": "フォースフィールド",
           "path": "Force-Field",
-          "description": "メカが破壊された時、メグはx秒間x%のシールドで保護されます。",
+          "description": "メカが破壊されると、ダメージを25%軽減するシールドが発動し、10秒間メグを守る。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -1796,7 +1796,7 @@
           "id": 23000422,
           "name": "ヘビーメタル",
           "path": "Heavy-Metal",
-          "description": "メカスーツが消滅する時、爆発を起こし近くの敵にxダメージを与え、押し退けます。",
+          "description": "メカのHPがなくなると爆発し、近くの敵に2400ダメージを与えてノックバックさせる。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -1806,7 +1806,7 @@
           "id": 23000423,
           "name": "ジョルトボルト",
           "path": "Jolting-Volts",
-          "description": "x秒間、メカを毎秒x回復させます。",
+          "description": "メカのHPが5秒間にわたって、毎秒490回復する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -1814,7 +1814,7 @@
           "id": 23000489,
           "name": "ツールボックス",
           "path": "Toolbox",
-          "description": "メグはツールボックスを落とし、破壊されるまで近くの味方のリロード速度をx%上昇させます。",
+          "description": "地面にツールボックスを設置し、破壊されるまで近くの味方のリロード速度を35%上昇させる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -1838,17 +1838,17 @@
       "starPowers": [
         {
           "id": 23000414,
-          "name": "ファーストバッシュ",
+          "name": "綺麗好き",
           "path": "First-Bash",
-          "description": "フルチャージの攻撃で敵に命中すると、アッシュはさらに怒ります。怒りゲージがx%上昇します。",
+          "description": "通常攻撃のゲージが満タンの状態で敵を攻撃すると、怒りゲージの上昇率が200％増加する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000415,
-          "name": "激怒",
+          "name": "大激怒",
           "path": "Mad-As-Heck",
-          "description": "アッシュは怒りの度合いに応じて、最大x%のリロード速度上昇を徐々に得ます。",
+          "description": "怒りが溜まるにつれて、リロード速度が最大40％まで徐々に上昇する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -1858,7 +1858,7 @@
           "id": 23000416,
           "name": "鎮静剤",
           "path": "Chill-Pill",
-          "description": "激怒しているアッシュは自分を落ち着かせなければなりません。このガジェットを使用すると、怒りゲージが満タンの時にx回復します - 怒りが少ないほど、回復量も少なくなります。",
+          "description": "怒っていても、我を忘れてはならない。怒りゲージに比例して自身を癒し、満タンで発動した場合はHPが3240回復する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -1866,7 +1866,7 @@
           "id": 23000465,
           "name": "腐ったバナナ",
           "path": "Rotten-Banana",
-          "description": "アッシュは体力をx%失い、即座に怒りゲージをx%獲得します。",
+          "description": "自身のHPの10%と引き換えに、瞬時に40％の怒りゲージが溜まる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -1890,17 +1890,17 @@
       "starPowers": [
         {
           "id": 23000397,
-          "name": "おつりは取っておけ",
+          "name": "釣りはいらねぇ",
           "path": "Keep-The-Change",
-          "description": "激怒したグリフはコインを素早く投げ、一斉射撃の時間をx%短縮します。",
+          "description": "怒りが爆発し、通常攻撃の発射速度が25％上昇する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000398,
-          "name": "ビジネスの回復力",
+          "name": "V字回復",
           "path": "Business-Resilience",
-          "description": "x秒ごとに、グリフは失った体力の最大x%を回復します。",
+          "description": "2秒ごとに、失ったHPの最大15%を回復する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -1908,17 +1908,17 @@
       "gadgets": [
         {
           "id": 23000399,
-          "name": "貯金箱",
+          "name": "ブタの貯金箱",
           "path": "Piggy-Bank",
-          "description": "グリフは爆竹の入った貯金箱を落とし、短い遅延の後に爆発して障害物を破壊し、範囲内の敵にxダメージを与えます。",
+          "description": "爆薬入りのブタの貯金箱を出現させる。設置すると少し遅れて爆発して障害物を破壊し、範囲内にいる敵に1400ダメージを与える。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000487,
-          "name": "コインシャワー",
+          "name": "コインの雨",
           "path": "Coin-Shower",
-          "description": "グリフの次のコイン投げはx%多くのコインを発射します。",
+          "description": "通常攻撃で放たれるコインが33%増加する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -1942,17 +1942,17 @@
       "starPowers": [
         {
           "id": 23000390,
-          "name": "強靭な魚雷",
+          "name": "魚雷改",
           "path": "Tougher-Torpedo",
-          "description": "バズのスーパーのスタン効果の最小持続時間がx秒増加します。",
+          "description": "必殺技による気絶の最短効果時間が0.5秒間延びる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000391,
-          "name": "鋭い目",
+          "name": "鋭い眼差し",
           "path": "Eyes-Sharp",
-          "description": "バズのスーパーチャージエリアがx%増加します。",
+          "description": "必殺技のチャージエリアが33%拡大する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -1960,17 +1960,17 @@
       "gadgets": [
         {
           "id": 23000392,
-          "name": "予備のブイ",
+          "name": "緊急のブイ",
           "path": "Reserve-Buoy",
-          "description": "即座にスーパーゲージを満タンにしますが、次の魚雷投げは敵をスタンさせません。",
+          "description": "必殺技のゲージを即座に満タンにするが、次回の気絶効果はなくなる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000490,
-          "name": "X線サングラス",
+          "name": "X線ゴーグル",
           "path": "X-Ray-Shades",
-          "description": "バズはx秒間、スーパーチャージエリア内のすべての茂みの中を見ることができます。",
+          "description": "必殺技がチャージされる範囲内では、やぶの中にいる敵が12秒にわたって見えるようになる",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -1994,9 +1994,9 @@
       "starPowers": [
         {
           "id": 23000383,
-          "name": "徒歩パトロール",
+          "name": "巡回警備",
           "path": "Foot-Patrol",
-          "description": "グロムのスーパーが満タンの時、移動速度が+x%上昇します！",
+          "description": "必殺技が完全にチャージされている間、移動速度が15%上昇する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -2004,7 +2004,7 @@
           "id": 23000384,
           "name": "Xファクター",
           "path": "X-Factor",
-          "description": "グロムのメイン攻撃の分裂は最大射程で最大+x%の追加ダメージを与えます。",
+          "description": "通常攻撃の爆発が中心から離れるほど威力を増し、最大で30%の追加ダメージを与える。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2012,9 +2012,9 @@
       "gadgets": [
         {
           "id": 23000385,
-          "name": "監視塔",
+          "name": "監視カメラ",
           "path": "Watchtower",
-          "description": "グロムはグロムボムから監視塔を放出し、広い範囲の茂みの中を全味方が見ることができます。監視塔は時間とともにゆっくりと体力を失っていきます。",
+          "description": "懐から小型カメラを取り出すと、広範囲にわたって監視機能が作動し、やぶに隠れた敵が味方から見えるようになる。小型カメラのHPは時間とともに少しずつ減少する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -2022,7 +2022,7 @@
           "id": 23000460,
           "name": "無線チェック",
           "path": "Radio-Check",
-          "description": "グロムの次の攻撃は急速にx個のバッドを投げます。",
+          "description": "次の通常攻撃で、3個のトランシーバーを素早く連続で投げつける。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2048,15 +2048,15 @@
           "id": 23000376,
           "name": "連鎖反応",
           "path": "Chain-Reaction",
-          "description": "粘着ボムの爆発範囲内にいる敵1体につき、ボムのダメージがx%増加します。",
+          "description": "粘着ジェル爆弾の爆発範囲内にいる敵1体につき、与えるダメージが15％増幅する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000377,
-          "name": "超粘着",
+          "name": "超粘着質",
           "path": "Super-Sticky",
-          "description": "スクイークのスーパーによる粘着ボムの二次爆発も、敵をx秒間減速させます。",
+          "description": "必殺技の二次爆発に巻き込まれた敵を、4秒間にわたってスローダウンさせる。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2064,17 +2064,17 @@
       "gadgets": [
         {
           "id": 23000378,
-          "name": "巻き上げ",
+          "name": "ネジ巻き",
           "path": "Windup",
-          "description": "スクイークの次の粘着ボムはx%多くのダメージを与え、射程がx%延長されます。",
+          "description": "次の通常攻撃のダメージが50%、射程距離が100%増加する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000462,
-          "name": "残留物",
+          "name": "不純物",
           "path": "Residue",
-          "description": "スクイークの次の粘着ボムは爆発後に残留エリアを残し、x秒間敵を減速させ、味方に茂みの中を見せます。",
+          "description": "次の通常攻撃の破裂後に汚染されたエリアを作り出し、6秒にわたって敵をスローダウンさせる。さらに、自分と味方はやぶの中が見えるようになる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2098,17 +2098,17 @@
       "starPowers": [
         {
           "id": 23000369,
-          "name": "ポジティブフィードバック",
+          "name": "フレミング",
           "path": "Positive-Feedback",
-          "description": "ベルのエレクトロボルトが対象に命中するたびに、x%のシールドを得ます。",
+          "description": "電撃がターゲットに命中すると、ダメージを20%低減するシールドを獲得する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000370,
-          "name": "接地",
+          "name": "感電",
           "path": "Grounded",
-          "description": "ベルのスーパーでマークされた敵は、x秒間攻撃をリロードできなくなります。",
+          "description": "必殺技によってマーキングされた敵は、通常攻撃を5秒間リロードができなくなる。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2116,17 +2116,17 @@
       "gadgets": [
         {
           "id": 23000371,
-          "name": "巣の卵",
+          "name": "ビリビリトラップ",
           "path": "Nest-Egg",
-          "description": "ベルは地面に罠を設置し、敵が引き金を引くと爆発します。罠はxダメージを与え、爆発範囲内の誰もがx秒間減速します。",
+          "description": "敵が触れると起動するトラップを地面に設置する。トラップは624ダメージを与えるうえ、範囲内にいるすべての敵を3秒間にわたってスローダウンさせる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000463,
-          "name": "極性逆転",
+          "name": "逆極性",
           "path": "Reverse-Polarity",
-          "description": "ベルの次のエレクトロボルトは壁から跳ね返ります。",
+          "description": "次の通常攻撃が壁から跳ね返る。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2150,17 +2150,17 @@
       "starPowers": [
         {
           "id": 23000362,
-          "name": "ゼロ抵抗",
+          "name": "抵抗ゼロ",
           "path": "Zero-Drag",
-          "description": "スチューのニトロブーストスーパーのダッシュ距離がx%増加します。",
+          "description": "必殺技のダッシュ距離が71%増加する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000363,
-          "name": "ガソリン回復",
+          "name": "ガスヒール",
           "path": "Gaso-Heal",
-          "description": "ニトロブーストスーパーを使用するとスチューの体力がx回復します。",
+          "description": "必殺技を発動すると、自身のHPが640回復する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2170,7 +2170,7 @@
           "id": 23000364,
           "name": "スピードゾーン",
           "path": "Speed-Zone",
-          "description": "スチューはブースターを設置し、その効果範囲内にいる自身、チームメイト、その他の味方の移動速度を上昇させます。",
+          "description": "ブースターを設置して、効果範囲内にいる味方と自身の移動速度を加速させる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -2178,7 +2178,7 @@
           "id": 23000401,
           "name": "ブレイクスルー",
           "path": "Breakthrough",
-          "description": "スチューの次のスーパーは障害物を突き破り、破片を前方に飛ばします。各破片は当たった敵にxダメージを与えます。",
+          "description": "次の必殺技で、障害物を突き破ることができる。前方に飛び散った破片が敵に命中すると、1つにつき216ダメージを与える。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2203,17 +2203,17 @@
       "starPowers": [
         {
           "id": 23000345,
-          "name": "制空権",
+          "name": "制空",
           "path": "Air-Superiority",
-          "description": "補給投下に爆弾が追加され、ドロップのダメージがx%増加し、壁も破壊できるようになります。",
+          "description": "支援物資に爆弾を仕込むことで、落下ダメージが120%増加し、壁を壊せるようになる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000346,
-          "name": "臨時昇進",
+          "name": "一括昇格",
           "path": "Field-Promotion",
-          "description": "この能力が有効な間、範囲内の味方ブローラーの最大体力が毎秒x増加します。",
+          "description": "この能力の効果範囲内にいる味方は、最大HPが毎秒30ずつ増加する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2221,17 +2221,17 @@
       "gadgets": [
         {
           "id": 23000347,
-          "name": "掩護",
+          "name": "バリケード",
           "path": "Take-Cover",
-          "description": "ラフスは掩護用の土嚢をx個設置します。各土嚢はラフスの最大体力のx%を持ちます。",
+          "description": "自分の周りに3個のサンドバックの壁を出現させる。各サンドバッグのHPは、ラフスの最大HPの35%となる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000402,
-          "name": "空中支援",
+          "name": "アポサポート",
           "path": "Air-Support",
-          "description": "ラフスは最も近い敵の周りに弾幕を呼び寄せ、各ヒットでxダメージを与えます。",
+          "description": "空からの一斉砲火を要請して、最も近くにいる敵を攻撃する。ミサイルは1発につき1200ダメージを与える。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2258,15 +2258,15 @@
           "id": 23000338,
           "name": "ハードランディング",
           "path": "Hard-Landing",
-          "description": "エドガーのスーパーは着地時に近くの敵にxダメージも与えます。",
+          "description": "必殺技の着弾時に周囲の敵に1300ダメージを与える。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000339,
-          "name": "格闘技",
+          "name": "拳一本",
           "path": "Fisticuffs",
-          "description": "エドガーが与えたダメージからの回復量がx%増加します。",
+          "description": "通常攻撃での回復率が25％上昇する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2274,9 +2274,9 @@
       "gadgets": [
         {
           "id": 23000340,
-          "name": "飛翔",
+          "name": "原動力",
           "path": "Lets-Fly",
-          "description": "エドガーのスーパーのチャージ速度が、x秒間x%上昇します。",
+          "description": "必殺技のチャージ速度が4秒にわたって525％上昇する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -2284,7 +2284,7 @@
           "id": 23000403,
           "name": "ハードコア",
           "path": "Hardcore",
-          "description": "エドガーは次のxダメージから保護するシールドを獲得します。シールドは時間とともに弱くなります。",
+          "description": "シールドを発動し、次に受ける3300ダメージを無効化する。シールドは時間とともに耐久力が低下する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2309,9 +2309,9 @@
       "starPowers": [
         {
           "id": 23000331,
-          "name": "不調",
+          "name": "倦怠感",
           "path": "Malaise",
-          "description": "バイロンのスーパーは、敵がx秒間あらゆる源からの回復量をx%減少させる効果も追加します。",
+          "description": "必殺技に当たった敵は、あらゆる回復の効果が9秒にわたって75%減少する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -2319,7 +2319,7 @@
           "id": 23000332,
           "name": "注射",
           "path": "Injection",
-          "description": "x秒ごとに、次の通常攻撃が対象を貫通します。",
+          "description": "通常攻撃が3.5秒ごとに、標的を貫通するようになる。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2327,17 +2327,17 @@
       "gadgets": [
         {
           "id": 23000333,
-          "name": "腕への注射",
+          "name": "カンフル剤",
           "path": "Shot-In-The-Arm",
-          "description": "バイロンは自身の弾を1つ使用して、x秒間毎秒x回復します。",
+          "description": "薬剤を自分に注入して、3秒にわたってHPを毎秒1200回復する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000461,
-          "name": "ブースターショット",
+          "name": "ブースター注射",
           "path": "Booster-Shots",
-          "description": "バイロンの次の攻撃は1発の代わりにx発の矢を放ち、それぞれのダメージと回復量がx%減少します。",
+          "description": "次の通常攻撃で、3発のショットを同時に発射する。ただし、それぞれのダメージは20％、回復量は40％低減する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2364,15 +2364,15 @@
           "id": 23000324,
           "name": "スーパークール",
           "path": "Supercool",
-          "description": "ルーのスーパーの範囲内にいる敵は、x%早く凍結します。",
+          "description": "必殺技の効果範囲にいる敵は、凍結速度が33％上昇する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000325,
-          "name": "低体温症",
+          "name": "低体温",
           "path": "Hypothermia",
-          "description": "敵は、ルーの攻撃による凍結度に応じて最大x%のダメージを失います。",
+          "description": "攻撃による凍結度合に応じて、敵の攻撃力を最大で50％低下させる。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2382,15 +2382,15 @@
           "id": 23000326,
           "name": "アイスブロック",
           "path": "Ice-Block",
-          "description": "ルーは氷で身を守り、x秒間無敵になります。",
+          "description": "氷のシールドを発生させ、1.0秒間ダメージを無効化する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000400,
-          "name": "クライオシロップ",
+          "name": "氷結シロップ",
           "path": "Cryo-Syrup",
-          "description": "ルーのスーパー内にいる敵の凍結メーターを即座にx%上昇させます。",
+          "description": "必殺技の効果範囲にいる敵は、凍結メーターが50％上昇する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2415,17 +2415,17 @@
       "starPowers": [
         {
           "id": 23000307,
-          "name": "暴走する炎",
+          "name": "ワイルドフレイム",
           "path": "Wild-Flames",
-          "description": "アンバーは地面に2つの燃料たまりを同時に作ることができ、その近くにいる時にスーパーを自動的にチャージします。",
+          "description": "地面に燃料の水たまりを同時に2つ作り出すことができる。燃料のそばにいる間は、必殺技のゲージが自動的に溜まる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000308,
-          "name": "灼熱サイフォン",
+          "name": "フレイムアブゾーブ",
           "path": "Scorchin-Siphon",
-          "description": "火炎液体の水たまりの近くにいる時、アンバーは火炎放射のリロードがx%速くなります。",
+          "description": "燃料の水たまりのそばにいる間は、吐き出す炎のチャージ速度が50%増加する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2433,9 +2433,9 @@
       "gadgets": [
         {
           "id": 23000309,
-          "name": "着火装置",
+          "name": "ファイアスターター",
           "path": "Fire-Starters",
-          "description": "アンバーはx秒間速く走り、その間火炎液体を撒き散らし、後から着火することができます。",
+          "description": "3秒間マップを素早く移動して、燃料を地面にまき散らす。燃料には火をつけることができる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -2443,7 +2443,7 @@
           "id": 23000488,
           "name": "ダンシングフレイム",
           "path": "Dancing-Flames",
-          "description": "アンバーはx秒間、自身の周りにx個の炎を軌道上に作り出し、ヒットするとxダメージを与えます。",
+          "description": "3個の炎の玉が5秒にわたって自分の周りを旋回し、敵に当たるたびに1890ダメージを与える。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2468,17 +2468,17 @@
       "starPowers": [
         {
           "id": 23000300,
-          "name": "押し込め！",
+          "name": "ダメ押し",
           "path": "Push-It",
-          "description": "コレットのチャージに当たった敵ブローラーは全て、攻撃の最も遠い地点まで運ばれます！",
+          "description": "必殺技に当たったすべての敵は、ダッシュの最大距離まで押し戻される。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000301,
-          "name": "集団課税",
+          "name": "重税",
           "path": "Mass-Tax",
-          "description": "コレットのスーパーは、x秒間x%のシールドを与えます。当たった敵ブローラー1体につきx%の追加防御力を得ます。",
+          "description": "必殺技を発動すると、ダメージを20％軽減するシールドが5秒間発生する。命中した敵1体ごとに、軽減率が10％増加する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2486,9 +2486,9 @@
       "gadgets": [
         {
           "id": 23000302,
-          "name": "ダメよ",
+          "name": "骨髄反射",
           "path": "Na-Ah",
-          "description": "コレットの次の攻撃は追加でxダメージを与えます。",
+          "description": "次のショットで、1500の追加ダメージを与える。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -2496,7 +2496,7 @@
           "id": 23000457,
           "name": "捕まえた！",
           "path": "Gotcha",
-          "description": "発動時、コレットの攻撃はx秒間、与えたダメージのx%分を回復します。",
+          "description": "発動してから5秒間にわたって、敵に与えたダメージの80％が自身のHPに充当される。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2521,17 +2521,17 @@
       "starPowers": [
         {
           "id": 23000283,
-          "name": "最大まで",
+          "name": "マキシマムショット",
           "path": "To-The-Max",
-          "description": "サージの通常攻撃が壁に当たると分裂するようになります。",
+          "description": "通常攻撃が壁に当たると、弾丸が分裂する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000284,
-          "name": "アイスコールド提供",
+          "name": "ベストタイミング",
           "path": "Serve-Ice-Cold",
-          "description": "サージは試合中ずっとステージ1のスーパーアップグレードを維持します。",
+          "description": "バトルの間、常に第1段階の強化が維持される。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2541,7 +2541,7 @@
           "id": 23000285,
           "name": "パワーサージ",
           "path": "Power-Surge",
-          "description": "サージは回路を過負荷にし、x秒間アップグレードステージをx上昇させます。",
+          "description": "出力のリミッターを外し、10秒にわたって自分自身を1段階強化する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -2549,7 +2549,7 @@
           "id": 23000485,
           "name": "パワーシールド",
           "path": "Power-Shield",
-          "description": "次のx秒以内に、サージは次に受けるダメージのx%を吸収し、そのエネルギーでx弾薬をリロードします。",
+          "description": "発動してから2秒以内にダメージを受けると、そのダメージを50％軽減して、弾を2発リロードする。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2574,9 +2574,9 @@
       "starPowers": [
         {
           "id": 23000240,
-          "name": "過成長",
+          "name": "急速成長",
           "path": "Overgrowth",
-          "description": "x秒ごとに、次のシードボムがより大きな爆発範囲で炸裂します。",
+          "description": "発射する種爆弾の爆発半径が大きくなる。この効果は5秒ごとに使用できる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -2584,7 +2584,7 @@
           "id": 23000241,
           "name": "光合成",
           "path": "Photosynthesis",
-          "description": "スプラウトは茂みの中にいる間、全ての攻撃から部分的に身を守るシールドを発動します。",
+          "description": "やぶの中にいる間はシールドが発生し、すべての攻撃からある程度守ってくれる。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2592,17 +2592,17 @@
       "gadgets": [
         {
           "id": 23000244,
-          "name": "ガーデンマルチ",
+          "name": "花畑の保護土",
           "path": "Garden-Mulcher",
-          "description": "スプラウトは茂みを消費してx体力を回復します。",
+          "description": "やぶを消費してHPを1800回復する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000315,
-          "name": "移植",
+          "name": "トランスプラント",
           "path": "Transplant",
-          "description": "スプラウトは現在の生垣を破壊しますが、即座にスーパーが完全チャージされます。",
+          "description": "生成した生け垣ブロックを破壊する代わりに、必殺技のゲージを瞬時に満タンにする。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2629,7 +2629,7 @@
           "id": 23000234,
           "name": "オートフォーカス",
           "path": "Autofocus",
-          "description": "ピープは移動距離に応じて最大x追加ダメージを与えます。",
+          "description": "ピープが移動距離に基づいて最大1850追加ダメージ与える。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -2637,7 +2637,7 @@
           "id": 23000235,
           "name": "強化スチール",
           "path": "Tempered-Steel",
-          "description": "ナニはスーパー発動中、受けるダメージがx%減少します。",
+          "description": "必殺技発動中に受けるダメージが80%低下する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2647,15 +2647,15 @@
           "id": 23000278,
           "name": "ワープタイム",
           "path": "Warpin-Time",
-          "description": "ナニはピープの最後の位置にテレポートし、スーパーを終了します。",
+          "description": "ナーニはピープを爆発させ、ピープが最後にいた場所にテレポートする。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000353,
-          "name": "リターントゥーセンダー",
+          "name": "差し戻し",
           "path": "Return-To-Sender",
-          "description": "次のx秒間、ナニが敵から最初に受けたダメージのx%を敵に跳ね返します。",
+          "description": "発動してから2秒以内に敵からダメージを受けると、最初のダメージの80％をその敵に返す。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2680,17 +2680,17 @@
       "starPowers": [
         {
           "id": 23000228,
-          "name": "吹雪の一撃",
+          "name": "暴風",
           "path": "Blustery-Blow",
-          "description": "ゲイルのスーパーで敵が障害物に押し付けられると、x秒間スタンさせるようになります。",
+          "description": "必殺技で押し戻されて障害物に激突した敵は1.2秒間気絶する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000229,
-          "name": "凍らせる雪",
+          "name": "凍てつく雪",
           "path": "Freezing-Snow",
-          "description": "ゲイルの雪玉が敵をx秒間スローにするようになります。",
+          "description": "雪玉に当たった敵は、0.5秒にわたってスローダウンする。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2698,9 +2698,9 @@
       "gadgets": [
         {
           "id": 23000277,
-          "name": "スプリングイジェクター",
+          "name": "バネジャンプ",
           "path": "Spring-Ejector",
-          "description": "ゲイルは足元にジャンプパッドを設置し、味方も敵も空中に打ち上げます。",
+          "description": "ゲイルは足元にジャンプ台を置いて、味方も敵も空中に跳ね上げる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -2708,7 +2708,7 @@
           "id": 23000407,
           "name": "ツイスター",
           "path": "Twister",
-          "description": "ゲイルはリーフブロワーを使用して局所的な竜巻を作り出し、通り抜けようとする敵を押し返します。",
+          "description": "噴射機で小さな竜巻を起こし、通り抜けようとする敵を押し戻す。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2735,15 +2735,15 @@
           "id": 23000222,
           "name": "カウンタークラッシュ",
           "path": "Counter-Crush",
-          "description": "ダメージを受けた時、ジャッキーはそのダメージのx%をグラウンドブレイカーの反撃として返します。",
+          "description": "ダメージを受けると、グラウンドブレイカーで反撃し30％のダメージを相手に返す。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000223,
-          "name": "頑丈なヘルメット",
+          "name": "ガチガチヘルメット",
           "path": "Hardy-Hard-Hat",
-          "description": "ジャッキーのヘルメットは受けるダメージをx%軽減します。",
+          "description": "被っている硬いヘルメットのおかげで、受けるダメージが20％減少する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2751,9 +2751,9 @@
       "gadgets": [
         {
           "id": 23000256,
-          "name": "空気圧ブースター",
+          "name": "圧縮空気ブースター",
           "path": "Pneumatic-Booster",
-          "description": "ジャッキーは勢いを得て、x秒間移動速度がx%上昇します。",
+          "description": "力を全身にみなぎらせ、4秒間25％移動速度が上がる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -2761,7 +2761,7 @@
           "id": 23000486,
           "name": "再建",
           "path": "Rebuild",
-          "description": "ジャッキーは自分の周りの小さな範囲の環境を再構築します。",
+          "description": "周囲にある障害物を作り直す。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2788,15 +2788,15 @@
           "id": 23000210,
           "name": "スーパーチャージ",
           "path": "Super-Charged",
-          "description": "マックスは移動中にスーパーをチャージできるようになります。",
+          "description": "移動中も必殺技がチャージされるようになる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000211,
-          "name": "走って撃て",
+          "name": "ダッシュリロード",
           "path": "Run-N-Gun",
-          "description": "マックスは移動中のリロードが速くなります。",
+          "description": "移動中のリロード速度が上昇する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2804,9 +2804,9 @@
       "gadgets": [
         {
           "id": 23000254,
-          "name": "フェーズシフター",
+          "name": "ギアチェンジャー",
           "path": "Phase-Shifter",
-          "description": "マックスは前方にダッシュし、ダッシュ中は敵からのすべてのダメージを無効化します。",
+          "description": "前にダッシュする。ダッシュしている間は、敵から受けるダメージがすべて無効になる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -2814,7 +2814,7 @@
           "id": 23000311,
           "name": "スニーキースニーカーズ",
           "path": "Sneaky-Sneakers",
-          "description": "マックスはx秒後に選んだ場所に瞬間移動し、その間に受けたダメージを回復します。",
+          "description": "3秒間経過後に、発動地点まで瞬時に戻る。この間に受けたダメージはすべて回復する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2839,17 +2839,17 @@
       "starPowers": [
         {
           "id": 23000204,
-          "name": "丁寧な取り扱い",
+          "name": "真心込めて",
           "path": "Handle-With-Care",
-          "description": "x秒ごとに、ミスターPの次の詰め込みすぎたスーツケースの爆発ダメージがx%増加します。",
+          "description": "次に投げるスーツケースによる爆発ダメージが、4秒間のチャージ後に40％増加する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000205,
-          "name": "回転ドア",
+          "name": "回転扉",
           "path": "Revolving-Door",
-          "description": "本拠地から出現するすべてのロボポーターの体力がx%、ダメージがx%増加します。",
+          "description": "拠点から召喚されるロボットポーターのHPが20％、敵に与えるダメージが30％増加する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2859,15 +2859,15 @@
           "id": 23000269,
           "name": "サービスベル",
           "path": "Service-Bell",
-          "description": "ミスターPは現在のポーターのダメージをx、体力をx増加させます。",
+          "description": "出現しているポーターのダメージを228、HPを1360強化する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000349,
-          "name": "ポーター増援",
+          "name": "応援ポーター",
           "path": "Porter-Reinforcements",
-          "description": "次の攻撃が着弾地点に弱いポーターを召喚します。",
+          "description": "次の通常攻撃の落下地点に、低出力のポーターの1体出現させる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2892,17 +2892,17 @@
       "starPowers": [
         {
           "id": 23000198,
-          "name": "バッドカルマ",
+          "name": "因果応報",
           "path": "Bad-Karma",
-          "description": "エムズの毒性ヘアスプレーの雲の中にとどまる敵は、ヒットごとにx%ずつ増加するダメージを受けます。",
+          "description": "彼女のヘアスプレーの範囲内にいる敵は、時間の経過とともに25％ずつ受けるダメージが増加する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000199,
-          "name": "ハイプ",
+          "name": "元気注入",
           "path": "Hype",
-          "description": "エムズはスーパーの効果範囲内にいる敵ブローラー1体につき毎秒x体力を回復します。",
+          "description": "必殺技の範囲内にいる敵1体につき、EmzのHPが毎秒576回復する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2910,17 +2910,17 @@
       "gadgets": [
         {
           "id": 23000274,
-          "name": "フレンドゾーナー",
+          "name": "フレンドゾーン",
           "path": "Friendzoner",
-          "description": "エムズは周囲の敵を押し返し、同時にxダメージを与えます。",
+          "description": "周囲にいる敵全員を押しのけ、同時に676ダメージを与える。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000459,
-          "name": "アシッドスプレー",
+          "name": "酸性スプレー",
           "path": "Acid-Spray",
-          "description": "エムズの次のヘアスプレーの噴射は壁を貫通できますが、ダメージがx%減少します。",
+          "description": "次の通常攻撃が壁をすり抜け、向こう側にいる敵まで届く。ただし、ダメージは10％低減する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2945,9 +2945,9 @@
       "starPowers": [
         {
           "id": 23000192,
-          "name": "インスタントビーロード",
+          "name": "ロイヤルゼリー",
           "path": "Insta-Beaload",
-          "description": "スーパーチャージ弾を外した場合、一度だけビーのビッグスティングが即座にスーパーチャージされます。",
+          "description": "ブーストされた攻撃を外した場合、もう1ショット分の「針の一撃」を瞬時にパワーアップする。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -2955,7 +2955,7 @@
           "id": 23000193,
           "name": "ハニカム",
           "path": "Honeycomb",
-          "description": "ビッグスティングがスーパーチャージされている間、ビーはx%のシールドを得ます。",
+          "description": "通常攻撃がパワーアップしている間、シールドを発動してダメージを30％軽減する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -2965,7 +2965,7 @@
           "id": 23000271,
           "name": "ハニーモラセス",
           "path": "Honey-Molasses",
-          "description": "ビーは周囲に粘着性のはちみつが飛び散る巣箱を設置します。はちみつを踏んだ敵の移動速度が低下します。",
+          "description": "ネバネバのはちみつが付いたハチの巣を設置し、あふれ出た蜜に触れた敵をスローダウンさせる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -2973,7 +2973,7 @@
           "id": 23000312,
           "name": "怒れる巣箱",
           "path": "Rattled-Hive",
-          "description": "ビーはx匹の怒ったミツバチを放ち、遠くに行くほど多くのダメージ（最大xダメージ）を与えます。",
+          "description": "怒ったハチが4匹が、渦を描くように周囲を飛び回る。ハチが遠くに行くほど、与えるダメージが大きくなる(最大1200ダメージ)。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -2998,9 +2998,9 @@
       "starPowers": [
         {
           "id": 23000186,
-          "name": "荒れ狂う砂",
+          "name": "荒ぶる砂",
           "path": "Rude-Sands",
-          "description": "砂嵐が敵に毎秒xダメージを与えるようになります。",
+          "description": "砂嵐が、範囲内にいる敵に毎秒216ダメージを与えるようになる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -3008,7 +3008,7 @@
           "id": 23000187,
           "name": "癒しの風",
           "path": "Healing-Winds",
-          "description": "砂嵐が味方ブローラーの体力を毎秒x回復するようになります。",
+          "description": "砂嵐が、範囲内にいる味方のHPを毎秒380回復する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -3016,17 +3016,17 @@
       "gadgets": [
         {
           "id": 23000270,
-          "name": "睡眠スティミュレーター",
+          "name": "睡眠刺激薬",
           "path": "Sleep-Stimulator",
-          "description": "サンディはx秒間眠り、体力が完全に回復します。",
+          "description": "1.5秒間眠りに落ちるが、HPが全回復する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000405,
-          "name": "スイートドリーム",
+          "name": "甘い夢",
           "path": "Sweet-Dreams",
-          "description": "サンディの次の攻撃は敵をx秒間眠らせます。ただし、ダメージを受けると目を覚まします。",
+          "description": "次の通常攻撃で、敵を1.0秒間眠りに落とす。ただし、敵はダメージを受けると目を覚ます。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -3051,17 +3051,17 @@
       "starPowers": [
         {
           "id": 23000168,
-          "name": "強化ブースター",
+          "name": "ダメージブースター",
           "path": "Boosted-Booster",
-          "description": "ダメージブースターの範囲がx%増加し、ダメージボーナスが追加でx%上昇します。",
+          "description": "ダメージブースターの効果範囲が50％拡大し、与えるダメージがさらに15％増加する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000181,
-          "name": "プラグイン",
+          "name": "ワイヤレス充電",
           "path": "Plugged-In",
-          "description": "8-ビットがダメージブースターの近くにいる時、プラグインして移動速度が上昇します。",
+          "description": "ダメージブースターの近くにいると、電力供給を受けて移動速度が増加する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -3069,17 +3069,17 @@
       "gadgets": [
         {
           "id": 23000259,
-          "name": "チートカートリッジ",
+          "name": "裏技カセット",
           "path": "Cheat-Cartridge",
-          "description": "8-ビットは即座にダメージブースターにテレポートします。",
+          "description": "ダメージブースターの位置まで瞬時にテレポートする。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000318,
-          "name": "エクストラクレジット",
+          "name": "ボーナスクレジット",
           "path": "Extra-Credits",
-          "description": "8-ビットの次の攻撃の発射弾数がx発に増加します。",
+          "description": "次の攻撃で、発射するブラスタービームの数が18発に増える。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -3104,17 +3104,17 @@
       "starPowers": [
         {
           "id": 23000134,
-          "name": "ホームラン",
+          "name": "盗塁王",
           "path": "Home-Run",
-          "description": "ホームランゲージが満タンの時、ビビの移動速度がx%上昇します。",
+          "description": "ホームランゲージが満タンの間、移動速度が12％向上する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000146,
-          "name": "バッティングスタンス",
+          "name": "打撃の構え",
           "path": "Batting-Stance",
-          "description": "ホームランゲージが満タンの時、ビビはすべてのダメージをx%軽減します。",
+          "description": "ホームランゲージが満タンの間、受けるダメージが20％減少する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -3124,15 +3124,15 @@
           "id": 23000275,
           "name": "ビタミンブースター",
           "path": "Vitamin-Booster",
-          "description": "ビビはx秒間、毎秒x体力を回復します。",
+          "description": "4秒間、毎秒960ずつHPを回復する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000458,
-          "name": "エクストラスティッキー",
+          "name": "増強ガム",
           "path": "Extra-Sticky",
-          "description": "ビビの次の唾玉は当たった敵をx秒間スローにします！",
+          "description": "次の必殺技が命中すると、敵を3秒間にわたってスローダウンする。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -3157,17 +3157,17 @@
       "starPowers": [
         {
           "id": 23000129,
-          "name": "パワースロー",
+          "name": "力投",
           "path": "Power-Throw",
-          "description": "カールのツルハシの投げ速度がx%上昇し、より速く往復できます。",
+          "description": "カールが投げるツルハシの速度が10％増加し、より早く戻ってくるようになる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000145,
-          "name": "防御ピルエット",
+          "name": "防護スピン",
           "path": "Protective-Pirouette",
-          "description": "カールのスーパー中、受けるダメージがx%減少します。",
+          "description": "必殺技の発動中は、受けるダメージが35％減少する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -3175,17 +3175,17 @@
       "gadgets": [
         {
           "id": 23000262,
-          "name": "ヒートイジェクター",
+          "name": "灼熱インジェクター",
           "path": "Heat-Ejector",
-          "description": "次に投げるツルハシは後ろに熱い岩の跡を残します！触れた敵は炎上し、毎秒xダメージを受けます。",
+          "description": "次の通常攻撃で、ツルハシの下にアツアツの石を落とす。石に触れた敵は引火し、毎秒740ダメージを受ける。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000317,
-          "name": "フライングフック",
+          "name": "空飛ぶフック",
           "path": "Flying-Hook",
-          "description": "カールの次の攻撃で、ツルハシは攻撃の最遠点まで彼を引っ張ります。",
+          "description": "次の攻撃で、投げたツルハシの最高到達地点まで自分を引き寄せる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -3210,17 +3210,17 @@
       "starPowers": [
         {
           "id": 23000124,
-          "name": "プラントライフ",
+          "name": "雑草魂",
           "path": "Plant-Life",
-          "description": "茂みの中にいる時、ローザは毎秒x体力を回復します。",
+          "description": "やぶに入ると自身のHPが毎秒300回復する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000147,
-          "name": "トゲのグローブ",
+          "name": "トゲトゲグローブ",
           "path": "Thorny-Gloves",
-          "description": "スーパー発動中、ローザのパンチのダメージが+x増加します。",
+          "description": "必殺技の発動中は、パンチのダメージが+276増加する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -3228,17 +3228,17 @@
       "gadgets": [
         {
           "id": 23000242,
-          "name": "グロウライト",
+          "name": "成長促進ライト",
           "path": "Grow-Light",
-          "description": "ローザは周囲の地面を肥沃にし、即座に茂みを生やして優れた隠れ場所を作り出します。",
+          "description": "周囲の地面に肥料を撒くと、瞬時にやぶが出現し、身を隠すことができる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000348,
-          "name": "不快な茂み",
+          "name": "やぶの反撃",
           "path": "Unfriendly-Bushes",
-          "description": "茂みに隠れているすべての敵にxダメージを与え、x秒間スローにします。",
+          "description": "やぶの中に隠れている敵全員に276ダメージを与え、3秒間スローダウンさせる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -3263,9 +3263,9 @@
       "starPowers": [
         {
           "id": 23000119,
-          "name": "スモークトレイル",
+          "name": "煙遁の術",
           "path": "Smoke-Trails",
-          "description": "レオンがスーパーを使用すると、透明化している間移動速度がx%上昇します。",
+          "description": "必殺技を発動すると、周りから姿が見えない間の移動速度が30%ブーストされる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -3273,7 +3273,7 @@
           "id": 23000141,
           "name": "インビジヒール",
           "path": "Invisiheal",
-          "description": "スーパー発動中、レオンは毎秒x体力を回復します。",
+          "description": "必殺技の発動中は、レオンのHPが毎秒1360回復する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -3283,7 +3283,7 @@
           "id": 23000276,
           "name": "クローンプロジェクター",
           "path": "Clone-Projector",
-          "description": "レオンは敵を惑わすために自身の幻影を作り出します。",
+          "description": "自分の分身を召喚し、敵を混乱させる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -3291,7 +3291,7 @@
           "id": 23000408,
           "name": "ロリポップドロップ",
           "path": "Lollipop-Drop",
-          "description": "レオンはチーム全体が隠れることができるステルスエリアを作り出します。ロリポップは時間とともにゆっくりと体力が減少します。",
+          "description": "味方が透明になるエリアを作り出す。キャンディのHPは時間とともにゆっくりと減少する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -3316,17 +3316,17 @@
       "starPowers": [
         {
           "id": 23000114,
-          "name": "メンテナンス済み",
+          "name": "潤滑良好",
           "path": "Well-Oiled",
-          "description": "ティックがダメージを受けず攻撃もしていない時、通常よりx秒早く体力の回復を開始します。",
+          "description": "ダメージを受けず攻撃も行わなければ、ティックのHPが通常より2秒速く回復する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000161,
-          "name": "オートマティックリロード",
+          "name": "オートマ・ティック装填",
           "path": "Automa-Tick-Reload",
-          "description": "ティックのリロード時間がx%短くなります。",
+          "description": "リロード時間が9％短縮される。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -3334,17 +3334,17 @@
       "gadgets": [
         {
           "id": 23000253,
-          "name": "マインマニア",
+          "name": "地雷マニア",
           "path": "Mine-Mania",
-          "description": "ティックの次の攻撃でx個の地雷を発射します。",
+          "description": "次の攻撃で、6個の地雷を投げる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000355,
-          "name": "ラストフーラー",
+          "name": "最後のひと踏ん張り",
           "path": "Last-Hurrah",
-          "description": "ティックはx秒間x%のシールドを得ます。その後、爆発してxダメージを与えます。",
+          "description": "1秒間にわたってシールドを発動し、ダメージを50％軽減する。効果時間が過ぎると、シールドが爆発して1280ダメージを与える。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -3369,17 +3369,17 @@
       "starPowers": [
         {
           "id": 23000109,
-          "name": "マジックパフ",
+          "name": "魔法の吐息",
           "path": "Magic-Puffs",
-          "description": "ジーンは周囲の味方ブローラーの体力を毎秒x回復します。",
+          "description": "周囲にいる仲間のHPが毎秒576回復する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000159,
-          "name": "スピリットスラップ",
+          "name": "一発入魂",
           "path": "Spirit-Slap",
-          "description": "ジーンのマジックハンドはヒット時にxダメージを与えるようになります。",
+          "description": "魔法の手で敵にダメージも与えることができる。(命中ダメージ2000)。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -3387,17 +3387,17 @@
       "gadgets": [
         {
           "id": 23000252,
-          "name": "ランプブローアウト",
+          "name": "風おこしランプ",
           "path": "Lamp-Blowout",
-          "description": "ジーンの近くの敵を即座に押し返します。範囲内に敵ブローラーが1体でもいる場合、ジーンは最大体力のx%を回復します。",
+          "description": "近くにいる敵全員を瞬時にノックバックする。効果範囲内に敵が1体以上いた場合、自身の最大HPの10％を回復する。%を回復します。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000352,
-          "name": "復讐の霊",
+          "name": "復讐心",
           "path": "Vengeful-Spirits",
-          "description": "ジーンは広範囲内の見える敵全てに追尾ミサイルを発射し、距離に応じて最大xダメージを与えます。",
+          "description": "射程内にいるすべての敵に、広範囲にわたってホーミングミサイルを発射し、距離に応じて最大1600ダメージを与える。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -3422,9 +3422,9 @@
       "starPowers": [
         {
           "id": 23000104,
-          "name": "パワーグラブ",
+          "name": "正気泥棒",
           "path": "Power-Grab",
-          "description": "フランクは倒したブローラーのパワーを奪い、x秒間ダメージがx%上昇します！",
+          "description": "倒した敵の生気を吸い取ることで、12秒間にわたってダメージが25％増加する！",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -3432,7 +3432,7 @@
           "id": 23000153,
           "name": "スポンジ",
           "path": "Sponge",
-          "description": "フランクの体力が+x増加します。",
+          "description": "自身のHPが+1340増加する。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -3440,17 +3440,17 @@
       "gadgets": [
         {
           "id": 23000261,
-          "name": "アクティブノイズキャンセリング",
+          "name": "ノイズキャンセリング",
           "path": "Active-Noise-Canceling",
-          "description": "フランクは自身の無効化効果を解除し、一時的にスタン、スロー、ノックバックに対して無効になります。",
+          "description": "自分が受けている状態異常の効果をすべて無効化し、一時的に気絶、スローダウン、ノックバックを受けなくなる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000351,
-          "name": "抗えない引力",
+          "name": "不可抗力",
           "path": "Irresistible-Attraction",
-          "description": "フランクの次の攻撃は追加でx%のダメージを与え、敵を引き寄せます。",
+          "description": "次の通常攻撃で敵を自分の方へ引き寄せ、50％の追加ダメージを与える。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -3475,9 +3475,9 @@
       "starPowers": [
         {
           "id": 23000099,
-          "name": "重い財布",
+          "name": "お宝ザクザク",
           "path": "Heavy-Coffers",
-          "description": "ペニーの金貨の袋は、各ヒット後にx%広い円錐形で破裂します。",
+          "description": "金貨の飛び散る範囲が、敵に命中するたびに100％広くなる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -3485,7 +3485,7 @@
           "id": 23000142,
           "name": "マスターブラスター",
           "path": "Master-Blaster",
-          "description": "ペニーの大砲は着地時にxダメージを与え、近くの敵をノックバックさせます。",
+          "description": "大砲を配置した場所にいる敵をノックバックし、1372ダメージを与える。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -3493,17 +3493,17 @@
       "gadgets": [
         {
           "id": 23000248,
-          "name": "塩の樽",
+          "name": "ソルティーバレル",
           "path": "Salty-Barrel",
-          "description": "ペニーは敵の弾を遮断する塩の樽を設置します。自身の金貨の袋を破裂させるのにも使えます。",
+          "description": "塩の入ったタルを出現させて敵の攻撃を防ぐ。自らタルを攻撃すると、袋の金貨が拡散される。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000287,
-          "name": "信頼の望遠鏡",
+          "name": "カリブの望遠鏡",
           "path": "Trusty-Spyglass",
-          "description": "ペニーの大砲は、範囲内の見える敵の位置すべてに砲撃を放ちます。",
+          "description": "ペニーの大砲が、射程内の見える敵すべてに砲撃を放つ。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -3528,17 +3528,17 @@
       "starPowers": [
         {
           "id": 23000094,
-          "name": "スチールフープ",
+          "name": "鋼の盾",
           "path": "Steel-Hoops",
-          "description": "バレルロール後、x秒間ダリルの受けるダメージがx%減少します。",
+          "description": "バレルロールを発動すると、受けるダメージを2秒にわたって25％軽減する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000157,
-          "name": "ローリングリロード",
+          "name": "瞬速リロード",
           "path": "Rolling-Reload",
-          "description": "ダリルがスーパーを使用すると、x秒間リロード速度が2倍になります。",
+          "description": "必殺技を発動すると、リロード速度が5秒間2倍になる。",
           "recommendationLevel": 5,
           "recommendationReason": ""
         }
@@ -3546,17 +3546,17 @@
       "gadgets": [
         {
           "id": 23000260,
-          "name": "反動ローテーター",
+          "name": "パワースプリング",
           "path": "Recoiling-Rotator",
-          "description": "ダリルは回転しながらあらゆる方向に弾を放ちます。各弾はxダメージを与え、敵に当たるとスーパーをx%チャージします！",
+          "description": "身体を回転させながら、あらゆる方向に弾丸を放つ。弾丸1発につき600ダメージを与え、敵に命中すると必殺技ゲージが25%ずつ溜まっていく。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000313,
-          "name": "タルバレル",
+          "name": "タールバレル",
           "path": "Tar-Barrel",
-          "description": "ダリルは自身の周りにx秒間スロー効果のある範囲を作り出します。",
+          "description": "敵の移動速度を低下させるエリアを周囲に5秒間生成する。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -3581,9 +3581,9 @@
       "starPowers": [
         {
           "id": 23000093,
-          "name": "ブラックポータル",
+          "name": "影武者",
           "path": "Black-Portal",
-          "description": "タラのスーパーは次元のポータルを開きます！タラの影のバージョンが現れて敵を攻撃します。",
+          "description": "神秘の力で次元の扉が開かれる...！彼女の影が現れて、次々に敵を攻撃する。",
           "recommendationLevel": 3,
           "recommendationReason": "投げの敵が多い時は強いが、刺さらない時が多い。"
         },
@@ -3591,7 +3591,7 @@
           "id": 23000160,
           "name": "癒しの影",
           "path": "Healing-Shade",
-          "description": "タラのスーパーは次元のポータルを開きます！タラの影のバージョンが現れてタラとチームメイトを回復します。",
+          "description": "異次元の空間から解き放たれたタラの影が、自身やチームメイトを回復する。",
           "recommendationLevel": 5,
           "recommendationReason": "回復量も多く体力の低い味方を追従するため影自体の生存時間も長く強力。"
         }
@@ -3601,15 +3601,15 @@
           "id": 23000266,
           "name": "サイキック活性化剤",
           "path": "Psychic-Enhancer",
-          "description": "タラと味方は、4秒間茂みの中にいる敵も含めてすべての敵を見ることができます。",
+          "description": "自分と味方が、やぶに隠れている敵全員を4秒間にわたって見透かすことができるようになる。",
           "recommendationLevel": 4,
           "recommendationReason": "草むらが多いマップでは使えるが汎用性は低い。"
         },
         {
           "id": 23000356,
-          "name": "彼方からの支援",
+          "name": "彼方からの使者",
           "path": "Support-From-Beyond",
-          "description": "タラは自身の周りに3体の弱い影を召喚し、敵を攻撃して6秒後に消滅します。",
+          "description": "自分の周りに弱い影を3体出現させ、敵を攻撃する。影は6秒経つと消える。",
           "recommendationLevel": 5,
           "recommendationReason": "守りでも攻めでも非常に強力でいつでも使える。"
         }
@@ -3634,19 +3634,19 @@
       "starPowers": [
         {
           "id": 23000092,
-          "name": "ママのハグ",
+          "name": "ママの抱擁",
           "path": "Mamas-Hug",
-          "description": "メタルストームで敵を攻撃するたびに、自身と近くの味方の体力が96回復します。",
+          "description": "メタルストームで敵を攻撃するたび、自身と周辺の仲間のHPが96回復する。",
           "recommendationLevel": 3,
           "recommendationReason": "回復量と効果の範囲が狭く少し微妙。"
         },
         {
           "id": 23000139,
-          "name": "ママのスクイーズ",
+          "name": "ママのベアハッグ",
           "path": "Mamas-Squeeze",
-          "description": "回復タレットが敵に毎秒960ダメージも与えるようになります。",
+          "description": "癒しのタレットが、敵に毎秒960ダメージを与えるようになる。",
           "recommendationLevel": 5,
-          "recommendationReason": "確実に敵を倒したい時や壁裏に配置する時に使用すると非常に強力なものとなる。￥"
+          "recommendationReason": "確実に敵を倒したい時や壁裏に配置する時に使用すると非常に強力なものとなる。"
         }
       ],
       "gadgets": [
@@ -3654,15 +3654,15 @@
           "id": 23000257,
           "name": "パルスモジュレーター",
           "path": "Pulse-Modulator",
-          "description": "パムはタレットにパルスを発生させ、タレットの範囲内の味方と自分の体力を1920回復させます。",
+          "description": "タレットから波動を発生させ、射程内にいる味方と自分のHPを1920回復する。",
           "recommendationLevel": 1,
           "recommendationReason": "回復量が微量なのと使用条件が厳しく汎用性に欠ける。"
         },
         {
           "id": 23000404,
-          "name": "スクラップサッカー",
+          "name": "ガラクタ吸収",
           "path": "Scrapsucker",
-          "description": "パムの次の攻撃の各ヒットは、敵ブローラーの最大弾薬の25%を除去します。パムはその弾薬の50%を回収します。",
+          "description": "次の通常攻撃が命中すると、弾丸1発ごとに敵キャラクターの最大装弾数の25％を減少させ、その内50％を自分にチャージする。",
           "recommendationLevel": 5,
           "recommendationReason": "タンクやアサシンに攻撃を当てると基本的にタイマンが負けなくなるため超強力。"
         }
@@ -3689,15 +3689,15 @@
           "id": 23000091,
           "name": "待ち伏せ",
           "path": "Ambush",
-          "description": "エリザベスが茂みに隠れている時、攻撃が（最大射程で）+1190の追加ダメージを与えます。",
+          "description": "やぶに隠れた状態で攻撃すると、最大射程において+1190の追加ダメージが発生する。",
           "recommendationLevel": 5,
           "recommendationReason": "草むらがあるマップではかなり重宝する。"
         },
         {
           "id": 23000152,
-          "name": "スナッピースナイピング",
+          "name": "スナッピースナイプ",
           "path": "Snappy-Sniping",
-          "description": "エリザベスの攻撃が敵に当たると、即座に0.4発の弾を瞬時にリロードします。",
+          "description": "敵にダメージを与えた際に、0.4発の弾を瞬時にリロードする。",
           "recommendationLevel": 5,
           "recommendationReason": "汎用性があまりにも高いためどの状況でも使用できるため、一番無難。"
         }
@@ -3705,17 +3705,17 @@
       "gadgets": [
         {
           "id": 23000268,
-          "name": "オートエイマー",
+          "name": "自動照準器",
           "path": "Auto-Aimer",
-          "description": "エリザベスは最も近い敵に防御射撃を放ち、xダメージを与えながら押し返してスローにします。",
+          "description": "一番近くにいる敵に高速で射撃を浴びせ、170ダメージを与えてノックバックさせる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
         {
           "id": 23000291,
-          "name": "自家製レシピ",
+          "name": "ホームメイドレシピ",
           "path": "Homemade-Recipe",
-          "description": "発動時、エリザベスの次の通常攻撃が敵に追尾します。",
+          "description": "使用すると、エリザベスの次の通常攻撃が敵にホーミングされる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -3742,7 +3742,7 @@
           "id": 23000090,
           "name": "鷹の目",
           "path": "Circling-Eagle",
-          "description": "ボウは通常より150%長い距離から茂みに隠れている敵を発見できます。",
+          "description": "やぶに隠れた敵を、通常の150％の距離から見つけられる。",
           "recommendationLevel": 2,
           "recommendationReason": "草むらだらけの「ジグザグ草原」というマップでは重宝するがそれ以外では基本使えない。"
         },
@@ -3750,7 +3750,7 @@
           "id": 23000148,
           "name": "ベアトラップ",
           "path": "Snare-A-Bear",
-          "description": "ノックバックの代わりに、ボウの罠が敵を2秒間スタンさせるようになります！",
+          "description": "トラップが敵を2秒間気絶させる(ノックバックは無効)。",
           "recommendationLevel": 5,
           "recommendationReason": "地雷に引っ掛かれば死は免れなくなるため恐ろしすぎる効果が付与される。"
         }
@@ -3760,15 +3760,15 @@
           "id": 23000263,
           "name": "スーパートーテム",
           "path": "Super-Totem",
-          "description": "ボウは味方のスーパーチャージ速度を50%増加させるトーテムを設置します。トーテムは時間とともに体力が減少します。",
+          "description": "トーテムを出現させ、仲間の必殺技のチャージ率を50％増加させる。トーテムのHPは時間とともに少しずつ減少する。",
           "recommendationLevel": 2,
           "recommendationReason": "動画の企画や何らかの戦術以外では基本使用されない。"
         },
         {
           "id": 23000289,
-          "name": "トリップワイヤー",
+          "name": "ワイヤートラップ",
           "path": "Tripwire",
-          "description": "1.5秒後に全ての地雷を起爆させます。遅延中、地雷は敵から完全に見えなくなります。",
+          "description": "1.5秒後にすべての地雷を起爆させる。起爆するまで、敵は地雷がどこにあるか分からない。",
           "recommendationLevel": 5,
           "recommendationReason": "破壊したい壁や狙いすまして敵を地雷に引っ掛けるなど攻撃の幅が広く強力。"
         }
@@ -3795,15 +3795,15 @@
           "id": 23000089,
           "name": "ダ・カーポ",
           "path": "Da-Capo",
-          "description": "ポコの攻撃が味方ブローラーに当たると、体力を962回復させるようになります。",
+          "description": "彼の攻撃が仲間に当たると、その仲間のHPが962回復する。",
           "recommendationLevel": 4,
           "recommendationReason": "タンクとの相性が良く強引に前線を押し上げられるきっかけとなる。"
         },
         {
           "id": 23000144,
-          "name": "咽び泣くギター",
+          "name": "むせび泣くギター",
           "path": "Screeching-Solo",
-          "description": "ポコのスーパーが敵にも1520ダメージを与えるようになります。",
+          "description": "必殺技が、敵に対して1520ダメージを与える。",
           "recommendationLevel": 5,
           "recommendationReason": "広い範囲で壁を貫通して攻撃を与えられるため、確定キルや回復阻止などを狙えるため強力"
         }
@@ -3813,13 +3813,13 @@
           "id": 23000267,
           "name": "癒しの音叉",
           "path": "Tuning-Fork",
-          "description": "ポコと近くの味方全員が、5秒間毎秒740体力を回復します。",
+          "description": "自分と周囲にいる味方のHPが5秒間、毎秒740回復する。",
           "recommendationLevel": 5,
           "recommendationReason": "回復量がかなり多いためかなり強気で前線を押し上げられるきっかけとなる"
         },
         {
           "id": 23000350,
-          "name": "守りのメロディー",
+          "name": "護りのメロディー",
           "path": "Protective-Tunes",
           "description": "味方の状態異常を癒す効果を広範囲に発動し、状態異常攻撃を4秒間無効にする。",
           "recommendationLevel": 3,
@@ -3848,15 +3848,15 @@
           "id": 23000088,
           "name": "猛毒",
           "path": "Extra-Toxic",
-          "description": "クロウの毒が敵の力を奪い、毒状態の敵の与えるダメージが15%減少します。",
+          "description": "味方の状態異常を癒す効果を広範囲に発動し、状態異常攻撃を4秒間無効にする。",
           "recommendationLevel": 4,
           "recommendationReason": "敵の攻撃力が下がるため死亡するリスクが減少する。"
         },
         {
           "id": 23000143,
-          "name": "キャリオンクロウ",
+          "name": "カリオン・クロウ",
           "path": "Carrion-Crow",
-          "description": "体力が50%以下の敵に対して、通常攻撃とスーパーのダメージが+40%増加します。",
+          "description": "HPが50%以下の敵に対して、クロウの通常攻撃と必殺技で+40%の追加ダメージが発生する。",
           "recommendationLevel": 5,
           "recommendationReason": "低体力の敵をかなり倒しやすくなるためアサシンとの相性が良い。"
         }
@@ -3866,15 +3866,15 @@
           "id": 23000243,
           "name": "防御ブースター",
           "path": "Defense-Booster",
-          "description": "3秒間、受けるダメージを40%軽減するシールドを展開します。",
+          "description": "3秒間にわたってシールドを発動し、受けるダメージの40%を無効にする。",
           "recommendationLevel": 3,
           "recommendationReason": "耐久力が大幅に上昇して強いが元の体力が低すぎるため相性が悪い。"
         },
         {
           "id": 23000286,
-          "name": "スローイングトキシン",
+          "name": "スローダウンポイズン",
           "path": "Slowing-Toxin",
-          "description": "毒状態の敵全てを2秒間減速させます。",
+          "description": "使用時に毒状態の敵全員の動きが、2秒間遅くなる。",
           "recommendationLevel": 5,
           "recommendationReason": "好きなタイミングで敵に遅延をかけることができるため超強力。"
         }
@@ -3901,7 +3901,7 @@
           "id": 23000087,
           "name": "魂狩り",
           "path": "Creepy-Harvest",
-          "description": "倒した相手の生命エネルギーを刈り取り、最大体力の20%を回復します。",
+          "description": "倒した敵の魂を刈り取ることで、自身の最大HPの20％を回復する。",
           "recommendationLevel": 4,
           "recommendationReason": "複数の敵を倒そうとする際に安定度が増すためモーティス初心者には優しい。"
         },
@@ -3909,7 +3909,7 @@
           "id": 23000154,
           "name": "蛇の跳躍",
           "path": "Coiled-Snake",
-          "description": "長距離ダッシュのチャージ時間が2秒短縮されます。",
+          "description": "長距離ダッシュのチャージにかかる時間が2秒短くなる。",
           "recommendationLevel": 5,
           "recommendationReason": "機動力が大幅に増えるため攻撃のチャンスが増えるが、体力管理が難しくなる上級者向けの強力なスターパワー"
         }
@@ -3919,7 +3919,7 @@
           "id": 23000265,
           "name": "コンボスピナー",
           "path": "Combo-Spinner",
-          "description": "シャベルを回転させ、周囲の敵全てにxダメージを与えます。",
+          "description": "シャベルを振り回し、周りの敵全員に2000ダメージを与える。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         },
@@ -3927,7 +3927,7 @@
           "id": 23000290,
           "name": "サバイバルシャベル",
           "path": "Survival-Shovel",
-          "description": "x秒間、リロード速度が上昇します。",
+          "description": "4秒間リロードが速くなる。",
           "recommendationLevel": 4,
           "recommendationReason": ""
         }
@@ -3954,7 +3954,7 @@
           "id": 23000086,
           "name": "バーニングドロップ",
           "path": "El-Fuego",
-          "description": "スーパースキルに巻き込まれた敵に4秒間で合計1800ダメージを与える炎上効果を付与します。",
+          "description": "彼の必殺技の標的となった敵は、4秒間にわたり炎に包まれ1800ダメージを受ける。",
           "recommendationLevel": 4,
           "recommendationReason": "火力が上がり敵を倒し切りやすくなる。"
         },
@@ -3962,7 +3962,7 @@
           "id": 23000140,
           "name": "流星雨",
           "path": "Meteor-Rush",
-          "description": "スーパースキル使用後、4秒間移動速度が25%上昇します。",
+          "description": "必殺技の発動後、4秒間にわたって速度が25%ブーストされる。",
           "recommendationLevel": 5,
           "recommendationReason": "必殺技で敵を倒してから次の敵を倒すのに必須となる。"
         }
@@ -3970,9 +3970,9 @@
       "gadgets": [
         {
           "id": 23000264,
-          "name": "スープレックスサプリメント",
+          "name": "スープレックスサプリ",
           "path": "Suplex-Supplement",
-          "description": "範囲内の最も近い敵をつかみ、パンケーキのように背後に投げ飛ばします。",
+          "description": "手近な敵をつかんで、パンケーキをひっくり返すようにヒラリと後ろに投げ飛ばす。",
           "recommendationLevel": 5,
           "recommendationReason": "確定シュートや一瞬攻撃できない状況を作れるのがかなり強力。"
         },
@@ -3980,7 +3980,7 @@
           "id": 23000292,
           "name": "アステロイドベルト",
           "path": "Asteroid-Belt",
-          "description": "最も近い敵に小隕石を落下させます。3040ダメージを与え、壁を破壊します。",
+          "description": "小惑星を召喚して最も近くにいる敵にぶつける。3040ダメージを与え、壁を破壊する。",
           "recommendationLevel": 1,
           "recommendationReason": "よほど特別な戦術がない限りタンクで壁を壊すのはナンセンス。"
         }
@@ -4007,7 +4007,7 @@
           "id": 23000085,
           "name": "爆風ジャンプ",
           "path": "Dyna-Jump",
-          "description": "爆発の衝撃波を利用して、障害物を飛び越えることができます！",
+          "description": "自ら生み出す爆風に乗って、障害物を飛び越える！",
           "recommendationLevel": 3,
           "recommendationReason": "使用の難易度があまりにも高すぎるため、強力だがオススメができない。"
         },
@@ -4015,7 +4015,7 @@
           "id": 23000155,
           "name": "解体屋",
           "path": "Demolition",
-          "description": "必殺技のダメージが+1600増加します。",
+          "description": "必殺技に+1600ダメージを増加する。",
           "recommendationLevel": 5,
           "recommendationReason": "火力の底上げで一撃で倒せるようになる敵が多くかなり強い"
         }
@@ -4025,15 +4025,15 @@
           "id": 23000258,
           "name": "危機一髪スピナー",
           "path": "Fidget-Spinner",
-          "description": "移動速度が上昇し、周囲に複数のダイナマイトを投げながら激しく回転します。各ダイナマイトは敵に2400ダメージを与えます。",
+          "description": "激しく身体を回転させて、ダイナマイトを勢いよく周囲にまき散らす。敵にダイナマイトが当たるたびに2400ダメージを与える。",
           "recommendationLevel": 3,
           "recommendationReason": "弱くはないがもう片方のガジェットが優秀すぎる。"
         },
         {
           "id": 23000294,
-          "name": "サッチェルチャージ",
+          "name": "梱包爆薬",
           "path": "Satchel-Charge",
-          "description": "発動後、次の通常攻撃は敵を1.5秒間スタンさせます。",
+          "description": "使用すると、次の通常攻撃は敵を1.5秒間気絶させる。",
           "recommendationLevel": 5,
           "recommendationReason": "これを当てて数発攻撃を打つと確実に敵を倒せるため最強のガジェットの一つとされている。"
         }
@@ -4060,7 +4060,7 @@
           "id": 23000084,
           "name": "森の絆",
           "path": "Bear-With-Me",
-          "description": "クマが敵に攻撃を当てるたびにニタのHPが1040回復します。ニタが敵にダメージを与えるとクマのHPが1040回復します。",
+          "description": "クマが敵を攻撃するたびにニタのHPが1040回復し、ニタが敵にダメージを与えるとクマのHPが1040回復する。",
           "recommendationLevel": 5,
           "recommendationReason": "クマとニタの生存力が増すため前線を押し続けやすくなる。"
         },
@@ -4068,7 +4068,7 @@
           "id": 23000136,
           "name": "ハイパーベア",
           "path": "Hyper-Bear",
-          "description": "クマの攻撃速度が上がる。攻撃の間隔が60%短縮されます。",
+          "description": "クマの攻撃速度が上がる。攻撃の間隔は60%減少する。",
           "recommendationLevel": 4,
           "recommendationReason": "強奪でのみ非常に強力。"
         }
@@ -4078,7 +4078,7 @@
           "id": 23000249,
           "name": "クマの手",
           "path": "Bear-Paws",
-          "description": "クマが地面を強烈に叩きつけ、効果範囲内の全ての絵t機を気絶させる",
+          "description": "クマが地面を強烈に叩いて、効果範囲内のすべての敵を気絶させる。",
           "recommendationLevel": 4,
           "recommendationReason": "タンクが多い状況ではかなり強力で、サッカーでのみ使用されることが多い。"
         },
@@ -4113,7 +4113,7 @@
           "id": 23000083,
           "name": "リチャージ",
           "path": "Energize",
-          "description": "攻撃でタレットに命中すると、失ったHPを1060を回復できる。",
+          "description": "自分の攻撃でタレットに電気を送り込むことで、失ったHPを1060回復できる。",
           "recommendationLevel": 5,
           "recommendationReason": "タレットの生存力が増すため前線を押し続けやすくなる。"
         },
@@ -4121,7 +4121,7 @@
           "id": 23000149,
           "name": "ショッキング",
           "path": "Shocky",
-          "description": "タレットの攻撃が敵の間で跳ね返るようになります。跳ね返り後の射程は通常の51%になります。",
+          "description": "がらくタレットが、敵から敵へと跳ね返るエネルギー弾を発射するようになる。跳ねた後の飛距離は、通常の51％となる。",
           "recommendationLevel": 3,
           "recommendationReason": "使用するタイミングが限られすぎていて汎用性が低すぎる。"
         }
@@ -4131,7 +4131,7 @@
           "id": 23000251,
           "name": "スパークプラグ",
           "path": "Spark-Plug",
-          "description": "タレットから衝撃波を放ち、範囲内の敵全てを減速させます。",
+          "description": "タレットから衝撃波を出し、効果範囲内のすべての敵の動きをスローダウンさせる。",
           "recommendationLevel": 5,
           "recommendationReason": "タレットを投げて直後に打つと確実にスローダウンを与えられるため強力"
         },
@@ -4139,7 +4139,7 @@
           "id": 23000295,
           "name": "リコイルスプリング",
           "path": "Recoil-Spring",
-          "description": "5秒間、タレットの攻撃速度が2倍になります。",
+          "description": "がらくタレットの攻撃速度が、5秒間2倍になる。",
           "recommendationLevel": 3,
           "recommendationReason": "強奪でのみ非常に強力。"
         }
@@ -4184,7 +4184,7 @@
           "id": 23000250,
           "name": "ネバネバシロップミキサー",
           "path": "Sticky-Syrup-Mixer",
-          "description": "粘着性の液体を散布し、触れた敵を減速させる水たまりを作ります。",
+          "description": "ネバネバの混ぜものを落として水たまりを作る。触れた敵は動きが遅くなる。",
           "recommendationLevel": 3,
           "recommendationReason": "タンクが多い時のみ、減速で逃げ切れるため重宝する"
         },
@@ -4278,7 +4278,7 @@
         },
         {
           "id": 23000156,
-          "name": "ロボリトリート",
+          "name": "ロボ流退却",
           "path": "Robo-Retreat",
           "description": "体力が40%を下回ると、移動速度が34%上昇します！",
           "recommendationLevel": 5,
@@ -4404,7 +4404,7 @@
           "id": 23000310,
           "name": "グランドシェーカー",
           "path": "Stomper",
-          "description": "スーパースキルの突進を中断し、強力な踏みつけで周囲の敵をx秒間減速させます。",
+          "description": "必殺技の突進を中断し、地面を豪快に踏みつけて、近くにいるすべての敵の移動速度を1.5秒間低下させる。",
           "recommendationLevel": 5,
           "recommendationReason": "スローダウンとショットガンの攻撃の相性が非常に良く汎用性が高い。"
         }
@@ -4490,7 +4490,7 @@
         },
         {
           "id": 23000135,
-          "name": "バンドエイド",
+          "name": "ばんそうこう",
           "path": "Band-Aid",
           "description": "HPが40%を下回ると、瞬時に2220回復する。再び発動するまでに15秒かかる。",
           "recommendationLevel": 4,
@@ -4508,9 +4508,9 @@
         },
         {
           "id": 23000288,
-          "name": "クレイピジョン",
+          "name": "クレーイピジョン",
           "path": "Clay-Pigeons",
-          "description": "発動後x秒間、通常攻撃の射撃範囲が狭くなる代わりに射程が延長されます。",
+          "description": "発動してから5秒にわたって通常攻撃の幅が狭くなり、射程距離が延びる。",
           "recommendationLevel": 4,
           "recommendationReason": "射程と弾速が増すためダメージが入りやすく、スタパ「シェルショック」との併用が非常に強力。"
         }
