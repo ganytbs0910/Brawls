@@ -173,26 +173,31 @@ const TeamBoard: React.FC = () => {
     setIsRefreshing(true);
     setLastRefreshTime(currentTime);
 
-    const q = query(
-      collection(db, 'teamPosts'),
-      orderBy('createdAt', 'desc'),
-      limit(20)
-    );
+    // 視覚的なフィードバックのために少し遅延を入れる
+    setTimeout(() => {
+      const q = query(
+        collection(db, 'teamPosts'),
+        orderBy('createdAt', 'desc'),
+        limit(20)
+      );
 
-    getDocs(q)
-      .then((querySnapshot) => {
-        const postData: TeamPost[] = [];
-        querySnapshot.forEach((doc) => {
-          postData.push({ id: doc.id, ...doc.data() } as TeamPost);
+      getDocs(q)
+        .then((querySnapshot) => {
+          const postData: TeamPost[] = [];
+          querySnapshot.forEach((doc) => {
+            postData.push({ id: doc.id, ...doc.data() } as TeamPost);
+          });
+          setPosts(postData);
+          // データ更新後も少し待ってからローディング状態を解除
+          setTimeout(() => {
+            setIsRefreshing(false);
+          }, 500);
+        })
+        .catch((error) => {
+          Alert.alert('エラー', '更新に失敗しました');
+          setIsRefreshing(false);
         });
-        setPosts(postData);
-      })
-      .catch((error) => {
-        Alert.alert('エラー', '更新に失敗しました');
-      })
-      .finally(() => {
-        setIsRefreshing(false);
-      });
+    }, 500);
   };
 
   const validateInviteLink = (link: string): boolean => {
@@ -529,6 +534,7 @@ const TeamBoard: React.FC = () => {
     </SafeAreaView>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
