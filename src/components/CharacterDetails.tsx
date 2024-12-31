@@ -81,6 +81,9 @@ const CharacterDetails: React.FC = () => {
   };
 
   const renderGearSection = () => {
+    if (!character) return null;
+
+    const recommendedGears = character.gears || [];
     const characterGears = gearIcons[character.name];
     if (!characterGears) return null;
 
@@ -88,23 +91,28 @@ const CharacterDetails: React.FC = () => {
 
     return (
       <View style={styles.infoCard}>
-        <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>ギア</Text>
-          <View style={styles.legendContainer}>
-            <View style={[styles.legendItem, { backgroundColor: '#4CAF50' }]} />
-            <Text style={styles.legendText}>おすすめ</Text>
-          </View>
-        </View>
+        <Text style={styles.sectionTitle}>ギア</Text>
         <View style={styles.gearGrid}>
-          {gearEntries.map(([key, iconPath]) => (
-            <View key={key} style={styles.gearItem}>
-              <Image
-                source={iconPath}
-                style={styles.gearIcon}
-                resizeMode="contain"
-              />
-            </View>
-          ))}
+          {gearEntries.map(([key, iconPath]) => {
+            const currentGearId = parseInt(key);
+            const isRecommended = recommendedGears.includes(currentGearId);
+
+            return (
+              <View 
+                key={key} 
+                style={[
+                  styles.gearItem,
+                  isRecommended && styles.recommendedGearItem
+                ]}
+              >
+                <Image
+                  source={iconPath}
+                  style={styles.gearIcon}
+                  resizeMode="contain"
+                />
+              </View>
+            );
+          })}
         </View>
       </View>
     );
@@ -131,8 +139,8 @@ const CharacterDetails: React.FC = () => {
         <View style={styles.infoCard}>
           <Text style={styles.sectionTitle}>基本情報</Text>
           <View style={styles.basicInfo}>
-            <Text style={styles.infoLabel}>役割: {character.role}</Text>
-            <Text style={styles.infoLabel}>レアリティ: {character.rarity}</Text>
+            <Text style={styles.infoLabel}>役割: {character.class?.name}</Text>
+            <Text style={styles.infoLabel}>レアリティ: {character.rarity?.name}</Text>
           </View>
         </View>
 
@@ -317,10 +325,14 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 2,
   },
+  recommendedGearItem: {
+    borderColor: '#4CAF50',
+    borderWidth: 2,
+  },
   gearIcon: {
     width: '100%',
     height: '100%',
-  },
+  }
 });
 
-export default CharacterDetails
+export default CharacterDetails;

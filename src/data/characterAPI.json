@@ -50,6 +50,12 @@
           "recommendationLevel": 5,
           "recommendationReason": "透明化とダメージ軽減の能力が最強で投げなのにアサシンとしての立ち回りもできるため強力。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        4,
+        6
       ]
     },
     {
@@ -102,6 +108,10 @@
           "recommendationLevel": 2,
           "recommendationReason": "別にいらねぇ。"
         }
+      ],
+      "gears": [
+        1,
+        5
       ]
     },
     {
@@ -154,6 +164,11 @@
           "recommendationLevel": 5,
           "recommendationReason": "回復しすぎです。"
         }
+      ],
+      "gears": [
+        1,
+        5,
+        6
       ]
     },
     {
@@ -206,6 +221,11 @@
           "recommendationLevel": 4,
           "recommendationReason": "壁破壊が味方にいない状況で割と使用される。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        5
       ]
     },
     {
@@ -258,6 +278,11 @@
           "recommendationLevel": 4,
           "recommendationReason": "機動力が上がるため攻守共に優れている"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        5
       ]
     },
     {
@@ -310,6 +335,10 @@
           "recommendationLevel": 3,
           "recommendationReason": "強奪では優秀だがそれ以外では一切見かけない。"
         }
+      ],
+      "gears": [
+        1,
+        5
       ]
     },
     {
@@ -362,6 +391,10 @@
           "recommendationLevel": 1,
           "recommendationReason": "意味ねぇ。"
         }
+      ],
+      "gears": [
+        1,
+        6
       ]
     },
     {
@@ -414,6 +447,11 @@
           "recommendationLevel": 5,
           "recommendationReason": "ウルトの状態での無敵無双が最強のため必須ガジェット。"
         }
+      ],
+      "gears": [
+        1,
+        5,
+        6
       ]
     },
     {
@@ -466,6 +504,11 @@
           "recommendationLevel": 5,
           "recommendationReason": "基本的にはこちらのガジェットで壁裏の敵を葬るのが非常に強力。"
         }
+      ],
+      "gears": [
+        4,
+        5,
+        6
       ]
     },
     {
@@ -518,6 +561,12 @@
           "recommendationLevel": 5,
           "recommendationReason": "シールドが非常に強力で生存性が大幅に向上するのがキャラ性能との相性が非常に良い。"
         }
+      ],
+      "gears": [
+        2,
+        4,
+        5,
+        6
       ]
     },
     {
@@ -570,6 +619,11 @@
           "recommendationLevel": 5,
           "recommendationReason": "攻守ともに使用でき、回復としても有能なためいつでも需要がある有能さ。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        5
       ]
     },
     {
@@ -622,6 +676,11 @@
           "recommendationLevel": 5,
           "recommendationReason": "タンクと合わせる際に超強力でマジで死ななくなる。"
         }
+      ],
+      "gears": [
+        1,
+        5,
+        6
       ]
     },
     {
@@ -674,6 +733,11 @@
           "recommendationLevel": 1,
           "recommendationReason": "いつ使うん？"
         }
+      ],
+      "gears": [
+        1,
+        5,
+        6
       ]
     },
     {
@@ -726,6 +790,11 @@
           "recommendationLevel": 3,
           "recommendationReason": "たまに使われるがバトロワ霧耐久以外ではほぼ見かけない。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        6
       ]
     },
     {
@@ -778,6 +847,11 @@
           "recommendationLevel": 3,
           "recommendationReason": "本当にたまに見かけるが使いこなすのが難しすぎる。"
         }
+      ],
+      "gears": [
+        1,
+        3,
+        5
       ]
     },
     {
@@ -830,6 +904,12 @@
           "recommendationLevel": 1,
           "recommendationReason": "回復量も低くマジで使い道がない。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        5,
+        6
       ]
     },
     {
@@ -882,6 +962,11 @@
           "recommendationLevel": 5,
           "recommendationReason": "不足している火力が大幅に向上するためタンクにかなり強くなる。"
         }
+      ],
+      "gears": [
+        1,
+        4,
+        5
       ]
     },
     {
@@ -934,6 +1019,12 @@
           "recommendationLevel": 5,
           "recommendationReason": "対タンクとアサシンにかなり強力だが、攻撃を命中させる必要があるため少し訓練が必要"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        4,
+        5
       ]
     },
     {
@@ -986,6 +1077,11 @@
           "recommendationLevel": 5,
           "recommendationReason": "耐久力がさらに上昇するためマジで死ななくなる。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        5
       ]
     },
     {
@@ -1038,6 +1134,12 @@
           "recommendationLevel": 4,
           "recommendationReason": "もう一つのガジェが強すぎて使用率が低いが効果自体は汎用性が高く悪くはない。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        5,
+        6
       ]
     },
     {
@@ -1090,6 +1192,11 @@
           "recommendationLevel": 5,
           "recommendationReason": "確定で死ぬ攻撃を避けて生存したり、攻撃で敵が倒れるまでの時間を無敵で過ごせたりと有能。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        4
       ]
     },
     {
@@ -1142,6 +1249,11 @@
           "recommendationLevel": 5,
           "recommendationReason": "確定キルを取れたり、回復阻止ができたりとどの場面でも重宝される。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        4
       ]
     },
     {
@@ -1194,6 +1306,11 @@
           "recommendationLevel": 5,
           "recommendationReason": "壁裏に逃げた敵をキルするのにかなり使える"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        4
       ]
     },
     {
@@ -1246,6 +1363,11 @@
           "recommendationLevel": 3,
           "recommendationReason": "壁を確実に破壊できるので初心者にも優しい。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        4
       ]
     },
     {
@@ -1298,6 +1420,11 @@
           "recommendationLevel": 5,
           "recommendationReason": "リロード上昇や持続回復など超強力な効果が出ることもあり、使い得でかなり強い。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        5
       ]
     },
     {
@@ -1350,6 +1477,10 @@
           "recommendationLevel": 5,
           "recommendationReason": "敵を引き寄せたら基本的にキルを取れるのでどのタイミングでも強力。"
         }
+      ],
+      "gears": [
+        1,
+        5
       ]
     },
     {
@@ -1402,6 +1533,11 @@
           "recommendationLevel": 3,
           "recommendationReason": "ゴーストを生成しても欲しいタイミングで拾うのが難しいので使いづらい。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        4
       ]
     },
     {
@@ -1454,6 +1590,10 @@
           "recommendationLevel": 3,
           "recommendationReason": "ノックバックの距離が長く使いこなすのが難しすぎる。"
         }
+      ],
+      "gears": [
+        1,
+        5
       ]
     },
     {
@@ -1506,6 +1646,11 @@
           "recommendationLevel": 5,
           "recommendationReason": "敵の侵入を防ぐエリアを作り出せ、確実に回復阻止したい時や敵の密集地帯でかなり有用。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        7
       ]
     },
     {
@@ -1558,6 +1703,12 @@
           "recommendationLevel": 3,
           "recommendationReason": "バトロワやタンクが多い状態でごく稀に使用されることがあるが使い所がいまいち。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        5,
+        7
       ]
     },
     {
@@ -1610,6 +1761,11 @@
           "recommendationLevel": 5,
           "recommendationReason": "バトロワでは必須のガジェで生存性能が超大幅に増加する。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        5
       ]
     },
     {
@@ -1662,6 +1818,12 @@
           "recommendationLevel": 3,
           "recommendationReason": "ハイパーチャージとごく稀に合わせることができるが、基本弱い。"
         }
+      ],
+      "gears": [
+        2,
+        4,
+        7,
+        8
       ]
     },
     {
@@ -1714,6 +1876,11 @@
           "recommendationLevel": 5,
           "recommendationReason": "小技で攻撃のインターバルの時間が短くなり、接近状態の1vs1の勝率が超大幅に上がるためウルトとの相性が良い。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        5
       ]
     },
     {
@@ -1766,6 +1933,12 @@
           "recommendationLevel": 4,
           "recommendationReason": "緊急回復と不意打ちの観点でかなり強力だが使うのが難しい。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        5,
+        7
       ]
     },
     {
@@ -1818,6 +1991,11 @@
           "recommendationLevel": 4,
           "recommendationReason": "何らかの戦術がある時はかなり強いが使いこなすのが非常に困難だが性能は悪くない。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        5
       ]
     },
     {
@@ -1870,6 +2048,10 @@
           "recommendationLevel": 4,
           "recommendationReason": "強い性能ではあるが使用難易度があまりにも高く、スタパで怒りゲージはあまり困らないのでちょっと難しい。"
         }
+      ],
+      "gears": [
+        1,
+        5
       ]
     },
     {
@@ -1922,6 +2104,12 @@
           "recommendationLevel": 2,
           "recommendationReason": "いらねぇ。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        5,
+        7
       ]
     },
     {
@@ -1974,6 +2162,10 @@
           "recommendationLevel": 5,
           "recommendationReason": "草むらが多いマップでかなり強く、効果時間が長いのも良い。"
         }
+      ],
+      "gears": [
+        1,
+        5
       ]
     },
     {
@@ -2026,6 +2218,11 @@
           "recommendationLevel": 5,
           "recommendationReason": "強奪では超必須の火力バグマシーンとなるが、それ以外の場面ではほぼ当たらないのでイマイチ使えない"
         }
+      ],
+      "gears": [
+        2,
+        4,
+        5
       ]
     },
     {
@@ -2078,6 +2275,10 @@
           "recommendationLevel": 5,
           "recommendationReason": "索敵と前線キープにおける最強ガジェットでこれが無いと始まらない。"
         }
+      ],
+      "gears": [
+        1,
+        2
       ]
     },
     {
@@ -2130,6 +2331,13 @@
           "recommendationLevel": 3,
           "recommendationReason": "天才以外は使わない方が良い。当たらない。"
         }
+      ],
+      "gears": [
+        1,
+        2,
+        4,
+        5,
+        7
       ]
     },
     {
@@ -2183,7 +2391,11 @@
           "recommendationReason": "自由なタイミングで壁を割れるため壁裏の瀕死の敵や大事な壁を破壊できるのが超優秀。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        5
+      ]
     },
     {
       "id": 16000044,
@@ -2236,7 +2448,10 @@
           "recommendationReason": "貫通攻撃の敵ばかりで「バリケード」が腐る状況でのみまぁ使える。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2
+      ]
     },
     {
       "id": 16000043,
@@ -2289,7 +2504,11 @@
           "recommendationReason": "主にバトロワや試合テンポが遅いモードで使用され、タイマンの勝率が大幅に上がるため強い。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        5,
+        7
+      ]
     },
     {
       "id": 16000042,
@@ -2342,7 +2561,11 @@
           "recommendationReason": "対アサシンとタンクに対して強くなり、味方を超回復の面でも強力で汎用性が高い。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        4
+      ]
     },
     {
       "id": 16000041,
@@ -2395,7 +2618,11 @@
           "recommendationReason": "好きなタイミングで半分凍結状態の敵を凍結できるので超強い。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        7
+      ]
     },
     {
       "id": 16000040,
@@ -2448,7 +2675,12 @@
           "recommendationReason": "タンクやアサシン、壁裏の敵などに対して超強くなり弱点が大幅に減るのでかなりおすすめ。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        5,
+        7
+      ]
     },
     {
       "id": 16000039,
@@ -2501,7 +2733,11 @@
           "recommendationReason": "回復量が多すぎるため耐久力が超大幅に増加する前線キープで超有能。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        5
+      ]
     },
     {
       "id": 16000038,
@@ -2554,7 +2790,11 @@
           "recommendationReason": "タンクが多い時に火力不足を補えるため非常に強力。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        5
+      ]
     },
     {
       "id": 16000037,
@@ -2607,7 +2847,12 @@
           "recommendationReason": "ウルトループができるようになり、ハイパーチャージや緊急時などの多様な状況で使用できるため強力。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        4,
+        7
+      ]
     },
     {
       "id": 16000036,
@@ -2660,7 +2905,11 @@
           "recommendationReason": "単発高火力の敵に対して大幅に強くなるため特定のキャラをメタるのに多く使用される。"
         }
       ],
-      "videos": []
+      "gears": [
+        2,
+        4,
+        7
+      ]
     },
     {
       "id": 16000035,
@@ -2713,7 +2962,11 @@
           "recommendationReason": "アサシンやタンクが一切近づけなくなり、さらにタンクメタとして効力を発揮させるのに必須。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        5
+      ]
     },
     {
       "id": 16000034,
@@ -2766,7 +3019,11 @@
           "recommendationReason": "使用する難易度こそ超高いものの、刺さればある程度は強い。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        5,
+        7
+      ]
     },
     {
       "id": 16000032,
@@ -2819,7 +3076,12 @@
           "recommendationReason": "完璧なダメージ管理ができれば強いが使いこなすのがあまりにも難しい。死ななければ前線キープ力は超大幅に上がる。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        4,
+        5
+      ]
     },
     {
       "id": 16000031,
@@ -2872,7 +3134,12 @@
           "recommendationReason": "索敵や回復阻止などでかなり有能だがこのコペンの性能が低いのが難点。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        5,
+        7
+      ]
     },
     {
       "id": 16000030,
@@ -2925,7 +3192,11 @@
           "recommendationReason": "余程のことがない限り使用されない。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        5
+      ]
     },
     {
       "id": 16000029,
@@ -2978,7 +3249,12 @@
           "recommendationReason": "壁裏の敵でもキルを取るのにかなり使え、回復阻止としてもかなり優秀。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        4,
+        5
+      ]
     },
     {
       "id": 16000028,
@@ -3031,7 +3307,11 @@
           "recommendationReason": "アサシンやタンクに襲われても一時的に距離を置くことができ、確定シュートなどもできるため汎用性があまりにも高い。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        5,
+        6
+      ]
     },
     {
       "id": 16000027,
@@ -3084,7 +3364,12 @@
           "recommendationReason": "強奪でのみ使用され、火力の底上げとしてかなり重宝される。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        5,
+        7
+      ]
     },
     {
       "id": 16000026,
@@ -3137,7 +3422,10 @@
           "recommendationReason": "使いこなすのが難しく、かなりの熟練度が必要だが使いこなせれば強いはず。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        5
+      ]
     },
     {
       "id": 16000025,
@@ -3190,7 +3478,11 @@
           "recommendationReason": "機動力が一気に向上することで特定のキャラクターをメタるのに使える。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        5
+      ]
     },
     {
       "id": 16000024,
@@ -3243,7 +3535,10 @@
           "recommendationReason": "効果時間が長い強制スローダウンが超強力でこのキャラの強みのほとんどを占めているレベル。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        5
+      ]
     },
     {
       "id": 16000023,
@@ -3296,7 +3591,11 @@
           "recommendationReason": "味方ともに透明になるため非常に強力で、盾としても活躍するため汎用性が非常に高い。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        5
+      ]
     },
     {
       "id": 16000022,
@@ -3349,7 +3648,10 @@
           "recommendationReason": "弱点である近距離をカバーするためにかなり重要なガジェットで生存能力を向上させられる。"
         }
       ],
-      "videos": []
+      "gears": [
+        3,
+        7
+      ]
     },
     {
       "id": 16000021,
@@ -3402,7 +3704,12 @@
           "recommendationReason": "味方が近くに居れないマップでよく使用され、回復阻止や確定キルなど汎用性が高い。。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        6,
+        7
+      ]
     },
     {
       "id": 16000020,
@@ -3455,7 +3762,11 @@
           "recommendationReason": "攻撃の上昇率と引き寄せの効果がかなり強く対面勝率が大幅に上昇する。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        5,
+        6
+      ]
     },
     {
       "id": 16000019,
@@ -3508,7 +3819,12 @@
           "recommendationReason": "たまに強いときもあるが、基本的に避けられるためそこまで強くない。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        4,
+        7
+      ]
     },
     {
       "id": 16000018,
@@ -3561,7 +3877,10 @@
           "recommendationReason": "5秒間と長い間で移動速度を低下させられ、さまざまな状況で活躍する。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        5
+      ]
     },
     {
       "id": 16000017,
@@ -3614,7 +3933,12 @@
           "recommendationReason": "守りでも攻めでも非常に強力でいつでも使える。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        4,
+        5
+      ]
     },
     {
       "id": 16000016,
@@ -3667,7 +3991,11 @@
           "recommendationReason": "タンクやアサシンに攻撃を当てると基本的にタイマンが負けなくなるため超強力。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        4
+      ]
     },
     {
       "id": 16000015,
@@ -3720,7 +4048,12 @@
           "recommendationReason": ""
         }
       ],
-      "videos": []
+      "gears": [
+        2,
+        4,
+        5,
+        6
+      ]
     },
     {
       "id": 16000014,
@@ -3773,7 +4106,12 @@
           "recommendationReason": "破壊したい壁や狙いすまして敵を地雷に引っ掛けるなど攻撃の幅が広く強力。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        5,
+        7
+      ]
     },
     {
       "id": 16000013,
@@ -3826,7 +4164,11 @@
           "recommendationReason": "効果こそ強力だが使用するタイミングが難しいため安定性に欠ける。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        5,
+        6
+      ]
     },
     {
       "id": 16000012,
@@ -3879,7 +4221,12 @@
           "recommendationReason": "好きなタイミングで敵に遅延をかけることができるため超強力。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        4,
+        7
+      ]
     },
     {
       "id": 16000011,
@@ -3932,7 +4279,11 @@
           "recommendationReason": ""
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        5,
+        7
+      ]
     },
     {
       "id": 16000010,
@@ -3985,7 +4336,11 @@
           "recommendationReason": "よほど特別な戦術がない限りタンクで壁を壊すのはナンセンス。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        5,
+        7
+      ]
     },
     {
       "id": 16000009,
@@ -4038,7 +4393,11 @@
           "recommendationReason": "これを当てて数発攻撃を打つと確実に敵を倒せるため最強のガジェットの一つとされている。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        6
+      ]
     },
     {
       "id": 16000008,
@@ -4091,7 +4450,12 @@
           "recommendationReason": "クマの生存能力が向上することで前線を押し上げる能力が上がるため安定して強い。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        5,
+        7
+      ]
     },
     {
       "id": 16000007,
@@ -4144,7 +4508,12 @@
           "recommendationReason": "強奪でのみ非常に強力。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        5,
+        7
+      ]
     },
     {
       "id": 16000006,
@@ -4197,7 +4566,12 @@
           "recommendationReason": "味方全員の生存力が上昇し、一気に前線を押し上げるきっかけとなる。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        4,
+        6
+      ]
     },
     {
       "id": 16000005,
@@ -4250,7 +4624,12 @@
           "recommendationReason": "盾としての性能が非常に高く、回復の効果も良いため汎用性が非常に高い。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        4,
+        7
+      ]
     },
     {
       "id": 16000004,
@@ -4303,7 +4682,11 @@
           "recommendationReason": "壁がないと使用しづらく、敵を倒せるもう一つのガジェットの方が強い。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        2,
+        7
+      ]
     },
     {
       "id": 16000003,
@@ -4356,7 +4739,11 @@
           "recommendationReason": "壁が多いマップで即座に壁を破壊できるため不利な地形を一気に有利な地形にすることができる"
         }
       ],
-      "videos": []
+      "gears": [
+        4,
+        5,
+        7
+      ]
     },
     {
       "id": 16000002,
@@ -4409,7 +4796,11 @@
           "recommendationReason": "スローダウンとショットガンの攻撃の相性が非常に良く汎用性が高い。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        5,
+        7
+      ]
     },
     {
       "id": 16000001,
@@ -4462,7 +4853,12 @@
           "recommendationReason": "壁が多いマップで即座に壁を破壊できるため不利な地形を一気に有利な地形にすることができる"
         }
       ],
-      "videos": []
+      "gears": [
+        2,
+        5,
+        6,
+        7
+      ]
     },
     {
       "id": 16000000,
@@ -4515,7 +4911,12 @@
           "recommendationReason": "射程と弾速が増すためダメージが入りやすく、スタパ「シェルショック」との併用が非常に強力。"
         }
       ],
-      "videos": []
+      "gears": [
+        1,
+        4,
+        5,
+        6
+      ]
     }
   ]
 }

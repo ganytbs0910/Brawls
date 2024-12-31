@@ -30,6 +30,7 @@ interface BrawlifyCharacter {
   };
   starPowers: Array<BrawlifyStarPower>;
   gadgets: Array<BrawlifyGadget>;
+  gears: number[];  // 追加：おすすめギアの配列
 }
 
 export interface RankingItem {
@@ -215,8 +216,9 @@ const processCharactersData = (brawlers: BrawlifyCharacter[]): Record<string, Ch
       id: brawler.id.toString(),
       name: characterName,
       description: brawler.description,
+      class: brawler.class,  // クラス情報をそのまま保持
       role: roleMap[brawler.class.name] || brawler.class.name,
-      rarity: rarityMap[brawler.rarity.name] || brawler.rarity.name,
+      rarity: brawler.rarity,  // レアリティ情報をそのまま保持
       starPowers: brawler.starPowers.map(sp => ({
         name: sp.name,
         description: sp.description,
@@ -229,6 +231,7 @@ const processCharactersData = (brawlers: BrawlifyCharacter[]): Record<string, Ch
         recommendationLevel: gadget.recommendationLevel,
         recommendationReason: gadget.recommendationReason
       })),
+      gears: brawler.gears || [],  // gearsプロパティを追加
       recommendations: {
         bestModes: [],
         bestMaps: [],
