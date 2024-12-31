@@ -40,15 +40,15 @@
           "path": "Voodoo-Chile",
           "description": "ジュジュの次のメイン攻撃は3つの要素すべての力を持ちます。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "能力としてはかなり強いが、もう一つのガジェットがあまりにも優秀..."
         },
         {
           "id": 23000851,
           "name": "エレメンタリスト",
           "path": "Elementalist",
           "description": "ジュジュは現在立っている環境に基づいて一時的なバフを得ます。\n土：ダメージ軽減\n草：透明化\n水：移動速度上昇",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "透明化とダメージ軽減の能力が最強で投げなのにアサシンとしての立ち回りもできるため強力。"
         }
       ]
     },
