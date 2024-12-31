@@ -1530,15 +1530,15 @@
           "path": "Black-Powder",
           "description": "必殺技の射程が36%伸びる。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "ウルトの射程を伸ばすことでウルトの汎用性が高まり裏をつきやすくなる。"
         },
         {
           "id": 23000479,
           "name": "親知らず",
           "path": "Wisdom-Tooth",
-          "description": "大砲の移動速度とリロード速度が5秒にわたって30%上昇する。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "description": "通常攻撃が命中すると拡散して周囲の敵に25％の追加ダメージを与える。",
+          "recommendationLevel": 3,
+          "recommendationReason": "攻撃の拡散が短すぎてほとんど当たらないためほぼ無駄となってしまう。"
         }
       ],
       "gadgets": [
@@ -1546,17 +1546,17 @@
           "id": 23000480,
           "name": "シュガーラッシュ",
           "path": "Sugar-Rush",
-          "description": "クライドの移動速度とリロード速度がx秒間x%上昇します。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "description": "大砲の移動速度とリロード速度が5秒にわたって30％上昇する。",
+          "recommendationLevel": 5,
+          "recommendationReason": "これを使用することで弱点の移動速度の問題を解消できるため、一時的に圧を出して前線を押し上げられる。"
         },
         {
           "id": 23000481,
           "name": "衝突試験",
           "path": "Crash-Test",
           "description": "前方にダッシュして敵をノックバックしながら2320ダメージを与える。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "バトロワやタンクが多い状態でごく稀に使用されることがあるが使い所がいまいち。"
         }
       ]
     },
@@ -1581,8 +1581,8 @@
           "name": "特等席",
           "path": "Stage-View",
           "description": "飛行中は周囲のやぶの中が広範囲にわたって見えるようになる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "ガジェットがあるのでそこまで必要とされていない。"
         },
         {
           "id": 23000471,
@@ -1590,7 +1590,7 @@
           "path": "Vocal-Warm-Up",
           "description": "通常攻撃のエイムの集約速度が30％上昇する。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "攻撃のインターバルが短くなるので、攻撃の癖が減りかなり使いやすくなる。"
         }
       ],
       "gadgets": [
@@ -1599,16 +1599,16 @@
           "name": "低音スピーカー",
           "path": "Drop-The-Bass",
           "description": "重低音を轟かすスピーカーを投入し、破壊されるまで効果範囲内の敵に毎秒200ダメージを与える。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "索敵と回復阻止の面で超有能で範囲もかなり広い、"
         },
         {
           "id": 23000473,
           "name": "舞台裏直行券",
           "path": "Backstage-Pass",
           "description": "次の通常攻撃で、反動を使って大きく後ろにジャンプする。壁を越えることも可能で、エイムが集約されているほど、後退する距離も長くなる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "バトロワでは必須のガジェで生存性能が超大幅に増加する。"
         }
       ]
     },
@@ -1634,15 +1634,15 @@
           "path": "Unnatural-Order",
           "description": "通常攻撃で撃ち出されるタマゴの順番が逆になる。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "攻撃がかなり当たりやすくなる。"
         },
         {
           "id": 23000453,
           "name": "ベビーシャワー",
           "path": "Happy-Surprise",
           "description": "通常攻撃の一番大きなタマゴが命中すると、そのタマゴから5秒ごとにベビーが産まれる。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationLevel": 4,
+          "recommendationReason": "最後の弾を当てるとかなり強力だが、少し使用難易度が高い。"
         }
       ],
       "gadgets": [
@@ -1651,16 +1651,16 @@
           "name": "ベビーシッター",
           "path": "Gotta-Go",
           "description": "ベビーを1体その場に産み落とし、大きくジャンプする。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "緊急脱出と地味にベビーの生み出しがかなり強い。壁を越えることができるのも好評。"
         },
         {
           "id": 23000455,
           "name": "無条件の愛",
           "path": "Motherly-Love",
           "description": "タマゴから産まれるベビーが時間とともに味方を回復する。ただし、敵には攻撃を加えなくなる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "ハイパーチャージとごく稀に合わせることができるが、基本弱い。"
         }
       ]
     },
@@ -1685,8 +1685,8 @@
           "name": "ボーナススニーカー",
           "path": "Fresh-Kicks",
           "description": "必殺技で敵を倒すとゲージが満タンにチャージされ、すぐにもう一度使えるようになる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "ウルトループが可能なためかなり強いが、ダメージ計算が必要で使うのが非常に難しい・"
         },
         {
           "id": 23000439,
@@ -1694,7 +1694,7 @@
           "path": "Divine-Soles",
           "description": "3秒につき1度、敵の攻撃を688ダメージ低減する。最大低減率は、受けたダメージの90%となる。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "かなり使い勝手が良く生存性をあげることができるので良い。"
         }
       ],
       "gadgets": [
@@ -1704,15 +1704,15 @@
           "path": "Corn-Fu",
           "description": "小型の爆弾を空中にばらまいて、ポップコーンさながらに破裂させる。爆弾は1つにつき1088ダメージを与える。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "索敵とアサシンとタンクに強いがギリもう一つのガジェの方が強い。"
         },
         {
           "id": 23000464,
           "name": "まわし蹴り",
           "path": "Roundhouse-Kick",
           "description": "回転して周囲にいる敵全員を蹴り散らす。命中した敵は0.5秒間気絶して動けなくなる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "小技で攻撃のインターバルの時間が短くなり、接近状態の1vs1の勝率が超大幅に上がるためウルトとの相性が良い。"
         }
       ]
     },
@@ -1738,7 +1738,7 @@
           "path": "Improvise",
           "description": "残りの弾数が1発の状態で攻撃すると、敵に30%の追加ダメージを与える。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "火力の底上げができるためまぁまぁ強いが、もう一つのスタパが強すぎる。"
         },
         {
           "id": 23000432,
@@ -1746,17 +1746,17 @@
           "path": "Sealed-With-A-Kiss",
           "description": "分身から放たれる弾丸の軌道上にいる味方のHPを224回復する。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "耐久力と味方の回復ができるため耐久力が超大幅に上がり、ウルトがあると中距離では最強格に君臨する。"
         }
       ],
       "gadgets": [
         {
           "id": 23000433,
-          "name": "シェったーチャンス",
+          "name": "シャッターチャンス",
           "path": "Freeze-Frame",
           "description": "分身が動きを止めてポーズを決めると、4秒間にわたってシールドが発動し、分身の受けるダメージを50%低減する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "分身が超重要なキャラクターなので耐久力が上がるとマジで強い。"
         },
         {
           "id": 23000456,
@@ -1764,7 +1764,7 @@
           "path": "Stunt-Double",
           "description": "ローラと分身の位置が入れ替わり、ローラのHPが1520回復する。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "緊急回復と不意打ちの観点でかなり強力だが使うのが難しい。"
         }
       ]
     },
@@ -1790,7 +1790,7 @@
           "path": "Force-Field",
           "description": "メカが破壊されると、ダメージを25%軽減するシールドが発動し、10秒間メグを守る。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "生存能力が増すことで前線が押し上げられにくくなる。"
         },
         {
           "id": 23000422,
@@ -1798,7 +1798,7 @@
           "path": "Heavy-Metal",
           "description": "メカのHPがなくなると爆発し、近くの敵に2400ダメージを与えてノックバックさせる。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "アサシンやタンクに対して強くなるので弱点がかなり減るので強い。"
         }
       ],
       "gadgets": [
@@ -1807,8 +1807,8 @@
           "name": "ジョルトボルト",
           "path": "Jolting-Volts",
           "description": "メカのHPが5秒間にわたって、毎秒490回復する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "回復量がかなり多いので前線のキープ力が高まる。"
         },
         {
           "id": 23000489,
@@ -1816,7 +1816,7 @@
           "path": "Toolbox",
           "description": "地面にツールボックスを設置し、破壊されるまで近くの味方のリロード速度を35%上昇させる。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "何らかの戦術がある時はかなり強いが使いこなすのが非常に困難だが性能は悪くない。"
         }
       ]
     },
@@ -1841,16 +1841,16 @@
           "name": "綺麗好き",
           "path": "First-Bash",
           "description": "通常攻撃のゲージが満タンの状態で敵を攻撃すると、怒りゲージの上昇率が200％増加する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "怒りゲージが命なキャラなので必須と言っても過言ではない。"
         },
         {
           "id": 23000415,
           "name": "大激怒",
           "path": "Mad-As-Heck",
           "description": "怒りが溜まるにつれて、リロード速度が最大40％まで徐々に上昇する。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationLevel": 2,
+          "recommendationReason": "リロードにはあまり困らないのでそこまで必要ではない。"
         }
       ],
       "gadgets": [
@@ -1859,8 +1859,8 @@
           "name": "鎮静剤",
           "path": "Chill-Pill",
           "description": "怒っていても、我を忘れてはならない。怒りゲージに比例して自身を癒し、満タンで発動した場合はHPが3240回復する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "回復量が多くタイマンで打ち負けるギリギリで使うと勝てるようになることがあり強い。"
         },
         {
           "id": 23000465,
@@ -1868,7 +1868,7 @@
           "path": "Rotten-Banana",
           "description": "自身のHPの10%と引き換えに、瞬時に40％の怒りゲージが溜まる。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "強い性能ではあるが使用難易度があまりにも高く、スタパで怒りゲージはあまり困らないのでちょっと難しい。"
         }
       ]
     },
@@ -1894,7 +1894,7 @@
           "path": "Keep-The-Change",
           "description": "怒りが爆発し、通常攻撃の発射速度が25％上昇する。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "悪くはないがもう一つのスタパの方が強い。"
         },
         {
           "id": 23000398,
@@ -1902,7 +1902,7 @@
           "path": "Business-Resilience",
           "description": "2秒ごとに、失ったHPの最大15%を回復する。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "回復量が多いのと2秒ごとに回復というのが強く常時ダメージギア発動もできるためかなり汎用性も高く強い"
         }
       ],
       "gadgets": [
@@ -1911,16 +1911,16 @@
           "name": "ブタの貯金箱",
           "path": "Piggy-Bank",
           "description": "爆薬入りのブタの貯金箱を出現させる。設置すると少し遅れて爆発して障害物を破壊し、範囲内にいる敵に1400ダメージを与える。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "自由なタイミングで自由な場所の壁を壊せるのがかなり優秀。"
         },
         {
           "id": 23000487,
           "name": "コインの雨",
           "path": "Coin-Shower",
           "description": "通常攻撃で放たれるコインが33%増加する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 2,
+          "recommendationReason": "いらねぇ。"
         }
       ]
     },
@@ -1945,8 +1945,8 @@
           "name": "魚雷改",
           "path": "Tougher-Torpedo",
           "description": "必殺技による気絶の最短効果時間が0.5秒間延びる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "ウルトの回転率が重要なのでもう一つが強すぎてあまり使用されない。"
         },
         {
           "id": 23000391,
@@ -1954,7 +1954,7 @@
           "path": "Eyes-Sharp",
           "description": "必殺技のチャージエリアが33%拡大する。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "ウルトの回転率が上昇することで活躍の幅が広がる。"
         }
       ],
       "gadgets": [
@@ -1963,16 +1963,16 @@
           "name": "緊急のブイ",
           "path": "Reserve-Buoy",
           "description": "必殺技のゲージを即座に満タンにするが、次回の気絶効果はなくなる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "ハイパーチャージとの相性が非常に良く、機動力が上がるのもかなり高得点。"
         },
         {
           "id": 23000490,
           "name": "X線ゴーグル",
           "path": "X-Ray-Shades",
           "description": "必殺技がチャージされる範囲内では、やぶの中にいる敵が12秒にわたって見えるようになる",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "草むらが多いマップでかなり強く、効果時間が長いのも良い。"
         }
       ]
     },
@@ -1997,8 +1997,8 @@
           "name": "巡回警備",
           "path": "Foot-Patrol",
           "description": "必殺技が完全にチャージされている間、移動速度が15%上昇する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 2,
+          "recommendationReason": "もう一つのスタパが強すぎる。"
         },
         {
           "id": 23000384,
@@ -2006,7 +2006,7 @@
           "path": "X-Factor",
           "description": "通常攻撃の爆発が中心から離れるほど威力を増し、最大で30%の追加ダメージを与える。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "火力が上がりすぎてマジで強い。"
         }
       ],
       "gadgets": [
@@ -2015,16 +2015,16 @@
           "name": "監視カメラ",
           "path": "Watchtower",
           "description": "懐から小型カメラを取り出すと、広範囲にわたって監視機能が作動し、やぶに隠れた敵が味方から見えるようになる。小型カメラのHPは時間とともに少しずつ減少する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "草むらを索敵でき、盾としても使用できる汎用性の高さが人気。"
         },
         {
           "id": 23000460,
           "name": "無線チェック",
           "path": "Radio-Check",
           "description": "次の通常攻撃で、3個のトランシーバーを素早く連続で投げつける。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "強奪では超必須の火力バグマシーンとなるが、それ以外の場面ではほぼ当たらないのでイマイチ使えない"
         }
       ]
     },
@@ -2049,8 +2049,8 @@
           "name": "連鎖反応",
           "path": "Chain-Reaction",
           "description": "粘着ジェル爆弾の爆発範囲内にいる敵1体につき、与えるダメージが15％増幅する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "強奪では少し強いがもう一つのスタパが強すぎる。"
         },
         {
           "id": 23000377,
@@ -2058,7 +2058,7 @@
           "path": "Super-Sticky",
           "description": "必殺技の二次爆発に巻き込まれた敵を、4秒間にわたってスローダウンさせる。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "長すぎるスローダウンが一般ウルトから超強力ウルトに化けさせる。"
         }
       ],
       "gadgets": [
@@ -2067,16 +2067,16 @@
           "name": "ネジ巻き",
           "path": "Windup",
           "description": "次の通常攻撃のダメージが50%、射程距離が100%増加する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "悪くはないがもう一つのスタパの方が強い。"
         },
         {
           "id": 23000462,
           "name": "不純物",
           "path": "Residue",
           "description": "次の通常攻撃の破裂後に汚染されたエリアを作り出し、6秒にわたって敵をスローダウンさせる。さらに、自分と味方はやぶの中が見えるようになる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "索敵と前線キープにおける最強ガジェットでこれが無いと始まらない。"
         }
       ]
     },
@@ -2101,16 +2101,16 @@
           "name": "フレミング",
           "path": "Positive-Feedback",
           "description": "電撃がターゲットに命中すると、ダメージを20%低減するシールドを獲得する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "耐久力上昇で圧が出るので前線を押し上げるきっかけとなる強力さとダメージ計算を狂わせる強みがある。"
         },
         {
           "id": 23000370,
           "name": "感電",
           "path": "Grounded",
           "description": "必殺技によってマーキングされた敵は、通常攻撃を5秒間リロードができなくなる。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "リロードができなくなっても基本３リロードあれば敵を倒せるので、リロード1発の敵以外にはあまり刺さらない。"
         }
       ],
       "gadgets": [
@@ -2119,16 +2119,16 @@
           "name": "ビリビリトラップ",
           "path": "Nest-Egg",
           "description": "敵が触れると起動するトラップを地面に設置する。トラップは624ダメージを与えるうえ、範囲内にいるすべての敵を3秒間にわたってスローダウンさせる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "スローダウンが意外に長くて回復阻止もできてとにかく優秀"
         },
         {
           "id": 23000463,
           "name": "逆極性",
           "path": "Reverse-Polarity",
           "description": "次の通常攻撃が壁から跳ね返る。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "天才以外は使わない方が良い。当たらない。"
         }
       ]
     },
@@ -2154,7 +2154,7 @@
           "path": "Zero-Drag",
           "description": "必殺技のダッシュ距離が71%増加する。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "機動力が大幅に上がるがそこまで必須というわけでも無い。悪くは無いが。"
         },
         {
           "id": 23000363,
@@ -2162,7 +2162,7 @@
           "path": "Gaso-Heal",
           "description": "必殺技を発動すると、自身のHPが640回復する。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "攻撃毎に640回復できるため耐久力が化け物になり、ハイパーチャージとの相性も最高。"
         }
       ],
       "gadgets": [
@@ -2171,16 +2171,16 @@
           "name": "スピードゾーン",
           "path": "Speed-Zone",
           "description": "ブースターを設置して、効果範囲内にいる味方と自身の移動速度を加速させる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "全員の移動速度が上昇するため前線復帰の速度が上がったり弾除けがしやすくなったりと強力。"
         },
         {
           "id": 23000401,
           "name": "ブレイクスルー",
           "path": "Breakthrough",
           "description": "次の必殺技で、障害物を突き破ることができる。前方に飛び散った破片が敵に命中すると、1つにつき216ダメージを与える。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "自由なタイミングで壁を割れるため壁裏の瀕死の敵や大事な壁を破壊できるのが超優秀。"
         }
       ],
       "videos": []
@@ -2206,16 +2206,16 @@
           "name": "制空",
           "path": "Air-Superiority",
           "description": "支援物資に爆弾を仕込むことで、落下ダメージが120%増加し、壁を壊せるようになる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "自在に壁を壊せるのでぼちぼち強い。"
         },
         {
           "id": 23000346,
           "name": "一括昇格",
           "path": "Field-Promotion",
           "description": "この能力の効果範囲内にいる味方は、最大HPが毎秒30ずつ増加する。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationLevel": 2,
+          "recommendationReason": "企画と特殊戦術でのみ使用される。"
         }
       ],
       "gadgets": [
@@ -2224,16 +2224,16 @@
           "name": "バリケード",
           "path": "Take-Cover",
           "description": "自分の周りに3個のサンドバックの壁を出現させる。各サンドバッグのHPは、ラフスの最大HPの35%となる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "かなり体力の高い壁を3つ生成できるため単発攻撃のメタキャラとして君臨するために必須。"
         },
         {
           "id": 23000402,
           "name": "アポサポート",
           "path": "Air-Support",
           "description": "空からの一斉砲火を要請して、最も近くにいる敵を攻撃する。ミサイルは1発につき1200ダメージを与える。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "貫通攻撃の敵ばかりで「バリケード」が腐る状況でのみまぁ使える。"
         }
       ],
       "videos": []
@@ -2259,8 +2259,8 @@
           "name": "ハードランディング",
           "path": "Hard-Landing",
           "description": "必殺技の着弾時に周囲の敵に1300ダメージを与える。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "敵のDPSが高い時にやられる前に倒すのにかなり使える。"
         },
         {
           "id": 23000339,
@@ -2268,7 +2268,7 @@
           "path": "Fisticuffs",
           "description": "通常攻撃での回復率が25％上昇する。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "敵のDPSが低い時にウルトループができるためかなり使える。"
         }
       ],
       "gadgets": [
@@ -2277,16 +2277,16 @@
           "name": "原動力",
           "path": "Lets-Fly",
           "description": "必殺技のチャージ速度が4秒にわたって525％上昇する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "これ一つでウルトが9割貯まるので、汎用性も高くてかなり優秀。"
         },
         {
           "id": 23000403,
           "name": "ハードコア",
           "path": "Hardcore",
           "description": "シールドを発動し、次に受ける3300ダメージを無効化する。シールドは時間とともに耐久力が低下する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "主にバトロワや試合テンポが遅いモードで使用され、タイマンの勝率が大幅に上がるため強い。"
         }
       ],
       "videos": []
@@ -2312,16 +2312,16 @@
           "name": "倦怠感",
           "path": "Malaise",
           "description": "必殺技に当たった敵は、あらゆる回復の効果が9秒にわたって75%減少する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "いかなる時でも回復阻害の時間が長すぎて最強。"
         },
         {
           "id": 23000332,
           "name": "注射",
           "path": "Injection",
           "description": "通常攻撃が3.5秒ごとに、標的を貫通するようになる。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "この効果を使いこなすのが困難すぎてあまり使えない。"
         }
       ],
       "gadgets": [
@@ -2330,16 +2330,16 @@
           "name": "カンフル剤",
           "path": "Shot-In-The-Arm",
           "description": "薬剤を自分に注入して、3秒にわたってHPを毎秒1200回復する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "タイマンマップでデス数を減らしたい時にかなり強い。"
         },
         {
           "id": 23000461,
           "name": "ブースター注射",
           "path": "Booster-Shots",
           "description": "次の通常攻撃で、3発のショットを同時に発射する。ただし、それぞれのダメージは20％、回復量は40％低減する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "対アサシンとタンクに対して強くなり、味方を超回復の面でも強力で汎用性が高い。"
         }
       ],
       "videos": []
@@ -2365,8 +2365,8 @@
           "name": "スーパークール",
           "path": "Supercool",
           "description": "必殺技の効果範囲にいる敵は、凍結速度が33％上昇する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "凍結ループがしやすくタンクやアサシンなどにかなり強くなる。"
         },
         {
           "id": 23000325,
@@ -2374,7 +2374,7 @@
           "path": "Hypothermia",
           "description": "攻撃による凍結度合に応じて、敵の攻撃力を最大で50％低下させる。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "攻撃力を大幅に低下させられるので前線を押し上げやすくなる。"
         }
       ],
       "gadgets": [
@@ -2383,16 +2383,16 @@
           "name": "アイスブロック",
           "path": "Ice-Block",
           "description": "氷のシールドを発生させ、1.0秒間ダメージを無効化する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "無敵なのは良いがもう片方が強いので目立たない。"
         },
         {
           "id": 23000400,
           "name": "氷結シロップ",
           "path": "Cryo-Syrup",
           "description": "必殺技の効果範囲にいる敵は、凍結メーターが50％上昇する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "好きなタイミングで半分凍結状態の敵を凍結できるので超強い。"
         }
       ],
       "videos": []
@@ -2418,16 +2418,16 @@
           "name": "ワイルドフレイム",
           "path": "Wild-Flames",
           "description": "地面に燃料の水たまりを同時に2つ作り出すことができる。燃料のそばにいる間は、必殺技のゲージが自動的に溜まる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "燃料の水たまりで敵の行動を制限できルエリアが増えるので攻撃の幅が広がり前線をキープしやすくなる。"
         },
         {
           "id": 23000308,
           "name": "フレイムアブゾーブ",
           "path": "Scorchin-Siphon",
           "description": "燃料の水たまりのそばにいる間は、吐き出す炎のチャージ速度が50%増加する。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "そこまでチャージ速度には困らないため、少し効果の相性が悪い。"
         }
       ],
       "gadgets": [
@@ -2437,7 +2437,7 @@
           "path": "Fire-Starters",
           "description": "3秒間マップを素早く移動して、燃料を地面にまき散らす。燃料には火をつけることができる。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "スタパの「ワイルドフレイム」との相性がよく、攻撃せずともウルトを貯められるようになるのでそこそこ強い。"
         },
         {
           "id": 23000488,
@@ -2445,7 +2445,7 @@
           "path": "Dancing-Flames",
           "description": "3個の炎の玉が5秒にわたって自分の周りを旋回し、敵に当たるたびに1890ダメージを与える。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "タンクやアサシン、壁裏の敵などに対して超強くなり弱点が大幅に減るのでかなりおすすめ。"
         }
       ],
       "videos": []
@@ -2471,8 +2471,8 @@
           "name": "ダメ押し",
           "path": "Push-It",
           "description": "必殺技に当たったすべての敵は、ダッシュの最大距離まで押し戻される。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "強奪以外では絶対にこっち。"
         },
         {
           "id": 23000301,
@@ -2480,7 +2480,7 @@
           "path": "Mass-Tax",
           "description": "必殺技を発動すると、ダメージを20％軽減するシールドが5秒間発生する。命中した敵1体ごとに、軽減率が10％増加する。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "強奪では絶対にこっち。"
         }
       ],
       "gadgets": [
@@ -2489,8 +2489,8 @@
           "name": "骨髄反射",
           "path": "Na-Ah",
           "description": "次のショットで、1500の追加ダメージを与える。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 2,
+          "recommendationReason": "ネタガジェット。ちょっと効果は嬉しいが圧倒的にもう一つのガジェットの方が強い。"
         },
         {
           "id": 23000457,
@@ -2498,7 +2498,7 @@
           "path": "Gotcha",
           "description": "発動してから5秒間にわたって、敵に与えたダメージの80％が自身のHPに充当される。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "回復量が多すぎるため耐久力が超大幅に増加する前線キープで超有能。"
         }
       ],
       "videos": []
@@ -2524,8 +2524,8 @@
           "name": "マキシマムショット",
           "path": "To-The-Max",
           "description": "通常攻撃が壁に当たると、弾丸が分裂する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "バトロワでは絶対にこっち"
         },
         {
           "id": 23000284,
@@ -2533,7 +2533,7 @@
           "path": "Serve-Ice-Cold",
           "description": "バトルの間、常に第1段階の強化が維持される。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "バトロワ以外では絶対にこっち"
         }
       ],
       "gadgets": [
@@ -2542,16 +2542,16 @@
           "name": "パワーサージ",
           "path": "Power-Surge",
           "description": "出力のリミッターを外し、10秒にわたって自分自身を1段階強化する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "射程が短い敵がいない状態で進化ゲージを貯めるのに重宝する。"
         },
         {
           "id": 23000485,
           "name": "パワーシールド",
           "path": "Power-Shield",
           "description": "発動してから2秒以内にダメージを受けると、そのダメージを50％軽減して、弾を2発リロードする。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "タンクが多い時に火力不足を補えるため非常に強力。"
         }
       ],
       "videos": []
@@ -2577,16 +2577,16 @@
           "name": "急速成長",
           "path": "Overgrowth",
           "description": "発射する種爆弾の爆発半径が大きくなる。この効果は5秒ごとに使用できる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "爆発半径が大幅に広くなるためかなり攻撃を回避するのが困難となるので強い"
         },
         {
           "id": 23000241,
           "name": "光合成",
           "path": "Photosynthesis",
           "description": "やぶの中にいる間はシールドが発生し、すべての攻撃からある程度守ってくれる。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationLevel": 4,
+          "recommendationReason": "ダメージ軽減率が高くかなり死ににくくなるがおすすめ度は少しだけ低い。"
         }
       ],
       "gadgets": [
@@ -2595,16 +2595,16 @@
           "name": "花畑の保護土",
           "path": "Garden-Mulcher",
           "description": "やぶを消費してHPを1800回復する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "草むらがほどほどにあるマップだとぼちぼち使える。"
         },
         {
           "id": 23000315,
           "name": "トランスプラント",
           "path": "Transplant",
           "description": "生成した生け垣ブロックを破壊する代わりに、必殺技のゲージを瞬時に満タンにする。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "ウルトループができるようになり、ハイパーチャージや緊急時などの多様な状況で使用できるため強力。"
         }
       ],
       "videos": []
@@ -2630,16 +2630,16 @@
           "name": "オートフォーカス",
           "path": "Autofocus",
           "description": "ピープが移動距離に基づいて最大1850追加ダメージ与える。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "賞金稼ぎやノックアウトなどのモードで使用され、低体力の敵を倒せる幅が広がるため安定して強い。"
         },
         {
           "id": 23000235,
           "name": "強化スチール",
           "path": "Tempered-Steel",
           "description": "必殺技発動中に受けるダメージが80%低下する。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationLevel": 4,
+          "recommendationReason": "ウルトを接近キャラに使用する時に活躍する。"
         }
       ],
       "gadgets": [
@@ -2649,15 +2649,15 @@
           "path": "Warpin-Time",
           "description": "ナーニはピープを爆発させ、ピープが最後にいた場所にテレポートする。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "初見殺しでそこそこ強いが練度とワープのタイミングが非常に難しい。"
         },
         {
           "id": 23000353,
           "name": "差し戻し",
           "path": "Return-To-Sender",
           "description": "発動してから2秒以内に敵からダメージを受けると、最初のダメージの80％をその敵に返す。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "単発高火力の敵に対して大幅に強くなるため特定のキャラをメタるのに多く使用される。"
         }
       ],
       "videos": []
@@ -2683,8 +2683,8 @@
           "name": "暴風",
           "path": "Blustery-Blow",
           "description": "必殺技で押し戻されて障害物に激突した敵は1.2秒間気絶する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "タンクを木っ端微塵するために必要で、気絶時間が長く超強力。"
         },
         {
           "id": 23000229,
@@ -2692,7 +2692,7 @@
           "path": "Freezing-Snow",
           "description": "雪玉に当たった敵は、0.5秒にわたってスローダウンする。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "主に中距離攻撃をメタるのに使用され、2発目以降の攻撃が大幅に当てやすくなる。"
         }
       ],
       "gadgets": [
@@ -2702,15 +2702,15 @@
           "path": "Spring-Ejector",
           "description": "ゲイルは足元にジャンプ台を置いて、味方も敵も空中に跳ね上げる。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "特殊な戦術と特定のマップでかなり使用されているが、汎用性があまりにも低い。"
         },
         {
           "id": 23000407,
           "name": "ツイスター",
           "path": "Twister",
           "description": "噴射機で小さな竜巻を起こし、通り抜けようとする敵を押し戻す。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "アサシンやタンクが一切近づけなくなり、さらにタンクメタとして効力を発揮させるのに必須。"
         }
       ],
       "videos": []
@@ -2736,16 +2736,16 @@
           "name": "カウンタークラッシュ",
           "path": "Counter-Crush",
           "description": "ダメージを受けると、グラウンドブレイカーで反撃し30％のダメージを相手に返す。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "この効果の範囲内の敵は基本大ダメージを喰らうため、遠距離以外を涙目にできる強力スタパ。"
         },
         {
           "id": 23000223,
           "name": "ガチガチヘルメット",
           "path": "Hardy-Hard-Hat",
           "description": "被っている硬いヘルメットのおかげで、受けるダメージが20％減少する。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "ダメージ減少率はかなり高いものの、もう一つのスタパが強すぎて霞む。"
         }
       ],
       "gadgets": [
@@ -2754,16 +2754,16 @@
           "name": "圧縮空気ブースター",
           "path": "Pneumatic-Booster",
           "description": "力を全身にみなぎらせ、4秒間25％移動速度が上がる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "一気に前線を押し上げられ、追いつけずに倒せない敵も倒せるようになるためかなり強い。"
         },
         {
           "id": 23000486,
           "name": "再建",
           "path": "Rebuild",
           "description": "周囲にある障害物を作り直す。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "使用する難易度こそ超高いものの、刺さればある程度は強い。"
         }
       ],
       "videos": []
@@ -2789,8 +2789,8 @@
           "name": "スーパーチャージ",
           "path": "Super-Charged",
           "description": "移動中も必殺技がチャージされるようになる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "5vs5や戦いが停滞しやすいモードでは稀に使用される。"
         },
         {
           "id": 23000211,
@@ -2798,7 +2798,7 @@
           "path": "Run-N-Gun",
           "description": "移動中のリロード速度が上昇する。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "攻撃の当てにくさを数で誤魔化したり、タンクに対して有利にしたりするのに超必須の強スタパ。"
         }
       ],
       "gadgets": [
@@ -2807,8 +2807,8 @@
           "name": "ギアチェンジャー",
           "path": "Phase-Shifter",
           "description": "前にダッシュする。ダッシュしている間は、敵から受けるダメージがすべて無効になる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "敵の攻撃を防ぎながら接近できるので敵のリロード把握とダメージ計算などができれば最強と化す。"
         },
         {
           "id": 23000311,
@@ -2816,7 +2816,7 @@
           "path": "Sneaky-Sneakers",
           "description": "3秒間経過後に、発動地点まで瞬時に戻る。この間に受けたダメージはすべて回復する。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "完璧なダメージ管理ができれば強いが使いこなすのがあまりにも難しい。死ななければ前線キープ力は超大幅に上がる。"
         }
       ],
       "videos": []
@@ -2842,8 +2842,8 @@
           "name": "真心込めて",
           "path": "Handle-With-Care",
           "description": "次に投げるスーツケースによる爆発ダメージが、4秒間のチャージ後に40％増加する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "爆発を当てるのが難しいためあまりこの恩恵を感じられない。"
         },
         {
           "id": 23000205,
@@ -2851,7 +2851,7 @@
           "path": "Revolving-Door",
           "description": "拠点から召喚されるロボットポーターのHPが20％、敵に与えるダメージが30％増加する。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "子ペンの体力が上昇することでさらに前線キープ力が上昇する。"
         }
       ],
       "gadgets": [
@@ -2860,8 +2860,8 @@
           "name": "サービスベル",
           "path": "Service-Bell",
           "description": "出現しているポーターのダメージを228、HPを1360強化する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "子ペンの体力を最大まで回復させられるので敵のリロードを奪いやすく、攻撃力も大幅に上がり究極の子ペンに変貌する。"
         },
         {
           "id": 23000349,
@@ -2869,7 +2869,7 @@
           "path": "Porter-Reinforcements",
           "description": "次の通常攻撃の落下地点に、低出力のポーターの1体出現させる。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "索敵や回復阻止などでかなり有能だがこのコペンの性能が低いのが難点。"
         }
       ],
       "videos": []
@@ -2895,8 +2895,8 @@
           "name": "因果応報",
           "path": "Bad-Karma",
           "description": "彼女のヘアスプレーの範囲内にいる敵は、時間の経過とともに25％ずつ受けるダメージが増加する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "タンクや中距離の敵を倒すのにかなり強力でとにかく火力でねじ伏せられる。"
         },
         {
           "id": 23000199,
@@ -2904,7 +2904,7 @@
           "path": "Hype",
           "description": "必殺技の範囲内にいる敵1体につき、EmzのHPが毎秒576回復する。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "前線の維持力が上昇し、回復量も多くて汎用性がかなり高い。"
         }
       ],
       "gadgets": [
@@ -2913,16 +2913,16 @@
           "name": "フレンドゾーン",
           "path": "Friendzoner",
           "description": "周囲にいる敵全員を押しのけ、同時に676ダメージを与える。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "これがないとタンクとアサシンにボコボコにされる超必須ガジェット。"
         },
         {
           "id": 23000459,
           "name": "酸性スプレー",
           "path": "Acid-Spray",
           "description": "次の通常攻撃が壁をすり抜け、向こう側にいる敵まで届く。ただし、ダメージは10％低減する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 2,
+          "recommendationReason": "余程のことがない限り使用されない。"
         }
       ],
       "videos": []
@@ -2948,8 +2948,8 @@
           "name": "ロイヤルゼリー",
           "path": "Insta-Beaload",
           "description": "ブーストされた攻撃を外した場合、もう1ショット分の「針の一撃」を瞬時にパワーアップする。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "タンクキラーとして君臨するのに重宝される。"
         },
         {
           "id": 23000193,
@@ -2957,7 +2957,7 @@
           "path": "Honeycomb",
           "description": "通常攻撃がパワーアップしている間、シールドを発動してダメージを30％軽減する。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "死亡リスクをかなり抑えられ、シールドを持った状態だと前線を押し上げやすくかなり強い。"
         }
       ],
       "gadgets": [
@@ -2966,16 +2966,16 @@
           "name": "ハニーモラセス",
           "path": "Honey-Molasses",
           "description": "ネバネバのはちみつが付いたハチの巣を設置し、あふれ出た蜜に触れた敵をスローダウンさせる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "シールドや壁裏の敵に使用するとかなり強く、タンクメタとしてさらに強化される。"
         },
         {
           "id": 23000312,
           "name": "怒れる巣箱",
           "path": "Rattled-Hive",
           "description": "怒ったハチが4匹が、渦を描くように周囲を飛び回る。ハチが遠くに行くほど、与えるダメージが大きくなる(最大1200ダメージ)。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "壁裏の敵でもキルを取るのにかなり使え、回復阻止としてもかなり優秀。"
         }
       ],
       "videos": []
@@ -3001,16 +3001,16 @@
           "name": "荒ぶる砂",
           "path": "Rude-Sands",
           "description": "砂嵐が、範囲内にいる敵に毎秒216ダメージを与えるようになる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "超範囲の敵の回復阻止と索敵として優秀で、間違いなく必須のスタパ"
         },
         {
           "id": 23000187,
           "name": "癒しの風",
           "path": "Healing-Winds",
           "description": "砂嵐が、範囲内にいる味方のHPを毎秒380回復する。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "ごく稀に編成次第で強いが基本的にはもう一つのスタパを使用するべき。"
         }
       ],
       "gadgets": [
@@ -3019,16 +3019,16 @@
           "name": "睡眠刺激薬",
           "path": "Sleep-Stimulator",
           "description": "1.5秒間眠りに落ちるが、HPが全回復する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "効果自体は悪くないがもう一つのガジェットが強すぎる。"
         },
         {
           "id": 23000405,
           "name": "甘い夢",
           "path": "Sweet-Dreams",
           "description": "次の通常攻撃で、敵を1.0秒間眠りに落とす。ただし、敵はダメージを受けると目を覚ます。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "アサシンやタンクに襲われても一時的に距離を置くことができ、確定シュートなどもできるため汎用性があまりにも高い。"
         }
       ],
       "videos": []
@@ -3054,8 +3054,8 @@
           "name": "ダメージブースター",
           "path": "Boosted-Booster",
           "description": "ダメージブースターの効果範囲が50％拡大し、与えるダメージがさらに15％増加する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "強奪最強でこのエリアにいる味方の火力も上昇する効果もあるため刺されば超強力。"
         },
         {
           "id": 23000181,
@@ -3063,7 +3063,7 @@
           "path": "Plugged-In",
           "description": "ダメージブースターの近くにいると、電力供給を受けて移動速度が増加する。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "移動速度の遅さの難点を克服できるため、これが発動中はかなり厄介な性能になる。"
         }
       ],
       "gadgets": [
@@ -3072,8 +3072,8 @@
           "name": "裏技カセット",
           "path": "Cheat-Cartridge",
           "description": "ダメージブースターの位置まで瞬時にテレポートする。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "緊急脱出として使用でき、強引に前線を上げることもできる優秀なガジェット。"
         },
         {
           "id": 23000318,
@@ -3081,7 +3081,7 @@
           "path": "Extra-Credits",
           "description": "次の攻撃で、発射するブラスタービームの数が18発に増える。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "強奪でのみ使用され、火力の底上げとしてかなり重宝される。"
         }
       ],
       "videos": []
@@ -3107,16 +3107,16 @@
           "name": "盗塁王",
           "path": "Home-Run",
           "description": "ホームランゲージが満タンの間、移動速度が12％向上する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "移動速度が大幅に上昇することで弾除けがしやすくなり、敵似接近しやすくかなり強力。"
         },
         {
           "id": 23000146,
           "name": "打撃の構え",
           "path": "Batting-Stance",
           "description": "ホームランゲージが満タンの間、受けるダメージが20％減少する。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationLevel": 4,
+          "recommendationReason": "性能が強いものの移動速度上昇の方がほのかに性能が勝るが、編成やモードによってはこちらを使用されることもある"
         }
       ],
       "gadgets": [
@@ -3125,8 +3125,8 @@
           "name": "ビタミンブースター",
           "path": "Vitamin-Booster",
           "description": "4秒間、毎秒960ずつHPを回復する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "回復量がかなり多く耐久性がかなり上昇し使いやすくて強力。"
         },
         {
           "id": 23000458,
@@ -3134,7 +3134,7 @@
           "path": "Extra-Sticky",
           "description": "次の必殺技が命中すると、敵を3秒間にわたってスローダウンする。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "使いこなすのが難しく、かなりの熟練度が必要だが使いこなせれば強いはず。"
         }
       ],
       "videos": []
@@ -3160,8 +3160,8 @@
           "name": "力投",
           "path": "Power-Throw",
           "description": "カールが投げるツルハシの速度が10％増加し、より早く戻ってくるようになる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "速度増加量が10%のため、あまり違いを感じられないため人気が低い。"
         },
         {
           "id": 23000145,
@@ -3169,7 +3169,7 @@
           "path": "Protective-Pirouette",
           "description": "必殺技の発動中は、受けるダメージが35％減少する。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "ダメージ低減率がかなり高くウルトの破壊力が大幅に上昇するのでおすすめ。"
         }
       ],
       "gadgets": [
@@ -3178,16 +3178,16 @@
           "name": "灼熱インジェクター",
           "path": "Heat-Ejector",
           "description": "次の通常攻撃で、ツルハシの下にアツアツの石を落とす。石に触れた敵は引火し、毎秒740ダメージを受ける。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "触れると2960の持続ダメージを与えることができ、回復阻止とかなりのダメージを与えられるため当たれば強力"
         },
         {
           "id": 23000317,
           "name": "空飛ぶフック",
           "path": "Flying-Hook",
           "description": "次の攻撃で、投げたツルハシの最高到達地点まで自分を引き寄せる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "機動力が一気に向上することで特定のキャラクターをメタるのに使える。"
         }
       ],
       "videos": []
@@ -3213,16 +3213,16 @@
           "name": "雑草魂",
           "path": "Plant-Life",
           "description": "やぶに入ると自身のHPが毎秒300回復する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "ダメージ計算を狂わせながらウルトとの相性が非常に良く耐久力がかなり上昇する。"
         },
         {
           "id": 23000147,
           "name": "トゲトゲグローブ",
           "path": "Thorny-Gloves",
           "description": "必殺技の発動中は、パンチのダメージが+276増加する。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "基本的にダメージが不足することがあまりないため、そこまで必要と感じられない。"
         }
       ],
       "gadgets": [
@@ -3232,15 +3232,15 @@
           "path": "Grow-Light",
           "description": "周囲の地面に肥料を撒くと、瞬時にやぶが出現し、身を隠すことができる。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "特定のマップで戦術があれば使用されるが基本的にはあまり強くはない。"
         },
         {
           "id": 23000348,
           "name": "やぶの反撃",
           "path": "Unfriendly-Bushes",
           "description": "やぶの中に隠れている敵全員に276ダメージを与え、3秒間スローダウンさせる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "効果時間が長い強制スローダウンが超強力でこのキャラの強みのほとんどを占めているレベル。"
         }
       ],
       "videos": []
@@ -3266,8 +3266,8 @@
           "name": "煙遁の術",
           "path": "Smoke-Trails",
           "description": "必殺技を発動すると、周りから姿が見えない間の移動速度が30%ブーストされる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "回復が簡単に行えるマップなどではごく稀に使用されるが、そこまで強力ではない。"
         },
         {
           "id": 23000141,
@@ -3275,7 +3275,7 @@
           "path": "Invisiheal",
           "description": "必殺技の発動中は、レオンのHPが毎秒1360回復する。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "ウルトを回復目的でも使用することができ、耐久力が超大幅に上昇することでウルトループなどもしやすくなり安定する。"
         }
       ],
       "gadgets": [
@@ -3284,16 +3284,16 @@
           "name": "クローンプロジェクター",
           "path": "Clone-Projector",
           "description": "自分の分身を召喚し、敵を混乱させる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "経験を積むと分身と本体が見分けられるため上級者にはあまり刺さらない。"
         },
         {
           "id": 23000408,
           "name": "ロリポップドロップ",
           "path": "Lollipop-Drop",
           "description": "味方が透明になるエリアを作り出す。キャンディのHPは時間とともにゆっくりと減少する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "味方ともに透明になるため非常に強力で、盾としても活躍するため汎用性が非常に高い。"
         }
       ],
       "videos": []
@@ -3319,16 +3319,16 @@
           "name": "潤滑良好",
           "path": "Well-Oiled",
           "description": "ダメージを受けず攻撃も行わなければ、ティックのHPが通常より2秒速く回復する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "回復開始の速度が大幅に上昇し、弱点だった耐久力が上昇するためほぼ必須のスタパとなっている。"
         },
         {
           "id": 23000161,
           "name": "オートマ・ティック装填",
           "path": "Automa-Tick-Reload",
           "description": "リロード時間が9％短縮される。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationLevel": 2,
+          "recommendationReason": "編成的に攻撃を喰らわない状態でのみ使用できるがほとんど使用されない。"
         }
       ],
       "gadgets": [
@@ -3337,16 +3337,16 @@
           "name": "地雷マニア",
           "path": "Mine-Mania",
           "description": "次の攻撃で、6個の地雷を投げる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "急接近してくる敵がいない時はたまに使用されるが、そこまで強力とは言えない。"
         },
         {
           "id": 23000355,
           "name": "最後のひと踏ん張り",
           "path": "Last-Hurrah",
           "description": "1秒間にわたってシールドを発動し、ダメージを50％軽減する。効果時間が過ぎると、シールドが爆発して1280ダメージを与える。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "弱点である近距離をカバーするためにかなり重要なガジェットで生存能力を向上させられる。"
         }
       ],
       "videos": []
@@ -3372,16 +3372,16 @@
           "name": "魔法の吐息",
           "path": "Magic-Puffs",
           "description": "周囲にいる仲間のHPが毎秒576回復する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "回復量がかなり高く、様々な戦術やシチュエーションで多く使用される。"
         },
         {
           "id": 23000159,
           "name": "一発入魂",
           "path": "Spirit-Slap",
           "description": "魔法の手で敵にダメージも与えることができる。(命中ダメージ2000)。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationLevel": 1,
+          "recommendationReason": "追加ダメージの必要性がない。"
         }
       ],
       "gadgets": [
@@ -3399,7 +3399,7 @@
           "path": "Vengeful-Spirits",
           "description": "射程内にいるすべての敵に、広範囲にわたってホーミングミサイルを発射し、距離に応じて最大1600ダメージを与える。",
           "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationReason": "味方が近くに居れないマップでよく使用され、回復阻止や確定キルなど汎用性が高い。。"
         }
       ],
       "videos": []
@@ -3425,16 +3425,16 @@
           "name": "正気泥棒",
           "path": "Power-Grab",
           "description": "倒した敵の生気を吸い取ることで、12秒間にわたってダメージが25％増加する！",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "攻撃上昇の条件とHPが減るほど攻撃速度が上がる効果の相性が良く、かなり暴れられるようになる。"
         },
         {
           "id": 23000153,
           "name": "スポンジ",
           "path": "Sponge",
           "description": "自身のHPが+1340増加する。",
-          "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationLevel": 4,
+          "recommendationReason": "耐久力が向上するため悪くはないが、上昇する値が少し少ないのがネック。"
         }
       ],
       "gadgets": [
@@ -3443,16 +3443,16 @@
           "name": "ノイズキャンセリング",
           "path": "Active-Noise-Canceling",
           "description": "自分が受けている状態異常の効果をすべて無効化し、一時的に気絶、スローダウン、ノックバックを受けなくなる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "妨害系の敵が多い際に超強力で一時的に止まらなくなる。"
         },
         {
           "id": 23000351,
           "name": "不可抗力",
           "path": "Irresistible-Attraction",
           "description": "次の通常攻撃で敵を自分の方へ引き寄せ、50％の追加ダメージを与える。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "攻撃の上昇率と引き寄せの効果がかなり強く対面勝率が大幅に上昇する。"
         }
       ],
       "videos": []
@@ -3478,8 +3478,8 @@
           "name": "お宝ザクザク",
           "path": "Heavy-Coffers",
           "description": "金貨の飛び散る範囲が、敵に命中するたびに100％広くなる。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "敵が密集しやすいモードで強力で、実質的にウルトの回転率も上昇するためかなり強い。"
         },
         {
           "id": 23000142,
@@ -3487,7 +3487,7 @@
           "path": "Master-Blaster",
           "description": "大砲を配置した場所にいる敵をノックバックし、1372ダメージを与える。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "接近キャラクターに強くなり、耐久性が上昇することで死ににくくなる。"
         }
       ],
       "gadgets": [
@@ -3496,16 +3496,16 @@
           "name": "ソルティーバレル",
           "path": "Salty-Barrel",
           "description": "塩の入ったタルを出現させて敵の攻撃を防ぐ。自らタルを攻撃すると、袋の金貨が拡散される。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "拡散攻撃の火力が非常に高く、接近系の高体力の敵に対してかなり強くなり、盾としても遠距離の相手にもかなり優位が取れるようになる。"
         },
         {
           "id": 23000287,
           "name": "カリブの望遠鏡",
           "path": "Trusty-Spyglass",
           "description": "ペニーの大砲が、射程内の見える敵すべてに砲撃を放つ。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 3,
+          "recommendationReason": "たまに強いときもあるが、基本的に避けられるためそこまで強くない。"
         }
       ],
       "videos": []
@@ -3531,8 +3531,8 @@
           "name": "鋼の盾",
           "path": "Steel-Hoops",
           "description": "バレルロールを発動すると、受けるダメージを2秒にわたって25％軽減する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "強奪以外のマップで使用され、耐久力がかなり上昇するため強力。"
         },
         {
           "id": 23000157,
@@ -3540,7 +3540,7 @@
           "path": "Rolling-Reload",
           "description": "必殺技を発動すると、リロード速度が5秒間2倍になる。",
           "recommendationLevel": 5,
-          "recommendationReason": ""
+          "recommendationReason": "主に強奪で使用され、火力が大幅に上昇するため強力。"
         }
       ],
       "gadgets": [
@@ -3549,16 +3549,16 @@
           "name": "パワースプリング",
           "path": "Recoiling-Rotator",
           "description": "身体を回転させながら、あらゆる方向に弾丸を放つ。弾丸1発につき600ダメージを与え、敵に命中すると必殺技ゲージが25%ずつ溜まっていく。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "最大9000ダメージが出る超強力ガジェットで強奪の金庫に当てるのを極めると最強と化す"
         },
         {
           "id": 23000313,
           "name": "タールバレル",
           "path": "Tar-Barrel",
           "description": "敵の移動速度を低下させるエリアを周囲に5秒間生成する。",
-          "recommendationLevel": 4,
-          "recommendationReason": ""
+          "recommendationLevel": 5,
+          "recommendationReason": "5秒間と長い間で移動速度を低下させられ、さまざまな状況で活躍する。"
         }
       ],
       "videos": []
