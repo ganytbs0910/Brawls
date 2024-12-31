@@ -334,22 +334,30 @@ const PickPrediction: React.FC = () => {
       
       return (
         <View style={styles.advantageContainer}>
-          <Text style={styles.advantageTitle}>試合予測</Text>
+          <Text style={styles.advantageTitle}>チーム相性分析</Text>
           <View style={styles.scoreComparisonContainer}>
             <Text style={styles.teamScore}>
-              チームA: {advantage.teamAScore.toFixed(1)}
+              チームA編成得点: {advantage.teamAScore.toFixed(1)}pt
             </Text>
             <Text style={styles.teamScore}>
-              チームB: {advantage.teamBScore.toFixed(1)}
+              チームB編成得点: {advantage.teamBScore.toFixed(1)}pt
             </Text>
           </View>
           <Text style={[
             styles.advantageText,
-            { color: advantage.advantageTeam ? '#21A0DB' : '#666' }
+            { 
+              color: advantage.advantageTeam === 'A' ? '#FF3B30' : 
+                     advantage.advantageTeam === 'B' ? '#007AFF' : '#666'
+            }
           ]}>
             {advantage.advantageTeam 
-              ? `チーム${advantage.advantageTeam}が有利 (差: ${advantage.difference.toFixed(1)})`
-              : '両チーム互角'}
+              ? `チーム${advantage.advantageTeam}が有利 (編成得点差: ${advantage.difference.toFixed(1)}pt)`
+              : '両チーム互角 (編成得点差: 1pt未満)'}
+          </Text>
+          <Text style={styles.advantageDescription}>
+            {advantage.advantageTeam
+              ? '相手のキャラクターに対してより効果的な戦術を取れる可能性が高いです'
+              : '両チームとも相手に対して同程度の戦術的優位性があります'}
           </Text>
         </View>
       );
@@ -362,462 +370,469 @@ const PickPrediction: React.FC = () => {
                           gameState.teamB.includes(rec.character));
 
     return (
-      <TouchableOpacity
-        key={index}
-        style={[
-          styles.recommendationRow,
-          isSelectable && styles.selectableRecommendation,
-          !isSelectable && styles.disabledRecommendation
-        ]}
-        onPress={() => isSelectable && handleCharacterSelect(rec.character)}
-        disabled={!isSelectable}
-      >
-        <View style={styles.recommendationContent}>
-          <View style={styles.characterInfo}>
-            <Text style={styles.rankText}>#{index + 1}</Text>
-            <CharacterImage characterName={rec.character} size={25} />
-            <Text style={styles.characterName}>{rec.character}</Text>
+        <TouchableOpacity
+          key={index}
+          style={[
+            styles.recommendationRow,
+            isSelectable && styles.selectableRecommendation,
+            !isSelectable && styles.disabledRecommendation
+          ]}
+          onPress={() => isSelectable && handleCharacterSelect(rec.character)}
+          disabled={!isSelectable}
+        >
+          <View style={styles.recommendationContent}>
+            <View style={styles.characterInfo}>
+              <Text style={styles.rankText}>#{index + 1}</Text>
+              <CharacterImage characterName={rec.character} size={25} />
+              <Text style={styles.characterName}>{rec.character}</Text>
+            </View>
+            <View style={styles.scoreInfo}>
+              <Text style={styles.score}>{rec.score.toFixed(1)}</Text>
+              <Text style={styles.reasonText}>{rec.reason}</Text>
+            </View>
           </View>
-          <View style={styles.scoreInfo}>
-            <Text style={styles.score}>{rec.score.toFixed(1)}</Text>
-            <Text style={styles.reasonText}>{rec.reason}</Text>
+          <View style={styles.scoreBarContainer}>
+            <View
+              style={[
+                styles.scoreBar,
+                { 
+                  width: `${(rec.score / 30) * 100}%`,
+                  backgroundColor: getScoreColor(rec.score)
+                }
+              ]}
+            />
+          </View>
+        </TouchableOpacity>
+      );
+    };
+
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.fixedHeader}>
+          <View style={styles.header}>
+            <Text style={styles.title}>ピック想定</Text>
+            <Text style={styles.phase}>{getPhaseInstructions(gameState.currentPhase, gameState.currentTeam)}</Text>
+            <TouchableOpacity 
+              style={styles.resetButton}
+              onPress={resetGame}
+            >
+              <Text style={styles.resetButtonText}>リセット</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.teamsContainer}>
+            {renderTeam('A')}
+            <Image 
+              source={require('../../assets/AppIcon/VSIcon.png')}
+              style={styles.vsIcon}
+            />
+            {renderTeam('B')}
           </View>
         </View>
-        <View style={styles.scoreBarContainer}>
-          <View
-            style={[
-              styles.scoreBar,
-              { 
-                width: `${(rec.score / 30) * 100}%`,
-                backgroundColor: getScoreColor(rec.score)
-              }
-            ]}
-          />
-        </View>
-      </TouchableOpacity>
+
+        <ScrollView style={styles.scrollContent}>
+          {renderAdvantageMessage()}
+          {gameState.recommendations.length > 0 && (
+            <View style={styles.recommendationsContainer}>
+              <Text style={styles.recommendationsTitle}>おすすめキャラクター</Text>
+              {(expandedRecommendations 
+                ? gameState.recommendations 
+                : gameState.recommendations.slice(0, 3)
+              ).map((rec, index) => renderRecommendation(rec, index))}
+              {gameState.recommendations.length > 3 && !expandedRecommendations && (
+                <TouchableOpacity 
+                  style={styles.expandButton}
+                  onPress={() => setExpandedRecommendations(true)}
+                >
+                  <Text style={styles.expandButtonText}>
+                    さらに表示 ({gameState.recommendations.length - 3}体)
+                  </Text>
+                </TouchableOpacity>
+              )}
+              {expandedRecommendations && (
+                <TouchableOpacity 
+                  style={styles.expandButton}
+                  onPress={() => setExpandedRecommendations(false)}
+                >
+                  <Text style={styles.expandButtonText}>閉じる</Text>
+                </TouchableOpacity>
+              )}
+            </View>
+          )}
+
+          <View style={styles.characterGrid}>
+            {Object.values(CHARACTER_MAP).map((character) => (
+              <TouchableOpacity
+                key={character}
+                style={[
+                  styles.characterButton,
+                  (gameState.teamA.includes(character) || gameState.teamB.includes(character)) && 
+                  styles.selectedCharacterButton
+                ]}
+                onPress={() => handleCharacterSelect(character)}
+                disabled={gameState.teamA.includes(character) || gameState.teamB.includes(character)}
+              >
+                <CharacterImage characterName={character} size={40} />
+              </TouchableOpacity>
+            ))}
+          </View>
+        </ScrollView>
+
+        <Modal
+          transparent={true}
+          visible={showTurnModal}
+          animationType="none"
+        >
+          <TouchableOpacity 
+            style={styles.modalOverlay}
+            activeOpacity={1}
+            onPress={handleModalClose}
+          >
+            <Animated.View
+              style={[
+                styles.turnAnnouncement,
+                {
+                  transform: [
+                    { scale: scaleAnim },
+                    { perspective: 1000 }
+                  ]
+                }
+              ]}
+            >
+              <View style={[
+                styles.turnCard,
+                { backgroundColor: gameState.currentTeam === 'A' ? '#FF3B30' : '#007AFF' }
+              ]}>
+                <Text style={styles.turnMessageMain}>{turnMessage}</Text>
+                <Text style={styles.turnMessageSub}>{turnSubMessage}</Text>
+                <Text style={styles.skipText}>タップでスキップ</Text>
+              </View>
+            </Animated.View>
+          </TouchableOpacity>
+        </Modal>
+      </SafeAreaView>
     );
   };
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.fixedHeader}>
-        <View style={styles.header}>
-          <Text style={styles.title}>ピック想定</Text>
-          <Text style={styles.phase}>{getPhaseInstructions(gameState.currentPhase, gameState.currentTeam)}</Text>
-          <TouchableOpacity 
-            style={styles.resetButton}
-            onPress={resetGame}
-          >
-            <Text style={styles.resetButtonText}>リセット</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.teamsContainer}>
-          {renderTeam('A')}
-          <Image 
-            source={require('../../assets/AppIcon/VSIcon.png')}
-            style={styles.vsIcon}
-          />
-          {renderTeam('B')}
-        </View>
-      </View>
-
-      <ScrollView style={styles.scrollContent}>
-        {renderAdvantageMessage()}
-        {gameState.recommendations.length > 0 && (
-          <View style={styles.recommendationsContainer}>
-            <Text style={styles.recommendationsTitle}>おすすめキャラクター</Text>
-            {(expandedRecommendations 
-              ? gameState.recommendations 
-              : gameState.recommendations.slice(0, 3)
-            ).map((rec, index) => renderRecommendation(rec, index))}
-            {gameState.recommendations.length > 3 && !expandedRecommendations && (
-              <TouchableOpacity 
-                style={styles.expandButton}
-                onPress={() => setExpandedRecommendations(true)}
-              >
-                <Text style={styles.expandButtonText}>
-                  さらに表示 ({gameState.recommendations.length - 3}体)
-                </Text>
-              </TouchableOpacity>
-            )}
-            {expandedRecommendations && (
-              <TouchableOpacity 
-                style={styles.expandButton}
-                onPress={() => setExpandedRecommendations(false)}
-              >
-                <Text style={styles.expandButtonText}>閉じる</Text>
-              </TouchableOpacity>
-            )}
-          </View>
-        )}
-
-        <View style={styles.characterGrid}>
-          {Object.values(CHARACTER_MAP).map((character) => (
-            <TouchableOpacity
-              key={character}
-              style={[
-                styles.characterButton,
-                (gameState.teamA.includes(character) || gameState.teamB.includes(character)) && 
-                styles.selectedCharacterButton
-              ]}
-              onPress={() => handleCharacterSelect(character)}
-              disabled={gameState.teamA.includes(character) || gameState.teamB.includes(character)}
-            >
-              <CharacterImage characterName={character} size={40} />
-            </TouchableOpacity>
-          ))}
-        </View>
-      </ScrollView>
-
-      <Modal
-        transparent={true}
-        visible={showTurnModal}
-        animationType="none"
-      >
-        <TouchableOpacity 
-          style={styles.modalOverlay}
-          activeOpacity={1}
-          onPress={handleModalClose}
-        >
-          <Animated.View
-            style={[
-              styles.turnAnnouncement,
-              {
-                transform: [
-                  { scale: scaleAnim },
-                  { perspective: 1000 }
-                ]
-              }
-            ]}
-          >
-            <View style={[
-              styles.turnCard,
-              { backgroundColor: gameState.currentTeam === 'A' ? '#FF3B30' : '#007AFF' }
-            ]}>
-              <Text style={styles.turnMessageMain}>{turnMessage}</Text>
-              <Text style={styles.turnMessageSub}>{turnSubMessage}</Text>
-              <Text style={styles.skipText}>タップでスキップ</Text>
-            </View>
-          </Animated.View>
-        </TouchableOpacity>
-      </Modal>
-    </SafeAreaView>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  fixedHeader: {
-    backgroundColor: '#fff',
-    zIndex: 1,
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-  },
-  header: {
-    height: 65,
-    backgroundColor: '#21A0DB',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
-    position: 'relative',
-  },
-  scrollContent: {
-    flex: 1,
-  },
-  resetButton: {
-    position: 'absolute',
-    right: 10,
-    top: '50%',
-    transform: [{ translateY: -15 }],
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 15,
-    borderWidth: 1,
-    borderColor: '#fff',
-  },
-  resetButtonText: {
-    color: '#fff',
-    fontSize: 12,
-    fontWeight: 'bold',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#fff',
-    marginBottom: 5,
-  },
-  phase: {
-    fontSize: 14,
-    color: '#fff',
-  },
-  teamsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 10,
-    marginHorizontal: 10,
-    backgroundColor: '#fff',
-  },
-  vsIcon: {
-    width: 30,
-    height: 30,
-    resizeMode: 'contain',
-    marginTop: 35,
-  },
-  teamContainer: {
-    width: '42%',
-    alignItems: 'center',
-    padding: 10,
-    borderRadius: 10,
-  },
-  activeTeamContainerA: {
-    backgroundColor: 'rgba(255, 59, 48, 0.1)',
-  },
-  activeTeamContainerB: {
-    backgroundColor: 'rgba(0, 122, 255, 0.1)',
-  },
-  teamTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  teamTitleA: {
-    color: '#FF3B30',
-  },
-  teamTitleB: {
-    color: '#007AFF',
-  },
-  activeTeamTitleA: {
-    color: '#FF3B30',
-  },
-  activeTeamTitleB: {
-    color: '#007AFF',
-  },
-  teamSlots: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-  },
-  teamSlot: {
-    width: '32%',
-    aspectRatio: 1,
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-    borderRadius: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  activeTeamSlotA: {
-    borderColor: '#FF3B30',
-  },
-  activeTeamSlotB: {
-    borderColor: '#007AFF',
-  },
-  selectedCharacter: {
-    alignItems: 'center',
-  },
-  emptySlot: {
-    fontSize: 10,
-    color: '#bdbdbd',
-  },
-  advantageContainer: {
-    backgroundColor: '#f5f5f5',
-    margin: 10,
-    padding: 12,
-    borderRadius: 10,
-    alignItems: 'center',
-  },
-  advantageTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 8,
-  },
-  scoreComparisonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    gap: 20,
-    marginBottom: 8,
-  },
-  teamScore: {
-    fontSize: 14,
-    color: '#666',
-    fontWeight: '500',
-  },
-  advantageText: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  recommendationsContainer: {
-    padding: 8,
-    backgroundColor: '#f5f5f5',
-    margin: 10,
-    borderRadius: 10,
-  },
-  recommendationsTitle: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    marginBottom: 8,
-    color: '#333',
-  },
-  recommendationRow: {
-    marginVertical: 3,
-    backgroundColor: '#fff',
-    borderRadius: 6,
-    padding: 6,
-  },
-  selectableRecommendation: {
-    cursor: 'pointer',
-  },
-  disabledRecommendation: {
-    opacity: 0.6,
-  },
-  recommendationContent: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 3,
-  },
-  characterInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 2,
-  },
-  scoreInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-    justifyContent: 'flex-end',
-  },
-  rankText: {
-    fontSize: 12,
-    fontWeight: 'bold',
-    marginRight: 8,
-    width: 20,
-    color: '#666',
-  },
-  characterName: {
-    marginLeft: 8,
-    fontSize: 12,
-    color: '#333',
-  },
-  score: {
-    fontSize: 12,
-    fontWeight: 'bold',
-    marginRight: 6,
-    color: '#333',
-  },
-  reasonText: {
-    fontSize: 10,
-    color: '#666',
-  },
-  scoreBarContainer: {
-    height: 4,
-    backgroundColor: '#e0e0e0',
-    borderRadius: 2,
-    overflow: 'hidden',
-    marginTop: 4,
-  },
-  scoreBar: {
-    height: '100%',
-    borderRadius: 2,
-  },
-  characterGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    padding: 5,
-    marginTop: 10,
-    paddingBottom: 20,
-  },
-  characterButton: {
-    padding: 8,
-    margin: 4,
-    backgroundColor: '#f0f0f0',
-    borderRadius: 5,
-    width: 60,
-    height: 60,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  selectedCharacterButton: {
-    backgroundColor: '#e0e0e0',
-    opacity: 0.5,
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  turnAnnouncement: {
-    width: 300,
-    padding: 20,
-    borderRadius: 15,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
+    fixedHeader: {
+      backgroundColor: '#fff',
+      zIndex: 1,
+      elevation: 3,
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  turnCard: {
-    width: '100%',
-    padding: 20,
-    borderRadius: 10,
-    alignItems: 'center',
-  },
-  turnMessageMain: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: 'white',
-    marginBottom: 10,
-    textShadowColor: 'rgba(0, 0, 0, 0.3)',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 3,
-  },
-  turnMessageSub: {
-    fontSize: 16,
-    color: 'white',
-    textAlign: 'center',
-    textShadowColor: 'rgba(0, 0, 0, 0.2)',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 2,
-  },
-  skipText: {
-    fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.8)',
-    marginTop: 8,
-  },
-  expandButton: {
-    backgroundColor: '#fff',
-    padding: 8,
-    borderRadius: 5,
-    marginTop: 8,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-  },
-  expandButtonText: {
-    fontSize: 12,
-    color: '#666',
-    fontWeight: '500',
-  },
-});
+    header: {
+      height: 65,
+      backgroundColor: '#21A0DB',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 10,
+      position: 'relative',
+    },
+    scrollContent: {
+      flex: 1,
+    },
+    resetButton: {
+      position: 'absolute',
+      right: 10,
+      top: '50%',
+      transform: [{ translateY: -15 }],
+      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+      paddingHorizontal: 12,
+      paddingVertical: 6,
+      borderRadius: 15,
+      borderWidth: 1,
+      borderColor: '#fff',
+    },
+    resetButtonText: {
+      color: '#fff',
+      fontSize: 12,
+      fontWeight: 'bold',
+    },
+    title: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      color: '#fff',
+      marginBottom: 5,
+    },
+    phase: {
+      fontSize: 14,
+      color: '#fff',
+    },
+    teamsContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: 10,
+      marginHorizontal: 10,
+      backgroundColor: '#fff',
+    },
+    vsIcon: {
+      width: 30,
+      height: 30,
+      resizeMode: 'contain',
+      marginTop: 35,
+    },
+    teamContainer: {
+      width: '42%',
+      alignItems: 'center',
+      padding: 10,
+      borderRadius: 10,
+    },
+    activeTeamContainerA: {
+      backgroundColor: 'rgba(255, 59, 48, 0.1)',
+    },
+    activeTeamContainerB: {
+      backgroundColor: 'rgba(0, 122, 255, 0.1)',
+    },
+    teamTitle: {
+      fontSize: 16,
+      fontWeight: 'bold',
+      marginBottom: 10,
+    },
+    teamTitleA: {
+      color: '#FF3B30',
+    },
+    teamTitleB: {
+      color: '#007AFF',
+    },
+    activeTeamTitleA: {
+      color: '#FF3B30',
+    },
+    activeTeamTitleB: {
+      color: '#007AFF',
+    },
+    teamSlots: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: '100%',
+    },
+    teamSlot: {
+      width: '32%',
+      aspectRatio: 1,
+      borderWidth: 1,
+      borderColor: '#e0e0e0',
+      borderRadius: 5,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    activeTeamSlotA: {
+      borderColor: '#FF3B30',
+    },
+    activeTeamSlotB: {
+      borderColor: '#007AFF',
+    },
+    selectedCharacter: {
+      alignItems: 'center',
+    },
+    emptySlot: {
+      fontSize: 10,
+      color: '#bdbdbd',
+    },
+    advantageContainer: {
+      backgroundColor: '#f5f5f5',
+      margin: 10,
+      padding: 12,
+      borderRadius: 10,
+      alignItems: 'center',
+    },
+    advantageTitle: {
+      fontSize: 16,
+      fontWeight: 'bold',
+      color: '#333',
+      marginBottom: 8,
+    },
+    scoreComparisonContainer: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      marginBottom: 12,
+    },
+    teamScore: {
+      fontSize: 14,
+      color: '#666',
+      fontWeight: '500',
+      marginBottom: 4,
+    },
+    advantageText: {
+      fontSize: 16,
+      fontWeight: 'bold',
+      textAlign: 'center',
+      marginBottom: 8,
+    },
+    advantageDescription: {
+      fontSize: 12,
+      color: '#666',
+      textAlign: 'center',
+      paddingHorizontal: 10,
+    },
+    recommendationsContainer: {
+      padding: 8,
+      backgroundColor: '#f5f5f5',
+      margin: 10,
+      borderRadius: 10,
+    },
+    recommendationsTitle: {
+      fontSize: 14,
+      fontWeight: 'bold',
+      marginBottom: 8,
+      color: '#333',
+    },
+    recommendationRow: {
+      marginVertical: 3,
+      backgroundColor: '#fff',
+      borderRadius: 6,
+      padding: 6,
+    },
+    selectableRecommendation: {
+      cursor: 'pointer',
+    },
+    disabledRecommendation: {
+      opacity: 0.6,
+    },
+    recommendationContent: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: 3,
+    },
+    characterInfo: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      flex: 2,
+    },
+    scoreInfo: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      flex: 1,
+      justifyContent: 'flex-end',
+    },
+    rankText: {
+      fontSize: 12,
+      fontWeight: 'bold',
+      marginRight: 8,
+      width: 20,
+      color: '#666',
+    },
+    characterName: {
+      marginLeft: 8,
+      fontSize: 12,
+      color: '#333',
+    },
+    score: {
+      fontSize: 12,
+      fontWeight: 'bold',
+      marginRight: 6,
+      color: '#333',
+    },
+    reasonText: {
+      fontSize: 10,
+      color: '#666',
+    },
+    scoreBarContainer: {
+      height: 4,
+      backgroundColor: '#e0e0e0',
+      borderRadius: 2,
+      overflow: 'hidden',
+      marginTop: 4,
+    },
+    scoreBar: {
+      height: '100%',
+      borderRadius: 2,
+    },
+    characterGrid: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+      padding: 5,
+      marginTop: 10,
+      paddingBottom: 20,
+    },
+    characterButton: {
+      padding: 8,
+      margin: 4,
+      backgroundColor: '#f0f0f0',
+      borderRadius: 5,
+      width: 60,
+      height: 60,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    selectedCharacterButton: {
+      backgroundColor: '#e0e0e0',
+      opacity: 0.5,
+    },
+    modalOverlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    turnAnnouncement: {
+      width: 300,
+      padding: 20,
+      borderRadius: 15,
+      backgroundColor: 'white',
+      alignItems: 'center',
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+      elevation: 5,
+    },
+    turnCard: {
+      width: '100%',
+      padding: 20,
+      borderRadius: 10,
+      alignItems: 'center',
+    },
+    turnMessageMain: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      color: 'white',
+      marginBottom: 10,
+      textShadowColor: 'rgba(0, 0, 0, 0.3)',
+      textShadowOffset: { width: 1, height: 1 },
+      textShadowRadius: 3,
+    },
+    turnMessageSub: {
+      fontSize: 16,
+      color: 'white',
+      textAlign: 'center',
+      textShadowColor: 'rgba(0, 0, 0, 0.2)',
+      textShadowOffset: { width: 1, height: 1 },
+      textShadowRadius: 2,
+    },
+    skipText: {
+      fontSize: 12,
+      color: 'rgba(255, 255, 255, 0.8)',
+      marginTop: 8,
+    },
+    expandButton: {
+      backgroundColor: '#fff',
+      padding: 8,
+      borderRadius: 5,
+      marginTop: 8,
+      alignItems: 'center',
+      borderWidth: 1,
+      borderColor: '#e0e0e0',
+    },
+    expandButtonText: {
+      fontSize: 12,
+      color: '#666',
+      fontWeight: '500',
+    },
+  });
 
-export default PickPrediction;
+  export default PickPrediction;
