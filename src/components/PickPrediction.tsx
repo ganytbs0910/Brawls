@@ -8,6 +8,7 @@ import {
   SafeAreaView,
   Modal,
   Animated,
+  Image,
 } from 'react-native';
 import { CHARACTER_MAP, allCharacterData, getCharacterId } from '../data/characterCompatibility';
 import CharacterImage from './CharacterImage';
@@ -295,11 +296,14 @@ const PickPrediction: React.FC = () => {
     return (
       <View style={[
         styles.teamContainer,
-        gameState.currentTeam === team && styles.activeTeamContainer
+        gameState.currentTeam === team && 
+          (team === 'A' ? styles.activeTeamContainerA : styles.activeTeamContainerB)
       ]}>
         <Text style={[
           styles.teamTitle,
-          gameState.currentTeam === team && styles.activeTeamTitle
+          team === 'A' ? styles.teamTitleA : styles.teamTitleB,
+          gameState.currentTeam === team && 
+            (team === 'A' ? styles.activeTeamTitleA : styles.activeTeamTitleB)
         ]}>
           チーム{team}
         </Text>
@@ -307,7 +311,8 @@ const PickPrediction: React.FC = () => {
           {[...Array(slots)].map((_, index) => (
             <View key={index} style={[
               styles.teamSlot,
-              gameState.currentTeam === team && styles.activeTeamSlot
+              gameState.currentTeam === team && 
+                (team === 'A' ? styles.activeTeamSlotA : styles.activeTeamSlotB)
             ]}>
               {teamChars[index] ? (
                 <View style={styles.selectedCharacter}>
@@ -397,7 +402,7 @@ const PickPrediction: React.FC = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.fixedHeader}>
         <View style={styles.header}>
-          <Text style={styles.title}>ピック予測</Text>
+          <Text style={styles.title}>ピック想定</Text>
           <Text style={styles.phase}>{getPhaseInstructions(gameState.currentPhase, gameState.currentTeam)}</Text>
           <TouchableOpacity 
             style={styles.resetButton}
@@ -408,6 +413,10 @@ const PickPrediction: React.FC = () => {
         </View>
         <View style={styles.teamsContainer}>
           {renderTeam('A')}
+          <Image 
+            source={require('../../assets/AppIcon/VSIcon.png')}
+            style={styles.vsIcon}
+          />
           {renderTeam('B')}
         </View>
       </View>
@@ -483,7 +492,7 @@ const PickPrediction: React.FC = () => {
           >
             <View style={[
               styles.turnCard,
-              { backgroundColor: gameState.currentTeam === 'A' ? '#FF6B6B' : '#4ECDC4' }
+              { backgroundColor: gameState.currentTeam === 'A' ? '#FF3B30' : '#007AFF' }
             ]}>
               <Text style={styles.turnMessageMain}>{turnMessage}</Text>
               <Text style={styles.turnMessageSub}>{turnSubMessage}</Text>
@@ -554,26 +563,45 @@ const styles = StyleSheet.create({
   teamsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     padding: 10,
     marginHorizontal: 10,
     backgroundColor: '#fff',
   },
+  vsIcon: {
+    width: 30,
+    height: 30,
+    resizeMode: 'contain',
+    marginTop: 35,
+  },
   teamContainer: {
-    width: '48%',
+    width: '42%',
     alignItems: 'center',
     padding: 10,
     borderRadius: 10,
   },
-  activeTeamContainer: {
-    backgroundColor: 'rgba(33, 160, 219, 0.1)',
+  activeTeamContainerA: {
+    backgroundColor: 'rgba(255, 59, 48, 0.1)',
+  },
+  activeTeamContainerB: {
+    backgroundColor: 'rgba(0, 122, 255, 0.1)',
   },
   teamTitle: {
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 10,
   },
-  activeTeamTitle: {
-    color: '#21A0DB',
+  teamTitleA: {
+    color: '#FF3B30',
+  },
+  teamTitleB: {
+    color: '#007AFF',
+  },
+  activeTeamTitleA: {
+    color: '#FF3B30',
+  },
+  activeTeamTitleB: {
+    color: '#007AFF',
   },
   teamSlots: {
     flexDirection: 'row',
@@ -589,8 +617,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  activeTeamSlot: {
-    borderColor: '#21A0DB',
+  activeTeamSlotA: {
+    borderColor: '#FF3B30',
+  },
+  activeTeamSlotB: {
+    borderColor: '#007AFF',
   },
   selectedCharacter: {
     alignItems: 'center',
