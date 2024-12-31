@@ -4,7 +4,7 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 import { RootStackParamList } from '../App';
 import { getCharacterData } from '../data/characterData';
 import CharacterImage from './CharacterImage';
-import { getStarPowerIcon, getGadgetIcon, getGearIcon } from '../data/iconMappings';
+import { getStarPowerIcon, getGadgetIcon, gearIcons } from '../data/iconMappings';
 
 type CharacterDetailsRouteProp = RouteProp<RootStackParamList, 'CharacterDetails'>;
 
@@ -80,6 +80,36 @@ const CharacterDetails: React.FC = () => {
     );
   };
 
+  const renderGearSection = () => {
+    const characterGears = gearIcons[character.name];
+    if (!characterGears) return null;
+
+    const gearEntries = Object.entries(characterGears);
+
+    return (
+      <View style={styles.infoCard}>
+        <View style={styles.sectionHeader}>
+          <Text style={styles.sectionTitle}>ギア</Text>
+          <View style={styles.legendContainer}>
+            <View style={[styles.legendItem, { backgroundColor: '#4CAF50' }]} />
+            <Text style={styles.legendText}>おすすめ</Text>
+          </View>
+        </View>
+        <View style={styles.gearGrid}>
+          {gearEntries.map(([key, iconPath]) => (
+            <View key={key} style={styles.gearItem}>
+              <Image
+                source={iconPath}
+                style={styles.gearIcon}
+                resizeMode="contain"
+              />
+            </View>
+          ))}
+        </View>
+      </View>
+    );
+  };
+
   if (!character) {
     return (
       <View style={styles.container}>
@@ -136,27 +166,7 @@ const CharacterDetails: React.FC = () => {
           </View>
         )}
 
-        <View style={styles.infoCard}>
-          <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>ギア</Text>
-            <View style={styles.legendContainer}>
-              <View style={[styles.legendItem, { backgroundColor: '#4CAF50' }]} />
-              <Text style={styles.legendText}>おすすめ</Text>
-            </View>
-          </View>
-          <View style={styles.powerGrid}>
-            <View style={styles.gearGrid}>
-              {[1, 2, 3, 4, 5].map((index) => (
-                <View key={index} style={styles.gearItem}>
-                  <Image
-                    source={getGearIcon(character.name, index)}
-                    style={styles.gearIcon}
-                  />
-                </View>
-              ))}
-            </View>
-          </View>
-        </View>
+        {renderGearSection()}
       </View>
     </ScrollView>
   );
@@ -289,16 +299,18 @@ const styles = StyleSheet.create({
   gearGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    gap: 12,
+    gap: 8,
+    justifyContent: 'flex-start',
   },
   gearItem: {
     width: '18%',
     aspectRatio: 1,
-    borderRadius: 8,
     backgroundColor: '#ffffff',
+    borderRadius: 8,
+    padding: 8,
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 8,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -306,9 +318,9 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   gearIcon: {
-    width: '75%',
-    height: '75%',
+    width: '100%',
+    height: '100%',
   },
 });
 
-export default CharacterDetails;
+export default CharacterDetails
