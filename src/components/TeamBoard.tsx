@@ -388,10 +388,11 @@ const TeamBoard: React.FC = () => {
            )}
            
            {post.description && (
-             <View style={styles.descriptionContainer}>
-               <Text style={styles.description}>{post.description}</Text>
-             </View>
-           )}
+            <View style={styles.descriptionContainer}>
+            <Text style={styles.characterTitle}>ホストの一言</Text>
+            <Text style={styles.description}>{post.description}</Text>
+            </View>
+          )}
          </TouchableOpacity>
        ))}
      </ScrollView>
@@ -634,9 +635,11 @@ const styles = StyleSheet.create({
    flexDirection: 'row',
    alignItems: 'center',
    marginBottom: 8,
-   backgroundColor: '#f5f5f5',
+   backgroundColor: '#fff',
    padding: 8,
    borderRadius: 8,
+   borderWidth: 1,
+   borderColor: '#e0e0e0',
  },
  postCharacterIcon: {
    width: 24,
@@ -649,8 +652,6 @@ const styles = StyleSheet.create({
  },
  wantedCharactersContainer: {
    marginTop: 12,
-   padding: 8,
-   backgroundColor: '#f5f5f5',
    borderRadius: 8,
  },
  wantedCharactersTitle: {
@@ -669,6 +670,8 @@ const styles = StyleSheet.create({
    backgroundColor: 'white',
    padding: 4,
    borderRadius: 4,
+   borderWidth: 1,
+   borderColor: '#e0e0e0',
  },
  wantedCharacterIcon: {
    width: 24,
