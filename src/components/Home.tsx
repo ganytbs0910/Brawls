@@ -1,4 +1,3 @@
-// src/components/Home.tsx
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   View, 
@@ -17,7 +16,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../App';
 import { privacyPolicyContent } from '../contents/privacyPolicy';
 import { termsContent } from '../contents/terms';
-import { DailyTip } from '../components/DailyTip';
+import { DailyTip, DAILY_TIPS } from '../components/DailyTip';
 import { RewardedAd, RewardedAdEventType } from 'react-native-google-mobile-ads';
 import { AD_CONFIG } from '../config/AdConfig';
 import { 
@@ -44,6 +43,27 @@ interface MapDetailScreenProps {
   modeImage: any;
   onClose: () => void;
 }
+
+const AllTipsScreen: React.FC<{ onClose: () => void }> = ({ onClose }) => {
+  return (
+    <View style={styles.settingsContainer}>
+      <View style={styles.settingsHeader}>
+        <Text style={styles.settingsTitle}>豆知識一覧</Text>
+        <TouchableOpacity onPress={onClose} style={styles.backButton}>
+          <Text style={styles.backButtonText}>←</Text>
+        </TouchableOpacity>
+      </View>
+      <ScrollView style={styles.contentContainer}>
+        {DAILY_TIPS.map((tip) => (
+          <View key={tip.id} style={styles.tipItem}>
+            <Text style={styles.tipItemTitle}>{tip.title}</Text>
+            <Text style={styles.tipItemContent}>{tip.content}</Text>
+          </View>
+        ))}
+      </ScrollView>
+    </View>
+  );
+};
 
 const Home: React.FC = () => {
   const navigation = useNavigation<RankingsScreenNavigationProp>();
@@ -111,13 +131,12 @@ const Home: React.FC = () => {
       const appStoreUrl = 'https://apps.apple.com/jp/app/brawl-status/id6738936691';
       await Share.share({
         message: 'ブロールスターズのマップ情報をチェックできるアプリ「Brawl Status」を見つけました！\n\nApp Storeからダウンロード：\n' + appStoreUrl,
-        url: appStoreUrl, // iOS での共有シートにリンクを表示
+        url: appStoreUrl,
         title: 'Brawl Status - マップ情報アプリ'
       }, {
-        // iOS専用の設定
-        dialogTitle: 'Brawl Statusを共有', // Androidでのみ使用
-        subject: 'Brawl Status - ブロールスターズマップ情報アプリ', // メール共有時の件名
-        tintColor: '#21A0DB' // iOSでの共有シートのアクセントカラー
+        dialogTitle: 'Brawl Statusを共有',
+        subject: 'Brawl Status - ブロールスターズマップ情報アプリ',
+        tintColor: '#21A0DB'
       });
     } catch (error) {
       console.error('Share error:', error);
@@ -279,7 +298,7 @@ const Home: React.FC = () => {
           <MapDetailScreen
             {...mapDetailProps}
             onClose={goBack}
-            onCharacterPress={handleCharacterPress}  // 追加
+            onCharacterPress={handleCharacterPress}
           />
         ) : null;
       case 'settings':
@@ -332,6 +351,12 @@ const Home: React.FC = () => {
               >
                 <Text style={styles.settingsItemText}>利用規約</Text>
               </TouchableOpacity>
+              <TouchableOpacity 
+                style={styles.settingsItem}
+                onPress={() => showScreen('allTips')}
+              >
+                <Text style={styles.settingsItemText}>豆知識一覧</Text>
+              </TouchableOpacity>
             </View>
           </View>
         );
@@ -363,6 +388,8 @@ const Home: React.FC = () => {
             </ScrollView>
           </View>
         );
+      case 'allTips':
+        return <AllTipsScreen onClose={goBack} />;
       default:
         return null;
     }
@@ -391,7 +418,7 @@ const Home: React.FC = () => {
               <Text style={styles.dateArrow}>←</Text>
             </TouchableOpacity>
             <Text style={styles.dateText}>{formatDate(selectedDate)}</Text>
-<TouchableOpacity onPress={() => changeDate(1)}>
+            <TouchableOpacity onPress={() => changeDate(1)}>
               <Text style={styles.dateArrow}>→</Text>
             </TouchableOpacity>
             <TouchableOpacity 
@@ -653,6 +680,22 @@ const styles = StyleSheet.create({
     color: '#666',
     fontSize: 12,
     marginTop: 4,
+  },
+  tipItem: {
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+  },
+  tipItemTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    color: '#333',
+  },
+  tipItemContent: {
+    fontSize: 14,
+    lineHeight: 20,
+    color: '#666',
   },
 });
 
