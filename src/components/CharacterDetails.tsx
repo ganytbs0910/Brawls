@@ -1,17 +1,20 @@
-import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { RootStackParamList } from '../App';
 import { getCharacterData } from '../data/characterData';
 import CharacterImage from './CharacterImage';
 import { getStarPowerIcon, getGadgetIcon, gearIcons } from '../data/iconMappings';
+import { allCharacterData } from '../data/characterCompatibility';
 
 type CharacterDetailsRouteProp = RouteProp<RootStackParamList, 'CharacterDetails'>;
 
 const CharacterDetails: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<'info' | 'compatibility'>('info');
   const route = useRoute<CharacterDetailsRouteProp>();
   const { characterName } = route.params;
   const character = getCharacterData(characterName);
+  const compatibilityData = Object.values(allCharacterData).find(char => char.name === characterName);
 
   const getRecommendationColor = (level: number) => {
     switch (level) {
@@ -37,9 +40,6 @@ const CharacterDetails: React.FC = () => {
 
   const renderPowerCard = (power: any, index: number, isPowerStar: boolean) => {
     const recommendationLevel = power.recommendationLevel || 0;
-    const bgColor = recommendationLevel >= 4 ? 'rgba(76, 175, 80, 0.1)' : '#ffffff';
-    const borderColor = recommendationLevel >= 4 ? '#4CAF50' : '#e0e0e0';
-
     return (
       <View 
         style={[
@@ -87,13 +87,11 @@ const CharacterDetails: React.FC = () => {
     const characterGears = gearIcons[character.name];
     if (!characterGears) return null;
 
-    const gearEntries = Object.entries(characterGears);
-
     return (
       <View style={styles.infoCard}>
         <Text style={styles.sectionTitle}>ギア</Text>
         <View style={styles.gearGrid}>
-          {gearEntries.map(([key, iconPath]) => {
+          {Object.entries(characterGears).map(([key, iconPath]) => {
             const currentGearId = parseInt(key);
             const isRecommended = recommendedGears.includes(currentGearId);
 
@@ -118,16 +116,56 @@ const CharacterDetails: React.FC = () => {
     );
   };
 
-  if (!character) {
+  const getScoreColor = (score: number): string => {
+    if (score >= 8) return '#4CAF50';
+    if (score >= 6) return '#2196F3';
+    if (score >= 4) return '#FFC107';
+    return '#F44336';
+  };
+
+  const renderCompatibilityContent = () => {
+    if (!compatibilityData) return null;
+
+    const sortedScores = Object.entries(compatibilityData.compatibilityScores)
+      .sort(([, a], [, b]) => b - a);
+
     return (
-      <View style={styles.container}>
-        <Text>キャラクターが見つかりませんでした。</Text>
+      <View style={styles.compatibilityContainer}>
+        <View style={styles.compatibilityHeader}>
+          <Text style={styles.compatibilityTitle}>相性表</Text>
+        </View>
+        {sortedScores.map(([opponent, score]) => (
+          <View key={opponent} style={styles.compatibilityRow}>
+            <View style={styles.opponentInfo}>
+              <CharacterImage characterName={opponent} size={30} />
+              <Text style={styles.opponentName}>{opponent}</Text>
+            </View>
+            <View style={styles.scoreContainer}>
+              <Text style={[styles.score, { color: getScoreColor(score) }]}>
+                {score}/10
+              </Text>
+              <View
+                style={[
+                  styles.scoreBar,
+                  { 
+                    width: score * 10,
+                    backgroundColor: getScoreColor(score) 
+                  }
+                ]}
+              />
+            </View>
+          </View>
+        ))}
       </View>
     );
-  }
+  };
 
-  return (
-    <ScrollView style={styles.container}>
+  const renderCharacterInfo = () => {
+    if (!character) {
+      return <Text>キャラクターが見つかりませんでした。</Text>;
+    }
+
+    return (
       <View style={styles.content}>
         <CharacterImage 
           characterName={characterName} 
@@ -154,7 +192,9 @@ const CharacterDetails: React.FC = () => {
               </View>
             </View>
             <View style={styles.powerGrid}>
-              {character.starPowers.map((starPower, index) => renderPowerCard(starPower, index, true))}
+              {character.starPowers.map((starPower, index) => 
+                renderPowerCard(starPower, index, true)
+              )}
             </View>
           </View>
         )}
@@ -169,14 +209,51 @@ const CharacterDetails: React.FC = () => {
               </View>
             </View>
             <View style={styles.powerGrid}>
-              {character.gadgets.map((gadget, index) => renderPowerCard(gadget, index, false))}
+              {character.gadgets.map((gadget, index) => 
+                renderPowerCard(gadget, index, false)
+              )}
             </View>
           </View>
         )}
 
         {renderGearSection()}
       </View>
-    </ScrollView>
+    );
+  };
+
+  if (!character) {
+    return (
+      <View style={styles.container}>
+        <Text>キャラクターが見つかりませんでした。</Text>
+      </View>
+    );
+  }
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.tabContainer}>
+        <TouchableOpacity 
+          style={[styles.tab, activeTab === 'info' && styles.activeTab]}
+          onPress={() => setActiveTab('info')}
+        >
+          <Text style={[styles.tabText, activeTab === 'info' && styles.activeTabText]}>
+            キャラ情報
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style={[styles.tab, activeTab === 'compatibility' && styles.activeTab]}
+          onPress={() => setActiveTab('compatibility')}
+        >
+          <Text style={[styles.tabText, activeTab === 'compatibility' && styles.activeTabText]}>
+            相性表
+          </Text>
+        </TouchableOpacity>
+      </View>
+
+      <ScrollView style={styles.scrollContainer}>
+        {activeTab === 'info' ? renderCharacterInfo() : renderCompatibilityContent()}
+      </ScrollView>
+    </View>
   );
 };
 
@@ -184,6 +261,31 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  tabContainer: {
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+  },
+  tab: {
+    flex: 1,
+    paddingVertical: 12,
+    alignItems: 'center',
+  },
+  activeTab: {
+    borderBottomWidth: 2,
+    borderBottomColor: '#2196F3',
+  },
+  tabText: {
+    fontSize: 16,
+    color: '#666',
+  },
+  activeTabText: {
+    color: '#2196F3',
+    fontWeight: 'bold',
+  },
+  scrollContainer: {
+    flex: 1,
   },
   content: {
     padding: 16,
@@ -332,7 +434,52 @@ const styles = StyleSheet.create({
   gearIcon: {
     width: '100%',
     height: '100%',
-  }
+  },
+  compatibilityContainer: {
+    padding: 16,
+  },
+  compatibilityHeader: {
+    marginBottom: 16,
+  },
+  compatibilityTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#2196F3',
+  },
+  compatibilityRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+    backgroundColor: '#f5f5f5',
+    padding: 12,
+    borderRadius: 8,
+  },
+  opponentInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: 120,
+  },
+  opponentName: {
+    fontSize: 14,
+    marginLeft: 8,
+  },
+  scoreContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 12,
+  },
+  score: {
+    marginRight: 8,
+    fontSize: 14,
+    fontWeight: 'bold',
+    minWidth: 45,
+  },
+  scoreBar: {
+    height: 20,
+    borderRadius: 10,
+    maxWidth: 100,
+  },
 });
 
 export default CharacterDetails;
