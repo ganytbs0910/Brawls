@@ -368,7 +368,7 @@ const Home: React.FC = () => {
               <TouchableOpacity onPress={goBack} style={styles.backButton}>
                 <Text style={styles.backButtonText}>←</Text>
               </TouchableOpacity>
-            </View>
+              </View>
             <ScrollView style={styles.contentContainer}>
               <Text style={styles.contentText}>{privacyPolicyContent}</Text>
             </ScrollView>
@@ -396,97 +396,103 @@ const Home: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>ブロールスターズ マップ情報</Text>
-        <TouchableOpacity
-          style={styles.settingsButton}
-          onPress={() => showScreen('settings')}
-        >
-          <Image 
-            source={require('../../assets/AppIcon/settings_icon.png')} 
-            style={[styles.settingsIcon, { tintColor: '#ffffff' }]}
-          />
-        </TouchableOpacity>
-      </View>
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.title}>ブロールスターズ マップ情報</Text>
+          <TouchableOpacity
+            style={styles.settingsButton}
+            onPress={() => showScreen('settings')}
+          >
+            <Image 
+              source={require('../../assets/AppIcon/settings_icon.png')} 
+              style={[styles.settingsIcon, { tintColor: '#ffffff' }]}
+            />
+          </TouchableOpacity>
+        </View>
 
-      <ScrollView style={styles.content}>
-        <DailyTip />
-        <View style={styles.modeContainer}>
-          <View style={styles.dateHeader}>
-            <TouchableOpacity onPress={() => changeDate(-1)}>
-              <Text style={styles.dateArrow}>←</Text>
-            </TouchableOpacity>
-            <Text style={styles.dateText}>{formatDate(selectedDate)}</Text>
-            <TouchableOpacity onPress={() => changeDate(1)}>
-              <Text style={styles.dateArrow}>→</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-              style={styles.todayButton} 
-              onPress={() => setSelectedDate(new Date())}>
-              <Text style={styles.todayButtonText}>Today</Text>
-            </TouchableOpacity>
-          </View>
-          {modes.map((mode, index) => (
-            <View key={index} style={styles.modeCard}>
-              <View style={styles.modeHeader}>
-                <View style={[styles.modeTag, { backgroundColor: mode.color }]}>
-                  <Image source={mode.icon} style={styles.modeIcon} />
-                  <Text style={styles.modeTagText}>{mode.name}</Text>
+        <ScrollView style={styles.content}>
+          <DailyTip />
+          <View style={styles.modeContainer}>
+            <View style={styles.dateHeader}>
+              <TouchableOpacity onPress={() => changeDate(-1)}>
+                <Text style={styles.dateArrow}>←</Text>
+              </TouchableOpacity>
+              <Text style={styles.dateText}>{formatDate(selectedDate)}</Text>
+              <TouchableOpacity onPress={() => changeDate(1)}>
+                <Text style={styles.dateArrow}>→</Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={styles.todayButton} 
+                onPress={() => setSelectedDate(new Date())}>
+                <Text style={styles.todayButtonText}>Today</Text>
+              </TouchableOpacity>
+            </View>
+            {modes.map((mode, index) => (
+              <View key={index} style={styles.modeCard}>
+                <View style={styles.modeHeader}>
+                  <View style={[styles.modeTag, { backgroundColor: mode.color }]}>
+                    <Image source={mode.icon} style={styles.modeIcon} />
+                    <Text style={styles.modeTagText}>{mode.name}</Text>
+                  </View>
+                  {selectedDate.getDate() === new Date().getDate() && (
+                    <Text style={styles.updateTime}>
+                      更新まで {getNextUpdateTime(mode.updateTime)}
+                    </Text>
+                  )}
                 </View>
-                {selectedDate.getDate() === new Date().getDate() && (
-                  <Text style={styles.updateTime}>
-                    更新まで {getNextUpdateTime(mode.updateTime)}
+                <TouchableOpacity 
+                  style={styles.mapContent}
+                  onPress={() => handleMapClick(mode)}
+                  activeOpacity={0.7}
+                >
+                  <Text style={styles.mapName}>{mode.currentMap}</Text>
+                  {(mode.name === "バトルロワイヤル" || mode.name === "エメラルドハント" || 
+                    mode.name === "ノックアウト" || getCurrentModeName("heist", selectedDate) || 
+                    getCurrentModeName("brawlBall5v5", selectedDate) || mode.name === "ブロストライカー" || 
+                    getCurrentModeName("duel", selectedDate)) && (
+                    <Image 
+                      source={mapImages[mode.currentMap]}
+                      style={styles.mapImage}
+                      resizeMode="contain"
+                    />
+                  )}
+                </TouchableOpacity>
+                {mode.isRotating && (
+                  <Text style={styles.rotatingNote}>
+                    ※モードとマップはローテーションします
                   </Text>
                 )}
               </View>
-              <TouchableOpacity 
-                style={styles.mapContent}
-                onPress={() => handleMapClick(mode)}
-                activeOpacity={0.7}
-              >
-                <Text style={styles.mapName}>{mode.currentMap}</Text>
-                {(mode.name === "バトルロワイヤル" || mode.name === "エメラルドハント" || 
-                  mode.name === "ノックアウト" || getCurrentModeName("heist", selectedDate) || 
-                  getCurrentModeName("brawlBall5v5", selectedDate) || mode.name === "ブロストライカー" || 
-                  getCurrentModeName("duel", selectedDate)) && (
-                  <Image 
-                    source={mapImages[mode.currentMap]}
-                    style={styles.mapImage}
-                    resizeMode="contain"
-                  />
-                )}
-              </TouchableOpacity>
-              {mode.isRotating && (
-                <Text style={styles.rotatingNote}>
-                  ※モードとマップはローテーションします
-                </Text>
-              )}
-            </View>
-          ))}
-        </View>
-      </ScrollView>
+            ))}
+          </View>
+        </ScrollView>
 
-      {screenStack.map((screen, index) => (
-        index > 0 && (
-          <Animated.View 
-            key={`${screen.type}-${screen.zIndex}`}
-            style={[
-              styles.settingsOverlay,
-              {
-                transform: [{ translateX: screen.translateX }],
-                zIndex: screen.zIndex
-              },
-            ]}>
-            {renderScreenContent(screen)}
-          </Animated.View>
-        )
-      ))}
+        {screenStack.map((screen, index) => (
+          index > 0 && (
+            <Animated.View 
+              key={`${screen.type}-${screen.zIndex}`}
+              style={[
+                styles.settingsOverlay,
+                {
+                  transform: [{ translateX: screen.translateX }],
+                  zIndex: screen.zIndex
+                },
+              ]}>
+              {renderScreenContent(screen)}
+            </Animated.View>
+          )
+        ))}
+      </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
