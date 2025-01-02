@@ -1,278 +1,504 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, ActivityIndicator, Image } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useState, useRef, useEffect } from 'react';
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  TouchableOpacity, 
+  Image, 
+  Animated, 
+  ScrollView, 
+  Dimensions, 
+  Share, 
+  SafeAreaView,
+  Alert,
+  Platform
+} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../App';
+import { privacyPolicyContent } from '../contents/privacyPolicy';
+import { termsContent } from '../contents/terms';
+import { DailyTip, DAILY_TIPS } from '../components/DailyTip';
+import { RewardedAd, RewardedAdEventType } from 'react-native-google-mobile-ads';
+import { AD_CONFIG } from '../config/AdConfig';
+import { 
+  rotatingModes, 
+  mapImages, 
+  getCurrentMode, 
+  getMapForDate 
+} from '../utils/gameData';
+import AdMobService from '../services/AdMobService';
+import { BannerAdComponent } from '../components/BannerAdComponent';
+import MapDetailScreen from './MapDetailScreen';
+import { MapDetail, GameMode, ScreenType, ScreenState } from '../types';
+import { getMapDetails } from '../data/mapDetails';
 
-const Stack = createStackNavigator();
-const PLAYER_TAG_KEY = 'brawlstars_player_tag';
+type RankingsScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
-const HomeScreen = () => {
-  const [playerTag, setPlayerTag] = useState('');
-  const [playerInfo, setPlayerInfo] = useState(null);
-  const [battleLog, setBattleLog] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+const SCREEN_WIDTH = Dimensions.get('window').width;
+
+interface MapDetailScreenProps {
+  mapName: string;
+  modeName: string;
+  modeColor: string;
+  modeIcon: any;
+  modeImage: any;
+  onClose: () => void;
+}
+
+const AllTipsScreen: React.FC<{ onClose: () => void }> = ({ onClose }) => {
+  return (
+    <View style={styles.settingsContainer}>
+      <View style={styles.settingsHeader}>
+        <Text style={styles.settingsTitle}>豆知識一覧</Text>
+        <TouchableOpacity onPress={onClose} style={styles.backButton}>
+          <Text style={styles.backButtonText}>←</Text>
+        </TouchableOpacity>
+      </View>
+      <ScrollView style={styles.contentContainer}>
+        {DAILY_TIPS.map((tip) => (
+          <View key={tip.id} style={styles.tipItem}>
+            <Text style={styles.tipItemTitle}>{tip.title}</Text>
+            <Text style={styles.tipItemContent}>{tip.content}</Text>
+          </View>
+        ))}
+      </ScrollView>
+    </View>
+  );
+};
+
+const Home: React.FC = () => {
+  const navigation = useNavigation<RankingsScreenNavigationProp>();
+  const [screenStack, setScreenStack] = useState<ScreenState[]>([
+    { type: 'home', translateX: new Animated.Value(0), zIndex: 0 }
+  ]);
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [isRewardedAdReady, setIsRewardedAdReady] = useState(false);
+  const [mapDetailProps, setMapDetailProps] = useState<Omit<MapDetailScreenProps, 'onClose'> | null>(null);
+  const adService = useRef<AdMobService | null>(null);
+
+  const rewarded = useRef(
+    RewardedAd.createForAdRequest(AD_CONFIG.IOS_REWARDED_ID, {
+      requestNonPersonalizedAdsOnly: true,
+      keywords: ['game', 'mobile game'],
+    })
+  ).current;
 
   useEffect(() => {
-    loadPlayerTag();
-  }, []);
+    const unsubscribeLoaded = rewarded.addAdEventListener(RewardedAdEventType.LOADED, () => {
+      setIsRewardedAdReady(true);
+    });
 
-  const loadPlayerTag = async () => {
-    try {
-      const savedTag = await AsyncStorage.getItem(PLAYER_TAG_KEY);
-      if (savedTag) {
-        setPlayerTag(savedTag);
-        fetchPlayerData(savedTag);
-      }
-    } catch (error) {
-      console.error('Error loading player tag:', error);
-    }
-  };
-
-  const fetchPlayerData = async (tag) => {
-    setLoading(true);
-    setError(null);
-    try {
-      // デモデータ
-      const playerData = {
-        "tag": "#C9LCOLP",
-        "name": "がん",
-        "nameColor": "0xfff9c908",
-        "icon": { "id": 28000647 },
-        "trophies": 74528,
-        "highestTrophies": 74245,
-        "expLevel": 328,
-        "expPoints": 549109,
-        "isQualifiedFromChampionshipChallenge": false,
-        "3vs3Victories": 35996,
-        "soloVictories": 1303,
-        "duoVictories": 739,
-        "bestRoboRumbleTime": 20,
-        "bestTimeAsBigBrawler": 0,
-        "club": {
-          "tag": "#VL2YUU0",
-          "name": "Desires"
-        }
-      };
-
-      const battleLogData = {
-        "items": [
-          {
-            "battleTime": "20241231T130551.000Z",
-            "event": {
-              "id": 15000548,
-              "mode": "knockout",
-              "map": "Out in the Open"
-            },
-            "battle": {
-              "mode": "knockout",
-              "type": "soloRanked",
-              "result": "defeat",
-              "duration": 79,
-              "starPlayer": {
-                "tag": "#2LP9RCGV",
-                "name": "GUE | NIFY🍥",
-                "brawler": {
-                  "id": 16000015,
-                  "name": "PIPER",
-                  "power": 11,
-                  "trophies": 18
+    const unsubscribeEarned = rewarded.addAdEventListener(
+      RewardedAdEventType.EARNED_REWARD,
+      async reward => {
+        console.log('User earned reward of ', reward);
+        Alert.alert(
+          'ご支援ありがとうございます！',
+          'アプリの開発・運営の励みになります。',
+          [
+            {
+              text: 'OK',
+              onPress: async () => {
+                if (adService.current) {
+                  await adService.current.showInterstitial();
                 }
-              },
-              "teams": [
-                [
-                  {
-                    "tag": "#YR00YLY2R",
-                    "name": "消費者",
-                    "brawler": {
-                      "id": 16000022,
-                      "name": "TICK",
-                      "power": 11,
-                      "trophies": 19
-                    }
-                  }
-                ]
-              ]
+              }
             }
-          }
-        ]
-      };
-
-      setPlayerInfo(playerData);
-      setBattleLog(battleLogData);
-    } catch (error) {
-      setError('エラーが発生しました');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleSearch = async () => {
-    try {
-      await AsyncStorage.setItem(PLAYER_TAG_KEY, playerTag);
-      fetchPlayerData(playerTag);
-    } catch (error) {
-      console.error('Error saving player tag:', error);
-    }
-  };
-
-  const renderPlayerInfo = () => {
-    if (!playerInfo) return null;
-
-    return (
-      <View style={styles.playerCard}>
-        <View style={styles.playerHeader}>
-          <Text style={styles.playerName}>{playerInfo.name}</Text>
-          <Text style={styles.playerTag}>{playerInfo.tag}</Text>
-        </View>
-        
-        <View style={styles.statsContainer}>
-          <View style={styles.statItem}>
-            <Text style={styles.statLabel}>トロフィー</Text>
-            <Text style={styles.statValue}>{playerInfo.trophies}</Text>
-          </View>
-          <View style={styles.statItem}>
-            <Text style={styles.statLabel}>最高トロフィー</Text>
-            <Text style={styles.statValue}>{playerInfo.highestTrophies}</Text>
-          </View>
-          <View style={styles.statItem}>
-            <Text style={styles.statLabel}>レベル</Text>
-            <Text style={styles.statValue}>{playerInfo.expLevel}</Text>
-          </View>
-        </View>
-
-        <View style={styles.victoriesContainer}>
-          <Text style={styles.victoriesTitle}>勝利数</Text>
-          <View style={styles.victoriesStats}>
-            <Text>3vs3: {playerInfo['3vs3Victories']}</Text>
-            <Text>ソロ: {playerInfo.soloVictories}</Text>
-            <Text>デュオ: {playerInfo.duoVictories}</Text>
-          </View>
-        </View>
-
-        {playerInfo.club && (
-          <View style={styles.clubInfo}>
-            <Text style={styles.clubTitle}>クラブ</Text>
-            <Text style={styles.clubName}>{playerInfo.club.name}</Text>
-          </View>
-        )}
-      </View>
+          ]
+        );
+      },
     );
-  };
 
-  const renderBattleResult = (battle) => {
-    const getResultColor = (result) => {
-      switch (result) {
-        case 'victory': return '#4CAF50';
-        case 'defeat': return '#F44336';
-        default: return '#9E9E9E';
+    rewarded.load();
+
+    return () => {
+      unsubscribeLoaded();
+      unsubscribeEarned();
+    };
+  }, [rewarded]);
+
+  useEffect(() => {
+    const initAdService = async () => {
+      try {
+        const instance = await AdMobService.initialize();
+        adService.current = instance;
+      } catch (error) {
+        console.error('AdMob initialization error:', error);
       }
     };
+    
+    initAdService();
+    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
 
-    return (
-      <View style={[styles.battleCard, { borderLeftColor: getResultColor(battle.battle.result) }]}>
-        <Text style={styles.battleMode}>
-          {battle.event.mode.toUpperCase()} - {battle.battle.type}
-        </Text>
-        <Text style={styles.battleMap}>{battle.event.map}</Text>
-        
-        <View style={styles.battleDetails}>
-          <Text style={[styles.battleResult, { color: getResultColor(battle.battle.result) }]}>
-            {battle.battle.result.toUpperCase()}
-          </Text>
-          <Text style={styles.duration}>{battle.battle.duration}秒</Text>
-        </View>
+  const showRewardedAd = async () => {
+    if (isRewardedAdReady) {
+      await rewarded.show();
+      setIsRewardedAdReady(false);
+      rewarded.load();
+    }
+  };
 
-        {battle.battle.starPlayer && (
-          <View style={styles.starPlayerContainer}>
-            <Text style={styles.starPlayerLabel}>Star Player</Text>
-            <Text style={styles.starPlayerName}>
-              {battle.battle.starPlayer.name} ({battle.battle.starPlayer.brawler.name})
-            </Text>
-          </View>
-        )}
+  const handleShare = async () => {
+    try {
+      const appStoreUrl = 'https://apps.apple.com/jp/app/brawl-status/id6738936691';
+      await Share.share({
+        message: 'ブロールスターズのマップ情報をチェックできるアプリ「Brawl Status」を見つけました！\n\nApp Storeからダウンロード：\n' + appStoreUrl,
+        url: appStoreUrl,
+        title: 'Brawl Status - マップ情報アプリ'
+      }, {
+        dialogTitle: 'Brawl Statusを共有',
+        subject: 'Brawl Status - ブロールスターズマップ情報アプリ',
+        tintColor: '#21A0DB'
+      });
+    } catch (error) {
+      console.error('Share error:', error);
+    }
+  };
 
-        <View style={styles.teamsContainer}>
-          {battle.battle.teams.map((team, teamIndex) => (
-            <View key={teamIndex} style={styles.teamContainer}>
-              <Text style={styles.teamLabel}>Team {teamIndex + 1}</Text>
-              {team.map((player, playerIndex) => (
-                <View key={playerIndex} style={styles.playerContainer}>
-                  <Text style={styles.playerName}>{player.name}</Text>
-                  <Text style={styles.brawlerInfo}>
-                    {player.brawler.name} (P{player.brawler.power} / T{player.brawler.trophies})
-                  </Text>
-                </View>
-              ))}
+  const handleSupportClick = async () => {
+    if (adService.current) {
+      await adService.current.showInterstitial();
+    }
+  };
+
+  const handleMapClick = (mode: any) => {
+    const mapDetail = getMapDetails(mode.currentMap);
+    
+    if (mapDetail) {
+      setMapDetailProps({
+        mapName: mode.currentMap,
+        modeName: mode.name,
+        modeColor: mode.color,
+        modeIcon: mode.icon,
+        mapImage: mapImages[mode.currentMap]
+      });
+      showScreen('mapDetail');
+    } else {
+      console.warn(`Map details not found for: ${mode.currentMap}`);
+    }
+  };
+
+  const handleCharacterPress = (characterName: string) => {
+    navigation.navigate('CharacterDetails', { characterName });
+  };
+
+  const showScreen = (screenType: ScreenType) => {
+    const newScreen: ScreenState = {
+      type: screenType,
+      translateX: new Animated.Value(SCREEN_WIDTH),
+      zIndex: screenStack.length
+    };
+
+    setScreenStack(prev => [...prev, newScreen]);
+
+    Animated.timing(newScreen.translateX, {
+      toValue: 0,
+      duration: 300,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const goBack = () => {
+    if (screenStack.length <= 1) return;
+
+    const currentScreen = screenStack[screenStack.length - 1];
+
+    Animated.timing(currentScreen.translateX, {
+      toValue: SCREEN_WIDTH,
+      duration: 300,
+      useNativeDriver: true,
+    }).start(() => {
+      setScreenStack(prev => prev.slice(0, -1));
+    });
+  };
+
+  const getCurrentModeName = (modeType: string, date: Date) => {
+    const mode = getCurrentMode(modeType, date);
+    return mode?.name;
+  };
+
+  const getNextUpdateTime = (hour: number) => {
+    const next = new Date(currentTime);
+    next.setHours(hour, 0, 0, 0);
+    if (next < currentTime) next.setDate(next.getDate() + 1);
+    const diff = next - currentTime;
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    return `${hours}時間${minutes}分`;
+  };
+
+  const changeDate = (days: number) => {
+    const newDate = new Date(selectedDate);
+    newDate.setDate(newDate.getDate() + days);
+    setSelectedDate(newDate);
+  };
+
+  const formatDate = (date: Date) => {
+    return `${date.getMonth() + 1}月${date.getDate()}日`;
+  };
+
+  const currentMaps = {
+    battleRoyale: getMapForDate("battleRoyale", selectedDate.getDate() - new Date().getDate()),
+    emeraldHunt: getMapForDate("emeraldHunt", selectedDate.getDate() - new Date().getDate()),
+    heist: getMapForDate("heist", selectedDate.getDate() - new Date().getDate()),
+    brawlBall: getMapForDate("brawlBall", selectedDate.getDate() - new Date().getDate()),
+    brawlBall5v5: getMapForDate("brawlBall5v5", selectedDate.getDate() - new Date().getDate()),
+    knockout: getMapForDate("knockout", selectedDate.getDate() - new Date().getDate()),
+    duel: getMapForDate("duel", selectedDate.getDate() - new Date().getDate())
+  };
+
+  const modes = [
+    {
+      name: "バトルロワイヤル",
+      currentMap: currentMaps.battleRoyale,
+      updateTime: 5,
+      color: "#90EE90",
+      icon: require('../../assets/GameModeIcons/showdown_icon.png')
+    },
+    {
+      name: "エメラルドハント",
+      currentMap: currentMaps.emeraldHunt,
+      updateTime: 11,
+      color: "#DA70D6",
+      icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
+    },
+    {
+      name: getCurrentModeName("heist", selectedDate) || "ホットゾーン＆強奪",
+      currentMap: currentMaps.heist,
+      updateTime: 23,
+      color: "#FF69B4",
+      isRotating: true,
+      icon: getCurrentMode("heist", selectedDate)?.icon || require('../../assets/GameModeIcons/heist_icon.png')
+    },
+    {
+      name: "ブロストライカー",
+      currentMap: currentMaps.brawlBall,
+      updateTime: 17,
+      color: "#4169E1",
+      isRotating: true,
+      icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
+    },
+    {
+      name: getCurrentModeName("brawlBall5v5", selectedDate) || "5vs5ブロストライカー",
+      currentMap: currentMaps.brawlBall5v5,
+      updateTime: 17,
+      color: "#808080",
+      isRotating: true,
+      icon: getCurrentMode("brawlBall5v5", selectedDate)?.icon || require('../../assets/GameModeIcons/brawl_ball_icon.png')
+    },
+    {
+      name: getCurrentModeName("duel", selectedDate) || "デュエル＆殲滅＆賞金稼ぎ",
+      currentMap: currentMaps.duel,
+      updateTime: 17,
+      color: "#FF0000",
+      isRotating: true,
+      icon: getCurrentMode("duel", selectedDate)?.icon || require('../../assets/GameModeIcons/bounty_icon.png')
+    },
+    {
+      name: "ノックアウト",
+      currentMap: currentMaps.knockout,
+      updateTime: 11,
+      color: "#FFA500",
+      icon: require('../../assets/GameModeIcons/knock_out_icon.png')
+    }
+  ];
+
+  const renderScreenContent = (screen: ScreenState) => {
+    switch (screen.type) {
+      case 'mapDetail':
+        return mapDetailProps ? (
+          <MapDetailScreen
+            {...mapDetailProps}
+            onClose={goBack}
+            onCharacterPress={handleCharacterPress}
+          />
+        ) : null;
+      case 'settings':
+        return (
+          <View style={styles.settingsContainer}>
+            <View style={styles.settingsHeader}>
+              <Text style={styles.settingsTitle}>設定</Text>
+              <TouchableOpacity onPress={goBack} style={styles.backButton}>
+                <Text style={styles.backButtonText}>←</Text>
+              </TouchableOpacity>
             </View>
-          ))}
-        </View>
-
-        <Text style={styles.battleTime}>
-          {new Date(battle.battleTime).toLocaleString()}
-        </Text>
-      </View>
-    );
+            <View style={styles.settingsContent}>
+              <TouchableOpacity 
+                style={styles.settingsItem}
+                onPress={handleShare}
+              >
+                <Text style={styles.settingsItemText}>共有</Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={styles.settingsItem}
+                onPress={handleSupportClick}
+              >
+                <Text style={styles.settingsItemText}>広告を見て支援する（小）</Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={[
+                  styles.settingsItem,
+                  !isRewardedAdReady && styles.settingsItemDisabled
+                ]}
+                onPress={showRewardedAd}
+                disabled={!isRewardedAdReady}
+              >
+                <Text style={[
+                  styles.settingsItemText,
+                  !isRewardedAdReady && styles.settingsItemTextDisabled
+                ]}>
+                  広告を見て支援する（大）
+                  {!isRewardedAdReady && ' (準備中)'}
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={styles.settingsItem}
+                onPress={() => showScreen('privacy')}
+              >
+                <Text style={styles.settingsItemText}>プライバシーポリシー</Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={styles.settingsItem}
+                onPress={() => showScreen('terms')}
+              >
+                <Text style={styles.settingsItemText}>利用規約</Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={styles.settingsItem}
+                onPress={() => showScreen('allTips')}
+              >
+                <Text style={styles.settingsItemText}>豆知識一覧</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        );
+        case 'privacy':
+        return (
+          <View style={styles.settingsContainer}>
+            <View style={styles.settingsHeader}>
+              <Text style={styles.settingsTitle}>プライバシーポリシー</Text>
+              <TouchableOpacity onPress={goBack} style={styles.backButton}>
+                <Text style={styles.backButtonText}>←</Text>
+              </TouchableOpacity>
+            </View>
+            <ScrollView style={styles.contentContainer}>
+              <Text style={styles.contentText}>{privacyPolicyContent}</Text>
+            </ScrollView>
+          </View>
+        );
+      case 'terms':
+        return (
+          <View style={styles.settingsContainer}>
+            <View style={styles.settingsHeader}>
+              <Text style={styles.settingsTitle}>利用規約</Text>
+              <TouchableOpacity onPress={goBack} style={styles.backButton}>
+                <Text style={styles.backButtonText}>←</Text>
+              </TouchableOpacity>
+            </View>
+            <ScrollView style={styles.contentContainer}>
+              <Text style={styles.contentText}>{termsContent}</Text>
+            </ScrollView>
+          </View>
+        );
+      case 'allTips':
+        return <AllTipsScreen onClose={goBack} />;
+      default:
+        return null;
+    }
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>バトルログ検索</Text>
-      </View>
-      <View style={styles.content}>
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>プレイヤータグ</Text>
-          <TextInput
-            style={styles.input}
-            value={playerTag}
-            onChangeText={setPlayerTag}
-            placeholder="#から始まるタグを入力"
-            placeholderTextColor="#999"
-            autoCapitalize="characters"
+        <Text style={styles.title}>ブロールスターズ マップ情報</Text>
+        <TouchableOpacity
+          style={styles.settingsButton}
+          onPress={() => showScreen('settings')}
+        >
+          <Image 
+            source={require('../../assets/AppIcon/settings_icon.png')} 
+            style={[styles.settingsIcon, { tintColor: '#ffffff' }]}
           />
-          <TouchableOpacity 
-            style={styles.button}
-            onPress={handleSearch}
-          >
-            <Text style={styles.buttonText}>検索</Text>
-          </TouchableOpacity>
-        </View>
+        </TouchableOpacity>
+      </View>
 
-        {loading && (
-          <ActivityIndicator size="large" color="#21A0DB" style={styles.loading} />
-        )}
-
-        {error && (
-          <Text style={styles.error}>{error}</Text>
-        )}
-
-        <ScrollView style={styles.scrollContainer}>
-          {renderPlayerInfo()}
-          {battleLog && battleLog.items.map((battle, index) => (
-            <View key={index}>
-              {renderBattleResult(battle)}
+      <ScrollView style={styles.content}>
+        <DailyTip />
+        <View style={styles.modeContainer}>
+          <View style={styles.dateHeader}>
+            <TouchableOpacity onPress={() => changeDate(-1)}>
+              <Text style={styles.dateArrow}>←</Text>
+            </TouchableOpacity>
+            <Text style={styles.dateText}>{formatDate(selectedDate)}</Text>
+            <TouchableOpacity onPress={() => changeDate(1)}>
+              <Text style={styles.dateArrow}>→</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+              style={styles.todayButton} 
+              onPress={() => setSelectedDate(new Date())}>
+              <Text style={styles.todayButtonText}>Today</Text>
+            </TouchableOpacity>
+          </View>
+          {modes.map((mode, index) => (
+            <View key={index} style={styles.modeCard}>
+              <View style={styles.modeHeader}>
+                <View style={[styles.modeTag, { backgroundColor: mode.color }]}>
+                  <Image source={mode.icon} style={styles.modeIcon} />
+                  <Text style={styles.modeTagText}>{mode.name}</Text>
+                </View>
+                {selectedDate.getDate() === new Date().getDate() && (
+                  <Text style={styles.updateTime}>
+                    更新まで {getNextUpdateTime(mode.updateTime)}
+                  </Text>
+                )}
+              </View>
+              <TouchableOpacity 
+                style={styles.mapContent}
+                onPress={() => handleMapClick(mode)}
+                activeOpacity={0.7}
+              >
+                <Text style={styles.mapName}>{mode.currentMap}</Text>
+                {(mode.name === "バトルロワイヤル" || mode.name === "エメラルドハント" || 
+                  mode.name === "ノックアウト" || getCurrentModeName("heist", selectedDate) || 
+                  getCurrentModeName("brawlBall5v5", selectedDate) || mode.name === "ブロストライカー" || 
+                  getCurrentModeName("duel", selectedDate)) && (
+                  <Image 
+                    source={mapImages[mode.currentMap]}
+                    style={styles.mapImage}
+                    resizeMode="contain"
+                  />
+                )}
+              </TouchableOpacity>
+              {mode.isRotating && (
+                <Text style={styles.rotatingNote}>
+                  ※モードとマップはローテーションします
+                </Text>
+              )}
             </View>
           ))}
-        </ScrollView>
-      </View>
-    </SafeAreaView>
-  );
-};
+        </View>
+      </ScrollView>
 
-const App = () => {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen 
-          name="Home" 
-          component={HomeScreen}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+      {screenStack.map((screen, index) => (
+        index > 0 && (
+          <Animated.View 
+            key={`${screen.type}-${screen.zIndex}`}
+            style={[
+              styles.settingsOverlay,
+              {
+                transform: [{ translateX: screen.translateX }],
+                zIndex: screen.zIndex
+              },
+            ]}>
+            {renderScreenContent(screen)}
+          </Animated.View>
+        )
+      ))}
+    </SafeAreaView>
   );
 };
 
@@ -280,13 +506,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    paddingTop: Platform.OS === 'ios' ? 47 : 0,
   },
   header: {
     height: 60,
     backgroundColor: '#21A0DB',
-    justifyContent: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
+    paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#4FA8D6',
   },
@@ -295,198 +524,196 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
   },
+  settingsButton: {
+    padding: 8,
+  },
+  settingsIcon: {
+    width: 24,
+    height: 24,
+  },
   content: {
     flex: 1,
-    padding: 20,
   },
-  scrollContainer: {
+  settingsOverlay: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    width: '100%',
+    backgroundColor: '#fff',
+  },
+  settingsContainer: {
     flex: 1,
   },
-  inputContainer: {
+  settingsHeader: {
+    height: 60,
+    backgroundColor: '#21A0DB',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     width: '100%',
-    marginBottom: 20,
+    paddingHorizontal: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#4FA8D6',
   },
-  label: {
+  settingsTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#fff',
+    flex: 1,
+    textAlign: 'center',
+  },
+  settingsContent: {
+    flex: 1,
+  },
+  settingsItem: {
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  settingsItemDisabled: {
+    opacity: 0.5,
+  },
+  settingsItemText: {
     fontSize: 16,
+  },
+  settingsItemTextDisabled: {
+    color: '#999',
+  },
+  backButton: {
+    position: 'absolute',
+    left: 16,
+    padding: 8,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: '#fff',
+  },
+  contentContainer: {
+    flex: 1,
+    padding: 16,
+  },
+  contentText: {
+    fontSize: 16,
+    lineHeight: 24,
+  },
+  modeContainer: {
+    padding: 16,
+  },
+  dateHeader: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  dateText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginHorizontal: 16,
+  },
+  dateArrow: {
+    fontSize: 24,
+    color: '#21A0DB',
+    paddingHorizontal: 16,
+  },
+  todayButton: {
+    backgroundColor: '#21A0DB',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+    marginLeft: 16,
+  },
+  todayButtonText: {
+    color: '#fff',
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  modeCard: {
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    marginBottom: 16,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  modeHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  modeTag: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  modeIcon: {
+    width: 24,
+    height: 24,
+    marginRight: 8,
+  },
+  modeTagText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 14,
+  },
+  updateTime: {
+    color: '#666',
+    fontSize: 14,
+  },
+  mapContent: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 12,
+    backgroundColor: '#f8f8f8',
+    borderRadius: 8,
+    marginTop: 8,
+  },
+  mapName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#333',
+    flex: 1,
+  },
+  mapImage: {
+    width: 80,
+    height: 53,
+    borderRadius: 8,
+    marginLeft: 16,
+  },
+  rotatingNote: {
+    color: '#666',
+    fontSize: 12,
+    marginTop: 4,
+  },
+  tipItem: {
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+  },
+  tipItemTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
     marginBottom: 8,
     color: '#333',
   },
-  input: {
-    height: 50,
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 8,
-    paddingHorizontal: 16,
-    fontSize: 16,
-    marginBottom: 16,
-    backgroundColor: '#fff',
-  },
-  button: {
-    backgroundColor: '#21A0DB',
-    height: 50,
-    borderRadius: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  loading: {
-    marginTop: 20,
-  },
-  error: {
-    color: '#F44336',
-    marginTop: 20,
-    textAlign: 'center',
-  },
-  playerCard: {
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    padding: 16,
-    marginBottom: 20,
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  playerHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 16,
-  },
-  playerName: {
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-  playerTag: {
+  tipItemContent: {
     fontSize: 14,
+    lineHeight: 20,
     color: '#666',
-  },
-  statsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 16,
-  },
-  statItem: {
-    alignItems: 'center',
-  },
-  statLabel: {
-    fontSize: 12,
-    color: '#666',
-    marginBottom: 4,
-  },
-  statValue: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  victoriesContainer: {
-    marginBottom: 16,
-  },
-  victoriesTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  victoriesStats: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  clubInfo: {
-    borderTopWidth: 1,
-    borderTopColor: '#eee',
-    paddingTop: 16,
-  },
-  clubTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  clubName: {
-    fontSize: 14,
-    color: '#666',
-  },
-  battleCard: {
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    padding: 16,
-    marginBottom: 12,
-    borderLeftWidth: 4,
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  battleMode: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 4,
-  },
-  battleMap: {
-    fontSize: 14,
-    color: '#666',
-    marginBottom: 8,
-  },
-  battleDetails: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-  battleResult: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  duration: {
-    fontSize: 14,
-    color: '#666',
-  },
-  starPlayerContainer: {
-    backgroundColor: '#FFF9C4',
-    padding: 8,
-    borderRadius: 4,
-    marginBottom: 8,
-  },
-  starPlayerLabel: {
-    fontSize: 12,
-    fontWeight: 'bold',
-    marginBottom: 4,
-  },
-  starPlayerName: {
-    fontSize: 14,
-  },
-  teamsContainer: {
-    marginTop: 8,
-  },
-  teamContainer: {
-    marginBottom: 8,
-    padding: 8,
-    backgroundColor: '#f5f5f5',
-    borderRadius: 4,
-  },
-  teamLabel: {
-    fontWeight: 'bold',
-    marginBottom: 4,
-  },
-  playerContainer: {
-    marginVertical: 4,
-  },
-  playerName: {
-    fontSize: 14,
-  },
-  brawlerInfo: {
-    fontSize: 12,
-    color: '#666',
-  },
-  battleTime: {
-    fontSize: 12,
-    color: '#999',
-    marginTop: 8,
   },
 });
 
-export default App;
+export default Home;

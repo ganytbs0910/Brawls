@@ -161,7 +161,7 @@ const App = () => {
         {renderContent()}
       </View>
 
-      <BannerAdComponent />
+
 
       <View style={styles.tabBar}>
         <Animated.View 
