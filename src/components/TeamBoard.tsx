@@ -30,6 +30,8 @@ import {
 import { getCurrentMode } from '../utils/gameData';
 import CharacterSelector, { Character, characters } from './CharacterSelector';
 
+console.log('Starting TeamBoard component initialization...');
+
 const firebaseConfig = {
   apiKey: "AIzaSyDCuES9P2UaLjQnYNVj0HhakM8o01TR5bQ",
   authDomain: "brawlstatus-eebf8.firebaseapp.com",
@@ -40,8 +42,16 @@ const firebaseConfig = {
   measurementId: "G-V7C3C0GKQK"
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+console.log('Initializing Firebase with config:', { ...firebaseConfig, apiKey: '***' });
+let app;
+let db;
+try {
+  app = initializeApp(firebaseConfig);
+  db = getFirestore(app);
+  console.log('Firebase initialized successfully');
+} catch (error) {
+  console.error('Firebase initialization failed:', error);
+}
 
 interface TeamPost {
   id: string;
@@ -62,6 +72,8 @@ interface GameMode {
 }
 
 const TeamBoard: React.FC = () => {
+  console.log('TeamBoard component rendering...');
+
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedMode, setSelectedMode] = useState('');
   const [inviteLink, setInviteLink] = useState('');
@@ -80,6 +92,7 @@ const TeamBoard: React.FC = () => {
   const inviteLinkInputRef = useRef<TextInput>(null);
 
   const getCurrentModes = (): GameMode[] => {
+    console.log('Getting current game modes...');
     const currentDate = new Date();
     
     return [
@@ -122,8 +135,10 @@ const TeamBoard: React.FC = () => {
   };
 
   const modes = getCurrentModes();
+  console.log('Available game modes:', modes.map(m => m.name));
 
   useEffect(() => {
+    console.log('Setting up keyboard listeners...');
     const keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
       () => {
@@ -139,12 +154,14 @@ const TeamBoard: React.FC = () => {
     );
 
     return () => {
+      console.log('Cleaning up keyboard listeners...');
       keyboardDidShowListener.remove();
     };
   }, []);
 
   useEffect(() => {
     const fetchPosts = async () => {
+      console.log('Fetching posts...');
       const q = query(
         collection(db, 'teamPosts'),
         orderBy('createdAt', 'desc'),
@@ -152,14 +169,18 @@ const TeamBoard: React.FC = () => {
       );
       
       try {
+        console.log('Executing Firestore query...');
         const snapshot = await getDocs(q);
+        console.log(`Query results: ${snapshot.docs.length} documents found`);
         const postData = snapshot.docs.map(doc => ({ 
           id: doc.id, 
           ...doc.data() 
         })) as TeamPost[];
+        console.log('Parsed post data:', postData);
         setPosts(postData);
         setLoading(false);
       } catch (error) {
+        console.error('Error fetching posts:', error);
         Alert.alert('エラー', 'データの取得に失敗しました');
         setLoading(false);
       }
@@ -169,8 +190,10 @@ const TeamBoard: React.FC = () => {
   }, []);
 
   const handleRefresh = async () => {
+    console.log('Handling refresh...');
     const currentTime = Date.now();
     if (currentTime - lastRefreshTime < REFRESH_COOLDOWN) {
+      console.log('Refresh cooldown active, skipping refresh');
       Alert.alert('エラー', '更新は3秒後に可能になります');
       return;
     }
@@ -185,41 +208,54 @@ const TeamBoard: React.FC = () => {
     );
 
     try {
+      console.log('Executing refresh query...');
       const snapshot = await getDocs(q);
       const postData = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
       })) as TeamPost[];
+      console.log('Refresh successful, found:', postData.length, 'posts');
       setPosts(postData);
       setTimeout(() => setIsRefreshing(false), 500);
     } catch (error) {
+      console.error('Refresh failed:', error);
       Alert.alert('エラー', '更新に失敗しました');
       setIsRefreshing(false);
     }
   };
 
   const validateInviteLink = (link: string): boolean => {
+    console.log('Validating invite link:', link);
     const baseUrl = 'https://link.brawlstars.com/invite/gameroom';
     const urlMatch = link.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
-    if (!urlMatch) return false;
+    if (!urlMatch) {
+      console.log('Invalid invite link format');
+      return false;
+    }
     
     const cleanUrl = urlMatch[1];
-    return cleanUrl.startsWith(baseUrl);
+    const isValid = cleanUrl.startsWith(baseUrl);
+    console.log('Invite link validation result:', isValid);
+    return isValid;
   };
 
   const handleInviteLinkChange = (text: string) => {
+    console.log('Invite link changed, length:', text.length);
     setInviteLink(text);
     setInviteLinkLength(text.length);
   };
 
   const handleDescriptionChange = (text: string) => {
+    console.log('Description changed, length:', text.length);
     setDescription(text);
     setDescriptionLength(text.length);
   };
 
   const handleOpenLink = async (url: string) => {
+    console.log('Attempting to open link:', url);
     try {
       const canOpen = await Linking.canOpenURL(url);
+      console.log('Can open URL:', canOpen);
       if (canOpen) {
         Alert.alert(
           'チーム参加の確認',
@@ -232,6 +268,7 @@ const TeamBoard: React.FC = () => {
             {
               text: '参加する',
               onPress: async () => {
+                console.log('Opening URL:', url);
                 await Linking.openURL(url);
               }
             }
@@ -239,39 +276,56 @@ const TeamBoard: React.FC = () => {
           { cancelable: true }
         );
       } else {
+        console.log('Cannot open URL');
         Alert.alert('エラー', 'このリンクを開けません');
       }
     } catch (error) {
+      console.error('Error opening link:', error);
       Alert.alert('エラー', 'リンクを開く際にエラーが発生しました');
     }
   };
 
   const createPost = async () => {
+    console.log('Creating new post...');
+    console.log('Form data:', {
+      selectedMode,
+      selectedCharacter,
+      characterTrophies,
+      inviteLink,
+      description: description.trim(),
+      wantedCharacters: wantedCharacters.map(c => c.id)
+    });
+
     if (!selectedMode) {
+      console.log('Validation failed: No mode selected');
       Alert.alert('エラー', 'モードを選択してください');
       return;
     }
 
     if (!selectedCharacter) {
+      console.log('Validation failed: No character selected');
       Alert.alert('エラー', 'キャラクターを選択してください');
       return;
     }
 
     if (!characterTrophies || isNaN(Number(characterTrophies))) {
+      console.log('Validation failed: Invalid trophy count');
       Alert.alert('エラー', '有効なトロフィー数を入力してください');
       return;
     }
 
     if (!inviteLink || !validateInviteLink(inviteLink)) {
+      console.log('Validation failed: Invalid invite link');
       Alert.alert('エラー', '有効な招待リンクを入力してください');
       return;
     }
 
     try {
+      console.log('All validation passed, creating post...');
       const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
       const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
 
-      await addDoc(collection(db, 'teamPosts'), {
+      const docRef = await addDoc(collection(db, 'teamPosts'), {
         selectedMode,
         inviteLink: cleanInviteLink,
         description: description.trim(),
@@ -283,6 +337,8 @@ const TeamBoard: React.FC = () => {
           : ['none']
       });
 
+      console.log('Post created successfully with ID:', docRef.id);
+
       setSelectedMode('');
       setInviteLink('');
       setDescription('');
@@ -292,11 +348,13 @@ const TeamBoard: React.FC = () => {
       setModalVisible(false);
       Alert.alert('成功', '投稿が作成されました');
     } catch (error) {
+      console.error('Error creating post:', error);
       Alert.alert('エラー', '投稿の作成に失敗しました');
     }
   };
 
   if (loading) {
+    console.log('Showing loading state...');
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#21A0DB" />
