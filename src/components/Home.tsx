@@ -240,7 +240,7 @@ const Home: React.FC = () => {
       name: "バトルロワイヤル",
       currentMap: currentMaps.battleRoyale,
       updateTime: 5,
-      color: "#90EE90",
+      color: "#99ff66",
       icon: require('../../assets/GameModeIcons/showdown_icon.png')
     },
     {
@@ -254,7 +254,17 @@ const Home: React.FC = () => {
       name: getCurrentModeName("heist", selectedDate) || "ホットゾーン＆強奪",
       currentMap: currentMaps.heist,
       updateTime: 23,
-      color: "#FF69B4",
+      color: () => {
+        const currentMode = getCurrentMode("heist", selectedDate);
+        switch (currentMode?.name) {
+          case "強奪":
+            return "#FF69B4"; // 元の色
+          case "ホットゾーン":
+            return "#ff7f7f"; // 薄い赤色
+          default:
+            return "#FF69B4";
+        }
+      },
       isRotating: true,
       icon: getCurrentMode("heist", selectedDate)?.icon || require('../../assets/GameModeIcons/heist_icon.png')
     },
@@ -262,7 +272,7 @@ const Home: React.FC = () => {
       name: "ブロストライカー",
       currentMap: currentMaps.brawlBall,
       updateTime: 17,
-      color: "#4169E1",
+      color: "#cccccc",
       isRotating: true,
       icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
     },
@@ -270,7 +280,17 @@ const Home: React.FC = () => {
       name: getCurrentModeName("brawlBall5v5", selectedDate) || "5vs5ブロストライカー",
       currentMap: currentMaps.brawlBall5v5,
       updateTime: 17,
-      color: "#808080",
+      color: () => {
+        const currentMode = getCurrentMode("brawlBall5v5", selectedDate);
+        switch (currentMode?.name) {
+          case "5vs5ブロストライカー":
+            return "#cccccc";
+          case "5vs5殲滅":
+            return "#e95295";
+          default:
+            return "#d3d3d3";
+        }
+      },
       isRotating: true,
       icon: getCurrentMode("brawlBall5v5", selectedDate)?.icon || require('../../assets/GameModeIcons/brawl_ball_icon.png')
     },
@@ -278,7 +298,19 @@ const Home: React.FC = () => {
       name: getCurrentModeName("duel", selectedDate) || "デュエル＆殲滅＆賞金稼ぎ",
       currentMap: currentMaps.duel,
       updateTime: 17,
-      color: "#FF0000",
+      color: () => {
+        const currentMode = getCurrentMode("duel", selectedDate);
+        switch (currentMode?.name) {
+          case "賞金稼ぎ":
+            return "#00ccff";
+          case "殲滅":
+            return "#e95295";
+          case "デュエル":
+            return "#FF0000";
+          default:
+            return "#FF0000";
+        }
+      },
       isRotating: true,
       icon: getCurrentMode("duel", selectedDate)?.icon || require('../../assets/GameModeIcons/bounty_icon.png')
     },
@@ -431,7 +463,9 @@ const Home: React.FC = () => {
             {modes.map((mode, index) => (
               <View key={index} style={styles.modeCard}>
                 <View style={styles.modeHeader}>
-                  <View style={[styles.modeTag, { backgroundColor: mode.color }]}>
+                  <View style={[styles.modeTag, { 
+                    backgroundColor: typeof mode.color === 'function' ? mode.color() : mode.color 
+                  }]}>
                     <Image source={mode.icon} style={styles.modeIcon} />
                     <Text style={styles.modeTagText}>{mode.name}</Text>
                   </View>
