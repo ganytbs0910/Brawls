@@ -1,6 +1,7 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
-import { RouteProp, useRoute } from '@react-navigation/native';
+import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../App';
 import { getCharacterData } from '../data/characterData';
 import CharacterImage from './CharacterImage';
@@ -8,6 +9,7 @@ import { getStarPowerIcon, getGadgetIcon, gearIcons } from '../data/iconMappings
 import { allCharacterData } from '../data/characterCompatibility';
 
 type CharacterDetailsRouteProp = RouteProp<RootStackParamList, 'CharacterDetails'>;
+type CharacterDetailsNavigationProp = StackNavigationProp<RootStackParamList, 'CharacterDetails'>;
 type CompatibilityView = 'good' | 'bad';
 
 type CompatibilityCategory = {
@@ -19,24 +21,58 @@ type CompatibilityCategory = {
 };
 
 const goodCompatibilityCategories: CompatibilityCategory[] = [
-  { title: '最高の相性', minScore: 9, maxScore: 10, color: '#2E7D32', backgroundColor: '#E8F5E9' },
-  { title: '良い相性', minScore: 7, maxScore: 8.9, color: '#1565C0', backgroundColor: '#E3F2FD' },
+  { 
+    title: '最高の相性',
+    minScore: 9,
+    maxScore: 10,
+    color: '#2E7D32',
+    backgroundColor: '#E8F5E9'
+  },
+  { 
+    title: '良い相性',
+    minScore: 7,
+    maxScore: 8.9,
+    color: '#1565C0',
+    backgroundColor: '#E3F2FD'
+  },
 ];
 
 const badCompatibilityCategories: CompatibilityCategory[] = [
-  { title: '相性が悪い', minScore: 0, maxScore: 4.9, color: '#C62828', backgroundColor: '#FFEBEE' },
-  { title: '普通の相性', minScore: 5, maxScore: 6.9, color: '#F57F17', backgroundColor: '#FFF8E1' },
+  { 
+    title: '相性が悪い',
+    minScore: 0,
+    maxScore: 4.9,
+    color: '#C62828',
+    backgroundColor: '#FFEBEE'
+  },
+  { 
+    title: '普通の相性',
+    minScore: 5,
+    maxScore: 6.9,
+    color: '#F57F17',
+    backgroundColor: '#FFF8E1'
+  },
 ];
 
 const CharacterDetails: React.FC = () => {
+  // Navigation and route hooks
+  const route = useRoute<CharacterDetailsRouteProp>();
+  const navigation = useNavigation<CharacterDetailsNavigationProp>();
+  const { characterName } = route.params;
+
+  // State hooks
   const [activeTab, setActiveTab] = useState<'info' | 'compatibility'>('info');
   const [compatibilityView, setCompatibilityView] = useState<CompatibilityView>('good');
-  const route = useRoute<CharacterDetailsRouteProp>();
-  const { characterName } = route.params;
-  const character = getCharacterData(characterName);
-  const compatibilityData = Object.values(allCharacterData).find(char => char.name === characterName);
 
-  const getRecommendationColor = (level: number) => {
+  // Data preparation
+  const character = useMemo(() => getCharacterData(characterName), [characterName]);
+  const compatibilityData = useMemo(
+    () => Object.values(allCharacterData).find(char => char.name === characterName),
+    [characterName]
+  );
+
+  // Utility functions
+  const getRecommendationColor = useCallback((level: number) => {
     switch (level) {
       case 5: return '#4CAF50';
       case 4: return '#8BC34A';
@@ -45,9 +81,9 @@ const CharacterDetails: React.FC = () => {
       case 1: return '#F44336';
       default: return '#757575';
     }
-  };
+  }, []);
 
-  const getRecommendationLabel = (level: number) => {
+  const getRecommendationLabel = useCallback((level: number) => {
     switch (level) {
       case 5: return '最優先 (5/5)';
       case 4: return 'おすすめ (4/5)';
@@ -56,8 +92,14 @@ const CharacterDetails: React.FC = () => {
       case 1: return '後回しOK (1/5)';
       default: return '未評価';
     }
-  };
+  }, []);
 
+  // Navigation handler
+  const handleCharacterPress = useCallback((selectedCharName: string) => {
+    navigation.push('CharacterDetails', { characterName: selectedCharName });
+  }, [navigation]);
+
+  // Compatibility score calculations
   const categorizedScores = useMemo(() => {
     if (!compatibilityData?.compatibilityScores) return {};
 
@@ -69,6 +111,7 @@ const CharacterDetails: React.FC = () => {
       const category = categories.find(
         cat => score >= cat.minScore && score <= cat.maxScore
       );
+      
       if (!category) return acc;
 
       if (!acc[category.title]) {
@@ -78,25 +121,26 @@ const CharacterDetails: React.FC = () => {
           backgroundColor: category.backgroundColor,
         };
       }
+
       acc[category.title].characters.push({ name: char, score });
 
+      // Sort characters within each category
       acc[category.title].characters.sort((a, b) => {
-        if (compatibilityView === 'good') {
-          return b.score - a.score;
-        } else {
-          return a.score - b.score;
-        }
+        return compatibilityView === 'good' ? b.score - a.score : a.score - b.score;
       });
 
       return acc;
     }, {} as Record<string, { 
-      characters: Array<{ name: string; score: number }>, 
-      color: string, 
+      characters: Array<{ name: string; score: number }>,
+      color: string,
       backgroundColor: string 
     }>);
   }, [compatibilityData, compatibilityView]);
-  const renderPowerCard = (power: any, index: number, isPowerStar: boolean) => {
+
+  // Render functions
+  const renderPowerCard = useCallback((power: any, index: number, isPowerStar: boolean) => {
     const recommendationLevel = power.recommendationLevel || 0;
+    
     return (
       <View 
         style={[
@@ -110,7 +154,10 @@ const CharacterDetails: React.FC = () => {
         key={index}
       >
         <View style={styles.recommendationBadge}>
-          <View style={[styles.recommendationBar, { backgroundColor: getRecommendationColor(recommendationLevel) }]}>
+          <View style={[
+            styles.recommendationBar,
+            { backgroundColor: getRecommendationColor(recommendationLevel) }
+          ]}>
             <Text style={styles.recommendationText}>
               {getRecommendationLabel(recommendationLevel)}
             </Text>
@@ -119,7 +166,10 @@ const CharacterDetails: React.FC = () => {
 
         <View style={styles.powerHeader}>
           <Image
-            source={isPowerStar ? getStarPowerIcon(character.name, index) : getGadgetIcon(character.name, index)}
+            source={isPowerStar 
+              ? getStarPowerIcon(character.name, index)
+              : getGadgetIcon(character.name, index)
+            }
             style={styles.powerIcon}
           />
           <Text style={styles.skillName}>{power.name}</Text>
@@ -130,14 +180,16 @@ const CharacterDetails: React.FC = () => {
         {power.recommendationReason && (
           <View style={styles.reasonContainer}>
             <Text style={styles.reasonLabel}>おすすめの理由:</Text>
-            <Text style={styles.recommendationReason}>{power.recommendationReason}</Text>
+            <Text style={styles.recommendationReason}>
+              {power.recommendationReason}
+            </Text>
           </View>
         )}
       </View>
     );
-  };
+  }, [character?.name, getRecommendationColor, getRecommendationLabel]);
 
-  const renderGearSection = () => {
+  const renderGearSection = useCallback(() => {
     if (!character) return null;
 
     const recommendedGears = character.gears || [];
@@ -171,85 +223,98 @@ const CharacterDetails: React.FC = () => {
         </View>
       </View>
     );
-  };
+  }, [character]);
 
-  const renderCompatibilityContent = () => {
-  if (!compatibilityData) return null;
+  const renderCompatibilityContent = useCallback(() => {
+    if (!compatibilityData) return null;
 
-  return (
-    <View style={styles.compatibilityContainer}>
-      <View style={styles.compatibilityHeader}>
-        <Text style={styles.compatibilityTitle}>相性表</Text>
-        <View style={styles.toggleContainer}>
-          <TouchableOpacity
-            style={[
-              styles.toggleButton,
-              compatibilityView === 'good' && styles.activeToggleButton,
-            ]}
-            onPress={() => setCompatibilityView('good')}
-          >
-            <Text style={[
-              styles.toggleButtonText,
-              compatibilityView === 'good' && styles.activeToggleButtonText,
-            ]}>
-              得意
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[
-              styles.toggleButton,
-              compatibilityView === 'bad' && styles.activeToggleButton,
-            ]}
-            onPress={() => setCompatibilityView('bad')}
-          >
-            <Text style={[
-              styles.toggleButtonText,
-              compatibilityView === 'bad' && styles.activeToggleButtonText,
-            ]}>
-              苦手
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-      
-      {Object.entries(categorizedScores)
-        .sort(([categoryA], [categoryB]) => {
-          if (compatibilityView === 'good') {
-            // 得意表示の場合：最高の相性 → 良い相性
-            return categoryA === '最高の相性' ? -1 : 1;
-          } else {
-            // 苦手表示の場合：相性が悪い → 普通の相性
-            return categoryA === '相性が悪い' ? -1 : 1;
-          }
-        })
-        .map(([category, data]) => (
-          <View 
-            key={category}
-            style={[styles.categoryContainer, { backgroundColor: data.backgroundColor }]}
-          >
-            <Text style={[styles.categoryTitle, { color: data.color }]}>{category}</Text>
-            <View style={styles.characterGrid}>
-              {data.characters.map((char) => (
-                <View key={char.name} style={styles.characterCard}>
-                  <View style={styles.characterInfo}>
-                    <CharacterImage characterName={char.name} size={32} />
-                    <Text style={styles.characterName} numberOfLines={1}>
-                      {char.name}
-                    </Text>
-                  </View>
-                  <Text style={[styles.characterScore, { color: data.color }]}>
-                    {char.score.toFixed(1)}/10
-                  </Text>
-                </View>
-              ))}
-            </View>
+    return (
+      <View style={styles.compatibilityContainer}>
+        <View style={styles.compatibilityHeader}>
+          <Text style={styles.compatibilityTitle}>相性表</Text>
+          <View style={styles.toggleContainer}>
+            <TouchableOpacity
+              style={[
+                styles.toggleButton,
+                compatibilityView === 'good' && styles.activeToggleButton,
+              ]}
+              onPress={() => setCompatibilityView('good')}
+            >
+              <Text style={[
+                styles.toggleButtonText,
+                compatibilityView === 'good' && styles.activeToggleButtonText,
+              ]}>
+                得意
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                styles.toggleButton,
+                compatibilityView === 'bad' && styles.activeToggleButton,
+              ]}
+              onPress={() => setCompatibilityView('bad')}
+            >
+              <Text style={[
+                styles.toggleButtonText,
+                compatibilityView === 'bad' && styles.activeToggleButtonText,
+              ]}>
+                苦手
+              </Text>
+            </TouchableOpacity>
           </View>
-        ))}
-    </View>
-  );
-  };
+        </View>
+        
+        {Object.entries(categorizedScores)
+          .sort(([categoryA], [categoryB]) => {
+            if (compatibilityView === 'good') {
+              return categoryA === '最高の相性' ? -1 : 1;
+            } else {
+              return categoryA === '相性が悪い' ? -1 : 1;
+            }
+          })
+          .map(([category, data]) => (
+            <View 
+              key={category}
+              style={[
+                styles.categoryContainer,
+                { backgroundColor: data.backgroundColor }
+              ]}
+            >
+              <Text style={[styles.categoryTitle, { color: data.color }]}>
+                {category}
+              </Text>
+              <View style={styles.characterGrid}>
+                {data.characters.map((char) => (
+                  <TouchableOpacity
+                    key={char.name}
+                    style={styles.characterCard}
+                    onPress={() => handleCharacterPress(char.name)}
+                    activeOpacity={0.7}
+                  >
+                    <View style={styles.characterInfo}>
+                      <CharacterImage characterName={char.name} size={32} />
+                      <Text style={styles.characterName} numberOfLines={1}>
+                        {char.name}
+                      </Text>
+                    </View>
+                    <Text style={[styles.characterScore, { color: data.color }]}>
+                      {char.score.toFixed(1)}/10
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            </View>
+          ))}
+      </View>
+    );
+  }, [
+    compatibilityData,
+    compatibilityView,
+    categorizedScores,
+    handleCharacterPress
+  ]);
 
-  const renderCharacterInfo = () => {
+  const renderCharacterInfo = useCallback(() => {
     if (!character) {
       return <Text>キャラクターが見つかりませんでした。</Text>;
     }
@@ -266,8 +331,12 @@ const CharacterDetails: React.FC = () => {
         <View style={styles.infoCard}>
           <Text style={styles.sectionTitle}>基本情報</Text>
           <View style={styles.basicInfo}>
-            <Text style={styles.infoLabel}>役割: {character.class?.name}</Text>
-            <Text style={styles.infoLabel}>レアリティ: {character.rarity?.name}</Text>
+            <Text style={styles.infoLabel}>
+              役割: {character.class?.name}
+            </Text>
+            <Text style={styles.infoLabel}>
+              レアリティ: {character.rarity?.name}
+            </Text>
           </View>
         </View>
 
@@ -308,8 +377,14 @@ const CharacterDetails: React.FC = () => {
         {renderGearSection()}
       </View>
     );
-  };
+  }, [
+    character,
+    characterName,
+    renderPowerCard,
+    renderGearSection
+  ]);
 
+  // Error state handling
   if (!character) {
     return (
       <View style={styles.container}>
@@ -318,6 +393,7 @@ const CharacterDetails: React.FC = () => {
     );
   }
 
+  // Main render
   return (
     <View style={styles.container}>
       <View style={styles.tabContainer}>
@@ -325,7 +401,10 @@ const CharacterDetails: React.FC = () => {
           style={[styles.tab, activeTab === 'info' && styles.activeTab]}
           onPress={() => setActiveTab('info')}
         >
-          <Text style={[styles.tabText, activeTab === 'info' && styles.activeTabText]}>
+          <Text style={[
+            styles.tabText,
+            activeTab === 'info' && styles.activeTabText
+          ]}>
             キャラ情報
           </Text>
         </TouchableOpacity>
@@ -333,18 +412,24 @@ const CharacterDetails: React.FC = () => {
           style={[styles.tab, activeTab === 'compatibility' && styles.activeTab]}
           onPress={() => setActiveTab('compatibility')}
         >
-          <Text style={[styles.tabText, activeTab === 'compatibility' && styles.activeTabText]}>
+          <Text style={[
+            styles.tabText,
+            activeTab === 'compatibility' && styles.activeTabText
+          ]}>
             相性表
           </Text>
         </TouchableOpacity>
       </View>
 
       <ScrollView style={styles.scrollContainer}>
-        {activeTab === 'info' ? renderCharacterInfo() : renderCompatibilityContent()}
+        {activeTab === 'info'
+          ? renderCharacterInfo()
+          : renderCompatibilityContent()}
       </ScrollView>
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
