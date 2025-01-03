@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { RootStackParamList } from '../App';
@@ -8,9 +8,29 @@ import { getStarPowerIcon, getGadgetIcon, gearIcons } from '../data/iconMappings
 import { allCharacterData } from '../data/characterCompatibility';
 
 type CharacterDetailsRouteProp = RouteProp<RootStackParamList, 'CharacterDetails'>;
+type CompatibilityView = 'good' | 'bad';
+
+type CompatibilityCategory = {
+  title: string;
+  minScore: number;
+  maxScore: number;
+  color: string;
+  backgroundColor: string;
+};
+
+const goodCompatibilityCategories: CompatibilityCategory[] = [
+  { title: '最高の相性', minScore: 9, maxScore: 10, color: '#2E7D32', backgroundColor: '#E8F5E9' },
+  { title: '良い相性', minScore: 7, maxScore: 8.9, color: '#1565C0', backgroundColor: '#E3F2FD' },
+];
+
+const badCompatibilityCategories: CompatibilityCategory[] = [
+  { title: '相性が悪い', minScore: 0, maxScore: 4.9, color: '#C62828', backgroundColor: '#FFEBEE' },
+  { title: '普通の相性', minScore: 5, maxScore: 6.9, color: '#F57F17', backgroundColor: '#FFF8E1' },
+];
 
 const CharacterDetails: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'info' | 'compatibility'>('info');
+  const [compatibilityView, setCompatibilityView] = useState<CompatibilityView>('good');
   const route = useRoute<CharacterDetailsRouteProp>();
   const { characterName } = route.params;
   const character = getCharacterData(characterName);
@@ -38,6 +58,43 @@ const CharacterDetails: React.FC = () => {
     }
   };
 
+  const categorizedScores = useMemo(() => {
+    if (!compatibilityData?.compatibilityScores) return {};
+
+    const categories = compatibilityView === 'good' 
+      ? goodCompatibilityCategories 
+      : badCompatibilityCategories;
+
+    return Object.entries(compatibilityData.compatibilityScores).reduce((acc, [char, score]) => {
+      const category = categories.find(
+        cat => score >= cat.minScore && score <= cat.maxScore
+      );
+      if (!category) return acc;
+
+      if (!acc[category.title]) {
+        acc[category.title] = {
+          characters: [],
+          color: category.color,
+          backgroundColor: category.backgroundColor,
+        };
+      }
+      acc[category.title].characters.push({ name: char, score });
+
+      acc[category.title].characters.sort((a, b) => {
+        if (compatibilityView === 'good') {
+          return b.score - a.score;
+        } else {
+          return a.score - b.score;
+        }
+      });
+
+      return acc;
+    }, {} as Record<string, { 
+      characters: Array<{ name: string; score: number }>, 
+      color: string, 
+      backgroundColor: string 
+    }>);
+  }, [compatibilityData, compatibilityView]);
   const renderPowerCard = (power: any, index: number, isPowerStar: boolean) => {
     const recommendationLevel = power.recommendationLevel || 0;
     return (
@@ -116,48 +173,80 @@ const CharacterDetails: React.FC = () => {
     );
   };
 
-  const getScoreColor = (score: number): string => {
-    if (score >= 8) return '#4CAF50';
-    if (score >= 6) return '#2196F3';
-    if (score >= 4) return '#FFC107';
-    return '#F44336';
-  };
-
   const renderCompatibilityContent = () => {
-    if (!compatibilityData) return null;
+  if (!compatibilityData) return null;
 
-    const sortedScores = Object.entries(compatibilityData.compatibilityScores)
-      .sort(([, a], [, b]) => b - a);
-
-    return (
-      <View style={styles.compatibilityContainer}>
-        <View style={styles.compatibilityHeader}>
-          <Text style={styles.compatibilityTitle}>相性表</Text>
+  return (
+    <View style={styles.compatibilityContainer}>
+      <View style={styles.compatibilityHeader}>
+        <Text style={styles.compatibilityTitle}>相性表</Text>
+        <View style={styles.toggleContainer}>
+          <TouchableOpacity
+            style={[
+              styles.toggleButton,
+              compatibilityView === 'good' && styles.activeToggleButton,
+            ]}
+            onPress={() => setCompatibilityView('good')}
+          >
+            <Text style={[
+              styles.toggleButtonText,
+              compatibilityView === 'good' && styles.activeToggleButtonText,
+            ]}>
+              得意
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.toggleButton,
+              compatibilityView === 'bad' && styles.activeToggleButton,
+            ]}
+            onPress={() => setCompatibilityView('bad')}
+          >
+            <Text style={[
+              styles.toggleButtonText,
+              compatibilityView === 'bad' && styles.activeToggleButtonText,
+            ]}>
+              苦手
+            </Text>
+          </TouchableOpacity>
         </View>
-        {sortedScores.map(([opponent, score]) => (
-          <View key={opponent} style={styles.compatibilityRow}>
-            <View style={styles.opponentInfo}>
-              <CharacterImage characterName={opponent} size={30} />
-              <Text style={styles.opponentName}>{opponent}</Text>
-            </View>
-            <View style={styles.scoreContainer}>
-              <Text style={[styles.score, { color: getScoreColor(score) }]}>
-                {score}/10
-              </Text>
-              <View
-                style={[
-                  styles.scoreBar,
-                  { 
-                    width: score * 10,
-                    backgroundColor: getScoreColor(score) 
-                  }
-                ]}
-              />
+      </View>
+      
+      {Object.entries(categorizedScores)
+        .sort(([categoryA], [categoryB]) => {
+          if (compatibilityView === 'good') {
+            // 得意表示の場合：最高の相性 → 良い相性
+            return categoryA === '最高の相性' ? -1 : 1;
+          } else {
+            // 苦手表示の場合：相性が悪い → 普通の相性
+            return categoryA === '相性が悪い' ? -1 : 1;
+          }
+        })
+        .map(([category, data]) => (
+          <View 
+            key={category}
+            style={[styles.categoryContainer, { backgroundColor: data.backgroundColor }]}
+          >
+            <Text style={[styles.categoryTitle, { color: data.color }]}>{category}</Text>
+            <View style={styles.characterGrid}>
+              {data.characters.map((char) => (
+                <View key={char.name} style={styles.characterCard}>
+                  <View style={styles.characterInfo}>
+                    <CharacterImage characterName={char.name} size={32} />
+                    <Text style={styles.characterName} numberOfLines={1}>
+                      {char.name}
+                    </Text>
+                  </View>
+                  <Text style={[styles.characterScore, { color: data.color }]}>
+                    {char.score.toFixed(1)}/10
+                  </Text>
+                </View>
+              ))}
             </View>
           </View>
         ))}
-      </View>
-    );
+    </View>
+  );
   };
 
   const renderCharacterInfo = () => {
@@ -256,7 +345,6 @@ const CharacterDetails: React.FC = () => {
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -445,40 +533,78 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     color: '#2196F3',
+    marginBottom: 8,
   },
-  compatibilityRow: {
+  toggleContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 12,
     backgroundColor: '#f5f5f5',
-    padding: 12,
     borderRadius: 8,
+    padding: 4,
   },
-  opponentInfo: {
+  toggleButton: {
+    flex: 1,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 6,
+    alignItems: 'center',
+  },
+  activeToggleButton: {
+    backgroundColor: '#2196F3',
+  },
+  toggleButtonText: {
+    fontSize: 14,
+    color: '#666',
+  },
+  activeToggleButtonText: {
+    color: '#ffffff',
+    fontWeight: 'bold',
+  },
+  categoryContainer: {
+    marginBottom: 16,
+    borderRadius: 12,
+    padding: 12,
+    overflow: 'hidden',
+  },
+  categoryTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+  characterGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginHorizontal: -4,
+  },
+  characterCard: {
+    width: '48%',
+    backgroundColor: '#ffffff',
+    borderRadius: 8,
+    padding: 8,
+    marginHorizontal: '1%',
+    marginBottom: 8,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
+  },
+  characterInfo: {
     flexDirection: 'row',
     alignItems: 'center',
-    width: 120,
+    flex: 1,
   },
-  opponentName: {
+  characterName: {
     fontSize: 14,
     marginLeft: 8,
-  },
-  scoreContainer: {
     flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginLeft: 12,
   },
-  score: {
-    marginRight: 8,
+  characterScore: {
     fontSize: 14,
     fontWeight: 'bold',
-    minWidth: 45,
-  },
-  scoreBar: {
-    height: 20,
-    borderRadius: 10,
-    maxWidth: 100,
+    marginLeft: 8,
   },
 });
 
