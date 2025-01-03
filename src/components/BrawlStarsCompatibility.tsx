@@ -101,7 +101,6 @@ export default function BrawlStarsApp() {
         const savedTag = await AsyncStorage.getItem('brawlStarsPlayerTag');
         if (savedTag) {
           setPlayerTag(savedTag);
-          fetchPlayerData(savedTag);
         }
       } catch (err) {
         console.error('Error loading saved tag:', err);
@@ -111,26 +110,39 @@ export default function BrawlStarsApp() {
     loadSavedTag();
   }, []);
 
-  const validatePlayerTag = (tag: string): string => {
-    let cleanTag = tag.replace(/^#/, '');
-    cleanTag = cleanTag.replace(/[^A-Z0-9]/gi, '');
-    cleanTag = cleanTag.toUpperCase();
-    return cleanTag;
+  const validatePlayerTag = (tag: string | undefined): string => {
+    if (!tag || typeof tag !== 'string') return '';
+    
+    try {
+      let cleanTag = tag.replace(/^#/, '');
+      cleanTag = cleanTag.replace(/[^A-Z0-9]/gi, '');
+      cleanTag = cleanTag.toUpperCase();
+      console.log('Validating tag:', tag, '-> cleaned:', cleanTag);
+      return cleanTag;
+    } catch (err) {
+      console.error('Error in validatePlayerTag:', err);
+      return '';
+    }
   };
 
-  const fetchPlayerData = async (tag: string) => {
+  const fetchPlayerData = async (tag: string | undefined) => {
     setLoading(true);
     setError('');
     setBattleLog([]);
     setPlayerInfo(null);
 
     try {
-      const cleanTag = validatePlayerTag(tag);
-      if (!cleanTag) {
+      if (!tag || !tag.trim()) {
         throw new Error('プレイヤータグを入力してください');
       }
 
+      const cleanTag = validatePlayerTag(tag);
+      if (!cleanTag) {
+        throw new Error('プレイヤータグが不正です');
+      }
+
       const encodedTag = encodeURIComponent('#' + cleanTag);
+      console.log('Fetching player data for tag:', encodedTag);
       
       try {
         await AsyncStorage.setItem('brawlStarsPlayerTag', tag);
@@ -138,6 +150,9 @@ export default function BrawlStarsApp() {
         console.error('Error saving tag:', storageErr);
       }
 
+      console.log('Clean tag:', cleanTag);
+      console.log('Encoded tag:', encodedTag);
+      
       const playerResponse = await fetch(
         `https://api.brawlstars.com/v1/players/${encodedTag}`,
         {
@@ -150,8 +165,9 @@ export default function BrawlStarsApp() {
 
       if (!playerResponse.ok) {
         const errorData = await playerResponse.json().catch(() => null);
+        console.error('API Error Response:', errorData);
         throw new Error(
-          errorData?.message || 
+          errorData?.reason || errorData?.message || 
           `APIエラー: ${playerResponse.status} ${playerResponse.statusText}`
         );
       }
@@ -174,7 +190,8 @@ export default function BrawlStarsApp() {
       }
 
       const battleLogData = await battleLogResponse.json();
-      setBattleLog(battleLogData.items);
+      // 最新の5試合のみを保存
+      setBattleLog(battleLogData.items.slice(0, 5));
     } catch (err) {
       console.error('Error:', err);
       setError(err instanceof Error ? err.message : 'データの取得に失敗しました');
@@ -195,14 +212,16 @@ export default function BrawlStarsApp() {
       <View style={styles.searchContainer}>
         <TextInput
           style={styles.input}
-          value={playerTag}
+          value={playerTag || ''}
           onChangeText={setPlayerTag}
-          placeholder="#C9LC0LP"
+          placeholder="#XXXXXXXXX"
+          autoCapitalize="characters"
+          autoCorrect={false}
         />
         <TouchableOpacity
           style={styles.searchButton}
           onPress={() => fetchPlayerData(playerTag)}
-          disabled={loading}
+          disabled={loading || !playerTag.trim()}
         >
           <Text style={styles.searchButtonText}>
             {loading ? '読み込み中...' : '取得'}
@@ -351,7 +370,7 @@ export default function BrawlStarsApp() {
     ] : []),
     ...(battleLog.length > 0 ? [{
       type: 'battles',
-      title: '直近の対戦',
+      title: '直近の対戦（最新5件）',
       data: battleLog
     }] : [])
   ];
@@ -483,14 +502,6 @@ const styles = StyleSheet.create({
   infoValue: {
     fontSize: 16,
     fontWeight: '500',
-  },
-  brawlerCard: {
-    width: '48%',
-    backgroundColor: '#f5f5f5',
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 16,
-    marginRight: '4%',
   },
   brawlerCard: {
     backgroundColor: '#f5f5f5',
