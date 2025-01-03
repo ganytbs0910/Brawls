@@ -10,38 +10,102 @@ export const heistMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "ダリル",
-        reason: "金庫への突進が得意",
+        name: "クロウ",
+        reason: "通路での強さを発揮",
+        power: 5
+      },
+      {
+        name: "コレット",
+        reason: "高所からの制圧",
+        power: 5
+      },
+      {
+        name: "チャック",
+        reason: "壁跳ね攻撃が有効",
+        power: 5
+      },
+      {
+        name: "メロディー",
+        reason: "通路での強さを発揮",
         power: 5
       },
       {
         name: "コルト",
-        reason: "壁破壊での突破",
+        reason: "高所からの制圧",
+        power: 5
+      },
+      {
+        name: "イヴ",
+        reason: "壁跳ね攻撃が有効",
+        power: 5
+      },
+      {
+        name: "アンジェロ",
+        reason: "壁跳ね攻撃が有効",
+        power: 5
+      },
+      {
+        name: "エリザベス",
+        reason: "壁跳ね攻撃が有効",
         power: 4
+      },
+      {
+        name: "バイロン",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "ベル",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "アンバー",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "ミコ",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
+      },
+      {
+        name: "ダリル",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
       },
       {
         name: "ペニー",
-        reason: "砲台での守備が強力",
-        power: 4
-      }
-    ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "攻撃ルートの確立",
-        phase: "Early"
+        reason: "壁跳ね攻撃が有効",
+        power: 3
       },
       {
-        title: "中盤の戦略",
-        description: "カバーを活用した前進",
-        phase: "Mid"
+        name: "ブロック",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
       },
       {
-        title: "終盤での勝ち方",
-        description: "一気の総攻撃か守り切りか",
-        phase: "Late"
-      }
+        name: "R-T",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
+      },
+      {
+        name: "ブロック",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
+      },
+      {
+        name: "8ビット",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
+      },
+      {
+        name: "ボニー",
+        reason: "壁跳ね攻撃が有効",
+        power: 2
+      },
     ],
+
     tips: [
       "壁の破壊状況を把握",
       "金庫までの最短ルート確認",
@@ -57,38 +121,97 @@ export const heistMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "ブル",
-        reason: "通路での突進力",
-        power: 5
-      },
-      {
-        name: "リコ",
-        reason: "壁跳ね攻撃が有効",
-        power: 4
-      },
-      {
-        name: "バル",
-        reason: "通路での制圧力",
-        power: 4
-      }
+      name: "ストゥー",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "サージ",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ジュジュ",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "ラリー&ローリー",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "バーリー",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "バーリー",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "ウィロー",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "R-T",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "ダイナマイク",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ガス",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "メロディー",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ケンジ",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "ダグ",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "フランケン",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "コーデリアス",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "バイロン",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ビビ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ジャッキー",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "メインルートの選択",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "ルート間の切り替え",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "一点突破か分散か判断",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "通路での待ち伏せに注意",
       "ルートの切り替えを柔軟に",
@@ -104,38 +227,92 @@ export const heistMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "スパイク",
-        reason: "多方向からの攻撃が可能",
-        power: 5
-      },
-      {
-        name: "ダイナマイク",
-        reason: "壁越しの攻撃が得意",
-        power: 4
-      },
-      {
-        name: "ブロック",
-        reason: "防衛壁の設置が有効",
-        power: 4
-      }
+      name: "ガス",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "バイロン",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ペニー",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "リコ",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "ジュジュ",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ラフス",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "ストゥー",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "サージ",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "スクウィーク",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "フランケン",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "マックス",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "グレイ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ラリー&ローリー",
+      reason: "水路を挟んだ狙撃",
+      power: 3
+    },
+    {
+      name: "タラ",
+      reason: "水路を挟んだ狙撃",
+      power: 3
+    },
+    {
+      name: "カール",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ベリー",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ジェシー",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "攻撃角度の確保と防衛位置の決定",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "攻撃位置の変更で守備を崩す",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "一斉攻撃での守備崩壊",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "死角からの攻撃を意識",
       "防衛範囲の優先順位付け",
@@ -166,23 +343,7 @@ export const heistMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "横断ポイントの確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "水路を活用した攻防",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "一斉横断での最終攻撃",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "水中での移動は最小限に",
       "横断時の援護を重視",
@@ -213,23 +374,7 @@ export const heistMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "攻撃ルートの選択",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "複数ルートでの連携攻撃",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "最適ルートでの総攻撃",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "ルートの使い分けを意識",
       "チームでの連携を重視",
@@ -244,39 +389,88 @@ export const heistMaps: Record<string, MapDetail> = {
     characteristics: ["対称構造", "攻守転換", "戦略性"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "スパイク",
-        reason: "高い金庫攻撃力",
-        power: 5
-      },
-      {
-        name: "ダリル",
-        reason: "素早い攻守の切り替え",
-        power: 4
-      },
-      {
-        name: "ペニー",
-        reason: "砲台での守備力",
-        power: 4
-      }
+    {
+      name: "ガス",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "バイロン",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ペニー",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "ストゥー",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "ジュジュ",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "バーリー",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "ラリー&ローリー",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "サージ",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "スクウィーク",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ジェシー",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "フランケン",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ベリー",
+      reason: "水路を挟んだ狙撃",
+      power: 3
+    },
+    {
+      name: "ビビ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ルー",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "グレイ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "メロディー",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "初期の攻守判断",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "攻守の素早い切り替え",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "状況判断での一点集中",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "攻守の切り替えを躊躇しない",
       "チームでの判断を統一",
@@ -292,37 +486,85 @@ export const heistMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "バル",
-        reason: "中央での制圧力",
+        name: "クロウ",
+        reason: "通路での強さを発揮",
         power: 5
       },
       {
-        name: "エメル",
-        reason: "広範囲での牽制",
+        name: "コレット",
+        reason: "高所からの制圧",
+        power: 5
+      },
+      {
+        name: "チャック",
+        reason: "壁跳ね攻撃が有効",
+        power: 5
+      },
+      {
+        name: "メロディー",
+        reason: "通路での強さを発揮",
+        power: 5
+      },
+      {
+        name: "バーリー",
+        reason: "高所からの制圧",
+        power: 5
+      },
+      {
+        name: "ラリー&ローリー",
+        reason: "壁跳ね攻撃が有効",
+        power: 5
+      },
+      {
+        name: "ジュジュ",
+        reason: "壁跳ね攻撃が有効",
+        power: 5
+      },
+      {
+        name: "ベリー",
+        reason: "壁跳ね攻撃が有効",
+        power: 5
+      },
+      {
+        name: "ダイナマイク",
+        reason: "壁跳ね攻撃が有効",
+        power: 5
+      },
+      {
+        name: "リコ",
+        reason: "壁跳ね攻撃が有効",
         power: 4
       },
       {
-        name: "グロム",
-        reason: "壁越しの攻撃",
+        name: "ミコ",
+        reason: "壁跳ね攻撃が有効",
         power: 4
-      }
-    ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "中央エリアの確保",
-        phase: "Early"
       },
       {
-        title: "中盤の戦略",
-        description: "中央からの展開判断",
-        phase: "Mid"
+        name: "ニタ",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
       },
       {
-        title: "終盤での勝ち方",
-        description: "陣地の優位を活かした決着",
-        phase: "Late"
-      }
+        name: "フランケン",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
+      },
+      {
+        name: "ダリル",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
+      },
+      {
+        name: "ジェシー",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
+      },
+      {
+        name: "コルト",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
+      },
     ],
     tips: [
       "中央の支配権を意識",
@@ -339,38 +581,82 @@ export const heistMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "コルト",
-        reason: "壁破壊での地形操作",
+        name: "クロウ",
+        reason: "通路での強さを発揮",
         power: 5
       },
       {
-        name: "ダイナマイク",
-        reason: "壁越しの攻撃",
+        name: "コレット",
+        reason: "高所からの制圧",
+        power: 5
+      },
+      {
+        name: "チャック",
+        reason: "壁跳ね攻撃が有効",
+        power: 5
+      },
+      {
+        name: "メロディー",
+        reason: "通路での強さを発揮",
+        power: 5
+      },
+      {
+        name: "コルト",
+        reason: "高所からの制圧",
+        power: 5
+      },
+      {
+        name: "エリザベス",
+        reason: "壁跳ね攻撃が有効",
         power: 4
+      },
+      {
+        name: "イヴ",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "アンジェロ",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "バイロン",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "ベル",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "アンバー",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "ペニー",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
+      },
+      {
+        name: "ナーニ",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
       },
       {
         name: "ブロック",
-        reason: "新しい壁の設置",
-        power: 4
-      }
-    ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "重要な壁の破壊判断",
-        phase: "Early"
+        reason: "壁跳ね攻撃が有効",
+        power: 3
       },
       {
-        title: "中盤の戦略",
-        description: "変化する地形での立ち回り",
-        phase: "Mid"
+        name: "ミコ",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
       },
-      {
-        title: "終盤での勝ち方",
-        description: "地形を活かした最終攻撃",
-        phase: "Late"
-      }
     ],
+
     tips: [
       "壁破壊の優先順位",
       "変化する地形への適応",
@@ -401,23 +687,7 @@ export const heistMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "地形を活かしたポジション取り",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "距離帯の使い分け",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "チーム戦力の集中",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "距離帯の使い分けを意識",
       "建物の利用を工夫",
@@ -433,38 +703,97 @@ export const heistMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "パイパー",
-        reason: "長距離からの攻撃",
-        power: 5
-      },
-      {
-        name: "ペニー",
-        reason: "広範囲での制圧",
-        power: 4
-      },
-      {
-        name: "スパイク",
-        reason: "金庫への高火力",
-        power: 4
-      }
+      name: "バイロン",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "ガス",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ストゥー",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "サージ",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "バーリー",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ラリー&ローリー",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "コーデリアス",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "フランケン",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "ベリー",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ジュジュ",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "ダイナマイク",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ニタ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ケンジ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "グレイ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ジェシー",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "メロディー",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "スクウィーク",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "タラ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "有利な射線の確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "多角的な攻撃展開",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "集中攻撃での押し切り",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "視界の確保を重視",
       "攻撃角度の変更を工夫",
@@ -495,23 +824,7 @@ export const heistMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "改良された地形での初期陣取り",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "新たな通路を活用した攻防",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "調整された地形での最終決戦",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "新しい地形の特徴を把握",
       "改良された防衛位置の活用",
@@ -542,23 +855,7 @@ export const heistMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "水路と陸路の使い分け判断",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "水域を活用した包囲網の形成",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "水陸両方からの連携攻撃",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "水中での移動タイミング",
       "陸路からの援護を意識",

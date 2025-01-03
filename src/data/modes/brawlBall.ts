@@ -25,23 +25,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "基本的な陣形での展開",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "チャンスを見極めた攻撃",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "基本に忠実な攻防",
-        phase: "Late"
-      }
-    ],
     tips: [
       "基本的なパス回しを重視",
       "無理な突っ込みを避ける",
@@ -72,23 +55,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "守備態勢の構築",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "チャンスを見極めた攻撃",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "確実な守りからの反撃",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "ゴール前の陣形を維持",
       "無理な攻めを控える",
@@ -104,38 +71,117 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "リコ",
-        reason: "壁反射を活かした攻撃",
-        power: 5
-      },
-      {
-        name: "コルト",
-        reason: "壁破壊での状況改善",
-        power: 4
-      },
-      {
-        name: "グロム",
-        reason: "壁越し攻撃が有効",
-        power: 4
-      }
+      name: "サージ",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "ストゥー",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ラリー&ローリー",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "ジュジュ",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "ダイナマイク",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "バーリー",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "ウィロー",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "バイロン",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "ガス",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "オーティス",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "マックス",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ニタ",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "リコ",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "バスター",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "フランケン",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ジャッキー",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ビビ",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ダリル",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "モーティス",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "サンディ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "コーデリアス",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ベリー",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "壁の配置を活かしたポジション取り",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "壁反射を使った攻撃展開",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "地形を活かした最後の攻め",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "壁の跳ね返りを計算",
       "地形変化に対応",
@@ -166,23 +212,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "堅実な守備体制の構築",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "正確なパス回しでの攻め",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "精密なシュートの成功",
-        phase: "Late"
-      }
-    ],
     tips: [
       "シュートは確実に",
       "ゴール前の守備を固める",
@@ -198,38 +227,97 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "パム",
-        reason: "中央での耐久力",
-        power: 5
-      },
-      {
-        name: "タラ",
-        reason: "広場での制圧力",
-        power: 4
-      },
-      {
-        name: "スパイク",
-        reason: "エリア管理能力",
-        power: 4
-      }
+      name: "サージ",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "リコ",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ニタ",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "オーティス",
+      reason: "水路での移動が得意",
+      power: 4
+    },
+    {
+      name: "ジュジュ",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "ストゥー",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "サンディ",
+      reason: "水路での移動が得意",
+      power: 4
+    },
+    {
+      name: "フランケン",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "ダリル",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ジャッキー",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "バスター",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "マックス",
+      reason: "水路を挟んだ狙撃",
+      power: 3
+    },
+    {
+      name: "コーデリアス",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "バズ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "タラ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ラリー&ローリー",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ゲイル",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ローサ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "中央エリアの確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "中央からの展開",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "中央を活かした決定機",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "中央の支配権を維持",
       "サイドからの展開も意識",
@@ -245,8 +333,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "ローサ",
-        reason: "砂地での機動力と耐久力",
+        name: "ローサ",        reason: "砂地での機動力と耐久力",
         power: 5
       },
       {
@@ -260,23 +347,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "砂地でのポジション確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "広い地形を活かした展開",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "機動力を活かした決定打",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "砂地での移動速度を意識",
       "広い地形を活かしたパス",
@@ -291,41 +362,98 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     characteristics: ["3ルート構成", "切り替え戦術", "ルート選択"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "コルト",
-        reason: "壁破壊でルート開拓",
-        power: 5
-      },
-      {
-        name: "ジーン",
-        reason: "ルート間の敵引き寄せ",
-        power: 4
-      },
-      {
-        name: "エメル",
-        reason: "複数ルートでの制圧",
-        power: 4
-      }
+    {
+      name: "ストゥー",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "ジュジュ",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "バーリー",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "ラリー&ローリー",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "サージ",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "マックス",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "ダイナマイク",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "ウィロー",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "バスター",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ニタ",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "ダリル",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "リコ",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "コーデリアス",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "モーティス",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "ビビ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "フランケン",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ジャッキー",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "オーティス",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "メインルートの選択と確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "ルート間の素早い切り替え",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "最適ルートでの突破",
-        phase: "Late"
-      }
-    ],
-    tips: [
-      "常に複数のルートを意識",
+    tips: [      "常に複数のルートを意識",
       "チームでのルート分担",
       "切り替えのタイミング"
     ]
@@ -339,38 +467,97 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "ブル",
-        reason: "ブッシュでの強さ",
-        power: 5
-      },
-      {
-        name: "ボウ",
-        reason: "視界確保能力",
-        power: 4
-      },
-      {
-        name: "シェリー",
-        reason: "近接戦での強さ",
-        power: 4
-      }
+      name: "マックス",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "サージ",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ジュジュ",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "オーティス",
+      reason: "水路での移動が得意",
+      power: 4
+    },
+    {
+      name: "バスター",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "リコ",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ジャッキー",
+      reason: "水路での移動が得意",
+      power: 4
+    },
+    {
+      name: "ニタ",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "フランケン",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ビビ",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "ダリル",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ケンジ",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "ストゥー",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "シェリー",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ラリー&ローリー",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ローサ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "バズ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "サンディ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "ブッシュの確保と視界管理",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "ブッシュを活用した展開",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "待ち伏せからの決定機",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "ブッシュチェックを怠らない",
       "相手の視界を把握",
@@ -387,8 +574,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     recommendedBrawlers: [
       {
         name: "モーティス",
-        reason: "高速な展開が可能",
-        power: 5
+        reason: "高速な展開が可能",        power: 5
       },
       {
         name: "エメル",
@@ -401,23 +587,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "広い地形での陣形構築",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "スペースを活用した展開",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "スピーディーな攻め",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "広いスペースの活用",
       "スピーディーなパス回し",
@@ -448,26 +618,9 @@ export const brawlBallMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "基本的な陣形構築",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "オーソドックスな攻防",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "基本に忠実な決定打",
-        phase: "Late"
-      }
-    ],
+
     tips: [
-      "基本的なパス回しの徹底",
-      "シンプルな攻防の意識",
+      "基本的なパス回しの徹底",      "シンプルな攻防の意識",
       "チームワークの重視"
     ]
   },
@@ -495,23 +648,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "地形の特徴を活かしたポジション取り",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "フェイントを交えた展開",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "意表を突く最後の一手",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "地形の特徴を最大限活用",
       "予想外の動きを心がける",
@@ -529,8 +666,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       {
         name: "エメル",
         reason: "正確なシュート能力",
-        power: 5
-      },
+        power: 5      },
       {
         name: "ブル",
         reason: "ゴール前での守備力",
@@ -542,23 +678,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "有利なシュートポジションの確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "ゴール前での駆け引き",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "決定的なシュートチャンスの創出",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "シュートの精度を重視",
       "ゴール前の守備を固める",

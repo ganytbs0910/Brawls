@@ -25,23 +25,6 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "陣形の構築とボール確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "壁を活用した攻撃展開",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "数的優位を活かした決定打",
-        phase: "Late"
-      }
-    ],
     tips: [
       "味方との連携を重視",
       "壁の形状を活用したパス",
@@ -72,23 +55,7 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "チーム全体での陣形構築",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "広場と通路の使い分け",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "陣形を崩さない攻め",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "5人の位置取りを意識",
       "ボール持ちの援護を重視",
@@ -103,8 +70,7 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
     characteristics: ["特殊地形", "チーム戦", "慎重プレー"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "シェリー",
+      {        name: "シェリー",
         reason: "近距離での制圧力",
         power: 5
       },
@@ -119,23 +85,7 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "慎重な陣形構築",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "地形特性を考慮した展開",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "確実なボール運びでの決着",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "急な動きを避ける",
       "味方との間隔を保つ",
@@ -164,23 +114,6 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
         name: "ナイタ",
         reason: "形状を活かした包囲",
         power: 4
-      }
-    ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "地形を活かしたポジション取り",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "形状を利用した連携プレー",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "地形を活用した最終攻撃",
-        phase: "Late"
       }
     ],
     tips: [
@@ -213,23 +146,7 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "中央通路の確保判断",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "通路と横の使い分け",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "陣形を活かした突破",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "通路での接近戦に注意",
       "横からの展開を意識",
@@ -245,8 +162,7 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "スパイク",
-        reason: "地形制御能力",
+        name: "スパイク",        reason: "地形制御能力",
         power: 5
       },
       {
@@ -260,23 +176,7 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "慎重な陣形構築",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "地形特性を活かした展開",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "正確な動きでの決着",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "滑走に注意した移動",
       "チームの連携を重視",
@@ -307,25 +207,8 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "地形の理解と初期配置",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "波紋状の地形を活用",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "地形特性を活かした決定打",
-        phase: "Late"
-      }
-    ],
-    tips: [
-      "波紋状の地形を把握",
+
+    tips: [      "波紋状の地形を把握",
       "5人での連携を重視",
       "地形の利点を最大化"
     ]
@@ -354,27 +237,11 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "ルート分担と初期展開",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "合流タイミングの判断",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "チーム全体での総攻撃",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "合流ポイントの把握",
       "5人での連携を重視",
       "ルートの切り替えを柔軟に"
     ]
   },
-};
+}

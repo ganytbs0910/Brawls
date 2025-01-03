@@ -25,23 +25,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "安全な初期位置の確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "移動経路の確保と制御",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "安全地帯での有利な打点確保",
-        phase: "Late"
-      }
-    ],
     tips: [
       "酸性湖への接触を避ける",
       "経路確保を最優先",
@@ -70,23 +53,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
         name: "ボウ",
         reason: "ブッシュチェック能力が有用",
         power: 5
-      }
-    ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "中央に向かうか外周で立ち回るかの判断",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "パワーキューブの差を考慮した戦闘判断",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "有利な位置取りと毒ガスの動きの予測",
-        phase: "Late"
       }
     ],
     tips: [
@@ -119,23 +85,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "有利な高台の確保と初期装備の収集",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "高低差を活用した攻防の展開",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "最後の安全地帯での高所確保",
-        phase: "Late"
-      }
-    ],
     tips: [
       "落下ダメージに注意",
       "高所での過度な露出を避ける",
@@ -164,23 +113,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
         name: "ボウ",
         reason: "ブッシュチェックが重要",
         power: 4
-      }
-    ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "安全なブッシュの確保と周囲の警戒",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "ブッシュを活用した待ち伏せと移動",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "狭まる範囲での位置取りと接近戦",
-        phase: "Late"
       }
     ],
     tips: [
@@ -213,23 +145,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "安全な射撃位置の確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "カバー間の移動と狙撃の機会",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "有利な射線の確保と維持",
-        phase: "Late"
-      }
-    ],
     tips: [
       "不用意な移動を控える",
       "常にカバーを意識",
@@ -258,23 +173,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
         name: "ベル",
         reason: "長距離からの牽制が有効",
         power: 4
-      }
-    ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "安全な射撃位置の確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "カバー間の移動と狙撃の機会",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "有利な射線の確保と維持",
-        phase: "Late"
       }
     ],
     tips: [
@@ -307,23 +205,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "中央建物か外周かの位置選択",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "建物を利用した攻防の展開",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "建物内外の有利なポジション確保",
-        phase: "Late"
-      }
-    ],
     tips: [
       "建物内での足音に注意",
       "窓からの攻撃を警戒",
@@ -352,23 +233,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
         name: "プリモ",
         reason: "ジャンプで川を渡れる",
         power: 4
-      }
-    ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "川の片側での装備収集",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "橋の制圧と渡河タイミング",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "川を挟んだ有利な打点の確保",
-        phase: "Late"
       }
     ],
     tips: [
@@ -401,23 +265,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "安全なブッシュの確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "地形を利用した待ち伏せ",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "有利な位置での近接戦",
-        phase: "Late"
-      }
-    ],
     tips: [
       "常にブッシュチェック",
       "地形の死角に注意",
@@ -446,23 +293,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
         name: "ダイナマイク",
         reason: "通路封鎖が効果的",
         power: 4
-      }
-    ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "安全な通路の確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "視界の確保と移動",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "広場での有利な打点確保",
-        phase: "Late"
       }
     ],
     tips: [
@@ -495,23 +325,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "有利なエリアの選択と確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "エリア間の移動タイミング",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "最後の安全地帯での陣取り",
-        phase: "Late"
-      }
-    ],
     tips: [
       "エリア移動は慎重に",
       "壁の破壊状況を把握",
@@ -540,23 +353,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
         name: "エドガー",
         reason: "高低差を活かした接近が可能",
         power: 4
-      }
-    ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "高所か低所かの位置選択",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "地形を活かした攻防",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "有利な高低差の確保",
-        phase: "Late"
       }
     ],
     tips: [

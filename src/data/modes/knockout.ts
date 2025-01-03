@@ -25,23 +25,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "チームで有利なカバーを確保し、敵の位置を把握",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "地形を活かした押し引きと数的優位の確保",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "残り人数を考慮した攻め時の判断",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "チームメイトとの距離を意識",
       "カバー間の移動は慎重に",
@@ -72,23 +56,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "有利な射線の確保と壁の利用",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "チームでの包囲態勢の構築",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "残存する壁を活用した詰め",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "不用意な露出を避ける",
       "壁の破壊状況を把握",
@@ -104,38 +72,82 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "ベル",
-        reason: "長距離からの牽制が最強",
-        power: 5
-      },
-      {
-        name: "ブロック",
-        reason: "壁を作って前進可能",
-        power: 4
-      },
-      {
-        name: "バイロン",
-        reason: "遠距離攻撃と回復が両立",
-        power: 4
-      }
+      name: "R-T",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "ガス",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "アンジェロ",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "イヴ",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "ジュジュ",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ブロック",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "マンディ",
+      reason: "水路での移動が得意",
+      power: 4
+    },
+    {
+      name: "ベル",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "バイロン",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "エリザベス",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "ジーン",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "パール",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "ナーニ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "キット",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ダリル",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "チーム全体での射線確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "限られたカバーの争奪戦",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "残り人数を活かした集中攻撃",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "常に複数の退路を確保",
       "チームの陣形を維持",
@@ -166,23 +178,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "視界の確保と敵の動線予測",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "地形を利用した待ち伏せと奇襲",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "視界確保による有利な展開",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "ブッシュチェックを怠らない",
       "地形の死角を把握",
@@ -213,23 +209,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "中央か側面かの進行経路選択",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "高低差を活かした攻防",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "チーム連携での挟み撃ち",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "高所からの視界を活用",
       "中央の重要性を意識",
@@ -260,23 +240,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "有利な島の確保を優先",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "島の支配権争いと牽制",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "安全な島での陣取り",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "水中での移動は最小限に",
       "島間の移動は慎重に",
@@ -307,23 +271,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "初期陣地の確保と渡河ポイントの把握",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "川を利用した有利な打点の確保",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "渡河を強要される敵の狩り",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "渡河時の援護を重視",
       "川での待ち伏せに注意",
@@ -338,38 +286,102 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "ベル",
-        reason: "地形を活かした長距離攻撃が有効",
-        power: 5
-      },
-      {
-        name: "リコ",
-        reason: "壁跳ね攻撃で死角を突ける",
-        power: 4
-      },
-      {
-        name: "クロウ",
-        reason: "高所からの牽制と機動力",
-        power: 4
-      }
+      name: "エリザベス",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "バイロン",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ガス",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "R-T",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "グレイ",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ジーン",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "リコ",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "ベル",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ティック",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "スプラウト",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "アンジェロ",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "マンディ",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "ジュジュ",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "バーリー",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ラリー&ローリー",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ブロック",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ダリル",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "キット",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "イヴ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "高所の確保と岩の利用法の確認",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "岩を活用した押し引きと陣地争い",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "高低差を活かした包囲網の形成",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "岩の配置を味方の盾として活用",
       "高低差での有利不利を把握",
@@ -400,23 +412,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "安全な進入ルートの確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "視界の確保と待ち伏せの駆け引き",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "チーム連携での包囲と仕留め",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "常にブッシュチェックを怠らない",
       "味方との距離を意識",
@@ -431,39 +427,103 @@ export const knockoutMaps: Record<string, MapDetail> = {
     characteristics: ["炎の障害物", "対称構造", "中央集中"],
     difficulty: "Expert",
     recommendedBrawlers: [
-      {
-        name: "アンバー",
-        reason: "炎の地形との相性が抜群",
-        power: 5
-      },
-      {
-        name: "スパイク",
-        reason: "障害物を活かした攻撃が有効",
-        power: 4
-      },
-      {
-        name: "コルト",
-        reason: "壁破壊で地形を変更可能",
-        power: 4
-      }
+    {
+      name: "R-T",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "エリザベス",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ガス",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "バイロン",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "ジーン",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ティック",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "バスター",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "パール",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "ベル",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "スプラウト",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "リリー",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "アンジェロ",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "ブロック",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ベリー",
+      reason: "水路を挟んだ狙撃",
+      power: 3
+    },
+    {
+      name: "グレイ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "バーリー",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ラリー&ローリー",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "キット",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ダリル",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "中央部の制圧と初期配置",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "障害物を活用した攻防",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "残存する障害物での有利な打点確保",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "炎の障害物での被弾に注意",
       "対称性を活かした立ち回り",
@@ -494,23 +554,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "有利な層の確保と初期配置",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "層を活用した立体的な攻防",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "最適な層での決戦を強制",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "各層の利点欠点を把握",
       "安全な層移動を心がける",
@@ -525,38 +569,101 @@ export const knockoutMaps: Record<string, MapDetail> = {
     characteristics: ["渓谷地形", "狭路混在", "採掘場"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "グリフ",
-        reason: "通路での戦闘が得意",
-        power: 5
-      },
-      {
-        name: "バル",
-        reason: "狭い場所での強さを発揮",
-        power: 4
-      },
-      {
-        name: "ルー",
-        reason: "素早い移動で優位を築ける",
-        power: 4
-      }
-    ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "主要な通路の確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "渓谷の地形を活かした包囲",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "敵を不利な地形に追い込む",
-        phase: "Late"
-      }
+    {
+      name: "エリザベス",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "バイロン",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ガス",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "R-T",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "ジーン",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ティック",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "スプラウト",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "ジュジュ",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "バスター",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "ベル",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "マンディ",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "アンジェロ",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "グレイ",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "リコ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ナーニ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ブロック",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "イヴ",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "キット",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "ダリル",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
     ],
     tips: [
       "通路での待ち伏せに警戒",

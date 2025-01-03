@@ -59,81 +59,68 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
       </View>
 
       <ScrollView style={styles.content}>
-        <Text style={styles.mapName}>{mapDetail.name}</Text>
-        
-        <Image 
-          source={mapImage} 
-          style={styles.mapImage}
-          resizeMode="contain"
-        />
+  <Text style={styles.mapName}>{mapDetail.name}</Text>
+  
+  <Image 
+    source={mapImage} 
+    style={styles.mapImage}
+    resizeMode="contain"
+  />
 
-        <View style={styles.difficultyContainer}>
-          <Text style={styles.difficultyLabel}>難易度:</Text>
-          <View style={[styles.difficultyTag, styles[`difficulty${mapDetail.difficulty}`]]}>
-            <Text style={styles.difficultyText}>{mapDetail.difficulty}</Text>
+  <View style={styles.difficultyContainer}>
+    <Text style={styles.difficultyLabel}>難易度:</Text>
+    <View style={[styles.difficultyTag, styles[`difficulty${mapDetail.difficulty}`]]}>
+      <Text style={styles.difficultyText}>{mapDetail.difficulty}</Text>
+    </View>
+  </View>
+
+  <View style={styles.characteristicsContainer}>
+    {mapDetail.characteristics.map((char, index) => (
+      <View key={index} style={styles.characteristicTag}>
+        <Text style={styles.characteristicText}>{char}</Text>
+      </View>
+    ))}
+  </View>
+  
+  <Text style={styles.sectionTitle}>マップ説明</Text>
+  <Text style={styles.description}>{mapDetail.description}</Text>
+
+  <Text style={styles.sectionTitle}>おすすめブロウラー</Text>
+  <View style={styles.brawlerList}>
+    {mapDetail.recommendedBrawlers.map((brawler, index) => (
+      <TouchableOpacity
+        key={index}
+        style={styles.brawlerItem}
+        onPress={() => onCharacterPress?.(brawler.name)}
+        activeOpacity={0.7}
+      >
+        <View style={styles.brawlerRow}>
+          <CharacterImage
+            characterName={brawler.name}
+            size={48}
+            style={styles.brawlerImage}
+          />
+          <View style={styles.brawlerContent}>
+            <Text style={styles.brawlerName}>{brawler.name}</Text>
+            {brawler.power && (
+              <View style={styles.powerContainer}>
+                <Text style={styles.powerText}>強さ: {brawler.power}/5</Text>
+              </View>
+            )}
+            <Text style={styles.brawlerReason}>{brawler.reason}</Text>
           </View>
         </View>
+      </TouchableOpacity>
+    ))}
+  </View>
+  <Text style={styles.sectionTitle}>Tips</Text>
+  {mapDetail.tips.map((tip, index) => (
+    <View key={index} style={styles.tipItem}>
+      <Text style={styles.tipText}>• {tip}</Text>
+    </View>
+  ))}
+</ScrollView>
 
-        <View style={styles.characteristicsContainer}>
-          {mapDetail.characteristics.map((char, index) => (
-            <View key={index} style={styles.characteristicTag}>
-              <Text style={styles.characteristicText}>{char}</Text>
-            </View>
-          ))}
-        </View>
-        
-        <Text style={styles.sectionTitle}>マップ説明</Text>
-        <Text style={styles.description}>{mapDetail.description}</Text>
-
-        <Text style={styles.sectionTitle}>おすすめブロウラー</Text>
-        {mapDetail.recommendedBrawlers.map((brawler, index) => (
-          <TouchableOpacity
-            key={index}
-            style={styles.brawlerItem}
-            onPress={() => onCharacterPress?.(brawler.name)}
-            activeOpacity={0.7}
-          >
-            <View style={styles.brawlerRow}>
-              <CharacterImage
-                characterName={brawler.name}
-                size={48}
-                style={styles.brawlerImage}
-              />
-              <View style={styles.brawlerContent}>
-                <View style={styles.brawlerHeader}> 
-                  <Text style={styles.brawlerName}>{brawler.name}</Text>
-                  {brawler.power && (
-                    <View style={styles.powerContainer}>
-                      <Text style={styles.powerText}>強さ: {brawler.power}/5</Text>
-                    </View>
-                  )}
-                </View>
-                <Text style={styles.brawlerReason}>{brawler.reason}</Text>
-              </View>
-            </View>
-          </TouchableOpacity>
-        ))}
-
-        <Text style={styles.sectionTitle}>戦術</Text>
-        {mapDetail.tactics.map((tactic, index) => (
-          <View key={index} style={styles.tacticItem}>
-            <View style={styles.tacticHeader}>
-              <Text style={styles.tacticTitle}>{tactic.title}</Text>
-              <View style={styles.phaseTag}>
-                <Text style={styles.phaseText}>{tactic.phase}</Text>
-              </View>
-            </View>
-            <Text style={styles.tacticDescription}>{tactic.description}</Text>
-          </View>
-        ))}
-
-        <Text style={styles.sectionTitle}>Tips</Text>
-        {mapDetail.tips.map((tip, index) => (
-          <View key={index} style={styles.tipItem}>
-            <Text style={styles.tipText}>• {tip}</Text>
-          </View>
-        ))}
-      </ScrollView>
     </View>
   );
 };
@@ -253,14 +240,29 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   brawlerItem: {
-    backgroundColor: '#f8f8f8',
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 12,
+  backgroundColor: '#f8f8f8',
+  padding: 16,
+  borderRadius: 12,
+  marginBottom: 12,
+  width: (Dimensions.get('window').width / 2) - 24,
+  },
+  brawlerHighPower: {
+    backgroundColor: '#FFD700',  // ゴールド
+  },
+  brawlerMediumPower: {
+    backgroundColor: '#ADD8E6',  // ライトブルー
+  },
+  brawlerLowPower: {
+    backgroundColor: '#f8f8f8',  // デフォルト
   },
   brawlerRow: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
+  },
+  brawlerList: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
   },
   brawlerImage: {
     marginRight: 12,

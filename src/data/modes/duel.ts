@@ -25,23 +25,7 @@ export const duelMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "有利なカバーの確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "リソースの効率的な使用",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "体力管理での勝利",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "カバーの有効活用",
       "スーパースキルの温存",
@@ -72,23 +56,7 @@ export const duelMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "相手のブロウラーに応じた距離取り",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "体力とスーパースキルの管理",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "有利な状況での詰め",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "適切な距離を保つ",
       "カバーの効率的な活用",
@@ -119,23 +87,7 @@ export const duelMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "有利な地形ポジションの確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "障害物を活用した攻防",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "地形有利を活かした決着",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "障害物の配置を把握",
       "相手の動きを予測",
@@ -166,23 +118,7 @@ export const duelMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "状況把握と初期判断",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "変化する状況への対応",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "リスクを考慮した決着",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "状況変化に柔軟に対応",
       "リスクの見極めが重要",
@@ -213,23 +149,7 @@ export const duelMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "有利な隠れ場所の確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "視界の管理と移動",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "待ち伏せの成功",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "常に周囲の確認を怠らない",
       "移動時は警戒を怠らない",
@@ -260,23 +180,7 @@ export const duelMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "リソースの効率的な使用",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "体力とスキルの管理",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "残存リソースでの決着",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "無理な消耗を避ける",
       "回復機会を逃さない",
@@ -307,23 +211,7 @@ export const duelMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "相手の戦術を見極める",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "攻めと守りの切り替え",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "優位な状況での押し切り",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "素早い判断と実行",
       "攻防の切り替えを意識",
@@ -354,23 +242,7 @@ export const duelMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "迷路構造の把握と初期展開",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "相手の位置予測と待ち伏せ",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "迷路を活かした包囲",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "常に迷路の構造を意識",
       "相手の動きを予測",
@@ -401,23 +273,7 @@ export const duelMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "地形の特性を活かしたポジション取り",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "機械的構造を利用した展開",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "地形advantage（優位性）の最大活用",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "工場構造の把握が重要",
       "機械的な動きの予測",
@@ -448,23 +304,7 @@ export const duelMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "視界の確保と経路選択",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "地形を活かした待ち伏せ",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "蛇行地形での有利な打点確保",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "曲がり角での警戒",
       "視界の確保を意識",
@@ -495,23 +335,7 @@ export const duelMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "有利な射線の確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "広い地形での距離管理",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "開放地形での決定打",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "適切な距離を保つ",
       "カバーの効率的な活用",
@@ -526,39 +350,118 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["水路地形", "渡河戦術", "地形活用"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "ダリル",
-        reason: "水路での移動が得意",
-        power: 5
-      },
-      {
-        name: "パイパー",
-        reason: "水路を挟んだ狙撃",
-        power: 4
-      },
-      {
-        name: "グロム",
-        reason: "水路越しの攻撃",
-        power: 4
-      }
-    ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "渡河ポイントの確認",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "水路を活用した立ち回り",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "地形advantage（優位性）の確立",
-        phase: "Late"
-      }
-    ],
+    {
+      name: "ジュジュ",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "ティック",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "サージ",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "アンジェロ",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "イヴ",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ラリー&ローリー",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "バーリー",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "R-T",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "カール",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "リリー",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "ダイナマイク",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "スクウィーク",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "バスター",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ダリル",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+    {
+      name: "",
+      reason: "水路越しの攻撃",
+      power: 3
+    },
+  ],
+
     tips: [
       "水路での移動に注意",
       "渡河タイミングの見極め",

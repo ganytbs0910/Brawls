@@ -25,23 +25,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
         power: 5
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "最初のエメラルド確保を目指しつつ、相手の動きを観察する",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "エメラルドの保持数に応じて攻撃的か防御的か立ち回りを変える",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "カウントダウン時の最後の一個を確実に確保する",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "エメラルドを持っている時は無理な進出を避ける",
       "味方のカバーを意識した位置取りを心がける",
@@ -72,23 +56,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "高所のポジション確保と初期エメラルドの位置把握",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "要塞の構造を活かした守りと攻めの切り替え",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "チーム全体でのエメラルド保持数の管理",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "高所からの視界を活用して敵の動きを把握",
       "要塞の死角を利用した立ち回り",
@@ -109,33 +77,87 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
         power: 5
       },
       {
-        name: "エドガー",
+        name: "ガス",
         reason: "狭い通路での接近戦に強い",
-        power: 4
+        power: 5
       },
       {
-        name: "ダイナマイク",
+        name: "リコ",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 5
+      },
+      {
+        name: "ラフス",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 5
+      },
+      {
+        name: "ストゥー",
         reason: "通路に爆弾を置いて進路を妨害",
         power: 4
-      }
-    ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "近くの通路の制圧とエメラルド確保",
-        phase: "Early"
       },
       {
-        title: "中盤の戦略",
-        description: "通路と広場の切り替えで敵を翻弄",
-        phase: "Mid"
+        name: "8ビット",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 4
       },
       {
-        title: "終盤での勝ち方",
-        description: "チーム全体での持ち点管理と防衛",
-        phase: "Late"
-      }
+        name: "サージ",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 4
+      },
+      {
+        name: "バスター",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 4
+      },
+      {
+        name: "ジュジュ",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 4
+      },
+      {
+        name: "エリザベス",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 3
+      },
+      {
+        name: "タラ",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 3
+      },
+      {
+        name: "マックス",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 3
+      },
+      {
+        name: "ペニー",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 3
+      },
+      {
+        name: "モーティス",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 3
+      },
+      {
+        name: "ダリル",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 3
+      },
+      {
+        name: "フランケン",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 3
+      },
+      {
+        name: "ビビ",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 3
+      },
     ],
+
     tips: [
       "狭い通路での待ち伏せに注意",
       "広場での戦いは慎重に",
@@ -166,23 +188,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "トロッコの動きを把握しつつエメラルド収集",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "トロッコを利用した攻防",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "エメラルド保持と安全な移動",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "トロッコの予定経路を把握",
       "エメラルド保持中は慎重に",
@@ -213,23 +219,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "チームでの陣形形成",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "エメラルド保持者の護衛",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "残り時間を意識した守り",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "チームの散開を避ける",
       "常に視界を確保",
@@ -260,23 +250,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
         power: 4
       }
     ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "有利な通路の確保",
-        phase: "Early"
-      },
-      {
-        title: "中盤の戦略",
-        description: "壁を利用した待ち伏せ",
-        phase: "Mid"
-      },
-      {
-        title: "終盤での勝ち方",
-        description: "エメラルド保持での生存",
-        phase: "Late"
-      }
-    ],
+
     tips: [
       "壁破壊の状況を把握",
       "通路での待ち伏せに注意",
@@ -292,38 +266,77 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "バル",
+        name: "ジーン",
         reason: "通路での強さを発揮",
         power: 5
       },
       {
-        name: "エメル",
+        name: "オーティス",
         reason: "高所からの制圧",
-        power: 4
+        power: 5
       },
       {
-        name: "リコ",
+        name: "サージ",
+        reason: "壁跳ね攻撃が有効",
+        power: 5
+      },
+      {
+        name: "タラ",
+        reason: "通路での強さを発揮",
+        power: 5
+      },
+      {
+        name: "ガス",
+        reason: "高所からの制圧",
+        power: 5
+      },
+      {
+        name: "バイロン",
         reason: "壁跳ね攻撃が有効",
         power: 4
-      }
-    ],
-    tactics: [
-      {
-        title: "序盤の立ち回り",
-        description: "主要通路の確保",
-        phase: "Early"
       },
       {
-        title: "中盤の戦略",
-        description: "高低差を活用した戦い",
-        phase: "Mid"
+        name: "パール",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
       },
       {
-        title: "終盤での勝ち方",
-        description: "エメラルド確保と防衛",
-        phase: "Late"
-      }
+        name: "バスター",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "ストゥー",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "エリザベス",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "ニタ",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
+      },
+      {
+        name: "ケンジ",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
+      },
+      {
+        name: "マックス",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
+      },
+      {
+        name: "ゲイル",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
+      },
     ],
+
     tips: [
       "高低差での有利不利を判断",
       "通路での接近戦に備える",
@@ -339,37 +352,75 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   difficulty: "Medium",
   recommendedBrawlers: [
     {
-      name: "ボウ",
-      reason: "プラットフォームからの視界確保が有効",
-      power: 5
-    },
-    {
-      name: "ジャクキー",
-      reason: "待合所での近接戦に強い",
-      power: 4
-    },
-    {
-      name: "バイロン",
-      reason: "味方の回復とサポートが可能",
-      power: 4
-    }
-  ],
-  tactics: [
-    {
-      title: "序盤の立ち回り",
-      description: "中央プラットフォームの確保と初期エメラルドの回収",
-      phase: "Early"
-    },
-    {
-      title: "中盤の戦略",
-      description: "待合所を利用した待ち伏せと防衛",
-      phase: "Mid"
-    },
-    {
-      title: "終盤での勝ち方",
-      description: "プラットフォームと待合所の利点を活かした陣地確保",
-      phase: "Late"
-    }
+        name: "エリザベス",
+        reason: "通路での強さを発揮",
+        power: 5
+      },
+      {
+        name: "バイロン",
+        reason: "高所からの制圧",
+        power: 5
+      },
+      {
+        name: "ガス",
+        reason: "壁跳ね攻撃が有効",
+        power: 5
+      },
+      {
+        name: "ストゥー",
+        reason: "通路での強さを発揮",
+        power: 5
+      },
+      {
+        name: "マックス",
+        reason: "高所からの制圧",
+        power: 5
+      },
+      {
+        name: "ベル",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "ラフス",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "オーティス",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "スクウィーク",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "サージ",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "ケンジ",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "ペニー",
+        reason: "壁跳ね攻撃が有効",
+        power: 4
+      },
+      {
+        name: "アンバー",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
+      },
+      {
+        name: "リコ",
+        reason: "壁跳ね攻撃が有効",
+        power: 3
+      },
   ],
   tips: [
     "プラットフォームでの過度な滞在は避ける",
@@ -401,23 +452,6 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
       power: 4
     }
   ],
-  tactics: [
-    {
-      title: "序盤の立ち回り",
-      description: "サボテン周辺の安全地帯確保",
-      phase: "Early"
-    },
-    {
-      title: "中盤の戦略",
-      description: "罠を利用した相手の誘導",
-      phase: "Mid"
-    },
-    {
-      title: "終盤での勝ち方",
-      description: "有利な地形での防衛態勢構築",
-      phase: "Late"
-    }
-  ],
   tips: [
     "サボテン付近での戦いに注意",
     "罠の位置を把握して立ち回る",
@@ -433,37 +467,105 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   difficulty: "Expert",
   recommendedBrawlers: [
     {
-      name: "ルー",
+      name: "ジーン",
+      reason: "レール間の素早い移動が可能",
+      power: 5
+    },
+    {
+      name: "チェスター",
+      reason: "広範囲攻撃で制圧が可能",
+      power: 5
+    },
+    {
+      name: "サージ",
       reason: "レール間の素早い移動が可能",
       power: 5
     },
     {
       name: "サンディ",
       reason: "広範囲攻撃で制圧が可能",
+      power: 5
+    },
+    {
+      name: "アンバー",
+      reason: "レール間の素早い移動が可能",
+      power: 5
+    },
+    {
+      name: "オーティス",
+      reason: "広範囲攻撃で制圧が可能",
       power: 4
     },
     {
-      name: "スプラウト",
-      reason: "壁での進路妨害が有効",
+      name: "パール",
+      reason: "レール間の素早い移動が可能",
       power: 4
-    }
-  ],
-  tactics: [
-    {
-      title: "序盤の立ち回り",
-      description: "レールの確保と初期ポジション取り",
-      phase: "Early"
     },
     {
-      title: "中盤の戦略",
-      description: "レールを使った機動力重視の戦術",
-      phase: "Mid"
+      name: "バスター",
+      reason: "広範囲攻撃で制圧が可能",
+      power: 4
     },
     {
-      title: "終盤での勝ち方",
-      description: "レールと地上の両方を考慮した総合的な戦略",
-      phase: "Late"
-    }
+      name: "ペニー",
+      reason: "広範囲攻撃で制圧が可能",
+      power: 4
+    },
+    {
+      name: "ジェシー",
+      reason: "広範囲攻撃で制圧が可能",
+      power: 4
+    },
+    {
+      name: "ジュジュ",
+      reason: "レール間の素早い移動が可能",
+      power: 3
+    },
+    {
+      name: "バイロン",
+      reason: "広範囲攻撃で制圧が可能",
+      power: 3
+    },
+    {
+      name: "ガス",
+      reason: "広範囲攻撃で制圧が可能",
+      power: 3
+    },
+    {
+      name: "ストゥー",
+      reason: "広範囲攻撃で制圧が可能",
+      power: 3
+    },
+    {
+      name: "タラ",
+      reason: "レール間の素早い移動が可能",
+      power: 3
+    },
+    {
+      name: "ダリル",
+      reason: "広範囲攻撃で制圧が可能",
+      power: 3
+    },
+    {
+      name: "モーティス",
+      reason: "広範囲攻撃で制圧が可能",
+      power: 3
+    },
+    {
+      name: "フランケン",
+      reason: "広範囲攻撃で制圧が可能",
+      power: 2
+    },
+    {
+      name: "ドラコ",
+      reason: "レール間の素早い移動が可能",
+      power: 2
+    },
+    {
+      name: "ゲイル",
+      reason: "広範囲攻撃で制圧が可能",
+      power: 2
+    },
   ],
   tips: [
     "レール上での待ち伏せに警戒",
@@ -495,23 +597,6 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
       power: 4
     }
   ],
-  tactics: [
-    {
-      title: "序盤の立ち回り",
-      description: "ブッシュの確保と視界の確保",
-      phase: "Early"
-    },
-    {
-      title: "中盤の戦略",
-      description: "自然の障害物を利用した攻防",
-      phase: "Mid"
-    },
-    {
-      title: "終盤での勝ち方",
-      description: "エメラルド保持者の効果的な防衛",
-      phase: "Late"
-    }
-  ],
   tips: [
     "ブッシュでの待ち伏せに注意",
     "切り株を効果的なカバーとして使用",
@@ -540,23 +625,6 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
       name: "コルト",
       reason: "壁破壊で地形を変化させられる",
       power: 4
-    }
-  ],
-  tactics: [
-    {
-      title: "序盤の立ち回り",
-      description: "滑走地形の把握と安全な移動ルートの確保",
-      phase: "Early"
-    },
-    {
-      title: "中盤の戦略",
-      description: "氷の特性を活かした攻撃と防御",
-      phase: "Mid"
-    },
-    {
-      title: "終盤での勝ち方",
-      description: "滑走地形でのエメラルド保持戦略",
-      phase: "Late"
     }
   ],
   tips: [
