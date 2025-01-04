@@ -3,7 +3,9 @@ import {
   View,
   Text,
   StyleSheet,
+  Image,
 } from 'react-native';
+import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages';
 
 interface BattleLogProps {
   battleLog: BattleLogItem[];
@@ -44,14 +46,65 @@ interface BattleLogItem {
   };
 }
 
+const getPortraitSource = (brawlerName: string) => {
+  try {
+    const normalizedName = brawlerName
+      .replace(/\s+/g, '')
+      .replace(/^./, str => str.toLowerCase())
+      .replace(/[A-Z]/g, str => str.toLowerCase())
+      .replace(/(?:^|\s+)(\w)/g, (_, letter) => letter.toLowerCase());
+
+    const nameMap: { [key: string]: string } = {
+      '8bit': 'eightBit',
+      'mr.p': 'mrp',
+      'larryandlawrie': 'larryandLawrie',
+    };
+
+    const mappedName = nameMap[normalizedName] || normalizedName;
+
+    if (isValidCharacterName(mappedName)) {
+      return CHARACTER_IMAGES[mappedName];
+    }
+    
+    console.warn(`No image found for character: ${brawlerName} (normalized: ${mappedName})`);
+    return null;
+  } catch (error) {
+    console.error(`Error loading portrait for ${brawlerName}:`, error);
+    return null;
+  }
+};
+
 export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
-  // 最新3件のみ表示
   const recentBattles = battleLog.slice(0, 3);
+
+  const renderPlayer = (player: BattleLogItem['battle']['teams'][0][0]) => {
+    const portraitSource = getPortraitSource(player.brawler.name);
+    
+    return (
+      <View style={styles.playerContainer} key={player.tag}>
+        <View style={styles.portraitContainer}>
+          {portraitSource && (
+            <Image
+              source={portraitSource}
+              style={styles.portrait}
+              resizeMode="contain"
+            />
+          )}
+          <Text style={styles.trophies}>
+            {player.brawler.trophies}🏆
+          </Text>
+        </View>
+        <Text style={styles.playerName} numberOfLines={1}>
+          {player.name}
+        </Text>
+      </View>
+    );
+  };
 
   const renderBattleItem = (battle: BattleLogItem) => (
     <View style={styles.battleCard} key={battle.battleTime}>
       <View style={styles.battleHeader}>
-        <View>
+        <View style={styles.battleInfo}>
           <Text style={styles.battleMode}>
             {battle.event.mode} - {battle.event.map}
           </Text>
@@ -69,26 +122,22 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
         </Text>
       </View>
 
-      <Text style={styles.starPlayer}>
-        Star Player: {battle.battle.starPlayer.name}
-        ({battle.battle.starPlayer.brawler.name})
-      </Text>
-
       <View style={styles.teamsContainer}>
-        {battle.battle.teams.map((team, teamIndex) => (
-          <View key={teamIndex} style={styles.teamCard}>
-            <Text style={styles.teamTitle}>Team {teamIndex + 1}</Text>
-            {team.map((player, playerIndex) => (
-              <View key={playerIndex} style={styles.playerInfo}>
-                <Text style={styles.playerName}>{player.name}</Text>
-                <Text style={styles.playerBrawler}>
-                  {player.brawler.name} - Power {player.brawler.power}
-                  ({player.brawler.trophies.toLocaleString()} トロフィー)
-                </Text>
-              </View>
-            ))}
-          </View>
-        ))}
+        <View style={styles.teamRow}>
+          {battle.battle.teams[0].map(player => renderPlayer(player))}
+        </View>
+        <View style={styles.vsContainer}>
+          <Text style={styles.vsText}>VS</Text>
+        </View>
+        <View style={styles.teamRow}>
+          {battle.battle.teams[1].map(player => renderPlayer(player))}
+        </View>
+      </View>
+
+      <View style={styles.starPlayerContainer}>
+        <Text style={styles.starPlayerText}>
+          ⭐ Star Player: {battle.battle.starPlayer.name}
+        </Text>
       </View>
     </View>
   );
@@ -107,8 +156,8 @@ const styles = StyleSheet.create({
   battleCard: {
     backgroundColor: '#fff',
     borderRadius: 8,
-    padding: 16,
-    marginBottom: 16,
+    padding: 12,
+    marginBottom: 12,
     borderWidth: 1,
     borderColor: '#eee',
   },
@@ -116,49 +165,82 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginBottom: 12,
+    marginBottom: 8,
+  },
+  battleInfo: {
+    flex: 1,
   },
   battleMode: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
   },
   battleTime: {
     fontSize: 12,
     color: '#666',
-    marginTop: 4,
+    marginTop: 2,
   },
   battleResult: {
     fontWeight: 'bold',
     fontSize: 14,
-  },
-  starPlayer: {
-    fontSize: 14,
-    marginBottom: 16,
+    marginLeft: 8,
   },
   teamsContainer: {
-    gap: 12,
+    marginVertical: 8,
   },
-  teamCard: {
-    backgroundColor: '#f5f5f5',
-    borderRadius: 8,
-    padding: 12,
+  teamRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginVertical: 4,
   },
-  teamTitle: {
-    fontSize: 14,
+  vsContainer: {
+    alignItems: 'center',
+    marginVertical: 4,
+  },
+  vsText: {
+    fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: 8,
+    color: '#666',
   },
-  playerInfo: {
-    marginBottom: 8,
+  playerContainer: {
+    alignItems: 'center',
+    width: '30%',
+  },
+  portraitContainer: {
+    position: 'relative',
+    width: 60,
+    height: 60,
+  },
+  portrait: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 30,
+    backgroundColor: '#f5f5f5',
+  },
+  trophies: {
+    position: 'absolute',
+    top: -5,
+    left: -5,
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    borderRadius: 10,
+    padding: 2,
+    fontSize: 10,
+    fontWeight: 'bold',
   },
   playerName: {
-    fontSize: 14,
-    fontWeight: '500',
+    fontSize: 12,
+    marginTop: 4,
+    textAlign: 'center',
   },
-  playerBrawler: {
+  starPlayerContainer: {
+    marginTop: 4,
+    paddingTop: 4,
+    borderTopWidth: 1,
+    borderTopColor: '#eee',
+  },
+  starPlayerText: {
     fontSize: 12,
     color: '#666',
-    marginTop: 2,
+    textAlign: 'center',
   },
 });
 
