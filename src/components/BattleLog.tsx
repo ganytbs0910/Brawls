@@ -45,6 +45,9 @@ interface BattleLogItem {
 }
 
 export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
+  // 最新3件のみ表示
+  const recentBattles = battleLog.slice(0, 3);
+
   const renderBattleItem = (battle: BattleLogItem) => (
     <View style={styles.battleCard} key={battle.battleTime}>
       <View style={styles.battleHeader}>
@@ -92,7 +95,7 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
 
   return (
     <View style={styles.container}>
-      {battleLog.map((battle) => renderBattleItem(battle))}
+      {recentBattles.map((battle) => renderBattleItem(battle))}
     </View>
   );
 };
@@ -158,3 +161,5 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
 });
+
+export default BattleLog;

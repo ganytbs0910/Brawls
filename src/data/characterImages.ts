@@ -4,7 +4,6 @@ export const CHARACTER_IMAGES = {
   'nita': require('../../assets/BrawlerIcons/nita_pin.png'),
   'colt': require('../../assets/BrawlerIcons/colt_pin.png'),
   'bull': require('../../assets/BrawlerIcons/bull_pin.png'),
-  
   'brock': require('../../assets/BrawlerIcons/brock_pin.png'),
   'elPrimo': require('../../assets/BrawlerIcons/elprimo_pin.png'),
   'barley': require('../../assets/BrawlerIcons/barley_pin.png'),

@@ -7,14 +7,25 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   StyleSheet,
-  SectionList
+  SectionList,
+  ScrollView,
+  Dimensions,
+  Image,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { BattleLog } from '../components/BattleLog';
+import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages';
+
+const { width } = Dimensions.get('window');
+const CARD_WIDTH = (width - 48) / 3;
 
 interface Brawler {
   id: number;
   name: string;
+  power: number;
+  rank: number;
+  trophies: number;
+  highestTrophies: number;
 }
 
 interface PlayerInfo {
@@ -30,14 +41,7 @@ interface PlayerInfo {
   '3vs3Victories': number;
   soloVictories: number;
   duoVictories: number;
-  brawlers: Array<{
-    id: number;
-    name: string;
-    power: number;
-    rank: number;
-    trophies: number;
-    highestTrophies: number;
-  }>;
+  brawlers: Brawler[];
 }
 
 interface RankingItem {
@@ -89,6 +93,96 @@ interface BattleLogItem {
   };
 }
 
+const BrawlerList: React.FC<{ brawlers: Brawler[], globalRankings: any }> = ({ brawlers, globalRankings }) => {
+  const sortedBrawlers = [...brawlers].sort((a, b) => b.trophies - a.trophies);
+  const rows = [];
+  
+  for (let i = 0; i < sortedBrawlers.length; i += 3) {
+    rows.push(sortedBrawlers.slice(i, i + 3));
+  }
+
+  const getPortraitSource = (brawlerName: string) => {
+    try {
+      // キャラクター名を正規化
+      // スペースを削除し、最初の文字を小文字に、その後の単語の最初の文字を大文字に
+      const normalizedName = brawlerName
+        .replace(/\s+/g, '')
+        .replace(/^./, str => str.toLowerCase())
+        .replace(/[A-Z]/g, str => str.toLowerCase())
+        .replace(/(?:^|\s+)(\w)/g, (_, letter) => letter.toLowerCase());
+
+      // 特殊なケースの処理
+      const nameMap: { [key: string]: string } = {
+        '8bit': 'eightBit',
+        'mr.p': 'mrp',
+        'larryandlawrie': 'larryandLawrie',
+        // 他の特殊なケースがあればここに追加
+      };
+
+      const mappedName = nameMap[normalizedName] || normalizedName;
+
+      // 型チェックと画像の取得
+      if (isValidCharacterName(mappedName)) {
+        return CHARACTER_IMAGES[mappedName];
+      }
+      
+      console.warn(`No image found for character: ${brawlerName} (normalized: ${mappedName})`);
+      return null;
+    } catch (error) {
+      console.error(`Error loading portrait for ${brawlerName}:`, error);
+      return null;
+    }
+  };
+
+  return (
+    <ScrollView 
+      horizontal 
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={styles.brawlerContainer}
+    >
+      {rows.map((row, rowIndex) => (
+        <View key={`row-${rowIndex}`} style={styles.brawlerColumn}>
+          {row.map((brawler) => {
+            const globalTopTrophies = globalRankings[brawler.id]?.[0]?.trophies;
+            const portraitSource = getPortraitSource(brawler.name);
+            
+            return (
+              <View key={brawler.id} style={styles.brawlerCard}>
+                <View style={styles.brawlerHeader}>
+                  {portraitSource && (
+                    <Image
+                      source={portraitSource}
+                      style={styles.brawlerPortrait}
+                      resizeMode="contain"
+                    />
+                  )}
+                  <Text style={styles.brawlerName}>{brawler.name}</Text>
+                </View>
+                <View style={styles.brawlerDetails}>
+                  <Text style={styles.brawlerStat}>
+                    現在: {brawler.trophies.toLocaleString()}🏆
+                  </Text>
+                  <Text style={styles.brawlerStat}>
+                    最高: {brawler.highestTrophies.toLocaleString()}🏆
+                  </Text>
+                  {globalTopTrophies && (
+                    <Text style={[styles.brawlerStat, styles.globalTopTrophies]}>
+                      世界Top: {globalTopTrophies.toLocaleString()}🏆
+                    </Text>
+                  )}
+                  <Text style={styles.brawlerStat}>
+                    Rank {brawler.rank} / Pow {brawler.power}
+                  </Text>
+                </View>
+              </View>
+            );
+          })}
+        </View>
+      ))}
+    </ScrollView>
+  );
+};
+
 const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImUwYTllMGQ5LTgwOGItNDhiNC1hYmYwLWQ1NmI1MTI1ODA0MyIsImlhdCI6MTczNTkzMzEzOSwic3ViIjoiZGV2ZWxvcGVyL2RmZDI0NWMwLWY4ZTgtMDY4NC1hOWRjLWJlMzYyYzRkOTJmOSIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiMTI2LjIwNy4xOTUuMTcyIl0sInR5cGUiOiJjbGllbnQifV19.mcSzoW0kNN40kVY7uSN0MOSXpeQ1WejAqw2gDMzS5otqQBmjeyr9Uef8472UAlDgcc8_ZcZpS0hEcHTsbAGl4Q';
 
 export default function BrawlStarsApp() {
@@ -126,7 +220,6 @@ export default function BrawlStarsApp() {
       const data = await response.json();
       setBrawlers(data.items);
       
-      // ブロウラー情報を取得した後にグローバルランキングを取得
       await fetchGlobalRankings(data.items);
     } catch (err) {
       console.error('Brawlers error:', err);
@@ -139,12 +232,12 @@ export default function BrawlStarsApp() {
   useEffect(() => {
     fetchBrawlers();
     
+    // 保存されたタグを読み込むが、自動検索はしない
     const loadSavedTag = async () => {
       try {
         const savedTag = await AsyncStorage.getItem('brawlStarsPlayerTag');
         if (savedTag) {
           setPlayerTag(savedTag);
-          await fetchPlayerData(savedTag);
         }
       } catch (err) {
         console.error('Error loading saved tag:', err);
@@ -159,11 +252,9 @@ export default function BrawlStarsApp() {
     setRankingsError('');
 
     try {
-      // プレイヤーが選択したブロウラーのランキングのみを取得
       const rankings = {};
-      
-      // 同時リクエスト数を制限（5個ずつ）
       const brawlerIds = availableBrawlers.map(b => b.id.toString());
+      
       for (let i = 0; i < brawlerIds.length; i += 5) {
         const batch = brawlerIds.slice(i, i + 5);
         await Promise.all(
@@ -192,8 +283,7 @@ export default function BrawlStarsApp() {
           })
         );
 
-        // バッチ間で少し待機
-        if (i + 5 < brawlerIds.length) {
+        if (i + 2 < brawlerIds.length) {
           await new Promise(resolve => setTimeout(resolve, 1000));
         }
       }
@@ -240,12 +330,14 @@ export default function BrawlStarsApp() {
 
       const encodedTag = encodeURIComponent('#' + cleanTag);
       
+      // タグは検索時に保存
       try {
         await AsyncStorage.setItem('brawlStarsPlayerTag', tag);
       } catch (storageErr) {
         console.error('Error saving tag:', storageErr);
       }
       
+      // 以下のAPIリクエスト処理は変更なし
       const playerResponse = await fetch(
         `https://api.brawlstars.com/v1/players/${encodedTag}`,
         {
@@ -282,7 +374,7 @@ export default function BrawlStarsApp() {
       }
 
       const battleLogData = await battleLogResponse.json();
-      setBattleLog(battleLogData.items.slice(0, 5));
+      setBattleLog(battleLogData.items);
     } catch (err) {
       console.error('Error:', err);
       setError(err instanceof Error ? err.message : 'データの取得に失敗しました');
@@ -297,7 +389,7 @@ export default function BrawlStarsApp() {
       <View style={styles.searchContainer}>
         <TextInput
           style={styles.input}
-          value={playerTag || ''}
+          value={playerTag}
           onChangeText={setPlayerTag}
           placeholder="#XXXXXXXXX"
           autoCapitalize="characters"
@@ -318,7 +410,7 @@ export default function BrawlStarsApp() {
   );
 
   const renderPlayerInfo = () => (
-    <View style={styles.infoSection}>
+<View style={styles.infoSection}>
       <View style={styles.infoGrid}>
         <View style={styles.infoItem}>
           <Text style={styles.infoLabel}>名前</Text>
@@ -356,40 +448,6 @@ export default function BrawlStarsApp() {
     </View>
   );
 
-  const BrawlerItem = React.memo(({ brawler, globalRankings }) => {
-    // グローバルランキングから該当ブロウラーの1位のトロフィーを取得
-    const globalTopTrophies = globalRankings[brawler.id]?.[0]?.trophies;
-    
-    return (
-      <View style={styles.brawlerCard}>
-        <Text style={styles.brawlerName}>{brawler.name}</Text>
-        <View style={styles.brawlerDetails}>
-          <Text style={styles.brawlerStat}>
-            現在のトロフィー: {brawler.trophies.toLocaleString()}
-          </Text>
-          <Text style={styles.brawlerStat}>
-            最多トロフィー: {brawler.highestTrophies.toLocaleString()}
-          </Text>
-          {globalTopTrophies && (
-            <Text style={[styles.brawlerStat, styles.globalTopTrophies]}>
-              世界最多トロフィー: {globalTopTrophies.toLocaleString()}
-            </Text>
-          )}
-          <Text style={styles.brawlerStat}>
-            ランク: {brawler.rank}
-          </Text>
-          <Text style={styles.brawlerStat}>
-            パワー: {brawler.power}
-          </Text>
-        </View>
-      </View>
-    );
-  });
-
-  const renderBrawlerItem = ({ item: brawler }) => (
-    <BrawlerItem brawler={brawler} globalRankings={globalRankings} />
-  );
-
   const sections = [
     {
       type: 'search',
@@ -403,16 +461,14 @@ export default function BrawlStarsApp() {
       },
       {
         type: 'brawlers',
-        title: 'ブロウラー（トップ10）',
-        data: playerInfo.brawlers
-          .sort((a, b) => b.trophies - a.trophies)
-          .slice(0, 10)
+        title: 'ブロウラー一覧',
+        data: [{ brawlers: playerInfo.brawlers, globalRankings }]
       }
     ] : []),
     ...(battleLog.length > 0 ? [{
       type: 'battles',
-      title: '直近の対戦（最新5件）',
-      data: battleLog
+      title: '直近の対戦（最新3件）',
+      data: battleLog.slice(0, 3)
     }] : [])
   ];
 
@@ -432,11 +488,9 @@ export default function BrawlStarsApp() {
       case 'player':
         return renderPlayerInfo();
       case 'brawlers':
-        return renderBrawlerItem({ item });
+        return <BrawlerList brawlers={item.brawlers} globalRankings={item.globalRankings} />;
       case 'battles':
         return <BattleLog battleLog={section.data} />;
-      case 'rankings':
-        return <GlobalRankings {...item} />;
       default:
         return null;
     }
@@ -546,22 +600,42 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
   },
+  brawlerContainer: {
+    flexGrow: 0,
+    paddingHorizontal: 16,
+  },
+  brawlerColumn: {
+    width: CARD_WIDTH,
+    marginRight: 8,
+  },
   brawlerCard: {
     backgroundColor: '#f5f5f5',
     borderRadius: 8,
     padding: 12,
-    marginBottom: 16,
+    marginBottom: 8,
+    height: 160,
+  },
+  brawlerHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  brawlerPortrait: {
+    width: 40,
+    height: 40,
+    marginRight: 8,
+    borderRadius: 20,
   },
   brawlerName: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
-    marginBottom: 8,
+    flex: 1,
   },
   brawlerDetails: {
     gap: 4,
   },
   brawlerStat: {
-    fontSize: 14,
+    fontSize: 12,
   },
   globalTopTrophies: {
     color: '#2196F3',
