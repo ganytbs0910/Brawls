@@ -259,9 +259,9 @@ const Home: React.FC = () => {
         const currentMode = getCurrentMode("heist", selectedDate);
         switch (currentMode?.name) {
           case "強奪":
-            return "#FF69B4"; // 元の色
+            return "#FF69B4";
           case "ホットゾーン":
-            return "#ff7f7f"; // 薄い赤色
+            return "#ff7f7f";
           default:
             return "#FF69B4";
         }
@@ -374,8 +374,7 @@ const Home: React.FC = () => {
               </TouchableOpacity>
               <TouchableOpacity 
                 style={styles.settingsItem}
-                onPress={() => showScreen('privacy')}
-              >
+                onPress={() => showScreen('privacy')}>
                 <Text style={styles.settingsItemText}>プライバシーポリシー</Text>
               </TouchableOpacity>
               <TouchableOpacity 
@@ -407,7 +406,7 @@ const Home: React.FC = () => {
               <TouchableOpacity onPress={goBack} style={styles.backButton}>
                 <Text style={styles.backButtonText}>←</Text>
               </TouchableOpacity>
-              </View>
+            </View>
             <ScrollView style={styles.contentContainer}>
               <Text style={styles.contentText}>{privacyPolicyContent}</Text>
             </ScrollView>
@@ -469,45 +468,42 @@ const Home: React.FC = () => {
                 <Text style={styles.todayButtonText}>Today</Text>
               </TouchableOpacity>
             </View>
-            {modes.map((mode, index) => (
-              <View key={index} style={styles.modeCard}>
-                <View style={styles.modeHeader}>
-                  <View style={[styles.modeTag, { 
-                    backgroundColor: typeof mode.color === 'function' ? mode.color() : mode.color 
-                  }]}>
-                    <Image source={mode.icon} style={styles.modeIcon} />
-                    <Text style={styles.modeTagText}>{mode.name}</Text>
+            <View style={styles.modeGrid}>
+              {modes.map((mode, index) => (
+                <View key={index} style={styles.modeCard}>
+                  <View style={styles.modeHeader}>
+                    <View style={[styles.modeTag, { 
+                      backgroundColor: typeof mode.color === 'function' ? mode.color() : mode.color 
+                    }]}>
+                      <Image source={mode.icon} style={styles.modeIcon} />
+                      <Text style={styles.modeTagText}>{mode.name}</Text>
+                    </View>
                   </View>
                   {selectedDate.getDate() === new Date().getDate() && (
                     <Text style={styles.updateTime}>
                       更新まで {getNextUpdateTime(mode.updateTime)}
                     </Text>
                   )}
+                  <TouchableOpacity 
+                    style={styles.mapContent}
+                    onPress={() => handleMapClick(mode)}
+                    activeOpacity={0.7}
+                  >
+                    <Text style={styles.mapName}>{mode.currentMap}</Text>
+                    {(mode.name === "バトルロワイヤル" || mode.name === "エメラルドハント" || 
+                      mode.name === "ノックアウト" || getCurrentModeName("heist", selectedDate) || 
+                      getCurrentModeName("brawlBall5v5", selectedDate) || mode.name === "ブロストライカー" || 
+                      getCurrentModeName("duel", selectedDate)) && (
+                      <Image 
+                        source={mapImages[mode.currentMap]}
+                        style={styles.mapImage}
+                        resizeMode="contain"
+                      />
+                    )}
+                  </TouchableOpacity>
                 </View>
-                <TouchableOpacity 
-                  style={styles.mapContent}
-                  onPress={() => handleMapClick(mode)}
-                  activeOpacity={0.7}
-                >
-                  <Text style={styles.mapName}>{mode.currentMap}</Text>
-                  {(mode.name === "バトルロワイヤル" || mode.name === "エメラルドハント" || 
-                    mode.name === "ノックアウト" || getCurrentModeName("heist", selectedDate) || 
-                    getCurrentModeName("brawlBall5v5", selectedDate) || mode.name === "ブロストライカー" || 
-                    getCurrentModeName("duel", selectedDate)) && (
-                    <Image 
-                      source={mapImages[mode.currentMap]}
-                      style={styles.mapImage}
-                      resizeMode="contain"
-                    />
-                  )}
-                </TouchableOpacity>
-                {mode.isRotating && (
-                  <Text style={styles.rotatingNote}>
-                    ※モードとマップはローテーションします
-                  </Text>
-                )}
-              </View>
-            ))}
+              ))}
+            </View>
           </View>
         </ScrollView>
 
@@ -633,7 +629,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   modeContainer: {
-    padding: 16,
+    padding: 8,
   },
   dateHeader: {
     flexDirection: 'row',
@@ -663,11 +659,17 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
   },
+  modeGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
   modeCard: {
+    width: '48%',
     backgroundColor: '#fff',
     borderRadius: 8,
     marginBottom: 16,
-    padding: 16,
+    padding: 12,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -678,57 +680,53 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   modeHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
     marginBottom: 8,
   },
   modeTag: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
     borderRadius: 16,
     flexDirection: 'row',
     alignItems: 'center',
+    flexWrap: 'wrap',
   },
   modeIcon: {
-    width: 24,
-    height: 24,
-    marginRight: 8,
+    width: 20,
+    height: 20,
+    marginRight: 4,
   },
   modeTagText: {
     color: '#fff',
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: 12,
   },
   updateTime: {
     color: '#666',
-    fontSize: 14,
+    fontSize: 12,
+    marginBottom: 4,
   },
   mapContent: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 12,
+    flexDirection: 'column',
+    padding: 8,
     backgroundColor: '#f8f8f8',
     borderRadius: 8,
-    marginTop: 8,
   },
   mapName: {
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: 'bold',
     color: '#333',
-    flex: 1,
+    marginBottom: 8,
   },
   mapImage: {
-    width: 80,
-    height: 53,
+    width: '100%',
+    height: 80,
     borderRadius: 8,
-    marginLeft: 16,
   },
   rotatingNote: {
     color: '#666',
-    fontSize: 12,
+    fontSize: 10,
     marginTop: 4,
+    textAlign: 'center',
   },
   tipItem: {
     padding: 16,
