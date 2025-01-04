@@ -190,40 +190,46 @@ const CharacterDetails: React.FC = () => {
   }, [character?.name, getRecommendationColor, getRecommendationLabel]);
 
   const renderGearSection = useCallback(() => {
-    if (!character) return null;
+  if (!character) return null;
 
-    const recommendedGears = character.gears || [];
-    const characterGears = gearIcons[character.name];
-    if (!characterGears) return null;
+  const recommendedGears = character.gears || [];
+  const characterGears = gearIcons[character.name];
+  if (!characterGears) return null;
 
-    return (
-      <View style={styles.infoCard}>
+  return (
+    <View style={styles.infoCard}>
+      <View style={styles.sectionHeader}>
         <Text style={styles.sectionTitle}>ギア</Text>
-        <View style={styles.gearGrid}>
-          {Object.entries(characterGears).map(([key, iconPath]) => {
-            const currentGearId = parseInt(key);
-            const isRecommended = recommendedGears.includes(currentGearId);
-
-            return (
-              <View 
-                key={key} 
-                style={[
-                  styles.gearItem,
-                  isRecommended && styles.recommendedGearItem
-                ]}
-              >
-                <Image
-                  source={iconPath}
-                  style={styles.gearIcon}
-                  resizeMode="contain"
-                />
-              </View>
-            );
-          })}
+        <View style={styles.legendContainer}>
+          <View style={[styles.legendItem, { backgroundColor: '#4CAF50' }]} />
+          <Text style={styles.legendText}>おすすめ</Text>
         </View>
       </View>
-    );
-  }, [character]);
+      <View style={styles.gearGrid}>
+        {Object.entries(characterGears).map(([key, iconPath]) => {
+          const currentGearId = parseInt(key);
+          const isRecommended = recommendedGears.includes(currentGearId);
+
+          return (
+            <View 
+              key={key} 
+              style={[
+                styles.gearItem,
+                isRecommended && styles.recommendedGearItem
+              ]}
+            >
+              <Image
+                source={iconPath}
+                style={styles.gearIcon}
+                resizeMode="contain"
+              />
+            </View>
+          );
+        })}
+      </View>
+    </View>
+  );
+}, [character]);
 
   const renderCompatibilityContent = useCallback(() => {
     if (!compatibilityData) return null;
@@ -384,7 +390,6 @@ const CharacterDetails: React.FC = () => {
     renderGearSection
   ]);
 
-  // Error state handling
   if (!character) {
     return (
       <View style={styles.container}>
@@ -393,7 +398,6 @@ const CharacterDetails: React.FC = () => {
     );
   }
 
-  // Main render
   return (
     <View style={styles.container}>
       <View style={styles.tabContainer}>
@@ -483,7 +487,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 16,
   },
   legendContainer: {
     flexDirection: 'row',
