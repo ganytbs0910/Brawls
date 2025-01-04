@@ -10,24 +10,26 @@ import {
   SectionList
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { BattleLog } from '../components/BattleLog';
+
+interface Brawler {
+  id: number;
+  name: string;
+}
 
 interface PlayerInfo {
   tag: string;
   name: string;
+  nameColor: string;
+  icon: {
+    id: number;
+  };
   trophies: number;
   highestTrophies: number;
   expLevel: number;
-  expPoints: number;
-  isQualifiedFromChampionshipChallenge: boolean;
   '3vs3Victories': number;
   soloVictories: number;
   duoVictories: number;
-  bestRoboRumbleTime: number;
-  bestTimeAsBigBrawler: number;
-  club?: {
-    tag: string;
-    name: string;
-  };
   brawlers: Array<{
     id: number;
     name: string;
@@ -35,20 +37,21 @@ interface PlayerInfo {
     rank: number;
     trophies: number;
     highestTrophies: number;
-    gears?: Array<{
-      id: number;
-      name: string;
-      level: number;
-    }>;
-    starPowers?: Array<{
-      id: number;
-      name: string;
-    }>;
-    gadgets?: Array<{
-      id: number;
-      name: string;
-    }>;
   }>;
+}
+
+interface RankingItem {
+  tag: string;
+  name: string;
+  nameColor: string;
+  icon: {
+    id: number;
+  };
+  trophies: number;
+  rank: number;
+  club?: {
+    name: string;
+  };
 }
 
 interface BattleLogItem {
@@ -94,13 +97,54 @@ export default function BrawlStarsApp() {
   const [playerTag, setPlayerTag] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [globalRankings, setGlobalRankings] = useState<{ [key: string]: RankingItem[] }>({});
+  const [rankingsLoading, setRankingsLoading] = useState(false);
+  const [rankingsError, setRankingsError] = useState('');
+  const [brawlers, setBrawlers] = useState<Brawler[]>([]);
+  const [brawlersLoading, setBrawlersLoading] = useState(false);
+  const [brawlersError, setBrawlersError] = useState('');
+
+  const fetchBrawlers = async () => {
+    setBrawlersLoading(true);
+    setBrawlersError('');
+    
+    try {
+      const response = await fetch(
+        'https://api.brawlstars.com/v1/brawlers',
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
+          }
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`ブロウラー情報の取得に失敗しました: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setBrawlers(data.items);
+      
+      // ブロウラー情報を取得した後にグローバルランキングを取得
+      await fetchGlobalRankings(data.items);
+    } catch (err) {
+      console.error('Brawlers error:', err);
+      setBrawlersError(err instanceof Error ? err.message : 'ブロウラー情報の取得に失敗しました');
+    } finally {
+      setBrawlersLoading(false);
+    }
+  };
 
   useEffect(() => {
+    fetchBrawlers();
+    
     const loadSavedTag = async () => {
       try {
         const savedTag = await AsyncStorage.getItem('brawlStarsPlayerTag');
         if (savedTag) {
           setPlayerTag(savedTag);
+          await fetchPlayerData(savedTag);
         }
       } catch (err) {
         console.error('Error loading saved tag:', err);
@@ -109,6 +153,59 @@ export default function BrawlStarsApp() {
 
     loadSavedTag();
   }, []);
+
+  const fetchGlobalRankings = async (availableBrawlers: Brawler[]) => {
+    setRankingsLoading(true);
+    setRankingsError('');
+
+    try {
+      // プレイヤーが選択したブロウラーのランキングのみを取得
+      const rankings = {};
+      
+      // 同時リクエスト数を制限（5個ずつ）
+      const brawlerIds = availableBrawlers.map(b => b.id.toString());
+      for (let i = 0; i < brawlerIds.length; i += 5) {
+        const batch = brawlerIds.slice(i, i + 5);
+        await Promise.all(
+          batch.map(async (brawlerId) => {
+            try {
+              const response = await fetch(
+                `https://api.brawlstars.com/v1/rankings/global/brawlers/${brawlerId}`,
+                {
+                  headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Accept': 'application/json'
+                  }
+                }
+              );
+
+              if (!response.ok) {
+                console.warn(`ブロウラーID ${brawlerId} のランキング取得に失敗: ${response.status}`);
+                return;
+              }
+
+              const data = await response.json();
+              rankings[brawlerId] = data.items;
+            } catch (err) {
+              console.warn(`ブロウラーID ${brawlerId} のランキング取得でエラー:`, err);
+            }
+          })
+        );
+
+        // バッチ間で少し待機
+        if (i + 5 < brawlerIds.length) {
+          await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+      }
+
+      setGlobalRankings(rankings);
+    } catch (err) {
+      console.error('Rankings error:', err);
+      setRankingsError(err instanceof Error ? err.message : 'ランキングの取得に失敗しました');
+    } finally {
+      setRankingsLoading(false);
+    }
+  };
 
   const validatePlayerTag = (tag: string | undefined): string => {
     if (!tag || typeof tag !== 'string') return '';
@@ -142,16 +239,12 @@ export default function BrawlStarsApp() {
       }
 
       const encodedTag = encodeURIComponent('#' + cleanTag);
-      console.log('Fetching player data for tag:', encodedTag);
       
       try {
         await AsyncStorage.setItem('brawlStarsPlayerTag', tag);
       } catch (storageErr) {
         console.error('Error saving tag:', storageErr);
       }
-
-      console.log('Clean tag:', cleanTag);
-      console.log('Encoded tag:', encodedTag);
       
       const playerResponse = await fetch(
         `https://api.brawlstars.com/v1/players/${encodedTag}`,
@@ -165,7 +258,6 @@ export default function BrawlStarsApp() {
 
       if (!playerResponse.ok) {
         const errorData = await playerResponse.json().catch(() => null);
-        console.error('API Error Response:', errorData);
         throw new Error(
           errorData?.reason || errorData?.message || 
           `APIエラー: ${playerResponse.status} ${playerResponse.statusText}`
@@ -190,7 +282,6 @@ export default function BrawlStarsApp() {
       }
 
       const battleLogData = await battleLogResponse.json();
-      // 最新の5試合のみを保存
       setBattleLog(battleLogData.items.slice(0, 5));
     } catch (err) {
       console.error('Error:', err);
@@ -198,12 +289,6 @@ export default function BrawlStarsApp() {
     } finally {
       setLoading(false);
     }
-  };
-
-  const formatDuration = (seconds: number): string => {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
 
   const renderSearchSection = () => (
@@ -244,12 +329,12 @@ export default function BrawlStarsApp() {
           <Text style={styles.infoValue}>{playerInfo?.tag}</Text>
         </View>
         <View style={styles.infoItem}>
-          <Text style={styles.infoLabel}>トロフィー</Text>
-          <Text style={styles.infoValue}>{playerInfo?.trophies.toLocaleString()}</Text>
-        </View>
-        <View style={styles.infoItem}>
           <Text style={styles.infoLabel}>最高トロフィー</Text>
           <Text style={styles.infoValue}>{playerInfo?.highestTrophies.toLocaleString()}</Text>
+        </View>
+        <View style={styles.infoItem}>
+          <Text style={styles.infoLabel}>現在トロフィー</Text>
+          <Text style={styles.infoValue}>{playerInfo?.trophies.toLocaleString()}</Text>
         </View>
         <View style={styles.infoItem}>
           <Text style={styles.infoLabel}>レベル</Text>
@@ -260,93 +345,49 @@ export default function BrawlStarsApp() {
           <Text style={styles.infoValue}>{playerInfo?.['3vs3Victories'].toLocaleString()}</Text>
         </View>
         <View style={styles.infoItem}>
-          <Text style={styles.infoLabel}>クラブ</Text>
-          <Text style={styles.infoValue}>{playerInfo?.club?.name || 'なし'}</Text>
+          <Text style={styles.infoLabel}>ソロ勝利数</Text>
+          <Text style={styles.infoValue}>{playerInfo?.soloVictories.toLocaleString()}</Text>
+        </View>
+        <View style={styles.infoItem}>
+          <Text style={styles.infoLabel}>デュオ勝利数</Text>
+          <Text style={styles.infoValue}>{playerInfo?.duoVictories.toLocaleString()}</Text>
         </View>
       </View>
     </View>
   );
+
+  const BrawlerItem = React.memo(({ brawler, globalRankings }) => {
+    // グローバルランキングから該当ブロウラーの1位のトロフィーを取得
+    const globalTopTrophies = globalRankings[brawler.id]?.[0]?.trophies;
+    
+    return (
+      <View style={styles.brawlerCard}>
+        <Text style={styles.brawlerName}>{brawler.name}</Text>
+        <View style={styles.brawlerDetails}>
+          <Text style={styles.brawlerStat}>
+            現在のトロフィー: {brawler.trophies.toLocaleString()}
+          </Text>
+          <Text style={styles.brawlerStat}>
+            最多トロフィー: {brawler.highestTrophies.toLocaleString()}
+          </Text>
+          {globalTopTrophies && (
+            <Text style={[styles.brawlerStat, styles.globalTopTrophies]}>
+              世界最多トロフィー: {globalTopTrophies.toLocaleString()}
+            </Text>
+          )}
+          <Text style={styles.brawlerStat}>
+            ランク: {brawler.rank}
+          </Text>
+          <Text style={styles.brawlerStat}>
+            パワー: {brawler.power}
+          </Text>
+        </View>
+      </View>
+    );
+  });
 
   const renderBrawlerItem = ({ item: brawler }) => (
-    <View style={styles.brawlerCard}>
-      <Text style={styles.brawlerName}>{brawler.name}</Text>
-      <View style={styles.brawlerDetails}>
-        <Text style={styles.brawlerStat}>
-          トロフィー: {brawler.trophies.toLocaleString()}
-        </Text>
-        <Text style={styles.brawlerStat}>
-          ランク: {brawler.rank}
-        </Text>
-        <Text style={styles.brawlerStat}>
-          パワー: {brawler.power}
-        </Text>
-      </View>
-      {brawler.starPowers && brawler.starPowers.length > 0 && (
-        <View style={styles.powerSection}>
-          <Text style={styles.powerTitle}>スターパワー:</Text>
-          {brawler.starPowers.map((sp) => (
-            <Text key={sp.id} style={styles.powerItem}>
-              • {sp.name}
-            </Text>
-          ))}
-        </View>
-      )}
-      {brawler.gadgets && brawler.gadgets.length > 0 && (
-        <View style={styles.powerSection}>
-          <Text style={styles.powerTitle}>ガジェット:</Text>
-          {brawler.gadgets.map((gadget) => (
-            <Text key={gadget.id} style={styles.powerItem}>
-              • {gadget.name}
-            </Text>
-          ))}
-        </View>
-      )}
-    </View>
-  );
-
-  const renderBattleItem = ({ item: battle }) => (
-    <View style={styles.battleCard}>
-      <View style={styles.battleHeader}>
-        <View>
-          <Text style={styles.battleMode}>
-            {battle.event.mode} - {battle.event.map}
-          </Text>
-          <Text style={styles.battleTime}>
-            {new Date(battle.battleTime).toLocaleString()}
-          </Text>
-        </View>
-        <Text 
-          style={[
-            styles.battleResult,
-            { color: battle.battle.result === 'victory' ? '#4CAF50' : '#F44336' }
-          ]}
-        >
-          {battle.battle.result.toUpperCase()}
-        </Text>
-      </View>
-
-      <Text style={styles.starPlayer}>
-        Star Player: {battle.battle.starPlayer.name}
-        ({battle.battle.starPlayer.brawler.name})
-      </Text>
-
-      <View style={styles.teamsContainer}>
-        {battle.battle.teams.map((team, teamIndex) => (
-          <View key={teamIndex} style={styles.teamCard}>
-            <Text style={styles.teamTitle}>Team {teamIndex + 1}</Text>
-            {team.map((player, playerIndex) => (
-              <View key={playerIndex} style={styles.playerInfo}>
-                <Text style={styles.playerName}>{player.name}</Text>
-                <Text style={styles.playerBrawler}>
-                  {player.brawler.name} - Power {player.brawler.power}
-                  ({player.brawler.trophies.toLocaleString()} トロフィー)
-                </Text>
-              </View>
-            ))}
-          </View>
-        ))}
-      </View>
-    </View>
+    <BrawlerItem brawler={brawler} globalRankings={globalRankings} />
   );
 
   const sections = [
@@ -393,7 +434,9 @@ export default function BrawlStarsApp() {
       case 'brawlers':
         return renderBrawlerItem({ item });
       case 'battles':
-        return renderBattleItem({ item });
+        return <BattleLog battleLog={section.data} />;
+      case 'rankings':
+        return <GlobalRankings {...item} />;
       default:
         return null;
     }
@@ -520,74 +563,9 @@ const styles = StyleSheet.create({
   brawlerStat: {
     fontSize: 14,
   },
-  powerSection: {
-    marginTop: 8,
-  },
-  powerTitle: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    marginBottom: 4,
-  },
-  powerItem: {
-    fontSize: 14,
-    marginLeft: 8,
-    color: '#666',
-  },
-  battleCard: {
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    padding: 16,
-    marginBottom: 16,
-    borderWidth: 1,
-    borderColor: '#eee',
-  },
-  battleHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    marginBottom: 12,
-  },
-  battleMode: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  battleTime: {
-    fontSize: 12,
-    color: '#666',
-    marginTop: 4,
-  },
-  battleResult: {
-    fontWeight: 'bold',
-    fontSize: 14,
-  },
-  starPlayer: {
-    fontSize: 14,
-    marginBottom: 16,
-  },
-  teamsContainer: {
-    gap: 12,
-  },
-  teamCard: {
-    backgroundColor: '#f5f5f5',
-    borderRadius: 8,
-    padding: 12,
-  },
-  teamTitle: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  playerInfo: {
-    marginBottom: 8,
-  },
-  playerName: {
-    fontSize: 14,
+  globalTopTrophies: {
+    color: '#2196F3',
     fontWeight: '500',
-  },
-  playerBrawler: {
-    fontSize: 12,
-    color: '#666',
-    marginTop: 2,
   },
   loadingOverlay: {
     position: 'absolute',

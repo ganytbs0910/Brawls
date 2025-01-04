@@ -30,6 +30,7 @@ import { BannerAdComponent } from '../components/BannerAdComponent';
 import MapDetailScreen from './MapDetailScreen';
 import { MapDetail, GameMode, ScreenType, ScreenState } from '../types';
 import { getMapDetails } from '../data/mapDetails';
+import PunishmentGameScreen from './PunishmentGameScreen';
 
 type RankingsScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
@@ -389,6 +390,12 @@ const Home: React.FC = () => {
               >
                 <Text style={styles.settingsItemText}>豆知識一覧</Text>
               </TouchableOpacity>
+              <TouchableOpacity 
+                style={styles.settingsItem}
+                onPress={() => showScreen('punishmentGame')}
+              >
+                <Text style={styles.settingsItemText}>罰ゲーム</Text>
+              </TouchableOpacity>
             </View>
           </View>
         );
@@ -422,6 +429,8 @@ const Home: React.FC = () => {
         );
       case 'allTips':
         return <AllTipsScreen onClose={goBack} />;
+      case 'punishmentGame':
+        return <PunishmentGameScreen onClose={goBack} />;
       default:
         return null;
     }
