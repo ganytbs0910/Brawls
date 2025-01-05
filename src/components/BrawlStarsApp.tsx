@@ -30,8 +30,6 @@ export default function BrawlStarsApp() {
       const savedTag = await playerData.loadSavedTag();
       if (savedTag) {
         setPlayerTag(savedTag);
-        //すぐに検索
-        //playerData.fetchPlayerData(savedTag);
       }
     };
 
@@ -160,24 +158,24 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   content: {
-    padding: 16,
+    padding: 8, // 12からさらに8に減らしました
   },
   section: {
-    marginBottom: 16,
+    marginBottom: 8, // 12からさらに8に減らしました
   },
   sectionHeader: {
     backgroundColor: '#fff',
-    paddingVertical: 8,
+    paddingVertical: 4, // 6からさらに4に減らしました
   },
   sectionTitle: {
-    fontSize: 18,
+    fontSize: 16, // 18から16に減らしました
     fontWeight: 'bold',
-    marginBottom: 16,
+    marginBottom: 8, // 12からさらに8に減らしました
   },
   searchContainer: {
     flexDirection: 'row',
     gap: 8,
-    marginBottom: 16,
+    marginBottom: 12, // 16から12に減らしました
   },
   input: {
     flex: 1,
@@ -200,7 +198,7 @@ const styles = StyleSheet.create({
   },
   errorText: {
     color: '#f44336',
-    marginBottom: 16,
+    marginBottom: 12, // 16から12に減らしました
   },
   loadingOverlay: {
     position: 'absolute',
@@ -224,5 +222,3 @@ const styles = StyleSheet.create({
     color: '#666',
   },
 });
-
-export default BrawlStarsApp;

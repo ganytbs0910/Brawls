@@ -366,21 +366,21 @@ const styles = StyleSheet.create({
 
   // 対戦カード関連
   battleCard: {
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 12,
+    borderRadius: 6,
+    padding: 8,
+    marginBottom: 8,
     borderWidth: 1,
     borderColor: '#eee',
   },
   rankedBattleCard: {
     borderColor: '#FFD700',
-    borderWidth: 2,
+    borderWidth: 1,
   },
   battleHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginBottom: 8,
+    marginBottom: 4,
   },
   battleInfo: {
     flex: 1,
@@ -391,8 +391,8 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   modeIcon: {
-    width: 24,
-    height: 24,
+    width: 18,
+    height: 18,
   },
   resultIndicator: {
     width: 8,
@@ -400,36 +400,36 @@ const styles = StyleSheet.create({
     borderRadius: 2,
   },
   battleMode: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: 'bold',
   },
   battleTime: {
-    fontSize: 12,
+    fontSize: 10,
     color: '#666',
-    marginTop: 2,
+    marginTop: 1,
   },
   battleResult: {
     fontWeight: 'bold',
-    fontSize: 14,
-    marginLeft: 8,
+    fontSize: 12,
+    marginLeft: 6,
   },
 
   // チーム表示関連
   teamsContainer: {
-    marginVertical: 6,
+    marginVertical: 4,
   },
   teamRow: {
     flexDirection: 'row',
     justifyContent: 'center',
-    gap: 4,
-    marginVertical: 2,
+    gap: 2,
+    marginVertical: 1,
   },
   vsContainer: {
     alignItems: 'center',
-    marginVertical: 2,
+    marginVertical: 1,
   },
   vsText: {
-    fontSize: 16,
+    fontSize: 12,
     fontWeight: 'bold',
     color: '#666',
   },
@@ -441,9 +441,9 @@ const styles = StyleSheet.create({
   },
   portraitContainer: {
     position: 'relative',
-    width: 60,
-    height: 60,
-    borderRadius: 30,
+    width: 48,
+    height: 48,
+    borderRadius: 24,
   },
   starPlayerPortraitContainer: {
     padding: 2,
@@ -460,22 +460,22 @@ const styles = StyleSheet.create({
   portrait: {
     width: '100%',
     height: '100%',
-    borderRadius: 30,
+    borderRadius: 24,
     backgroundColor: '#f5f5f5',
   },
   starPlayerPortrait: {
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: STAR_PLAYER_COLOR,
   },
   trophyContainer: {
     position: 'absolute',
-    top: -6,
-    left: -6,
+    top: -4,
+    left: -4,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    borderRadius: 10,
-    padding: 3,
+    borderRadius: 8,
+    padding: 2,
     borderWidth: 1,
     borderColor: '#ddd',
     shadowColor: '#000',
@@ -488,12 +488,12 @@ const styles = StyleSheet.create({
     elevation: 1,
   },
   trophyIcon: {
-    width: 14,
-    height: 14,
-    marginRight: 2,
+    width: 12,
+    height: 12,
+    marginRight: 1,
   },
   trophies: {
-    fontSize: 12,
+    fontSize: 10,
     fontWeight: 'bold',
   },
   rankedTrophies: {
@@ -501,25 +501,25 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   starIcon: {
-    width: 14,
-    height: 14,
+    width: 12,
+    height: 12,
   },
   starBadge: {
     position: 'absolute',
-    bottom: -5,
-    right: -5,
+    bottom: -4,
+    right: -4,
     backgroundColor: STAR_PLAYER_COLOR,
-    borderRadius: 10,
-    width: 20,
-    height: 20,
+    borderRadius: 8,
+    width: 16,
+    height: 16,
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: 'white',
   },
   playerName: {
-    fontSize: 12,
-    marginTop: 4,
+    fontSize: 10,
+    marginTop: 2,
     textAlign: 'center',
   },
   starPlayerName: {
