@@ -6,6 +6,7 @@ export const CHARACTER_IMAGES = {
   'bull': require('../../assets/BrawlerIcons/bull_pin.png'),
   'brock': require('../../assets/BrawlerIcons/brock_pin.png'),
   'elPrimo': require('../../assets/BrawlerIcons/elprimo_pin.png'),
+  'elprimo': require('../../assets/BrawlerIcons/elprimo_pin.png'),
   'barley': require('../../assets/BrawlerIcons/barley_pin.png'),
   'poco': require('../../assets/BrawlerIcons/poco_pin.png'),
   'rosa': require('../../assets/BrawlerIcons/rosa_pin.png'),
@@ -13,6 +14,9 @@ export const CHARACTER_IMAGES = {
   'dynamike': require('../../assets/BrawlerIcons/dynamike_pin.png'),
   'tick': require('../../assets/BrawlerIcons/tick_pin.png'),
   'eightBit': require('../../assets/BrawlerIcons/8bit_pin.png'),
+  'eight-bit': require('../../assets/BrawlerIcons/8bit_pin.png'),
+  '8bit': require('../../assets/BrawlerIcons/8bit_pin.png'),
+  '8-bit': require('../../assets/BrawlerIcons/8bit_pin.png'),
   'rico': require('../../assets/BrawlerIcons/rico_pin.png'),
   'darryl': require('../../assets/BrawlerIcons/darryl_pin.png'),
   'penny': require('../../assets/BrawlerIcons/penny_pin.png'),
@@ -43,6 +47,7 @@ export const CHARACTER_IMAGES = {
   'hank': require('../../assets/BrawlerIcons/hank_pin.png'),
   'pearl': require('../../assets/BrawlerIcons/pearl_pin.png'),
   'larryandLawrie': require('../../assets/BrawlerIcons/larryandlawrie_pin.png'),
+  'larry&lawrie': require('../../assets/BrawlerIcons/larryandlawrie_pin.png'),
   'angelo': require('../../assets/BrawlerIcons/angelo_pin.png'),
   'berry': require('../../assets/BrawlerIcons/berry_pin.png'),
   'shade': require('../../assets/BrawlerIcons/shade_pin.png'),
@@ -64,6 +69,7 @@ export const CHARACTER_IMAGES = {
   'buster': require('../../assets/BrawlerIcons/buster_pin.png'),
   'gray': require('../../assets/BrawlerIcons/gray_pin.png'),
   'rt': require('../../assets/BrawlerIcons/rt_pin.png'),
+  'r-t': require('../../assets/BrawlerIcons/rt_pin.png'),
   'willow': require('../../assets/BrawlerIcons/willow_pin.png'),
   'doug': require('../../assets/BrawlerIcons/doug_pin.png'),
   'chuck': require('../../assets/BrawlerIcons/chuck_pin.png'),
@@ -86,6 +92,7 @@ export const CHARACTER_IMAGES = {
   'kit': require('../../assets/BrawlerIcons/kit_pin.png'),
   'draco': require('../../assets/BrawlerIcons/draco_pin.png'),
   'kenji': require('../../assets/BrawlerIcons/kenji_pin.png'),
+  'buzzlightyear': require('../../assets/BrawlerIcons/buzzlightyear_pin.png'),
 } as const;
 
 // キャラクター名の型定義

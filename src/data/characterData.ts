@@ -128,7 +128,8 @@ export const nameMap: Record<string, string> = {
   'Moe': 'モー',
   'Melodie': 'メロディー',
   'Stu': 'スチュー',
-  'Gale': 'ゲイル'
+  'Gale': 'ゲイル',
+  'Buzz Lightyear': 'バズ・ライトイヤー'
 };
 
 export const roleMap: Record<string, string> = {

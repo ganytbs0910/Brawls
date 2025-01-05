@@ -94,34 +94,46 @@ interface BattleLogItem {
 }
 
 const BrawlerList: React.FC<{ brawlers: Brawler[], globalRankings: any }> = ({ brawlers, globalRankings }) => {
-  const sortedBrawlers = [...brawlers].sort((a, b) => b.trophies - a.trophies);
-  const rows = [];
+  // IDでソート
+  const sortedBrawlers = [...brawlers].sort((a, b) => a.id - b.id);
   
-  for (let i = 0; i < sortedBrawlers.length; i += 3) {
-    rows.push(sortedBrawlers.slice(i, i + 3));
+  // 3列のグリッドを作成
+  const numColumns = 3;
+  const numRows = Math.ceil(sortedBrawlers.length / numColumns);
+  const grid = [];
+  
+  // 縦方向に並べる
+  for (let col = 0; col < numColumns; col++) {
+    for (let row = 0; row < numRows; row++) {
+      const index = row + (col * numRows);
+      if (index < sortedBrawlers.length) {
+        grid.push(sortedBrawlers[index]);
+      }
+    }
+  }
+
+  // 3つずつの行に分割
+  const rows = [];
+  for (let i = 0; i < grid.length; i += 3) {
+    rows.push(grid.slice(i, i + 3));
   }
 
   const getPortraitSource = (brawlerName: string) => {
     try {
-      // キャラクター名を正規化
-      // スペースを削除し、最初の文字を小文字に、その後の単語の最初の文字を大文字に
       const normalizedName = brawlerName
         .replace(/\s+/g, '')
         .replace(/^./, str => str.toLowerCase())
         .replace(/[A-Z]/g, str => str.toLowerCase())
         .replace(/(?:^|\s+)(\w)/g, (_, letter) => letter.toLowerCase());
 
-      // 特殊なケースの処理
       const nameMap: { [key: string]: string } = {
         '8bit': 'eightBit',
         'mr.p': 'mrp',
         'larryandlawrie': 'larryandLawrie',
-        // 他の特殊なケースがあればここに追加
       };
 
       const mappedName = nameMap[normalizedName] || normalizedName;
 
-      // 型チェックと画像の取得
       if (isValidCharacterName(mappedName)) {
         return CHARACTER_IMAGES[mappedName];
       }
@@ -238,6 +250,7 @@ export default function BrawlStarsApp() {
         const savedTag = await AsyncStorage.getItem('brawlStarsPlayerTag');
         if (savedTag) {
           setPlayerTag(savedTag);
+          fetchPlayerData(savedTag); // 保存されたタグで自動検索を実行
         }
       } catch (err) {
         console.error('Error loading saved tag:', err);
@@ -410,7 +423,7 @@ export default function BrawlStarsApp() {
   );
 
   const renderPlayerInfo = () => (
-<View style={styles.infoSection}>
+    <View style={styles.infoSection}>
       <View style={styles.infoGrid}>
         <View style={styles.infoItem}>
           <Text style={styles.infoLabel}>名前</Text>

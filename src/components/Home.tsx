@@ -105,19 +105,26 @@ const Home: React.FC = () => {
   }, [rewarded]);
 
   useEffect(() => {
-    const initAdService = async () => {
-      try {
-        const instance = await AdMobService.initialize();
-        adService.current = instance;
-      } catch (error) {
-        console.error('AdMob initialization error:', error);
-      }
-    };
+  // 1秒ごとに現在時刻を更新
+  const timer = setInterval(() => {
+    const now = new Date();
+    setCurrentTime(now);
     
-    initAdService();
-    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
+    // 各モードの更新時刻をチェック
+    modes.forEach(mode => {
+      const updateTime = new Date(now);
+      updateTime.setHours(mode.updateTime, 0, 0, 0);
+      
+      // 更新時刻になったらマップを更新
+      if (now.getTime() === updateTime.getTime()) {
+        // マップ更新のロジック
+        setSelectedDate(new Date()); // 現在日付に更新
+      }
+    });
+  }, 1000);
+
+  return () => clearInterval(timer);
+}, []);
 
   const showRewardedAd = async () => {
     if (isRewardedAdReady) {

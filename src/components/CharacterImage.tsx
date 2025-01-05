@@ -28,7 +28,7 @@ const CharacterImage: React.FC<CharacterImageProps> = ({ characterName, size = 5
   'リリー': 'lily', 'クランシー': 'clancy', 'モー': 'moe', 'ジュジュ': 'juju', 'スパイク': 'spike',
   'クロウ': 'crow', 'レオン': 'leon', 'サンディ': 'sandy', 'アンバー': 'amber', 'メグ': 'meg',
   'サージ': 'surge', 'チェスター': 'chester', 'コーデリアス': 'cordelius', 'キット': 'kit',
-  'ドラコ': 'draco', 'ケンジ': 'kenji', 'Mr.P': 'mrp', 'MAX': 'max',
+  'ドラコ': 'draco', 'ケンジ': 'kenji', 'Mr.P': 'mrp', 'MAX': 'max', 
 };
 
   const getImageSource = () => {
