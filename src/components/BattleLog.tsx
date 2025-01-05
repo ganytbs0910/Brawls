@@ -261,7 +261,7 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
               )}
               <Text style={styles.battleMode}>
                 {battle.battle.mode} - {battle.event?.map}
-                {isSoloRanked && ' (Ranked)'}
+                {isSoloRanked}
               </Text>
             </View>
             <Text style={styles.battleTime}>
@@ -374,16 +374,17 @@ const styles = StyleSheet.create({
 
   // チーム表示関連
   teamsContainer: {
-    marginVertical: 8,
+    marginVertical: 6,
   },
   teamRow: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginVertical: 4,
+    justifyContent: 'center',
+    gap: 4,
+    marginVertical: 2,
   },
   vsContainer: {
     alignItems: 'center',
-    marginVertical: 4,
+    marginVertical: 2,
   },
   vsText: {
     fontSize: 16,
@@ -394,7 +395,7 @@ const styles = StyleSheet.create({
   // プレイヤー表示関連
   playerContainer: {
     alignItems: 'center',
-    width: '30%',
+    width: '28%',
   },
   portraitContainer: {
     position: 'relative',
@@ -475,30 +476,30 @@ const styles = StyleSheet.create({
   // 概要セクション
   overviewContainer: {
     backgroundColor: '#f8f9fa',
-    borderRadius: 8,
-    padding: 16,
-    marginBottom: 20,
+    borderRadius: 6,
+    padding: 8,
+    marginBottom: 10,
   },
   overviewTitle: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
-    marginBottom: 12,
+    marginBottom: 6,
   },
   resultsRow: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
     flexWrap: 'wrap',
-    gap: 8,
-    marginBottom: 16,
+    gap: 4,
+    marginBottom: 12,
   },
   resultIconContainer: {
-    width: 40,
-    height: 40,
-    borderRadius: 8,
+    width: 28,
+    height: 28,
+    borderRadius: 4,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 8,
-    marginRight: 4,
+    padding: 4,
+    marginRight: 2,
   },
   resultModeIcon: {
     width: '100%',
@@ -509,30 +510,30 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: '#fff',
-    borderRadius: 8,
-    padding: 12,
+    borderRadius: 6,
+    padding: 6,
   },
   statItem: {
     alignItems: 'center',
   },
   statLabel: {
-    fontSize: 12,
+    fontSize: 11,
     color: '#666',
-    marginBottom: 4,
+    marginBottom: 2,
   },
   statValue: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
   },
   statDivider: {
     width: 1,
-    height: 24,
+    height: 20,
     backgroundColor: '#ddd',
   },
   detailsTitle: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
-    marginBottom: 12,
+    marginBottom: 8,
   },
 
   // さらに見るボタン
@@ -549,5 +550,3 @@ const styles = StyleSheet.create({
     fontSize: 14,
   }
 });
-
-export default BattleLog;

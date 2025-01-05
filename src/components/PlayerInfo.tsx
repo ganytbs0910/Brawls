@@ -236,16 +236,37 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
                     <Text style={styles.brawlerName} numberOfLines={1}>{brawler.name}</Text>
                   </View>
                   <View style={styles.brawlerDetails}>
-                    <Text style={styles.brawlerStat}>
-                      現在: {brawler.trophies.toLocaleString()}🏆
-                    </Text>
-                    <Text style={styles.brawlerStat}>
-                      最高: {brawler.highestTrophies.toLocaleString()}🏆
-                    </Text>
-                    {globalTopTrophies && (
-                      <Text style={[styles.brawlerStat, styles.globalTopTrophies]}>
-                        世界Top: {globalTopTrophies.toLocaleString()}🏆
+                    <View style={styles.statContainer}>
+                      <Image 
+                        source={require('../../assets/OtherIcon/trophy_Icon.png')}
+                        style={styles.trophyIcon}
+                        resizeMode="contain"
+                      />
+                      <Text style={styles.brawlerStat}>
+                        現在: {brawler.trophies.toLocaleString()}
                       </Text>
+                    </View>
+                    <View style={styles.statContainer}>
+                      <Image 
+                        source={require('../../assets/OtherIcon/trophy_Icon.png')}
+                        style={styles.trophyIcon}
+                        resizeMode="contain"
+                      />
+                      <Text style={styles.brawlerStat}>
+                        最高: {brawler.highestTrophies.toLocaleString()}
+                      </Text>
+                    </View>
+                    {globalTopTrophies && (
+                      <View style={styles.statContainer}>
+                        <Image 
+                          source={require('../../assets/OtherIcon/trophy_Icon.png')}
+                          style={styles.trophyIcon}
+                          resizeMode="contain"
+                        />
+                        <Text style={[styles.brawlerStat, styles.globalTopTrophies]}>
+                          世界Top: {globalTopTrophies.toLocaleString()}
+                        </Text>
+                      </View>
                     )}
                     <Text style={styles.brawlerStat}>
                       Rank {brawler.rank} / Pow {brawler.power}
@@ -278,12 +299,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   infoPairContainer: {
-    marginBottom: 12, // Reduced spacing between pair groups
+    marginBottom: 12,
   },
   infoPair: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 8, // Spacing between items within a pair
+    marginBottom: 8,
   },
   infoItem: {
     flex: 1,
@@ -347,12 +368,22 @@ const styles = StyleSheet.create({
   brawlerDetails: {
     gap: 4,
   },
+  statContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   brawlerStat: {
     fontSize: 13,
   },
   globalTopTrophies: {
     color: '#2196F3',
     fontWeight: '500',
+  },
+  trophyIcon: {
+    width: 16,
+    height: 16,
+    marginRight: 4,
+    marginBottom: 2,
   },
   rankingsLoading: {
     width: CARD_WIDTH,
