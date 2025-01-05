@@ -45,7 +45,7 @@ const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog })
 
   const renderResultIcon = (battle, index) => {
     const isVictory = (battle.battle?.result || '').toLowerCase() === 'victory';
-    const modeIcon = getModeIcon(battle.event?.mode);
+    const modeIcon = getModeIcon(battle.battle?.mode);
     return (
       <View 
         key={index}
@@ -105,33 +105,32 @@ const normalizeModeName = (modeName: string): string => {
   }
   
   const modeNameMapping: { [key: string]: string } = {
-    'Gem Grab': 'gemGrab',
-    'Brawl Ball': 'brawlBall',
-    'Bounty': 'bounty',
-    'Heist': 'heist',
-    'Hot Zone': 'hotZone',
-    'Wipe Out': 'wipeOut',
-    'Knockout': 'knockout',
-    'Duels': 'duels',
-    'Solo Showdown': 'soloShowdown',
-    'Duo Showdown': 'soloShowdown',
-    'Showdown': 'showdown'
-
+    'gemGrab': 'gemGrab',
+    'brawlBall': 'brawlBall',
+    'bounty': 'bounty',
+    'heist': 'heist',
+    'hotZone': 'hotZone',
+    'wipeOut': 'wipeOut',
+    'knockout': 'knockout',
+    'duels': 'duels',
+    'soloShowdown': 'soloShowdown',
+    'duoShowdown': 'duoShowdown',
+    'showdown': 'showdown',
+    'basketBrawl': 'basketBrawl'
   };
 
-  const directMapping = modeNameMapping[modeName];
-  if (directMapping) {
-    return directMapping;
-  }
+  // キャメルケースに変換
+  const camelCaseName = modeName.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => 
+    index === 0 ? letter.toLowerCase() : letter.toUpperCase()
+  ).replace(/\s+/g, '');
 
-  const existingKey = Object.keys(GAME_MODE_ICONS).find(key => 
-    key.toLowerCase() === modeName.toLowerCase()
-  );
-  if (existingKey) {
-    return existingKey;
-  }
+  const mappedName = modeNameMapping[camelCaseName] || camelCaseName;
   
-  return modeName;
+  const existingKey = Object.keys(GAME_MODE_ICONS).find(key => 
+    key.toLowerCase() === mappedName.toLowerCase()
+  );
+
+  return existingKey || mappedName;
 };
 
 const getPortraitSource = (brawlerName: string) => {
@@ -237,7 +236,7 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     
     const isVictory = (battle.battle.result || '').toLowerCase() === 'victory';
     const resultColor = isVictory ? VICTORY_COLOR : DEFEAT_COLOR;
-    const modeIcon = getModeIcon(battle.event?.mode);
+    const modeIcon = getModeIcon(battle.battle.mode);
     const isSoloRanked = battle.battle.type === 'soloRanked';
     
     return (
@@ -261,7 +260,7 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
                 />
               )}
               <Text style={styles.battleMode}>
-                {battle.event?.mode} - {battle.event?.map}
+                {battle.battle.mode} - {battle.event?.map}
                 {isSoloRanked && ' (Ranked)'}
               </Text>
             </View>
