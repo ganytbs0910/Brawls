@@ -25,6 +25,17 @@ const GAME_MODE_ICONS: { [key: string]: any } = {
   'basketBrawl': require('../../assets/GameModeIcons/basket_brawl_icon.png'),
 };
 
+// ランクアイコンのマッピング
+const RANK_ICONS = {
+  bronze: require('../../assets/GameModeIcons/rank_bronze.png'),
+  silver: require('../../assets/GameModeIcons/rank_silver.png'),
+  gold: require('../../assets/GameModeIcons/rank_gold.png'),
+  diamond: require('../../assets/GameModeIcons/rank_diamond.png'),
+  mythic: require('../../assets/GameModeIcons/rank_mythic.png'),
+  legendary: require('../../assets/GameModeIcons/rank_legendary.png'),
+  master: require('../../assets/GameModeIcons/rank_masters.png'),
+};
+
 interface BattleLogProps {
   battleLog: BattleLogItem[];
 }
@@ -33,6 +44,17 @@ const INITIAL_DISPLAY_COUNT = 5;
 const VICTORY_COLOR = '#4CAF50';
 const DEFEAT_COLOR = '#F44336';
 const STAR_PLAYER_COLOR = '#FFD700';
+
+// トロフィー数からランクアイコンを取得する関数
+const getRankIcon = (trophies: number) => {
+  if (trophies <= 3) return RANK_ICONS.bronze;
+  if (trophies <= 6) return RANK_ICONS.silver;
+  if (trophies <= 9) return RANK_ICONS.gold;
+  if (trophies <= 12) return RANK_ICONS.diamond;
+  if (trophies <= 15) return RANK_ICONS.mythic;
+  if (trophies <= 18) return RANK_ICONS.legendary;
+  return RANK_ICONS.master;
+};
 
 // BattleOverviewコンポーネント - 勝敗の概要を表示
 const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog }) => {
@@ -119,7 +141,6 @@ const normalizeModeName = (modeName: string): string => {
     'basketBrawl': 'basketBrawl'
   };
 
-  // キャメルケースに変換
   const camelCaseName = modeName.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => 
     index === 0 ? letter.toLowerCase() : letter.toUpperCase()
   ).replace(/\s+/g, '');
@@ -190,6 +211,7 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     const portraitSource = getPortraitSource(player.brawler.name);
     const isStarPlayer = battle.battle.starPlayer?.tag === player.tag;
     const isSoloRanked = battle.battle.type === 'soloRanked';
+    const rankIcon = getRankIcon(player.brawler.trophies);
     
     return (
       <View style={styles.playerContainer} key={player.tag}>
@@ -207,15 +229,36 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
               resizeMode="contain"
             />
           )}
-          <Text style={[
-            styles.trophies,
-            isSoloRanked && styles.rankedTrophies
-          ]}>
-            {isSoloRanked ? `${player.brawler.trophies}⭐` : `${player.brawler.trophies}🏆`}
-          </Text>
+          <View style={styles.trophyContainer}>
+            {isSoloRanked ? (
+              // ソロランク戦の場合はランクアイコンを表示
+              <Image 
+                source={rankIcon}
+                style={styles.trophyIcon}
+                resizeMode="contain"
+              />
+            ) : (
+              // 通常戦の場合はトロフィーアイコンを表示
+              <Image 
+                source={require('../../assets/OtherIcon/trophy_Icon.png')}
+                style={styles.trophyIcon}
+                resizeMode="contain"
+              />
+            )}
+            <Text style={[
+              styles.trophies,
+              isSoloRanked && styles.rankedTrophies
+            ]}>
+              {player.brawler.trophies}
+            </Text>
+          </View>
           {isStarPlayer && (
             <View style={styles.starBadge}>
-              <Text style={styles.starBadgeText}>⭐</Text>
+              <Image 
+                source={require('../../assets/OtherIcon/trophy_Icon.png')}
+                style={styles.starIcon}
+                resizeMode="contain"
+              />
             </View>
           )}
         </View>
@@ -261,7 +304,6 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
               )}
               <Text style={styles.battleMode}>
                 {battle.battle.mode} - {battle.event?.map}
-                {isSoloRanked}
               </Text>
             </View>
             <Text style={styles.battleTime}>
@@ -425,20 +467,42 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: STAR_PLAYER_COLOR,
   },
-  trophies: {
+  trophyContainer: {
     position: 'absolute',
-    top: -5,
-    left: -5,
+    top: -6,
+    left: -6,
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.9)',
     borderRadius: 10,
-    padding: 2,
-    fontSize: 10,
+    padding: 3,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 1,
+    elevation: 1,
+  },
+  trophyIcon: {
+    width: 14,
+    height: 14,
+    marginRight: 2,
+  },
+  trophies: {
+    fontSize: 12,
     fontWeight: 'bold',
   },
   rankedTrophies: {
-    backgroundColor: 'rgba(255, 215, 0, 0.9)',
     color: '#000',
     fontWeight: 'bold',
+  },
+  starIcon: {
+    width: 14,
+    height: 14,
   },
   starBadge: {
     position: 'absolute',
@@ -452,10 +516,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 2,
     borderColor: 'white',
-  },
-  starBadgeText: {
-    fontSize: 12,
-    color: 'white',
   },
   playerName: {
     fontSize: 12,
