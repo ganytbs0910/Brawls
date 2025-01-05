@@ -16,7 +16,7 @@ import type {
 import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages';
 
 const { width } = Dimensions.get('window');
-const CARD_WIDTH = (width - 48) / 3;
+const CARD_WIDTH = (width + 42) / 3;
 
 interface PlayerInfoProps {
   info: PlayerInfoType;
@@ -57,47 +57,56 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
   rankings,
   rankingsLoading
 }) => {
-  const infoItems = [
-    { 
-      label: '名前', 
-      value: info.name,
-      icon: require('../../assets/OtherIcon/name_icon.png')
-    },
-    { 
-      label: 'タグ', 
-      value: info.tag,
-      icon: require('../../assets/OtherIcon/Infor_Icon.png')
-    },
-    { 
-      label: '最高トロフィー', 
-      value: info.highestTrophies.toLocaleString(),
-      icon: require('../../assets/OtherIcon/trophy_Icon.png')
-    },
-    { 
-      label: '現在トロフィー', 
-      value: info.trophies.toLocaleString(),
-      icon: require('../../assets/OtherIcon/trophy_Icon.png')
-    },
-    { 
-      label: 'レベル', 
-      value: info.expLevel.toString(),
-      icon: require('../../assets/OtherIcon/ranking_Icon.png')
-    },
-    { 
-      label: '3vs3 勝利数', 
-      value: info['3vs3Victories'].toLocaleString(),
-      icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
-    },
-    { 
-      label: 'ソロ勝利数', 
-      value: info.soloVictories.toLocaleString(),
-      icon: require('../../assets/GameModeIcons/showdown_icon.png')
-    },
-    { 
-      label: 'デュオ勝利数', 
-      value: info.duoVictories.toLocaleString(),
-      icon: require('../../assets/GameModeIcons/duo_showdown_icon.png')
-    }
+  // Split player info into pairs for better grouping
+  const infoPairs = [
+    [
+      { 
+        label: '名前', 
+        value: info.name,
+        icon: require('../../assets/OtherIcon/name_icon.png')
+      },
+      { 
+        label: 'タグ', 
+        value: info.tag,
+        icon: require('../../assets/OtherIcon/Infor_Icon.png')
+      }
+    ],
+    [
+      { 
+        label: '最高トロフィー', 
+        value: info.highestTrophies.toLocaleString(),
+        icon: require('../../assets/OtherIcon/trophy_Icon.png')
+      },
+      { 
+        label: '現在トロフィー', 
+        value: info.trophies.toLocaleString(),
+        icon: require('../../assets/OtherIcon/trophy_Icon.png')
+      }
+    ],
+    [
+      { 
+        label: 'レベル', 
+        value: info.expLevel.toString(),
+        icon: require('../../assets/OtherIcon/ranking_Icon.png')
+      },
+      { 
+        label: '3vs3', 
+        value: info['3vs3Victories'].toLocaleString(),
+        icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
+      }
+    ],
+    [
+      { 
+        label: 'ソロ', 
+        value: info.soloVictories.toLocaleString(),
+        icon: require('../../assets/GameModeIcons/showdown_icon.png')
+      },
+      { 
+        label: 'デュオ', 
+        value: info.duoVictories.toLocaleString(),
+        icon: require('../../assets/GameModeIcons/duo_showdown_icon.png')
+      }
+    ]
   ];
 
   // IDでソートしたブロウラーリスト
@@ -126,22 +135,78 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
 
   return (
     <View style={styles.container}>
-      {/* プレイヤー基本情報 */}
-      <View style={styles.infoSection}>
-        <View style={styles.infoGrid}>
-          {infoItems.map((item, index) => (
-            <View key={index} style={styles.infoItem}>
-              <View style={styles.infoItemHeader}>
-                <Image 
-                  source={item.icon}
-                  style={styles.infoIcon}
-                  resizeMode="contain"
-                />
-                <Text style={styles.infoLabel}>{item.label}</Text>
+      {/* Player info grid with paired layout */}
+      <View style={styles.infoGrid}>
+        <View style={styles.infoPairContainer}>
+          {/* First pair group */}
+          <View style={styles.infoPair}>
+            {infoPairs[0].map((item, index) => (
+              <View key={index} style={styles.infoItem}>
+                <View style={styles.infoItemHeader}>
+                  <Image 
+                    source={item.icon}
+                    style={styles.infoIcon}
+                    resizeMode="contain"
+                  />
+                  <Text style={styles.infoLabel}>{item.label}</Text>
+                </View>
+                <Text style={styles.infoValue} numberOfLines={1}>{item.value}</Text>
               </View>
-              <Text style={styles.infoValue}>{item.value}</Text>
-            </View>
-          ))}
+            ))}
+          </View>
+          
+          {/* Second pair group */}
+          <View style={styles.infoPair}>
+            {infoPairs[1].map((item, index) => (
+              <View key={index} style={styles.infoItem}>
+                <View style={styles.infoItemHeader}>
+                  <Image 
+                    source={item.icon}
+                    style={styles.infoIcon}
+                    resizeMode="contain"
+                  />
+                  <Text style={styles.infoLabel}>{item.label}</Text>
+                </View>
+                <Text style={styles.infoValue} numberOfLines={1}>{item.value}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+
+        <View style={styles.infoPairContainer}>
+          {/* Third pair group */}
+          <View style={styles.infoPair}>
+            {infoPairs[2].map((item, index) => (
+              <View key={index} style={styles.infoItem}>
+                <View style={styles.infoItemHeader}>
+                  <Image 
+                    source={item.icon}
+                    style={styles.infoIcon}
+                    resizeMode="contain"
+                  />
+                  <Text style={styles.infoLabel}>{item.label}</Text>
+                </View>
+                <Text style={styles.infoValue} numberOfLines={1}>{item.value}</Text>
+              </View>
+            ))}
+          </View>
+          
+          {/* Fourth pair group */}
+          <View style={styles.infoPair}>
+            {infoPairs[3].map((item, index) => (
+              <View key={index} style={styles.infoItem}>
+                <View style={styles.infoItemHeader}>
+                  <Image 
+                    source={item.icon}
+                    style={styles.infoIcon}
+                    resizeMode="contain"
+                  />
+                  <Text style={styles.infoLabel}>{item.label}</Text>
+                </View>
+                <Text style={styles.infoValue} numberOfLines={1}>{item.value}</Text>
+              </View>
+            ))}
+          </View>
         </View>
       </View>
 
@@ -168,7 +233,7 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
                         resizeMode="contain"
                       />
                     )}
-                    <Text style={styles.brawlerName}>{brawler.name}</Text>
+                    <Text style={styles.brawlerName} numberOfLines={1}>{brawler.name}</Text>
                   </View>
                   <View style={styles.brawlerDetails}>
                     <Text style={styles.brawlerStat}>
@@ -206,27 +271,32 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  infoSection: {
-    marginBottom: 16,
-  },
   infoGrid: {
+    backgroundColor: '#f8f9fa',
+    borderRadius: 8,
+    padding: 16,
+    marginBottom: 20,
+  },
+  infoPairContainer: {
+    marginBottom: 12, // Reduced spacing between pair groups
+  },
+  infoPair: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
     justifyContent: 'space-between',
-    gap: 16,
+    marginBottom: 8, // Spacing between items within a pair
   },
   infoItem: {
-    width: '45%',
-    marginBottom: 12,
+    flex: 1,
+    paddingHorizontal: 4,
   },
   infoItemHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 4,
+    marginBottom: 2,
   },
   infoIcon: {
-    width: 20,
-    height: 20,
+    width: 24,
+    height: 24,
     marginRight: 8,
   },
   infoLabel: {
@@ -236,16 +306,16 @@ const styles = StyleSheet.create({
   infoValue: {
     fontSize: 16,
     fontWeight: '500',
-    marginLeft: 28,
+    marginLeft: 32,
   },
   sectionTitle: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: 16,
+    marginBottom: 12,
   },
   brawlerContainer: {
     flexGrow: 0,
-    paddingHorizontal: 16,
+    paddingHorizontal: 8,
   },
   brawlerColumn: {
     width: CARD_WIDTH,
@@ -255,22 +325,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
     borderRadius: 8,
     padding: 12,
-    marginBottom: 8,
+    marginBottom: 6,
     height: 160,
   },
   brawlerHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 10,
   },
   brawlerPortrait: {
-    width: 40,
-    height: 40,
+    width: 48,
+    height: 48,
     marginRight: 8,
-    borderRadius: 20,
+    borderRadius: 24,
   },
   brawlerName: {
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: 'bold',
     flex: 1,
   },
@@ -278,7 +348,7 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   brawlerStat: {
-    fontSize: 12,
+    fontSize: 13,
   },
   globalTopTrophies: {
     color: '#2196F3',
@@ -286,7 +356,7 @@ const styles = StyleSheet.create({
   },
   rankingsLoading: {
     width: CARD_WIDTH,
-    height: 160,
+    height: 180,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#f5f5f5',
