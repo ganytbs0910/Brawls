@@ -58,14 +58,46 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
   rankingsLoading
 }) => {
   const infoItems = [
-    { label: '名前', value: info.name },
-    { label: 'タグ', value: info.tag },
-    { label: '最高トロフィー', value: info.highestTrophies.toLocaleString() },
-    { label: '現在トロフィー', value: info.trophies.toLocaleString() },
-    { label: 'レベル', value: info.expLevel.toString() },
-    { label: '3vs3 勝利数', value: info['3vs3Victories'].toLocaleString() },
-    { label: 'ソロ勝利数', value: info.soloVictories.toLocaleString() },
-    { label: 'デュオ勝利数', value: info.duoVictories.toLocaleString() }
+    { 
+      label: '名前', 
+      value: info.name,
+      icon: require('../../assets/OtherIcon/name_icon.png')
+    },
+    { 
+      label: 'タグ', 
+      value: info.tag,
+      icon: require('../../assets/OtherIcon/Infor_Icon.png')
+    },
+    { 
+      label: '最高トロフィー', 
+      value: info.highestTrophies.toLocaleString(),
+      icon: require('../../assets/OtherIcon/trophy_Icon.png')
+    },
+    { 
+      label: '現在トロフィー', 
+      value: info.trophies.toLocaleString(),
+      icon: require('../../assets/OtherIcon/trophy_Icon.png')
+    },
+    { 
+      label: 'レベル', 
+      value: info.expLevel.toString(),
+      icon: require('../../assets/OtherIcon/ranking_Icon.png')
+    },
+    { 
+      label: '3vs3 勝利数', 
+      value: info['3vs3Victories'].toLocaleString(),
+      icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
+    },
+    { 
+      label: 'ソロ勝利数', 
+      value: info.soloVictories.toLocaleString(),
+      icon: require('../../assets/GameModeIcons/showdown_icon.png')
+    },
+    { 
+      label: 'デュオ勝利数', 
+      value: info.duoVictories.toLocaleString(),
+      icon: require('../../assets/GameModeIcons/duo_showdown_icon.png')
+    }
   ];
 
   // IDでソートしたブロウラーリスト
@@ -99,7 +131,14 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
         <View style={styles.infoGrid}>
           {infoItems.map((item, index) => (
             <View key={index} style={styles.infoItem}>
-              <Text style={styles.infoLabel}>{item.label}</Text>
+              <View style={styles.infoItemHeader}>
+                <Image 
+                  source={item.icon}
+                  style={styles.infoIcon}
+                  resizeMode="contain"
+                />
+                <Text style={styles.infoLabel}>{item.label}</Text>
+              </View>
               <Text style={styles.infoValue}>{item.value}</Text>
             </View>
           ))}
@@ -173,19 +212,31 @@ const styles = StyleSheet.create({
   infoGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    justifyContent: 'space-between',
     gap: 16,
   },
   infoItem: {
     width: '45%',
+    marginBottom: 12,
+  },
+  infoItemHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 4,
+  },
+  infoIcon: {
+    width: 20,
+    height: 20,
+    marginRight: 8,
   },
   infoLabel: {
     fontSize: 14,
     color: '#666',
-    marginBottom: 4,
   },
   infoValue: {
     fontSize: 16,
     fontWeight: '500',
+    marginLeft: 28,
   },
   sectionTitle: {
     fontSize: 18,
