@@ -107,7 +107,7 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
       </View>
 
       {/* ブロウラーリスト */}
-      <Text style={styles.sectionTitle}>ブロウラー一覧</Text>
+      <Text style={styles.sectionTitle}>キャラ一覧</Text>
       <ScrollView 
         horizontal 
         showsHorizontalScrollIndicator={false}

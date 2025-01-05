@@ -1,33 +1,138 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   Image,
+  TouchableOpacity,
 } from 'react-native';
-import type { BattleLogItem } from './hooks/useBrawlStarsApi';
+import type { BattleLogItem } from '../hooks/useBrawlStarsApi';
 import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages';
 
 // モードのアイコンマッピング
-const GAME_MODE_ICONS = {
-  'Gem Grab': require('../../assets/GameModeIcons/gem_grab_icon.png'),
-  'Brawl Ball': require('../../assets/GameModeIcons/brawl_ball_icon.png'),
-  'Bounty': require('../../assets/GameModeIcons/bounty_icon.png'),
-  'Heist': require('../../assets/GameModeIcons/heist_icon.png'),
-  'Hot Zone': require('../../assets/GameModeIcons/hot_zone_icon.png'),
-  'Wipe Out': require('../../assets/GameModeIcons/wipeout_icon.png'),
-  'Knockout': require('../../assets/GameModeIcons/knock_out_icon.png'),
-  'Duels': require('../../assets/GameModeIcons/duels_icon.png'),
-  'Showdown': require('../../assets/GameModeIcons/showdown_icon.png'),
+const GAME_MODE_ICONS: { [key: string]: any } = {
+  'gemGrab': require('../../assets/GameModeIcons/gem_grab_icon.png'),
+  'brawlBall': require('../../assets/GameModeIcons/brawl_ball_icon.png'),
+  'bounty': require('../../assets/GameModeIcons/bounty_icon.png'),
+  'heist': require('../../assets/GameModeIcons/heist_icon.png'),
+  'hotZone': require('../../assets/GameModeIcons/hot_zone_icon.png'),
+  'wipeOut': require('../../assets/GameModeIcons/wipeout_icon.png'),
+  'knockout': require('../../assets/GameModeIcons/knock_out_icon.png'),
+  'duels': require('../../assets/GameModeIcons/duels_icon.png'),
+  'soloShowdown': require('../../assets/GameModeIcons/showdown_icon.png'),
+  'duoShowdown': require('../../assets/GameModeIcons/showdown_icon.png'),
+  'showdown': require('../../assets/GameModeIcons/showdown_icon.png'),
+  'basketBrawl': require('../../assets/GameModeIcons/basket_brawl_icon.png'),
 };
 
 interface BattleLogProps {
   battleLog: BattleLogItem[];
 }
 
+const INITIAL_DISPLAY_COUNT = 5;
 const VICTORY_COLOR = '#4CAF50';
 const DEFEAT_COLOR = '#F44336';
 const STAR_PLAYER_COLOR = '#FFD700';
+
+// BattleOverviewコンポーネント - 勝敗の概要を表示
+const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog }) => {
+  if (!battleLog || !Array.isArray(battleLog)) return null;
+
+  const victories = battleLog.filter(b => 
+    (b.battle?.result || '').toLowerCase() === 'victory'
+  ).length;
+  const winRate = Math.round((victories / battleLog.length) * 100);
+
+  const renderResultIcon = (battle, index) => {
+    const isVictory = (battle.battle?.result || '').toLowerCase() === 'victory';
+    const modeIcon = getModeIcon(battle.event?.mode);
+    return (
+      <View 
+        key={index}
+        style={[
+          styles.resultIconContainer,
+          { backgroundColor: isVictory ? VICTORY_COLOR + '30' : DEFEAT_COLOR + '30' }
+        ]}
+      >
+        {modeIcon && (
+          <Image 
+            source={modeIcon} 
+            style={[
+              styles.resultModeIcon,
+              { opacity: isVictory ? 1 : 0.7 }
+            ]} 
+            resizeMode="contain"
+          />
+        )}
+      </View>
+    );
+  };
+
+  return (
+    <View style={styles.overviewContainer}>
+      <Text style={styles.overviewTitle}>試合結果サマリー</Text>
+      <View style={styles.resultsRow}>
+        {battleLog.map((battle, index) => renderResultIcon(battle, index))}
+      </View>
+      <View style={styles.statsContainer}>
+        <View style={styles.statItem}>
+          <Text style={styles.statLabel}>勝率</Text>
+          <Text style={styles.statValue}>{winRate}%</Text>
+        </View>
+        <View style={styles.statDivider} />
+        <View style={styles.statItem}>
+          <Text style={styles.statLabel}>勝利</Text>
+          <Text style={[styles.statValue, { color: VICTORY_COLOR }]}>{victories}</Text>
+        </View>
+        <View style={styles.statDivider} />
+        <View style={styles.statItem}>
+          <Text style={styles.statLabel}>敗北</Text>
+          <Text style={[styles.statValue, { color: DEFEAT_COLOR }]}>
+            {battleLog.length - victories}
+          </Text>
+        </View>
+      </View>
+    </View>
+  );
+};
+
+// モード名の正規化関数
+const normalizeModeName = (modeName: string): string => {
+  if (!modeName) return '';
+
+  if (GAME_MODE_ICONS.hasOwnProperty(modeName)) {
+    return modeName;
+  }
+  
+  const modeNameMapping: { [key: string]: string } = {
+    'Gem Grab': 'gemGrab',
+    'Brawl Ball': 'brawlBall',
+    'Bounty': 'bounty',
+    'Heist': 'heist',
+    'Hot Zone': 'hotZone',
+    'Wipe Out': 'wipeOut',
+    'Knockout': 'knockout',
+    'Duels': 'duels',
+    'Solo Showdown': 'soloShowdown',
+    'Duo Showdown': 'soloShowdown',
+    'Showdown': 'showdown'
+
+  };
+
+  const directMapping = modeNameMapping[modeName];
+  if (directMapping) {
+    return directMapping;
+  }
+
+  const existingKey = Object.keys(GAME_MODE_ICONS).find(key => 
+    key.toLowerCase() === modeName.toLowerCase()
+  );
+  if (existingKey) {
+    return existingKey;
+  }
+  
+  return modeName;
+};
 
 const getPortraitSource = (brawlerName: string) => {
   try {
@@ -59,20 +164,28 @@ const getPortraitSource = (brawlerName: string) => {
 
 const getModeIcon = (modeName: string) => {
   if (!modeName) return null;
-  return GAME_MODE_ICONS[modeName];
+  const normalizedName = normalizeModeName(modeName);
+  return GAME_MODE_ICONS[normalizedName];
 };
 
 export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
+  const [showAllBattles, setShowAllBattles] = useState(false);
+
   if (!battleLog || !Array.isArray(battleLog)) {
     return null;
   }
 
-  const recentBattles = battleLog.slice(0, 3);
-  const validBattles = recentBattles.filter(battle => 
+  const validBattles = battleLog.filter(battle => 
     battle?.battle?.teams && 
     Array.isArray(battle.battle.teams) && 
     battle.battle.teams.length >= 2
   );
+
+  const displayBattles = showAllBattles 
+    ? validBattles 
+    : validBattles.slice(0, INITIAL_DISPLAY_COUNT);
+
+  const remainingBattlesCount = validBattles.length - INITIAL_DISPLAY_COUNT;
 
   const renderPlayer = (player: BattleLogItem['battle']['teams'][0][0], battle: BattleLogItem) => {
     const portraitSource = getPortraitSource(player.brawler.name);
@@ -140,7 +253,13 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
           <View style={styles.battleInfo}>
             <View style={styles.modeContainer}>
               <View style={[styles.resultIndicator, { backgroundColor: resultColor }]} />
-              <Image source={modeIcon} style={styles.modeIcon} />
+              {modeIcon && (
+                <Image 
+                  source={modeIcon} 
+                  style={styles.modeIcon} 
+                  resizeMode="contain"
+                />
+              )}
               <Text style={styles.battleMode}>
                 {battle.event?.mode} - {battle.event?.map}
                 {isSoloRanked && ' (Ranked)'}
@@ -180,15 +299,31 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
 
   return (
     <View style={styles.container}>
-      {validBattles.map(renderBattleItem)}
+      <BattleOverview battleLog={battleLog} />
+      <Text style={styles.detailsTitle}>詳細な試合情報</Text>
+      {displayBattles.map(renderBattleItem)}
+      
+      {!showAllBattles && remainingBattlesCount > 0 && (
+        <TouchableOpacity 
+          style={styles.showMoreButton}
+          onPress={() => setShowAllBattles(true)}
+        >
+          <Text style={styles.showMoreText}>
+            さらに{remainingBattlesCount}件の記録を見る
+          </Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  // メインコンテナ
   container: {
     flex: 1,
   },
+
+  // 対戦カード関連
   battleCard: {
     borderRadius: 8,
     padding: 12,
@@ -217,7 +352,6 @@ const styles = StyleSheet.create({
   modeIcon: {
     width: 24,
     height: 24,
-    resizeMode: 'contain',
   },
   resultIndicator: {
     width: 8,
@@ -238,6 +372,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginLeft: 8,
   },
+
+  // チーム表示関連
   teamsContainer: {
     marginVertical: 8,
   },
@@ -255,6 +391,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#666',
   },
+
+  // プレイヤー表示関連
   playerContainer: {
     alignItems: 'center',
     width: '30%',
@@ -334,6 +472,83 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginVertical: 20,
   },
+
+  // 概要セクション
+  overviewContainer: {
+    backgroundColor: '#f8f9fa',
+    borderRadius: 8,
+    padding: 16,
+    marginBottom: 20,
+  },
+  overviewTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 12,
+  },
+  resultsRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    flexWrap: 'wrap',
+    gap: 8,
+    marginBottom: 16,
+  },
+  resultIconContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 8,
+    marginRight: 4,
+  },
+  resultModeIcon: {
+    width: '100%',
+    height: '100%',
+  },
+  statsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    padding: 12,
+  },
+  statItem: {
+    alignItems: 'center',
+  },
+  statLabel: {
+    fontSize: 12,
+    color: '#666',
+    marginBottom: 4,
+  },
+  statValue: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  statDivider: {
+    width: 1,
+    height: 24,
+    backgroundColor: '#ddd',
+  },
+  detailsTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 12,
+  },
+
+  // さらに見るボタン
+  showMoreButton: {
+    backgroundColor: '#f0f0f0',
+    padding: 12,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginVertical: 8,
+  },
+  showMoreText: {
+    color: '#2196F3',
+    fontWeight: 'bold',
+    fontSize: 14,
+  }
 });
 
 export default BattleLog;

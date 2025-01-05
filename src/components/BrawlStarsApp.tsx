@@ -115,7 +115,7 @@ export default function BrawlStarsApp() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Brawl Stars Analyzer</Text>
+        <Text style={styles.headerTitle}>プレイヤー分析</Text>
       </View>
 
       <SectionList
