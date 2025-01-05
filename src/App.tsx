@@ -3,7 +3,7 @@ import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image, Animated
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import BrawlStarsCompatibility from './components/BrawlStarsCompatibility';
+import BrawlStarsCompatibility from './components/BrawlStarsApp';
 import TeamBoard from './components/TeamBoard';
 import BrawlStarsRankings from './components/BrawlStarsRankings';
 import CharacterDetails from './components/CharacterDetails';

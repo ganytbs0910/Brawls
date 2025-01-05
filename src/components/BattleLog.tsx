@@ -5,46 +5,29 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
+import type { BattleLogItem } from './hooks/useBrawlStarsApi';
 import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages';
+
+// モードのアイコンマッピング
+const GAME_MODE_ICONS = {
+  'Gem Grab': require('../../assets/GameModeIcons/gem_grab_icon.png'),
+  'Brawl Ball': require('../../assets/GameModeIcons/brawl_ball_icon.png'),
+  'Bounty': require('../../assets/GameModeIcons/bounty_icon.png'),
+  'Heist': require('../../assets/GameModeIcons/heist_icon.png'),
+  'Hot Zone': require('../../assets/GameModeIcons/hot_zone_icon.png'),
+  'Wipe Out': require('../../assets/GameModeIcons/wipeout_icon.png'),
+  'Knockout': require('../../assets/GameModeIcons/knock_out_icon.png'),
+  'Duels': require('../../assets/GameModeIcons/duels_icon.png'),
+  'Showdown': require('../../assets/GameModeIcons/showdown_icon.png'),
+};
 
 interface BattleLogProps {
   battleLog: BattleLogItem[];
 }
 
-interface BattleLogItem {
-  battleTime: string;
-  event: {
-    id: number;
-    mode: string;
-    map: string;
-  };
-  battle: {
-    mode: string;
-    type: string;
-    result: string;
-    duration: number;
-    starPlayer: {
-      tag: string;
-      name: string;
-      brawler: {
-        id: number;
-        name: string;
-        power: number;
-        trophies: number;
-      }
-    };
-    teams: Array<Array<{
-      tag: string;
-      name: string;
-      brawler: {
-        id: number;
-        name: string;
-        power: number;
-        trophies: number;
-      }
-    }>>;
-  };
-}
+const VICTORY_COLOR = '#4CAF50';
+const DEFEAT_COLOR = '#F44336';
+const STAR_PLAYER_COLOR = '#FFD700';
 
 const getPortraitSource = (brawlerName: string) => {
   try {
@@ -74,77 +57,130 @@ const getPortraitSource = (brawlerName: string) => {
   }
 };
 
-export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
-  const recentBattles = battleLog.slice(0, 3);
+const getModeIcon = (modeName: string) => {
+  if (!modeName) return null;
+  return GAME_MODE_ICONS[modeName];
+};
 
-  const renderPlayer = (player: BattleLogItem['battle']['teams'][0][0]) => {
+export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
+  if (!battleLog || !Array.isArray(battleLog)) {
+    return null;
+  }
+
+  const recentBattles = battleLog.slice(0, 3);
+  const validBattles = recentBattles.filter(battle => 
+    battle?.battle?.teams && 
+    Array.isArray(battle.battle.teams) && 
+    battle.battle.teams.length >= 2
+  );
+
+  const renderPlayer = (player: BattleLogItem['battle']['teams'][0][0], battle: BattleLogItem) => {
     const portraitSource = getPortraitSource(player.brawler.name);
+    const isStarPlayer = battle.battle.starPlayer?.tag === player.tag;
+    const isSoloRanked = battle.battle.type === 'soloRanked';
     
     return (
       <View style={styles.playerContainer} key={player.tag}>
-        <View style={styles.portraitContainer}>
+        <View style={[
+          styles.portraitContainer,
+          isStarPlayer && styles.starPlayerPortraitContainer
+        ]}>
           {portraitSource && (
             <Image
               source={portraitSource}
-              style={styles.portrait}
+              style={[
+                styles.portrait,
+                isStarPlayer && styles.starPlayerPortrait
+              ]}
               resizeMode="contain"
             />
           )}
-          <Text style={styles.trophies}>
-            {player.brawler.trophies}🏆
+          <Text style={[
+            styles.trophies,
+            isSoloRanked && styles.rankedTrophies
+          ]}>
+            {isSoloRanked ? `${player.brawler.trophies}⭐` : `${player.brawler.trophies}🏆`}
           </Text>
+          {isStarPlayer && (
+            <View style={styles.starBadge}>
+              <Text style={styles.starBadgeText}>⭐</Text>
+            </View>
+          )}
         </View>
-        <Text style={styles.playerName} numberOfLines={1}>
+        <Text style={[
+          styles.playerName,
+          isStarPlayer && styles.starPlayerName
+        ]} numberOfLines={1}>
           {player.name}
         </Text>
       </View>
     );
   };
 
-  const renderBattleItem = (battle: BattleLogItem) => (
-    <View style={styles.battleCard} key={battle.battleTime}>
-      <View style={styles.battleHeader}>
-        <View style={styles.battleInfo}>
-          <Text style={styles.battleMode}>
-            {battle.event.mode} - {battle.event.map}
+  const renderBattleItem = (battle: BattleLogItem) => {
+    if (!battle?.battle?.teams || battle.battle.teams.length < 2) {
+      return null;
+    }
+    
+    const isVictory = (battle.battle.result || '').toLowerCase() === 'victory';
+    const resultColor = isVictory ? VICTORY_COLOR : DEFEAT_COLOR;
+    const modeIcon = getModeIcon(battle.event?.mode);
+    const isSoloRanked = battle.battle.type === 'soloRanked';
+    
+    return (
+      <View 
+        style={[
+          styles.battleCard,
+          { backgroundColor: resultColor + '15' },
+          isSoloRanked && styles.rankedBattleCard
+        ]} 
+        key={battle.battleTime}
+      >
+        <View style={styles.battleHeader}>
+          <View style={styles.battleInfo}>
+            <View style={styles.modeContainer}>
+              <View style={[styles.resultIndicator, { backgroundColor: resultColor }]} />
+              <Image source={modeIcon} style={styles.modeIcon} />
+              <Text style={styles.battleMode}>
+                {battle.event?.mode} - {battle.event?.map}
+                {isSoloRanked && ' (Ranked)'}
+              </Text>
+            </View>
+            <Text style={styles.battleTime}>
+              {new Date(battle.battleTime).toLocaleString()}
+            </Text>
+          </View>
+          <Text style={[styles.battleResult, { color: resultColor }]}>
+            {(battle.battle.result || 'Unknown').toUpperCase()}
           </Text>
-          <Text style={styles.battleTime}>
-            {new Date(battle.battleTime).toLocaleString()}
-          </Text>
         </View>
-        <Text 
-          style={[
-            styles.battleResult,
-            { color: battle.battle.result === 'victory' ? '#4CAF50' : '#F44336' }
-          ]}
-        >
-          {battle.battle.result.toUpperCase()}
-        </Text>
-      </View>
 
-      <View style={styles.teamsContainer}>
-        <View style={styles.teamRow}>
-          {battle.battle.teams[0].map(player => renderPlayer(player))}
-        </View>
-        <View style={styles.vsContainer}>
-          <Text style={styles.vsText}>VS</Text>
-        </View>
-        <View style={styles.teamRow}>
-          {battle.battle.teams[1].map(player => renderPlayer(player))}
+        <View style={styles.teamsContainer}>
+          <View style={styles.teamRow}>
+            {battle.battle.teams[0].map(player => renderPlayer(player, battle))}
+          </View>
+          <View style={styles.vsContainer}>
+            <Text style={styles.vsText}>VS</Text>
+          </View>
+          <View style={styles.teamRow}>
+            {battle.battle.teams[1].map(player => renderPlayer(player, battle))}
+          </View>
         </View>
       </View>
+    );
+  };
 
-      <View style={styles.starPlayerContainer}>
-        <Text style={styles.starPlayerText}>
-          ⭐ Star Player: {battle.battle.starPlayer.name}
-        </Text>
+  if (validBattles.length === 0) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.noDataText}>表示できる対戦記録がありません</Text>
       </View>
-    </View>
-  );
+    );
+  }
 
   return (
     <View style={styles.container}>
-      {recentBattles.map((battle) => renderBattleItem(battle))}
+      {validBattles.map(renderBattleItem)}
     </View>
   );
 };
@@ -154,12 +190,15 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   battleCard: {
-    backgroundColor: '#fff',
     borderRadius: 8,
     padding: 12,
     marginBottom: 12,
     borderWidth: 1,
     borderColor: '#eee',
+  },
+  rankedBattleCard: {
+    borderColor: '#FFD700',
+    borderWidth: 2,
   },
   battleHeader: {
     flexDirection: 'row',
@@ -169,6 +208,21 @@ const styles = StyleSheet.create({
   },
   battleInfo: {
     flex: 1,
+  },
+  modeContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  modeIcon: {
+    width: 24,
+    height: 24,
+    resizeMode: 'contain',
+  },
+  resultIndicator: {
+    width: 8,
+    height: 8,
+    borderRadius: 2,
   },
   battleMode: {
     fontSize: 14,
@@ -209,12 +263,29 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: 60,
     height: 60,
+    borderRadius: 30,
+  },
+  starPlayerPortraitContainer: {
+    padding: 2,
+    backgroundColor: STAR_PLAYER_COLOR,
+    shadowColor: STAR_PLAYER_COLOR,
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
+    elevation: 4,
   },
   portrait: {
     width: '100%',
     height: '100%',
     borderRadius: 30,
     backgroundColor: '#f5f5f5',
+  },
+  starPlayerPortrait: {
+    borderWidth: 2,
+    borderColor: STAR_PLAYER_COLOR,
   },
   trophies: {
     position: 'absolute',
@@ -226,21 +297,42 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: 'bold',
   },
+  rankedTrophies: {
+    backgroundColor: 'rgba(255, 215, 0, 0.9)',
+    color: '#000',
+    fontWeight: 'bold',
+  },
+  starBadge: {
+    position: 'absolute',
+    bottom: -5,
+    right: -5,
+    backgroundColor: STAR_PLAYER_COLOR,
+    borderRadius: 10,
+    width: 20,
+    height: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'white',
+  },
+  starBadgeText: {
+    fontSize: 12,
+    color: 'white',
+  },
   playerName: {
     fontSize: 12,
     marginTop: 4,
     textAlign: 'center',
   },
-  starPlayerContainer: {
-    marginTop: 4,
-    paddingTop: 4,
-    borderTopWidth: 1,
-    borderTopColor: '#eee',
+  starPlayerName: {
+    fontWeight: 'bold',
+    color: '#000',
   },
-  starPlayerText: {
-    fontSize: 12,
-    color: '#666',
+  noDataText: {
     textAlign: 'center',
+    color: '#666',
+    fontSize: 14,
+    marginVertical: 20,
   },
 });
 
