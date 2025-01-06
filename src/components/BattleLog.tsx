@@ -92,7 +92,6 @@ const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog })
 
   return (
     <View style={styles.overviewContainer}>
-      <Text style={styles.overviewTitle}>試合結果サマリー</Text>
       <View style={styles.resultsRow}>
         {battleLog.map((battle, index) => renderResultIcon(battle, index))}
       </View>
@@ -341,7 +340,7 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
   return (
     <View style={styles.container}>
       <BattleOverview battleLog={battleLog} />
-      <Text style={styles.detailsTitle}>詳細な試合情報</Text>
+      <Text style={styles.detailsTitle}>バトルの詳細</Text>
       {displayBattles.map(renderBattleItem)}
       
       {!showAllBattles && remainingBattlesCount > 0 && (

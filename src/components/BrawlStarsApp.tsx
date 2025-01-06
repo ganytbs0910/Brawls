@@ -30,7 +30,7 @@ export default function BrawlStarsApp() {
       const savedTag = await playerData.loadSavedTag();
       if (savedTag) {
         setPlayerTag(savedTag);
-        playerData.fetchPlayerData(savedTag);
+        //playerData.fetchPlayerData(savedTag);
       }
     };
 
@@ -60,7 +60,7 @@ export default function BrawlStarsApp() {
       },
       {
         type: 'battles',
-        title: '直近の対戦（最新3件）',
+        title: '直近の対戦',
         data: [playerData.data.battleLog]
       }
     ] : [])
