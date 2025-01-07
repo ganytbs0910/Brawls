@@ -23,6 +23,7 @@ const GAME_MODE_ICONS: { [key: string]: any } = {
   'duoShowdown': require('../../assets/GameModeIcons/showdown_icon.png'),
   'showdown': require('../../assets/GameModeIcons/showdown_icon.png'),
   'basketBrawl': require('../../assets/GameModeIcons/basket_brawl_icon.png'),
+  'payLoad': require('../../assets/GameModeIcons/payload_icon.png'),
 };
 
 // ランクアイコンのマッピング
@@ -137,7 +138,8 @@ const normalizeModeName = (modeName: string): string => {
     'soloShowdown': 'soloShowdown',
     'duoShowdown': 'duoShowdown',
     'showdown': 'showdown',
-    'basketBrawl': 'basketBrawl'
+    'basketBrawl': 'basketBrawl',
+    'payLoad': 'payLoad',
   };
 
   const camelCaseName = modeName.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => 

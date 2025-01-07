@@ -30,7 +30,7 @@ export default function BrawlStarsApp() {
       const savedTag = await playerData.loadSavedTag();
       if (savedTag) {
         setPlayerTag(savedTag);
-        //playerData.fetchPlayerData(savedTag);
+        playerData.fetchPlayerData(savedTag);
       }
     };
 
