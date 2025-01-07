@@ -161,18 +161,8 @@ export const usePlayerData = () => {
       await AsyncStorage.setItem('brawlStarsPlayerTag', tag);
       
       const [playerResponse, battleLogResponse] = await Promise.all([
-        fetch(`https://api.brawlstars.com/v1/players/${encodedTag}`, {
-          headers: {
-            'Authorization': `Bearer ${API_TOKEN}`,
-            'Accept': 'application/json'
-          }
-        }),
-        fetch(`https://api.brawlstars.com/v1/players/${encodedTag}/battlelog`, {
-          headers: {
-            'Authorization': `Bearer ${API_TOKEN}`,
-            'Accept': 'application/json'
-          }
-        })
+        fetch(`https://brawls-api-wrapper.onrender.com/api/players/${encodedTag}`),
+        fetch(`https://brawls-api-wrapper.onrender.com/api/battlelog/${encodedTag}`)
       ]);
 
       if (!playerResponse.ok || !battleLogResponse.ok) {
