@@ -69,67 +69,44 @@ const AllTipsScreen: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   );
 };
 
-// IAPの初期化関数
 const initializeIAP = async () => {
   try {
-    // シミュレーター判定（iOSの場合）
+    console.debug('Initializing IAP...');
+    console.debug('Platform:', Platform.OS);
+    console.debug('Is Simulator:', Platform.constants.isSimulator);
+    console.debug('Dev Mode:', __DEV__);
+
     if (Platform.OS === 'ios' && Platform.constants.isSimulator) {
       console.warn('Simulator detected: IAP might not work properly');
       return false;
     }
 
-    console.debug('Platform:', Platform.OS);
-    console.debug('Is Simulator:', Platform.constants.isSimulator);
-    console.debug('Dev Mode:', __DEV__);
-
-    // 接続の初期化
     const result = await initConnection();
-    
     if (!result) {
       console.warn('IAP initialization failed');
       return false;
     }
 
-    // プラットフォームに応じた追加の初期化処理
-    if (Platform.OS === 'ios') {
-      // iOS固有の初期化処理
-      try {
-        const receipt = await validateReceiptIos({
-          receiptBody: {
-            'receipt-data': ''
-          },
-          isTest: __DEV__, // 開発中はテストモード
-        });
-        console.log('iOS receipt validation success');
-      } catch (err) {
-        // レシート検証のエラーは無視可能
-        console.warn('iOS receipt validation failed:', err);
-      }
-    } else if (Platform.OS === 'android') {
-      // Android固有の初期化処理
-      try {
-        const result = await validateReceiptAndroid({
-          packageName: 'com.brawlstatus',
-          productId: AD_REMOVAL_SKU_ANDROID,
-          token: 'purchase.token'
-        });
-        console.log('Android receipt validation success');
-      } catch (err) {
-        // レシート検証のエラーは無視可能
-        console.warn('Android receipt validation failed:', err);
-      }
+    const skuId = Platform.select({
+      ios: AD_REMOVAL_SKU_IOS,
+      android: AD_REMOVAL_SKU_ANDROID
+    });
+
+    if (!skuId) {
+      console.error('Invalid platform - no SKU ID available');
+      return false;
     }
 
-    return true;
-  } catch (error) {
-    if (error.code === 'E_IAP_NOT_AVAILABLE') {
-      console.warn('IAP not available. Please check if:');
-      console.warn('- Device is not a simulator');
-      console.warn('- User is logged into App Store/Play Store');
-      console.warn('- Billing is enabled on the device');
-    } else {
-      console.error('Unknown IAP initialization error:', error);
+    try {
+      const products = await getProducts({ skus: [skuId] });
+      console.debug('Available products:', products);
+      return products.length > 0;
+    } catch (error) {
+      console.error('Failed to get products:', error);
+      return false;
     }
+  } catch (error) {
+    console.error('IAP initialization error:', error);
     return false;
   }
 };
@@ -148,7 +125,6 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   const [loading, setLoading] = useState(false);
   const [isIAPAvailable, setIsIAPAvailable] = useState(false);
 
-  // コンポーネントマウント時にIAP初期化
   useEffect(() => {
     const init = async () => {
       const available = await initializeIAP();
@@ -174,7 +150,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
     }
   };
 
-  const handlePurchaseAdRemoval = async () => {
+const handlePurchaseAdRemoval = async () => {
   if (loading || isAdFree || !isIAPAvailable) return;
 
   Alert.alert(
@@ -191,57 +167,68 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
           try {
             setLoading(true);
             
-            // プラットフォームに応じた商品IDを選択
             const skuId = Platform.select({
               ios: AD_REMOVAL_SKU_IOS,
               android: AD_REMOVAL_SKU_ANDROID
             });
 
             if (!skuId) {
-              console.error('Invalid platform or SKU ID not defined');
               throw new Error('Invalid platform');
             }
 
-            console.log('Requesting products with SKU:', skuId);
-            // 商品情報を取得
-            const products: Product[] = await getProducts({ skus: [skuId] });
-            console.log('Retrieved products:', products);
+            console.debug('Requesting products...');
+            const products = await getProducts({ skus: [skuId] });
+            console.debug('Retrieved products:', products);
             
-            if (products.length === 0) {
-              console.error('No products found for SKU:', skuId);
+            if (!products || products.length === 0) {
               throw new Error('Product not found');
             }
 
-            // 購入処理を実行
-            console.log('Initiating purchase for product:', products[0]);
-            const purchase = await requestPurchase(skuId);
-            console.log('Purchase response:', purchase);
+            console.debug('Initiating purchase...');
+            // 修正: requestPurchaseの引数を変更
+            const purchase = await requestPurchase({
+              sku: products[0].productId,
+              andDangerouslyFinishTransactionAutomatically: false // Android用
+            });
+            
+            console.debug('Purchase response:', purchase);
 
-            // トランザクションを完了
             if (purchase) {
-              console.log('Finishing transaction for purchase:', purchase);
-              await finishTransaction(purchase);
-              console.log('Transaction finished successfully');
+              console.debug('Finishing transaction...');
+              try {
+                // purchaseオブジェクトの存在を確認してからfinishTransactionを呼び出す
+                if (typeof purchase === 'object' && purchase !== null) {
+                  await finishTransaction({
+                    purchase: purchase,
+                    isConsumable: false
+                  });
+                  console.debug('Transaction finished successfully');
+                  
+                  // 購入成功後の処理
+                  setIsAdFree(true);
+                  await AsyncStorage.setItem('adFreeStatus', 'true');
+                  Alert.alert('完了', '広告の削除が完了しました！');
+                } else {
+                  throw new Error('Invalid purchase object');
+                }
+              } catch (finishError) {
+                console.error('Finish transaction error:', finishError);
+                // トランザクション完了のエラーを処理
+                throw finishError;
+              }
             }
-
-            // 購入成功後の処理
-            setIsAdFree(true);
-            await AsyncStorage.setItem('adFreeStatus', 'true');
-            Alert.alert('完了', '広告の削除が完了しました！');
 
           } catch (error) {
             console.error('Detailed purchase error:', error);
             console.error('Error type:', error.constructor.name);
             console.error('Error properties:', Object.keys(error));
             
-            // エラーメッセージをユーザーフレンドリーに変換
             let errorMessage = '購入処理に失敗しました。';
             if (error instanceof PurchaseError) {
-              console.log('PurchaseError code:', error.code);
+              console.debug('Purchase error code:', error.code);
               switch (error.code) {
                 case 'E_USER_CANCELLED':
-                  errorMessage = '購入がキャンセルされました。';
-                  break;
+                  return;
                 case 'E_ALREADY_OWNED':
                   errorMessage = 'すでに購入済みです。購入の復元をお試しください。';
                   break;
@@ -254,8 +241,6 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
                 default:
                   errorMessage = `購入処理中にエラーが発生しました。(${error.code})`;
               }
-            } else {
-              errorMessage = '予期せぬエラーが発生しました。App Storeに接続できているかご確認ください。';
             }
             Alert.alert('エラー', errorMessage);
           } finally {
@@ -272,8 +257,11 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
 
     try {
       setLoading(true);
+      console.debug('Restoring purchases...');
       
       const purchases = await getPurchases();
+      console.debug('Retrieved purchases:', purchases);
+      
       const adRemovalPurchase = purchases.find(
         purchase => purchase.productId === AD_REMOVAL_SKU_IOS || 
                    purchase.productId === AD_REMOVAL_SKU_ANDROID
@@ -428,28 +416,44 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
 
               <TouchableOpacity 
                 style={styles.settingsItem}
-                onPress={() => screen.type = 'privacy'}
+                onPress={() => {
+                  if (screen.type === 'settings') {
+                    screen.type = 'privacy';
+                  }
+                }}
               >
                 <Text style={styles.settingsItemText}>プライバシーポリシー</Text>
               </TouchableOpacity>
 
-<TouchableOpacity 
+              <TouchableOpacity 
                 style={styles.settingsItem}
-                onPress={() => screen.type = 'terms'}
+                onPress={() => {
+                  if (screen.type === 'settings') {
+                    screen.type = 'terms';
+                  }
+                }}
               >
                 <Text style={styles.settingsItemText}>利用規約</Text>
               </TouchableOpacity>
 
               <TouchableOpacity 
                 style={styles.settingsItem}
-                onPress={() => screen.type = 'allTips'}
+                onPress={() => {
+                  if (screen.type === 'settings') {
+                    screen.type = 'allTips';
+                  }
+                }}
               >
                 <Text style={styles.settingsItemText}>豆知識一覧</Text>
               </TouchableOpacity>
 
               <TouchableOpacity 
                 style={styles.settingsItem}
-                onPress={() => screen.type = 'punishmentGame'}
+                onPress={() => {
+                  if (screen.type === 'settings') {
+                    screen.type = 'punishmentGame';
+                  }
+                }}
               >
                 <Text style={styles.settingsItemText}>罰ゲーム</Text>
               </TouchableOpacity>
