@@ -328,20 +328,105 @@ export const heistMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "パイパー",
-        reason: "湖を挟んでの狙撃が有効",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "ダリル",
-        reason: "水路横断能力が高い",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "ペニー",
-        reason: "砲台での長距離攻撃",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -359,20 +444,105 @@ export const heistMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "コルト",
-        reason: "多彩なルート開拓",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "スパイク",
-        reason: "金庫への高火力",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "ペニー",
-        reason: "砲台での守備が有効",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -672,20 +842,105 @@ export const heistMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "バル",
-        reason: "近距離での制圧力",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "パイパー",
-        reason: "遠距離からの牽制",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "タラ",
-        reason: "中距離での影響力",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -809,20 +1064,105 @@ export const heistMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "スパイク",
-        reason: "金庫への高火力と地形活用",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "ブロック",
-        reason: "防衛壁の設置が効果的",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "バイロン",
-        reason: "チームサポートと長距離攻撃",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -840,20 +1180,105 @@ export const heistMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "ダリル",
-        reason: "水路を活用した奇襲が得意",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "ルー",
-        reason: "水上での機動力が高い",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "エメル",
-        reason: "広範囲での制圧が可能",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [

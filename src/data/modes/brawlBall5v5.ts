@@ -10,20 +10,105 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "エメル",
-        reason: "壁を利用したシュートが得意",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "モーティス",
-        reason: "高速なボール運びが可能",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "コルト",
-        reason: "壁破壊での新ルート作成",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
     tips: [
       "味方との連携を重視",
@@ -40,20 +125,105 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "ジーン",
-        reason: "敵の陣形を崩せる",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "タラ",
-        reason: "広範囲での制圧が可能",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "バイロン",
-        reason: "味方の回復とサポート",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -70,20 +240,106 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
     characteristics: ["特殊地形", "チーム戦", "慎重プレー"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {        name: "シェリー",
-        reason: "近距離での制圧力",
+      {
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "ジーン",
-        reason: "味方のサポートが可能",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "ローサ",
-        reason: "エリア確保が得意",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -101,20 +357,105 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "リコ",
-        reason: "壁の形状を活かした攻撃",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "エメル",
-        reason: "地形を利用した制圧",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "ナイタ",
-        reason: "形状を活かした包囲",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
     tips: [
       "壁の形状を把握する",
@@ -131,20 +472,105 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "タラ",
-        reason: "通路での制圧力が高い",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "ジーン",
-        reason: "敵の陣形を崩せる",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "バイロン",
-        reason: "広範囲のサポートが可能",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -162,19 +588,105 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "スパイク",        reason: "地形制御能力",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "バイロン",
-        reason: "味方のサポート",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "エメル",
-        reason: "正確な射撃能力",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -192,20 +704,105 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "タラ",
-        reason: "広範囲での制圧",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "ジーン",
-        reason: "地形を活かした引き込み",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "グロム",
-        reason: "地形を利用した攻撃",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [      "波紋状の地形を把握",
@@ -222,20 +819,105 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "エメル",
-        reason: "合流地点での制圧",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "バイロン",
-        reason: "広範囲サポート",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "ジーン",
-        reason: "要所での引き寄せ",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [

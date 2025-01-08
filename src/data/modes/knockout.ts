@@ -10,20 +10,105 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "シェリー",
-        reason: "近距離での火力が高く、カバー間の移動が得意",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "コルト",
-        reason: "壁破壊で地形を有利に変更可能",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "エドガー",
-        reason: "機動力を活かした接近戦が可能",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -41,20 +126,105 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "パイパー",
-        reason: "広い視界での狙撃が有効",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "スパイク",
-        reason: "壁を利用した牽制が強力",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "ジーン",
-        reason: "長距離から敵を引き寄せられる",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -163,20 +333,105 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "ボウ",
-        reason: "視界確保能力が必須",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "タラ",
-        reason: "広範囲攻撃で待ち伏せに対応",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "モーティス",
-        reason: "奇襲能力を活かせる",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -194,20 +449,105 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "エメル",
-        reason: "高所からの制圧が得意",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "リコ",
-        reason: "壁跳ね攻撃が有効",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "ペニー",
-        reason: "砲台設置で守りを固める",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -225,20 +565,105 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "ダリル",
-        reason: "島間の移動が得意",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "グロム",
-        reason: "島を跨いだ攻撃が可能",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "スプラウト",
-        reason: "壁で島を拡張できる",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -256,20 +681,105 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "ダリル",
-        reason: "川を横断する能力が優秀",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "バイロン",
-        reason: "味方の回復と遠距離攻撃",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "ボウ",
-        reason: "広い視界での制圧が可能",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -397,20 +907,105 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "ローサ",
-        reason: "森林での近接戦に強い",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "ボウ",
-        reason: "視界確保能力が必須",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "シェリー",
-        reason: "近距離での火力が有効",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -539,20 +1134,105 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "エメル",
-        reason: "高所からの制圧が最強",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "ダイナマイク",
-        reason: "異なる層への攻撃が得意",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "プリモ",
-        reason: "層を超えた移動が可能",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [

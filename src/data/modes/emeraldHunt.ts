@@ -86,20 +86,105 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "ボウ",
-        reason: "高所からの視界確保と攻撃が有効",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "モーティス",
-        reason: "素早い移動で分散したエメラルドを回収",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "コルト",
-        reason: "壁破壊で新たなルートを作れる",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -218,20 +303,105 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "エメル",
-        reason: "高所からの視界確保と制圧",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "グロム",
-        reason: "安全な距離からの攻撃",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "スプラウト",
-        reason: "壁でエメラルド防衛",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -249,20 +419,105 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "パイパー",
-        reason: "広い視界での狙撃",
+        name: "",
+        reason: "",
         power: 5
       },
       {
-        name: "パム",
-        reason: "回復とエリア制圧",
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
         power: 4
       },
       {
-        name: "ベル",
-        reason: "長距離からの牽制",
+        name: "",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -517,20 +772,105 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   difficulty: "Hard",
   recommendedBrawlers: [
     {
-      name: "スパイク",
-      reason: "地形を活かした攻撃が得意",
-      power: 5
-    },
-    {
-      name: "ローサ",
-      reason: "ブッシュでの待ち伏せが効果的",
-      power: 4
-    },
-    {
-      name: "リコ",
-      reason: "壁跳ね攻撃で死角をつく",
-      power: 4
-    }
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
   ],
   tips: [
     "サボテン付近での戦いに注意",
@@ -662,20 +1002,105 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   difficulty: "Medium",
   recommendedBrawlers: [
     {
-      name: "ボウ",
-      reason: "ブッシュチェックが得意",
-      power: 5
-    },
-    {
-      name: "シャリー",
-      reason: "近距離での強さを発揮",
-      power: 4
-    },
-    {
-      name: "エメル",
-      reason: "切り株を利用した狙撃が有効",
-      power: 4
-    }
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
   ],
   tips: [
     "ブッシュでの待ち伏せに注意",
@@ -692,20 +1117,105 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   difficulty: "Expert",
   recommendedBrawlers: [
     {
-      name: "グロム",
-      reason: "遠距離から安全に攻撃可能",
-      power: 5
-    },
-    {
-      name: "バル",
-      reason: "滑走を活かした素早い移動",
-      power: 4
-    },
-    {
-      name: "コルト",
-      reason: "壁破壊で地形を変化させられる",
-      power: 4
-    }
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
   ],
   tips: [
     "滑走による予期せぬ移動に注意",
