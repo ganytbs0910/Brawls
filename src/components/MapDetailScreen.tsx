@@ -33,6 +33,14 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
 }) => {
   const mapDetail = getMapDetails(mapName);
 
+  const groupBrawlersByPower = (brawlers: MapDetail['recommendedBrawlers']) => {
+    return {
+      optimal: brawlers.filter(b => b.power >= 4),
+      suitable: brawlers.filter(b => b.power >= 2 && b.power <= 3),
+      usable: brawlers.filter(b => b.power === 1)
+    };
+  };
+
   if (!mapDetail) {
     return (
       <View style={styles.container}>
@@ -45,6 +53,35 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
       </View>
     );
   }
+
+  const groupedBrawlers = groupBrawlersByPower(mapDetail.recommendedBrawlers);
+
+  const renderBrawlerSection = (title: string, brawlers: MapDetail['recommendedBrawlers'], backgroundColor: string) => (
+    <View style={[styles.brawlerSection, { backgroundColor }]}>
+      <Text style={styles.brawlerSectionTitle}>{title}</Text>
+      <View style={styles.brawlerGrid}>
+        {brawlers.map((brawler, index) => (
+          <TouchableOpacity
+            key={index}
+            style={styles.brawlerCard}
+            onPress={() => onCharacterPress?.(brawler.name)}
+            activeOpacity={0.7}
+          >
+            <View style={styles.brawlerCardContent}>
+              <CharacterImage
+                characterName={brawler.name}
+                size={40}
+                style={styles.brawlerImage}
+              />
+              <Text style={styles.brawlerName}>{brawler.name}</Text>
+              <Text style={styles.powerIndicator}>{brawler.power}/5</Text>
+              <Text style={styles.brawlerReason}>{brawler.reason}</Text>
+            </View>
+          </TouchableOpacity>
+        ))}
+      </View>
+    </View>
+  );
 
   return (
     <View style={styles.container}>
@@ -86,40 +123,18 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
         <Text style={styles.description}>{mapDetail.description}</Text>
 
         <Text style={styles.sectionTitle}>おすすめブロウラー</Text>
-        <View style={styles.brawlerList}>
-          {mapDetail.recommendedBrawlers.map((brawler, index) => (
-            <TouchableOpacity
-              key={index}
-              style={[
-                styles.brawlerItem,
-                brawler.power === 5 ? styles.brawlerPower5 :
-                brawler.power === 4 ? styles.brawlerPower4 :
-                brawler.power === 3 ? styles.brawlerPower3 :
-                brawler.power === 2 ? styles.brawlerPower2 :
-                styles.brawlerPower1
-              ]}
-              onPress={() => onCharacterPress?.(brawler.name)}
-              activeOpacity={0.7}
-            >
-              <View style={styles.brawlerRow}>
-                <CharacterImage
-                  characterName={brawler.name}
-                  size={48}
-                  style={styles.brawlerImage}
-                />
-                <View style={styles.brawlerContent}>
-                  <Text style={styles.brawlerName}>{brawler.name}</Text>
-                  {brawler.power && (
-                    <View style={styles.powerContainer}>
-                      <Text style={styles.powerText}>強さ: {brawler.power}/5</Text>
-                    </View>
-                  )}
-                  <Text style={styles.brawlerReason}>{brawler.reason}</Text>
-                </View>
-              </View>
-            </TouchableOpacity>
-          ))}
-        </View>
+        
+        {groupedBrawlers.optimal.length > 0 && (
+          renderBrawlerSection('最適性 (4-5点)', groupedBrawlers.optimal, '#FFF0F0')
+        )}
+        
+        {groupedBrawlers.suitable.length > 0 && (
+          renderBrawlerSection('適正 (2-3点)', groupedBrawlers.suitable, '#F0F7FF')
+        )}
+        
+        {groupedBrawlers.usable.length > 0 && (
+          renderBrawlerSection('使える (1点)', groupedBrawlers.usable, '#F5F5F5')
+        )}
 
         <Text style={styles.sectionTitle}>Tips</Text>
         {mapDetail.tips.map((tip, index) => (
@@ -246,69 +261,60 @@ const styles = StyleSheet.create({
     color: '#666',
     marginBottom: 16,
   },
-  brawlerList: {
+  brawlerSection: {
+    marginBottom: 16,
+    borderRadius: 12,
+    padding: 12,
+    width: '100%',
+  },
+  brawlerSectionTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 8,
+  },
+  brawlerGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
+    paddingHorizontal: 4,
   },
-  brawlerItem: {
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 12,
-    width: (Dimensions.get('window').width / 2) - 24,
+  brawlerCard: {
+    width: '32%',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 8,
+    padding: 8,
+    marginBottom: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
   },
-  brawlerPower5: {
-    backgroundColor: '#FFE0E0',  // 最強（5）- 赤系
-  },
-  brawlerPower4: {
-    backgroundColor: '#FFE8D6',  // 強い（4）- オレンジ系
-  },
-  brawlerPower3: {
-    backgroundColor: '#E8F4EA',  // 中程度（3）- 緑系
-  },
-  brawlerPower2: {
-    backgroundColor: '#E5F6FF',  // やや弱い（2）- 青系
-  },
-  brawlerPower1: {
-    backgroundColor: '#F0F0F0',  // 弱い（1）- グレー系
-  },
-  brawlerRow: {
-    flexDirection: 'column',
+  brawlerCardContent: {
     alignItems: 'center',
   },
   brawlerImage: {
-    marginRight: 12,
-    borderRadius: 24,
-  },
-  brawlerContent: {
-    flex: 1,
+    marginBottom: 4,
+    borderRadius: 20,
   },
   brawlerName: {
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: 'bold',
     color: '#333',
     textAlign: 'center',
-    marginTop: 8,
+    marginBottom: 2,
   },
-  powerContainer: {
-    backgroundColor: '#e0e0e0',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 12,
-    marginTop: 4,
-    alignSelf: 'center',
-  },
-  powerText: {
-    fontSize: 14,
+  powerIndicator: {
+    fontSize: 12,
     color: '#666',
-    fontWeight: 'bold',
+    marginBottom: 4,
   },
   brawlerReason: {
-    fontSize: 14,
+    fontSize: 12,
     color: '#666',
-    lineHeight: 20,
     textAlign: 'center',
-    marginTop: 8,
+    lineHeight: 16,
   },
   tipItem: {
     marginBottom: 12,

@@ -10,20 +10,65 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "ローサ",
-        reason: "高い耐久力でエメラルドを保持しやすい",
+        name: "ペニー",
+        reason: "味方の回復と通路での牽制が可能",
         power: 5
       },
       {
-        name: "タラ",
-        reason: "広範囲攻撃で敵を牽制しやすい",
+        name: "ラフス",
+        reason: "狭い通路での接近戦に強い",
+        power: 5
+      },
+      {
+        name: "ストゥー",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 5
+      },
+      {
+        name: "ジュジュ",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 5
+      },
+      {
+        name: "シェイド",
+        reason: "通路に爆弾を置いて進路を妨害",
         power: 4
       },
       {
-        name: "ジーン",
-        reason: "敵を引き寄せる能力で陣地の崩壊が可能",
-        power: 5
-      }
+        name: "マックス",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 4
+      },
+      {
+        name: "リコ",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 4
+      },
+      {
+        name: "タラ",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 4
+      },
+      {
+        name: "ガス",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 4
+      },
+      {
+        name: "MAX",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 4
+      },
+      {
+        name: "サンディー",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 4
+      },
+      {
+        name: "チェスター",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 4
+      },
     ],
 
     tips: [
@@ -235,20 +280,55 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "シェリー",
-        reason: "近接戦での強さ",
+        name: "ガス",
+        reason: "味方の回復と通路での牽制が可能",
         power: 5
       },
       {
-        name: "コルト",
-        reason: "壁破壊での地形操作",
+        name: "バイロン",
+        reason: "狭い通路での接近戦に強い",
+        power: 5
+      },
+      {
+        name: "エリザベス",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 5
+      },
+      {
+        name: "ペニー",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 5
+      },
+      {
+        name: "8ビット",
+        reason: "通路に爆弾を置いて進路を妨害",
         power: 4
       },
       {
-        name: "タラ",
-        reason: "通路での制圧力",
+        name: "アンバー",
+        reason: "通路に爆弾を置いて進路を妨害",
         power: 4
-      }
+      },
+      {
+        name: "ストゥー",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 4
+      },
+      {
+        name: "ベル",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 4
+      },
+      {
+        name: "ラフス",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 4
+      },
+      {
+        name: "リコ",
+        reason: "通路に爆弾を置いて進路を妨害",
+        power: 3
+      },
     ],
 
     tips: [

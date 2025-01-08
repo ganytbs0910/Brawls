@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   View, 
   Text, 
@@ -11,6 +11,18 @@ import {
   Platform
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {
+  initConnection,
+  purchaseProduct,
+  finishTransaction,
+  Product,
+  requestPurchase,
+  getProducts,
+  PurchaseError,
+  getPurchases,
+  validateReceiptIos,
+  validateReceiptAndroid
+} from 'react-native-iap';
 import { privacyPolicyContent } from '../contents/privacyPolicy';
 import { termsContent } from '../contents/terms';
 import { DAILY_TIPS } from '../components/DailyTip';
@@ -19,6 +31,10 @@ import AdMobService from '../services/AdMobService';
 import MapDetailScreen from './MapDetailScreen';
 import PunishmentGameScreen from './PunishmentGameScreen';
 import { MapDetail, ScreenType, ScreenState } from '../types';
+
+// 商品IDの定義
+const AD_REMOVAL_SKU_IOS = 'com.brawlstatus.adremoval';
+const AD_REMOVAL_SKU_ANDROID = 'brawl_status_ad_removal';
 
 interface SettingsScreenProps {
   screen: ScreenState;
@@ -53,6 +69,71 @@ const AllTipsScreen: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   );
 };
 
+// IAPの初期化関数
+const initializeIAP = async () => {
+  try {
+    // シミュレーター判定（iOSの場合）
+    if (Platform.OS === 'ios' && Platform.constants.isSimulator) {
+      console.warn('Simulator detected: IAP might not work properly');
+      return false;
+    }
+
+    console.debug('Platform:', Platform.OS);
+    console.debug('Is Simulator:', Platform.constants.isSimulator);
+    console.debug('Dev Mode:', __DEV__);
+
+    // 接続の初期化
+    const result = await initConnection();
+    
+    if (!result) {
+      console.warn('IAP initialization failed');
+      return false;
+    }
+
+    // プラットフォームに応じた追加の初期化処理
+    if (Platform.OS === 'ios') {
+      // iOS固有の初期化処理
+      try {
+        const receipt = await validateReceiptIos({
+          receiptBody: {
+            'receipt-data': ''
+          },
+          isTest: __DEV__, // 開発中はテストモード
+        });
+        console.log('iOS receipt validation success');
+      } catch (err) {
+        // レシート検証のエラーは無視可能
+        console.warn('iOS receipt validation failed:', err);
+      }
+    } else if (Platform.OS === 'android') {
+      // Android固有の初期化処理
+      try {
+        const result = await validateReceiptAndroid({
+          packageName: 'com.brawlstatus',
+          productId: AD_REMOVAL_SKU_ANDROID,
+          token: 'purchase.token'
+        });
+        console.log('Android receipt validation success');
+      } catch (err) {
+        // レシート検証のエラーは無視可能
+        console.warn('Android receipt validation failed:', err);
+      }
+    }
+
+    return true;
+  } catch (error) {
+    if (error.code === 'E_IAP_NOT_AVAILABLE') {
+      console.warn('IAP not available. Please check if:');
+      console.warn('- Device is not a simulator');
+      console.warn('- User is logged into App Store/Play Store');
+      console.warn('- Billing is enabled on the device');
+    } else {
+      console.error('Unknown IAP initialization error:', error);
+    }
+    return false;
+  }
+};
+
 export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   screen,
   onClose,
@@ -65,6 +146,16 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   onCharacterPress
 }) => {
   const [loading, setLoading] = useState(false);
+  const [isIAPAvailable, setIsIAPAvailable] = useState(false);
+
+  // コンポーネントマウント時にIAP初期化
+  useEffect(() => {
+    const init = async () => {
+      const available = await initializeIAP();
+      setIsIAPAvailable(available);
+    };
+    init();
+  }, []);
 
   const handleShare = async () => {
     try {
@@ -84,47 +175,113 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   };
 
   const handlePurchaseAdRemoval = async () => {
-    if (loading || isAdFree) return;
+  if (loading || isAdFree || !isIAPAvailable) return;
 
-    Alert.alert(
-      '広告削除の購入',
-      '¥240で広告を完全に削除します。\n購入を続けますか？',
-      [
-        {
-          text: 'キャンセル',
-          style: 'cancel'
-        },
-        {
-          text: '購入する',
-          onPress: async () => {
-            try {
-              setLoading(true);
-              // ここに実際の課金処理のコードを追加
-              // 成功したら以下を実行
-              setIsAdFree(true);
-              await AsyncStorage.setItem('adFreeStatus', 'true');
-              Alert.alert('完了', '広告の削除が完了しました！');
-            } catch (error) {
-              console.error('Purchase error:', error);
-              Alert.alert('エラー', '購入処理に失敗しました。');
-            } finally {
-              setLoading(false);
+  Alert.alert(
+    '広告削除の購入',
+    '¥240で広告を完全に削除します。\n購入を続けますか？',
+    [
+      {
+        text: 'キャンセル',
+        style: 'cancel'
+      },
+      {
+        text: '購入する',
+        onPress: async () => {
+          try {
+            setLoading(true);
+            
+            // プラットフォームに応じた商品IDを選択
+            const skuId = Platform.select({
+              ios: AD_REMOVAL_SKU_IOS,
+              android: AD_REMOVAL_SKU_ANDROID
+            });
+
+            if (!skuId) {
+              console.error('Invalid platform or SKU ID not defined');
+              throw new Error('Invalid platform');
             }
+
+            console.log('Requesting products with SKU:', skuId);
+            // 商品情報を取得
+            const products: Product[] = await getProducts({ skus: [skuId] });
+            console.log('Retrieved products:', products);
+            
+            if (products.length === 0) {
+              console.error('No products found for SKU:', skuId);
+              throw new Error('Product not found');
+            }
+
+            // 購入処理を実行
+            console.log('Initiating purchase for product:', products[0]);
+            const purchase = await requestPurchase(skuId);
+            console.log('Purchase response:', purchase);
+
+            // トランザクションを完了
+            if (purchase) {
+              console.log('Finishing transaction for purchase:', purchase);
+              await finishTransaction(purchase);
+              console.log('Transaction finished successfully');
+            }
+
+            // 購入成功後の処理
+            setIsAdFree(true);
+            await AsyncStorage.setItem('adFreeStatus', 'true');
+            Alert.alert('完了', '広告の削除が完了しました！');
+
+          } catch (error) {
+            console.error('Detailed purchase error:', error);
+            console.error('Error type:', error.constructor.name);
+            console.error('Error properties:', Object.keys(error));
+            
+            // エラーメッセージをユーザーフレンドリーに変換
+            let errorMessage = '購入処理に失敗しました。';
+            if (error instanceof PurchaseError) {
+              console.log('PurchaseError code:', error.code);
+              switch (error.code) {
+                case 'E_USER_CANCELLED':
+                  errorMessage = '購入がキャンセルされました。';
+                  break;
+                case 'E_ALREADY_OWNED':
+                  errorMessage = 'すでに購入済みです。購入の復元をお試しください。';
+                  break;
+                case 'E_NOT_PREPARED':
+                  errorMessage = 'ストアとの接続に失敗しました。後でもう一度お試しください。';
+                  break;
+                case 'E_PRODUCT_NOT_AVAILABLE':
+                  errorMessage = '現在この商品は購入できません。';
+                  break;
+                default:
+                  errorMessage = `購入処理中にエラーが発生しました。(${error.code})`;
+              }
+            } else {
+              errorMessage = '予期せぬエラーが発生しました。App Storeに接続できているかご確認ください。';
+            }
+            Alert.alert('エラー', errorMessage);
+          } finally {
+            setLoading(false);
           }
         }
-      ]
-    );
-  };
+      }
+    ]
+  );
+};
 
   const handleRestorePurchase = async () => {
-    if (loading || isAdFree) return;
+    if (loading || isAdFree || !isIAPAvailable) return;
 
     try {
       setLoading(true);
-      // ここに課金復元の処理を追加
-      const restoredStatus = await AsyncStorage.getItem('adFreeStatus');
-      if (restoredStatus === 'true') {
+      
+      const purchases = await getPurchases();
+      const adRemovalPurchase = purchases.find(
+        purchase => purchase.productId === AD_REMOVAL_SKU_IOS || 
+                   purchase.productId === AD_REMOVAL_SKU_ANDROID
+      );
+
+      if (adRemovalPurchase) {
         setIsAdFree(true);
+        await AsyncStorage.setItem('adFreeStatus', 'true');
         Alert.alert('完了', '広告削除の購入を復元しました！');
       } else {
         Alert.alert('お知らせ', '復元可能な購入が見つかりませんでした。');
@@ -147,6 +304,66 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
     if (adService.current) {
       await adService.current.showInterstitial();
     }
+  };
+
+  const renderPurchaseButton = () => {
+    if (!isIAPAvailable) {
+      return (
+        <TouchableOpacity 
+          style={[styles.settingsItem, styles.settingsItemDisabled]}
+          disabled={true}
+        >
+          <Text style={[styles.settingsItemText, styles.settingsItemTextDisabled]}>
+            {Platform.select({
+              ios: 'App Storeに接続できません',
+              android: 'Google Playに接続できません'
+            })}
+          </Text>
+        </TouchableOpacity>
+      );
+    }
+
+    return (
+      <TouchableOpacity 
+        style={[
+          styles.settingsItem,
+          (loading || isAdFree) && styles.settingsItemDisabled
+        ]}
+        onPress={handlePurchaseAdRemoval}
+        disabled={loading || isAdFree}
+      >
+        <Text style={[
+          styles.settingsItemText,
+          (loading || isAdFree) && styles.settingsItemTextDisabled
+        ]}>
+          {isAdFree ? '広告削除済み' : '広告を削除（¥240）'}
+          {loading && ' (処理中...)'}
+        </Text>
+      </TouchableOpacity>
+    );
+  };
+
+  const renderRestoreButton = () => {
+    if (!isIAPAvailable) return null;
+
+    return (
+      <TouchableOpacity 
+        style={[
+          styles.settingsItem,
+          (loading || isAdFree) && styles.settingsItemDisabled
+        ]}
+        onPress={handleRestorePurchase}
+        disabled={loading || isAdFree}
+      >
+        <Text style={[
+          styles.settingsItemText,
+          (loading || isAdFree) && styles.settingsItemTextDisabled
+        ]}>
+          課金を復元
+          {loading && ' (処理中...)'}
+        </Text>
+      </TouchableOpacity>
+    );
   };
 
   const renderScreenContent = (screen: ScreenState) => {
@@ -176,39 +393,8 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
                 <Text style={styles.settingsItemText}>共有</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity 
-                style={[
-                  styles.settingsItem,
-                  (loading || isAdFree) && styles.settingsItemDisabled
-                ]}
-                onPress={handlePurchaseAdRemoval}
-                disabled={loading || isAdFree}
-              >
-                <Text style={[
-                  styles.settingsItemText,
-                  (loading || isAdFree) && styles.settingsItemTextDisabled
-                ]}>
-                  {isAdFree ? '広告削除済み' : '広告を削除（¥240）'}
-                  {loading && ' (処理中...)'}
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity 
-                style={[
-                  styles.settingsItem,
-                  (loading || isAdFree) && styles.settingsItemDisabled
-                ]}
-                onPress={handleRestorePurchase}
-                disabled={loading || isAdFree}
-              >
-                <Text style={[
-                  styles.settingsItemText,
-                  (loading || isAdFree) && styles.settingsItemTextDisabled
-                ]}>
-                  課金を復元
-                  {loading && ' (処理中...)'}
-                </Text>
-              </TouchableOpacity>
+              {renderPurchaseButton()}
+              {renderRestoreButton()}
 
               {!isAdFree && (
                 <>
@@ -247,7 +433,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
                 <Text style={styles.settingsItemText}>プライバシーポリシー</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity 
+<TouchableOpacity 
                 style={styles.settingsItem}
                 onPress={() => screen.type = 'terms'}
               >

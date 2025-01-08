@@ -10,27 +10,23 @@ import {
   Platform
 } from 'react-native';
 import {
-  PurchasesPackage,
-  CustomerInfo,
-  purchasePackage,
-  PurchasesError,
-  configure,
-  getCustomerInfo,
-  checkTrialOrIntroductoryPriceEligibility
-} from 'react-native-purchases';
+  initConnection,
+  getProducts,
+  requestPurchase,
+  finishTransaction,
+  PurchaseError,
+  Product,
+  getPurchases
+} from 'react-native-iap';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// 定数定義
-const REVENUE_CAT_API_KEY = Platform.select({
-  ios: 'YOUR_IOS_KEY',
-  android: 'YOUR_ANDROID_KEY',
-}) ?? '';
+// 商品ID定義
+const AD_REMOVAL_SKU_IOS = 'com.brawlstatus.adremoval';
+const AD_REMOVAL_SKU_ANDROID = 'brawl_status_ad_removal';
 
 const PURCHASE_CONFIG = {
-  ENTITLEMENT_ID: 'ad_free',
-  PRODUCT_ID: 'ad_removal_240',
-  PRICE: 240,
-  PRICE_DISPLAY: '¥240',
+  PRICE: 200,
+  PRICE_DISPLAY: '¥200',
   PRODUCT_NAME: '広告削除パック',
 } as const;
 
@@ -39,43 +35,50 @@ const useAdRemoval = () => {
   const [isAdFree, setIsAdFree] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [products, setProducts] = useState<Product[]>([]);
 
   // 初期化
   useEffect(() => {
-    configure({
-      apiKey: REVENUE_CAT_API_KEY,
-      observerMode: false
-    });
-    checkStatus();
-  }, []);
+    const initIAP = async () => {
+      try {
+        console.log('[IAP] Starting initialization');
+        console.log('[IAP] Environment:', __DEV__ ? 'Sandbox' : 'Production');
+        
+        if (Platform.OS === 'ios' && Platform.constants.isSimulator) {
+          console.warn('[IAP] Running on Simulator - IAP may not work');
+        }
 
-  // 購入状態の確認
-  const checkStatus = async () => {
-    try {
-      setLoading(true);
-      const storedStatus = await AsyncStorage.getItem('adFreeStatus');
-      
-      if (storedStatus === 'true') {
-        setIsAdFree(true);
+        const result = await initConnection();
+        console.log('[IAP] Connection initialized:', result);
+
+        const skuId = Platform.select({
+          ios: AD_REMOVAL_SKU_IOS,
+          android: AD_REMOVAL_SKU_ANDROID
+        });
+
+        if (!skuId) {
+          throw new Error('Platform not supported');
+        }
+
+        // 利用可能な商品の確認
+        const availableProducts = await getProducts({ skus: [skuId] });
+        console.log('[IAP] Available products:', availableProducts);
+        setProducts(availableProducts);
+
+        // 購入状態の確認
+        const storedStatus = await AsyncStorage.getItem('adFreeStatus');
+        setIsAdFree(storedStatus === 'true');
+
+      } catch (error) {
+        console.error('[IAP] Initialization error:', error);
+        setError('初期化に失敗しました');
+      } finally {
         setLoading(false);
-        return;
       }
+    };
 
-      const customerInfo = await getCustomerInfo();
-      const isActive = customerInfo.entitlements.active[PURCHASE_CONFIG.ENTITLEMENT_ID] !== undefined;
-      
-      if (isActive) {
-        await AsyncStorage.setItem('adFreeStatus', 'true');
-        setIsAdFree(true);
-      }
-
-    } catch (err) {
-      console.error('Status check error:', err);
-      setError('ステータスの確認に失敗しました');
-    } finally {
-      setLoading(false);
-    }
-  };
+    initIAP();
+  }, []);
 
   // 広告削除の購入
   const purchaseAdRemoval = async () => {
@@ -83,32 +86,67 @@ const useAdRemoval = () => {
       setLoading(true);
       setError(null);
 
-      const customerInfo = await getCustomerInfo();
-      if (customerInfo.entitlements.active[PURCHASE_CONFIG.ENTITLEMENT_ID]) {
+      const skuId = Platform.select({
+        ios: AD_REMOVAL_SKU_IOS,
+        android: AD_REMOVAL_SKU_ANDROID
+      });
+
+      if (!skuId) {
+        throw new Error('Platform not supported');
+      }
+
+      console.log('[IAP] Starting purchase for SKU:', skuId);
+
+      // 商品情報の再確認
+      if (products.length === 0) {
+        const availableProducts = await getProducts({ skus: [skuId] });
+        console.log('[IAP] Available products:', availableProducts);
+        if (availableProducts.length === 0) {
+          throw new Error('Product not found');
+        }
+      }
+
+      // 購入リクエスト
+      const purchase = await requestPurchase({
+        sku: skuId,
+        andDangerouslyFinishTransactionAutomatically: false
+      });
+
+      console.log('[IAP] Purchase response:', purchase);
+
+      if (purchase) {
+        await finishTransaction(purchase);
+        await AsyncStorage.setItem('adFreeStatus', 'true');
         setIsAdFree(true);
         return true;
       }
 
-      const offerings = await purchasePackage({});
-      const package_ = offerings.current?.availablePackages[0];
-      
-      if (!package_) {
-        throw new Error('利用可能なパッケージがありません');
+      return false;
+
+    } catch (error) {
+      console.error('[IAP] Purchase error:', error);
+      let errorMessage = '購入処理に失敗しました。';
+
+      if (error instanceof PurchaseError) {
+        switch (error.code) {
+          case 'E_USER_CANCELLED':
+            return false;
+          case 'E_ALREADY_OWNED':
+            errorMessage = '既に購入済みです。購入の復元をお試しください。';
+            break;
+          case 'E_NETWORK_ERROR':
+            errorMessage = 'ネットワークエラーが発生しました。接続を確認してください。';
+            break;
+          default:
+            errorMessage = `購入エラー: ${error.code}`;
+        }
+      } else {
+        console.error('[IAP] Unexpected error:', error);
+        errorMessage = '予期せぬエラーが発生しました';
       }
 
-      const { customerInfo: updatedInfo } = await purchasePackage(package_);
-      const isActive = updatedInfo.entitlements.active[PURCHASE_CONFIG.ENTITLEMENT_ID] !== undefined;
-
-      if (isActive) {
-        await AsyncStorage.setItem('adFreeStatus', 'true');
-        setIsAdFree(true);
-      }
-
-      return isActive;
-    } catch (err) {
-      console.error('Purchase error:', err);
-      setError('購入処理に失敗しました');
-      throw err;
+      setError(errorMessage);
+      return false;
     } finally {
       setLoading(false);
     }
@@ -120,19 +158,26 @@ const useAdRemoval = () => {
       setLoading(true);
       setError(null);
 
-      const customerInfo = await getCustomerInfo();
-      const isActive = customerInfo.entitlements.active[PURCHASE_CONFIG.ENTITLEMENT_ID] !== undefined;
-      
-      if (isActive) {
+      console.log('[IAP] Starting purchase restoration');
+      const purchases = await getPurchases();
+      console.log('[IAP] Retrieved purchases:', purchases);
+
+      const hasAdRemoval = purchases.some(
+        purchase => purchase.productId === AD_REMOVAL_SKU_IOS || 
+                   purchase.productId === AD_REMOVAL_SKU_ANDROID
+      );
+
+      if (hasAdRemoval) {
         await AsyncStorage.setItem('adFreeStatus', 'true');
         setIsAdFree(true);
+        return true;
       }
 
-      return isActive;
-    } catch (err) {
-      console.error('Restore error:', err);
+      return false;
+    } catch (error) {
+      console.error('[IAP] Restore error:', error);
       setError('購入の復元に失敗しました');
-      throw err;
+      return false;
     } finally {
       setLoading(false);
     }
@@ -143,18 +188,18 @@ const useAdRemoval = () => {
     loading,
     error,
     purchaseAdRemoval,
-    restorePurchases,
-    checkStatus
+    restorePurchases
   };
 };
 
 // ボタンコンポーネント
-interface AdRemovalButtonProps {
-  style?: any;
-}
-
-export const AdRemovalButton: React.FC<AdRemovalButtonProps> = ({ style }) => {
-  const { isAdFree, loading, purchaseAdRemoval, restorePurchases } = useAdRemoval();
+export const AdRemovalButton: React.FC = () => {
+  const { 
+    isAdFree, 
+    loading, 
+    purchaseAdRemoval, 
+    restorePurchases 
+  } = useAdRemoval();
 
   const handlePress = async () => {
     if (isAdFree) return;
@@ -201,7 +246,7 @@ export const AdRemovalButton: React.FC<AdRemovalButtonProps> = ({ style }) => {
 
   return (
     <TouchableOpacity
-      style={[styles.button, style, (loading || isAdFree) && styles.disabled]}
+      style={[styles.button, (loading || isAdFree) && styles.disabled]}
       onPress={handlePress}
       disabled={loading || isAdFree}
     >
@@ -239,9 +284,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
-  },
+  }
 });
 
-// エクスポート
-export { useAdRemoval, PURCHASE_CONFIG };
 export default AdRemovalButton;
