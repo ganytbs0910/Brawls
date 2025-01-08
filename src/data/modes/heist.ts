@@ -328,104 +328,94 @@ export const heistMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "コルト",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "イヴ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ブロック",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ベル",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "8ビット",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "コレット",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ダリル",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "キット",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ビー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ナーニ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ペニー",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "MAX",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
-        power: 3
+        power: 2
       },
       {
-        name: "",
+        name: "メグ",
         reason: "",
-        power: 3
+        power: 2
       },
       {
-        name: "",
+        name: "カール",
         reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
+        power: 2
       },
     ],
 
@@ -444,104 +434,74 @@ export const heistMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "イヴ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "コルト",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ブロック",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "メロディー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ダリル",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ラリー&ローリー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "スプラウト",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "マンディ",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "ペニー",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ベル",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ジェシー",
         reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
+        power: 2
       },
     ],
 
@@ -842,102 +802,42 @@ export const heistMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ゲイル",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "グレイ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "フランケン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ラリー&ローリー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
+        name: "ルー",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "ミコ",
         reason: "",
         power: 3
       },
       {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
+        name: "キット",
         reason: "",
         power: 3
       },
@@ -1064,104 +964,85 @@ export const heistMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "コルト",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ブロック",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "8ビット",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "イヴ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ベル",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "コレット",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "リコ",
+        reason: "",
+        power: 4
+      },
+      
+      {
+        name: "バイロン",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "ボニー",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ラリー&ローリー",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ジェシー",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "カール",
         reason: "",
-        power: 3
+        power: 2
       },
       {
-        name: "",
+        name: "ミコ",
         reason: "",
-        power: 3
+        power: 2
       },
       {
-        name: "",
+        name: "ダリル",
         reason: "",
-        power: 3
+        power: 2
       },
     ],
 
@@ -1180,104 +1061,59 @@ export const heistMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ゲイル",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "イヴ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "シェイド",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
+        name: "グレイ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "コーデリアス",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "ケンジ",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "カール",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ミコ",
         reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
+        power: 2
       },
     ],
 

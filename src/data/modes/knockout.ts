@@ -10,102 +10,67 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "マンディ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ティック",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ナーニ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジーン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ベル",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "コルト",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ブロック",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "リコ",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "スプラウト",
         reason: "",
         power: 3
       },
       {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
+        name: "Mr.P",
         reason: "",
         power: 3
       },
@@ -126,97 +91,82 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "グレイ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ブロック",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "リコ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ラフス",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "カール",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "コルト",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "スプラウト",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ベル",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "マンディ",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ティック",
         reason: "",
         power: 3
       },
@@ -333,104 +283,39 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "R-T",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジーン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
+        name: "ティック",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
 
@@ -449,107 +334,61 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ジーン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "MAX",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "マンディ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "R-T",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "キット",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ナーニ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ベル",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
-
     tips: [
       "高所からの視界を活用",
       "中央の重要性を意識",
@@ -565,104 +404,74 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "イヴ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "マンディ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ベル",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "R-T",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ジーン",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ビー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "グレイ",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "ペニー",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ブロック",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "コルト",
         reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
+        power: 1
       },
     ],
 
@@ -681,104 +490,79 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "イヴ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "マンディ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ナーニ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ベル",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "R-T",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ジーン",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ジュジュ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ビー",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "ペニー",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ブロック",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "コルト",
         reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
+        power: 1
       },
     ],
 
@@ -907,7 +691,27 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ボウ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "バズ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ジャネット",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "バズ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "タラ",
         reason: "",
         power: 5
       },
@@ -922,89 +726,54 @@ export const knockoutMaps: Record<string, MapDetail> = {
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
+        name: "グロム",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "シェリー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "クロウ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "R-T",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ジーン",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "オーティス",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "バスター",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "スクウィーク",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "グリフ",
         reason: "",
-        power: 3
+        power: 2
       },
       {
-        name: "",
+        name: "リコ",
         reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
+        power: 2
       },
     ],
 
@@ -1134,102 +903,87 @@ export const knockoutMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "イヴ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "サンディ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "アンジェロ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ビビ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "タラ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "オーティス",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "モーティス",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "スクウィーク",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "カール",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ボウ",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ジャネット",
         reason: "",
         power: 3
       },
       {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
+        name: "スパイク",
         reason: "",
         power: 3
       },

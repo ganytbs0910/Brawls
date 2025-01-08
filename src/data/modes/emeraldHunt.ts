@@ -86,102 +86,67 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "R-T",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "リコ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "タラ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ドラコ",
         reason: "",
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
+        name: "ジャッキー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "スクウィーク",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ペニー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "シェイド",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "サンディ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ケンジ",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "パム",
         reason: "",
         power: 3
       },
       {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
+        name: "ジャネット",
         reason: "",
         power: 3
       },
@@ -303,104 +268,74 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ケンジ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "モーティス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "カール",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "グレイ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "イヴ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "MAX",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "アンバー",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ボウ",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "キット",
         reason: "",
-        power: 3
+        power: 2
       },
       {
-        name: "",
+        name: "レオン",
         reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
+        power: 2
       },
     ],
 
@@ -419,102 +354,82 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "パール",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "イヴ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "オーティス",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "スクウィーク",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "MAX",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "モーティス",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ペニー",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "レオン",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "カール",
         reason: "",
         power: 3
       },
       {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
+        name: "ビー",
         reason: "",
         power: 3
       },
@@ -772,102 +687,42 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   difficulty: "Hard",
   recommendedBrawlers: [
     {
-        name: "",
+        name: "ペニー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "8ビット",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
+        name: "MAX",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "スパイク",
         reason: "",
         power: 3
       },
       {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
+        name: "レオン",
         reason: "",
         power: 3
       },
@@ -889,11 +744,6 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     {
       name: "ジーン",
       reason: "レール間の素早い移動が可能",
-      power: 5
-    },
-    {
-      name: "チェスター",
-      reason: "広範囲攻撃で制圧が可能",
       power: 5
     },
     {
@@ -1002,104 +852,59 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   difficulty: "Medium",
   recommendedBrawlers: [
     {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "MAX",
         reason: "",
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
+        name: "ローラ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "オーティス",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "イヴ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ペニー",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "スクウィーク",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ジャネット",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ボウ",
         reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
+        power: 2
       },
   ],
   tips: [
@@ -1117,104 +922,59 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   difficulty: "Expert",
   recommendedBrawlers: [
     {
-        name: "",
+        name: "リコ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ラフス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "スクウィーク",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ペニー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "スプラウト",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ジーン",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "8ビット",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
   ],
   tips: [

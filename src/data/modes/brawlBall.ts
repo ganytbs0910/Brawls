@@ -10,104 +10,89 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     difficulty: "Easy",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "メロディー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "MAX",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ベル",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "カール",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ペニー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ビー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "フランケン",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "ローラ",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "イヴ",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ルー",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "サム",
         reason: "",
-        power: 3
+        power: 2
       },
       {
-        name: "",
+        name: "ファング",
         reason: "",
-        power: 3
+        power: 2
       },
       {
-        name: "",
+        name: "チャーリー",
         reason: "",
-        power: 3
+        power: 2
       },
     ],
     tips: [
@@ -125,20 +110,65 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "エメル",
-        reason: "ゴール前での守備力",
+        name: "ガス",
+        reason: "",
         power: 5
       },
       {
         name: "バイロン",
-        reason: "チームサポートと回復",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "エリザベス",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "MAX",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ジュジュ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ストゥー",
+        reason: "",
         power: 4
       },
       {
-        name: "ブル",
-        reason: "突破力とゴール前防衛",
+        name: "ブロック",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "カール",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "ビー",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "ボウ",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "グレイ",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "ベル",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -282,102 +312,107 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "サンディ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "Emz",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "カール",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "MAX",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "フランケン",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "リコ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ビビ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ビー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "コレット",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "バズ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "スクウィーク",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "オーティス",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "バスター",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "アンバー",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ジャネット",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ラリー&ローリー",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ベリー",
         reason: "",
         power: 3
       },
       {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
+        name: "イヴ",
         reason: "",
         power: 3
       },
@@ -503,104 +538,119 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ラリー&ローリー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バーリー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "フランケン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ビビ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "MAX",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "サージ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "サンディ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ダイナマイク",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ダリル",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "カール",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "コーデリアス",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "オーティス",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "タラ",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "リリー",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ウィロー",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ジャッキー",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "メイジー",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "シェイド",
         reason: "",
         power: 3
+      },
+      {
+        name: "モー",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "スクウィーク",
+        reason: "",
+        power: 2
       },
     ],
 
@@ -829,19 +879,80 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     difficulty: "Easy",
     recommendedBrawlers: [
       {
-        name: "モーティス",
-        reason: "高速な展開が可能",        power: 5
+        name: "サンディ",
+        reason: "",
+        power: 5
       },
       {
-        name: "エメル",
-        reason: "広範囲での制圧",
+        name: "ストゥー",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "カール",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "タラ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ジュジュ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ラリー&ローリー",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "バーリー",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "フランケン",
+        reason: "",
         power: 4
       },
       {
-        name: "ポコ",
-        reason: "チームサポート",
+        name: "ビビ",
+        reason: "",
         power: 4
-      }
+      },
+      {
+        name: "ニタ",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "ダイナマイク",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "コーデリアス",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "ケンジ",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "バイロン",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "オーティス",
+        reason: "",
+        power: 3
+      },
     ],
 
     tips: [
@@ -859,102 +970,102 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     difficulty: "Easy",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "サンディ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "カール",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "タラ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "リコ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ダリル",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ラリー&ローリー",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "バーリー",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "フランケン",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ビビ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "メイジー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "バスター",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ダイナマイク",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "コーデリアス",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "ケンジ",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ドラコ",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "モーティス",
         reason: "",
         power: 3
       },
       {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
+        name: "ボウ",
         reason: "",
         power: 3
       },
@@ -975,104 +1086,64 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "サンディ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "コーデリアス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "MAX",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "フランケン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ビビ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "モーティス",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "カール",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ダリル",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ニタ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "Emz",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
 
@@ -1091,104 +1162,64 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "コーデリアス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "サンディ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ニタ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ビビ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "サージ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "フランケン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ラリー&ローリー",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ジュジュ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "バーリー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "バスター",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "シェイド",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
 
