@@ -1,3 +1,4 @@
+//customRankings.ts
 import { CharacterData, RankingItem } from '../types/types';
 
 interface CustomRankingConfig {

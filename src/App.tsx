@@ -94,7 +94,7 @@ const App = () => {
     },
     {
       key: 'single',
-      label: 'キャラ相性',
+      label: 'プレイヤー分析',
       icon: require('../assets/AppIcon/compatibility.png'),
     },
     {

@@ -1,3 +1,4 @@
+//characterData.ts
 import { CharacterData } from '../types/types';
 import characterData from '../data/characterAPI.json';
 import { generateCustomRankings } from './customRankings';

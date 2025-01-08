@@ -8,15 +8,13 @@ import {
   Animated, 
   ScrollView, 
   Dimensions, 
-  Share, 
   SafeAreaView
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { RootStackParamList } from '../App';
-import { privacyPolicyContent } from '../contents/privacyPolicy';
-import { termsContent } from '../contents/terms';
-import { DailyTip, DAILY_TIPS } from '../components/DailyTip';
+import { DailyTip } from '../components/DailyTip';
 import { RewardedAd, RewardedAdEventType } from 'react-native-google-mobile-ads';
 import { AD_CONFIG } from '../config/AdConfig';
 import { 
@@ -26,45 +24,13 @@ import {
   getMapForDate 
 } from '../utils/gameData';
 import AdMobService from '../services/AdMobService';
-import { BannerAdComponent } from '../components/BannerAdComponent';
-import MapDetailScreen from './MapDetailScreen';
+import SettingsScreen from './SettingsScreen';
 import { MapDetail, GameMode, ScreenType, ScreenState } from '../types';
 import { getMapDetails } from '../data/mapDetails';
-import PunishmentGameScreen from './PunishmentGameScreen';
 
 type RankingsScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-
-interface MapDetailScreenProps {
-  mapName: string;
-  modeName: string;
-  modeColor: string;
-  modeIcon: any;
-  modeImage: any;
-  onClose: () => void;
-}
-
-const AllTipsScreen: React.FC<{ onClose: () => void }> = ({ onClose }) => {
-  return (
-    <View style={styles.settingsContainer}>
-      <View style={styles.settingsHeader}>
-        <Text style={styles.settingsTitle}>豆知識一覧</Text>
-        <TouchableOpacity onPress={onClose} style={styles.backButton}>
-          <Text style={styles.backButtonText}>←</Text>
-        </TouchableOpacity>
-      </View>
-      <ScrollView style={styles.contentContainer}>
-        {DAILY_TIPS.map((tip) => (
-          <View key={tip.id} style={styles.tipItem}>
-            <Text style={styles.tipItemTitle}>{tip.title}</Text>
-            <Text style={styles.tipItemContent}>{tip.content}</Text>
-          </View>
-        ))}
-      </ScrollView>
-    </View>
-  );
-};
 
 const Home: React.FC = () => {
   const navigation = useNavigation<RankingsScreenNavigationProp>();
@@ -74,7 +40,9 @@ const Home: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [isRewardedAdReady, setIsRewardedAdReady] = useState(false);
-  const [mapDetailProps, setMapDetailProps] = useState<Omit<MapDetailScreenProps, 'onClose'> | null>(null);
+  const [isAdFree, setIsAdFree] = useState(false);
+  const [mapDetailProps, setMapDetailProps] = useState<MapDetail | null>(null);
+
   const adService = useRef<AdMobService | null>(null);
 
   const rewarded = useRef(
@@ -105,57 +73,39 @@ const Home: React.FC = () => {
   }, [rewarded]);
 
   useEffect(() => {
-  // 1秒ごとに現在時刻を更新
-  const timer = setInterval(() => {
-    const now = new Date();
-    setCurrentTime(now);
-    
-    // 各モードの更新時刻をチェック
-    modes.forEach(mode => {
-      const updateTime = new Date(now);
-      updateTime.setHours(mode.updateTime, 0, 0, 0);
+    // 1秒ごとに現在時刻を更新
+    const timer = setInterval(() => {
+      const now = new Date();
+      setCurrentTime(now);
       
-      // 更新時刻になったらマップを更新
-      if (now.getTime() === updateTime.getTime()) {
-        // マップ更新のロジック
-        setSelectedDate(new Date()); // 現在日付に更新
-      }
-    });
-  }, 1000);
-
-  return () => clearInterval(timer);
-}, []);
-
-  const showRewardedAd = async () => {
-    if (isRewardedAdReady) {
-      await rewarded.show();
-      setIsRewardedAdReady(false);
-      rewarded.load();
-    }
-  };
-
-  const handleShare = async () => {
-    try {
-      const appStoreUrl = 'https://apps.apple.com/jp/app/brawl-status/id6738936691';
-      await Share.share({
-        message: 'ブロールスターズのマップ情報をチェックできるアプリ「Brawl Status」を見つけました！\n\nApp Storeからダウンロード：\n' + appStoreUrl,
-        url: appStoreUrl,
-        title: 'Brawl Status - マップ情報アプリ'
-      }, {
-        dialogTitle: 'Brawl Statusを共有',
-        subject: 'Brawl Status - ブロールスターズマップ情報アプリ',
-        tintColor: '#21A0DB'
+      // 各モードの更新時刻をチェック
+      modes.forEach(mode => {
+        const updateTime = new Date(now);
+        updateTime.setHours(mode.updateTime, 0, 0, 0);
+        
+        // 更新時刻になったらマップを更新
+        if (now.getTime() === updateTime.getTime()) {
+          setSelectedDate(new Date());
+        }
       });
-    } catch (error) {
-      console.error('Share error:', error);
-    }
-  };
+    }, 1000);
 
-  const handleSupportClick = async () => {
-    if (adService.current) {
-      await adService.current.showInterstitial();
-    }
-  };
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    // 広告削除状態を確認
+    const checkAdFreeStatus = async () => {
+      try {
+        const status = await AsyncStorage.getItem('adFreeStatus');
+        setIsAdFree(status === 'true');
+      } catch (error) {
+        console.error('Failed to check ad-free status:', error);
+      }
+    };
+
+    checkAdFreeStatus();
+  }, []);
 
   const handleMapClick = (mode: any) => {
     const mapDetail = getMapDetails(mode.currentMap);
@@ -331,117 +281,6 @@ const Home: React.FC = () => {
     }
   ];
 
-  const renderScreenContent = (screen: ScreenState) => {
-    switch (screen.type) {
-      case 'mapDetail':
-        return mapDetailProps ? (
-          <MapDetailScreen
-            {...mapDetailProps}
-            onClose={goBack}
-            onCharacterPress={handleCharacterPress}
-          />
-        ) : null;
-      case 'settings':
-        return (
-          <View style={styles.settingsContainer}>
-            <View style={styles.settingsHeader}>
-              <Text style={styles.settingsTitle}>設定</Text>
-              <TouchableOpacity onPress={goBack} style={styles.backButton}>
-                <Text style={styles.backButtonText}>←</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.settingsContent}>
-              <TouchableOpacity 
-                style={styles.settingsItem}
-                onPress={handleShare}
-              >
-                <Text style={styles.settingsItemText}>共有</Text>
-              </TouchableOpacity>
-              <TouchableOpacity 
-                style={styles.settingsItem}
-                onPress={handleSupportClick}
-              >
-                <Text style={styles.settingsItemText}>広告を見て支援する（小）</Text>
-              </TouchableOpacity>
-              <TouchableOpacity 
-                style={[
-                  styles.settingsItem,
-                  !isRewardedAdReady && styles.settingsItemDisabled
-                ]}
-                onPress={showRewardedAd}
-                disabled={!isRewardedAdReady}
-              >
-                <Text style={[
-                  styles.settingsItemText,
-                  !isRewardedAdReady && styles.settingsItemTextDisabled
-                ]}>
-                  広告を見て支援する（大）
-                  {!isRewardedAdReady && ' (準備中)'}
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity 
-                style={styles.settingsItem}
-                onPress={() => showScreen('privacy')}>
-                <Text style={styles.settingsItemText}>プライバシーポリシー</Text>
-              </TouchableOpacity>
-              <TouchableOpacity 
-                style={styles.settingsItem}
-                onPress={() => showScreen('terms')}
-              >
-                <Text style={styles.settingsItemText}>利用規約</Text>
-              </TouchableOpacity>
-              <TouchableOpacity 
-                style={styles.settingsItem}
-                onPress={() => showScreen('allTips')}
-              >
-                <Text style={styles.settingsItemText}>豆知識一覧</Text>
-              </TouchableOpacity>
-              <TouchableOpacity 
-                style={styles.settingsItem}
-                onPress={() => showScreen('punishmentGame')}
-              >
-                <Text style={styles.settingsItemText}>罰ゲーム</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        );
-      case 'privacy':
-        return (
-          <View style={styles.settingsContainer}>
-            <View style={styles.settingsHeader}>
-              <Text style={styles.settingsTitle}>プライバシーポリシー</Text>
-              <TouchableOpacity onPress={goBack} style={styles.backButton}>
-                <Text style={styles.backButtonText}>←</Text>
-              </TouchableOpacity>
-            </View>
-            <ScrollView style={styles.contentContainer}>
-              <Text style={styles.contentText}>{privacyPolicyContent}</Text>
-            </ScrollView>
-          </View>
-        );
-      case 'terms':
-        return (
-          <View style={styles.settingsContainer}>
-            <View style={styles.settingsHeader}>
-              <Text style={styles.settingsTitle}>利用規約</Text>
-              <TouchableOpacity onPress={goBack} style={styles.backButton}>
-                <Text style={styles.backButtonText}>←</Text>
-              </TouchableOpacity>
-            </View>
-            <ScrollView style={styles.contentContainer}>
-              <Text style={styles.contentText}>{termsContent}</Text>
-            </ScrollView>
-          </View>
-        );
-      case 'allTips':
-        return <AllTipsScreen onClose={goBack} />;
-      case 'punishmentGame':
-        return <PunishmentGameScreen onClose={goBack} />;
-      default:
-        return null;
-    }
-  };
-
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
@@ -516,17 +355,18 @@ const Home: React.FC = () => {
 
         {screenStack.map((screen, index) => (
           index > 0 && (
-            <Animated.View 
+            <SettingsScreen
               key={`${screen.type}-${screen.zIndex}`}
-              style={[
-                styles.settingsOverlay,
-                {
-                  transform: [{ translateX: screen.translateX }],
-                  zIndex: screen.zIndex
-                },
-              ]}>
-              {renderScreenContent(screen)}
-            </Animated.View>
+              screen={screen}
+              onClose={goBack}
+              isAdFree={isAdFree}
+              setIsAdFree={setIsAdFree}
+              isRewardedAdReady={isRewardedAdReady}
+              rewarded={rewarded}
+              adService={adService}
+              mapDetailProps={mapDetailProps}
+              onCharacterPress={handleCharacterPress}
+            />
           )
         ))}
       </View>
@@ -568,72 +408,6 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-  },
-  settingsOverlay: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    bottom: 0,
-    width: '100%',
-    backgroundColor: '#fff',
-  },
-  settingsContainer: {
-    flex: 1,
-  },
-  settingsHeader: {
-    height: 60,
-    backgroundColor: '#21A0DB',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    paddingHorizontal: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#4FA8D6',
-  },
-  settingsTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#fff',
-    flex: 1,
-    textAlign: 'center',
-  },
-  settingsContent: {
-    flex: 1,
-  },
-  settingsItem: {
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  settingsItemDisabled: {
-    opacity: 0.5,
-  },
-  settingsItemText: {
-    fontSize: 16,
-  },
-  settingsItemTextDisabled: {
-    color: '#999',
-  },
-  backButton: {
-    position: 'absolute',
-    left: 16,
-    padding: 8,
-  },
-  backButtonText: {
-    fontSize: 24,
-    color: '#fff',
-  },
-  contentContainer: {
-    flex: 1,
-    padding: 16,
-  },
-  contentText: {
-    fontSize: 16,
-    lineHeight: 24,
   },
   modeContainer: {
     padding: 8,
@@ -728,29 +502,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 80,
     borderRadius: 8,
-  },
-  rotatingNote: {
-    color: '#666',
-    fontSize: 10,
-    marginTop: 4,
-    textAlign: 'center',
-  },
-  tipItem: {
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
-  },
-  tipItemTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 8,
-    color: '#333',
-  },
-  tipItemContent: {
-    fontSize: 14,
-    lineHeight: 20,
-    color: '#666',
-  },
+  }
 });
 
 export default Home;
