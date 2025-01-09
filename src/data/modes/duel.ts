@@ -10,104 +10,49 @@ export const duelMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ベル",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "マンディ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "R-T",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ティック",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
 
@@ -126,104 +71,69 @@ export const duelMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "マンディ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ナーニ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "R-T",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ベル",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ジーン",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ティック",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "スプラウト",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "グロム",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
 
@@ -242,104 +152,39 @@ export const duelMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "キット",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ミコ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "リリー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "Max",
         reason: "",
         power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
 
@@ -358,104 +203,49 @@ export const duelMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "アンバー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バスター",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "Max",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バズ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "R-T",
         reason: "",
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
+        name: "クロウ",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "オーティス",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "スクウィーク",
         reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
+        power: 2
       },
     ],
 
@@ -474,102 +264,57 @@ export const duelMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ペニー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ラリー&ローリー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "グレイ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ブロック",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "ベル",
         reason: "",
         power: 3
       },
       {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
+        name: "ジーン",
         reason: "",
         power: 3
       },
@@ -590,104 +335,34 @@ export const duelMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "キット",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ミコ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "リリー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "Max",
         reason: "",
         power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
 
@@ -706,104 +381,44 @@ export const duelMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ペニー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "ベル",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "ジーン",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "Max",
         reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
+        power: 2
       },
     ],
 
@@ -822,104 +437,39 @@ export const duelMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
+        name: "ブロック",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
 
@@ -938,104 +488,34 @@ export const duelMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "キット",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ミコ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "リリー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "Max",
         reason: "",
         power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
 
@@ -1054,104 +534,34 @@ export const duelMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ボウ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "タラ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バズ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジャネット",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "グロム",
         reason: "",
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
+        name: "シェリー",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
 
@@ -1170,104 +580,59 @@ export const duelMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "マンディ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ナーニ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "R-T",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ベル",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ジーン",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ティック",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
 
@@ -1468,104 +833,49 @@ export const duelMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "キット",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ミコ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "リリー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "Max",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "イヴ",
         reason: "",
-        power: 4
+        power: 5
       },
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
+        power: 5
       },
     ],
 
@@ -1584,104 +894,64 @@ export const duelMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "マンディ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ナーニ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "R-T",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "イヴ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ベル",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ジーン",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ティック",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
 
@@ -1700,104 +970,59 @@ export const duelMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "マンディ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バイロン",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ナーニ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "R-T",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ベル",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ブロック",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "ジーン",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "コルト",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
 
@@ -1816,102 +1041,123 @@ export const duelMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "シェリー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ボウ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "アンバー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ブロック",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "リリー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "コーデリアス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "オーティス",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
+        name: "スクウィーク",
         reason: "",
         power: 3
       },
       {
-        name: "",
+        name: "パム",
+        reason: "",
+        power: 3
+      },
+    ],
+
+    tips: [
+      "適切な距離を保つ",
+      "カバーの効率的な活用",
+      "相手の動きを予測"
+    ]
+  },
+  "レイヤーケーキ": {
+    id: "du_layer_bake",
+    name: "レイヤーケーキ",
+    mode: "duel",
+    description: "広大な入り口から始まる1vs1マップ。開放感のある地形での戦術が求められます。",
+    characteristics: ["開放地形", "距離管理", "エリア支配"],
+    difficulty: "Medium",
+    recommendedBrawlers: [
+      {
+        name: "ジュジュ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ジーン",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ボウ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "スプラウト",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "ガス",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "アンジェロ",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "イヴ",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "グロム",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "グレイ",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "スクウィーク",
         reason: "",
         power: 3
       },
       {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
+        name: "ペニー",
         reason: "",
         power: 3
       },

@@ -19,29 +19,65 @@ import {
 
 export default function BrawlStarsApp() {
   const [playerTag, setPlayerTag] = useState('');
+  const [isInitialized, setIsInitialized] = useState(false);
   const brawlersData = useBrawlersData();
   const playerData = usePlayerData();
   const rankingsData = useGlobalRankings();
 
+  // アプリの初期化処理
   useEffect(() => {
-    brawlersData.fetchBrawlers();
-    
     const initializeApp = async () => {
-      const savedTag = await playerData.loadSavedTag();
-      if (savedTag) {
-        setPlayerTag(savedTag);
-        playerData.fetchPlayerData(savedTag);
+      try {
+        // brawlersデータの取得を開始
+        const brawlersPromise = brawlersData.fetchBrawlers();
+        
+        // 保存されたプレイヤータグの取得
+        const savedTag = await playerData.loadSavedTag();
+        if (savedTag) {
+          setPlayerTag(savedTag);
+          // プレイヤーデータの取得を開始
+          const playerPromise = playerData.fetchPlayerData(savedTag);
+          
+          // 両方のデータ取得を待機
+          await Promise.all([brawlersPromise, playerPromise]);
+        } else {
+          // タグがない場合はbrawlersデータの取得のみ待機
+          await brawlersPromise;
+        }
+        
+        setIsInitialized(true);
+      } catch (error) {
+        console.error('Initialization error:', error);
+        setIsInitialized(true);
       }
     };
 
     initializeApp();
   }, []);
 
+  // rankingsデータの取得を最適化
   useEffect(() => {
-    if (brawlersData.data) {
-      rankingsData.fetchGlobalRankings(brawlersData.data);
+    if (isInitialized && brawlersData.data) {
+      // チャンク単位でrankingsを取得
+      const fetchRankingsInChunks = async () => {
+        const CHUNK_SIZE = 5; // 一度に取得するbrawler数
+        const brawlers = [...brawlersData.data];
+        
+        for (let i = 0; i < brawlers.length; i += CHUNK_SIZE) {
+          const chunk = brawlers.slice(i, i + CHUNK_SIZE);
+          await rankingsData.fetchGlobalRankings(chunk);
+          
+          // ユーザーが画面を見ているときのみ次のチャンクを取得
+          if (document.visibilityState === 'visible') {
+            // 次のチャンクまでの短い待機時間
+            await new Promise(resolve => setTimeout(resolve, 100));
+          }
+        }
+      };
+
+      fetchRankingsInChunks();
     }
-  }, [brawlersData.data]);
+  }, [isInitialized, brawlersData.data]);
 
   const sections = [
     {
@@ -159,24 +195,24 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   content: {
-    padding: 8, // 12からさらに8に減らしました
+    padding: 8,
   },
   section: {
-    marginBottom: 8, // 12からさらに8に減らしました
+    marginBottom: 8,
   },
   sectionHeader: {
     backgroundColor: '#fff',
-    paddingVertical: 4, // 6からさらに4に減らしました
+    paddingVertical: 4,
   },
   sectionTitle: {
-    fontSize: 16, // 18から16に減らしました
+    fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: 8, // 12からさらに8に減らしました
+    marginBottom: 8,
   },
   searchContainer: {
     flexDirection: 'row',
     gap: 8,
-    marginBottom: 12, // 16から12に減らしました
+    marginBottom: 12,
   },
   input: {
     flex: 1,
@@ -199,7 +235,7 @@ const styles = StyleSheet.create({
   },
   errorText: {
     color: '#f44336',
-    marginBottom: 12, // 16から12に減らしました
+    marginBottom: 12,
   },
   loadingOverlay: {
     position: 'absolute',
