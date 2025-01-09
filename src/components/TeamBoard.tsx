@@ -4,18 +4,17 @@ import {
   Text,
   ScrollView,
   TouchableOpacity,
-  StyleSheet,
   SafeAreaView,
   Modal,
   TextInput,
   Alert,
   ActivityIndicator,
-  Linking,
-  Image,
   KeyboardAvoidingView,
   Platform,
-  Keyboard
+  Keyboard,
+  Image
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { initializeApp } from 'firebase/app';
 import { 
   getFirestore, 
@@ -29,6 +28,7 @@ import {
 } from 'firebase/firestore';
 import { getCurrentMode } from '../utils/gameData';
 import CharacterSelector, { Character, characters } from './CharacterSelector';
+import { PostCard, styles } from './TeamBoardComponents';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDCuES9P2UaLjQnYNVj0HhakM8o01TR5bQ",
@@ -39,15 +39,6 @@ const firebaseConfig = {
   appId: "1:799846073884:web:33dca774ee25a04a4bc1d9",
   measurementId: "G-V7C3C0GKQK"
 };
-
-let app;
-let db;
-try {
-  app = initializeApp(firebaseConfig);
-  db = getFirestore(app);
-} catch (error) {
-  console.error('Firebase initialization failed:', error);
-}
 
 interface HostInfo {
   wins3v3: number;
@@ -75,6 +66,15 @@ interface GameMode {
   isRotating?: boolean;
 }
 
+let app;
+let db;
+try {
+  app = initializeApp(firebaseConfig);
+  db = getFirestore(app);
+} catch (error) {
+  console.error('Firebase initialization failed:', error);
+}
+
 const TeamBoard: React.FC = () => {
   // State management
   const [modalVisible, setModalVisible] = useState(false);
@@ -95,6 +95,27 @@ const TeamBoard: React.FC = () => {
     totalTrophies: 0,
     favoriteCharacters: []
   });
+
+  // ホスト情報の保存
+  const saveHostInfo = async (info: HostInfo) => {
+    try {
+      await AsyncStorage.setItem('hostInfo', JSON.stringify(info));
+    } catch (error) {
+      console.error('Error saving host info:', error);
+    }
+  };
+
+  // ホスト情報の読み込み
+  const loadHostInfo = async () => {
+    try {
+      const savedInfo = await AsyncStorage.getItem('hostInfo');
+      if (savedInfo) {
+        setHostInfo(JSON.parse(savedInfo));
+      }
+    } catch (error) {
+      console.error('Error loading host info:', error);
+    }
+  };
 
   const REFRESH_COOLDOWN = 3000;
   const scrollViewRef = useRef<ScrollView>(null);
@@ -142,6 +163,7 @@ const TeamBoard: React.FC = () => {
   };
 
   const modes = getCurrentModes();
+
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
@@ -164,6 +186,7 @@ const TeamBoard: React.FC = () => {
 
   useEffect(() => {
     fetchPosts();
+    loadHostInfo();  // アプリ起動時にホスト情報を読み込む
   }, []);
 
   const fetchPosts = async () => {
@@ -180,13 +203,11 @@ const TeamBoard: React.FC = () => {
         return {
           id: doc.id,
           ...data,
-          // デフォルトのホスト情報を設定
           hostInfo: data.hostInfo || {
             wins3v3: 0,
             totalTrophies: 0,
             favoriteCharacters: []
           },
-          // 募集キャラクターがない場合は空配列を設定
           midCharacters: data.midCharacters || [],
           sideCharacters: data.sideCharacters || []
         }
@@ -227,36 +248,6 @@ const TeamBoard: React.FC = () => {
     
     const cleanUrl = urlMatch[1];
     return cleanUrl.startsWith(baseUrl);
-  };
-
-  const handleOpenLink = async (url: string) => {
-    try {
-      const canOpen = await Linking.canOpenURL(url);
-      if (canOpen) {
-        Alert.alert(
-          'チーム参加の確認',
-          'チームリンクに参加しますか？',
-          [
-            {
-              text: 'キャンセル',
-              style: 'cancel'
-            },
-            {
-              text: '参加する',
-              onPress: async () => {
-                await Linking.openURL(url);
-              }
-            }
-          ],
-          { cancelable: true }
-        );
-      } else {
-        Alert.alert('エラー', 'このリンクを開けません');
-      }
-    } catch (error) {
-      console.error('Error opening link:', error);
-      Alert.alert('エラー', 'リンクを開く際にエラーが発生しました');
-    }
   };
 
   const validateInputs = () => {
@@ -306,6 +297,7 @@ const TeamBoard: React.FC = () => {
       resetForm();
       setModalVisible(false);
       Alert.alert('成功', '投稿が作成されました');
+      fetchPosts();
     } catch (error) {
       console.error('Error creating post:', error);
       Alert.alert('エラー', '投稿の作成に失敗しました');
@@ -326,101 +318,6 @@ const TeamBoard: React.FC = () => {
       favoriteCharacters: []
     });
   };
-  const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
-    // デフォルトのホスト情報を設定
-    const defaultHostInfo: HostInfo = {
-      wins3v3: 0,
-      totalTrophies: 0,
-      favoriteCharacters: []
-    };
-    
-    // ホスト情報が存在しない場合はデフォルト値を使用
-    const hostInfo = post.hostInfo || defaultHostInfo;
-
-    return (
-      <TouchableOpacity
-        style={styles.postCard}
-        onPress={() => handleOpenLink(post.inviteLink)}
-      >
-        <View style={styles.postHeader}>
-          <View style={[
-            styles.modeTagContainer,
-            { backgroundColor: modes.find(m => m.name === post.selectedMode)?.color || '#21A0DB' }
-          ]}>
-            <Image 
-              source={modes.find(m => m.name === post.selectedMode)?.icon} 
-              style={styles.modeIcon} 
-            />
-            <Text style={styles.modeName}>{post.selectedMode}</Text>
-          </View>
-        </View>
-
-        <View style={styles.characterSection}>
-          <Text style={styles.sectionTitle}>使用キャラ</Text>
-          <View style={styles.characterInfo}>
-            <Image 
-              source={characters.find(c => c.id === post.selectedCharacter)?.icon} 
-              style={styles.characterIcon}
-            />
-            <Text style={styles.trophyCount}>{post.characterTrophies} 🏆</Text>
-          </View>
-        </View>
-
-        <View style={styles.hostInfoSection}>
-          <Text style={styles.sectionTitle}>ホスト情報</Text>
-          <View style={styles.hostStats}>
-            <Text>3:3勝利数: {hostInfo.wins3v3}</Text>
-            <Text>総合トロ: {hostInfo.totalTrophies}</Text>
-            <View style={styles.favoriteChars}>
-              <Text>得意キャラ:</Text>
-              {hostInfo.favoriteCharacters.map(charId => (
-                <Image 
-                  key={charId}
-                  source={characters.find(c => c.id === charId)?.icon}
-                  style={styles.smallCharIcon}
-                />
-              ))}
-            </View>
-          </View>
-        </View>
-
-        <View style={styles.recruitSection}>
-          <View style={styles.recruitPart}>
-            <Text style={styles.sectionTitle}>ミッド募集:</Text>
-            <View style={styles.characterList}>
-              {post.midCharacters.map(charId => (
-                <Image 
-                  key={charId}
-                  source={characters.find(c => c.id === charId)?.icon}
-                  style={styles.recruitCharIcon}
-                />
-              ))}
-            </View>
-          </View>
-          
-          <View style={styles.recruitPart}>
-            <Text style={styles.sectionTitle}>サイド募集:</Text>
-            <View style={styles.characterList}>
-              {post.sideCharacters.map(charId => (
-                <Image 
-                  key={charId}
-                  source={characters.find(c => c.id === charId)?.icon}
-                  style={styles.recruitCharIcon}
-                />
-              ))}
-            </View>
-          </View>
-        </View>
-
-        {post.description && (
-          <View style={styles.descriptionSection}>
-            <Text style={styles.sectionTitle}>ひとこと</Text>
-            <Text style={styles.description}>{post.description}</Text>
-          </View>
-        )}
-      </TouchableOpacity>
-    );
-  };
 
   if (loading) {
     return (
@@ -429,6 +326,7 @@ const TeamBoard: React.FC = () => {
       </View>
     );
   }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -499,6 +397,7 @@ const TeamBoard: React.FC = () => {
                       ...prev,
                       wins3v3: Number(value) || 0
                     }))}
+                    onEndEditing={() => saveHostInfo(hostInfo)}
                     keyboardType="numeric"
                     placeholder="3vs3の勝利数を入力"
                   />
@@ -511,6 +410,7 @@ const TeamBoard: React.FC = () => {
                       ...prev,
                       totalTrophies: Number(value) || 0
                     }))}
+                    onEndEditing={() => saveHostInfo(hostInfo)}
                     keyboardType="numeric"
                     placeholder="総合トロフィー数を入力"
                   />
@@ -520,14 +420,19 @@ const TeamBoard: React.FC = () => {
                     title=""
                     onSelect={(character) => {
                       if (!character) return;
-                      setHostInfo(prev => ({
-                        ...prev,
-                        favoriteCharacters: prev.favoriteCharacters.includes(character.id)
-                          ? prev.favoriteCharacters.filter(id => id !== character.id)
-                          : prev.favoriteCharacters.length < 2
-                            ? [...prev.favoriteCharacters, character.id]
-                            : prev.favoriteCharacters
-                      }));
+                      if (!character) return;
+                      const newFavoriteCharacters = hostInfo.favoriteCharacters.includes(character.id)
+                        ? hostInfo.favoriteCharacters.filter(id => id !== character.id)
+                        : hostInfo.favoriteCharacters.length < 2
+                          ? [...hostInfo.favoriteCharacters, character.id]
+                          : hostInfo.favoriteCharacters;
+                      
+                      const newInfo = {
+                        ...hostInfo,
+                        favoriteCharacters: newFavoriteCharacters
+                      };
+                      setHostInfo(newInfo);
+                      saveHostInfo(newInfo);  // キャラクター選択は即座に保存
                     }}
                     multiSelect={true}
                     selectedCharacters={hostInfo.favoriteCharacters.map(id => 
@@ -674,294 +579,5 @@ const TeamBoard: React.FC = () => {
     </SafeAreaView>
   );
 };
-  const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  header: {
-    height: 60,
-    backgroundColor: '#21A0DB',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#fff',
-  },
-  content: {
-    flex: 1,
-  },
-  headerButtons: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  createButton: {
-    backgroundColor: '#fff',
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 20,
-  },
-  refreshButton: {
-    backgroundColor: '#fff',
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 20,
-    marginRight: 8,
-  },
-  refreshButtonDisabled: {
-    opacity: 0.5,
-  },
-  createButtonText: {
-    color: '#21A0DB',
-    fontWeight: 'bold',
-  },
-  refreshButtonText: {
-    color: '#21A0DB',
-    fontWeight: 'bold',
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  postCard: {
-    backgroundColor: '#fff',
-    margin: 8,
-    padding: 16,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-  },
-  postHeader: {
-    marginBottom: 12,
-  },
-  modeTagContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 8,
-    alignSelf: 'flex-start',
-  },
-  modeName: {
-    color: '#fff',
-    fontSize: 14,
-    fontWeight: '600',
-    marginLeft: 8,
-  },
-  modeIcon: {
-    width: 24,
-    height: 24,
-    resizeMode: 'contain',
-  },
-  characterSection: {
-    marginVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
-    paddingBottom: 12,
-  },
-  sectionTitle: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    marginBottom: 8,
-    color: '#333',
-  },
-  characterInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#f8f8f8',
-    padding: 8,
-    borderRadius: 8,
-  },
-  characterIcon: {
-    width: 40,
-    height: 40,
-    marginRight: 12,
-  },
-  trophyCount: {
-    fontSize: 16,
-    color: '#666',
-    fontWeight: '500',
-  },
-  hostInfoSection: {
-    marginVertical: 12,
-    padding: 12,
-    backgroundColor: '#f8f8f8',
-    borderRadius: 8,
-  },
-  hostStats: {
-    gap: 8,
-  },
-  favoriteChars: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  smallCharIcon: {
-    width: 24,
-    height: 24,
-  },
-  recruitSection: {
-    marginVertical: 12,
-  },
-  recruitPart: {
-    marginBottom: 12,
-  },
-  characterList: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
-  recruitCharIcon: {
-    width: 32,
-    height: 32,
-  },
-  descriptionSection: {
-    marginTop: 12,
-    padding: 12,
-    backgroundColor: '#f8f8f8',
-    borderRadius: 8,
-  },
-  description: {
-    color: '#333',
-    lineHeight: 20,
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalView: {
-    width: '90%',
-    maxHeight: '90%',
-    backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 20,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  tabContainer: {
-    flexDirection: 'row',
-    marginBottom: 20,
-    borderRadius: 8,
-    overflow: 'hidden',
-    borderWidth: 1,
-    borderColor: '#21A0DB',
-  },
-  tab: {
-    flex: 1,
-    padding: 12,
-    alignItems: 'center',
-    backgroundColor: '#f0f0f0',
-  },
-  activeTab: {
-    backgroundColor: '#21A0DB',
-  },
-  tabText: {
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  activeTabText: {
-    color: '#fff',
-  },
-  hostInfoForm: {
-    padding: 16,
-  },
-  postForm: {
-    padding: 16,
-  },
-  modeSelectorContainer: {
-    marginBottom: 16,
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-  inputLabel: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    marginBottom: 8,
-    color: '#333',
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 16,
-    backgroundColor: '#fff',
-  },
-  multilineInput: {
-    height: 100,
-    textAlignVertical: 'top',
-  },
-  inviteLinkInput: {
-    minHeight: 60,
-    paddingTop: 12,
-    paddingBottom: 12,
-  },
-  modeButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 12,
-    marginRight: 8,
-    backgroundColor: '#f0f0f0',
-    borderRadius: 8,
-    minWidth: 120,
-  },
-  selectedModeButton: {
-    backgroundColor: '#21A0DB',
-  },
-  modeButtonText: {
-    fontSize: 14,
-    color: '#333',
-    fontWeight: '500',
-  },
-  selectedModeButtonText: {
-    color: '#fff',
-  },
-  modalButtons: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 20,
-    paddingHorizontal: 16,
-    paddingBottom: 16,
-  },
-  modalButton: {
-    flex: 1,
-    padding: 12,
-    borderRadius: 8,
-    marginHorizontal: 8,
-  },
-  cancelButton: {
-    backgroundColor: '#f0f0f0',
-  },
-  submitButton: {
-    backgroundColor: '#21A0DB',
-  },
-  cancelButtonText: {
-    textAlign: 'center',
-    color: '#666',
-    fontWeight: 'bold',
-  },
-  submitButtonText: {
-    textAlign: 'center',
-    color: '#fff',
-    fontWeight: 'bold',
-  }
-});
 
 export default TeamBoard;
