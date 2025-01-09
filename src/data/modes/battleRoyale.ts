@@ -10,104 +10,24 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "イヴ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "シェイド",
         reason: "",
         power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
     tips: [
@@ -125,104 +45,34 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ダグ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "シェリー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バズ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ブル",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "サージ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "R-T",
         reason: "",
         power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
     tips: [
@@ -240,104 +90,39 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "イヴ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "パール",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "R-T",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
     tips: [
@@ -355,102 +140,37 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ボウ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バズ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "シェリー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ブル",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "サージ",
         reason: "",
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
+        name: "ダリル",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
+        name: "ジャネット",
         reason: "",
         power: 3
       },
@@ -470,104 +190,39 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "パール",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "R-T",
         reason: "",
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "メイジー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
     tips: [
@@ -585,104 +240,34 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     difficulty: "Expert",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "コーデリアス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "サージ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "リリー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "シェリー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ダリル",
         reason: "",
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
+        name: "R-T",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
     tips: [
@@ -700,104 +285,34 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "サージ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "コーデリアス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "パール",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "メイジー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "R-T",
         reason: "",
         power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
     tips: [
@@ -815,104 +330,39 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "サージ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "リリー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "キット",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "シェイド",
         reason: "",
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
+        name: "ジャッキー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "コーデリアス",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "エルプリモ",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
     tips: [
@@ -930,102 +380,47 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "シェリー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "バズ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ブル",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "エルプリモ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジャッキー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "リコ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ボウ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ウィロー",
         reason: "",
         power: 4
       },
       {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
+        name: "タラ",
         reason: "",
         power: 3
       },
@@ -1045,104 +440,39 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     difficulty: "Hard",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "アンジェロ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ガス",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "パール",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
+        name: "R-T",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "メイジー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "エリザベス",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
     tips: [
@@ -1160,104 +490,34 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "R-T",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "パール",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "キット",
         reason: "",
         power: 5
       },
       {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
+        name: "メイジー",
         reason: "",
         power: 4
       },
       {
-        name: "",
+        name: "サージ",
         reason: "",
         power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
     tips: [
@@ -1275,104 +535,29 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-        name: "",
+        name: "シェイド",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ジュジュ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "ストゥー",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "サージ",
         reason: "",
         power: 5
       },
       {
-        name: "",
+        name: "キット",
         reason: "",
         power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
       },
     ],
     tips: [

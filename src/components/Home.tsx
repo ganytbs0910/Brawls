@@ -17,6 +17,7 @@ import { RootStackParamList } from '../App';
 import { DailyTip } from '../components/DailyTip';
 import { RewardedAd, RewardedAdEventType } from 'react-native-google-mobile-ads';
 import { AD_CONFIG } from '../config/AdConfig';
+import { BannerAdComponent } from '../components/BannerAdComponent';
 import { 
   rotatingModes, 
   mapImages, 
@@ -352,6 +353,8 @@ const Home: React.FC = () => {
             </View>
           </View>
         </ScrollView>
+
+        {!isAdFree && <BannerAdComponent />}
 
         {screenStack.map((screen, index) => (
           index > 0 && (
