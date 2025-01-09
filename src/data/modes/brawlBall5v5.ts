@@ -805,7 +805,8 @@ export const brawlBall5vs5Maps: Record<string, MapDetail> = {
       },
     ],
 
-    tips: [      "波紋状の地形を把握",
+    tips: [      
+      "波紋状の地形を把握",
       "5人での連携を重視",
       "地形の利点を最大化"
     ]

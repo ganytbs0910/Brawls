@@ -122,7 +122,13 @@ export const mapImages: MapImages = {
   "中央コート": require('../../assets/MapImages/Center_Stage.png'),
   "ペナルティキック": require('../../assets/MapImages/Penalty_Kick.png'),
   "ピンボールドリーム": require('../../assets/MapImages/Pinball_Dreams.png'),
-  "狭き門": require('../../assets/MapImages/Pinhole_Punt.png')
+  "狭き門": require('../../assets/MapImages/Pinhole_Punt.png'),
+  "レイヤーケーキ": require('../../assets/MapImages/Layer_Bake.png'),
+  "ミルフィーユ": require('../../assets/MapImages/Layer_Cake.png'),
+  "ガールズファイト": require('../../assets/MapImages/Petticoat_Duel.png'),
+  "四重傷": require('../../assets/MapImages/Quad_Damage.png'),
+  "言い訳厳禁": require('../../assets/MapImages/No_Excuses.png'),
+  "見えざる大蛇": require('../../assets/MapImages/Shrouding_Serpent.png'),
 };
 
 export const maps: GameMaps = {
@@ -150,7 +156,7 @@ export const maps: GameMaps = {
     "トリッキー", "トリプル・ドリブル", "鉄壁の守り", "ビーチボール", "中央コート", "ペナルティキック"
   ],
   duel: [
-    "不屈の精神", "レイヤーケーキ", "ミルフィーユ", "ガールズファイト", "四重奏", "言い訳厳禁", "見えざる大蛇", "暴徒のオアシス", 
+    "不屈の精神", "レイヤーケーキ", "ミルフィーユ", "ガールズファイト", "四重傷", "言い訳厳禁", "見えざる大蛇", "暴徒のオアシス", 
     "流れ星", "常勝街道", "スパイスプロダクション","ジグザグ草原", "禅の庭園", 
     "大いなる入口", "グランドカナル", "猿の迷路", "果てしなき不運", "隠れ家", 
   ]

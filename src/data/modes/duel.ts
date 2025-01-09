@@ -1355,43 +1355,99 @@ export const duelMaps: Record<string, MapDetail> = {
       reason: "水路を挟んだ狙撃",
       power: 4
     },
+  ],
+
+    tips: [
+      "水路での移動に注意",
+      "渡河タイミングの見極め",
+      "水路を挟んだ射線取り"
+    ]
+  },
+  "ミルフィーユ": {
+    id: "du_layer_cake",
+    name: "ミルフィーユ",
+    mode: "duel",
+    description: "運河を中心とした1vs1マップ。水路の活用と渡河のタイミングが重要です。",
+    characteristics: ["水路地形", "渡河戦術", "地形活用"],
+    difficulty: "Hard",
+    recommendedBrawlers: [
     {
-      name: "",
+      name: "ジュジュ",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "アンジェロ",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "エリザベス",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "ペニー",
+      reason: "水路での移動が得意",
+      power: 5
+    },
+    {
+      name: "イヴ",
+      reason: "水路を挟んだ狙撃",
+      power: 5
+    },
+    {
+      name: "ガス",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "バイロン",
+      reason: "水路越しの攻撃",
+      power: 5
+    },
+    {
+      name: "スプラウト",
+      reason: "水路での移動が得意",
+      power: 4
+    },
+    {
+      name: "ブロック",
+      reason: "水路を挟んだ狙撃",
+      power: 4
+    },
+    {
+      name: "R-T",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "Max",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ストゥー",
+      reason: "水路越しの攻撃",
+      power: 4
+    },
+    {
+      name: "ジーン",
       reason: "水路越しの攻撃",
       power: 3
     },
     {
-      name: "",
+      name: "カール",
       reason: "水路越しの攻撃",
       power: 3
     },
     {
-      name: "",
+      name: "ティック",
       reason: "水路越しの攻撃",
       power: 3
     },
     {
-      name: "",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "",
+      name: "レオン",
       reason: "水路越しの攻撃",
       power: 3
     },
@@ -1401,6 +1457,470 @@ export const duelMaps: Record<string, MapDetail> = {
       "水路での移動に注意",
       "渡河タイミングの見極め",
       "水路を挟んだ射線取り"
+    ]
+  },
+  "ガールズファイト": {
+    id: "du_petticoat_duel",
+    name: "ガールズファイト",
+    mode: "duel",
+    description: "広大な入り口から始まる1vs1マップ。開放感のある地形での戦術が求められます。",
+    characteristics: ["開放地形", "距離管理", "エリア支配"],
+    difficulty: "Medium",
+    recommendedBrawlers: [
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+    ],
+
+    tips: [
+      "適切な距離を保つ",
+      "カバーの効率的な活用",
+      "相手の動きを予測"
+    ]
+  },
+  "四重傷": {
+    id: "du_quad_damage",
+    name: "四重傷",
+    mode: "duel",
+    description: "広大な入り口から始まる1vs1マップ。開放感のある地形での戦術が求められます。",
+    characteristics: ["開放地形", "距離管理", "エリア支配"],
+    difficulty: "Medium",
+    recommendedBrawlers: [
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+    ],
+
+    tips: [
+      "適切な距離を保つ",
+      "カバーの効率的な活用",
+      "相手の動きを予測"
+    ]
+  },
+  "言い訳厳禁": {
+    id: "du_no_excuses",
+    name: "言い訳厳禁",
+    mode: "duel",
+    description: "広大な入り口から始まる1vs1マップ。開放感のある地形での戦術が求められます。",
+    characteristics: ["開放地形", "距離管理", "エリア支配"],
+    difficulty: "Medium",
+    recommendedBrawlers: [
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+    ],
+
+    tips: [
+      "適切な距離を保つ",
+      "カバーの効率的な活用",
+      "相手の動きを予測"
+    ]
+  },
+  "見えざる大蛇": {
+    id: "du_shrouding_serpent",
+    name: "見えざる大蛇",
+    mode: "duel",
+    description: "広大な入り口から始まる1vs1マップ。開放感のある地形での戦術が求められます。",
+    characteristics: ["開放地形", "距離管理", "エリア支配"],
+    difficulty: "Medium",
+    recommendedBrawlers: [
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 5
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 4
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+      {
+        name: "",
+        reason: "",
+        power: 3
+      },
+    ],
+
+    tips: [
+      "適切な距離を保つ",
+      "カバーの効率的な活用",
+      "相手の動きを予測"
     ]
   },
 };
