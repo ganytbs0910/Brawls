@@ -8,7 +8,8 @@ import {
   Animated, 
   ScrollView, 
   Dimensions, 
-  SafeAreaView
+  SafeAreaView,
+  AppState
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -53,6 +54,59 @@ const Home: React.FC = () => {
     })
   ).current;
 
+  // 次の更新時刻を計算する関数
+  const getNextUpdateTime = (currentTime: Date, modes: any[]): Date => {
+    const now = new Date(currentTime);
+    let nextUpdate = new Date(now);
+    nextUpdate.setDate(nextUpdate.getDate() + 1);
+
+    modes.forEach(mode => {
+      const updateTime = new Date(now);
+      updateTime.setHours(mode.updateTime, 0, 0, 0);
+      
+      if (updateTime > now && updateTime < nextUpdate) {
+        nextUpdate = updateTime;
+      }
+    });
+
+    return nextUpdate;
+  };
+
+  // マップ更新のタイマー管理
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    let minuteUpdateId: NodeJS.Timeout;
+
+    const scheduleNextUpdate = () => {
+      const now = new Date();
+      const nextUpdate = getNextUpdateTime(now, modes);
+      const timeUntilUpdate = nextUpdate.getTime() - now.getTime();
+
+      // 次の更新までタイマーをセット
+      timeoutId = setTimeout(() => {
+        setSelectedDate(new Date());
+        setCurrentTime(new Date());
+        // 次の更新をスケジュール
+        scheduleNextUpdate();
+      }, timeUntilUpdate);
+
+      // 残り時間表示用の更新（1分ごと）
+      minuteUpdateId = setInterval(() => {
+        setCurrentTime(new Date());
+      }, 60000);
+    };
+
+    // 初期スケジュール設定
+    scheduleNextUpdate();
+
+    // クリーンアップ
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      if (minuteUpdateId) clearInterval(minuteUpdateId);
+    };
+  }, []);
+
+  // 広告関連の設定
   useEffect(() => {
     const unsubscribeLoaded = rewarded.addAdEventListener(RewardedAdEventType.LOADED, () => {
       setIsRewardedAdReady(true);
@@ -73,29 +127,8 @@ const Home: React.FC = () => {
     };
   }, [rewarded]);
 
+  // 広告削除状態の確認
   useEffect(() => {
-    // 1秒ごとに現在時刻を更新
-    const timer = setInterval(() => {
-      const now = new Date();
-      setCurrentTime(now);
-      
-      // 各モードの更新時刻をチェック
-      modes.forEach(mode => {
-        const updateTime = new Date(now);
-        updateTime.setHours(mode.updateTime, 0, 0, 0);
-        
-        // 更新時刻になったらマップを更新
-        if (now.getTime() === updateTime.getTime()) {
-          setSelectedDate(new Date());
-        }
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    // 広告削除状態を確認
     const checkAdFreeStatus = async () => {
       try {
         const status = await AsyncStorage.getItem('adFreeStatus');
@@ -106,6 +139,43 @@ const Home: React.FC = () => {
     };
 
     checkAdFreeStatus();
+  }, []);
+
+  // バックグラウンド更新のサポート
+  useEffect(() => {
+    const setupBackgroundUpdate = async () => {
+      try {
+        await AsyncStorage.setItem('lastUpdateCheck', new Date().toISOString());
+        
+        const handleAppStateChange = async (nextAppState: string) => {
+          if (nextAppState === 'active') {
+            const lastCheck = await AsyncStorage.getItem('lastUpdateCheck');
+            const now = new Date();
+            const lastCheckDate = lastCheck ? new Date(lastCheck) : new Date(0);
+            
+            modes.forEach(mode => {
+              const updateTime = new Date(lastCheckDate);
+              updateTime.setHours(mode.updateTime, 0, 0, 0);
+              
+              if (updateTime > lastCheckDate && updateTime <= now) {
+                setSelectedDate(new Date());
+              }
+            });
+            
+            await AsyncStorage.setItem('lastUpdateCheck', now.toISOString());
+          }
+        };
+
+        const subscription = AppState.addEventListener('change', handleAppStateChange);
+        return () => {
+          subscription.remove();
+        };
+      } catch (error) {
+        console.error('Failed to setup background update:', error);
+      }
+    };
+
+    setupBackgroundUpdate();
   }, []);
 
   const handleMapClick = (mode: any) => {
@@ -164,13 +234,22 @@ const Home: React.FC = () => {
     return mode?.name;
   };
 
-  const getNextUpdateTime = (hour: number) => {
-    const next = new Date(currentTime);
-    next.setHours(hour, 0, 0, 0);
-    if (next < currentTime) next.setDate(next.getDate() + 1);
-    const diff = next - currentTime;
+  const formatTimeUntilUpdate = (mode: any) => {
+    const now = new Date();
+    const updateTime = new Date(now);
+    updateTime.setHours(mode.updateTime, 0, 0, 0);
+    
+    if (updateTime <= now) {
+      updateTime.setDate(updateTime.getDate() + 1);
+    }
+
+    const diff = updateTime.getTime() - now.getTime();
     const hours = Math.floor(diff / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+    if (hours === 0) {
+      return `${minutes}分`;
+    }
     return `${hours}時間${minutes}分`;
   };
 
@@ -283,98 +362,93 @@ const Home: React.FC = () => {
   ];
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.title}>ブロールスターズ マップ情報</Text>
-          <TouchableOpacity
-            style={styles.settingsButton}
-            onPress={() => showScreen('settings')}
-          >
-            <Image 
-              source={require('../../assets/AppIcon/settings_icon.png')} 
-              style={[styles.settingsIcon, { tintColor: '#ffffff' }]}
-            />
-          </TouchableOpacity>
-        </View>
-
-        <ScrollView style={styles.content}>
-          <DailyTip />
-          <View style={styles.modeContainer}>
-            <View style={styles.dateHeader}>
-              <TouchableOpacity onPress={() => changeDate(-1)}>
-                <Text style={styles.dateArrow}>←</Text>
-              </TouchableOpacity>
-              <Text style={styles.dateText}>{formatDate(selectedDate)}</Text>
-              <TouchableOpacity onPress={() => changeDate(1)}>
-                <Text style={styles.dateArrow}>→</Text>
-              </TouchableOpacity>
-              <TouchableOpacity 
-                style={styles.todayButton} 
-                onPress={() => setSelectedDate(new Date())}>
-                <Text style={styles.todayButtonText}>Today</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.modeGrid}>
-              {modes.map((mode, index) => (
-                <View key={index} style={styles.modeCard}>
-                  <View style={styles.modeHeader}>
-                    <View style={[styles.modeTag, { 
-                      backgroundColor: typeof mode.color === 'function' ? mode.color() : mode.color 
-                    }]}>
-                      <Image source={mode.icon} style={styles.modeIcon} />
-                      <Text style={styles.modeTagText}>{mode.name}</Text>
-                    </View>
-                  </View>
-                  {selectedDate.getDate() === new Date().getDate() && (
-                    <Text style={styles.updateTime}>
-                      更新まで {getNextUpdateTime(mode.updateTime)}
-                    </Text>
-                  )}
-                  <TouchableOpacity 
-                    style={styles.mapContent}
-                    onPress={() => handleMapClick(mode)}
-                    activeOpacity={0.7}
-                  >
-                    <Text style={styles.mapName}>{mode.currentMap}</Text>
-                    {(mode.name === "バトルロワイヤル" || mode.name === "エメラルドハント" || 
-                      mode.name === "ノックアウト" || getCurrentModeName("heist", selectedDate) || 
-                      getCurrentModeName("brawlBall5v5", selectedDate) || mode.name === "ブロストライカー" || 
-                      getCurrentModeName("duel", selectedDate)) && (
-                      <Image 
-                        source={mapImages[mode.currentMap]}
-                        style={styles.mapImage}
-                        resizeMode="contain"
-                      />
-                    )}
-                  </TouchableOpacity>
-                </View>
-              ))}
-            </View>
-          </View>
-        </ScrollView>
-
-        {!isAdFree && <BannerAdComponent />}
-
-        {screenStack.map((screen, index) => (
-          index > 0 && (
-            <SettingsScreen
-              key={`${screen.type}-${screen.zIndex}`}
-              screen={screen}
-              onClose={goBack}
-              isAdFree={isAdFree}
-              setIsAdFree={setIsAdFree}
-              isRewardedAdReady={isRewardedAdReady}
-              rewarded={rewarded}
-              adService={adService}
-              mapDetailProps={mapDetailProps}
-              onCharacterPress={handleCharacterPress}
-            />
-          )
-        ))}
+  <SafeAreaView style={styles.safeArea}>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}>ブロールスターズ マップ情報</Text>
+        <TouchableOpacity
+          style={styles.settingsButton}
+          onPress={() => showScreen('settings')}
+        >
+          <Image 
+            source={require('../../assets/AppIcon/settings_icon.png')} 
+            style={[styles.settingsIcon, { tintColor: '#ffffff' }]}
+          />
+        </TouchableOpacity>
       </View>
-    </SafeAreaView>
-  );
+
+      <ScrollView style={styles.content}>
+        <DailyTip />
+        <View style={styles.modeContainer}>
+          <View style={styles.dateHeader}>
+            <TouchableOpacity onPress={() => changeDate(-1)}>
+              <Text style={styles.dateArrow}>←</Text>
+            </TouchableOpacity>
+            <Text style={styles.dateText}>{formatDate(selectedDate)}</Text>
+            <TouchableOpacity onPress={() => changeDate(1)}>
+              <Text style={styles.dateArrow}>→</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+              style={styles.todayButton} 
+              onPress={() => setSelectedDate(new Date())}>
+              <Text style={styles.todayButtonText}>Today</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.modeGrid}>
+            {modes.map((mode, index) => (
+              <View key={index} style={styles.modeCard}>
+                <View style={styles.modeHeader}>
+                  <View style={[styles.modeTag, { 
+                    backgroundColor: typeof mode.color === 'function' ? mode.color() : mode.color 
+                  }]}>
+                    <Image source={mode.icon} style={styles.modeIcon} />
+                    <Text style={styles.modeTagText}>{mode.name}</Text>
+                  </View>
+                </View>
+                {selectedDate.getDate() === new Date().getDate() && (
+                  <Text style={styles.updateTime}>
+                    更新まで {formatTimeUntilUpdate(mode)}
+                  </Text>
+                )}
+                <TouchableOpacity 
+                  style={styles.mapContent}
+                  onPress={() => handleMapClick(mode)}
+                  activeOpacity={0.7}
+                >
+                  <Text style={styles.mapName}>{mode.currentMap}</Text>
+                  <Image 
+                    source={mapImages[mode.currentMap]}
+                    style={styles.mapImage}
+                    resizeMode="contain"
+                  />
+                </TouchableOpacity>
+              </View>
+            ))}
+          </View>
+        </View>
+      </ScrollView>
+
+      {!isAdFree && <BannerAdComponent />}
+
+      {screenStack.map((screen, index) => (
+        index > 0 && (
+          <SettingsScreen
+            key={`${screen.type}-${screen.zIndex}`}
+            screen={screen}
+            onClose={goBack}
+            isAdFree={isAdFree}
+            setIsAdFree={setIsAdFree}
+            isRewardedAdReady={isRewardedAdReady}
+            rewarded={rewarded}
+            adService={adService}
+            mapDetailProps={mapDetailProps}
+            onCharacterPress={handleCharacterPress}
+          />
+        )
+      ))}
+    </View>
+  </SafeAreaView>
+);
 };
 
 const styles = StyleSheet.create({
