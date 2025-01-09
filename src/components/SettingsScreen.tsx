@@ -8,7 +8,8 @@ import {
   Animated, 
   Share, 
   Alert,
-  Platform
+  Platform,
+  Dimensions
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
@@ -48,6 +49,8 @@ interface SettingsScreenProps {
   onCharacterPress: (characterName: string) => void;
 }
 
+const SCREEN_WIDTH = Dimensions.get('window').width;
+
 const AllTipsScreen: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   return (
     <View style={styles.settingsContainer}>
@@ -71,11 +74,6 @@ const AllTipsScreen: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
 const initializeIAP = async () => {
   try {
-    console.debug('Initializing IAP...');
-    console.debug('Platform:', Platform.OS);
-    console.debug('Is Simulator:', Platform.constants.isSimulator);
-    console.debug('Dev Mode:', __DEV__);
-
     if (Platform.OS === 'ios' && Platform.constants.isSimulator) {
       console.warn('Simulator detected: IAP might not work properly');
       return false;
@@ -99,7 +97,6 @@ const initializeIAP = async () => {
 
     try {
       const products = await getProducts({ skus: [skuId] });
-      console.debug('Available products:', products);
       return products.length > 0;
     } catch (error) {
       console.error('Failed to get products:', error);
@@ -124,6 +121,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
 }) => {
   const [loading, setLoading] = useState(false);
   const [isIAPAvailable, setIsIAPAvailable] = useState(false);
+  const [screenStack, setScreenStack] = useState<ScreenState[]>([screen]);
 
   useEffect(() => {
     const init = async () => {
@@ -131,6 +129,21 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
       setIsIAPAvailable(available);
     };
     init();
+  }, []);
+
+  useEffect(() => {
+    const initAdService = async () => {
+      try {
+        if (!adService.current) {
+          adService.current = new AdMobService();
+          await adService.current.initialize();
+        }
+      } catch (error) {
+        console.error('Failed to initialize AdMobService:', error);
+      }
+    };
+    
+    initAdService();
   }, []);
 
   const handleShare = async () => {
@@ -150,117 +163,91 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
     }
   };
 
-const handlePurchaseAdRemoval = async () => {
-  if (loading || isAdFree || !isIAPAvailable) return;
+  const handlePurchaseAdRemoval = async () => {
+    if (loading || isAdFree || !isIAPAvailable) return;
 
-  Alert.alert(
-    '広告削除の購入',
-    '¥240で広告を完全に削除します。\n購入を続けますか？',
-    [
-      {
-        text: 'キャンセル',
-        style: 'cancel'
-      },
-      {
-        text: '購入する',
-        onPress: async () => {
-          try {
-            setLoading(true);
-            
-            const skuId = Platform.select({
-              ios: AD_REMOVAL_SKU_IOS,
-              android: AD_REMOVAL_SKU_ANDROID
-            });
+    Alert.alert(
+      '広告削除の購入',
+      '¥240で広告を完全に削除します。\n購入を続けますか？',
+      [
+        {
+          text: 'キャンセル',
+          style: 'cancel'
+        },
+        {
+          text: '購入する',
+          onPress: async () => {
+            try {
+              setLoading(true);
+              
+              const skuId = Platform.select({
+                ios: AD_REMOVAL_SKU_IOS,
+                android: AD_REMOVAL_SKU_ANDROID
+              });
 
-            if (!skuId) {
-              throw new Error('Invalid platform');
-            }
+              if (!skuId) {
+                throw new Error('Invalid platform');
+              }
 
-            console.debug('Requesting products...');
-            const products = await getProducts({ skus: [skuId] });
-            console.debug('Retrieved products:', products);
-            
-            if (!products || products.length === 0) {
-              throw new Error('Product not found');
-            }
+              const products = await getProducts({ skus: [skuId] });
+              
+              if (!products || products.length === 0) {
+                throw new Error('Product not found');
+              }
 
-            console.debug('Initiating purchase...');
-            // 修正: requestPurchaseの引数を変更
-            const purchase = await requestPurchase({
-              sku: products[0].productId,
-              andDangerouslyFinishTransactionAutomatically: false // Android用
-            });
-            
-            console.debug('Purchase response:', purchase);
+              const purchase = await requestPurchase({
+                sku: products[0].productId,
+                andDangerouslyFinishTransactionAutomatically: false
+              });
+              
+              if (purchase && typeof purchase === 'object') {
+                await finishTransaction({
+                  purchase: purchase,
+                  isConsumable: false
+                });
+                
+                setIsAdFree(true);
+                await AsyncStorage.setItem('adFreeStatus', 'true');
+                Alert.alert('完了', '広告の削除が完了しました！');
+              }
 
-            if (purchase) {
-              console.debug('Finishing transaction...');
-              try {
-                // purchaseオブジェクトの存在を確認してからfinishTransactionを呼び出す
-                if (typeof purchase === 'object' && purchase !== null) {
-                  await finishTransaction({
-                    purchase: purchase,
-                    isConsumable: false
-                  });
-                  console.debug('Transaction finished successfully');
-                  
-                  // 購入成功後の処理
-                  setIsAdFree(true);
-                  await AsyncStorage.setItem('adFreeStatus', 'true');
-                  Alert.alert('完了', '広告の削除が完了しました！');
-                } else {
-                  throw new Error('Invalid purchase object');
+            } catch (error) {
+              console.error('Purchase error:', error);
+              let errorMessage = '購入処理に失敗しました。';
+              
+              if (error instanceof PurchaseError) {
+                switch (error.code) {
+                  case 'E_USER_CANCELLED':
+                    return;
+                  case 'E_ALREADY_OWNED':
+                    errorMessage = 'すでに購入済みです。購入の復元をお試しください。';
+                    break;
+                  case 'E_NOT_PREPARED':
+                    errorMessage = 'ストアとの接続に失敗しました。後でもう一度お試しください。';
+                    break;
+                  case 'E_PRODUCT_NOT_AVAILABLE':
+                    errorMessage = '現在この商品は購入できません。';
+                    break;
+                  default:
+                    errorMessage = `購入処理中にエラーが発生しました。(${error.code})`;
                 }
-              } catch (finishError) {
-                console.error('Finish transaction error:', finishError);
-                // トランザクション完了のエラーを処理
-                throw finishError;
               }
+              Alert.alert('エラー', errorMessage);
+            } finally {
+              setLoading(false);
             }
-
-          } catch (error) {
-            console.error('Detailed purchase error:', error);
-            console.error('Error type:', error.constructor.name);
-            console.error('Error properties:', Object.keys(error));
-            
-            let errorMessage = '購入処理に失敗しました。';
-            if (error instanceof PurchaseError) {
-              console.debug('Purchase error code:', error.code);
-              switch (error.code) {
-                case 'E_USER_CANCELLED':
-                  return;
-                case 'E_ALREADY_OWNED':
-                  errorMessage = 'すでに購入済みです。購入の復元をお試しください。';
-                  break;
-                case 'E_NOT_PREPARED':
-                  errorMessage = 'ストアとの接続に失敗しました。後でもう一度お試しください。';
-                  break;
-                case 'E_PRODUCT_NOT_AVAILABLE':
-                  errorMessage = '現在この商品は購入できません。';
-                  break;
-                default:
-                  errorMessage = `購入処理中にエラーが発生しました。(${error.code})`;
-              }
-            }
-            Alert.alert('エラー', errorMessage);
-          } finally {
-            setLoading(false);
           }
         }
-      }
-    ]
-  );
-};
+      ]
+    );
+  };
 
   const handleRestorePurchase = async () => {
     if (loading || isAdFree || !isIAPAvailable) return;
 
     try {
       setLoading(true);
-      console.debug('Restoring purchases...');
-      
       const purchases = await getPurchases();
-      console.debug('Retrieved purchases:', purchases);
       
       const adRemovalPurchase = purchases.find(
         purchase => purchase.productId === AD_REMOVAL_SKU_IOS || 
@@ -282,16 +269,63 @@ const handlePurchaseAdRemoval = async () => {
     }
   };
 
-  const showRewardedAd = async () => {
-    if (isRewardedAdReady) {
-      await rewarded.show();
+  const handleSupportClick = async () => {
+    try {
+      if (!adService.current) {
+        console.warn('AdMobService not initialized');
+        return;
+      }
+      await adService.current.showInterstitial();
+    } catch (error) {
+      console.error('Failed to show interstitial ad:', error);
+      Alert.alert('エラー', '広告の表示に失敗しました。');
     }
   };
 
-  const handleSupportClick = async () => {
-    if (adService.current) {
-      await adService.current.showInterstitial();
+  const showRewardedAd = async () => {
+    try {
+      if (!isRewardedAdReady) {
+        console.warn('Rewarded ad not ready');
+        return;
+      }
+      await rewarded.show();
+    } catch (error) {
+      console.error('Failed to show rewarded ad:', error);
+      Alert.alert('エラー', 'リワード広告の表示に失敗しました。');
     }
+  };
+
+  const navigateToScreen = (newScreenType: ScreenType) => {
+    const newScreen: ScreenState = {
+      type: newScreenType,
+      translateX: new Animated.Value(SCREEN_WIDTH),
+      zIndex: screenStack.length
+    };
+
+    setScreenStack(prev => [...prev, newScreen]);
+
+    Animated.timing(newScreen.translateX, {
+      toValue: 0,
+      duration: 300,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const goBack = () => {
+    if (screenStack.length <= 1) {
+      onClose();
+      return;
+    }
+
+    const currentScreen = screenStack[screenStack.length - 1];
+    
+    Animated.timing(currentScreen.translateX, {
+      toValue: SCREEN_WIDTH,
+      duration: 300,
+      useNativeDriver: true,
+    }).start(() => {
+      setScreenStack(prev => prev.slice(0, -1));
+    });
   };
 
   const renderPurchaseButton = () => {
@@ -354,118 +388,104 @@ const handlePurchaseAdRemoval = async () => {
     );
   };
 
+  const renderSettingsContent = () => (
+    <View style={styles.settingsContainer}>
+      <View style={styles.settingsHeader}>
+        <Text style={styles.settingsTitle}>設定</Text>
+        <TouchableOpacity onPress={onClose} style={styles.backButton}>
+          <Text style={styles.backButtonText}>←</Text>
+        </TouchableOpacity>
+      </View>
+      <ScrollView style={styles.settingsContent}>
+        <TouchableOpacity 
+          style={styles.settingsItem}
+          onPress={handleShare}
+        >
+          <Text style={styles.settingsItemText}>共有</Text>
+        </TouchableOpacity>
+
+        {renderPurchaseButton()}
+        {renderRestoreButton()}
+
+        {!isAdFree && (
+          <>
+            <TouchableOpacity 
+              style={styles.settingsItem}
+              onPress={handleSupportClick}
+            >
+              <Text style={styles.settingsItemText}>
+                広告を見て支援する（小）
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+              style={[
+                styles.settingsItem,
+                !isRewardedAdReady && styles.settingsItemDisabled
+              ]}
+              onPress={showRewardedAd}
+              disabled={!isRewardedAdReady}
+            >
+              <Text style={[
+                styles.settingsItemText,
+                !isRewardedAdReady && styles.settingsItemTextDisabled
+              ]}>
+                広告を見て支援する（大）
+                {!isRewardedAdReady && ' (準備中)'}
+                </Text>
+            </TouchableOpacity>
+          </>
+        )}
+
+        <TouchableOpacity 
+          style={styles.settingsItem}
+          onPress={() => navigateToScreen('privacy')}
+        >
+          <Text style={styles.settingsItemText}>プライバシーポリシー</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity 
+          style={styles.settingsItem}
+          onPress={() => navigateToScreen('terms')}
+        >
+          <Text style={styles.settingsItemText}>利用規約</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity 
+          style={styles.settingsItem}
+          onPress={() => navigateToScreen('allTips')}
+        >
+          <Text style={styles.settingsItemText}>豆知識一覧</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity 
+          style={styles.settingsItem}
+          onPress={() => navigateToScreen('punishmentGame')}
+        >
+          <Text style={styles.settingsItemText}>罰ゲーム</Text>
+        </TouchableOpacity>
+      </ScrollView>
+    </View>
+  );
+
   const renderScreenContent = (screen: ScreenState) => {
     switch (screen.type) {
       case 'mapDetail':
         return mapDetailProps ? (
           <MapDetailScreen
             {...mapDetailProps}
-            onClose={onClose}
+            onClose={goBack}
             onCharacterPress={onCharacterPress}
           />
         ) : null;
       case 'settings':
-        return (
-          <View style={styles.settingsContainer}>
-            <View style={styles.settingsHeader}>
-              <Text style={styles.settingsTitle}>設定</Text>
-              <TouchableOpacity onPress={onClose} style={styles.backButton}>
-                <Text style={styles.backButtonText}>←</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.settingsContent}>
-              <TouchableOpacity 
-                style={styles.settingsItem}
-                onPress={handleShare}
-              >
-                <Text style={styles.settingsItemText}>共有</Text>
-              </TouchableOpacity>
-
-              {renderPurchaseButton()}
-              {renderRestoreButton()}
-
-              {!isAdFree && (
-                <>
-                  <TouchableOpacity 
-                    style={styles.settingsItem}
-                    onPress={handleSupportClick}
-                  >
-                    <Text style={styles.settingsItemText}>
-                      広告を見て支援する（小）
-                    </Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity 
-                    style={[
-                      styles.settingsItem,
-                      !isRewardedAdReady && styles.settingsItemDisabled
-                    ]}
-                    onPress={showRewardedAd}
-                    disabled={!isRewardedAdReady}
-                  >
-                    <Text style={[
-                      styles.settingsItemText,
-                      !isRewardedAdReady && styles.settingsItemTextDisabled
-                    ]}>
-                      広告を見て支援する（大）
-                      {!isRewardedAdReady && ' (準備中)'}
-                    </Text>
-                  </TouchableOpacity>
-                </>
-              )}
-
-              <TouchableOpacity 
-                style={styles.settingsItem}
-                onPress={() => {
-                  if (screen.type === 'settings') {
-                    screen.type = 'privacy';
-                  }
-                }}
-              >
-                <Text style={styles.settingsItemText}>プライバシーポリシー</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity 
-                style={styles.settingsItem}
-                onPress={() => {
-                  if (screen.type === 'settings') {
-                    screen.type = 'terms';
-                  }
-                }}
-              >
-                <Text style={styles.settingsItemText}>利用規約</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity 
-                style={styles.settingsItem}
-                onPress={() => {
-                  if (screen.type === 'settings') {
-                    screen.type = 'allTips';
-                  }
-                }}
-              >
-                <Text style={styles.settingsItemText}>豆知識一覧</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity 
-                style={styles.settingsItem}
-                onPress={() => {
-                  if (screen.type === 'settings') {
-                    screen.type = 'punishmentGame';
-                  }
-                }}
-              >
-                <Text style={styles.settingsItemText}>罰ゲーム</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        );
+        return renderSettingsContent();
       case 'privacy':
         return (
           <View style={styles.settingsContainer}>
             <View style={styles.settingsHeader}>
               <Text style={styles.settingsTitle}>プライバシーポリシー</Text>
-              <TouchableOpacity onPress={onClose} style={styles.backButton}>
+              <TouchableOpacity onPress={goBack} style={styles.backButton}>
                 <Text style={styles.backButtonText}>←</Text>
               </TouchableOpacity>
             </View>
@@ -479,7 +499,7 @@ const handlePurchaseAdRemoval = async () => {
           <View style={styles.settingsContainer}>
             <View style={styles.settingsHeader}>
               <Text style={styles.settingsTitle}>利用規約</Text>
-              <TouchableOpacity onPress={onClose} style={styles.backButton}>
+              <TouchableOpacity onPress={goBack} style={styles.backButton}>
                 <Text style={styles.backButtonText}>←</Text>
               </TouchableOpacity>
             </View>
@@ -489,25 +509,30 @@ const handlePurchaseAdRemoval = async () => {
           </View>
         );
       case 'allTips':
-        return <AllTipsScreen onClose={onClose} />;
+        return <AllTipsScreen onClose={goBack} />;
       case 'punishmentGame':
-        return <PunishmentGameScreen onClose={onClose} />;
+        return <PunishmentGameScreen onClose={goBack} />;
       default:
         return null;
     }
   };
 
   return (
-    <Animated.View 
-      style={[
-        styles.settingsOverlay,
-        {
-          transform: [{ translateX: screen.translateX }],
-          zIndex: screen.zIndex
-        },
-      ]}>
-      {renderScreenContent(screen)}
-    </Animated.View>
+    <>
+      {screenStack.map((screenState, index) => (
+        <Animated.View 
+          key={`${screenState.type}-${index}`}
+          style={[
+            styles.settingsOverlay,
+            {
+              transform: [{ translateX: screenState.translateX }],
+              zIndex: screenState.zIndex
+            },
+          ]}>
+          {renderScreenContent(screenState)}
+        </Animated.View>
+      ))}
+    </>
   );
 };
 
