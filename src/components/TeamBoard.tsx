@@ -76,7 +76,6 @@ try {
 }
 
 const TeamBoard: React.FC = () => {
-  // State management
   const [modalVisible, setModalVisible] = useState(false);
   const [activeTab, setActiveTab] = useState<'host' | 'post'>('host');
   const [selectedMode, setSelectedMode] = useState('');
@@ -95,27 +94,6 @@ const TeamBoard: React.FC = () => {
     totalTrophies: 0,
     favoriteCharacters: []
   });
-
-  // ホスト情報の保存
-  const saveHostInfo = async (info: HostInfo) => {
-    try {
-      await AsyncStorage.setItem('hostInfo', JSON.stringify(info));
-    } catch (error) {
-      console.error('Error saving host info:', error);
-    }
-  };
-
-  // ホスト情報の読み込み
-  const loadHostInfo = async () => {
-    try {
-      const savedInfo = await AsyncStorage.getItem('hostInfo');
-      if (savedInfo) {
-        setHostInfo(JSON.parse(savedInfo));
-      }
-    } catch (error) {
-      console.error('Error loading host info:', error);
-    }
-  };
 
   const REFRESH_COOLDOWN = 3000;
   const scrollViewRef = useRef<ScrollView>(null);
@@ -147,7 +125,7 @@ const TeamBoard: React.FC = () => {
       {
         name: getCurrentMode("brawlBall5v5", currentDate)?.name || "5vs5ブロストライカー",
         color: "#808080",
-        icon: getCurrentMode("brawlBall5v5", currentDate)?.icon || require('../../assets/GameModeIcons/brawl_ball_icon.png')
+        icon: getCurrentMode("brawlBall5v5", currentDate)?.icon || require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
       },
       {
         name: getCurrentMode("duel", currentDate)?.name || "デュエル＆殲滅＆賞金稼ぎ",
@@ -186,8 +164,27 @@ const TeamBoard: React.FC = () => {
 
   useEffect(() => {
     fetchPosts();
-    loadHostInfo();  // アプリ起動時にホスト情報を読み込む
+    loadHostInfo();
   }, []);
+
+  const saveHostInfo = async (info: HostInfo) => {
+    try {
+      await AsyncStorage.setItem('hostInfo', JSON.stringify(info));
+    } catch (error) {
+      console.error('Error saving host info:', error);
+    }
+  };
+
+  const loadHostInfo = async () => {
+    try {
+      const savedInfo = await AsyncStorage.getItem('hostInfo');
+      if (savedInfo) {
+        setHostInfo(JSON.parse(savedInfo));
+      }
+    } catch (error) {
+      console.error('Error loading host info:', error);
+    }
+  };
 
   const fetchPosts = async () => {
     const q = query(
@@ -312,11 +309,6 @@ const TeamBoard: React.FC = () => {
     setCharacterTrophies('');
     setMidCharacters([]);
     setSideCharacters([]);
-    setHostInfo({
-      wins3v3: 0,
-      totalTrophies: 0,
-      favoriteCharacters: []
-    });
   };
 
   if (loading) {
@@ -420,7 +412,6 @@ const TeamBoard: React.FC = () => {
                     title=""
                     onSelect={(character) => {
                       if (!character) return;
-                      if (!character) return;
                       const newFavoriteCharacters = hostInfo.favoriteCharacters.includes(character.id)
                         ? hostInfo.favoriteCharacters.filter(id => id !== character.id)
                         : hostInfo.favoriteCharacters.length < 2
@@ -432,7 +423,7 @@ const TeamBoard: React.FC = () => {
                         favoriteCharacters: newFavoriteCharacters
                       };
                       setHostInfo(newInfo);
-                      saveHostInfo(newInfo);  // キャラクター選択は即座に保存
+                      saveHostInfo(newInfo);
                     }}
                     multiSelect={true}
                     selectedCharacters={hostInfo.favoriteCharacters.map(id => 
@@ -450,19 +441,13 @@ const TeamBoard: React.FC = () => {
                         <TouchableOpacity
                           key={index}
                           style={[
-                            styles.modeButton,
-                            selectedMode === mode.name && styles.selectedModeButton,
-                            { backgroundColor: selectedMode === mode.name ? mode.color : '#f0f0f0' }
+                            styles.modeIconButton,
+                            selectedMode === mode.name && styles.selectedModeIconButton,
+                            { borderColor: selectedMode === mode.name ? mode.color : '#e0e0e0' }
                           ]}
                           onPress={() => setSelectedMode(mode.name)}
                         >
-                          <Image source={mode.icon} style={styles.modeIcon} />
-                          <Text style={[
-                            styles.modeButtonText,
-                            selectedMode === mode.name && styles.selectedModeButtonText
-                          ]}>
-                            {mode.name}
-                          </Text>
+                          <Image source={mode.icon} style={styles.modeIconLarge} />
                         </TouchableOpacity>
                       ))}
                     </ScrollView>
@@ -475,9 +460,7 @@ const TeamBoard: React.FC = () => {
                     isRequired={true}
                   />
 
-                  <View style={styles.inputContainer}>
-                    <Text style={styles.inputLabel}>トロフィー数</Text>
-                  </View>
+                  <Text style={styles.inputLabel}>トロフィー数</Text>
                   <TextInput
                     style={styles.input}
                     value={characterTrophies}
@@ -529,9 +512,7 @@ const TeamBoard: React.FC = () => {
                     maxSelections={2}
                   />
 
-                  <View style={styles.inputContainer}>
-                    <Text style={styles.inputLabel}>招待リンク</Text>
-                  </View>
+                  <Text style={styles.inputLabel}>招待リンク</Text>
                   <TextInput
                     ref={inviteLinkInputRef}
                     style={[styles.input, styles.inviteLinkInput]}
@@ -542,9 +523,7 @@ const TeamBoard: React.FC = () => {
                     maxLength={125}
                   />
 
-                  <View style={styles.inputContainer}>
-                    <Text style={styles.inputLabel}>コメント (任意)</Text>
-                  </View>
+                  <Text style={styles.inputLabel}>コメント (任意)</Text>
                   <TextInput
                     style={[styles.input, styles.multilineInput]}
                     value={description}

@@ -52,22 +52,49 @@ const handleOpenLink = async (url: string) => {
   }
 };
 
-export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
-  const defaultHostInfo: HostInfo = {
-    wins3v3: 0,
-    totalTrophies: 0,
-    favoriteCharacters: []
-  };
-  
-  const hostInfo = post.hostInfo || defaultHostInfo;
-  const modes = [
+const getCurrentModes = () => {
+  return [
     {
       name: "バトルロワイヤル",
       color: "#90EE90",
       icon: require('../../assets/GameModeIcons/showdown_icon.png')
     },
-    // Add other modes here
+    {
+      name: "エメラルドハント",
+      color: "#DA70D6",
+      icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
+    },
+    {
+      name: "ホットゾーン＆強奪",
+      color: "#FF69B4",
+      icon: require('../../assets/GameModeIcons/heist_icon.png')
+    },
+    {
+      name: "ブロストライカー",
+      color: "#4169E1",
+      icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
+    },
+    {
+      name: "5vs5ブロストライカー",
+      color: "#808080",
+      icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
+    },
+    {
+      name: "デュエル＆殲滅＆賞金稼ぎ",
+      color: "#FF0000",
+      icon: require('../../assets/GameModeIcons/bounty_icon.png')
+    },
+    {
+      name: "ノックアウト",
+      color: "#FFA500",
+      icon: require('../../assets/GameModeIcons/knock_out_icon.png')
+    }
   ];
+};
+
+export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
+  const modes = getCurrentModes();
+  const mode = modes.find(m => m.name === post.selectedMode);
 
   return (
     <TouchableOpacity
@@ -77,10 +104,10 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
       <View style={styles.postHeader}>
         <View style={[
           styles.modeTagContainer,
-          { backgroundColor: modes.find(m => m.name === post.selectedMode)?.color || '#21A0DB' }
+          { backgroundColor: mode?.color || '#21A0DB' }
         ]}>
           <Image 
-            source={modes.find(m => m.name === post.selectedMode)?.icon} 
+            source={mode?.icon} 
             style={styles.modeIcon} 
           />
           <Text style={styles.modeName}>{post.selectedMode}</Text>
@@ -101,11 +128,11 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
       <View style={styles.hostInfoSection}>
         <Text style={styles.sectionTitle}>ホスト情報</Text>
         <View style={styles.hostStats}>
-          <Text>3:3勝利数: {hostInfo.wins3v3}</Text>
-          <Text>総合トロ: {hostInfo.totalTrophies}</Text>
+          <Text>3vs3勝利数: {post.hostInfo.wins3v3}</Text>
+          <Text>総合トロ: {post.hostInfo.totalTrophies}</Text>
           <View style={styles.favoriteChars}>
             <Text>得意キャラ:</Text>
-            {hostInfo.favoriteCharacters.map(charId => (
+            {post.hostInfo.favoriteCharacters.map(charId => (
               <Image 
                 key={charId}
                 source={characters.find(c => c.id === charId)?.icon}
@@ -293,7 +320,6 @@ export const styles = StyleSheet.create({
   },
   characterList: {
     flexDirection: 'row',
-    flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 8,
   },
@@ -394,25 +420,26 @@ export const styles = StyleSheet.create({
     paddingTop: 12,
     paddingBottom: 12,
   },
-  modeButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  modeIconButton: {
     padding: 12,
     marginRight: 8,
-    backgroundColor: '#f0f0f0',
-    borderRadius: 8,
-    minWidth: 120,
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    borderWidth: 2,
+    borderColor: '#e0e0e0',
+    width: 60,
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  selectedModeButton: {
-    backgroundColor: '#21A0DB',
+  selectedModeIconButton: {
+    backgroundColor: '#f8f8f8',
+    borderWidth: 2,
   },
-  modeButtonText: {
-    fontSize: 14,
-    color: '#333',
-    fontWeight: '500',
-  },
-  selectedModeButtonText: {
-    color: '#fff',
+  modeIconLarge: {
+    width: 32,
+    height: 32,
+    resizeMode: 'contain',
   },
   modalButtons: {
     flexDirection: 'row',
