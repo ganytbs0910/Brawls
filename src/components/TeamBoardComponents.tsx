@@ -21,6 +21,7 @@ interface TeamPost {
   sideCharacters: string[];
   hostInfo: HostInfo;
 }
+
 const handleOpenLink = async (url: string) => {
   try {
     const canOpen = await Linking.canOpenURL(url);
@@ -90,6 +91,7 @@ const getCurrentModes = () => {
     }
   ];
 };
+
 export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
   const modes = getCurrentModes();
   const mode = modes.find(m => m.name === post.selectedMode);
@@ -114,75 +116,67 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
 
       <View style={styles.contentContainer}>
         <View style={styles.infoRow}>
-          <View style={styles.characterSection}>
-            <Text style={styles.sectionTitle}>使用キャラ</Text>
-            <View style={styles.characterInfo}>
-              <Image 
-                source={characters.find(c => c.id === post.selectedCharacter)?.icon} 
-                style={styles.characterIcon}
-              />
-              <View style={styles.trophyContainer}>
-                <Text style={styles.trophyCount}>{post.characterTrophies}</Text>
-                <Image 
-                  source={require('../../assets/OtherIcon/trophy_Icon.png')}
-                  style={styles.trophyIcon}
-                />
+          <View style={styles.recruitSection}>
+            <View style={styles.recruitRow}>
+              <View style={styles.recruitColumn}>
+                <Text style={styles.sectionTitle}>ミッド募集:</Text>
+                <View style={styles.characterList}>
+                  {post.midCharacters.map(charId => (
+                    <Image 
+                      key={charId}
+                      source={characters.find(c => c.id === charId)?.icon}
+                      style={styles.recruitCharIcon}
+                    />
+                  ))}
+                </View>
+              </View>
+              
+              <View style={styles.recruitColumn}>
+                <Text style={styles.sectionTitle}>サイド募集:</Text>
+                <View style={styles.characterList}>
+                  {post.sideCharacters.map(charId => (
+                    <Image 
+                      key={charId}
+                      source={characters.find(c => c.id === charId)?.icon}
+                      style={styles.recruitCharIcon}
+                    />
+                  ))}
+                </View>
               </View>
             </View>
           </View>
 
           <View style={styles.hostInfoSection}>
-            <Text style={styles.sectionTitle}>ホスト情報</Text>
+            <Text style={styles.sectionTitle}>ホスト情報:</Text>
             <View style={styles.hostStats}>
+              <View style={styles.hostStatRow}>
+                </View>
+                <Image 
+                  source={require('../../assets/OtherIcon/trophy_Icon.png')}
+                  style={styles.tinyTrophyIcon}
+                  />
+                <Text>総合トロ: {post.hostInfo.totalTrophies}</Text>
               <Text>3vs3勝利数: {post.hostInfo.wins3v3}</Text>
-              <Text>総合トロ: {post.hostInfo.totalTrophies}</Text>
-              <View style={styles.favoriteChars}>
-                <Text>得意キャラ:</Text>
-                {post.hostInfo.favoriteCharacters.map(charId => (
-                  <Image 
-                    key={charId}
-                    source={characters.find(c => c.id === charId)?.icon}
-                    style={styles.smallCharIcon}
-                  />
-                ))}
               </View>
-            </View>
-          </View>
-        </View>
+              <View style={styles.hostStatRow}>
+                <Image 
+                  source={characters.find(c => c.id === post.selectedCharacter)?.icon}
+                  style={styles.smallCharIcon}
+                />
+                <Text>使用キャラ: </Text>
+                <Image 
+                  source={require('../../assets/OtherIcon/trophy_Icon.png')}
+                  style={styles.tinyTrophyIcon}
+                  />
+                  <Text>{post.characterTrophies}</Text>
 
-        <View style={styles.recruitSection}>
-          <View style={styles.recruitRow}>
-            <View style={styles.recruitColumn}>
-              <Text style={styles.sectionTitle}>ミッド募集:</Text>
-              <View style={styles.characterList}>
-                {post.midCharacters.map(charId => (
-                  <Image 
-                    key={charId}
-                    source={characters.find(c => c.id === charId)?.icon}
-                    style={styles.recruitCharIcon}
-                  />
-                ))}
-              </View>
-            </View>
-            
-            <View style={styles.recruitColumn}>
-              <Text style={styles.sectionTitle}>サイド募集:</Text>
-              <View style={styles.characterList}>
-                {post.sideCharacters.map(charId => (
-                  <Image 
-                    key={charId}
-                    source={characters.find(c => c.id === charId)?.icon}
-                    style={styles.recruitCharIcon}
-                  />
-                ))}
-              </View>
             </View>
           </View>
         </View>
 
         {post.description && (
           <View style={styles.descriptionSection}>
-            <Text style={styles.sectionTitle}>ひとこと</Text>
+            <Text style={styles.sectionTitle}>ひとこと:</Text>
             <Text style={styles.description}>{post.description}</Text>
           </View>
         )}
@@ -190,6 +184,7 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
     </TouchableOpacity>
   );
 };
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -246,19 +241,19 @@ export const styles = StyleSheet.create({
   },
   postCard: {
     backgroundColor: '#fff',
-    margin: 8,
-    borderRadius: 8,
+    margin: 2,
+    borderRadius: 6,
     borderWidth: 1,
     borderColor: '#e0e0e0',
     overflow: 'hidden',
   },
   postHeader: {
     width: '100%',
-    padding: 12,
+    padding: 6,
     marginBottom: 0,
   },
   contentContainer: {
-    padding: 16,
+    padding: 8,
   },
   modeTagContainer: {
     flexDirection: 'row',
@@ -277,97 +272,67 @@ export const styles = StyleSheet.create({
   },
   infoRow: {
     flexDirection: 'row',
-    gap: 16,
-    marginVertical: 12,
-  },
-  characterSection: {
-    flex: 1,
-    backgroundColor: '#f8f8f8',
-    borderRadius: 8,
-    padding: 12,
-  },
-  sectionTitle: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    marginBottom: 8,
-    color: '#333',
-  },
-  characterInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#f8f8f8',
-    padding: 8,
-    borderRadius: 8,
-  },
-  characterIcon: {
-    width: 40,
-    height: 40,
-    marginRight: 12,
-  },
-  trophyContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
-  },
-  trophyCount: {
-    fontSize: 16,
-    color: '#666',
-    fontWeight: '500',
-  },
-  trophyIcon: {
-    width: 20,
-    height: 20,
-    resizeMode: 'contain',
+    gap: 6,
+    marginVertical: 6,
   },
   hostInfoSection: {
     flex: 1,
-    padding: 12,
+    padding: 6,
     backgroundColor: '#f8f8f8',
-    borderRadius: 8,
+    borderRadius: 6,
   },
   hostStats: {
-    gap: 8,
+    gap: 2,
   },
-  favoriteChars: {
+  hostStatRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: 4,
   },
   smallCharIcon: {
     width: 24,
     height: 24,
   },
+  tinyTrophyIcon: {
+    width: 16,
+    height: 16,
+    resizeMode: 'contain',
+  },
+  favoriteChars: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 2,
+  },
   recruitSection: {
-    marginVertical: 12,
+    flex: 1,
     backgroundColor: '#f8f8f8',
-    borderRadius: 8,
-    padding: 12,
+    borderRadius: 6,
+    padding: 4,
   },
   recruitRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: 16,
+    flexDirection: 'column',
+    gap: 4,
   },
   recruitColumn: {
-    flex: 1,
+    width: '100%',
   },
   characterList: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 8,
+    gap: 2,
     backgroundColor: '#fff',
-    padding: 8,
+    padding: 4,
     borderRadius: 6,
-    minHeight: 48,
+    minHeight: 36,
     alignItems: 'center',
   },
   recruitCharIcon: {
-    width: 32,
-    height: 32,
+    width: 26,
+    height: 26,
   },
   descriptionSection: {
-    marginTop: 12,
-    padding: 12,
+    marginTop: 8,
+    padding: 8,
     backgroundColor: '#f8f8f8',
     borderRadius: 8,
   },

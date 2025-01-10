@@ -43,7 +43,6 @@ const firebaseConfig = {
 interface HostInfo {
   wins3v3: number;
   totalTrophies: number;
-  favoriteCharacters: string[];
 }
 
 interface TeamPost {
@@ -92,7 +91,6 @@ const TeamBoard: React.FC = () => {
   const [hostInfo, setHostInfo] = useState<HostInfo>({
     wins3v3: 0,
     totalTrophies: 0,
-    favoriteCharacters: []
   });
 
   const REFRESH_COOLDOWN = 3000;
@@ -380,57 +378,32 @@ const TeamBoard: React.FC = () => {
 
             <ScrollView ref={scrollViewRef}>
               {activeTab === 'host' ? (
-                <View style={styles.hostInfoForm}>
-                  <Text style={styles.inputLabel}>3vs3勝利数</Text>
-                  <TextInput
-                    style={styles.input}
-                    value={String(hostInfo.wins3v3)}
-                    onChangeText={value => setHostInfo(prev => ({
-                      ...prev,
-                      wins3v3: Number(value) || 0
-                    }))}
-                    onEndEditing={() => saveHostInfo(hostInfo)}
-                    keyboardType="numeric"
-                    placeholder="3vs3の勝利数を入力"
-                  />
+  <View style={styles.hostInfoForm}>
+    <Text style={styles.inputLabel}>3vs3勝利数</Text>
+    <TextInput
+      style={styles.input}
+      value={String(hostInfo.wins3v3)}
+      onChangeText={value => setHostInfo(prev => ({
+        ...prev,
+        wins3v3: Number(value) || 0
+      }))}
+      onEndEditing={() => saveHostInfo(hostInfo)}
+      keyboardType="numeric"
+      placeholder="3vs3の勝利数を入力"
+    />
 
-                  <Text style={styles.inputLabel}>総合トロフィー</Text>
-                  <TextInput
-                    style={styles.input}
-                    value={String(hostInfo.totalTrophies)}
-                    onChangeText={value => setHostInfo(prev => ({
-                      ...prev,
-                      totalTrophies: Number(value) || 0
-                    }))}
-                    onEndEditing={() => saveHostInfo(hostInfo)}
-                    keyboardType="numeric"
-                    placeholder="総合トロフィー数を入力"
-                  />
-
-                  <Text style={styles.inputLabel}>得意キャラ (最大2体)</Text>
-                  <CharacterSelector
-                    title=""
-                    onSelect={(character) => {
-                      if (!character) return;
-                      const newFavoriteCharacters = hostInfo.favoriteCharacters.includes(character.id)
-                        ? hostInfo.favoriteCharacters.filter(id => id !== character.id)
-                        : hostInfo.favoriteCharacters.length < 2
-                          ? [...hostInfo.favoriteCharacters, character.id]
-                          : hostInfo.favoriteCharacters;
-                      
-                      const newInfo = {
-                        ...hostInfo,
-                        favoriteCharacters: newFavoriteCharacters
-                      };
-                      setHostInfo(newInfo);
-                      saveHostInfo(newInfo);
-                    }}
-                    multiSelect={true}
-                    selectedCharacters={hostInfo.favoriteCharacters.map(id => 
-                      characters.find(c => c.id === id)!
-                    )}
-                    maxSelections={2}
-                  />
+    <Text style={styles.inputLabel}>総合トロフィー</Text>
+    <TextInput
+      style={styles.input}
+      value={String(hostInfo.totalTrophies)}
+      onChangeText={value => setHostInfo(prev => ({
+        ...prev,
+        totalTrophies: Number(value) || 0
+      }))}
+      onEndEditing={() => saveHostInfo(hostInfo)}
+      keyboardType="numeric"
+      placeholder="総合トロフィー数を入力"
+    />
                 </View>
               ) : (
                 <View style={styles.postForm}>
@@ -470,7 +443,7 @@ const TeamBoard: React.FC = () => {
                     maxLength={5}
                   />
 
-                  <Text style={styles.inputLabel}>ミッド募集キャラクター (最大2体)</Text>
+                  <Text style={styles.inputLabel}>ミッド募集キャラクター (最大3体)</Text>
                   <CharacterSelector
                     title=""
                     onSelect={(character) => {
@@ -479,8 +452,8 @@ const TeamBoard: React.FC = () => {
                         if (prev.some(c => c.id === character.id)) {
                           return prev.filter(c => c.id !== character.id);
                         }
-                        if (prev.length >= 2) {
-                          Alert.alert('エラー', 'ミッドキャラは2体まで選択できます');
+                        if (prev.length >= 3) {
+                          Alert.alert('エラー', 'ミッドキャラは3体まで選択できます');
                           return prev;
                         }
                         return [...prev, character];
@@ -488,10 +461,10 @@ const TeamBoard: React.FC = () => {
                     }}
                     multiSelect={true}
                     selectedCharacters={midCharacters}
-                    maxSelections={2}
+                    maxSelections={3}
                   />
 
-                  <Text style={styles.inputLabel}>サイド募集キャラクター (最大2体)</Text>
+                  <Text style={styles.inputLabel}>サイド募集キャラクター (最大3体)</Text>
                   <CharacterSelector
                     title=""
                     onSelect={(character) => {
@@ -500,8 +473,8 @@ const TeamBoard: React.FC = () => {
                         if (prev.some(c => c.id === character.id)) {
                           return prev.filter(c => c.id !== character.id);
                         }
-                        if (prev.length >= 2) {
-                          Alert.alert('エラー', 'サイドキャラは2体まで選択できます');
+                        if (prev.length >= 3) {
+                          Alert.alert('エラー', 'サイドキャラは3体まで選択できます');
                           return prev;
                         }
                         return [...prev, character];
@@ -509,7 +482,7 @@ const TeamBoard: React.FC = () => {
                     }}
                     multiSelect={true}
                     selectedCharacters={sideCharacters}
-                    maxSelections={2}
+                    maxSelections={3}
                   />
 
                   <Text style={styles.inputLabel}>招待リンク</Text>

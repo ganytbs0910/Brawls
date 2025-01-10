@@ -365,7 +365,7 @@ const Home: React.FC = () => {
   <SafeAreaView style={styles.safeArea}>
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>ブロールスターズ マップ情報</Text>
+        <Text style={styles.title}>ブロスタ マップ情報</Text>
         <TouchableOpacity
           style={styles.settingsButton}
           onPress={() => showScreen('settings')}

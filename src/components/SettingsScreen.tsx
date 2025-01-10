@@ -150,12 +150,12 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
     try {
       const appStoreUrl = 'https://apps.apple.com/jp/app/brawl-status/id6738936691';
       await Share.share({
-        message: 'ブロールスターズのマップ情報をチェックできるアプリ「Brawl Status」を見つけました！\n\nApp Storeからダウンロード：\n' + appStoreUrl,
+        message: 'ブロスタのマップ情報をチェックできるアプリ「Brawl Status」\n\nApp Storeからダウンロード：\n' + appStoreUrl,
         url: appStoreUrl,
-        title: 'Brawl Status - マップ情報アプリ'
+        title: 'Brawl Status - ブロスタ攻略アプリ'
       }, {
         dialogTitle: 'Brawl Statusを共有',
-        subject: 'Brawl Status - ブロールスターズマップ情報アプリ',
+        subject: 'Brawl Status - ブロスタ攻略アプリ',
         tintColor: '#21A0DB'
       });
     } catch (error) {
@@ -358,7 +358,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
           styles.settingsItemText,
           (loading || isAdFree) && styles.settingsItemTextDisabled
         ]}>
-          {isAdFree ? '広告削除済み' : '広告を削除（¥240）'}
+          {isAdFree ? '広告削除済み' : '広告を削除（¥200）'}
           {loading && ' (処理中...)'}
         </Text>
       </TouchableOpacity>
