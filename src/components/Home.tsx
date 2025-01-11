@@ -34,6 +34,9 @@ type RankingsScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
+// 更新時刻の定義
+const UPDATE_HOURS = [5, 11, 17, 23];
+
 const Home: React.FC = () => {
   const navigation = useNavigation<RankingsScreenNavigationProp>();
   const [screenStack, setScreenStack] = useState<ScreenState[]>([
@@ -44,6 +47,7 @@ const Home: React.FC = () => {
   const [isRewardedAdReady, setIsRewardedAdReady] = useState(false);
   const [isAdFree, setIsAdFree] = useState(false);
   const [mapDetailProps, setMapDetailProps] = useState<MapDetail | null>(null);
+  const [lastUpdateTime, setLastUpdateTime] = useState<Date | null>(null);
 
   const adService = useRef<AdMobService | null>(null);
 
@@ -59,20 +63,14 @@ const Home: React.FC = () => {
     const now = new Date(currentTime);
     let nextUpdate = new Date(now);
     nextUpdate.setDate(nextUpdate.getDate() + 1);
-    nextUpdate.setHours(0, 0, 0, 0); // 次の日の0時をデフォルトとする
+    nextUpdate.setHours(5, 0, 0, 0);  // 次の日の5時をデフォルトとする
 
-    const updateTimes = modes.map(mode => mode.updateTime);
-    updateTimes.sort((a, b) => a - b);
-
-    for (const updateHour of updateTimes) {
+    // 今日の残りの更新時刻をチェック
+    for (const hour of UPDATE_HOURS) {
       const updateTime = new Date(now);
-      updateTime.setHours(updateHour, 0, 0, 0);
+      updateTime.setHours(hour, 0, 0, 0);
       
-      if (updateTime <= now) {
-        updateTime.setDate(updateTime.getDate() + 1);
-      }
-      
-      if (updateTime < nextUpdate) {
+      if (updateTime > now && updateTime < nextUpdate) {
         nextUpdate = updateTime;
       }
     }
@@ -83,7 +81,6 @@ const Home: React.FC = () => {
   // マップ更新のタイマー管理
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
-    let minuteUpdateId: NodeJS.Timeout;
 
     const scheduleNextUpdate = () => {
       const now = new Date();
@@ -93,30 +90,25 @@ const Home: React.FC = () => {
       console.log('Next update scheduled for:', nextUpdate);
       console.log('Time until update:', timeUntilUpdate, 'ms');
 
-      // 次の更新までタイマーをセット
       timeoutId = setTimeout(() => {
         console.log('Update timer triggered at:', new Date());
         const newDate = new Date();
-        setSelectedDate(newDate);
-        setCurrentTime(newDate);
         
-        // 更新後に次の更新をすぐにスケジュール
+        // 最後の更新時刻と現在時刻を比較して、重複更新を防ぐ
+        if (!lastUpdateTime || (newDate.getTime() - lastUpdateTime.getTime()) > 60000) {
+          setSelectedDate(newDate);
+          setCurrentTime(newDate);
+          setLastUpdateTime(newDate);
+          console.log('Maps updated at:', newDate);
+        }
+
+        // 次の更新をスケジュール（1秒の遅延を入れて重複を避ける）
         setTimeout(() => {
           scheduleNextUpdate();
-        }, 1000); // 1秒後に次のスケジュールを設定
+        }, 1000);
       }, timeUntilUpdate);
-
-      // 残り時間表示用の更新（1分ごと）
-      if (minuteUpdateId) {
-        clearInterval(minuteUpdateId);
-      }
-      
-      minuteUpdateId = setInterval(() => {
-        setCurrentTime(new Date());
-      }, 60000);
     };
 
-    // 初期化時に現在の状態を確認して更新
     const initializeState = () => {
       const now = new Date();
       setSelectedDate(now);
@@ -126,12 +118,19 @@ const Home: React.FC = () => {
 
     initializeState();
 
-    // クリーンアップ
     return () => {
       if (timeoutId) clearTimeout(timeoutId);
-      if (minuteUpdateId) clearInterval(minuteUpdateId);
     };
-  }, []); // 依存配列を空にして初期化時のみ実行
+  }, [lastUpdateTime]);
+
+  // 分更新用のEffect
+  useEffect(() => {
+    const minuteUpdateId = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 60000);
+
+    return () => clearInterval(minuteUpdateId);
+  }, []);
 
   // 広告関連の設定
   useEffect(() => {
@@ -246,7 +245,6 @@ const Home: React.FC = () => {
     let updateTime = new Date(now);
     updateTime.setHours(mode.updateTime, 0, 0, 0);
     
-    // 現在時刻が更新時刻を過ぎている場合は翌日の更新時刻を設定
     if (updateTime <= now) {
       updateTime.setDate(updateTime.getDate() + 1);
     }
@@ -382,7 +380,7 @@ const Home: React.FC = () => {
           </TouchableOpacity>
         </View>
 
-<ScrollView style={styles.content}>
+        <ScrollView style={styles.content}>
           <DailyTip />
           <View style={styles.modeContainer}>
             <View style={styles.dateHeader}>
