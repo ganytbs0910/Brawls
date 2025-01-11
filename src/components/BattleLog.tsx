@@ -57,67 +57,6 @@ const getRankIcon = (trophies: number) => {
   return RANK_ICONS.master;
 };
 
-// BattleOverviewコンポーネント - 勝敗の概要を表示
-const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog }) => {
-  if (!battleLog || !Array.isArray(battleLog)) return null;
-
-  const victories = battleLog.filter(b => 
-    (b.battle?.result || '').toLowerCase() === 'victory'
-  ).length;
-  const winRate = Math.round((victories / battleLog.length) * 100);
-
-  const renderResultIcon = (battle, index) => {
-    const isVictory = (battle.battle?.result || '').toLowerCase() === 'victory';
-    const modeIcon = getModeIcon(battle.battle?.mode);
-    return (
-      <View 
-        key={index}
-        style={[
-          styles.resultIconContainer,
-          { backgroundColor: isVictory ? VICTORY_COLOR + '30' : DEFEAT_COLOR + '30' }
-        ]}
-      >
-        {modeIcon && (
-          <Image 
-            source={modeIcon} 
-            style={[
-              styles.resultModeIcon,
-              { opacity: isVictory ? 1 : 0.7 }
-            ]} 
-            resizeMode="contain"
-          />
-        )}
-      </View>
-    );
-  };
-
-  return (
-    <View style={styles.overviewContainer}>
-      <View style={styles.resultsRow}>
-        {battleLog.map((battle, index) => renderResultIcon(battle, index))}
-      </View>
-      <View style={styles.statsContainer}>
-        <View style={styles.statItem}>
-          <Text style={styles.statLabel}>勝率</Text>
-          <Text style={styles.statValue}>{winRate}%</Text>
-        </View>
-        <View style={styles.statDivider} />
-        <View style={styles.statItem}>
-          <Text style={styles.statLabel}>勝利</Text>
-          <Text style={[styles.statValue, { color: VICTORY_COLOR }]}>{victories}</Text>
-        </View>
-        <View style={styles.statDivider} />
-        <View style={styles.statItem}>
-          <Text style={styles.statLabel}>敗北</Text>
-          <Text style={[styles.statValue, { color: DEFEAT_COLOR }]}>
-            {battleLog.length - victories}
-          </Text>
-        </View>
-      </View>
-    </View>
-  );
-};
-
 // モード名の正規化関数
 const normalizeModeName = (modeName: string): string => {
   if (!modeName) return '';
@@ -125,6 +64,7 @@ const normalizeModeName = (modeName: string): string => {
   if (GAME_MODE_ICONS.hasOwnProperty(modeName)) {
     return modeName;
   }
+
   
   const modeNameMapping: { [key: string]: string } = {
     'gemGrab': 'gemGrab',
@@ -189,6 +129,67 @@ const getModeIcon = (modeName: string) => {
   return GAME_MODE_ICONS[normalizedName];
 };
 
+// BattleOverviewコンポーネント - 勝敗の概要を表示
+const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog }) => {
+  if (!battleLog || !Array.isArray(battleLog)) return null;
+
+  const victories = battleLog.filter(b => 
+    (b.battle?.result || '').toLowerCase() === 'victory'
+  ).length;
+  const winRate = Math.round((victories / battleLog.length) * 100);
+
+  const renderResultIcon = (battle, index) => {
+    const isVictory = (battle.battle?.result || '').toLowerCase() === 'victory';
+    const modeIcon = getModeIcon(battle.battle?.mode);
+    return (
+      <View 
+        key={index}
+        style={[
+          styles.resultIconContainer,
+          { backgroundColor: isVictory ? VICTORY_COLOR + '30' : DEFEAT_COLOR + '30' }
+        ]}
+      >
+        {modeIcon && (
+          <Image 
+            source={modeIcon} 
+            style={[
+              styles.resultModeIcon,
+              { opacity: isVictory ? 1 : 0.7 }
+            ]} 
+            resizeMode="contain"
+          />
+        )}
+      </View>
+    );
+  };
+
+  return (
+    <View style={styles.overviewContainer}>
+      <View style={styles.resultsRow}>
+        {battleLog.map((battle, index) => renderResultIcon(battle, index))}
+      </View>
+      <View style={styles.statsContainer}>
+        <View style={styles.statItem}>
+          <Text style={styles.statLabel}>勝率</Text>
+          <Text style={styles.statValue}>{winRate}%</Text>
+        </View>
+        <View style={styles.statDivider} />
+        <View style={styles.statItem}>
+          <Text style={styles.statLabel}>勝利</Text>
+          <Text style={[styles.statValue, { color: VICTORY_COLOR }]}>{victories}</Text>
+        </View>
+        <View style={styles.statDivider} />
+        <View style={styles.statItem}>
+          <Text style={styles.statLabel}>敗北</Text>
+          <Text style={[styles.statValue, { color: DEFEAT_COLOR }]}>
+            {battleLog.length - victories}
+          </Text>
+        </View>
+      </View>
+    </View>
+  );
+};
+
 export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
   const [showAllBattles, setShowAllBattles] = useState(false);
 
@@ -232,14 +233,12 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
           )}
           <View style={styles.trophyContainer}>
             {isSoloRanked ? (
-              // ソロランク戦の場合はランクアイコンを表示
               <Image 
                 source={rankIcon}
                 style={styles.trophyIcon}
                 resizeMode="contain"
               />
             ) : (
-              // 通常戦の場合はトロフィーアイコンを表示
               <Image 
                 source={require('../../assets/OtherIcon/trophy_Icon.png')}
                 style={styles.trophyIcon}
@@ -421,8 +420,9 @@ const styles = StyleSheet.create({
   },
   teamRow: {
     flexDirection: 'row',
-    justifyContent: 'center',
-    gap: 2,
+    justifyContent: 'space-evenly',
+    flexWrap: 'nowrap',
+    paddingHorizontal: 4,
     marginVertical: 1,
   },
   vsContainer: {
@@ -438,13 +438,14 @@ const styles = StyleSheet.create({
   // プレイヤー表示関連
   playerContainer: {
     alignItems: 'center',
-    width: '28%',
+    width: '18%',
+    minWidth: 48,
   },
   portraitContainer: {
     position: 'relative',
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
   },
   starPlayerPortraitContainer: {
     padding: 2,
@@ -461,7 +462,7 @@ const styles = StyleSheet.create({
   portrait: {
     width: '100%',
     height: '100%',
-    borderRadius: 24,
+    borderRadius: 20,
     backgroundColor: '#f5f5f5',
   },
   starPlayerPortrait: {
