@@ -6,7 +6,8 @@ import { characters } from './CharacterSelector';
 interface HostInfo {
   wins3v3: number;
   totalTrophies: number;
-  favoriteCharacters: string[];
+  winsSolo: number;
+  winsDuo: number;
 }
 
 interface TeamPost {
@@ -147,31 +148,46 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
           </View>
 
           <View style={styles.hostInfoSection}>
-            <Text style={styles.sectionTitle}>ホスト情報:</Text>
-            <View style={styles.hostStats}>
-              <View style={styles.hostStatRow}>
-                </View>
-                <Image 
-                  source={require('../../assets/OtherIcon/trophy_Icon.png')}
-                  style={styles.tinyTrophyIcon}
-                  />
-                <Text>総合トロ: {post.hostInfo.totalTrophies}</Text>
-              <Text>3vs3勝利数: {post.hostInfo.wins3v3}</Text>
-              </View>
-              <View style={styles.hostStatRow}>
-                <Image 
-                  source={characters.find(c => c.id === post.selectedCharacter)?.icon}
-                  style={styles.smallCharIcon}
-                />
-                <Text>使用キャラ: </Text>
-                <Image 
-                  source={require('../../assets/OtherIcon/trophy_Icon.png')}
-                  style={styles.tinyTrophyIcon}
-                  />
-                  <Text>{post.characterTrophies}</Text>
-
-            </View>
-          </View>
+  <Text style={styles.sectionTitle}>ホスト情報:</Text>
+  <View style={styles.hostStats}>
+    <View style={styles.hostStatRow}>
+      <Image 
+        source={require('../../assets/OtherIcon/trophy_Icon.png')}
+        style={styles.tinyTrophyIcon}
+      />
+      <Text>総合トロ: {post.hostInfo.totalTrophies}</Text>
+    </View>
+    <View style={styles.hostStatRow}>
+      <Image 
+        source={require('../../assets/GameModeIcons/gem_grab_icon.png')}
+        style={styles.tinyTrophyIcon}
+      />
+      <Text>3vs3勝利数: {post.hostInfo.wins3v3}</Text>
+    </View>
+    <View style={styles.hostStatRow}>
+      <Image 
+        source={require('../../assets/GameModeIcons/showdown_icon.png')}
+        style={styles.tinyTrophyIcon}
+      />
+      <Text>ソロ勝利数: {post.hostInfo.winsSolo}</Text>
+    </View>
+    <View style={styles.hostStatRow}>
+      <Image 
+        source={require('../../assets/GameModeIcons/duo_showdown_icon.png')}
+        style={styles.tinyTrophyIcon}
+      />
+      <Text>デュオ勝利数: {post.hostInfo.winsDuo}</Text>
+    </View>
+  </View>
+  <View style={styles.hostStatRow}>
+    <Image 
+      source={characters.find(c => c.id === post.selectedCharacter)?.icon}
+      style={styles.smallCharIcon}
+    />
+    <Text>使用キャラ: </Text>
+    <Text>{post.characterTrophies}</Text>
+  </View>
+</View>
         </View>
 
         {post.description && (

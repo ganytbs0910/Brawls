@@ -91,6 +91,8 @@ const TeamBoard: React.FC = () => {
   const [hostInfo, setHostInfo] = useState<HostInfo>({
     wins3v3: 0,
     totalTrophies: 0,
+    winsSolo: 0,
+    winsDuo: 0 
   });
 
   const REFRESH_COOLDOWN = 3000;
@@ -378,33 +380,59 @@ const TeamBoard: React.FC = () => {
 
             <ScrollView ref={scrollViewRef}>
               {activeTab === 'host' ? (
-  <View style={styles.hostInfoForm}>
-    <Text style={styles.inputLabel}>3vs3勝利数</Text>
-    <TextInput
-      style={styles.input}
-      value={String(hostInfo.wins3v3)}
-      onChangeText={value => setHostInfo(prev => ({
-        ...prev,
-        wins3v3: Number(value) || 0
-      }))}
-      onEndEditing={() => saveHostInfo(hostInfo)}
-      keyboardType="numeric"
-      placeholder="3vs3の勝利数を入力"
-    />
-
-    <Text style={styles.inputLabel}>総合トロフィー</Text>
-    <TextInput
-      style={styles.input}
-      value={String(hostInfo.totalTrophies)}
-      onChangeText={value => setHostInfo(prev => ({
-        ...prev,
-        totalTrophies: Number(value) || 0
-      }))}
-      onEndEditing={() => saveHostInfo(hostInfo)}
-      keyboardType="numeric"
-      placeholder="総合トロフィー数を入力"
-    />
-                </View>
+              <View style={styles.hostInfoForm}>
+                <Text style={styles.inputLabel}>3vs3勝利数</Text>
+                <TextInput
+                  style={styles.input}
+                  value={String(hostInfo.wins3v3)}
+                  onChangeText={value => setHostInfo(prev => ({
+                    ...prev,
+                    wins3v3: Number(value) || 0
+                  }))}
+                  onEndEditing={() => saveHostInfo(hostInfo)}
+                  keyboardType="numeric"
+                  placeholder="3vs3の勝利数を入力"
+                />
+            
+                <Text style={styles.inputLabel}>ソロ勝利数</Text>
+                <TextInput
+                  style={styles.input}
+                  value={String(hostInfo.winsSolo)}
+                  onChangeText={value => setHostInfo(prev => ({
+                    ...prev,
+                    winsSolo: Number(value) || 0
+                  }))}
+                  onEndEditing={() => saveHostInfo(hostInfo)}
+                  keyboardType="numeric"
+                  placeholder="ソロの勝利数を入力"
+                />
+            
+                <Text style={styles.inputLabel}>デュオ勝利数</Text>
+                <TextInput
+                  style={styles.input}
+                  value={String(hostInfo.winsDuo)}
+                  onChangeText={value => setHostInfo(prev => ({
+                    ...prev,
+                    winsDuo: Number(value) || 0
+                  }))}
+                  onEndEditing={() => saveHostInfo(hostInfo)}
+                  keyboardType="numeric"
+                  placeholder="デュオの勝利数を入力"
+                />
+            
+                <Text style={styles.inputLabel}>総合トロフィー</Text>
+                <TextInput
+                  style={styles.input}
+                  value={String(hostInfo.totalTrophies)}
+                  onChangeText={value => setHostInfo(prev => ({
+                    ...prev,
+                    totalTrophies: Number(value) || 0
+                  }))}
+                  onEndEditing={() => saveHostInfo(hostInfo)}
+                  keyboardType="numeric"
+                  placeholder="総合トロフィー数を入力"
+                />
+              </View>
               ) : (
                 <View style={styles.postForm}>
                   <View style={styles.modeSelectorContainer}>
