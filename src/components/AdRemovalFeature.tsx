@@ -97,25 +97,43 @@ const useAdRemoval = () => {
 
       console.log('[IAP] Starting purchase for SKU:', skuId);
 
-      // 商品情報の再確認
-      if (products.length === 0) {
-        const availableProducts = await getProducts({ skus: [skuId] });
-        console.log('[IAP] Available products:', availableProducts);
-        if (availableProducts.length === 0) {
-          throw new Error('Product not found');
+      // 既存の購入を確認
+      try {
+        const purchases = await getPurchases();
+        const existingPurchase = purchases.find(
+          p => p.productId === AD_REMOVAL_SKU_IOS || 
+               p.productId === AD_REMOVAL_SKU_ANDROID
+        );
+        
+        if (existingPurchase) {
+          // 既存の購入が見つかった場合
+          await AsyncStorage.setItem('adFreeStatus', 'true');
+          setIsAdFree(true);
+          return true;
         }
+      } catch (error) {
+        console.warn('[IAP] Error checking existing purchases:', error);
+        // エラーは無視して購入処理を続行
       }
 
-      // 購入リクエスト
+      // 新規購入を試行
       const purchase = await requestPurchase({
         sku: skuId,
         andDangerouslyFinishTransactionAutomatically: false
+      }).catch(async error => {
+        if (error.code === 'E_ALREADY_OWNED') {
+          // 既に購入済みの場合
+          await AsyncStorage.setItem('adFreeStatus', 'true');
+          setIsAdFree(true);
+          return true;
+        }
+        throw error;
       });
 
-      console.log('[IAP] Purchase response:', purchase);
-
-      if (purchase) {
-        await finishTransaction(purchase);
+      if (purchase === true || purchase) {
+        if (purchase !== true) {
+          await finishTransaction(purchase);
+        }
         await AsyncStorage.setItem('adFreeStatus', 'true');
         setIsAdFree(true);
         return true;
@@ -132,17 +150,15 @@ const useAdRemoval = () => {
           case 'E_USER_CANCELLED':
             return false;
           case 'E_ALREADY_OWNED':
-            errorMessage = '既に購入済みです。購入の復元をお試しください。';
-            break;
+            await AsyncStorage.setItem('adFreeStatus', 'true');
+            setIsAdFree(true);
+            return true;
           case 'E_NETWORK_ERROR':
             errorMessage = 'ネットワークエラーが発生しました。接続を確認してください。';
             break;
           default:
             errorMessage = `購入エラー: ${error.code}`;
         }
-      } else {
-        console.error('[IAP] Unexpected error:', error);
-        errorMessage = '予期せぬエラーが発生しました';
       }
 
       setError(errorMessage);
@@ -159,9 +175,44 @@ const useAdRemoval = () => {
       setError(null);
 
       console.log('[IAP] Starting purchase restoration');
+      
+      // 1. まず通常の購入履歴を確認
       const purchases = await getPurchases();
       console.log('[IAP] Retrieved purchases:', purchases);
 
+      // 2. プラットフォーム固有の処理
+      if (Platform.OS === 'ios') {
+        // iOSの場合、追加の確認を行う
+        try {
+          // 特定のSKUに対する購入可能性を確認
+          const products = await getProducts({ skus: [AD_REMOVAL_SKU_IOS] });
+          
+          if (products.length > 0) {
+            // この商品が「購入済み」として表示される場合、
+            // ユーザーは以前に購入していることになる
+            const purchase = await requestPurchase({
+              sku: AD_REMOVAL_SKU_IOS,
+              andDangerouslyFinishTransactionAutomatically: false
+            }).catch(error => {
+              if (error.code === 'E_ALREADY_OWNED') {
+                return true; // 購入済みとして扱う
+              }
+              throw error;
+            });
+
+            if (purchase === true) {
+              await AsyncStorage.setItem('adFreeStatus', 'true');
+              setIsAdFree(true);
+              return true;
+            }
+          }
+        } catch (error) {
+          console.warn('[IAP] Additional iOS check failed:', error);
+          // このエラーは無視して続行（通常の確認に戻る）
+        }
+      }
+
+      // 3. 通常の購入確認
       const hasAdRemoval = purchases.some(
         purchase => purchase.productId === AD_REMOVAL_SKU_IOS || 
                    purchase.productId === AD_REMOVAL_SKU_ANDROID
@@ -169,6 +220,14 @@ const useAdRemoval = () => {
 
       if (hasAdRemoval) {
         await AsyncStorage.setItem('adFreeStatus', 'true');
+        setIsAdFree(true);
+        return true;
+      }
+
+      // 4. ローカルストレージのバックアップチェック
+      // デバイスに保存された購入状態も確認
+      const storedStatus = await AsyncStorage.getItem('adFreeStatus');
+      if (storedStatus === 'true') {
         setIsAdFree(true);
         return true;
       }
