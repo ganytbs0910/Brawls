@@ -215,7 +215,7 @@ export const styles = StyleSheet.create({
   autoFillButton: {
     backgroundColor: '#21A0DB',
     paddingHorizontal: 12,
-    height: 42, // 入力欄と同じ高さに合わせる
+    height: 42,
     borderRadius: 6,
     justifyContent: 'center',
     alignItems: 'center',
@@ -472,8 +472,8 @@ export const styles = StyleSheet.create({
     borderRadius: 12,
     borderWidth: 2,
     borderColor: '#e0e0e0',
-    width: 60,
-    height: 60,
+    width: 40,
+    height: 40,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -482,8 +482,8 @@ export const styles = StyleSheet.create({
     borderWidth: 2,
   },
   modeIconLarge: {
-    width: 32,
-    height: 32,
+    width: 24,
+    height: 24,
     resizeMode: 'contain',
   },
   modalButtons: {
