@@ -29,6 +29,7 @@ import {
 import { getCurrentMode } from '../utils/gameData';
 import CharacterSelector, { Character, characters } from './CharacterSelector';
 import { PostCard, styles } from './TeamBoardComponents';
+import { usePlayerData, validatePlayerTag } from '../hooks/useBrawlStarsApi';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDCuES9P2UaLjQnYNVj0HhakM8o01TR5bQ",
@@ -43,6 +44,8 @@ const firebaseConfig = {
 interface HostInfo {
   wins3v3: number;
   totalTrophies: number;
+  winsSolo: number;
+  winsDuo: number;
 }
 
 interface TeamPost {
@@ -56,13 +59,6 @@ interface TeamPost {
   midCharacters: string[];
   sideCharacters: string[];
   hostInfo: HostInfo;
-}
-
-interface GameMode {
-  name: string;
-  color: string;
-  icon: any;
-  isRotating?: boolean;
 }
 
 let app;
@@ -88,11 +84,16 @@ const TeamBoard: React.FC = () => {
   const [sideCharacters, setSideCharacters] = useState<Character[]>([]);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [lastRefreshTime, setLastRefreshTime] = useState(0);
+  // プレイヤータグ関連の新しいstate
+  const [playerTag, setPlayerTag] = useState('');
+  const [isAutoFilling, setIsAutoFilling] = useState(false);
+  const playerDataAPI = usePlayerData();
+  
   const [hostInfo, setHostInfo] = useState<HostInfo>({
     wins3v3: 0,
     totalTrophies: 0,
     winsSolo: 0,
-    winsDuo: 0 
+    winsDuo: 0
   });
 
   const REFRESH_COOLDOWN = 3000;
@@ -123,14 +124,14 @@ const TeamBoard: React.FC = () => {
         icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
       },
       {
-        name: getCurrentMode("brawlBall5v5", currentDate)?.name || "5vs5ブロストライカー",
+        name: "5vs5ブロストライカー",
         color: "#808080",
-        icon: getCurrentMode("brawlBall5v5", currentDate)?.icon || require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
+        icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
       },
       {
-        name: getCurrentMode("duel", currentDate)?.name || "デュエル＆殲滅＆賞金稼ぎ",
+        name: "デュエル＆殲滅＆賞金稼ぎ",
         color: "#FF0000",
-        icon: getCurrentMode("duel", currentDate)?.icon || require('../../assets/GameModeIcons/bounty_icon.png')
+        icon: require('../../assets/GameModeIcons/bounty_icon.png')
       },
       {
         name: "ノックアウト",
@@ -167,6 +168,36 @@ const TeamBoard: React.FC = () => {
     loadHostInfo();
   }, []);
 
+  const handleAutoFill = async () => {
+    if (!playerTag) {
+      Alert.alert('エラー', 'プレイヤータグを入力してください');
+      return;
+    }
+
+    setIsAutoFilling(true);
+    try {
+      await playerDataAPI.fetchPlayerData(playerTag);
+      
+      if (playerDataAPI.data?.playerInfo) {
+        const { playerInfo } = playerDataAPI.data;
+        const newHostInfo = {
+          wins3v3: playerInfo['3vs3Victories'] || 0,
+          winsSolo: playerInfo.soloVictories || 0,
+          winsDuo: playerInfo.duoVictories || 0,
+          totalTrophies: playerInfo.trophies || 0
+        };
+        
+        setHostInfo(newHostInfo);
+        await saveHostInfo(newHostInfo);
+        Alert.alert('成功', 'プレイヤー情報を自動入力しました');
+      }
+    } catch (error) {
+      Alert.alert('エラー', 'プレイヤー情報の取得に失敗しました');
+    } finally {
+      setIsAutoFilling(false);
+    }
+  };
+
   const saveHostInfo = async (info: HostInfo) => {
     try {
       await AsyncStorage.setItem('hostInfo', JSON.stringify(info));
@@ -180,6 +211,12 @@ const TeamBoard: React.FC = () => {
       const savedInfo = await AsyncStorage.getItem('hostInfo');
       if (savedInfo) {
         setHostInfo(JSON.parse(savedInfo));
+      }
+      
+      // 保存されているプレイヤータグも読み込む
+      const savedTag = await AsyncStorage.getItem('brawlStarsPlayerTag');
+      if (savedTag) {
+        setPlayerTag(savedTag);
       }
     } catch (error) {
       console.error('Error loading host info:', error);
@@ -203,7 +240,8 @@ const TeamBoard: React.FC = () => {
           hostInfo: data.hostInfo || {
             wins3v3: 0,
             totalTrophies: 0,
-            favoriteCharacters: []
+            winsSolo: 0,
+            winsDuo: 0
           },
           midCharacters: data.midCharacters || [],
           sideCharacters: data.sideCharacters || []
@@ -311,6 +349,191 @@ const TeamBoard: React.FC = () => {
     setSideCharacters([]);
   };
 
+  const renderHostInfoForm = () => (
+    <View style={styles.hostInfoForm}>
+      <View style={styles.autoFillSection}>
+        <Text style={styles.inputLabel}>プレイヤータグ</Text>
+        <View style={styles.autoFillInputContainer}>
+          <TextInput
+            style={[styles.input, styles.autoFillInput]}
+            value={playerTag}
+            onChangeText={(text) => setPlayerTag(text.toUpperCase())}
+            placeholder="#XXXXXXXXX"
+            autoCapitalize="characters"
+            autoCorrect={false}
+          />
+          <TouchableOpacity
+            style={[
+              styles.autoFillButton,
+              isAutoFilling && styles.autoFillButtonDisabled
+            ]}
+            onPress={handleAutoFill}
+            disabled={isAutoFilling}
+          >
+            <Text style={styles.autoFillButtonText}>
+              {isAutoFilling ? '取得中...' : '自動入力'}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      <Text style={styles.inputLabel}>3vs3勝利数</Text>
+      <TextInput
+        style={styles.input}
+        value={String(hostInfo.wins3v3)}
+        onChangeText={value => setHostInfo(prev => ({
+          ...prev,
+          wins3v3: Number(value) || 0
+        }))}
+        onEndEditing={() => saveHostInfo(hostInfo)}
+        keyboardType="numeric"
+        placeholder="3vs3の勝利数を入力"
+      />
+
+      <Text style={styles.inputLabel}>ソロ勝利数</Text>
+      <TextInput
+        style={styles.input}
+        value={String(hostInfo.winsSolo)}
+        onChangeText={value => setHostInfo(prev => ({
+          ...prev,
+          winsSolo: Number(value) || 0
+        }))}
+        onEndEditing={() => saveHostInfo(hostInfo)}
+        keyboardType="numeric"
+        placeholder="ソロの勝利数を入力"
+      />
+
+      <Text style={styles.inputLabel}>デュオ勝利数</Text>
+      <TextInput
+        style={styles.input}
+        value={String(hostInfo.winsDuo)}
+        onChangeText={value => setHostInfo(prev => ({
+          ...prev,
+          winsDuo: Number(value) || 0
+        }))}
+        onEndEditing={() => saveHostInfo(hostInfo)}
+        keyboardType="numeric"
+        placeholder="デュオの勝利数を入力"
+      />
+
+      <Text style={styles.inputLabel}>総合トロフィー</Text>
+      <TextInput
+        style={styles.input}
+        value={String(hostInfo.totalTrophies)}
+        onChangeText={value => setHostInfo(prev => ({
+          ...prev,
+          totalTrophies: Number(value) || 0
+        }))}
+        onEndEditing={() => saveHostInfo(hostInfo)}
+        keyboardType="numeric"
+        placeholder="総合トロフィー数を入力"
+      />
+    </View>
+  );
+
+  const renderPostForm = () => (
+    <View style={styles.postForm}>
+      <View style={styles.modeSelectorContainer}>
+        <Text style={styles.inputLabel}>モード選択</Text>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          {modes.map((mode, index) => (
+            <TouchableOpacity
+              key={index}
+              style={[
+                styles.modeIconButton,
+                selectedMode === mode.name && styles.selectedModeIconButton,
+                { borderColor: selectedMode === mode.name ? mode.color : '#e0e0e0' }
+              ]}
+              onPress={() => setSelectedMode(mode.name)}
+            >
+              <Image source={mode.icon} style={styles.modeIconLarge} />
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </View>
+
+      <CharacterSelector
+        title="使用キャラクター"
+        onSelect={setSelectedCharacter}
+        selectedCharacterId={selectedCharacter?.id}
+        isRequired={true}
+      />
+
+      <Text style={styles.inputLabel}>トロフィー数</Text>
+      <TextInput
+        style={styles.input}
+        value={characterTrophies}
+        onChangeText={setCharacterTrophies}
+        placeholder="キャラクターのトロフィー数を入力"
+        keyboardType="numeric"
+        maxLength={5}
+      />
+
+      <Text style={styles.inputLabel}>ミッド募集キャラクター (最大3体)</Text>
+      <CharacterSelector
+        title=""
+        onSelect={(character) => {
+          if (!character) return;
+          setMidCharacters(prev => {
+            if (prev.some(c => c.id === character.id)) {
+              return prev.filter(c => c.id !== character.id);
+            }
+            if (prev.length >= 3) {
+              Alert.alert('エラー', 'ミッドキャラは3体まで選択できます');
+              return prev;
+            }
+            return [...prev, character];
+          });
+        }}
+        multiSelect={true}
+        selectedCharacters={midCharacters}
+        maxSelections={3}
+      />
+
+      <Text style={styles.inputLabel}>サイド募集キャラクター (最大3体)</Text>
+      <CharacterSelector
+        title=""
+        onSelect={(character) => {
+          if (!character) return;
+          setSideCharacters(prev => {
+            if (prev.some(c => c.id === character.id)) {
+              return prev.filter(c => c.id !== character.id);
+            }
+            if (prev.length >= 3) {
+              Alert.alert('エラー', 'サイドキャラは3体まで選択できます');
+              return prev;
+            }
+            return [...prev, character];
+          });
+        }}
+        multiSelect={true}
+        selectedCharacters={sideCharacters}
+        maxSelections={3}
+      />
+
+      <Text style={styles.inputLabel}>招待リンク</Text>
+      <TextInput
+        ref={inviteLinkInputRef}
+        style={[styles.input, styles.inviteLinkInput]}
+        value={inviteLink}
+        onChangeText={setInviteLink}
+        placeholder="招待リンクを貼り付け"
+        multiline
+        maxLength={125}
+      />
+
+      <Text style={styles.inputLabel}>コメント (任意)</Text>
+      <TextInput
+        style={[styles.input, styles.multilineInput]}
+        value={description}
+        onChangeText={setDescription}
+        placeholder="募集に関する詳細や要望を入力"
+        multiline
+        maxLength={100}
+      />
+    </View>
+  );
+
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
@@ -379,162 +602,7 @@ const TeamBoard: React.FC = () => {
             </View>
 
             <ScrollView ref={scrollViewRef}>
-              {activeTab === 'host' ? (
-              <View style={styles.hostInfoForm}>
-                <Text style={styles.inputLabel}>3vs3勝利数</Text>
-                <TextInput
-                  style={styles.input}
-                  value={String(hostInfo.wins3v3)}
-                  onChangeText={value => setHostInfo(prev => ({
-                    ...prev,
-                    wins3v3: Number(value) || 0
-                  }))}
-                  onEndEditing={() => saveHostInfo(hostInfo)}
-                  keyboardType="numeric"
-                  placeholder="3vs3の勝利数を入力"
-                />
-            
-                <Text style={styles.inputLabel}>ソロ勝利数</Text>
-                <TextInput
-                  style={styles.input}
-                  value={String(hostInfo.winsSolo)}
-                  onChangeText={value => setHostInfo(prev => ({
-                    ...prev,
-                    winsSolo: Number(value) || 0
-                  }))}
-                  onEndEditing={() => saveHostInfo(hostInfo)}
-                  keyboardType="numeric"
-                  placeholder="ソロの勝利数を入力"
-                />
-            
-                <Text style={styles.inputLabel}>デュオ勝利数</Text>
-                <TextInput
-                  style={styles.input}
-                  value={String(hostInfo.winsDuo)}
-                  onChangeText={value => setHostInfo(prev => ({
-                    ...prev,
-                    winsDuo: Number(value) || 0
-                  }))}
-                  onEndEditing={() => saveHostInfo(hostInfo)}
-                  keyboardType="numeric"
-                  placeholder="デュオの勝利数を入力"
-                />
-            
-                <Text style={styles.inputLabel}>総合トロフィー</Text>
-                <TextInput
-                  style={styles.input}
-                  value={String(hostInfo.totalTrophies)}
-                  onChangeText={value => setHostInfo(prev => ({
-                    ...prev,
-                    totalTrophies: Number(value) || 0
-                  }))}
-                  onEndEditing={() => saveHostInfo(hostInfo)}
-                  keyboardType="numeric"
-                  placeholder="総合トロフィー数を入力"
-                />
-              </View>
-              ) : (
-                <View style={styles.postForm}>
-                  <View style={styles.modeSelectorContainer}>
-                    <Text style={styles.inputLabel}>モード選択</Text>
-                    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                      {modes.map((mode, index) => (
-                        <TouchableOpacity
-                          key={index}
-                          style={[
-                            styles.modeIconButton,
-                            selectedMode === mode.name && styles.selectedModeIconButton,
-                            { borderColor: selectedMode === mode.name ? mode.color : '#e0e0e0' }
-                          ]}
-                          onPress={() => setSelectedMode(mode.name)}
-                        >
-                          <Image source={mode.icon} style={styles.modeIconLarge} />
-                        </TouchableOpacity>
-                      ))}
-                    </ScrollView>
-                  </View>
-
-                  <CharacterSelector
-                    title="使用キャラクター"
-                    onSelect={setSelectedCharacter}
-                    selectedCharacterId={selectedCharacter?.id}
-                    isRequired={true}
-                  />
-
-                  <Text style={styles.inputLabel}>トロフィー数</Text>
-                  <TextInput
-                    style={styles.input}
-                    value={characterTrophies}
-                    onChangeText={setCharacterTrophies}
-                    placeholder="キャラクターのトロフィー数を入力"
-                    keyboardType="numeric"
-                    maxLength={5}
-                  />
-
-                  <Text style={styles.inputLabel}>ミッド募集キャラクター (最大3体)</Text>
-                  <CharacterSelector
-                    title=""
-                    onSelect={(character) => {
-                      if (!character) return;
-                      setMidCharacters(prev => {
-                        if (prev.some(c => c.id === character.id)) {
-                          return prev.filter(c => c.id !== character.id);
-                        }
-                        if (prev.length >= 3) {
-                          Alert.alert('エラー', 'ミッドキャラは3体まで選択できます');
-                          return prev;
-                        }
-                        return [...prev, character];
-                      });
-                    }}
-                    multiSelect={true}
-                    selectedCharacters={midCharacters}
-                    maxSelections={3}
-                  />
-
-                  <Text style={styles.inputLabel}>サイド募集キャラクター (最大3体)</Text>
-                  <CharacterSelector
-                    title=""
-                    onSelect={(character) => {
-                      if (!character) return;
-                      setSideCharacters(prev => {
-                        if (prev.some(c => c.id === character.id)) {
-                          return prev.filter(c => c.id !== character.id);
-                        }
-                        if (prev.length >= 3) {
-                          Alert.alert('エラー', 'サイドキャラは3体まで選択できます');
-                          return prev;
-                        }
-                        return [...prev, character];
-                      });
-                    }}
-                    multiSelect={true}
-                    selectedCharacters={sideCharacters}
-                    maxSelections={3}
-                  />
-
-                  <Text style={styles.inputLabel}>招待リンク</Text>
-                  <TextInput
-                    ref={inviteLinkInputRef}
-                    style={[styles.input, styles.inviteLinkInput]}
-                    value={inviteLink}
-                    onChangeText={setInviteLink}
-                    placeholder="招待リンクを貼り付け"
-                    multiline
-                    maxLength={125}
-                  />
-
-                  <Text style={styles.inputLabel}>コメント (任意)</Text>
-                  <TextInput
-                    style={[styles.input, styles.multilineInput]}
-                    value={description}
-                    onChangeText={setDescription}
-                    placeholder="募集に関する詳細や要望を入力"
-                    multiline
-                    maxLength={100}
-                  />
-                </View>
-              )}
+              {activeTab === 'host' ? renderHostInfoForm() : renderPostForm()}
 
               <View style={styles.modalButtons}>
                 <TouchableOpacity
@@ -559,5 +627,6 @@ const TeamBoard: React.FC = () => {
     </SafeAreaView>
   );
 };
+
 
 export default TeamBoard;

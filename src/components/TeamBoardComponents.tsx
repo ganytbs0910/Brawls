@@ -202,6 +202,32 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
 };
 
 export const styles = StyleSheet.create({
+    autoFillSection: {
+    marginBottom: 8,
+  },
+  autoFillInputContainer: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  autoFillInput: {
+    flex: 1,
+  },
+  autoFillButton: {
+    backgroundColor: '#21A0DB',
+    paddingHorizontal: 12,
+    height: 42, // 入力欄と同じ高さに合わせる
+    borderRadius: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: 80,
+  },
+  autoFillButtonDisabled: {
+    opacity: 0.5,
+  },
+  autoFillButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
