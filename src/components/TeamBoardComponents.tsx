@@ -96,6 +96,28 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
   const modes = getCurrentModes();
   const mode = modes.find(m => m.name === post.selectedMode);
 
+  const formatTimestamp = (timestamp: Timestamp) => {
+    const date = timestamp.toDate();
+    const now = new Date();
+    const diffInMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60));
+    
+    if (diffInMinutes < 1) {
+      return 'たった今';
+    } else if (diffInMinutes < 60) {
+      return `${diffInMinutes}分前`;
+    } else if (diffInMinutes < 24 * 60) {
+      const hours = Math.floor(diffInMinutes / 60);
+      return `${hours}時間前`;
+    } else {
+      return date.toLocaleDateString('ja-JP', {
+        month: 'numeric',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
+  };
+
   return (
     <TouchableOpacity
       style={styles.postCard}
@@ -105,12 +127,15 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
         styles.postHeader,
         { backgroundColor: mode?.color || '#21A0DB' }
       ]}>
-        <View style={styles.modeTagContainer}>
-          <Image 
-            source={mode?.icon} 
-            style={styles.modeIcon} 
-          />
-          <Text style={styles.modeName}>{post.selectedMode}</Text>
+        <View style={styles.headerContent}>
+          <View style={styles.modeTagContainer}>
+            <Image 
+              source={mode?.icon} 
+              style={styles.modeIcon} 
+            />
+            <Text style={styles.modeName}>{post.selectedMode}</Text>
+          </View>
+          <Text style={styles.timestamp}>{formatTimestamp(post.createdAt)}</Text>
         </View>
       </View>
 
@@ -566,5 +591,16 @@ export const styles = StyleSheet.create({
     fontWeight: '700',
     marginBottom: 2,
     color: '#333',
-  }
+  },
+  headerContent: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+},
+timestamp: {
+  color: '#fff',
+  fontSize: 12,
+  fontWeight: '500',
+  opacity: 0.9,
+},
 });
