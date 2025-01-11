@@ -30,6 +30,7 @@ import { getCurrentMode } from '../utils/gameData';
 import CharacterSelector, { Character, characters } from './CharacterSelector';
 import { PostCard, styles } from './TeamBoardComponents';
 import { usePlayerData, validatePlayerTag } from '../hooks/useBrawlStarsApi';
+import { nameMap } from '../data/characterData';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDCuES9P2UaLjQnYNVj0HhakM8o01TR5bQ",
@@ -61,6 +62,13 @@ interface TeamPost {
   hostInfo: HostInfo;
 }
 
+interface GameMode {
+  name: string;
+  color: string;
+  icon: any;
+  isRotating?: boolean;
+}
+
 let app;
 let db;
 try {
@@ -84,9 +92,11 @@ const TeamBoard: React.FC = () => {
   const [sideCharacters, setSideCharacters] = useState<Character[]>([]);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [lastRefreshTime, setLastRefreshTime] = useState(0);
-  // プレイヤータグ関連の新しいstate
   const [playerTag, setPlayerTag] = useState('');
   const [isAutoFilling, setIsAutoFilling] = useState(false);
+  const [isLoadingTrophies, setIsLoadingTrophies] = useState(false);
+  const [cachedPlayerData, setCachedPlayerData] = useState<any>(null);
+  
   const playerDataAPI = usePlayerData();
   
   const [hostInfo, setHostInfo] = useState<HostInfo>({
@@ -129,9 +139,9 @@ const TeamBoard: React.FC = () => {
         icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
       },
       {
-        name: "デュエル＆殲滅＆賞金稼ぎ",
+        name: getCurrentMode("duel", currentDate)?.name || "デュエル＆殲滅＆賞金稼ぎ",
         color: "#FF0000",
-        icon: require('../../assets/GameModeIcons/bounty_icon.png')
+        icon: getCurrentMode("duel", currentDate)?.icon || require('../../assets/GameModeIcons/bounty_icon.png')
       },
       {
         name: "ノックアウト",
@@ -167,6 +177,66 @@ const TeamBoard: React.FC = () => {
     fetchPosts();
     loadHostInfo();
   }, []);
+
+  useEffect(() => {
+    setCachedPlayerData(null);
+  }, [playerTag]);
+
+  const fetchCharacterTrophies = async (character: Character) => {
+    if (!playerTag || !character || isLoadingTrophies) return;
+
+    setIsLoadingTrophies(true);
+    try {
+      if (cachedPlayerData) {
+        // 日本語名から英語名を検索（大文字小文字を区別しない）
+        const englishName = Object.entries(nameMap).find(
+          ([eng, jpn]) => jpn.toLowerCase() === character.name.toLowerCase()
+        )?.[0];
+
+        if (englishName) {
+          const brawler = cachedPlayerData.playerInfo.brawlers.find(
+            (b: any) => b.name.toLowerCase() === englishName.toLowerCase()
+          );
+          if (brawler) {
+            setCharacterTrophies(brawler.trophies.toString());
+            return;
+          }
+        }
+      }
+
+      await playerDataAPI.fetchPlayerData(playerTag);
+      
+      if (playerDataAPI.data?.playerInfo) {
+        setCachedPlayerData(playerDataAPI.data);
+        const englishName = Object.entries(nameMap).find(
+          ([eng, jpn]) => jpn.toLowerCase() === character.name.toLowerCase()
+        )?.[0];
+
+        const brawler = englishName 
+          ? playerDataAPI.data.playerInfo.brawlers.find(
+              (b: any) => b.name.toLowerCase() === englishName.toLowerCase()
+            )
+          : null;
+
+        if (brawler) {
+          setCharacterTrophies(brawler.trophies.toString());
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching character trophies:', error);
+    } finally {
+      setIsLoadingTrophies(false);
+    }
+  };
+
+  const handleCharacterSelect = async (character: Character | null) => {
+    setSelectedCharacter(character);
+    if (character && playerTag) {
+      await fetchCharacterTrophies(character);
+    } else {
+      setCharacterTrophies('');
+    }
+  };
 
   const handleAutoFill = async () => {
     if (!playerTag) {
@@ -213,7 +283,6 @@ const TeamBoard: React.FC = () => {
         setHostInfo(JSON.parse(savedInfo));
       }
       
-      // 保存されているプレイヤータグも読み込む
       const savedTag = await AsyncStorage.getItem('brawlStarsPlayerTag');
       if (savedTag) {
         setPlayerTag(savedTag);
@@ -454,20 +523,34 @@ const TeamBoard: React.FC = () => {
 
       <CharacterSelector
         title="使用キャラクター"
-        onSelect={setSelectedCharacter}
+        onSelect={handleCharacterSelect}
         selectedCharacterId={selectedCharacter?.id}
         isRequired={true}
       />
 
       <Text style={styles.inputLabel}>トロフィー数</Text>
-      <TextInput
-        style={styles.input}
-        value={characterTrophies}
-        onChangeText={setCharacterTrophies}
-        placeholder="キャラクターのトロフィー数を入力"
-        keyboardType="numeric"
-        maxLength={5}
-      />
+      <View style={styles.trophyInputContainer}>
+        <TextInput
+          style={[
+            styles.input,
+            styles.trophyInput,
+            isLoadingTrophies && styles.inputDisabled
+          ]}
+          value={characterTrophies}
+          onChangeText={setCharacterTrophies}
+          placeholder={isLoadingTrophies ? "取得中..." : "キャラクターのトロフィー数を入力"}
+          keyboardType="numeric"
+          maxLength={5}
+          editable={!isLoadingTrophies}
+        />
+        {isLoadingTrophies && (
+          <ActivityIndicator 
+            size="small" 
+            color="#21A0DB" 
+            style={styles.trophyLoadingIndicator}
+          />
+        )}
+      </View>
 
       <Text style={styles.inputLabel}>ミッド募集キャラクター (最大3体)</Text>
       <CharacterSelector
@@ -627,6 +710,5 @@ const TeamBoard: React.FC = () => {
     </SafeAreaView>
   );
 };
-
 
 export default TeamBoard;
