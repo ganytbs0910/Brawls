@@ -6,7 +6,6 @@ import { characters } from './CharacterSelector';
 interface HostInfo {
   wins3v3: number;
   totalTrophies: number;
-  winsSolo: number;
   winsDuo: number;
 }
 
@@ -163,13 +162,6 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
         style={styles.tinyTrophyIcon}
       />
       <Text>3vs3勝利数: {post.hostInfo.wins3v3}</Text>
-    </View>
-    <View style={styles.hostStatRow}>
-      <Image 
-        source={require('../../assets/GameModeIcons/showdown_icon.png')}
-        style={styles.tinyTrophyIcon}
-      />
-      <Text>ソロ勝利数: {post.hostInfo.winsSolo}</Text>
     </View>
     <View style={styles.hostStatRow}>
       <Image 

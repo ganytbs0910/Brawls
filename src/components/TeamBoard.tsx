@@ -102,7 +102,6 @@ const TeamBoard: React.FC = () => {
   const [hostInfo, setHostInfo] = useState<HostInfo>({
     wins3v3: 0,
     totalTrophies: 0,
-    winsSolo: 0,
     winsDuo: 0
   });
 
@@ -252,7 +251,6 @@ const TeamBoard: React.FC = () => {
         const { playerInfo } = playerDataAPI.data;
         const newHostInfo = {
           wins3v3: playerInfo['3vs3Victories'] || 0,
-          winsSolo: playerInfo.soloVictories || 0,
           winsDuo: playerInfo.duoVictories || 0,
           totalTrophies: playerInfo.trophies || 0
         };
@@ -457,19 +455,6 @@ const TeamBoard: React.FC = () => {
         onEndEditing={() => saveHostInfo(hostInfo)}
         keyboardType="numeric"
         placeholder="3vs3の勝利数を入力"
-      />
-
-      <Text style={styles.inputLabel}>ソロ勝利数</Text>
-      <TextInput
-        style={styles.input}
-        value={String(hostInfo.winsSolo)}
-        onChangeText={value => setHostInfo(prev => ({
-          ...prev,
-          winsSolo: Number(value) || 0
-        }))}
-        onEndEditing={() => saveHostInfo(hostInfo)}
-        keyboardType="numeric"
-        placeholder="ソロの勝利数を入力"
       />
 
       <Text style={styles.inputLabel}>デュオ勝利数</Text>
