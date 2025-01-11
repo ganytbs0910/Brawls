@@ -120,7 +120,7 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
           <View style={styles.recruitSection}>
             <View style={styles.recruitRow}>
               <View style={styles.recruitColumn}>
-                <Text style={styles.sectionTitle}>ミッド募集:</Text>
+                <Text style={styles.sectionTitle}>ミッド募集</Text>
                 <View style={styles.characterList}>
                   {post.midCharacters.map(charId => (
                     <Image 
@@ -133,7 +133,7 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
               </View>
               
               <View style={styles.recruitColumn}>
-                <Text style={styles.sectionTitle}>サイド募集:</Text>
+                <Text style={styles.sectionTitle}>サイド募集</Text>
                 <View style={styles.characterList}>
                   {post.sideCharacters.map(charId => (
                     <Image 
@@ -148,7 +148,7 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
           </View>
 
           <View style={styles.hostInfoSection}>
-  <Text style={styles.sectionTitle}>ホスト情報:</Text>
+  <Text style={styles.sectionTitle}>ホスト情報</Text>
   <View style={styles.hostStats}>
     <View style={styles.hostStatRow}>
       <Image 
@@ -192,7 +192,7 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
 
         {post.description && (
           <View style={styles.descriptionSection}>
-            <Text style={styles.sectionTitle}>ひとこと:</Text>
+            <Text style={styles.sectionTitle}>ひとこと</Text>
             <Text style={styles.description}>{post.description}</Text>
           </View>
         )}
@@ -568,5 +568,11 @@ export const styles = StyleSheet.create({
     color: '#ff0000',
     fontSize: 12,
     marginLeft: 4,
+  },
+  sectionTitle: {
+    fontSize: 11,
+    fontWeight: '700',
+    marginBottom: 2,
+    color: '#333',
   }
 });
