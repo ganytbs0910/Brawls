@@ -12,6 +12,12 @@ import { getMapDetails } from '../data/mapDetails';
 import CharacterImage from './CharacterImage';
 import type { MapDetail } from '../types';
 
+const { width } = Dimensions.get('window');
+const SCREEN_PADDING = 16;  // 画面の左右パディング
+const SECTION_PADDING = 12;  // セクションの内側パディング
+const CARD_MARGIN = 4;  // カード間のマージン
+const CARD_WIDTH = (width - (SCREEN_PADDING * 2) - (SECTION_PADDING * 2) - (CARD_MARGIN * 4)) / 3;  // 3列の場合の1カードの幅
+
 interface MapDetailScreenProps {
   mapName: string;
   modeName: string;
@@ -70,7 +76,7 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
             <View style={styles.brawlerCardContent}>
               <CharacterImage
                 characterName={brawler.name}
-                size={40}
+                size={32}
                 style={styles.brawlerImage}
               />
               <Text style={styles.brawlerName}>{brawler.name}</Text>
@@ -276,15 +282,15 @@ const styles = StyleSheet.create({
   brawlerGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    paddingHorizontal: 4,
+    marginHorizontal: -CARD_MARGIN / 2,
   },
   brawlerCard: {
-    width: '32%',
+    width: CARD_WIDTH,
+    marginHorizontal: CARD_MARGIN / 2,
     backgroundColor: '#FFFFFF',
-    borderRadius: 8,
-    padding: 8,
-    marginBottom: 8,
+    borderRadius: 6,
+    padding: 6,
+    marginBottom: 6,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,

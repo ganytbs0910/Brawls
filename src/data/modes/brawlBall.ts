@@ -237,7 +237,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       power: 4
     },
     {
-      name: "マックス",
+      name: "Max",
       reason: "水路越しの攻撃",
       power: 4
     },
@@ -488,7 +488,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       power: 4
     },
     {
-      name: "マックス",
+      name: "Max",
       reason: "水路を挟んだ狙撃",
       power: 3
     },
@@ -695,7 +695,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       power: 5
     },
     {
-      name: "マックス",
+      name: "Max",
       reason: "水路越しの攻撃",
       power: 5
     },
@@ -774,7 +774,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     difficulty: "Medium",
     recommendedBrawlers: [
       {
-      name: "マックス",
+      name: "Max",
       reason: "水路での移動が得意",
       power: 5
     },

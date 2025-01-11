@@ -277,7 +277,7 @@ export const heistMaps: Record<string, MapDetail> = {
       power: 4
     },
     {
-      name: "マックス",
+      name: "Max",
       reason: "水路越しの攻撃",
       power: 4
     },

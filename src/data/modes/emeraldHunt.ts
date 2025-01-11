@@ -35,7 +35,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
         power: 4
       },
       {
-        name: "マックス",
+        name: "Max",
         reason: "通路に爆弾を置いて進路を妨害",
         power: 4
       },
@@ -222,7 +222,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
         power: 3
       },
       {
-        name: "マックス",
+        name: "Max",
         reason: "通路に爆弾を置いて進路を妨害",
         power: 3
       },
@@ -576,7 +576,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
         power: 3
       },
       {
-        name: "マックス",
+        name: "Max",
         reason: "壁跳ね攻撃が有効",
         power: 3
       },
@@ -622,7 +622,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
         power: 5
       },
       {
-        name: "マックス",
+        name: "Max",
         reason: "高所からの制圧",
         power: 5
       },
