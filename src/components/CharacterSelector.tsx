@@ -174,9 +174,9 @@ export const CharacterSelector: React.FC<CharacterSelectorProps> = ({
     return selectedCharacterId === character.id;
   };
 
-  return (
+ return (
     <View style={styles.characterSelectorContainer}>
-      <Text style={styles.inputLabel}>{title}</Text>
+      {title && <Text style={styles.inputLabel}>{title}</Text>}
       
       <TouchableOpacity
         style={styles.characterSelectButton}
@@ -185,34 +185,36 @@ export const CharacterSelector: React.FC<CharacterSelectorProps> = ({
           setModalVisible(true);
         }}
       >
-        {multiSelect ? (
-          <View style={styles.selectedCharactersPreview}>
-            {selectedCharacters.length > 0 ? (
-              selectedCharacters.map((char, index) => (
-                <View key={char.id} style={styles.selectedCharacterChip}>
-                  <Image source={char.icon} style={styles.selectedCharacterIcon} />
-                  <Text style={styles.selectedCharacterName}>{char.name}</Text>
-                </View>
-              ))
+        <View style={styles.selectedCharactersContainer}>
+          {multiSelect ? (
+            selectedCharacters.length > 0 ? (
+              <View style={styles.selectedCharactersGrid}>
+                {selectedCharacters.map((char) => (
+                  <View key={char.id} style={styles.selectedCharacterChip}>
+                    <Image source={char.icon} style={styles.selectedCharacterIcon} />
+                    <Text style={styles.selectedCharacterName}>{char.name}</Text>
+                  </View>
+                ))}
+              </View>
             ) : (
               <Text style={styles.placeholderText}>キャラクターを選択 (最大{maxSelections}体)</Text>
-            )}
-          </View>
-        ) : (
-          selectedCharacterId ? (
-            <View style={styles.selectedCharacterContainer}>
-              <Image 
-                source={characters.find(c => c.id === selectedCharacterId)?.icon} 
-                style={styles.selectedCharacterIcon} 
-              />
-              <Text style={styles.selectedCharacterName}>
-                {characters.find(c => c.id === selectedCharacterId)?.name}
-              </Text>
-            </View>
+            )
           ) : (
-            <Text style={styles.placeholderText}>キャラクターを選択</Text>
-          )
-        )}
+            selectedCharacterId ? (
+              <View style={styles.selectedCharacterContainer}>
+                <Image 
+                  source={characters.find(c => c.id === selectedCharacterId)?.icon} 
+                  style={styles.selectedCharacterIcon} 
+                />
+                <Text style={styles.selectedCharacterName}>
+                  {characters.find(c => c.id === selectedCharacterId)?.name}
+                </Text>
+              </View>
+            ) : (
+              <Text style={styles.placeholderText}>キャラクターを選択</Text>
+            )
+          )}
+        </View>
       </TouchableOpacity>
 
       <Modal
