@@ -1,4 +1,4 @@
-//PlayerInfo.tsx
+// PlayerInfo.tsx
 import React from 'react';
 import {
   View,
@@ -17,7 +17,7 @@ import type {
 import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages';
 
 const { width } = Dimensions.get('window');
-const CARD_WIDTH = (width + 42) / 3;
+const CARD_WIDTH = (width - 32) / 3;
 
 interface PlayerInfoProps {
   info: PlayerInfoType;
@@ -58,7 +58,6 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
   rankings,
   rankingsLoading
 }) => {
-  // Split player info into pairs for better grouping
   const infoPairs = [
     [
       { 
@@ -296,105 +295,105 @@ const styles = StyleSheet.create({
   infoGrid: {
     backgroundColor: '#f8f9fa',
     borderRadius: 8,
-    padding: 16,
-    marginBottom: 20,
+    padding: 12,
+    marginBottom: 16,
   },
   infoPairContainer: {
-    marginBottom: 12,
+    marginBottom: 8,
   },
   infoPair: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 8,
+    marginBottom: 6,
   },
   infoItem: {
     flex: 1,
-    paddingHorizontal: 4,
+    paddingHorizontal: 3,
   },
   infoItemHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 2,
+    marginBottom: 1,
   },
   infoIcon: {
-    width: 24,
-    height: 24,
-    marginRight: 8,
+    width: 20,
+    height: 20,
+    marginRight: 6,
   },
   infoLabel: {
-    fontSize: 14,
+    fontSize: 12,
     color: '#666',
   },
   infoValue: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '500',
-    marginLeft: 32,
+    marginLeft: 26,
   },
   sectionTitle: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
-    marginBottom: 12,
+    marginBottom: 8,
   },
   brawlerContainer: {
     flexGrow: 0,
-    paddingHorizontal: 8,
+    paddingHorizontal: 6,
   },
   brawlerColumn: {
     width: CARD_WIDTH,
-    marginRight: 8,
+    marginRight: 6,
   },
   brawlerCard: {
     backgroundColor: '#f5f5f5',
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 6,
-    height: 160,
+    borderRadius: 6,
+    padding: 8,
+    marginBottom: 4,
+    height: 140,
   },
   brawlerHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 8,
   },
   brawlerPortrait: {
-    width: 48,
-    height: 48,
-    marginRight: 8,
-    borderRadius: 24,
+    width: 40,
+    height: 40,
+    marginRight: 6,
+    borderRadius: 20,
   },
   brawlerName: {
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: 'bold',
     flex: 1,
   },
   brawlerDetails: {
-    gap: 4,
+    gap: 3,
   },
   statContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   brawlerStat: {
-    fontSize: 13,
+    fontSize: 11,
   },
   globalTopTrophies: {
     color: '#2196F3',
     fontWeight: '500',
   },
   trophyIcon: {
-    width: 16,
-    height: 16,
-    marginRight: 4,
-    marginBottom: 2,
+    width: 14,
+    height: 14,
+    marginRight: 3,
+    marginBottom: 1,
   },
   rankingsLoading: {
     width: CARD_WIDTH,
-    height: 180,
+    height: 140,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#f5f5f5',
-    borderRadius: 8,
-    marginRight: 8,
-    gap: 8,
+    borderRadius: 6,
+    marginRight: 6,
+    gap: 6,
   },
 });
 
