@@ -15,13 +15,13 @@ export const rotatingModes: RotatingModes = {
   brawlBall5v5: {
     modes: [
       {
+        name: "5vs5殲滅",
+        icon: require('../../assets/GameModeIcons/5v5wipeout_icon.png')
+      },
+      {
         name: "5vs5ブロストライカー",
         icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
       },
-      {
-        name: "5vs5殲滅",
-        icon: require('../../assets/GameModeIcons/5v5wipeout_icon.png')
-      }
     ]
   },
   duel: {

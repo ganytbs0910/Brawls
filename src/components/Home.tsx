@@ -55,19 +55,27 @@ const Home: React.FC = () => {
   ).current;
 
   // 次の更新時刻を計算する関数
-  const getNextUpdateTime = (currentTime: Date, modes: any[]): Date => {
+  const getNextUpdateTime = (currentTime: Date): Date => {
     const now = new Date(currentTime);
     let nextUpdate = new Date(now);
     nextUpdate.setDate(nextUpdate.getDate() + 1);
+    nextUpdate.setHours(0, 0, 0, 0); // 次の日の0時をデフォルトとする
 
-    modes.forEach(mode => {
+    const updateTimes = modes.map(mode => mode.updateTime);
+    updateTimes.sort((a, b) => a - b);
+
+    for (const updateHour of updateTimes) {
       const updateTime = new Date(now);
-      updateTime.setHours(mode.updateTime, 0, 0, 0);
+      updateTime.setHours(updateHour, 0, 0, 0);
       
-      if (updateTime > now && updateTime < nextUpdate) {
+      if (updateTime <= now) {
+        updateTime.setDate(updateTime.getDate() + 1);
+      }
+      
+      if (updateTime < nextUpdate) {
         nextUpdate = updateTime;
       }
-    });
+    }
 
     return nextUpdate;
   };
@@ -79,32 +87,51 @@ const Home: React.FC = () => {
 
     const scheduleNextUpdate = () => {
       const now = new Date();
-      const nextUpdate = getNextUpdateTime(now, modes);
+      const nextUpdate = getNextUpdateTime(now);
       const timeUntilUpdate = nextUpdate.getTime() - now.getTime();
+
+      console.log('Next update scheduled for:', nextUpdate);
+      console.log('Time until update:', timeUntilUpdate, 'ms');
 
       // 次の更新までタイマーをセット
       timeoutId = setTimeout(() => {
-        setSelectedDate(new Date());
-        setCurrentTime(new Date());
-        // 次の更新をスケジュール
-        scheduleNextUpdate();
+        console.log('Update timer triggered at:', new Date());
+        const newDate = new Date();
+        setSelectedDate(newDate);
+        setCurrentTime(newDate);
+        
+        // 更新後に次の更新をすぐにスケジュール
+        setTimeout(() => {
+          scheduleNextUpdate();
+        }, 1000); // 1秒後に次のスケジュールを設定
       }, timeUntilUpdate);
 
       // 残り時間表示用の更新（1分ごと）
+      if (minuteUpdateId) {
+        clearInterval(minuteUpdateId);
+      }
+      
       minuteUpdateId = setInterval(() => {
         setCurrentTime(new Date());
       }, 60000);
     };
 
-    // 初期スケジュール設定
-    scheduleNextUpdate();
+    // 初期化時に現在の状態を確認して更新
+    const initializeState = () => {
+      const now = new Date();
+      setSelectedDate(now);
+      setCurrentTime(now);
+      scheduleNextUpdate();
+    };
+
+    initializeState();
 
     // クリーンアップ
     return () => {
       if (timeoutId) clearTimeout(timeoutId);
       if (minuteUpdateId) clearInterval(minuteUpdateId);
     };
-  }, []);
+  }, []); // 依存配列を空にして初期化時のみ実行
 
   // 広告関連の設定
   useEffect(() => {
@@ -143,39 +170,19 @@ const Home: React.FC = () => {
 
   // バックグラウンド更新のサポート
   useEffect(() => {
-    const setupBackgroundUpdate = async () => {
-      try {
-        await AsyncStorage.setItem('lastUpdateCheck', new Date().toISOString());
-        
-        const handleAppStateChange = async (nextAppState: string) => {
-          if (nextAppState === 'active') {
-            const lastCheck = await AsyncStorage.getItem('lastUpdateCheck');
-            const now = new Date();
-            const lastCheckDate = lastCheck ? new Date(lastCheck) : new Date(0);
-            
-            modes.forEach(mode => {
-              const updateTime = new Date(lastCheckDate);
-              updateTime.setHours(mode.updateTime, 0, 0, 0);
-              
-              if (updateTime > lastCheckDate && updateTime <= now) {
-                setSelectedDate(new Date());
-              }
-            });
-            
-            await AsyncStorage.setItem('lastUpdateCheck', now.toISOString());
-          }
-        };
-
-        const subscription = AppState.addEventListener('change', handleAppStateChange);
-        return () => {
-          subscription.remove();
-        };
-      } catch (error) {
-        console.error('Failed to setup background update:', error);
+    const handleAppStateChange = async (nextAppState: string) => {
+      if (nextAppState === 'active') {
+        console.log('App became active, updating state');
+        const now = new Date();
+        setSelectedDate(now);
+        setCurrentTime(now);
       }
     };
 
-    setupBackgroundUpdate();
+    const subscription = AppState.addEventListener('change', handleAppStateChange);
+    return () => {
+      subscription.remove();
+    };
   }, []);
 
   const handleMapClick = (mode: any) => {
@@ -236,9 +243,10 @@ const Home: React.FC = () => {
 
   const formatTimeUntilUpdate = (mode: any) => {
     const now = new Date();
-    const updateTime = new Date(now);
+    let updateTime = new Date(now);
     updateTime.setHours(mode.updateTime, 0, 0, 0);
     
+    // 現在時刻が更新時刻を過ぎている場合は翌日の更新時刻を設定
     if (updateTime <= now) {
       updateTime.setDate(updateTime.getDate() + 1);
     }
@@ -247,9 +255,6 @@ const Home: React.FC = () => {
     const hours = Math.floor(diff / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-    if (hours === 0) {
-      return `${minutes}分`;
-    }
     return `${hours}時間${minutes}分`;
   };
 
@@ -335,7 +340,7 @@ const Home: React.FC = () => {
     {
       name: getCurrentModeName("duel", selectedDate) || "デュエル＆殲滅＆賞金稼ぎ",
       currentMap: currentMaps.duel,
-      updateTime: 17,
+      updateTime: 23,
       color: () => {
         const currentMode = getCurrentMode("duel", selectedDate);
         switch (currentMode?.name) {
@@ -362,93 +367,93 @@ const Home: React.FC = () => {
   ];
 
   return (
-  <SafeAreaView style={styles.safeArea}>
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>ブロスタ マップ情報</Text>
-        <TouchableOpacity
-          style={styles.settingsButton}
-          onPress={() => showScreen('settings')}
-        >
-          <Image 
-            source={require('../../assets/AppIcon/settings_icon.png')} 
-            style={[styles.settingsIcon, { tintColor: '#ffffff' }]}
-          />
-        </TouchableOpacity>
-      </View>
-
-      <ScrollView style={styles.content}>
-        <DailyTip />
-        <View style={styles.modeContainer}>
-          <View style={styles.dateHeader}>
-            <TouchableOpacity onPress={() => changeDate(-1)}>
-              <Text style={styles.dateArrow}>←</Text>
-            </TouchableOpacity>
-            <Text style={styles.dateText}>{formatDate(selectedDate)}</Text>
-            <TouchableOpacity onPress={() => changeDate(1)}>
-              <Text style={styles.dateArrow}>→</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-              style={styles.todayButton} 
-              onPress={() => setSelectedDate(new Date())}>
-              <Text style={styles.todayButtonText}>Today</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.modeGrid}>
-            {modes.map((mode, index) => (
-              <View key={index} style={styles.modeCard}>
-                <View style={styles.modeHeader}>
-                  <View style={[styles.modeTag, { 
-                    backgroundColor: typeof mode.color === 'function' ? mode.color() : mode.color 
-                  }]}>
-                    <Image source={mode.icon} style={styles.modeIcon} />
-                    <Text style={styles.modeTagText}>{mode.name}</Text>
-                  </View>
-                </View>
-                {selectedDate.getDate() === new Date().getDate() && (
-                  <Text style={styles.updateTime}>
-                    更新まで {formatTimeUntilUpdate(mode)}
-                  </Text>
-                )}
-                <TouchableOpacity 
-                  style={styles.mapContent}
-                  onPress={() => handleMapClick(mode)}
-                  activeOpacity={0.7}
-                >
-                  <Text style={styles.mapName}>{mode.currentMap}</Text>
-                  <Image 
-                    source={mapImages[mode.currentMap]}
-                    style={styles.mapImage}
-                    resizeMode="contain"
-                  />
-                </TouchableOpacity>
-              </View>
-            ))}
-          </View>
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.title}>ブロスタ マップ情報</Text>
+          <TouchableOpacity
+            style={styles.settingsButton}
+            onPress={() => showScreen('settings')}
+          >
+            <Image 
+              source={require('../../assets/AppIcon/settings_icon.png')} 
+              style={[styles.settingsIcon, { tintColor: '#ffffff' }]}
+            />
+          </TouchableOpacity>
         </View>
-      </ScrollView>
 
-      {!isAdFree && <BannerAdComponent />}
+<ScrollView style={styles.content}>
+          <DailyTip />
+          <View style={styles.modeContainer}>
+            <View style={styles.dateHeader}>
+              <TouchableOpacity onPress={() => changeDate(-1)}>
+                <Text style={styles.dateArrow}>←</Text>
+              </TouchableOpacity>
+              <Text style={styles.dateText}>{formatDate(selectedDate)}</Text>
+              <TouchableOpacity onPress={() => changeDate(1)}>
+                <Text style={styles.dateArrow}>→</Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={styles.todayButton} 
+                onPress={() => setSelectedDate(new Date())}>
+                <Text style={styles.todayButtonText}>Today</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.modeGrid}>
+              {modes.map((mode, index) => (
+                <View key={index} style={styles.modeCard}>
+                  <View style={styles.modeHeader}>
+                    <View style={[styles.modeTag, { 
+                      backgroundColor: typeof mode.color === 'function' ? mode.color() : mode.color 
+                    }]}>
+                      <Image source={mode.icon} style={styles.modeIcon} />
+                      <Text style={styles.modeTagText}>{mode.name}</Text>
+                    </View>
+                  </View>
+                  {selectedDate.getDate() === new Date().getDate() && (
+                    <Text style={styles.updateTime}>
+                      更新まで {formatTimeUntilUpdate(mode)}
+                    </Text>
+                  )}
+                  <TouchableOpacity 
+                    style={styles.mapContent}
+                    onPress={() => handleMapClick(mode)}
+                    activeOpacity={0.7}
+                  >
+                    <Text style={styles.mapName}>{mode.currentMap}</Text>
+                    <Image 
+                      source={mapImages[mode.currentMap]}
+                      style={styles.mapImage}
+                      resizeMode="contain"
+                    />
+                  </TouchableOpacity>
+                </View>
+              ))}
+            </View>
+          </View>
+        </ScrollView>
 
-      {screenStack.map((screen, index) => (
-        index > 0 && (
-          <SettingsScreen
-            key={`${screen.type}-${screen.zIndex}`}
-            screen={screen}
-            onClose={goBack}
-            isAdFree={isAdFree}
-            setIsAdFree={setIsAdFree}
-            isRewardedAdReady={isRewardedAdReady}
-            rewarded={rewarded}
-            adService={adService}
-            mapDetailProps={mapDetailProps}
-            onCharacterPress={handleCharacterPress}
-          />
-        )
-      ))}
-    </View>
-  </SafeAreaView>
-);
+        {!isAdFree && <BannerAdComponent />}
+
+        {screenStack.map((screen, index) => (
+          index > 0 && (
+            <SettingsScreen
+              key={`${screen.type}-${screen.zIndex}`}
+              screen={screen}
+              onClose={goBack}
+              isAdFree={isAdFree}
+              setIsAdFree={setIsAdFree}
+              isRewardedAdReady={isRewardedAdReady}
+              rewarded={rewarded}
+              adService={adService}
+              mapDetailProps={mapDetailProps}
+              onCharacterPress={handleCharacterPress}
+            />
+          )
+        ))}
+      </View>
+    </SafeAreaView>
+  );
 };
 
 const styles = StyleSheet.create({
