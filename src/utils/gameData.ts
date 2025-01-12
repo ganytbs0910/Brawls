@@ -15,12 +15,12 @@ export const rotatingModes: RotatingModes = {
   brawlBall5v5: {
     modes: [
       {
-        name: "5vs5ブロストライカー",
-        icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
-      },
-      {
         name: "5vs5殲滅",
         icon: require('../../assets/GameModeIcons/5v5wipeout_icon.png')
+      },
+      {
+        name: "5vs5ブロストライカー",
+        icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
       },
     ]
   },
@@ -136,24 +136,24 @@ export const maps: GameMaps = {
     "枯れた川", "天国と地獄", "空飛ぶ絨毯", "囚われた島", "狙撃手たちの楽園","岩壁の決戦", "安全センター", "ガイコツ川", "酸性湖","激動の洞窟", "暗い廊下", "ダブルトラブル",
   ],
   knockout: [
-    "四段階層", "ゴールドアームの渓谷", "白熱対戦", "新たなる地平", "オープンフィールド", "生い茂る廃墟", "バキューン神殿", "極小列島", "双頭の川", "ベルの岩", "密林の奥地", "燃える不死鳥", 
+    "ゴールドアームの渓谷", "白熱対戦", "新たなる地平", "オープンフィールド", "生い茂る廃墟", "バキューン神殿", "極小列島", "双頭の川", "ベルの岩", "密林の奥地", "燃える不死鳥", "四段階層", 
   ],
   emeraldHunt: [
-    "森林伐採", "クールロック", "エメラルドの要塞" ,"ごつごつ坑道", "ラストストップ", "トロッコの狂気", "オープンスペース", "廃れたアーケード", "アンダーマイン", "クリスタルアーケード", "サボテンの罠", "ダブルレール",
+    "クールロック", "エメラルドの要塞" ,"ごつごつ坑道", "ラストストップ", "トロッコの狂気", "オープンスペース", "廃れたアーケード", "アンダーマイン", "クリスタルアーケード", "サボテンの罠", "ダブルレール", "森林伐採", 
   ],
   heist: [
-    "どんぱち谷", "オープンビジネス", "安全地帯", "パラレルワールド", "安全地帯・改","炎のリング", "大いなる湖", "ウォータースポーツ", "GG 2.0", "ビートルバトル", "ホットポテト", "喧騒居住地"
+    "オープンビジネス", "安全地帯", "パラレルワールド", "安全地帯・改","炎のリング", "大いなる湖", "ウォータースポーツ", "GG 2.0", "ビートルバトル", "ホットポテト", "喧騒居住地", "どんぱち谷", 
   ],
   brawlBall5v5: [
-    "凍てつく波紋", "ツルツルロード", "大波", "ガクブル公園", "クールシェイプ", "フロスティトラック", "サスペンダーズ", "合流地点",
+    "ツルツルロード", "大波", "ガクブル公園", "クールシェイプ", "フロスティトラック", "サスペンダーズ", "合流地点", "凍てつく波紋", 
   ],
   brawlBall: [
-    "ピンボールドリーム", "狭き門", "セカンドチャンス", "静かな広場", "サニーサッカー", "スーパービーチ", "トリッキー", "トリプル・ドリブル", "鉄壁の守り", "ビーチボール", "中央コート", "ペナルティキック",
+    "狭き門", "セカンドチャンス", "静かな広場", "サニーサッカー", "スーパービーチ", "トリッキー", "トリプル・ドリブル", "鉄壁の守り", "ビーチボール", "中央コート", "ペナルティキック", "ピンボールドリーム", 
   ],
   duel: [
-    "不屈の精神", "レイヤーケーキ", "ミルフィーユ", "ガールズファイト", "四重傷", "言い訳厳禁", "見えざる大蛇", "暴徒のオアシス", 
+    "レイヤーケーキ", "ミルフィーユ", "ガールズファイト", "四重傷", "言い訳厳禁", "見えざる大蛇", "暴徒のオアシス", 
     "流れ星", "常勝街道", "スパイスプロダクション","ジグザグ草原", "禅の庭園", 
-    "大いなる入口", "グランドカナル", "猿の迷路", "果てしなき不運", "隠れ家", 
+    "大いなる入口", "グランドカナル", "猿の迷路", "果てしなき不運", "隠れ家", "不屈の精神", 
   ]
 };
 
@@ -167,13 +167,28 @@ export const getCurrentMode = (modeType: string, date: Date): GameMode | null =>
   return modes[rotationIndex >= 0 ? rotationIndex : (modes.length + rotationIndex)];
 };
 
-export const getMapForDate = (gameMode: keyof GameMaps, daysOffset: number): string => {
-  // 基準日を2024年1月1日に設定し、+5の調整を加える
+export const getMapForDateTime = (
+  gameMode: keyof GameMaps, 
+  date: Date,
+  updateHour: number,
+  hoursOffset: number = 0
+): string => {
   const baseDate = new Date(2024, 0, 1);
-  const today = new Date();
-  const targetDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + daysOffset);
+  baseDate.setHours(updateHour, 0, 0, 0);
   
-  const daysDiff = Math.floor((targetDate.getTime() - baseDate.getTime()) / (1000 * 60 * 60 * 24)) + 5;
+  // 現在時刻から指定された時間数後の日時を計算
+  const targetDate = new Date(date.getTime() + (hoursOffset * 60 * 60 * 1000));
+  const currentHour = targetDate.getHours();
+  
+  // 更新時刻前なら前日の更新時刻を基準にする
+  if (currentHour < updateHour) {
+    targetDate.setDate(targetDate.getDate() - 1);
+  }
+  targetDate.setHours(updateHour, 0, 0, 0);
+  
+  const timeDiff = targetDate.getTime() - baseDate.getTime();
+  const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24)) + 5;
+  
   const modeMapList = maps[gameMode] || [];
   const mapIndex = daysDiff % modeMapList.length;
   

@@ -9,7 +9,8 @@ import {
   ScrollView, 
   Dimensions, 
   SafeAreaView,
-  AppState
+  AppState,
+  Platform
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -22,8 +23,9 @@ import { BannerAdComponent } from '../components/BannerAdComponent';
 import { 
   rotatingModes, 
   mapImages, 
-  getCurrentMode, 
-  getMapForDate 
+  getCurrentMode,
+  getMapForDate,
+  getMapForDateTime
 } from '../utils/gameData';
 import AdMobService from '../services/AdMobService';
 import SettingsScreen from './SettingsScreen';
@@ -37,55 +39,29 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 // 更新時刻の定義
 const UPDATE_HOURS = [5, 11, 17, 23];
 
-const Home: React.FC = () => {
-  const navigation = useNavigation<RankingsScreenNavigationProp>();
-  const [screenStack, setScreenStack] = useState<ScreenState[]>([
-    { type: 'home', translateX: new Animated.Value(0), zIndex: 0 }
-  ]);
+const useMapUpdateTimer = (updateHours: number[]) => {
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [isRewardedAdReady, setIsRewardedAdReady] = useState(false);
-  const [isAdFree, setIsAdFree] = useState(false);
-  const [mapDetailProps, setMapDetailProps] = useState<MapDetail | null>(null);
-  const [lastUpdateTime, setLastUpdateTime] = useState<Date | null>(null);
 
-  const adService = useRef<AdMobService | null>(null);
-
-  const rewardedAdUnitId = Platform.select({
-  ios: AD_CONFIG.IOS_REWARDED_ID,
-  android: AD_CONFIG.ANDROID_REWARDED_ID,
-}) as string;
-
-const rewarded = useRef(
-  RewardedAd.createForAdRequest(rewardedAdUnitId, {
-    requestNonPersonalizedAdsOnly: true,
-    keywords: ['game', 'mobile game'],
-  })
-).current;
-
-  // 次の更新時刻を計算する関数
-  const getNextUpdateTime = (currentTime: Date): Date => {
-    const now = new Date(currentTime);
-    let nextUpdate = new Date(now);
-    nextUpdate.setDate(nextUpdate.getDate() + 1);
-    nextUpdate.setHours(5, 0, 0, 0);  // 次の日の5時をデフォルトとする
-
-    // 今日の残りの更新時刻をチェック
-    for (const hour of UPDATE_HOURS) {
-      const updateTime = new Date(now);
-      updateTime.setHours(hour, 0, 0, 0);
-      
-      if (updateTime > now && updateTime < nextUpdate) {
-        nextUpdate = updateTime;
-      }
-    }
-
-    return nextUpdate;
-  };
-
-  // マップ更新のタイマー管理
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
+
+    const getNextUpdateTime = (currentTime: Date): Date => {
+      const now = new Date(currentTime);
+      let nextUpdate = new Date(now);
+      nextUpdate.setDate(nextUpdate.getDate() + 1);
+      nextUpdate.setHours(5, 0, 0, 0);  // 次の日の5時をデフォルト
+    
+      // 今日の残りの更新時刻をチェック
+      for (const hour of updateHours) {
+        const updateTime = new Date(now);
+        updateTime.setHours(hour, 0, 0, 0);
+        
+        if (updateTime > now && updateTime < nextUpdate) {
+          nextUpdate = updateTime;
+        }
+      }
+      return nextUpdate;
+    };
 
     const scheduleNextUpdate = () => {
       const now = new Date();
@@ -96,17 +72,10 @@ const rewarded = useRef(
       console.log('Time until update:', timeUntilUpdate, 'ms');
 
       timeoutId = setTimeout(() => {
-        console.log('Update timer triggered at:', new Date());
-        const newDate = new Date();
+        const newTime = new Date();
+        setCurrentTime(newTime);
+        console.log('Update triggered at:', newTime);
         
-        // 最後の更新時刻と現在時刻を比較して、重複更新を防ぐ
-        if (!lastUpdateTime || (newDate.getTime() - lastUpdateTime.getTime()) > 60000) {
-          setSelectedDate(newDate);
-          setCurrentTime(newDate);
-          setLastUpdateTime(newDate);
-          console.log('Maps updated at:', newDate);
-        }
-
         // 次の更新をスケジュール（1秒の遅延を入れて重複を避ける）
         setTimeout(() => {
           scheduleNextUpdate();
@@ -114,28 +83,46 @@ const rewarded = useRef(
       }, timeUntilUpdate);
     };
 
-    const initializeState = () => {
-      const now = new Date();
-      setSelectedDate(now);
-      setCurrentTime(now);
-      scheduleNextUpdate();
-    };
-
-    initializeState();
-
-    return () => {
-      if (timeoutId) clearTimeout(timeoutId);
-    };
-  }, [lastUpdateTime]);
-
-  // 分更新用のEffect
-  useEffect(() => {
+    // 1分ごとの更新も維持
     const minuteUpdateId = setInterval(() => {
       setCurrentTime(new Date());
     }, 60000);
 
-    return () => clearInterval(minuteUpdateId);
+    scheduleNextUpdate();
+
+    return () => {
+      clearTimeout(timeoutId);
+      clearInterval(minuteUpdateId);
+    };
   }, []);
+
+  return currentTime;
+};
+
+const Home: React.FC = () => {
+  const currentTime = useMapUpdateTimer(UPDATE_HOURS);
+  const navigation = useNavigation<RankingsScreenNavigationProp>();
+  const [screenStack, setScreenStack] = useState<ScreenState[]>([
+    { type: 'home', translateX: new Animated.Value(0), zIndex: 0 }
+  ]);
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [isRewardedAdReady, setIsRewardedAdReady] = useState(false);
+  const [isAdFree, setIsAdFree] = useState(false);
+  const [mapDetailProps, setMapDetailProps] = useState<MapDetail | null>(null);
+
+  const adService = useRef<AdMobService | null>(null);
+
+  const rewardedAdUnitId = Platform.select({
+    ios: AD_CONFIG.IOS_REWARDED_ID,
+    android: AD_CONFIG.ANDROID_REWARDED_ID,
+  }) as string;
+
+  const rewarded = useRef(
+    RewardedAd.createForAdRequest(rewardedAdUnitId, {
+      requestNonPersonalizedAdsOnly: true,
+      keywords: ['game', 'mobile game'],
+    })
+  ).current;
 
   // 広告関連の設定
   useEffect(() => {
@@ -177,9 +164,7 @@ const rewarded = useRef(
     const handleAppStateChange = async (nextAppState: string) => {
       if (nextAppState === 'active') {
         console.log('App became active, updating state');
-        const now = new Date();
-        setSelectedDate(now);
-        setCurrentTime(now);
+        setSelectedDate(new Date());
       }
     };
 
@@ -188,6 +173,63 @@ const rewarded = useRef(
       subscription.remove();
     };
   }, []);
+
+  // 日付比較のヘルパー関数
+  const isSameDate = (date1: Date, date2: Date): boolean => {
+    return (
+      date1.getFullYear() === date2.getFullYear() &&
+      date1.getMonth() === date2.getMonth() &&
+      date1.getDate() === date2.getDate()
+    );
+  };
+
+  // 現在の日付と選択された日付が同じかどうかをチェック
+  const isCurrentDate = (date: Date) => {
+    const now = new Date();
+    return isSameDate(date, now);
+  };
+
+  // モードごとの更新時刻を取得
+  const getModeUpdateTime = (gameMode: keyof GameMaps): number => {
+    switch (gameMode) {
+      case 'battleRoyale': return 5;
+      case 'emeraldHunt': return 11;
+      case 'heist': return 23;
+      case 'brawlBall': return 17;
+      case 'brawlBall5v5': return 17;
+      case 'knockout': return 11;
+      case 'duel': return 23;
+      default: return 5;
+    }
+  };
+
+  // 選択された日付に応じたマップを取得
+  const getMapForSelectedDate = (gameMode: keyof GameMaps) => {
+  const now = new Date();
+  
+  if (isCurrentDate(selectedDate)) {
+    // 現在の日付の場合は、時刻による更新を適用
+    return getMapForDateTime(gameMode, currentTime, getModeUpdateTime(gameMode));
+  } else {
+    // 選択された日付が今日より後の場合
+    const daysDiff = Math.floor((selectedDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+    
+    // 次の日のマップを取得するため、24時間を加算
+    const nextDayOffset = daysDiff * 24 + 24;
+    
+    return getMapForDateTime(
+      gameMode,
+      now,
+      getModeUpdateTime(gameMode),
+      nextDayOffset
+    );
+  }
+};
+
+  const getCurrentModeName = (modeType: string, date: Date) => {
+    const mode = getCurrentMode(modeType, date);
+    return mode?.name;
+  };
 
   const handleMapClick = (mode: any) => {
     const mapDetail = getMapDetails(mode.currentMap);
@@ -240,11 +282,6 @@ const rewarded = useRef(
     });
   };
 
-  const getCurrentModeName = (modeType: string, date: Date) => {
-    const mode = getCurrentMode(modeType, date);
-    return mode?.name;
-  };
-
   const formatTimeUntilUpdate = (mode: any) => {
     const now = new Date();
     let updateTime = new Date(now);
@@ -262,23 +299,37 @@ const rewarded = useRef(
   };
 
   const changeDate = (days: number) => {
-    const newDate = new Date(selectedDate);
-    newDate.setDate(newDate.getDate() + days);
+    const newDate = new Date(selectedDate); // 現在の選択日から計算
+    newDate.setDate(newDate.getDate() + days); // 日付を加算または減算
     setSelectedDate(newDate);
   };
 
   const formatDate = (date: Date) => {
-    return `${date.getMonth() + 1}月${date.getDate()}日`;
+    const now = new Date();
+    const yesterday = new Date(now);
+    yesterday.setDate(yesterday.getDate() - 1);
+    const tomorrow = new Date(now);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    if (isSameDate(date, now)) {
+      return '今日';
+    } else if (isSameDate(date, yesterday)) {
+      return '昨日';
+    } else if (isSameDate(date, tomorrow)) {
+      return '明日';
+    } else {
+      return `${date.getMonth() + 1}月${date.getDate()}日`;
+    }
   };
 
   const currentMaps = {
-    battleRoyale: getMapForDate("battleRoyale", selectedDate.getDate() - new Date().getDate()),
-    emeraldHunt: getMapForDate("emeraldHunt", selectedDate.getDate() - new Date().getDate()),
-    heist: getMapForDate("heist", selectedDate.getDate() - new Date().getDate()),
-    brawlBall: getMapForDate("brawlBall", selectedDate.getDate() - new Date().getDate()),
-    brawlBall5v5: getMapForDate("brawlBall5v5", selectedDate.getDate() - new Date().getDate()),
-    knockout: getMapForDate("knockout", selectedDate.getDate() - new Date().getDate()),
-    duel: getMapForDate("duel", selectedDate.getDate() - new Date().getDate())
+    battleRoyale: getMapForSelectedDate("battleRoyale"),
+    emeraldHunt: getMapForSelectedDate("emeraldHunt"),
+    heist: getMapForSelectedDate("heist"),
+    brawlBall: getMapForSelectedDate("brawlBall"),
+    brawlBall5v5: getMapForSelectedDate("brawlBall5v5"),
+    knockout: getMapForSelectedDate("knockout"),
+    duel: getMapForSelectedDate("duel")
   };
 
   const modes = [
@@ -413,7 +464,7 @@ const rewarded = useRef(
                       <Text style={styles.modeTagText}>{mode.name}</Text>
                     </View>
                   </View>
-                  {selectedDate.getDate() === new Date().getDate() && (
+                  {isCurrentDate(selectedDate) && (
                     <Text style={styles.updateTime}>
                       更新まで {formatTimeUntilUpdate(mode)}
                     </Text>
