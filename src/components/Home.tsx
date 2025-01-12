@@ -51,12 +51,17 @@ const Home: React.FC = () => {
 
   const adService = useRef<AdMobService | null>(null);
 
-  const rewarded = useRef(
-    RewardedAd.createForAdRequest(AD_CONFIG.IOS_REWARDED_ID, {
-      requestNonPersonalizedAdsOnly: true,
-      keywords: ['game', 'mobile game'],
-    })
-  ).current;
+  const rewardedAdUnitId = Platform.select({
+  ios: AD_CONFIG.IOS_REWARDED_ID,
+  android: AD_CONFIG.ANDROID_REWARDED_ID,
+}) as string;
+
+const rewarded = useRef(
+  RewardedAd.createForAdRequest(rewardedAdUnitId, {
+    requestNonPersonalizedAdsOnly: true,
+    keywords: ['game', 'mobile game'],
+  })
+).current;
 
   // 次の更新時刻を計算する関数
   const getNextUpdateTime = (currentTime: Date): Date => {

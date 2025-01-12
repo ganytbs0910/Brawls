@@ -37,15 +37,22 @@ class AdMobService {
     return this.instance;
   }
 
-  private initInterstitial() {
-  try {　
-    this.interstitial = InterstitialAd.createForAdRequest(AD_CONFIG.IOS_INTERSTITIAL_ID, {
-      requestNonPersonalizedAdsOnly: true,
-    });
-  } catch (error) {
-    console.error('Interstitial initialization error:', error);
+  private get interstitialAdUnitId(): string {
+    return Platform.select({
+      ios: AD_CONFIG.IOS_INTERSTITIAL_ID,
+      android: AD_CONFIG.ANDROID_INTERSTITIAL_ID,
+    }) as string;
   }
-}
+
+  private initInterstitial() {
+    try {
+      this.interstitial = InterstitialAd.createForAdRequest(this.interstitialAdUnitId, {
+        requestNonPersonalizedAdsOnly: true,
+      });
+    } catch (error) {
+      console.error('Interstitial initialization error:', error);
+    }
+  }
 
   async loadInterstitial(): Promise<boolean> {
     if (!this.interstitial || this.isLoading) return false;

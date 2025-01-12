@@ -1,20 +1,21 @@
 buildscript {
     ext {
-        buildToolsVersion = "35.0.0"
+        buildToolsVersion = "34.0.0"
         minSdkVersion = 24
-        compileSdkVersion = 35
+        compileSdkVersion = 34
         targetSdkVersion = 34
-        ndkVersion = "26.1.10909125"
-        kotlinVersion = "1.9.24"
+        kotlinVersion = "1.8.20" // 1.9.24から変更（より安定したバージョン）
+        ndkVersion = "25.1.8937393"
+        androidGradlePluginVersion = "7.4.2" // 8.1.1から変更（React Nativeとの互換性向上）
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle")
+        classpath("com.android.tools.build:gradle:${androidGradlePluginVersion}")
         classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
     }
 }
 
