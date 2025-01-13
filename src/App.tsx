@@ -9,10 +9,11 @@ import BrawlStarsRankings from './components/BrawlStarsRankings';
 import CharacterDetails from './components/CharacterDetails';
 import PickPrediction from './components/PickPrediction';
 import Home from './components/Home';
+import News from './components/News';
 import { BannerAdComponent } from './components/BannerAdComponent';
 
 const { width } = Dimensions.get('window');
-const TAB_WIDTH = width / 5;
+const TAB_WIDTH = width / 6; // タブの数が6つになったので調整
 
 export type RootStackParamList = {
   Main: undefined;
@@ -22,7 +23,6 @@ export type RootStackParamList = {
 
 const Stack = createStackNavigator<RootStackParamList>();
 
-// ランキングタブ用のスタックナビゲーター
 const RankingsStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -47,7 +47,6 @@ const RankingsStack = () => {
   );
 };
 
-// ホームタブ用のスタックナビゲーター
 const HomeStack = () => {
   return (
     <NavigationContainer independent>
@@ -75,7 +74,7 @@ const HomeStack = () => {
 };
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings' | 'prediction'>('home');
+  const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings' | 'prediction' | 'news'>('home');
   const slideAnimation = useRef(new Animated.Value(0)).current;
   
   const animatedValues = useRef({
@@ -84,6 +83,7 @@ const App = () => {
     team: new Animated.Value(0),
     rankings: new Animated.Value(0),
     prediction: new Animated.Value(0),
+    news: new Animated.Value(0),
   }).current;
 
   const tabs = [
@@ -110,6 +110,11 @@ const App = () => {
     {
       key: 'rankings',
       label: 'ランキング',
+      icon: require('../assets/AppIcon/ranking.png'),
+    },
+    {
+      key: 'news',
+      label: 'ニュース',
       icon: require('../assets/AppIcon/ranking.png'),
     },
   ];
@@ -152,6 +157,8 @@ const App = () => {
             <RankingsStack />
           </NavigationContainer>
         );
+      case 'news':
+        return <News />;
     }
   };
 
@@ -160,8 +167,6 @@ const App = () => {
       <View style={styles.content}>
         {renderContent()}
       </View>
-
-
 
       <View style={styles.tabBar}>
         <Animated.View 
