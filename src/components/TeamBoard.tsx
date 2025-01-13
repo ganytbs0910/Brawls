@@ -101,55 +101,65 @@ const TeamBoard: React.FC = () => {
   const scrollViewRef = useRef<ScrollView>(null);
   const inviteLinkInputRef = useRef<TextInput>(null);
 
-  // 現在開催中のモードを取得する関数
   const getCurrentModes = () => {
-    const currentDate = new Date();
-    
-    const modes = [
-      {
-        name: "バトルロワイヤル",
-        color: "#99ff66",
-        icon: require('../../assets/GameModeIcons/showdown_icon.png')
-      },
-      {
-        name: "エメラルドハント",
-        color: "#DA70D6",
-        icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
-      },
-      {
-        name: "ブロストライカー",
-        color: "#cccccc",
-        icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
-      },
-      {
-        name: "ノックアウト",
-        color: "#FFA500",
-        icon: require('../../assets/GameModeIcons/knock_out_icon.png')
-      }
-    ];
-
-    // 強奪/ホットゾーンの現在のモードを取得
-    const heistMode = getCurrentMode("heist", currentDate);
-    if (heistMode) {
-      modes.push({
-        name: heistMode.name,
-        color: heistMode.name === "強奪" ? "#FF69B4" : "#ff7f7f",
-        icon: heistMode.icon
-      });
+  // 基本モード
+  const modes = [
+    {
+      name: "バトルロワイヤル",
+      color: "#99ff66",
+      icon: require('../../assets/GameModeIcons/showdown_icon.png')
+    },
+    {
+      name: "エメラルドハント",
+      color: "#DA70D6",
+      icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
+    },
+    {
+      name: "ブロストライカー",
+      color: "#cccccc",
+      icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
+    },
+    {
+      name: "ノックアウト",
+      color: "#FFA500",
+      icon: require('../../assets/GameModeIcons/knock_out_icon.png')
     }
+  ];
 
-    // 5vs5モードの現在のモードを取得
-    const brawlBall5v5Mode = getCurrentMode("brawlBall5v5", currentDate);
-    if (brawlBall5v5Mode) {
-      modes.push({
-        name: brawlBall5v5Mode.name,
-        color: brawlBall5v5Mode.name === "5vs5ブロストライカー" ? "#cccccc" : "#e95295",
-        icon: brawlBall5v5Mode.icon
-      });
-    }
+  const currentDate = new Date();
+  
+  // 強奪/ホットゾーンの現在のモード
+  const heistMode = getCurrentMode("heist", currentDate);
+  if (heistMode) {
+    modes.push({
+      name: heistMode.name,
+      color: heistMode.name === "強奪" ? "#FF69B4" : "#ff7f7f",
+      icon: heistMode.icon
+    });
+  }
 
-    return modes;
-  };
+  // 5vs5モードの現在のモード
+  const brawlBall5v5Mode = getCurrentMode("brawlBall5v5", currentDate);
+  if (brawlBall5v5Mode) {
+    modes.push({
+      name: brawlBall5v5Mode.name,
+      color: brawlBall5v5Mode.name === "5vs5ブロストライカー" ? "#cccccc" : "#e95295",
+      icon: brawlBall5v5Mode.icon
+    });
+  }
+
+  // デュエル/殲滅/賞金稼ぎの現在のモード
+  const duelMode = getCurrentMode("duel", currentDate);
+  if (duelMode) {
+    modes.push({
+      name: duelMode.name,
+      color: "#FF0000",
+      icon: duelMode.icon
+    });
+  }
+
+  return modes;
+};
 
   // 現在のモードリスト
   const modes = getCurrentModes();

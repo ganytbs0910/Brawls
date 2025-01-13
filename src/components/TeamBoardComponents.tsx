@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet, Alert, Linking } from 'react-native';
 import { Timestamp } from 'firebase/firestore';
 import { characters } from './CharacterSelector';
+import { getCurrentMode } from '../utils/gameData';
 
 interface HostInfo {
   wins3v3: number;
@@ -21,6 +22,28 @@ interface TeamPost {
   sideCharacters: string[];
   hostInfo: HostInfo;
 }
+
+const formatTimestamp = (timestamp: Timestamp) => {
+  const date = timestamp.toDate();
+  const now = new Date();
+  const diffInMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60));
+  
+  if (diffInMinutes < 1) {
+    return 'たった今';
+  } else if (diffInMinutes < 60) {
+    return `${diffInMinutes}分前`;
+  } else if (diffInMinutes < 24 * 60) {
+    const hours = Math.floor(diffInMinutes / 60);
+    return `${hours}時間前`;
+  } else {
+    return date.toLocaleDateString('ja-JP', {
+      month: 'numeric',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  }
+};
 
 const handleOpenLink = async (url: string) => {
   try {
@@ -53,10 +76,11 @@ const handleOpenLink = async (url: string) => {
 };
 
 const getCurrentModes = () => {
-  return [
+  const currentDate = new Date();
+  const modes = [
     {
       name: "バトルロワイヤル",
-      color: "#90EE90",
+      color: "#99ff66",
       icon: require('../../assets/GameModeIcons/showdown_icon.png')
     },
     {
@@ -65,24 +89,9 @@ const getCurrentModes = () => {
       icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
     },
     {
-      name: "ホットゾーン＆強奪",
-      color: "#FF69B4",
-      icon: require('../../assets/GameModeIcons/heist_icon.png')
-    },
-    {
       name: "ブロストライカー",
-      color: "#4169E1",
+      color: "#cccccc",
       icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
-    },
-    {
-      name: "5vs5ブロストライカー",
-      color: "#808080",
-      icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
-    },
-    {
-      name: "デュエル＆殲滅＆賞金稼ぎ",
-      color: "#FF0000",
-      icon: require('../../assets/GameModeIcons/bounty_icon.png')
     },
     {
       name: "ノックアウト",
@@ -90,32 +99,46 @@ const getCurrentModes = () => {
       icon: require('../../assets/GameModeIcons/knock_out_icon.png')
     }
   ];
+
+  // ホットゾーン/強奪の現在のモード
+  const heistMode = getCurrentMode("heist", currentDate);
+  if (heistMode) {
+    modes.push({
+      name: heistMode.name,
+      color: heistMode.name === "強奪" ? "#FF69B4" : "#ff7f7f",
+      icon: heistMode.icon
+    });
+  }
+
+  // 5vs5モードの現在のモード
+  const brawlBall5v5Mode = getCurrentMode("brawlBall5v5", currentDate);
+  if (brawlBall5v5Mode) {
+    modes.push({
+      name: brawlBall5v5Mode.name,
+      color: brawlBall5v5Mode.name === "5vs5ブロストライカー" ? "#cccccc" : "#e95295",
+      icon: brawlBall5v5Mode.icon
+    });
+  }
+
+  // デュエル/殲滅/賞金稼ぎの現在のモード
+  const duelMode = getCurrentMode("duel", currentDate);
+  if (duelMode) {
+    modes.push({
+      name: duelMode.name,
+      color: "#FF0000",
+      icon: duelMode.icon
+    });
+  }
+
+  return modes;
 };
 
 export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
   const modes = getCurrentModes();
-  const mode = modes.find(m => m.name === post.selectedMode);
-
-  const formatTimestamp = (timestamp: Timestamp) => {
-    const date = timestamp.toDate();
-    const now = new Date();
-    const diffInMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60));
-    
-    if (diffInMinutes < 1) {
-      return 'たった今';
-    } else if (diffInMinutes < 60) {
-      return `${diffInMinutes}分前`;
-    } else if (diffInMinutes < 24 * 60) {
-      const hours = Math.floor(diffInMinutes / 60);
-      return `${hours}時間前`;
-    } else {
-      return date.toLocaleDateString('ja-JP', {
-        month: 'numeric',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-      });
-    }
+  const mode = modes.find(m => m.name === post.selectedMode) || {
+    name: post.selectedMode,
+    color: "#21A0DB",
+    icon: require('../../assets/GameModeIcons/4800003.png')
   };
 
   return (
@@ -125,12 +148,12 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
     >
       <View style={[
         styles.postHeader,
-        { backgroundColor: mode?.color || '#21A0DB' }
+        { backgroundColor: mode.color }
       ]}>
         <View style={styles.headerContent}>
           <View style={styles.modeTagContainer}>
             <Image 
-              source={mode?.icon} 
+              source={mode.icon}
               style={styles.modeIcon} 
             />
             <Text style={styles.modeName}>{post.selectedMode}</Text>
