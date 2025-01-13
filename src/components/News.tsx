@@ -94,7 +94,7 @@ const YouTubeCard: React.FC<{ post: NewsPost }> = ({ post }) => {
           />
           <View style={styles.playButton}>
             <Image
-              source={require('../../assets/AppIcon/home.png')}
+              source={require('../../assets/AppIcon/playback_icon.png')}
               style={styles.playIcon}
             />
           </View>

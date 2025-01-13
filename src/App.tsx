@@ -115,7 +115,7 @@ const App = () => {
     {
       key: 'news',
       label: 'ニュース',
-      icon: require('../assets/AppIcon/ranking.png'),
+      icon: require('../assets/AppIcon/loudspeaker_icon.png'),
     },
   ];
 
