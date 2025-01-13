@@ -3,33 +3,29 @@ export const rotatingModes: RotatingModes = {
   heist: {
     modes: [
       {
-        name: "強奪",
-        icon: require('../../assets/GameModeIcons/heist_icon.png')
-      },
-      {
         name: "ホットゾーン",
         icon: require('../../assets/GameModeIcons/hot_zone_icon.png')
+      },
+      {
+        name: "強奪",
+        icon: require('../../assets/GameModeIcons/heist_icon.png')
       },
     ]
   },
   brawlBall5v5: {
     modes: [
       {
-        name: "5vs5ブロストライカー",
-        icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
-      },
-      {
         name: "5vs5殲滅",
         icon: require('../../assets/GameModeIcons/5v5wipeout_icon.png')
+      },
+      {
+        name: "5vs5ブロストライカー",
+        icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
       },
     ]
   },
   duel: {
     modes: [
-      {
-        name: "デュエル",
-        icon: require('../../assets/GameModeIcons/duels_icon.png')
-      },
       {
         name: "殲滅",
         icon: require('../../assets/GameModeIcons/wipeout_icon.png')
@@ -37,6 +33,10 @@ export const rotatingModes: RotatingModes = {
       {
         name: "賞金稼ぎ",
         icon: require('../../assets/GameModeIcons/bounty_icon.png')
+      },
+      {
+        name: "デュエル",
+        icon: require('../../assets/GameModeIcons/duels_icon.png')
       },
     ]
   }
@@ -157,24 +157,18 @@ export const maps: GameMaps = {
   ]
 };
 
-export const getCurrentMode = (modeType: string, date: Date): GameMode | null => {
-  if (!rotatingModes[modeType]) return null;
-  
-  const modes = rotatingModes[modeType].modes;
-  const baseDate = new Date(2024, 11, 27);
-  const daysDiff = Math.floor((date.getTime() - baseDate.getTime()) / (1000 * 60 * 60 * 24));
-  const rotationIndex = daysDiff % modes.length;
-  return modes[rotationIndex >= 0 ? rotationIndex : (modes.length + rotationIndex)];
-};
-
-export const getMapForDateTime = (
+export const getGameDataForDateTime = (
   gameMode: keyof GameMaps, 
   date: Date,
   updateHour: number,
   hoursOffset: number = 0
-): string => {
-  const baseDate = new Date(2024, 0, 1);
-  baseDate.setHours(updateHour, 0, 0, 0);
+): GameModeData => {
+  // マップの基準日
+  const mapBaseDate = new Date(2024, 0, 1);
+  mapBaseDate.setHours(updateHour, 0, 0, 0);
+  
+  // モードの基準日
+  const modeBaseDate = new Date(2024, 11, 27);
   
   // 現在時刻から指定された時間数後の日時を計算
   const targetDate = new Date(date.getTime() + (hoursOffset * 60 * 60 * 1000));
@@ -186,11 +180,43 @@ export const getMapForDateTime = (
   }
   targetDate.setHours(updateHour, 0, 0, 0);
   
-  const timeDiff = targetDate.getTime() - baseDate.getTime();
-  const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24)) + 5;
+  // マップの計算
+  const mapTimeDiff = targetDate.getTime() - mapBaseDate.getTime();
+  const mapDaysDiff = Math.floor(mapTimeDiff / (1000 * 60 * 60 * 24)) + 5;
   
   const modeMapList = maps[gameMode] || [];
-  const mapIndex = daysDiff % modeMapList.length;
+  const mapIndex = mapDaysDiff % modeMapList.length;
+  const map = modeMapList[mapIndex >= 0 ? mapIndex : (modeMapList.length + mapIndex)];
+
+  // モードの計算
+  let mode = null;
+  if (rotatingModes[gameMode]) {
+    const modes = rotatingModes[gameMode].modes;
+    const modeTimeDiff = targetDate.getTime() - modeBaseDate.getTime();
+    const modeDaysDiff = Math.floor(modeTimeDiff / (1000 * 60 * 60 * 24));
+    const modeIndex = modeDaysDiff % modes.length;
+    mode = modes[modeIndex >= 0 ? modeIndex : (modes.length + modeIndex)];
+  }
+
+  return { map, mode };
+};
+
+// 既存の関数は互換性のために残しておく
+export const getMapForDateTime = (
+  gameMode: keyof GameMaps, 
+  date: Date,
+  updateHour: number,
+  hoursOffset: number = 0
+): string => {
+  return getGameDataForDateTime(gameMode, date, updateHour, hoursOffset).map;
+};
+
+export const getCurrentMode = (modeType: string, date: Date): GameMode | null => {
+  if (!rotatingModes[modeType]) return null;
   
-  return modeMapList[mapIndex >= 0 ? mapIndex : (modeMapList.length + mapIndex)];
+  const modes = rotatingModes[modeType].modes;
+  const baseDate = new Date(2024, 11, 27);
+  const daysDiff = Math.floor((date.getTime() - baseDate.getTime()) / (1000 * 60 * 60 * 24));
+  const rotationIndex = daysDiff % modes.length;
+  return modes[rotationIndex >= 0 ? rotationIndex : (modes.length + rotationIndex)];
 };

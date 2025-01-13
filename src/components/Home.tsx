@@ -22,10 +22,8 @@ import { AD_CONFIG } from '../config/AdConfig';
 import { BannerAdComponent } from '../components/BannerAdComponent';
 import { 
   rotatingModes, 
-  mapImages, 
-  getCurrentMode,
-  getMapForDate,
-  getMapForDateTime
+  mapImages,
+  getGameDataForDateTime
 } from '../utils/gameData';
 import AdMobService from '../services/AdMobService';
 import SettingsScreen from './SettingsScreen';
@@ -203,32 +201,26 @@ const Home: React.FC = () => {
     }
   };
 
-  // 選択された日付に応じたマップを取得
-  const getMapForSelectedDate = (gameMode: keyof GameMaps) => {
-  const now = new Date();
-  
-  if (isCurrentDate(selectedDate)) {
-    // 現在の日付の場合は、時刻による更新を適用
-    return getMapForDateTime(gameMode, currentTime, getModeUpdateTime(gameMode));
-  } else {
-    // 選択された日付が今日より後の場合
-    const daysDiff = Math.floor((selectedDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+  const getGameDataForSelectedDate = (gameMode: keyof GameMaps) => {
+    const now = new Date();
     
-    // 次の日のマップを取得するため、24時間を加算
-    const nextDayOffset = daysDiff * 24 + 24;
-    
-    return getMapForDateTime(
-      gameMode,
-      now,
-      getModeUpdateTime(gameMode),
-      nextDayOffset
-    );
-  }
-};
-
-  const getCurrentModeName = (modeType: string, date: Date) => {
-    const mode = getCurrentMode(modeType, date);
-    return mode?.name;
+    if (isCurrentDate(selectedDate)) {
+      // 現在の日付の場合は、時刻による更新を適用
+      return getGameDataForDateTime(gameMode, currentTime, getModeUpdateTime(gameMode));
+    } else {
+      // 選択された日付が今日より後の場合
+      const daysDiff = Math.floor((selectedDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+      
+      // 次の日のマップを取得するため、24時間を加算
+      const nextDayOffset = daysDiff * 24 + 24;
+      
+      return getGameDataForDateTime(
+        gameMode,
+        now,
+        getModeUpdateTime(gameMode),
+        nextDayOffset
+      );
+    }
   };
 
   const handleMapClick = (mode: any) => {
@@ -299,8 +291,8 @@ const Home: React.FC = () => {
   };
 
   const changeDate = (days: number) => {
-    const newDate = new Date(selectedDate); // 現在の選択日から計算
-    newDate.setDate(newDate.getDate() + days); // 日付を加算または減算
+    const newDate = new Date(selectedDate);
+    newDate.setDate(newDate.getDate() + days);
     setSelectedDate(newDate);
   };
 
@@ -322,38 +314,37 @@ const Home: React.FC = () => {
     }
   };
 
-  const currentMaps = {
-    battleRoyale: getMapForSelectedDate("battleRoyale"),
-    emeraldHunt: getMapForSelectedDate("emeraldHunt"),
-    heist: getMapForSelectedDate("heist"),
-    brawlBall: getMapForSelectedDate("brawlBall"),
-    brawlBall5v5: getMapForSelectedDate("brawlBall5v5"),
-    knockout: getMapForSelectedDate("knockout"),
-    duel: getMapForSelectedDate("duel")
+  const currentGameData = {
+    battleRoyale: getGameDataForSelectedDate("battleRoyale"),
+    emeraldHunt: getGameDataForSelectedDate("emeraldHunt"),
+    heist: getGameDataForSelectedDate("heist"),
+    brawlBall: getGameDataForSelectedDate("brawlBall"),
+    brawlBall5v5: getGameDataForSelectedDate("brawlBall5v5"),
+    knockout: getGameDataForSelectedDate("knockout"),
+    duel: getGameDataForSelectedDate("duel")
   };
 
   const modes = [
     {
       name: "バトルロワイヤル",
-      currentMap: currentMaps.battleRoyale,
+      currentMap: currentGameData.battleRoyale.map,
       updateTime: 5,
       color: "#99ff66",
       icon: require('../../assets/GameModeIcons/showdown_icon.png')
     },
     {
       name: "エメラルドハント",
-      currentMap: currentMaps.emeraldHunt,
+      currentMap: currentGameData.emeraldHunt.map,
       updateTime: 11,
       color: "#DA70D6",
       icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
     },
     {
-      name: getCurrentModeName("heist", selectedDate) || "ホットゾーン＆強奪",
-      currentMap: currentMaps.heist,
+      name: currentGameData.heist.mode?.name || "ホットゾーン＆強奪",
+      currentMap: currentGameData.heist.map,
       updateTime: 23,
       color: () => {
-        const currentMode = getCurrentMode("heist", selectedDate);
-        switch (currentMode?.name) {
+        switch (currentGameData.heist.mode?.name) {
           case "強奪":
             return "#FF69B4";
           case "ホットゾーン":
@@ -363,23 +354,22 @@ const Home: React.FC = () => {
         }
       },
       isRotating: true,
-      icon: getCurrentMode("heist", selectedDate)?.icon || require('../../assets/GameModeIcons/heist_icon.png')
+      icon: currentGameData.heist.mode?.icon || require('../../assets/GameModeIcons/heist_icon.png')
     },
     {
       name: "ブロストライカー",
-      currentMap: currentMaps.brawlBall,
+      currentMap: currentGameData.brawlBall.map,
       updateTime: 17,
       color: "#cccccc",
       isRotating: true,
       icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
     },
     {
-      name: getCurrentModeName("brawlBall5v5", selectedDate) || "5vs5ブロストライカー",
-      currentMap: currentMaps.brawlBall5v5,
+      name: currentGameData.brawlBall5v5.mode?.name || "5vs5ブロストライカー",
+      currentMap: currentGameData.brawlBall5v5.map,
       updateTime: 17,
       color: () => {
-        const currentMode = getCurrentMode("brawlBall5v5", selectedDate);
-        switch (currentMode?.name) {
+        switch (currentGameData.brawlBall5v5.mode?.name) {
           case "5vs5ブロストライカー":
             return "#cccccc";
           case "5vs5殲滅":
@@ -389,15 +379,14 @@ const Home: React.FC = () => {
         }
       },
       isRotating: true,
-      icon: getCurrentMode("brawlBall5v5", selectedDate)?.icon || require('../../assets/GameModeIcons/brawl_ball_icon.png')
+      icon: currentGameData.brawlBall5v5.mode?.icon || require('../../assets/GameModeIcons/brawl_ball_icon.png')
     },
     {
-      name: getCurrentModeName("duel", selectedDate) || "デュエル＆殲滅＆賞金稼ぎ",
-      currentMap: currentMaps.duel,
+      name: currentGameData.duel.mode?.name || "デュエル＆殲滅＆賞金稼ぎ",
+      currentMap: currentGameData.duel.map,
       updateTime: 23,
       color: () => {
-        const currentMode = getCurrentMode("duel", selectedDate);
-        switch (currentMode?.name) {
+        switch (currentGameData.duel.mode?.name) {
           case "賞金稼ぎ":
             return "#00ccff";
           case "殲滅":
@@ -409,11 +398,11 @@ const Home: React.FC = () => {
         }
       },
       isRotating: true,
-      icon: getCurrentMode("duel", selectedDate)?.icon || require('../../assets/GameModeIcons/bounty_icon.png')
+      icon: currentGameData.duel.mode?.icon || require('../../assets/GameModeIcons/bounty_icon.png')
     },
     {
       name: "ノックアウト",
-      currentMap: currentMaps.knockout,
+      currentMap: currentGameData.knockout.map,
       updateTime: 11,
       color: "#FFA500",
       icon: require('../../assets/GameModeIcons/knock_out_icon.png')
