@@ -26,17 +26,17 @@ import {
   Timestamp,
   limit
 } from 'firebase/firestore';
-import { getCurrentMode } from '../utils/gameData';
-import CharacterSelector, { Character, characters } from './CharacterSelector';
+import { getCurrentMode, getGameDataForDateTime } from '../utils/gameData';
+import CharacterSelector, { Character } from './CharacterSelector';
 import { PostCard, styles } from './TeamBoardComponents';
-import { usePlayerData, validatePlayerTag } from '../hooks/useBrawlStarsApi';
+import { usePlayerData } from '../hooks/useBrawlStarsApi';
 import { nameMap } from '../data/characterData';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDCuES9P2UaLjQnYNVj0HhakM8o01TR5bQ",
   authDomain: "brawlstatus-eebf8.firebaseapp.com",
   projectId: "brawlstatus-eebf8",
-  storageBucket: "brawlstatus-eebf8.firebaseapp.com",
+  storageBucket: "brawlstatus-eebf8.appspot.com",
   messagingSenderId: "799846073884",
   appId: "1:799846073884:web:33dca774ee25a04a4bc1d9",
   measurementId: "G-V7C3C0GKQK"
@@ -45,7 +45,6 @@ const firebaseConfig = {
 interface HostInfo {
   wins3v3: number;
   totalTrophies: number;
-  winsSolo: number;
   winsDuo: number;
 }
 
@@ -60,13 +59,6 @@ interface TeamPost {
   midCharacters: string[];
   sideCharacters: string[];
   hostInfo: HostInfo;
-}
-
-interface GameMode {
-  name: string;
-  color: string;
-  icon: any;
-  isRotating?: boolean;
 }
 
 let app;
@@ -109,12 +101,14 @@ const TeamBoard: React.FC = () => {
   const scrollViewRef = useRef<ScrollView>(null);
   const inviteLinkInputRef = useRef<TextInput>(null);
 
-  const getCurrentModes = (): GameMode[] => {
+  // 現在開催中のモードを取得する関数
+  const getCurrentModes = () => {
     const currentDate = new Date();
-    return [
+    
+    const modes = [
       {
         name: "バトルロワイヤル",
-        color: "#90EE90",
+        color: "#99ff66",
         icon: require('../../assets/GameModeIcons/showdown_icon.png')
       },
       {
@@ -123,24 +117,9 @@ const TeamBoard: React.FC = () => {
         icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
       },
       {
-        name: getCurrentMode("heist", currentDate)?.name || "ホットゾーン＆強奪",
-        color: "#FF69B4",
-        icon: getCurrentMode("heist", currentDate)?.icon || require('../../assets/GameModeIcons/heist_icon.png')
-      },
-      {
         name: "ブロストライカー",
-        color: "#4169E1",
+        color: "#cccccc",
         icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
-      },
-      {
-        name: "5vs5ブロストライカー",
-        color: "#808080",
-        icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
-      },
-      {
-        name: getCurrentMode("duel", currentDate)?.name || "デュエル＆殲滅＆賞金稼ぎ",
-        color: "#FF0000",
-        icon: getCurrentMode("duel", currentDate)?.icon || require('../../assets/GameModeIcons/bounty_icon.png')
       },
       {
         name: "ノックアウト",
@@ -148,8 +127,31 @@ const TeamBoard: React.FC = () => {
         icon: require('../../assets/GameModeIcons/knock_out_icon.png')
       }
     ];
+
+    // 強奪/ホットゾーンの現在のモードを取得
+    const heistMode = getCurrentMode("heist", currentDate);
+    if (heistMode) {
+      modes.push({
+        name: heistMode.name,
+        color: heistMode.name === "強奪" ? "#FF69B4" : "#ff7f7f",
+        icon: heistMode.icon
+      });
+    }
+
+    // 5vs5モードの現在のモードを取得
+    const brawlBall5v5Mode = getCurrentMode("brawlBall5v5", currentDate);
+    if (brawlBall5v5Mode) {
+      modes.push({
+        name: brawlBall5v5Mode.name,
+        color: brawlBall5v5Mode.name === "5vs5ブロストライカー" ? "#cccccc" : "#e95295",
+        icon: brawlBall5v5Mode.icon
+      });
+    }
+
+    return modes;
   };
 
+  // 現在のモードリスト
   const modes = getCurrentModes();
 
   useEffect(() => {
@@ -187,7 +189,6 @@ const TeamBoard: React.FC = () => {
     setIsLoadingTrophies(true);
     try {
       if (cachedPlayerData) {
-        // 日本語名から英語名を検索（大文字小文字を区別しない）
         const englishName = Object.entries(nameMap).find(
           ([eng, jpn]) => jpn.toLowerCase() === character.name.toLowerCase()
         )?.[0];
@@ -307,7 +308,6 @@ const TeamBoard: React.FC = () => {
           hostInfo: data.hostInfo || {
             wins3v3: 0,
             totalTrophies: 0,
-            winsSolo: 0,
             winsDuo: 0
           },
           midCharacters: data.midCharacters || [],
@@ -415,7 +415,6 @@ const TeamBoard: React.FC = () => {
     setMidCharacters([]);
     setSideCharacters([]);
   };
-
   const renderHostInfoForm = () => (
     <View style={styles.hostInfoForm}>
       <View style={styles.autoFillSection}>
@@ -496,7 +495,10 @@ const TeamBoard: React.FC = () => {
               style={[
                 styles.modeIconButton,
                 selectedMode === mode.name && styles.selectedModeIconButton,
-                { borderColor: selectedMode === mode.name ? mode.color : '#e0e0e0' }
+                { borderColor: selectedMode === mode.name ? 
+                  (typeof mode.color === 'function' ? mode.color() : mode.color) 
+                  : '#e0e0e0' 
+                }
               ]}
               onPress={() => setSelectedMode(mode.name)}
             >
