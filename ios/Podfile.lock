@@ -2914,7 +2914,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNFBApp (21.6.1):
+  - RNFBApp (21.6.2):
     - Firebase/CoreOnly (= 11.5.0)
     - React-Core
   - RNFBFirestore (21.6.1):
@@ -2942,7 +2942,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNGoogleMobileAds (14.7.2):
+  - RNGoogleMobileAds (14.8.0):
     - DoubleConversion
     - glog
     - Google-Mobile-Ads-SDK (= 11.13.0)
@@ -3362,10 +3362,10 @@ SPEC CHECKSUMS:
   RevenueCat: 34f4147c8d26d2f3c691be4e3c9f033698e557f2
   RNCAsyncStorage: d494bdee892cc6a4d790c960afb7b5dd1d91abb1
   RNCMaskedView: 381d041f80e6bf7983d2c058a34362e6a362ce01
-  RNFBApp: 1de631bffe154f4f8b56f8dbfb13d6305d658e97
+  RNFBApp: 5c187f161ac2b1c258c9c099d56bf5cfdb1f0bcb
   RNFBFirestore: 040e9607af616bec5d3903f5fa6a1a4e5dd0e4bd
   RNGestureHandler: 73e6b3eb6a65c764f0bca44b6ab5ac259d316a96
-  RNGoogleMobileAds: 0766f3e90670fcd513ac6b69e89b234a301ec047
+  RNGoogleMobileAds: 065aa2f964f07b0d56b2a9111829c107f795eca8
   RNIap: 2c3c65e445757dde21e566faa13984786d23fab1
   RNPurchases: a99a9d9139c977811e5db73178ea21d8c12f11ac
   RNScreens: c5be23653cbe82a7e44c7719af3465e2f152c791
