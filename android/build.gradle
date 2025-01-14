@@ -5,7 +5,7 @@ buildscript {
         compileSdkVersion = 34
         targetSdkVersion = 34
         kotlinVersion = "1.8.20" // 1.9.24から変更（より安定したバージョン）
-        ndkVersion = "25.1.8937393"
+        ndkVersion = "23.1.7779620"
         androidGradlePluginVersion = "7.4.2" // 8.1.1から変更（React Nativeとの互換性向上）
     }
     repositories {

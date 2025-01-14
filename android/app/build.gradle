@@ -55,13 +55,17 @@ def enableProguardInReleaseBuilds = false
 def jscFlavor = 'org.webkit:android-jsc:+'
 
 android {
+    namespace "com.gan.brawlstatus"
+    buildFeatures {
+        buildConfig = true
+    }
     ndkVersion rootProject.ext.ndkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
     namespace "com.gan.brawl"
     defaultConfig {
-        applicationId "com.gan.brawl"
+        applicationId "com.gan.brawlstatus"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
