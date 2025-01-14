@@ -1,6 +1,6 @@
 {
   "name": "Brawl",
-  "displayName": "Brawl"
+  "displayName": "Brawl",
   "react-native-google-mobile-ads": {
       "android_app_id": "ca-app-pub-4317478239934902~5423868058"
     }
