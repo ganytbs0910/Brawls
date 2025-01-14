@@ -1,0 +1,32 @@
+
+
+
+{
+  "project_info": {
+    "project_number": "799846073884",
+    "project_id": "brawlstatus-eebf8",
+    "storage_bucket": "brawlstatus-eebf8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799846073884:android:8445e2a12d6d93d74bc1d9",
+        "android_client_info": {
+          "package_name": "com.gan.brawlstatus"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY1GbRW67-F_u2xq8EzCJA86U6V09vsic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
