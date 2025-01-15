@@ -476,8 +476,6 @@ const Home: React.FC = () => {
           </View>
         </ScrollView>
 
-        {!isAdFree && <BannerAdComponent />}
-
         {screenStack.map((screen, index) => (
           index > 0 && (
             <SettingsScreen

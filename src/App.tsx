@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image, Animated, Dimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import BrawlStarsCompatibility from './components/BrawlStarsApp';
 import TeamBoard from './components/TeamBoard';
@@ -13,7 +14,7 @@ import News from './components/News';
 import { BannerAdComponent } from './components/BannerAdComponent';
 
 const { width } = Dimensions.get('window');
-const TAB_WIDTH = width / 6; // タブの数が6つになったので調整
+const TAB_WIDTH = width / 6;
 
 export type RootStackParamList = {
   Main: undefined;
@@ -23,10 +24,13 @@ export type RootStackParamList = {
 
 const Stack = createStackNavigator<RootStackParamList>();
 
-const RankingsStack = () => {
+const RankingsStack = ({ isAdFree }: { isAdFree: boolean }) => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Rankings" component={BrawlStarsRankings} />
+      <Stack.Screen 
+        name="Rankings" 
+        component={(props) => <BrawlStarsRankings {...props} isAdFree={isAdFree} />} 
+      />
       <Stack.Screen 
         name="CharacterDetails" 
         component={CharacterDetails}
@@ -47,11 +51,14 @@ const RankingsStack = () => {
   );
 };
 
-const HomeStack = () => {
+const HomeStack = ({ isAdFree }: { isAdFree: boolean }) => {
   return (
     <NavigationContainer independent>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Main" component={Home} />
+        <Stack.Screen 
+          name="Main" 
+          component={(props) => <Home {...props} isAdFree={isAdFree} />}
+        />
         <Stack.Screen 
           name="CharacterDetails" 
           component={CharacterDetails}
@@ -75,6 +82,7 @@ const HomeStack = () => {
 
 const App = () => {
   const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings' | 'prediction' | 'news'>('home');
+  const [isAdFree, setIsAdFree] = useState(false);
   const slideAnimation = useRef(new Animated.Value(0)).current;
   
   const animatedValues = useRef({
@@ -85,6 +93,19 @@ const App = () => {
     prediction: new Animated.Value(0),
     news: new Animated.Value(0),
   }).current;
+
+  useEffect(() => {
+    const checkAdFreeStatus = async () => {
+      try {
+        const status = await AsyncStorage.getItem('adFreeStatus');
+        setIsAdFree(status === 'true');
+      } catch (error) {
+        console.error('Failed to check ad-free status:', error);
+      }
+    };
+
+    checkAdFreeStatus();
+  }, []);
 
   const tabs = [
     {
@@ -144,21 +165,21 @@ const App = () => {
   const renderContent = () => {
     switch (activeTab) {
       case 'home':
-        return <HomeStack />;
+        return <HomeStack isAdFree={isAdFree} />;
       case 'single':
-        return <BrawlStarsCompatibility />;
+        return <BrawlStarsCompatibility isAdFree={isAdFree} />;
       case 'team':
-        return <TeamBoard />;
+        return <TeamBoard isAdFree={isAdFree} />;
       case 'prediction':
-        return <PickPrediction />;
+        return <PickPrediction isAdFree={isAdFree} />;
       case 'rankings':
         return (
           <NavigationContainer independent>
-            <RankingsStack />
+            <RankingsStack isAdFree={isAdFree} />
           </NavigationContainer>
         );
       case 'news':
-        return <News />;
+        return <News isAdFree={isAdFree} />;
     }
   };
 
@@ -168,6 +189,7 @@ const App = () => {
         {renderContent()}
       </View>
 
+      {!isAdFree && <BannerAdComponent />}
       <View style={styles.tabBar}>
         <Animated.View 
           style={[
@@ -235,7 +257,7 @@ const styles = StyleSheet.create({
   },
   tabBar: {
     flexDirection: 'row',
-    borderTopWidth: 1,
+    borderTopWidth: 0,
     borderTopColor: '#e0e0e0',
     backgroundColor: '#fff',
   },

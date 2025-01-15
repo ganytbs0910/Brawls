@@ -401,7 +401,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
           style={styles.settingsItem}
           onPress={handleShare}
         >
-          <Text style={styles.settingsItemText}>共有</Text>
+          <Text style={styles.settingsItemText}>友達に共有する</Text>
         </TouchableOpacity>
 
         {renderPurchaseButton()}
