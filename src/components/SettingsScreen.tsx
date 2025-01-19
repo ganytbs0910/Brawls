@@ -168,7 +168,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
 
     Alert.alert(
       '広告削除の購入',
-      '¥240で広告を完全に削除します。\n購入を続けますか？',
+      '¥200で広告を完全に削除します。\n購入を続けますか？',
       [
         {
           text: 'キャンセル',
