@@ -33,9 +33,18 @@ import MapDetailScreen from './MapDetailScreen';
 import PunishmentGameScreen from './PunishmentGameScreen';
 import { MapDetail, ScreenType, ScreenState } from '../types';
 
-// 商品IDの定義
+// 商品ID定義
 const AD_REMOVAL_SKU_IOS = 'com.brawlstatus.adremoval';
 const AD_REMOVAL_SKU_ANDROID = 'brawl_status_ad_removal';
+
+// 価格設定
+const PURCHASE_CONFIG = {
+  ORIGINAL_PRICE: 400,
+  SALE_PRICE: 200,
+  ORIGINAL_PRICE_DISPLAY: '¥400',
+  SALE_PRICE_DISPLAY: '¥200',
+  PRODUCT_NAME: '広告削除パック',
+} as const;
 
 interface SettingsScreenProps {
   screen: ScreenState;
@@ -168,7 +177,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
 
     Alert.alert(
       '広告削除の購入',
-      '¥200で広告を完全に削除します。\n購入を続けますか？',
+      `リリース記念セール中！\n通常${PURCHASE_CONFIG.ORIGINAL_PRICE_DISPLAY}→${PURCHASE_CONFIG.SALE_PRICE_DISPLAY}で広告を完全に削除します。\n購入を続けますか？`,
       [
         {
           text: 'キャンセル',
@@ -295,6 +304,56 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
     }
   };
 
+  const renderPurchaseButton = () => {
+    if (!isIAPAvailable) {
+      return (
+        <TouchableOpacity 
+          style={[styles.settingsItem, styles.settingsItemDisabled]}
+          disabled={true}
+        >
+          <Text style={[styles.settingsItemText, styles.settingsItemTextDisabled]}>
+            {Platform.select({
+              ios: 'App Storeに接続できません',
+              android: 'Google Playに接続できません'
+            })}
+          </Text>
+        </TouchableOpacity>
+      );
+    }
+
+    return (
+      <TouchableOpacity 
+        style={[
+          styles.settingsItem,
+          (loading || isAdFree) && styles.settingsItemDisabled
+        ]}
+        onPress={handlePurchaseAdRemoval}
+        disabled={loading || isAdFree}
+      >
+        <View>
+          <Text style={[
+            styles.settingsItemText,
+            (loading || isAdFree) && styles.settingsItemTextDisabled
+          ]}>
+            {isAdFree ? '広告削除済み' : '広告を削除'}
+            {loading && ' (処理中...)'}
+          </Text>
+          {!isAdFree && !loading && (
+            <View style={styles.priceContainer}>
+              <Text style={styles.originalPrice}>
+                {PURCHASE_CONFIG.ORIGINAL_PRICE_DISPLAY}
+              </Text>
+              <Text style={styles.salePrice}>
+                {PURCHASE_CONFIG.SALE_PRICE_DISPLAY}
+              </Text>
+              <Text style={styles.saleLabel}>リリース記念セール</Text>
+            </View>
+          )}
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
   const navigateToScreen = (newScreenType: ScreenType) => {
     const newScreen: ScreenState = {
       type: newScreenType,
@@ -328,66 +387,6 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
     });
   };
 
-  const renderPurchaseButton = () => {
-    if (!isIAPAvailable) {
-      return (
-        <TouchableOpacity 
-          style={[styles.settingsItem, styles.settingsItemDisabled]}
-          disabled={true}
-        >
-          <Text style={[styles.settingsItemText, styles.settingsItemTextDisabled]}>
-            {Platform.select({
-              ios: 'App Storeに接続できません',
-              android: 'Google Playに接続できません'
-            })}
-          </Text>
-        </TouchableOpacity>
-      );
-    }
-
-    return (
-      <TouchableOpacity 
-        style={[
-          styles.settingsItem,
-          (loading || isAdFree) && styles.settingsItemDisabled
-        ]}
-        onPress={handlePurchaseAdRemoval}
-        disabled={loading || isAdFree}
-      >
-        <Text style={[
-          styles.settingsItemText,
-          (loading || isAdFree) && styles.settingsItemTextDisabled
-        ]}>
-          {isAdFree ? '広告削除済み' : '広告を削除（¥200）'}
-          {loading && ' (処理中...)'}
-        </Text>
-      </TouchableOpacity>
-    );
-  };
-
-  const renderRestoreButton = () => {
-    if (!isIAPAvailable) return null;
-
-    return (
-      <TouchableOpacity 
-        style={[
-          styles.settingsItem,
-          (loading || isAdFree) && styles.settingsItemDisabled
-        ]}
-        onPress={handleRestorePurchase}
-        disabled={loading || isAdFree}
-      >
-        <Text style={[
-          styles.settingsItemText,
-          (loading || isAdFree) && styles.settingsItemTextDisabled
-        ]}>
-          課金を復元
-          {loading && ' (処理中...)'}
-        </Text>
-      </TouchableOpacity>
-    );
-  };
-
   const renderSettingsContent = () => (
     <View style={styles.settingsContainer}>
       <View style={styles.settingsHeader}>
@@ -405,68 +404,67 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
         </TouchableOpacity>
 
         {renderPurchaseButton()}
-        {renderRestoreButton()}
 
         {!isAdFree && (
-          <>
-            <TouchableOpacity 
-              style={styles.settingsItem}
-              onPress={handleSupportClick}
-            >
-              <Text style={styles.settingsItemText}>
-                広告を見て支援する（小）
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity 
-              style={[
-                styles.settingsItem,
-                !isRewardedAdReady && styles.settingsItemDisabled
-              ]}
-              onPress={showRewardedAd}
-              disabled={!isRewardedAdReady}
-            >
-              <Text style={[
-                styles.settingsItemText,
-                !isRewardedAdReady && styles.settingsItemTextDisabled
-              ]}>
-                広告を見て支援する（大）
-                {!isRewardedAdReady && ' (準備中)'}
+            <>
+              <TouchableOpacity 
+                style={styles.settingsItem}
+                onPress={handleSupportClick}
+              >
+                <Text style={styles.settingsItemText}>
+                  広告を見て支援する（小）
                 </Text>
-            </TouchableOpacity>
-          </>
-        )}
+              </TouchableOpacity>
 
-        <TouchableOpacity 
-          style={styles.settingsItem}
-          onPress={() => navigateToScreen('privacy')}
-        >
-          <Text style={styles.settingsItemText}>プライバシーポリシー</Text>
-        </TouchableOpacity>
+              <TouchableOpacity 
+                style={[
+                  styles.settingsItem,
+                  !isRewardedAdReady && styles.settingsItemDisabled
+                ]}
+                onPress={showRewardedAd}
+                disabled={!isRewardedAdReady}
+              >
+                <Text style={[
+                  styles.settingsItemText,
+                  !isRewardedAdReady && styles.settingsItemTextDisabled
+                ]}>
+                  広告を見て支援する（大）
+                  {!isRewardedAdReady && ' (準備中)'}
+                </Text>
+              </TouchableOpacity>
+            </>
+          )}
 
-        <TouchableOpacity 
-          style={styles.settingsItem}
-          onPress={() => navigateToScreen('terms')}
-        >
-          <Text style={styles.settingsItemText}>利用規約</Text>
-        </TouchableOpacity>
+          <TouchableOpacity 
+            style={styles.settingsItem}
+            onPress={() => navigateToScreen('privacy')}
+          >
+            <Text style={styles.settingsItemText}>プライバシーポリシー</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity 
-          style={styles.settingsItem}
-          onPress={() => navigateToScreen('allTips')}
-        >
-          <Text style={styles.settingsItemText}>豆知識一覧</Text>
-        </TouchableOpacity>
+          <TouchableOpacity 
+            style={styles.settingsItem}
+            onPress={() => navigateToScreen('terms')}
+          >
+            <Text style={styles.settingsItemText}>利用規約</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity 
-          style={styles.settingsItem}
-          onPress={() => navigateToScreen('punishmentGame')}
-        >
-          <Text style={styles.settingsItemText}>罰ゲーム</Text>
-        </TouchableOpacity>
-      </ScrollView>
-    </View>
-  );
+          <TouchableOpacity 
+            style={styles.settingsItem}
+            onPress={() => navigateToScreen('allTips')}
+          >
+            <Text style={styles.settingsItemText}>豆知識一覧</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={styles.settingsItem}
+            onPress={() => navigateToScreen('punishmentGame')}
+          >
+            <Text style={styles.settingsItemText}>罰ゲーム</Text>
+          </TouchableOpacity>
+        </ScrollView>
+      </View>
+    );
 
   const renderScreenContent = (screen: ScreenState) => {
     switch (screen.type) {
@@ -618,6 +616,32 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 20,
     color: '#666',
+  },
+  priceContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 4,
+  },
+  originalPrice: {
+    fontSize: 14,
+    color: '#999',
+    textDecorationLine: 'line-through',
+    marginRight: 8,
+  },
+  salePrice: {
+    fontSize: 16,
+    color: '#FF4444',
+    fontWeight: 'bold',
+    marginRight: 8,
+  },
+  saleLabel: {
+    fontSize: 12,
+    color: '#FF4444',
+    borderWidth: 1,
+    borderColor: '#FF4444',
+    borderRadius: 4,
+    paddingHorizontal: 4,
+    paddingVertical: 2,
   }
 });
 

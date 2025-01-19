@@ -1,3 +1,4 @@
+// TeamBoard.tsx
 import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
@@ -24,7 +25,8 @@ import {
   orderBy,
   getDocs,
   Timestamp,
-  limit
+  limit,
+  onSnapshot
 } from 'firebase/firestore';
 import { getCurrentMode, getGameDataForDateTime } from '../utils/gameData';
 import CharacterSelector, { Character } from './CharacterSelector';
@@ -41,6 +43,8 @@ const firebaseConfig = {
   appId: "1:799846073884:web:33dca774ee25a04a4bc1d9",
   measurementId: "G-V7C3C0GKQK"
 };
+
+const POST_LIMIT = 6; // 投稿の上限を設定
 
 interface HostInfo {
   wins3v3: number;
@@ -101,67 +105,95 @@ const TeamBoard: React.FC = () => {
   const scrollViewRef = useRef<ScrollView>(null);
   const inviteLinkInputRef = useRef<TextInput>(null);
 
+  useEffect(() => {
+    // リアルタイムリスナーを設定
+    const q = query(
+      collection(db, 'teamPosts'),
+      orderBy('createdAt', 'desc'),
+      limit(POST_LIMIT)
+    );
+
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const postData = snapshot.docs.map(doc => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          ...data,
+          hostInfo: data.hostInfo || {
+            wins3v3: 0,
+            totalTrophies: 0,
+            winsDuo: 0
+          },
+          midCharacters: data.midCharacters || [],
+          sideCharacters: data.sideCharacters || []
+        }
+      }) as TeamPost[];
+      setPosts(postData);
+      setLoading(false);
+    }, (error) => {
+      console.error('Error listening to posts:', error);
+      setLoading(false);
+    });
+
+    // クリーンアップ
+    return () => unsubscribe();
+  }, []);
   const getCurrentModes = () => {
-  // 基本モード
-  const modes = [
-    {
-      name: "バトルロワイヤル",
-      color: "#99ff66",
-      icon: require('../../assets/GameModeIcons/showdown_icon.png')
-    },
-    {
-      name: "エメラルドハント",
-      color: "#DA70D6",
-      icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
-    },
-    {
-      name: "ブロストライカー",
-      color: "#cccccc",
-      icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
-    },
-    {
-      name: "ノックアウト",
-      color: "#FFA500",
-      icon: require('../../assets/GameModeIcons/knock_out_icon.png')
+    const modes = [
+      {
+        name: "バトルロワイヤル",
+        color: "#99ff66",
+        icon: require('../../assets/GameModeIcons/showdown_icon.png')
+      },
+      {
+        name: "エメラルドハント",
+        color: "#DA70D6",
+        icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
+      },
+      {
+        name: "ブロストライカー",
+        color: "#cccccc",
+        icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
+      },
+      {
+        name: "ノックアウト",
+        color: "#FFA500",
+        icon: require('../../assets/GameModeIcons/knock_out_icon.png')
+      }
+    ];
+
+    const currentDate = new Date();
+    
+    const heistMode = getCurrentMode("heist", currentDate);
+    if (heistMode) {
+      modes.push({
+        name: heistMode.name,
+        color: heistMode.name === "強奪" ? "#FF69B4" : "#ff7f7f",
+        icon: heistMode.icon
+      });
     }
-  ];
 
-  const currentDate = new Date();
-  
-  // 強奪/ホットゾーンの現在のモード
-  const heistMode = getCurrentMode("heist", currentDate);
-  if (heistMode) {
-    modes.push({
-      name: heistMode.name,
-      color: heistMode.name === "強奪" ? "#FF69B4" : "#ff7f7f",
-      icon: heistMode.icon
-    });
-  }
+    const brawlBall5v5Mode = getCurrentMode("brawlBall5v5", currentDate);
+    if (brawlBall5v5Mode) {
+      modes.push({
+        name: brawlBall5v5Mode.name,
+        color: brawlBall5v5Mode.name === "5vs5ブロストライカー" ? "#cccccc" : "#e95295",
+        icon: brawlBall5v5Mode.icon
+      });
+    }
 
-  // 5vs5モードの現在のモード
-  const brawlBall5v5Mode = getCurrentMode("brawlBall5v5", currentDate);
-  if (brawlBall5v5Mode) {
-    modes.push({
-      name: brawlBall5v5Mode.name,
-      color: brawlBall5v5Mode.name === "5vs5ブロストライカー" ? "#cccccc" : "#e95295",
-      icon: brawlBall5v5Mode.icon
-    });
-  }
+    const duelMode = getCurrentMode("duel", currentDate);
+    if (duelMode) {
+      modes.push({
+        name: duelMode.name,
+        color: "#FF0000",
+        icon: duelMode.icon
+      });
+    }
 
-  // デュエル/殲滅/賞金稼ぎの現在のモード
-  const duelMode = getCurrentMode("duel", currentDate);
-  if (duelMode) {
-    modes.push({
-      name: duelMode.name,
-      color: "#FF0000",
-      icon: duelMode.icon
-    });
-  }
+    return modes;
+  };
 
-  return modes;
-};
-
-  // 現在のモードリスト
   const modes = getCurrentModes();
 
   useEffect(() => {
@@ -238,7 +270,6 @@ const TeamBoard: React.FC = () => {
       setIsLoadingTrophies(false);
     }
   };
-
   const handleCharacterSelect = async (character: Character | null) => {
     setSelectedCharacter(character);
     if (character && playerTag) {
@@ -305,7 +336,7 @@ const TeamBoard: React.FC = () => {
     const q = query(
       collection(db, 'teamPosts'),
       orderBy('createdAt', 'desc'),
-      limit(10)
+      limit(POST_LIMIT)
     );
     
     try {
@@ -390,6 +421,14 @@ const TeamBoard: React.FC = () => {
     if (!validateInputs()) return;
 
     try {
+      // 現在の投稿数をチェック
+      const q = query(
+        collection(db, 'teamPosts'),
+        orderBy('createdAt', 'desc'),
+        limit(POST_LIMIT)
+      );
+      const snapshot = await getDocs(q);
+
       const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
       const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
 
@@ -425,6 +464,7 @@ const TeamBoard: React.FC = () => {
     setMidCharacters([]);
     setSideCharacters([]);
   };
+
   const renderHostInfoForm = () => (
     <View style={styles.hostInfoForm}>
       <View style={styles.autoFillSection}>
