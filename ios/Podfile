@@ -1,8 +1,5 @@
-require Pod::Executable.execute_command('node', ['-p',
-  'require.resolve(
-    "react-native/scripts/react_native_pods.rb",
-    {paths: [process.argv[1]]},
-  )', __dir__]).strip
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 platform :ios, min_ios_version_supported
 prepare_react_native_project!
@@ -13,15 +10,21 @@ use_frameworks! :linkage => :static
 
 target 'Brawl' do
   config = use_native_modules!
-  pod 'Google-Mobile-Ads-SDK'
-  
-  # Firebaseの依存関係
+
+  # Firebase関連のPods
+  pod 'Firebase', :modular_headers => true
   pod 'FirebaseCore', :modular_headers => true
   pod 'FirebaseCoreInternal', :modular_headers => true
   pod 'FirebaseFirestore', :modular_headers => true
-  pod 'gRPC-C++', :modular_headers => true  # podspecの指定を削除
+  pod 'GoogleUtilities', :modular_headers => true
+  
+  # Google Ads
+  pod 'Google-Mobile-Ads-SDK'
+  
+  # gRPC関連
+  pod 'gRPC-C++', :modular_headers => true
   pod 'gRPC-Core', :modular_headers => true
-
+  
   use_react_native!(
     :path => config[:reactNativePath],
     :app_path => "#{Pod::Config.instance.installation_root}/.."
@@ -32,18 +35,23 @@ target 'Brawl' do
   end
 
   post_install do |installer|
+    # React Native の post install 処理
     react_native_post_install(
       installer,
       config[:reactNativePath],
       :mac_catalyst_enabled => false
     )
     
+    # ビルド設定の調整
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
         config.build_settings['ENABLE_BITCODE'] = 'NO'
         config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = min_ios_version_supported
         config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
         config.build_settings['DEFINES_MODULE'] = 'YES'
+        
+        # M1 Mac対応（必要な場合）
+        config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
       end
     end
   end

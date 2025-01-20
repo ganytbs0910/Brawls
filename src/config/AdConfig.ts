@@ -16,6 +16,9 @@ export const AD_CONFIG = {
   IOS_REWARDED_ID: isDevelopment 
     ? TestIds.REWARDED 
     : 'ca-app-pub-4317478239934902/4496232521',
+  IOS_APP_OPEN_ID: isDevelopment
+    ? TestIds.APP_OPEN
+    : 'ca-app-pub-4317478239934902/4533994613',
     
   // Android
   ANDROID_APP_ID: isDevelopment
@@ -30,4 +33,7 @@ export const AD_CONFIG = {
   ANDROID_BANNER_ID: isDevelopment
     ? TestIds.BANNER
     : 'ca-app-pub-4317478239934902/3243882108',
+  ANDROID_APP_OPEN_ID: isDevelopment
+    ? TestIds.APP_OPEN
+    : 'ca-app-pub-4317478239934902/2264151976',
 } as const;

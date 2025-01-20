@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image, Animated, Dimensions } from 'react-native';
+import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image, Animated, Dimensions, Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AppOpenAd, TestIds } from 'react-native-google-mobile-ads';
+import { AD_CONFIG } from './config/AdConfig';
 
 import BrawlStarsCompatibility from './components/BrawlStarsApp';
 import TeamBoard from './components/TeamBoard';
@@ -23,6 +25,15 @@ export type RootStackParamList = {
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
+
+const appOpenAdUnitId = Platform.select({
+  ios: AD_CONFIG.IOS_APP_OPEN_ID,
+  android: AD_CONFIG.ANDROID_APP_OPEN_ID,
+}) || '';
+
+const appOpenAd = AppOpenAd.createForAdRequest(appOpenAdUnitId, {
+  requestNonPersonalizedAdsOnly: true,
+});
 
 const RankingsStack = ({ isAdFree }: { isAdFree: boolean }) => {
   return (
@@ -83,6 +94,7 @@ const HomeStack = ({ isAdFree }: { isAdFree: boolean }) => {
 const App = () => {
   const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings' | 'prediction' | 'news'>('home');
   const [isAdFree, setIsAdFree] = useState(false);
+  const [shouldShowAd, setShouldShowAd] = useState(true);
   const slideAnimation = useRef(new Animated.Value(0)).current;
   
   const animatedValues = useRef({
@@ -95,16 +107,47 @@ const App = () => {
   }).current;
 
   useEffect(() => {
-    const checkAdFreeStatus = async () => {
+    const initializeApp = async () => {
       try {
+        // 広告フリーステータスのチェック
         const status = await AsyncStorage.getItem('adFreeStatus');
-        setIsAdFree(status === 'true');
+        const isAdFreeStatus = status === 'true';
+        setIsAdFree(isAdFreeStatus);
+
+        // 広告フリーでない場合、20%の確率で起動広告を表示
+        if (!isAdFreeStatus) {
+          const randomValue = Math.random();
+          console.log('Ad probability check:', randomValue <= 0.2 ? 'Showing ad' : 'Not showing ad');
+          
+          if (randomValue <= 0.2) { // 20%の確率
+            // 広告のロードイベントを監視
+            appOpenAd.addAdEventListener('loaded', () => {
+              // ロードされたら広告を表示
+              appOpenAd.show().catch(showError => {
+                console.error('Failed to show app open ad:', showError);
+              });
+            });
+
+            // エラーハンドリング
+            appOpenAd.addAdEventListener('error', (error) => {
+              console.error('App open ad failed to load:', error);
+            });
+
+            // 広告のロードを開始
+            await appOpenAd.load();
+          }
+        }
       } catch (error) {
-        console.error('Failed to check ad-free status:', error);
+        console.error('Failed to initialize app:', error);
       }
     };
 
-    checkAdFreeStatus();
+    initializeApp();
+
+    // クリーンアップ関数
+    return () => {
+      appOpenAd.removeAllListeners();
+    };
   }, []);
 
   const tabs = [
@@ -189,7 +232,7 @@ const App = () => {
         {renderContent()}
       </View>
 
-      {!isAdFree && <BannerAdComponent />}
+      {!isAdFree && shouldShowAd && <BannerAdComponent />}
       <View style={styles.tabBar}>
         <Animated.View 
           style={[
