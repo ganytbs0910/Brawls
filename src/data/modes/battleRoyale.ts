@@ -12,7 +12,12 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "イヴ", reason: "", power: 5 },
       { name: "ジュジュ", reason: "", power: 5 },
       { name: "アンジェロ", reason: "", power: 5 },
-      { name: "シェイド", reason: "", power: 5 }
+      { name: "ブロック", reason: "", power: 4 },
+      { name: "カール", reason: "", power: 4 },
+      { name: "キット", reason: "", power: 4 },
+      { name: "リリー", reason: "", power: 4 },
+      { name: "シェイド", reason: "", power: 3 },
+      { name: "ジャネット", reason: "", power: 3 },
     ],
     tips: [
       "酸性湖への接触を避ける",
@@ -33,7 +38,11 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "バズ", reason: "", power: 5 },
       { name: "ブル", reason: "", power: 5 },
       { name: "サージ", reason: "", power: 5 },
-      { name: "R-T", reason: "", power: 5 }
+      { name: "R-T", reason: "", power: 5 },
+      { name: "ジャッキー", reason: "", power: 3 },
+      { name: "タラ", reason: "", power: 3 },
+      { name: "ルー", reason: "", power: 3 },
+      { name: "リリー", reason: "", power: 2 },
     ],
     tips: [
       "中央への進入は慎重に判断",
@@ -52,10 +61,13 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "アンジェロ", reason: "", power: 5 },
       { name: "ジュジュ", reason: "", power: 5 },
       { name: "イヴ", reason: "", power: 5 },
-      { name: "ガス", reason: "", power: 5 },
-      { name: "ストゥー", reason: "", power: 4 },
+      { name: "ガス", reason: "", power: 4 },
       { name: "パール", reason: "", power: 4 },
-      { name: "R-T", reason: "", power: 4 }
+      { name: "R-T", reason: "", power: 3 }
+      { name: "ストゥー", reason: "", power: 3 },
+      { name: "キット", reason: "", power: 3 },
+      { name: "リリー", reason: "", power: 3 },
+      { name: "ジャネット", reason: "", power: 2 },
     ],
     tips: [
       "落下ダメージに注意",
@@ -71,13 +83,16 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     characteristics: ["島地形", "ブッシュ密集", "近接戦重視"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      { name: "ボウ", reason: "", power: 5 },
       { name: "バズ", reason: "", power: 5 },
       { name: "シェリー", reason: "", power: 5 },
       { name: "ブル", reason: "", power: 5 },
       { name: "サージ", reason: "", power: 5 },
-      { name: "ダリル", reason: "", power: 4 },
-      { name: "ジャネット", reason: "", power: 3 }
+      { name: "ボウ", reason: "", power: 4 },
+      { name: "ダリル", reason: "", power: 3 },
+      { name: "ジャネット", reason: "", power: 3 },
+      { name: "メイジー", reason: "", power: 3 },
+      { name: "コーデリアス", reason: "", power: 3 },
+      { name: "ゲイル", reason: "", power: 2 },
     ],
     tips: [
       "ブッシュの確認を怠らない",
@@ -98,8 +113,10 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "パール", reason: "", power: 5 },
       { name: "R-T", reason: "", power: 5 },
       { name: "ストゥー", reason: "", power: 4 },
-      { name: "メイジー", reason: "", power: 4 },
-      { name: "エリザベス", reason: "", power: 4 }
+      { name: "エリザベス", reason: "", power: 4 },
+      { name: "メイジー", reason: "", power: 3 },
+      { name: "キット", reason: "", power: 3 },
+      { name: "リリー", reason: "", power: 3 },
     ],
     tips: [
       "不用意な移動を控える",
@@ -119,8 +136,10 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "サージ", reason: "", power: 5 },
       { name: "リリー", reason: "", power: 5 },
       { name: "シェリー", reason: "", power: 5 },
-      { name: "ダリル", reason: "", power: 5 },
-      { name: "R-T", reason: "", power: 4 }
+      { name: "R-T", reason: "", power: 4 },
+      { name: "フランケン", reason: "", power: 4 },
+      { name: "キット", reason: "", power: 4 },
+      { name: "ダリル", reason: "", power: 3 },
     ],
     tips: [
       "不用意な移動を控える",
@@ -141,7 +160,9 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "コーデリアス", reason: "", power: 5 },
       { name: "パール", reason: "", power: 5 },
       { name: "メイジー", reason: "", power: 5 },
-      { name: "R-T", reason: "", power: 5 }
+      { name: "R-T", reason: "", power: 5 },
+      { name: "リリー", reason: "", power: 5 },
+      { name: "キット", reason: "", power: 4 },
     ],
     tips: [
       "建物内での足音に注意",
@@ -160,10 +181,12 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "サージ", reason: "", power: 5 },
       { name: "リリー", reason: "", power: 5 },
       { name: "キット", reason: "", power: 5 },
-      { name: "シェイド", reason: "", power: 5 },
+      { name: "コーデリアス", reason: "", power: 5 },
       { name: "ジャッキー", reason: "", power: 4 },
-      { name: "コーデリアス", reason: "", power: 4 },
-      { name: "エルプリモ", reason: "", power: 4 }
+      { name: "パール", reason: "", power: 3 },
+      { name: "エルプリモ", reason: "", power: 2 },
+      { name: "R-T", reason: "", power: 2 },
+      { name: "フランケン", reason: "", power: 2 },
     ],
     tips: [
       "橋での戦いは慎重に",
@@ -183,11 +206,11 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "バズ", reason: "", power: 5 },
       { name: "ブル", reason: "", power: 5 },
       { name: "エルプリモ", reason: "", power: 5 },
-      { name: "ジャッキー", reason: "", power: 5 },
       { name: "リコ", reason: "", power: 5 },
       { name: "ボウ", reason: "", power: 5 },
-      { name: "ウィロー", reason: "", power: 4 },
-      { name: "タラ", reason: "", power: 3 }
+      { name: "ジャッキー", reason: "", power: 4 },
+      { name: "タラ", reason: "", power: 4 },
+      { name: "ウィロー", reason: "", power: 3 },
     ],
     tips: [
       "常にブッシュチェック",
@@ -206,10 +229,13 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "アンジェロ", reason: "", power: 5 },
       { name: "ガス", reason: "", power: 5 },
       { name: "パール", reason: "", power: 5 },
-      { name: "ストゥー", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 4 },
       { name: "R-T", reason: "", power: 4 },
-      { name: "メイジー", reason: "", power: 4 },
-      { name: "エリザベス", reason: "", power: 4 }
+      { name: "キット", reason: "", power: 4 },
+      { name: "エリザベス", reason: "", power: 3 },
+      { name: "Max", reason: "", power: 3 },
+      { name: "メイジー", reason: "", power: 2 },
+      { name: "イヴ", reason: "", power: 2 },
     ],
     tips: [
       "常に視界の確保を意識",
@@ -229,8 +255,10 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "R-T", reason: "", power: 5 },
       { name: "パール", reason: "", power: 5 },
       { name: "キット", reason: "", power: 5 },
-      { name: "メイジー", reason: "", power: 4 },
-      { name: "サージ", reason: "", power: 4 }
+      { name: "コーデリアス", reason: "", power: 5 },
+      { name: "リリー", reason: "", power: 4 },
+      { name: "サージ", reason: "", power: 4 },
+      { name: "メイジー", reason: "", power: 3 },
     ],
     tips: [
       "エリア移動は慎重に",
@@ -250,7 +278,11 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "ジュジュ", reason: "", power: 5 },
       { name: "ストゥー", reason: "", power: 5 },
       { name: "サージ", reason: "", power: 5 },
-      { name: "キット", reason: "", power: 5 }
+      { name: "キット", reason: "", power: 5 },
+      { name: "リリー", reason: "", power: 5 },
+      { name: "ウィロー", reason: "", power: 3 },
+      { name: "アンジェロ", reason: "", power: 2 },
+      { name: "イヴ", reason: "", power: 2 },
     ],
     tips: [
       "高低差での戦いを意識",
