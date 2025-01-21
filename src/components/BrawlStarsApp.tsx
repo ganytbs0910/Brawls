@@ -28,20 +28,13 @@ export default function BrawlStarsApp() {
   useEffect(() => {
     const initializeApp = async () => {
       try {
-        // brawlersデータの取得を開始
         const brawlersPromise = brawlersData.fetchBrawlers();
-        
-        // 保存されたプレイヤータグの取得
         const savedTag = await playerData.loadSavedTag();
         if (savedTag) {
           setPlayerTag(savedTag);
-          // プレイヤーデータの取得を開始
           const playerPromise = playerData.fetchPlayerData(savedTag);
-          
-          // 両方のデータ取得を待機
           await Promise.all([brawlersPromise, playerPromise]);
         } else {
-          // タグがない場合はbrawlersデータの取得のみ待機
           await brawlersPromise;
         }
         
@@ -51,7 +44,6 @@ export default function BrawlStarsApp() {
         setIsInitialized(true);
       }
     };
-
     initializeApp();
   }, []);
 

@@ -158,7 +158,7 @@ const App = () => {
     },
     {
       key: 'single',
-      label: 'プレイヤー分析',
+      label: '分析',
       icon: require('../assets/AppIcon/compatibility.png'),
     },
     {

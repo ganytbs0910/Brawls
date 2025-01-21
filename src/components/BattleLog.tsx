@@ -8,8 +8,6 @@ import {
 } from 'react-native';
 import type { BattleLogItem } from '../hooks/useBrawlStarsApi';
 import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages';
-
-// モードのアイコンマッピング
 const GAME_MODE_ICONS: { [key: string]: any } = {
   'gemGrab': require('../../assets/GameModeIcons/gem_grab_icon.png'),
   'brawlBall': require('../../assets/GameModeIcons/brawl_ball_icon.png'),
@@ -25,8 +23,6 @@ const GAME_MODE_ICONS: { [key: string]: any } = {
   'basketBrawl': require('../../assets/GameModeIcons/basket_brawl_icon.png'),
   'payLoad': require('../../assets/GameModeIcons/payload_icon.png'),
 };
-
-// ランクアイコンのマッピング
 const RANK_ICONS = {
   bronze: require('../../assets/GameModeIcons/rank_bronze.png'),
   silver: require('../../assets/GameModeIcons/rank_silver.png'),
@@ -434,8 +430,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#666',
   },
-
-  // プレイヤー表示関連
   playerContainer: {
     alignItems: 'center',
     width: '18%',
