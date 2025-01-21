@@ -84,7 +84,18 @@ export const knockoutMaps: Record<string, MapDetail> = {
       { name: "パール", reason: "水路を挟んだ狙撃", power: 4 },
       { name: "ナーニ", reason: "水路越しの攻撃", power: 3 },
       { name: "キット", reason: "水路越しの攻撃", power: 3 },
-      { name: "ダリル", reason: "水路越しの攻撃", power: 3 }
+      { name: "ダリル", reason: "水路越しの攻撃", power: 3 },
+      { name: "スクウィーク", reason: "水路越しの攻撃", power: 3 },
+      { name: "コルト", reason: "水路越しの攻撃", power: 3 },
+      { name: "リリー", reason: "水路越しの攻撃", power: 2 },
+      { name: "Mr.P", reason: "水路越しの攻撃", power: 2 },
+      { name: "ペニー", reason: "水路越しの攻撃", power: 2 },
+      { name: "レオン", reason: "水路越しの攻撃", power: 2 },
+      { name: "マックス", reason: "水路越しの攻撃", power: 2 },
+      { name: "ローラ", reason: "水路越しの攻撃", power: 2 },
+      { name: "バスター", reason: "水路越しの攻撃", power: 2 },
+      { name: "カール", reason: "水路越しの攻撃", power: 2 },
+      { name: "ボニー", reason: "水路越しの攻撃", power: 2 },
     ],
 
     tips: [
@@ -224,12 +235,14 @@ export const knockoutMaps: Record<string, MapDetail> = {
       { name: "アンジェロ", reason: "水路越しの攻撃", power: 4 },
       { name: "マンディ", reason: "水路を挟んだ狙撃", power: 4 },
       { name: "ジュジュ", reason: "水路越しの攻撃", power: 4 },
-      { name: "バーリー", reason: "水路越しの攻撃", power: 4 },
+      { name: "バーリー", reason: "水路越しの攻撃", power: 3 },
       { name: "ラリー&ローリー", reason: "水路越しの攻撃", power: 3 },
       { name: "ブロック", reason: "水路越しの攻撃", power: 3 },
       { name: "ダリル", reason: "水路越しの攻撃", power: 3 },
       { name: "キット", reason: "水路越しの攻撃", power: 3 },
-      { name: "イヴ", reason: "水路越しの攻撃", power: 3 }
+      { name: "イヴ", reason: "水路越しの攻撃", power: 3 },
+      { name: "ペニー", reason: "水路越しの攻撃", power: 3 },
+      { name: "カール", reason: "水路越しの攻撃", power: 3 }
     ],
 
     tips: [
@@ -289,13 +302,19 @@ export const knockoutMaps: Record<string, MapDetail> = {
       { name: "スプラウト", reason: "水路を挟んだ狙撃", power: 4 },
       { name: "リリー", reason: "水路越しの攻撃", power: 4 },
       { name: "アンジェロ", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "マンディ", reason: "水路を挟んだ狙撃", power: 4 },
       { name: "ブロック", reason: "水路越しの攻撃", power: 3 },
+      { name: "ケンジ", reason: "水路越しの攻撃", power: 3 },
       { name: "ベリー", reason: "水路を挟んだ狙撃", power: 3 },
       { name: "グレイ", reason: "水路越しの攻撃", power: 3 },
       { name: "バーリー", reason: "水路越しの攻撃", power: 3 },
       { name: "ラリー&ローリー", reason: "水路越しの攻撃", power: 3 },
       { name: "キット", reason: "水路越しの攻撃", power: 3 },
-      { name: "ダリル", reason: "水路越しの攻撃", power: 3 }
+      { name: "ダリル", reason: "水路越しの攻撃", power: 3 },
+      { name: "Mr.P", reason: "水路越しの攻撃", power: 3 },
+      { name: "パム", reason: "水路越しの攻撃", power: 2 },
+      { name: "ベリー", reason: "水路越しの攻撃", power: 2 },
+      { name: "グロム", reason: "水路越しの攻撃", power: 1 },
     ],
 
     tips: [
@@ -360,10 +379,15 @@ export const knockoutMaps: Record<string, MapDetail> = {
       { name: "グレイ", reason: "水路越しの攻撃", power: 4 },
       { name: "リコ", reason: "水路越しの攻撃", power: 3 },
       { name: "ナーニ", reason: "水路越しの攻撃", power: 3 },
+      { name: "ペニー", reason: "水路越しの攻撃", power: 3 },
+      { name: "ケンジ", reason: "水路越しの攻撃", power: 3 },
       { name: "ブロック", reason: "水路越しの攻撃", power: 3 },
       { name: "イヴ", reason: "水路越しの攻撃", power: 3 },
       { name: "キット", reason: "水路越しの攻撃", power: 3 },
-      { name: "ダリル", reason: "水路越しの攻撃", power: 3 }
+      { name: "ダリル", reason: "水路越しの攻撃", power: 3 },
+      { name: "ラリー&ローリー", reason: "水路越しの攻撃", power: 2 },
+      { name: "Max", reason: "水路越しの攻撃", power: 2 },
+      { name: "Mr.P", reason: "水路越しの攻撃", power: 2 },
     ],
     tips: [
       "通路での待ち伏せに警戒",

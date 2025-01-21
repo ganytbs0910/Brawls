@@ -46,7 +46,13 @@ export const duelMaps: Record<string, MapDetail> = {
       { name: "ジーン", reason: "", power: 4 },
       { name: "ティック", reason: "", power: 4 },
       { name: "スプラウト", reason: "", power: 4 },
-      { name: "グロム", reason: "", power: 4 }
+      { name: "グレイ", reason: "", power: 4 },
+      { name: "Mr.P", reason: "", power: 3 },
+      { name: "Max", reason: "", power: 3 },
+      { name: "ペニー", reason: "", power: 3 },
+      { name: "ビー", reason: "", power: 3 },
+      { name: "ボニー", reason: "", power: 3 },
+      { name: "グロム", reason: "", power: 3 },
     ],
 
     tips: [
@@ -232,9 +238,16 @@ export const duelMaps: Record<string, MapDetail> = {
       { name: "ボウ", reason: "", power: 5 },
       { name: "タラ", reason: "", power: 5 },
       { name: "バズ", reason: "", power: 5 },
-      { name: "ジャネット", reason: "", power: 5 },
-      { name: "グロム", reason: "", power: 5 },
-      { name: "シェリー", reason: "", power: 4 }
+      { name: "ジャネット", reason: "", power: 4 },
+      { name: "グロム", reason: "", power: 4 },
+      { name: "シェリー", reason: "", power: 4 },
+      { name: "R-T", reason: "", power: 4 },
+      { name: "ジーン", reason: "", power: 3 },
+      { name: "コルト", reason: "", power: 3 },
+      { name: "クロウ", reason: "", power: 2 },
+      { name: "エルプリモ", reason: "", power: 1 },
+      { name: "ブロック", reason: "", power: 1 },
+      { name: "サンディ", reason: "", power: 1 },
     ],
 
     tips: [
@@ -279,18 +292,24 @@ export const duelMaps: Record<string, MapDetail> = {
     recommendedBrawlers: [
       { name: "ジュジュ", reason: "水路での移動が得意", power: 5 },
       { name: "ティック", reason: "水路を挟んだ狙撃", power: 5 },
-      { name: "サージ", reason: "水路越しの攻撃", power: 5 },
       { name: "アンジェロ", reason: "水路での移動が得意", power: 5 },
       { name: "イヴ", reason: "水路を挟んだ狙撃", power: 5 },
       { name: "ラリー&ローリー", reason: "水路越しの攻撃", power: 5 },
       { name: "バーリー", reason: "水路での移動が得意", power: 5 },
+      { name: "サージ", reason: "水路越しの攻撃", power: 4 },
       { name: "R-T", reason: "水路を挟んだ狙撃", power: 4 },
       { name: "カール", reason: "水路越しの攻撃", power: 4 },
       { name: "リリー", reason: "水路を挟んだ狙撃", power: 4 },
       { name: "ダイナマイク", reason: "水路越しの攻撃", power: 4 },
       { name: "スクウィーク", reason: "水路を挟んだ狙撃", power: 4 },
       { name: "バスター", reason: "水路越しの攻撃", power: 4 },
-      { name: "ダリル", reason: "水路を挟んだ狙撃", power: 4 }
+      { name: "ダリル", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "リコ", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ペニー", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ジャッキー", reason: "水路を挟んだ狙撃", power: 3 },
+      { name: "ラフス", reason: "水路を挟んだ狙撃", power: 3 },
+      { name: "グレイ", reason: "水路を挟んだ狙撃", power: 3 },
+      { name: "リリー", reason: "水路を挟んだ狙撃", power: 2 },
     ],
 
     tips: [
