@@ -9,51 +9,15 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["1vs1戦", "カバー戦術", "リソース管理"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "マンディ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ティック",
-        reason: "",
-        power: 4
-      },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "マンディ", reason: "", power: 5 },
+      { name: "R-T", reason: "", power: 5 },
+      { name: "ティック", reason: "", power: 4 }
     ],
 
     tips: [
@@ -70,71 +34,19 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["開放地形", "距離管理", "読み合い"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "マンディ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ナーニ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ジーン",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ティック",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "スプラウト",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "グロム",
-        reason: "",
-        power: 4
-      },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "マンディ", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "ナーニ", reason: "", power: 5 },
+      { name: "R-T", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 4 },
+      { name: "ジーン", reason: "", power: 4 },
+      { name: "ティック", reason: "", power: 4 },
+      { name: "スプラウト", reason: "", power: 4 },
+      { name: "グロム", reason: "", power: 4 }
     ],
 
     tips: [
@@ -151,41 +63,13 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["障害物活用", "地形戦", "心理戦"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "キット",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ミコ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "リリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "Max",
-        reason: "",
-        power: 5
-      },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "キット", reason: "", power: 5 },
+      { name: "ミコ", reason: "", power: 5 },
+      { name: "リリー", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "Max", reason: "", power: 5 }
     ],
 
     tips: [
@@ -202,51 +86,15 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["ランダム要素", "適応力", "リスク管理"],
     difficulty: "Expert",
     recommendedBrawlers: [
-      {
-        name: "アンバー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バスター",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "Max",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バズ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "クロウ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "オーティス",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "スクウィーク",
-        reason: "",
-        power: 2
-      },
+      { name: "アンバー", reason: "", power: 5 },
+      { name: "バスター", reason: "", power: 5 },
+      { name: "Max", reason: "", power: 5 },
+      { name: "バズ", reason: "", power: 5 },
+      { name: "R-T", reason: "", power: 5 },
+      { name: "クロウ", reason: "", power: 4 },
+      { name: "オーティス", reason: "", power: 4 },
+      { name: "バイロン", reason: "", power: 3 },
+      { name: "スクウィーク", reason: "", power: 2 }
     ],
 
     tips: [
@@ -263,61 +111,17 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["隠れ場所多数", "視界管理", "駆け引き"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "ペニー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ラリー&ローリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "グレイ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ブロック",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ジーン",
-        reason: "",
-        power: 3
-      },
+      { name: "ペニー", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "ラリー&ローリー", reason: "", power: 5 },
+      { name: "グレイ", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "ブロック", reason: "", power: 4 },
+      { name: "ストゥー", reason: "", power: 4 },
+      { name: "ベル", reason: "", power: 3 },
+      { name: "ジーン", reason: "", power: 3 }
     ],
 
     tips: [
@@ -334,36 +138,12 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["持久戦", "リソース管理", "メンタル重要"],
     difficulty: "Expert",
     recommendedBrawlers: [
-      {
-        name: "キット",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ミコ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "リリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "Max",
-        reason: "",
-        power: 5
-      },
+      { name: "キット", reason: "", power: 5 },
+      { name: "ミコ", reason: "", power: 5 },
+      { name: "リリー", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "Max", reason: "", power: 5 }
     ],
 
     tips: [
@@ -380,46 +160,14 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["攻防一体", "切り替え速度", "判断力"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "ペニー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ジーン",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "Max",
-        reason: "",
-        power: 2
-      },
+      { name: "ペニー", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 3 },
+      { name: "ジーン", reason: "", power: 3 },
+      { name: "Max", reason: "", power: 2 }
     ],
 
     tips: [
@@ -436,41 +184,13 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["迷路構造", "予測重要", "視界制限"],
     difficulty: "Expert",
     recommendedBrawlers: [
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ブロック",
-        reason: "",
-        power: 4
-      },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "ブロック", reason: "", power: 4 }
     ],
 
     tips: [
@@ -487,36 +207,12 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["工場地形", "精密な動き", "機械的構造"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "キット",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ミコ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "リリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "Max",
-        reason: "",
-        power: 5
-      },
+      { name: "キット", reason: "", power: 5 },
+      { name: "ミコ", reason: "", power: 5 },
+      { name: "リリー", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "Max", reason: "", power: 5 }
     ],
 
     tips: [
@@ -533,36 +229,12 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["蛇行地形", "視界制限", "予測重要"],
     difficulty: "Expert",
     recommendedBrawlers: [
-      {
-        name: "ボウ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "タラ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バズ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジャネット",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "グロム",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "シェリー",
-        reason: "",
-        power: 4
-      },
+      { name: "ボウ", reason: "", power: 5 },
+      { name: "タラ", reason: "", power: 5 },
+      { name: "バズ", reason: "", power: 5 },
+      { name: "ジャネット", reason: "", power: 5 },
+      { name: "グロム", reason: "", power: 5 },
+      { name: "シェリー", reason: "", power: 4 }
     ],
 
     tips: [
@@ -579,61 +251,17 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["開放地形", "距離管理", "エリア支配"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "マンディ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ナーニ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ジーン",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ティック",
-        reason: "",
-        power: 4
-      },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "マンディ", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "ナーニ", reason: "", power: 5 },
+      { name: "R-T", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 4 },
+      { name: "ジーン", reason: "", power: 4 },
+      { name: "ティック", reason: "", power: 4 }
     ],
 
     tips: [
@@ -645,82 +273,25 @@ export const duelMaps: Record<string, MapDetail> = {
   "グランドカナル": {
     id: "du_canal_grande",
     name: "グランドカナル",
-    mode: "duel",
-    description: "運河を中心とした1vs1マップ。水路の活用と渡河のタイミングが重要です。",
+    mode: "duel",description: "運河を中心とした1vs1マップ。水路の活用と渡河のタイミングが重要です。",
     characteristics: ["水路地形", "渡河戦術", "地形活用"],
     difficulty: "Hard",
     recommendedBrawlers: [
-    {
-      name: "ジュジュ",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "ティック",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "サージ",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "アンジェロ",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "イヴ",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ラリー&ローリー",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "バーリー",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "R-T",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "カール",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "リリー",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "ダイナマイク",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "スクウィーク",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "バスター",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ダリル",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-  ],
+      { name: "ジュジュ", reason: "水路での移動が得意", power: 5 },
+      { name: "ティック", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "サージ", reason: "水路越しの攻撃", power: 5 },
+      { name: "アンジェロ", reason: "水路での移動が得意", power: 5 },
+      { name: "イヴ", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ラリー&ローリー", reason: "水路越しの攻撃", power: 5 },
+      { name: "バーリー", reason: "水路での移動が得意", power: 5 },
+      { name: "R-T", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "カール", reason: "水路越しの攻撃", power: 4 },
+      { name: "リリー", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ダイナマイク", reason: "水路越しの攻撃", power: 4 },
+      { name: "スクウィーク", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "バスター", reason: "水路越しの攻撃", power: 4 },
+      { name: "ダリル", reason: "水路を挟んだ狙撃", power: 4 }
+    ],
 
     tips: [
       "水路での移動に注意",
@@ -736,87 +307,23 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["水路地形", "渡河戦術", "地形活用"],
     difficulty: "Hard",
     recommendedBrawlers: [
-    {
-      name: "ジュジュ",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "アンジェロ",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "エリザベス",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "ペニー",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "イヴ",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ガス",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "バイロン",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "スプラウト",
-      reason: "水路での移動が得意",
-      power: 4
-    },
-    {
-      name: "ブロック",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "R-T",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "Max",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ストゥー",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ジーン",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "カール",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ティック",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "レオン",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-  ],
+      { name: "ジュジュ", reason: "水路での移動が得意", power: 5 },
+      { name: "アンジェロ", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "エリザベス", reason: "水路越しの攻撃", power: 5 },
+      { name: "ペニー", reason: "水路での移動が得意", power: 5 },
+      { name: "イヴ", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ガス", reason: "水路越しの攻撃", power: 5 },
+      { name: "バイロン", reason: "水路越しの攻撃", power: 5 },
+      { name: "スプラウト", reason: "水路での移動が得意", power: 4 },
+      { name: "ブロック", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "R-T", reason: "水路越しの攻撃", power: 4 },
+      { name: "Max", reason: "水路越しの攻撃", power: 4 },
+      { name: "ストゥー", reason: "水路越しの攻撃", power: 4 },
+      { name: "ジーン", reason: "水路越しの攻撃", power: 3 },
+      { name: "カール", reason: "水路越しの攻撃", power: 3 },
+      { name: "ティック", reason: "水路越しの攻撃", power: 3 },
+      { name: "レオン", reason: "水路越しの攻撃", power: 3 }
+    ],
 
     tips: [
       "水路での移動に注意",
@@ -832,51 +339,15 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["開放地形", "距離管理", "エリア支配"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "キット",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ミコ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "リリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "Max",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "イヴ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "キット", reason: "", power: 5 },
+      { name: "ミコ", reason: "", power: 5 },
+      { name: "リリー", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "Max", reason: "", power: 5 },
+      { name: "イヴ", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 }
     ],
 
     tips: [
@@ -893,66 +364,18 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["開放地形", "距離管理", "エリア支配"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "マンディ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ナーニ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "イヴ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ジーン",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ティック",
-        reason: "",
-        power: 4
-      },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "マンディ", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "ナーニ", reason: "", power: 5 },
+      { name: "R-T", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "イヴ", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 4 },
+      { name: "ジーン", reason: "", power: 4 },
+      { name: "ティック", reason: "", power: 4 }
     ],
 
     tips: [
@@ -969,61 +392,17 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["開放地形", "距離管理", "エリア支配"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "マンディ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ナーニ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ブロック",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ジーン",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "コルト",
-        reason: "",
-        power: 4
-      },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "マンディ", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "ナーニ", reason: "", power: 5 },
+      { name: "R-T", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 5 },
+      { name: "ブロック", reason: "", power: 4 },
+      { name: "ジーン", reason: "", power: 4 },
+      { name: "コルト", reason: "", power: 4 }
     ],
 
     tips: [
@@ -1040,56 +419,16 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["開放地形", "距離管理", "エリア支配"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "シェリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ボウ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンバー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ブロック",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "リリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "コーデリアス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "オーティス",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "スクウィーク",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "パム",
-        reason: "",
-        power: 3
-      },
+      { name: "シェリー", reason: "", power: 5 },
+      { name: "ボウ", reason: "", power: 5 },
+      { name: "アンバー", reason: "", power: 5 },
+      { name: "ブロック", reason: "", power: 5 },
+      { name: "リリー", reason: "", power: 5 },
+      { name: "コーデリアス", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "オーティス", reason: "", power: 4 },
+      { name: "スクウィーク", reason: "", power: 3 },
+      { name: "パム", reason: "", power: 3 }
     ],
 
     tips: [
@@ -1106,61 +445,17 @@ export const duelMaps: Record<string, MapDetail> = {
     characteristics: ["開放地形", "距離管理", "エリア支配"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジーン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ボウ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "スプラウト",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "イヴ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "グロム",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "グレイ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "スクウィーク",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ペニー",
-        reason: "",
-        power: 3
-      },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "ジーン", reason: "", power: 5 },
+      { name: "ボウ", reason: "", power: 5 },
+      { name: "スプラウト", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "イヴ", reason: "", power: 4 },
+      { name: "グロム", reason: "", power: 4 },
+      { name: "グレイ", reason: "", power: 4 },
+      { name: "スクウィーク", reason: "", power: 3 },
+      { name: "ペニー", reason: "", power: 3 }
     ],
 
     tips: [
@@ -1168,5 +463,5 @@ export const duelMaps: Record<string, MapDetail> = {
       "カバーの効率的な活用",
       "相手の動きを予測"
     ]
-  },
+  }
 };

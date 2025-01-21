@@ -9,26 +9,10 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     characteristics: ["危険地帯", "限られた通路", "戦略性"],
     difficulty: "Expert",
     recommendedBrawlers: [
-      {
-        name: "イヴ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "シェイド",
-        reason: "",
-        power: 5
-      },
+      { name: "イヴ", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "シェイド", reason: "", power: 5 }
     ],
     tips: [
       "酸性湖への接触を避ける",
@@ -44,36 +28,12 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     characteristics: ["リスク vs リワード", "中央集中", "ブッシュ戦"],
     difficulty: "Expert",
     recommendedBrawlers: [
-      {
-        name: "ダグ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "シェリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バズ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ブル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "サージ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 5
-      },
+      { name: "ダグ", reason: "", power: 5 },
+      { name: "シェリー", reason: "", power: 5 },
+      { name: "バズ", reason: "", power: 5 },
+      { name: "ブル", reason: "", power: 5 },
+      { name: "サージ", reason: "", power: 5 },
+      { name: "R-T", reason: "", power: 5 }
     ],
     tips: [
       "中央への進入は慎重に判断",
@@ -89,41 +49,13 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     characteristics: ["立体構造", "空中経路", "見下ろし位置"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "イヴ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "パール",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 4
-      },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "イヴ", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 4 },
+      { name: "パール", reason: "", power: 4 },
+      { name: "R-T", reason: "", power: 4 }
     ],
     tips: [
       "落下ダメージに注意",
@@ -139,41 +71,13 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     characteristics: ["島地形", "ブッシュ密集", "近接戦重視"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "ボウ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バズ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "シェリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ブル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "サージ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ダリル",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ジャネット",
-        reason: "",
-        power: 3
-      },
+      { name: "ボウ", reason: "", power: 5 },
+      { name: "バズ", reason: "", power: 5 },
+      { name: "シェリー", reason: "", power: 5 },
+      { name: "ブル", reason: "", power: 5 },
+      { name: "サージ", reason: "", power: 5 },
+      { name: "ダリル", reason: "", power: 4 },
+      { name: "ジャネット", reason: "", power: 3 }
     ],
     tips: [
       "ブッシュの確認を怠らない",
@@ -189,41 +93,13 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     characteristics: ["開放地形", "長距離戦", "カバー重要"],
     difficulty: "Expert",
     recommendedBrawlers: [
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "パール",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "メイジー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 4
-      },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "パール", reason: "", power: 5 },
+      { name: "R-T", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 4 },
+      { name: "メイジー", reason: "", power: 4 },
+      { name: "エリザベス", reason: "", power: 4 }
     ],
     tips: [
       "不用意な移動を控える",
@@ -239,36 +115,12 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     characteristics: ["開放地形", "長距離戦", "カバー重要"],
     difficulty: "Expert",
     recommendedBrawlers: [
-      {
-        name: "コーデリアス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "サージ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "リリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "シェリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ダリル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 4
-      },
+      { name: "コーデリアス", reason: "", power: 5 },
+      { name: "サージ", reason: "", power: 5 },
+      { name: "リリー", reason: "", power: 5 },
+      { name: "シェリー", reason: "", power: 5 },
+      { name: "ダリル", reason: "", power: 5 },
+      { name: "R-T", reason: "", power: 4 }
     ],
     tips: [
       "不用意な移動を控える",
@@ -284,36 +136,12 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     characteristics: ["中央建物", "障害物多数", "戦略性高"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "サージ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "コーデリアス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "パール",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "メイジー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 5
-      },
+      { name: "サージ", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "コーデリアス", reason: "", power: 5 },
+      { name: "パール", reason: "", power: 5 },
+      { name: "メイジー", reason: "", power: 5 },
+      { name: "R-T", reason: "", power: 5 }
     ],
     tips: [
       "建物内での足音に注意",
@@ -329,41 +157,13 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     characteristics: ["河川地形", "橋の重要性", "分断戦"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "サージ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "リリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "キット",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "シェイド",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジャッキー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "コーデリアス",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "エルプリモ",
-        reason: "",
-        power: 4
-      },
+      { name: "サージ", reason: "", power: 5 },
+      { name: "リリー", reason: "", power: 5 },
+      { name: "キット", reason: "", power: 5 },
+      { name: "シェイド", reason: "", power: 5 },
+      { name: "ジャッキー", reason: "", power: 4 },
+      { name: "コーデリアス", reason: "", power: 4 },
+      { name: "エルプリモ", reason: "", power: 4 }
     ],
     tips: [
       "橋での戦いは慎重に",
@@ -379,51 +179,15 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     characteristics: ["洞窟地形", "ブッシュ多数", "近接戦"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "シェリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バズ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ブル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エルプリモ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジャッキー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "リコ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ボウ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ウィロー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "タラ",
-        reason: "",
-        power: 3
-      },
+      { name: "シェリー", reason: "", power: 5 },
+      { name: "バズ", reason: "", power: 5 },
+      { name: "ブル", reason: "", power: 5 },
+      { name: "エルプリモ", reason: "", power: 5 },
+      { name: "ジャッキー", reason: "", power: 5 },
+      { name: "リコ", reason: "", power: 5 },
+      { name: "ボウ", reason: "", power: 5 },
+      { name: "ウィロー", reason: "", power: 4 },
+      { name: "タラ", reason: "", power: 3 }
     ],
     tips: [
       "常にブッシュチェック",
@@ -439,41 +203,13 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     characteristics: ["狭路と広場", "視界制限", "予測重要"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "パール",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "メイジー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 4
-      },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "パール", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "R-T", reason: "", power: 4 },
+      { name: "メイジー", reason: "", power: 4 },
+      { name: "エリザベス", reason: "", power: 4 }
     ],
     tips: [
       "常に視界の確保を意識",
@@ -489,36 +225,12 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     characteristics: ["二分割構造", "エリア制圧", "戦略性"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "パール",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "キット",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "メイジー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "サージ",
-        reason: "",
-        power: 4
-      },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "R-T", reason: "", power: 5 },
+      { name: "パール", reason: "", power: 5 },
+      { name: "キット", reason: "", power: 5 },
+      { name: "メイジー", reason: "", power: 4 },
+      { name: "サージ", reason: "", power: 4 }
     ],
     tips: [
       "エリア移動は慎重に",
@@ -534,36 +246,16 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     characteristics: ["河床地形", "高低差", "視線制御"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "シェイド",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "サージ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "キット",
-        reason: "",
-        power: 5
-      },
+      { name: "シェイド", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "サージ", reason: "", power: 5 },
+      { name: "キット", reason: "", power: 5 }
     ],
     tips: [
       "高低差での戦いを意識",
       "河床での露出に注意",
       "地形を活かした移動"
     ]
-  },
+  }
 };

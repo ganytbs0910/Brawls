@@ -9,71 +9,19 @@ export const knockoutMaps: Record<string, MapDetail> = {
     characteristics: ["狭域戦", "カバー豊富", "集中戦"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "マンディ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ティック",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ナーニ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジーン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "コルト",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ブロック",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "リコ",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "スプラウト",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "Mr.P",
-        reason: "",
-        power: 3
-      },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "マンディ", reason: "", power: 5 },
+      { name: "ティック", reason: "", power: 5 },
+      { name: "ナーニ", reason: "", power: 5 },
+      { name: "ジーン", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 4 },
+      { name: "コルト", reason: "", power: 4 },
+      { name: "ブロック", reason: "", power: 4 },
+      { name: "リコ", reason: "", power: 3 },
+      { name: "スプラウト", reason: "", power: 3 },
+      { name: "Mr.P", reason: "", power: 3 }
     ],
 
     tips: [
@@ -90,91 +38,22 @@ export const knockoutMaps: Record<string, MapDetail> = {
     characteristics: ["開放地形", "戦略的壁配置", "視界確保"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "グレイ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ブロック",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "リコ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ラフス",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "カール",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "コルト",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "スプラウト",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "マンディ",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ティック",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "",
-        reason: "",
-        power: 3
-      },
+      { name: "グレイ", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "ブロック", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "リコ", reason: "", power: 4 },
+      { name: "ラフス", reason: "", power: 4 },
+      { name: "ストゥー", reason: "", power: 4 },
+      { name: "カール", reason: "", power: 4 },
+      { name: "コルト", reason: "", power: 3 },
+      { name: "スプラウト", reason: "", power: 3 },
+      { name: "ベル", reason: "", power: 3 },
+      { name: "マンディ", reason: "", power: 3 },
+      { name: "ティック", reason: "", power: 3 }
     ],
 
     tips: [
@@ -191,81 +70,21 @@ export const knockoutMaps: Record<string, MapDetail> = {
     characteristics: ["超開放地形", "少ないカバー", "長距離戦"],
     difficulty: "Expert",
     recommendedBrawlers: [
-      {
-      name: "R-T",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "ガス",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "アンジェロ",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "イヴ",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "ジュジュ",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ブロック",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "マンディ",
-      reason: "水路での移動が得意",
-      power: 4
-    },
-    {
-      name: "ベル",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "バイロン",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "エリザベス",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "ジーン",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "パール",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "ナーニ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "キット",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ダリル",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
+      { name: "R-T", reason: "水路での移動が得意", power: 5 },
+      { name: "ガス", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "アンジェロ", reason: "水路越しの攻撃", power: 5 },
+      { name: "イヴ", reason: "水路での移動が得意", power: 5 },
+      { name: "ジュジュ", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ブロック", reason: "水路越しの攻撃", power: 5 },
+      { name: "マンディ", reason: "水路での移動が得意", power: 4 },
+      { name: "ベル", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "バイロン", reason: "水路越しの攻撃", power: 4 },
+      { name: "エリザベス", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ジーン", reason: "水路越しの攻撃", power: 4 },
+      { name: "パール", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ナーニ", reason: "水路越しの攻撃", power: 3 },
+      { name: "キット", reason: "水路越しの攻撃", power: 3 },
+      { name: "ダリル", reason: "水路越しの攻撃", power: 3 }
     ],
 
     tips: [
@@ -282,41 +101,13 @@ export const knockoutMaps: Record<string, MapDetail> = {
     characteristics: ["廃墟地形", "ブッシュ戦", "視界制限"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジーン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ティック",
-        reason: "",
-        power: 4
-      },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "R-T", reason: "", power: 5 },
+      { name: "ジーン", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "ティック", reason: "", power: 4 }
     ],
 
     tips: [
@@ -333,61 +124,17 @@ export const knockoutMaps: Record<string, MapDetail> = {
     characteristics: ["対称構造", "中央重要", "立体地形"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "ジーン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "MAX",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "マンディ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "キット",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ナーニ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 4
-      },
+      { name: "ジーン", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "MAX", reason: "", power: 5 },
+      { name: "マンディ", reason: "", power: 5 },
+      { name: "R-T", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "キット", reason: "", power: 4 },
+      { name: "ナーニ", reason: "", power: 4 },
+      { name: "ベル", reason: "", power: 4 }
     ],
     tips: [
       "高所からの視界を活用",
@@ -403,76 +150,20 @@ export const knockoutMaps: Record<string, MapDetail> = {
     characteristics: ["島地形", "水路", "移動制限"],
     difficulty: "Expert",
     recommendedBrawlers: [
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "イヴ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "マンディ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジーン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ビー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "グレイ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ペニー",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ブロック",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "コルト",
-        reason: "",
-        power: 1
-      },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "イヴ", reason: "", power: 5 },
+      { name: "マンディ", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 5 },
+      { name: "R-T", reason: "", power: 5 },
+      { name: "ジーン", reason: "", power: 5 },
+      { name: "ビー", reason: "", power: 4 },
+      { name: "グレイ", reason: "", power: 4 },
+      { name: "ペニー", reason: "", power: 3 },
+      { name: "ブロック", reason: "", power: 3 },
+      { name: "コルト", reason: "", power: 1 }
     ],
 
     tips: [
@@ -481,7 +172,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
       "チームの散開を避ける"
     ]
   },
-    "双頭の川": {
+  "双頭の川": {
     id: "ko_two_rivers",
     name: "双頭の川",
     mode: "knockout",
@@ -489,81 +180,21 @@ export const knockoutMaps: Record<string, MapDetail> = {
     characteristics: ["二重河川", "渡河戦術", "陣地戦"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "イヴ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "マンディ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ナーニ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジーン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ビー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ペニー",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ブロック",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "コルト",
-        reason: "",
-        power: 1
-      },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "イヴ", reason: "", power: 5 },
+      { name: "マンディ", reason: "", power: 5 },
+      { name: "ナーニ", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 5 },
+      { name: "R-T", reason: "", power: 5 },
+      { name: "ジーン", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "ビー", reason: "", power: 4 },
+      { name: "ペニー", reason: "", power: 3 },
+      { name: "ブロック", reason: "", power: 3 },
+      { name: "コルト", reason: "", power: 1 }
     ],
 
     tips: [
@@ -571,7 +202,8 @@ export const knockoutMaps: Record<string, MapDetail> = {
       "川での待ち伏せに注意",
       "チームの陣形を維持"
     ]
-  },"ベルの岩": {
+  },
+  "ベルの岩": {
     id: "ko_belles_rock",
     name: "ベルの岩",
     mode: "knockout",
@@ -579,101 +211,25 @@ export const knockoutMaps: Record<string, MapDetail> = {
     characteristics: ["岩場地形", "高低差", "戦略的カバー"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-      name: "エリザベス",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "バイロン",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ガス",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "R-T",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "グレイ",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ジーン",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "リコ",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "ベル",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ティック",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "スプラウト",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "アンジェロ",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "マンディ",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "ジュジュ",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "バーリー",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ラリー&ローリー",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ブロック",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ダリル",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "キット",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "イヴ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
+      { name: "エリザベス", reason: "水路での移動が得意", power: 5 },
+      { name: "バイロン", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ガス", reason: "水路越しの攻撃", power: 5 },
+      { name: "R-T", reason: "水路での移動が得意", power: 5 },
+      { name: "グレイ", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ジーン", reason: "水路越しの攻撃", power: 5 },
+      { name: "リコ", reason: "水路での移動が得意", power: 5 },
+      { name: "ベル", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ティック", reason: "水路越しの攻撃", power: 5 },
+      { name: "スプラウト", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "アンジェロ", reason: "水路越しの攻撃", power: 4 },
+      { name: "マンディ", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ジュジュ", reason: "水路越しの攻撃", power: 4 },
+      { name: "バーリー", reason: "水路越しの攻撃", power: 4 },
+      { name: "ラリー&ローリー", reason: "水路越しの攻撃", power: 3 },
+      { name: "ブロック", reason: "水路越しの攻撃", power: 3 },
+      { name: "ダリル", reason: "水路越しの攻撃", power: 3 },
+      { name: "キット", reason: "水路越しの攻撃", power: 3 },
+      { name: "イヴ", reason: "水路越しの攻撃", power: 3 }
     ],
 
     tips: [
@@ -690,91 +246,21 @@ export const knockoutMaps: Record<string, MapDetail> = {
     characteristics: ["森林地帯", "視界制限", "近接戦重視"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "ボウ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バズ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジャネット",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バズ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "タラ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "グロム",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "シェリー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "クロウ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "R-T",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ジーン",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "オーティス",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "バスター",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "スクウィーク",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "グリフ",
-        reason: "",
-        power: 2
-      },
-      {
-        name: "リコ",
-        reason: "",
-        power: 2
-      },
+      { name: "ボウ", reason: "", power: 5 },
+      { name: "バズ", reason: "", power: 5 },
+      { name: "ジャネット", reason: "", power: 5 },
+      { name: "バズ", reason: "", power: 5 },
+      { name: "タラ", reason: "", power: 5 },
+      { name: "グロム", reason: "", power: 4 },
+      { name: "シェリー", reason: "", power: 4 },
+      { name: "クロウ", reason: "", power: 4 },
+      { name: "R-T", reason: "", power: 4 },
+      { name: "ジーン", reason: "", power: 4 },
+      { name: "オーティス", reason: "", power: 3 },
+      { name: "バスター", reason: "", power: 3 },
+      { name: "スクウィーク", reason: "", power: 3 },
+      { name: "グリフ", reason: "", power: 2 },
+      { name: "リコ", reason: "", power: 2 }
     ],
 
     tips: [
@@ -791,101 +277,25 @@ export const knockoutMaps: Record<string, MapDetail> = {
     characteristics: ["炎の障害物", "対称構造", "中央集中"],
     difficulty: "Expert",
     recommendedBrawlers: [
-    {
-      name: "R-T",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "エリザベス",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ガス",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "バイロン",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "ジーン",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ティック",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "バスター",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "パール",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "ベル",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "スプラウト",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "リリー",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "アンジェロ",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "ブロック",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ベリー",
-      reason: "水路を挟んだ狙撃",
-      power: 3
-    },
-    {
-      name: "グレイ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "バーリー",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ラリー&ローリー",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "キット",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ダリル",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
+      { name: "R-T", reason: "水路での移動が得意", power: 5 },
+      { name: "エリザベス", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ガス", reason: "水路越しの攻撃", power: 5 },
+      { name: "バイロン", reason: "水路での移動が得意", power: 5 },
+      { name: "ジーン", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ティック", reason: "水路越しの攻撃", power: 5 },
+      { name: "バスター", reason: "水路での移動が得意", power: 5 },
+      { name: "パール", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ベル", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "スプラウト", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "リリー", reason: "水路越しの攻撃", power: 4 },
+      { name: "アンジェロ", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ブロック", reason: "水路越しの攻撃", power: 3 },
+      { name: "ベリー", reason: "水路を挟んだ狙撃", power: 3 },
+      { name: "グレイ", reason: "水路越しの攻撃", power: 3 },
+      { name: "バーリー", reason: "水路越しの攻撃", power: 3 },
+      { name: "ラリー&ローリー", reason: "水路越しの攻撃", power: 3 },
+      { name: "キット", reason: "水路越しの攻撃", power: 3 },
+      { name: "ダリル", reason: "水路越しの攻撃", power: 3 }
     ],
 
     tips: [
@@ -902,91 +312,23 @@ export const knockoutMaps: Record<string, MapDetail> = {
     characteristics: ["四層構造", "立体地形", "階層戦"],
     difficulty: "Expert",
     recommendedBrawlers: [
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "イヴ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "サンディ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ビビ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "タラ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "オーティス",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "モーティス",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "スクウィーク",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "カール",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ボウ",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ジャネット",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "スパイク",
-        reason: "",
-        power: 3
-      },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "イヴ", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "サンディ", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "ビビ", reason: "", power: 4 },
+      { name: "タラ", reason: "", power: 4 },
+      { name: "オーティス", reason: "", power: 4 },
+      { name: "モーティス", reason: "", power: 4 },
+      { name: "スクウィーク", reason: "", power: 4 },
+      { name: "カール", reason: "", power: 3 },
+      { name: "ボウ", reason: "", power: 3 },
+      { name: "ジャネット", reason: "", power: 3 },
+      { name: "スパイク", reason: "", power: 3 }
     ],
 
     tips: [
@@ -1003,101 +345,25 @@ export const knockoutMaps: Record<string, MapDetail> = {
     characteristics: ["渓谷地形", "狭路混在", "採掘場"],
     difficulty: "Hard",
     recommendedBrawlers: [
-    {
-      name: "エリザベス",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "バイロン",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ガス",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "R-T",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "ジーン",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ティック",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "スプラウト",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "ジュジュ",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "バスター",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "ベル",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "マンディ",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "アンジェロ",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "グレイ",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "リコ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ナーニ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ブロック",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "イヴ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "キット",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ダリル",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
+      { name: "エリザベス", reason: "水路での移動が得意", power: 5 },
+      { name: "バイロン", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ガス", reason: "水路越しの攻撃", power: 5 },
+      { name: "R-T", reason: "水路での移動が得意", power: 5 },
+      { name: "ジーン", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ティック", reason: "水路越しの攻撃", power: 5 },
+      { name: "スプラウト", reason: "水路での移動が得意", power: 5 },
+      { name: "ジュジュ", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "バスター", reason: "水路越しの攻撃", power: 5 },
+      { name: "ベル", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "マンディ", reason: "水路越しの攻撃", power: 4 },
+      { name: "アンジェロ", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "グレイ", reason: "水路越しの攻撃", power: 4 },
+      { name: "リコ", reason: "水路越しの攻撃", power: 3 },
+      { name: "ナーニ", reason: "水路越しの攻撃", power: 3 },
+      { name: "ブロック", reason: "水路越しの攻撃", power: 3 },
+      { name: "イヴ", reason: "水路越しの攻撃", power: 3 },
+      { name: "キット", reason: "水路越しの攻撃", power: 3 },
+      { name: "ダリル", reason: "水路越しの攻撃", power: 3 }
     ],
     tips: [
       "通路での待ち伏せに警戒",

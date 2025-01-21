@@ -1,4 +1,3 @@
-//brawlBall5vs5
 import { MapDetail } from '../../types/type';
 
 export const brawlBall5v5Maps: Record<string, MapDetail> = {
@@ -10,46 +9,14 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     characteristics: ["曲線壁", "多人数戦", "ルート選択"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "ファング",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "Max",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ボウ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "メロディー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "メイジー",
-        reason: "",
-        power: 3
-      },
+      { name: "ファング", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 5 },
+      { name: "Max", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "ボウ", reason: "", power: 4 },
+      { name: "メロディー", reason: "", power: 4 },
+      { name: "メイジー", reason: "", power: 3 }
     ],
     tips: [
       "味方との連携を重視",
@@ -65,71 +32,19 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     characteristics: ["複合地形", "5vs5戦術", "陣形重視"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "Mr.P",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ビー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ボウ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "イヴ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "Max",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ペニー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "8ビット",
-        reason: "",
-        power: 4
-      },
+      { name: "Mr.P", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 5 },
+      { name: "ビー", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "ボウ", reason: "", power: 4 },
+      { name: "ストゥー", reason: "", power: 4 },
+      { name: "イヴ", reason: "", power: 4 },
+      { name: "Max", reason: "", power: 4 },
+      { name: "ペニー", reason: "", power: 4 },
+      { name: "8ビット", reason: "", power: 4 }
     ],
 
     tips: [
@@ -146,81 +61,21 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     characteristics: ["特殊地形", "チーム戦", "慎重プレー"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "Mr.P",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ビー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ボウ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "イヴ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "Max",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ペニー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "8ビット",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ティック",
-        reason: "",
-        power: 4
-      },
+      { name: "Mr.P", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 5 },
+      { name: "ビー", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "ボウ", reason: "", power: 4 },
+      { name: "ストゥー", reason: "", power: 4 },
+      { name: "イヴ", reason: "", power: 4 },
+      { name: "Max", reason: "", power: 4 },
+      { name: "ペニー", reason: "", power: 4 },
+      { name: "8ビット", reason: "", power: 4 },
+      { name: "ティック", reason: "", power: 4 }
     ],
 
     tips: [
@@ -237,46 +92,14 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     characteristics: ["幾何学構造", "連携重視", "5vs5戦術"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "ファング",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "Max",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ボウ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "メロディー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "メイジー",
-        reason: "",
-        power: 3
-      },
+      { name: "ファング", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 5 },
+      { name: "Max", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "ボウ", reason: "", power: 4 },
+      { name: "メロディー", reason: "", power: 4 },
+      { name: "メイジー", reason: "", power: 3 }
     ],
     tips: [
       "壁の形状を把握する",
@@ -292,46 +115,14 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     characteristics: ["中央通路", "横展開", "陣形変化"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "ファング",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "Max",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ボウ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "メロディー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "メイジー",
-        reason: "",
-        power: 3
-      },
+      { name: "ファング", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 5 },
+      { name: "Max", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "ボウ", reason: "", power: 4 },
+      { name: "メロディー", reason: "", power: 4 },
+      { name: "メイジー", reason: "", power: 3 }
     ],
 
     tips: [
@@ -340,7 +131,7 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
       "チームの連携を重視"
     ]
   },
-   "フロスティトラック": {
+  "フロスティトラック": {
     id: "bb5_frosty_tracks",
     name: "フロスティトラック",
     mode: "brawlBall5v5",
@@ -348,81 +139,21 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     characteristics: ["滑走地形", "精密操作", "5人連携"],
     difficulty: "Expert",
     recommendedBrawlers: [
-      {
-        name: "Mr.P",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ビー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ボウ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "イヴ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "Max",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ペニー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "8ビット",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ティック",
-        reason: "",
-        power: 4
-      },
+      { name: "Mr.P", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 5 },
+      { name: "ビー", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "ボウ", reason: "", power: 4 },
+      { name: "ストゥー", reason: "", power: 4 },
+      { name: "イヴ", reason: "", power: 4 },
+      { name: "Max", reason: "", power: 4 },
+      { name: "ペニー", reason: "", power: 4 },
+      { name: "8ビット", reason: "", power: 4 },
+      { name: "ティック", reason: "", power: 4 }
     ],
 
     tips: [
@@ -439,46 +170,14 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     characteristics: ["特殊地形", "波紋状構造", "戦術性"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "ファング",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "Max",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ボウ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "メロディー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "メイジー",
-        reason: "",
-        power: 3
-      },
+      { name: "ファング", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 5 },
+      { name: "Max", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "ボウ", reason: "", power: 4 },
+      { name: "メロディー", reason: "", power: 4 },
+      { name: "メイジー", reason: "", power: 3 }
     ],
 
     tips: [      
@@ -495,81 +194,21 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     characteristics: ["合流地点", "ルート選択", "5人連携"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "Mr.P",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ビー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ボウ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "イヴ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "Max",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ペニー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "8ビット",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ティック",
-        reason: "",
-        power: 4
-      },
+      { name: "Mr.P", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 5 },
+      { name: "ビー", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "ボウ", reason: "", power: 4 },
+      { name: "ストゥー", reason: "", power: 4 },
+      { name: "イヴ", reason: "", power: 4 },
+      { name: "Max", reason: "", power: 4 },
+      { name: "ペニー", reason: "", power: 4 },
+      { name: "8ビット", reason: "", power: 4 },
+      { name: "ティック", reason: "", power: 4 }
     ],
 
     tips: [
@@ -577,5 +216,5 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
       "5人での連携を重視",
       "ルートの切り替えを柔軟に"
     ]
-  },
-}
+  }
+};

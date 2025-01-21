@@ -9,101 +9,25 @@ export const heistMaps: Record<string, MapDetail> = {
     characteristics: ["金庫中心", "カバー豊富", "攻防一体"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "クロウ",
-        reason: "通路での強さを発揮",
-        power: 5
-      },
-      {
-        name: "コレット",
-        reason: "高所からの制圧",
-        power: 5
-      },
-      {
-        name: "チャック",
-        reason: "壁跳ね攻撃が有効",
-        power: 5
-      },
-      {
-        name: "メロディー",
-        reason: "通路での強さを発揮",
-        power: 5
-      },
-      {
-        name: "コルト",
-        reason: "高所からの制圧",
-        power: 5
-      },
-      {
-        name: "イヴ",
-        reason: "壁跳ね攻撃が有効",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "壁跳ね攻撃が有効",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "壁跳ね攻撃が有効",
-        power: 4
-      },
-      {
-        name: "バイロン",
-        reason: "壁跳ね攻撃が有効",
-        power: 4
-      },
-      {
-        name: "ベル",
-        reason: "壁跳ね攻撃が有効",
-        power: 4
-      },
-      {
-        name: "アンバー",
-        reason: "壁跳ね攻撃が有効",
-        power: 4
-      },
-      {
-        name: "ミコ",
-        reason: "壁跳ね攻撃が有効",
-        power: 3
-      },
-      {
-        name: "ダリル",
-        reason: "壁跳ね攻撃が有効",
-        power: 3
-      },
-      {
-        name: "ペニー",
-        reason: "壁跳ね攻撃が有効",
-        power: 3
-      },
-      {
-        name: "ブロック",
-        reason: "壁跳ね攻撃が有効",
-        power: 3
-      },
-      {
-        name: "R-T",
-        reason: "壁跳ね攻撃が有効",
-        power: 3
-      },
-      {
-        name: "ブロック",
-        reason: "壁跳ね攻撃が有効",
-        power: 3
-      },
-      {
-        name: "8ビット",
-        reason: "壁跳ね攻撃が有効",
-        power: 3
-      },
-      {
-        name: "ボニー",
-        reason: "壁跳ね攻撃が有効",
-        power: 2
-      },
+      { name: "クロウ", reason: "通路での強さを発揮", power: 5 },
+      { name: "コレット", reason: "高所からの制圧", power: 5 },
+      { name: "チャック", reason: "壁跳ね攻撃が有効", power: 5 },
+      { name: "メロディー", reason: "通路での強さを発揮", power: 5 },
+      { name: "コルト", reason: "高所からの制圧", power: 5 },
+      { name: "イヴ", reason: "壁跳ね攻撃が有効", power: 5 },
+      { name: "アンジェロ", reason: "壁跳ね攻撃が有効", power: 5 },
+      { name: "エリザベス", reason: "壁跳ね攻撃が有効", power: 4 },
+      { name: "バイロン", reason: "壁跳ね攻撃が有効", power: 4 },
+      { name: "ベル", reason: "壁跳ね攻撃が有効", power: 4 },
+      { name: "アンバー", reason: "壁跳ね攻撃が有効", power: 4 },
+      { name: "ミコ", reason: "壁跳ね攻撃が有効", power: 3 },
+      { name: "ダリル", reason: "壁跳ね攻撃が有効", power: 3 },
+      { name: "ペニー", reason: "壁跳ね攻撃が有効", power: 3 },
+      { name: "ブロック", reason: "壁跳ね攻撃が有効", power: 3 },
+      { name: "R-T", reason: "壁跳ね攻撃が有効", power: 3 },
+      { name: "ブロック", reason: "壁跳ね攻撃が有効", power: 3 },
+      { name: "8ビット", reason: "壁跳ね攻撃が有効", power: 3 },
+      { name: "ボニー", reason: "壁跳ね攻撃が有効", power: 2 }
     ],
 
     tips: [
@@ -120,96 +44,24 @@ export const heistMaps: Record<string, MapDetail> = {
     characteristics: ["対称構造", "並行通路", "ルート選択"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-      name: "ストゥー",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "サージ",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ジュジュ",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "ラリー&ローリー",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "バーリー",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "バーリー",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "ウィロー",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "R-T",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "ダイナマイク",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ガス",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "メロディー",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ケンジ",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "ダグ",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "フランケン",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "コーデリアス",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "バイロン",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ビビ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ジャッキー",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
+      { name: "ストゥー", reason: "水路での移動が得意", power: 5 },
+      { name: "サージ", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ジュジュ", reason: "水路越しの攻撃", power: 5 },
+      { name: "ラリー&ローリー", reason: "水路での移動が得意", power: 5 },
+      { name: "バーリー", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "バーリー", reason: "水路越しの攻撃", power: 5 },
+      { name: "ウィロー", reason: "水路での移動が得意", power: 5 },
+      { name: "R-T", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ダイナマイク", reason: "水路越しの攻撃", power: 4 },
+      { name: "ガス", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "メロディー", reason: "水路越しの攻撃", power: 4 },
+      { name: "ケンジ", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ダグ", reason: "水路越しの攻撃", power: 4 },
+      { name: "フランケン", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "コーデリアス", reason: "水路越しの攻撃", power: 3 },
+      { name: "バイロン", reason: "水路越しの攻撃", power: 3 },
+      { name: "ビビ", reason: "水路越しの攻撃", power: 3 },
+      { name: "ジャッキー", reason: "水路越しの攻撃", power: 3 }
     ],
 
     tips: [
@@ -226,91 +78,27 @@ export const heistMaps: Record<string, MapDetail> = {
     characteristics: ["円形地形", "多角的攻撃", "守備範囲広"],
     difficulty: "Expert",
     recommendedBrawlers: [
-      {
-      name: "ガス",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "バイロン",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ペニー",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "リコ",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "ジュジュ",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ラフス",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "ストゥー",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "サージ",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "スクウィーク",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "フランケン",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "Max",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "グレイ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ラリー&ローリー",
-      reason: "水路を挟んだ狙撃",
-      power: 3
-    },
-    {
-      name: "タラ",
-      reason: "水路を挟んだ狙撃",
-      power: 3
-    },
-    {
-      name: "カール",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ベリー",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ジェシー",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
+      { name: "ガス", reason: "水路での移動が得意", power: 5 },
+      { name: "バイロン", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ペニー", reason: "水路越しの攻撃", power: 5 },
+      { name: "リコ", reason: "水路での移動が得意", power: 5 },
+      { name: "ジュジュ", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ラフス", reason: "水路越しの攻撃", power: 5 },
+      { name: "ストゥー", reason: "水路での移動が得意", power: 5 },
+      { name: "サージ", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "スクウィーク", reason: "水路越しの攻撃", power: 4 },
+      { name: "フランケン", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "Max", reason: "水路越しの攻撃", power: 4 },
+      { name: "ローラ", reason: "水路越しの攻撃", power: 4 },
+      { name: "グレイ", reason: "水路越しの攻撃", power: 3 },
+      { name: "ラリー&ローリー", reason: "水路を挟んだ狙撃", power: 3 },
+      { name: "タラ", reason: "水路を挟んだ狙撃", power: 3 },
+      { name: "カール", reason: "水路越しの攻撃", power: 3 },
+      { name: "ベリー", reason: "水路越しの攻撃", power: 3 },
+      { name: "ジェシー", reason: "水路越しの攻撃", power: 3 },
+      { name: "クロウ", reason: "水路越しの攻撃", power: 2 },
+      { name: "ベル", reason: "水路越しの攻撃", power: 2 },
+      { name: "ビー", reason: "水路越しの攻撃", power: 2 }
     ],
 
     tips: [
@@ -327,96 +115,24 @@ export const heistMaps: Record<string, MapDetail> = {
     characteristics: ["水路地形", "横断戦術", "長距離戦"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "コルト",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "イヴ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ブロック",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "8ビット",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "コレット",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ダリル",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "キット",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ビー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ナーニ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ペニー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "MAX",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 2
-      },
-      {
-        name: "メグ",
-        reason: "",
-        power: 2
-      },
-      {
-        name: "カール",
-        reason: "",
-        power: 2
-      },
+      { name: "コルト", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "イヴ", reason: "", power: 5 },
+      { name: "ブロック", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 5 },
+      { name: "8ビット", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "コレット", reason: "", power: 5 },
+      { name: "ダリル", reason: "", power: 4 },
+      { name: "キット", reason: "", power: 4 },
+      { name: "バイロン", reason: "", power: 4 },
+      { name: "ビー", reason: "", power: 4 },
+      { name: "ナーニ", reason: "", power: 4 },
+      { name: "ペニー", reason: "", power: 4 },
+      { name: "MAX", reason: "", power: 3 },
+      { name: "ガス", reason: "", power: 2 },
+      { name: "メグ", reason: "", power: 2 },
+      { name: "カール", reason: "", power: 2 }
     ],
 
     tips: [
@@ -433,76 +149,20 @@ export const heistMaps: Record<string, MapDetail> = {
     characteristics: ["複数ルート", "戦略性高", "バランス型"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "イヴ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "コルト",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ブロック",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "メロディー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ダリル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ラリー&ローリー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "スプラウト",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "マンディ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ペニー",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ジェシー",
-        reason: "",
-        power: 2
-      },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "イヴ", reason: "", power: 5 },
+      { name: "コルト", reason: "", power: 5 },
+      { name: "ブロック", reason: "", power: 5 },
+      { name: "メロディー", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "ダリル", reason: "", power: 5 },
+      { name: "ラリー&ローリー", reason: "", power: 4 },
+      { name: "スプラウト", reason: "", power: 4 },
+      { name: "バイロン", reason: "", power: 4 },
+      { name: "マンディ", reason: "", power: 4 },
+      { name: "ペニー", reason: "", power: 3 },
+      { name: "ベル", reason: "", power: 3 },
+      { name: "ジェシー", reason: "", power: 2 }
     ],
 
     tips: [
@@ -519,86 +179,25 @@ export const heistMaps: Record<string, MapDetail> = {
     characteristics: ["対称構造", "攻守転換", "戦略性"],
     difficulty: "Hard",
     recommendedBrawlers: [
-    {
-      name: "ガス",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "バイロン",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ペニー",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "ストゥー",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "ジュジュ",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "バーリー",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "ラリー&ローリー",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "サージ",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "スクウィーク",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ジェシー",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "フランケン",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ベリー",
-      reason: "水路を挟んだ狙撃",
-      power: 3
-    },
-    {
-      name: "ビビ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ルー",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "グレイ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "メロディー",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
+      { name: "ガス", reason: "水路での移動が得意", power: 5 },
+      { name: "バイロン", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ペニー", reason: "水路越しの攻撃", power: 5 },
+      { name: "ストゥー", reason: "水路での移動が得意", power: 5 },
+      { name: "ジュジュ", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "バーリー", reason: "水路越しの攻撃", power: 5 },
+      { name: "ラリー&ローリー", reason: "水路での移動が得意", power: 5 },
+      { name: "サージ", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "スクウィーク", reason: "水路越しの攻撃", power: 4 },
+      { name: "ジェシー", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "フランケン", reason: "水路越しの攻撃", power: 4 },
+      { name: "ベリー", reason: "水路を挟んだ狙撃", power: 3 },
+      { name: "ビビ", reason: "水路越しの攻撃", power: 3 },
+      { name: "ルー", reason: "水路越しの攻撃", power: 3 },
+      { name: "グレイ", reason: "水路越しの攻撃", power: 3 },
+      { name: "メロディー", reason: "水路越しの攻撃", power: 3 },
+      { name: "バスター", reason: "水路越しの攻撃", power: 3 },
+      { name: "サンディ", reason: "水路越しの攻撃", power: 2 },
+      { name: "ビー", reason: "水路越しの攻撃", power: 2 }
     ],
 
     tips: [
@@ -615,86 +214,22 @@ export const heistMaps: Record<string, MapDetail> = {
     characteristics: ["中央激戦", "リスク管理", "攻防一体"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "クロウ",
-        reason: "通路での強さを発揮",
-        power: 5
-      },
-      {
-        name: "コレット",
-        reason: "高所からの制圧",
-        power: 5
-      },
-      {
-        name: "チャック",
-        reason: "壁跳ね攻撃が有効",
-        power: 5
-      },
-      {
-        name: "メロディー",
-        reason: "通路での強さを発揮",
-        power: 5
-      },
-      {
-        name: "バーリー",
-        reason: "高所からの制圧",
-        power: 5
-      },
-      {
-        name: "ラリー&ローリー",
-        reason: "壁跳ね攻撃が有効",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "壁跳ね攻撃が有効",
-        power: 5
-      },
-      {
-        name: "ベリー",
-        reason: "壁跳ね攻撃が有効",
-        power: 5
-      },
-      {
-        name: "ダイナマイク",
-        reason: "壁跳ね攻撃が有効",
-        power: 5
-      },
-      {
-        name: "リコ",
-        reason: "壁跳ね攻撃が有効",
-        power: 4
-      },
-      {
-        name: "ミコ",
-        reason: "壁跳ね攻撃が有効",
-        power: 4
-      },
-      {
-        name: "ニタ",
-        reason: "壁跳ね攻撃が有効",
-        power: 3
-      },
-      {
-        name: "フランケン",
-        reason: "壁跳ね攻撃が有効",
-        power: 3
-      },
-      {
-        name: "ダリル",
-        reason: "壁跳ね攻撃が有効",
-        power: 3
-      },
-      {
-        name: "ジェシー",
-        reason: "壁跳ね攻撃が有効",
-        power: 3
-      },
-      {
-        name: "コルト",
-        reason: "壁跳ね攻撃が有効",
-        power: 3
-      },
+      { name: "クロウ", reason: "通路での強さを発揮", power: 5 },
+      { name: "コレット", reason: "高所からの制圧", power: 5 },
+      { name: "チャック", reason: "壁跳ね攻撃が有効", power: 5 },
+      { name: "メロディー", reason: "通路での強さを発揮", power: 5 },
+      { name: "バーリー", reason: "高所からの制圧", power: 5 },
+      { name: "ラリー&ローリー", reason: "壁跳ね攻撃が有効", power: 5 },
+      { name: "ジュジュ", reason: "壁跳ね攻撃が有効", power: 5 },
+      { name: "ベリー", reason: "壁跳ね攻撃が有効", power: 5 },
+      { name: "ダイナマイク", reason: "壁跳ね攻撃が有効", power: 5 },
+      { name: "リコ", reason: "壁跳ね攻撃が有効", power: 4 },
+      { name: "ミコ", reason: "壁跳ね攻撃が有効", power: 4 },
+      { name: "ニタ", reason: "壁跳ね攻撃が有効", power: 3 },
+      { name: "フランケン", reason: "壁跳ね攻撃が有効", power: 3 },
+      { name: "ダリル", reason: "壁跳ね攻撃が有効", power: 3 },
+      { name: "ジェシー", reason: "壁跳ね攻撃が有効", power: 3 },
+      { name: "コルト", reason: "壁跳ね攻撃が有効", power: 3 }
     ],
     tips: [
       "中央の支配権を意識",
@@ -710,81 +245,21 @@ export const heistMaps: Record<string, MapDetail> = {
     characteristics: ["壁破壊重要", "地形変化", "ダイナミック"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "クロウ",
-        reason: "通路での強さを発揮",
-        power: 5
-      },
-      {
-        name: "コレット",
-        reason: "高所からの制圧",
-        power: 5
-      },
-      {
-        name: "チャック",
-        reason: "壁跳ね攻撃が有効",
-        power: 5
-      },
-      {
-        name: "メロディー",
-        reason: "通路での強さを発揮",
-        power: 5
-      },
-      {
-        name: "コルト",
-        reason: "高所からの制圧",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "壁跳ね攻撃が有効",
-        power: 4
-      },
-      {
-        name: "イヴ",
-        reason: "壁跳ね攻撃が有効",
-        power: 4
-      },
-      {
-        name: "アンジェロ",
-        reason: "壁跳ね攻撃が有効",
-        power: 4
-      },
-      {
-        name: "バイロン",
-        reason: "壁跳ね攻撃が有効",
-        power: 4
-      },
-      {
-        name: "ベル",
-        reason: "壁跳ね攻撃が有効",
-        power: 4
-      },
-      {
-        name: "アンバー",
-        reason: "壁跳ね攻撃が有効",
-        power: 4
-      },
-      {
-        name: "ペニー",
-        reason: "壁跳ね攻撃が有効",
-        power: 3
-      },
-      {
-        name: "ナーニ",
-        reason: "壁跳ね攻撃が有効",
-        power: 3
-      },
-      {
-        name: "ブロック",
-        reason: "壁跳ね攻撃が有効",
-        power: 3
-      },
-      {
-        name: "ミコ",
-        reason: "壁跳ね攻撃が有効",
-        power: 3
-      },
+      { name: "クロウ", reason: "通路での強さを発揮", power: 5 },
+      { name: "コレット", reason: "高所からの制圧", power: 5 },
+      { name: "チャック", reason: "壁跳ね攻撃が有効", power: 5 },
+      { name: "メロディー", reason: "通路での強さを発揮", power: 5 },
+      { name: "コルト", reason: "高所からの制圧", power: 5 },
+      { name: "エリザベス", reason: "壁跳ね攻撃が有効", power: 4 },
+      { name: "イヴ", reason: "壁跳ね攻撃が有効", power: 4 },
+      { name: "アンジェロ", reason: "壁跳ね攻撃が有効", power: 4 },
+      { name: "バイロン", reason: "壁跳ね攻撃が有効", power: 4 },
+      { name: "ベル", reason: "壁跳ね攻撃が有効", power: 4 },
+      { name: "アンバー", reason: "壁跳ね攻撃が有効", power: 4 },
+      { name: "ペニー", reason: "壁跳ね攻撃が有効", power: 3 },
+      { name: "ナーニ", reason: "壁跳ね攻撃が有効", power: 3 },
+      { name: "ブロック", reason: "壁跳ね攻撃が有効", power: 3 },
+      { name: "ミコ", reason: "壁跳ね攻撃が有効", power: 3 }
     ],
 
     tips: [
@@ -801,46 +276,14 @@ export const heistMaps: Record<string, MapDetail> = {
     characteristics: ["住宅地形", "混合戦", "バランス型"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "ゲイル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "グレイ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "フランケン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ラリー&ローリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ルー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ミコ",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "キット",
-        reason: "",
-        power: 3
-      },
+      { name: "ゲイル", reason: "", power: 5 },
+      { name: "グレイ", reason: "", power: 5 },
+      { name: "フランケン", reason: "", power: 5 },
+      { name: "ラリー&ローリー", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "ルー", reason: "", power: 4 },
+      { name: "ミコ", reason: "", power: 3 },
+      { name: "キット", reason: "", power: 3 }
     ],
 
     tips: [
@@ -857,96 +300,24 @@ export const heistMaps: Record<string, MapDetail> = {
     characteristics: ["開放地形", "多角的戦術", "視界確保"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-      name: "バイロン",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "ガス",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ストゥー",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "サージ",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "バーリー",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ラリー&ローリー",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "コーデリアス",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "フランケン",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "ベリー",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ジュジュ",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "ダイナマイク",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ニタ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ケンジ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "グレイ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ジェシー",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "メロディー",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "スクウィーク",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "タラ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
+      { name: "バイロン", reason: "水路での移動が得意", power: 5 },
+      { name: "ガス", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ストゥー", reason: "水路越しの攻撃", power: 5 },
+      { name: "サージ", reason: "水路での移動が得意", power: 5 },
+      { name: "バーリー", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ラリー&ローリー", reason: "水路越しの攻撃", power: 5 },
+      { name: "コーデリアス", reason: "水路での移動が得意", power: 5 },
+      { name: "フランケン", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ベリー", reason: "水路越しの攻撃", power: 4 },
+      { name: "ジュジュ", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ダイナマイク", reason: "水路越しの攻撃", power: 4 },
+      { name: "ニタ", reason: "水路越しの攻撃", power: 3 },
+      { name: "ケンジ", reason: "水路越しの攻撃", power: 3 },
+      { name: "グレイ", reason: "水路越しの攻撃", power: 3 },
+      { name: "ジェシー", reason: "水路越しの攻撃", power: 3 },
+      { name: "メロディー", reason: "水路越しの攻撃", power: 3 },
+      { name: "スクウィーク", reason: "水路越しの攻撃", power: 3 },
+      { name: "タラ", reason: "水路越しの攻撃", power: 3 }
     ],
 
     tips: [
@@ -963,87 +334,22 @@ export const heistMaps: Record<string, MapDetail> = {
     characteristics: ["改良地形", "戦略的防衛", "バランス調整"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "コルト",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ブロック",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "8ビット",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "イヴ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "コレット",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "リコ",
-        reason: "",
-        power: 4
-      },
-      
-      {
-        name: "バイロン",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ボニー",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ラリー&ローリー",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ジェシー",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "カール",
-        reason: "",
-        power: 2
-      },
-      {
-        name: "ミコ",
-        reason: "",
-        power: 2
-      },
-      {
-        name: "ダリル",
-        reason: "",
-        power: 2
-      },
+      { name: "コルト", reason: "", power: 5 },
+      { name: "ブロック", reason: "", power: 5 },
+      { name: "8ビット", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "イヴ", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 5 },
+      { name: "コレット", reason: "", power: 5 },
+      { name: "リコ", reason: "", power: 4 },
+      { name: "バイロン", reason: "", power: 4 },
+      { name: "ボニー", reason: "", power: 3 },
+      { name: "ラリー&ローリー", reason: "", power: 3 },
+      { name: "ジェシー", reason: "", power: 3 },
+      { name: "カール", reason: "", power: 2 },
+      { name: "ミコ", reason: "", power: 2 },
+      { name: "ダリル", reason: "", power: 2 }
     ],
 
     tips: [
@@ -1060,61 +366,17 @@ export const heistMaps: Record<string, MapDetail> = {
     characteristics: ["水路活用", "複合地形", "立体的戦略"],
     difficulty: "Expert",
     recommendedBrawlers: [
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "アンジェロ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ゲイル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "イヴ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "シェイド",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "グレイ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "コーデリアス",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ケンジ",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "カール",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ミコ",
-        reason: "",
-        power: 2
-      },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "アンジェロ", reason: "", power: 5 },
+      { name: "ゲイル", reason: "", power: 5 },
+      { name: "イヴ", reason: "", power: 5 },
+      { name: "シェイド", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "グレイ", reason: "", power: 4 },
+      { name: "コーデリアス", reason: "", power: 4 },
+      { name: "ケンジ", reason: "", power: 3 },
+      { name: "カール", reason: "", power: 3 },
+      { name: "ミコ", reason: "", power: 2 }
     ],
 
     tips: [

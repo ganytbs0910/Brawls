@@ -1,8 +1,7 @@
-//brawlBall.ts
 import { MapDetail } from '../../types/type';
 
 export const brawlBallMaps: Record<string, MapDetail> = {
-     "セカンドチャンス": {
+    "セカンドチャンス": {
     id: "bb_second_try",
     name: "セカンドチャンス",
     mode: "brawlBall",
@@ -10,91 +9,23 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     characteristics: ["基本重視", "シンプル構造", "戦略性"],
     difficulty: "Easy",
     recommendedBrawlers: [
-      {
-        name: "メロディー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "MAX",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "カール",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ペニー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ビー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "フランケン",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ローラ",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "イヴ",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ルー",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "サム",
-        reason: "",
-        power: 2
-      },
-      {
-        name: "ファング",
-        reason: "",
-        power: 2
-      },
-      {
-        name: "チャーリー",
-        reason: "",
-        power: 2
-      },
+      { name: "メロディー", reason: "", power: 5 },
+      { name: "MAX", reason: "", power: 5 },
+      { name: "ベル", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "カール", reason: "", power: 4 },
+      { name: "ペニー", reason: "", power: 4 },
+      { name: "ビー", reason: "", power: 4 },
+      { name: "フランケン", reason: "", power: 4 },
+      { name: "ローラ", reason: "", power: 3 },
+      { name: "イヴ", reason: "", power: 3 },
+      { name: "ルー", reason: "", power: 3 },
+      { name: "サム", reason: "", power: 2 },
+      { name: "ファング", reason: "", power: 2 },
+      { name: "チャーリー", reason: "", power: 2 }
     ],
     tips: [
       "基本的なパス回しを重視",
@@ -110,66 +41,18 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     characteristics: ["防衛重視", "ゴール前狭い", "堅実プレー"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "エリザベス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "MAX",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ブロック",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "カール",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ビー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ボウ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "グレイ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ベル",
-        reason: "",
-        power: 3
-      },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "エリザベス", reason: "", power: 5 },
+      { name: "MAX", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 4 },
+      { name: "ブロック", reason: "", power: 4 },
+      { name: "カール", reason: "", power: 4 },
+      { name: "ビー", reason: "", power: 4 },
+      { name: "ボウ", reason: "", power: 4 },
+      { name: "グレイ", reason: "", power: 4 },
+      { name: "ベル", reason: "", power: 3 }
     ],
 
     tips: [
@@ -186,116 +69,28 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     characteristics: ["壁反射", "複雑な地形", "技巧的"],
     difficulty: "Expert",
     recommendedBrawlers: [
-      {
-      name: "サージ",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "ストゥー",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ラリー&ローリー",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "ジュジュ",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "ダイナマイク",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "バーリー",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "ウィロー",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "バイロン",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "ガス",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "オーティス",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "Max",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ニタ",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "リコ",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "バスター",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "フランケン",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ジャッキー",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ビビ",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ダリル",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "モーティス",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "サンディ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "コーデリアス",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ベリー",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
+      { name: "サージ", reason: "水路での移動が得意", power: 5 },
+      { name: "ストゥー", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ラリー&ローリー", reason: "水路越しの攻撃", power: 5 },
+      { name: "ジュジュ", reason: "水路での移動が得意", power: 5 },
+      { name: "ダイナマイク", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "バーリー", reason: "水路越しの攻撃", power: 5 },
+      { name: "ウィロー", reason: "水路での移動が得意", power: 5 },
+      { name: "バイロン", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ガス", reason: "水路越しの攻撃", power: 4 },
+      { name: "オーティス", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "Max", reason: "水路越しの攻撃", power: 4 },
+      { name: "ニタ", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "リコ", reason: "水路越しの攻撃", power: 4 },
+      { name: "バスター", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "フランケン", reason: "水路越しの攻撃", power: 4 },
+      { name: "ジャッキー", reason: "水路越しの攻撃", power: 4 },
+      { name: "ビビ", reason: "水路越しの攻撃", power: 4 },
+      { name: "ダリル", reason: "水路越しの攻撃", power: 4 },
+      { name: "モーティス", reason: "水路越しの攻撃", power: 3 },
+      { name: "サンディ", reason: "水路越しの攻撃", power: 3 },
+      { name: "コーデリアス", reason: "水路越しの攻撃", power: 3 },
+      { name: "ベリー", reason: "水路越しの攻撃", power: 3 }
     ],
 
     tips: [
@@ -312,111 +107,27 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     characteristics: ["狭いゴール前", "精密性", "守備重要"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "サンディ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "Emz",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "カール",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ガス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "MAX",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "フランケン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "リコ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ビビ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ビー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "コレット",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "バズ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "スクウィーク",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "オーティス",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "バスター",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "アンバー",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ジャネット",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ラリー&ローリー",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ベリー",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "イヴ",
-        reason: "",
-        power: 3
-      },
+      { name: "サンディ", reason: "", power: 5 },
+      { name: "Emz", reason: "", power: 5 },
+      { name: "カール", reason: "", power: 5 },
+      { name: "ガス", reason: "", power: 5 },
+      { name: "バイロン", reason: "", power: 5 },
+      { name: "MAX", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "フランケン", reason: "", power: 5 },
+      { name: "リコ", reason: "", power: 4 },
+      { name: "ビビ", reason: "", power: 4 },
+      { name: "ビー", reason: "", power: 4 },
+      { name: "コレット", reason: "", power: 4 },
+      { name: "バズ", reason: "", power: 4 },
+      { name: "スクウィーク", reason: "", power: 4 },
+      { name: "オーティス", reason: "", power: 4 },
+      { name: "バスター", reason: "", power: 4 },
+      { name: "アンバー", reason: "", power: 3 },
+      { name: "ジャネット", reason: "", power: 3 },
+      { name: "ラリー&ローリー", reason: "", power: 3 },
+      { name: "ベリー", reason: "", power: 3 },
+      { name: "イヴ", reason: "", power: 3 }
     ],
     tips: [
       "シュートは確実に",
@@ -432,96 +143,24 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     characteristics: ["中央広場", "シンメトリー", "エリア支配"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-      name: "サージ",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "リコ",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ニタ",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "オーティス",
-      reason: "水路での移動が得意",
-      power: 4
-    },
-    {
-      name: "ジュジュ",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "ストゥー",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "サンディ",
-      reason: "水路での移動が得意",
-      power: 4
-    },
-    {
-      name: "フランケン",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "ダリル",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ジャッキー",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "バスター",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "Max",
-      reason: "水路を挟んだ狙撃",
-      power: 3
-    },
-    {
-      name: "コーデリアス",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "バズ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "タラ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ラリー&ローリー",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ゲイル",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ローサ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
+      { name: "サージ", reason: "水路での移動が得意", power: 5 },
+      { name: "リコ", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ニタ", reason: "水路越しの攻撃", power: 5 },
+      { name: "オーティス", reason: "水路での移動が得意", power: 4 },
+      { name: "ジュジュ", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ストゥー", reason: "水路越しの攻撃", power: 4 },
+      { name: "サンディ", reason: "水路での移動が得意", power: 4 },
+      { name: "フランケン", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ダリル", reason: "水路越しの攻撃", power: 4 },
+      { name: "ジャッキー", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "バスター", reason: "水路越しの攻撃", power: 4 },
+      { name: "Max", reason: "水路を挟んだ狙撃", power: 3 },
+      { name: "コーデリアス", reason: "水路越しの攻撃", power: 3 },
+      { name: "バズ", reason: "水路越しの攻撃", power: 3 },
+      { name: "タラ", reason: "水路越しの攻撃", power: 3 },
+      { name: "ラリー&ローリー", reason: "水路越しの攻撃", power: 3 },
+      { name: "ゲイル", reason: "水路越しの攻撃", power: 3 },
+      { name: "ローサ", reason: "水路越しの攻撃", power: 3 }
     ],
 
     tips: [
@@ -538,121 +177,29 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     characteristics: ["開放地形", "砂地戦", "機動戦"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ラリー&ローリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バーリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "フランケン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ビビ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "MAX",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "サージ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "サンディ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ダイナマイク",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ダリル",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "カール",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "コーデリアス",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "オーティス",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "タラ",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "リリー",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ウィロー",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ジャッキー",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "メイジー",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "シェイド",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "モー",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "スクウィーク",
-        reason: "",
-        power: 2
-      },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "ラリー&ローリー", reason: "", power: 5 },
+      { name: "バーリー", reason: "", power: 5 },
+      { name: "フランケン", reason: "", power: 5 },
+      { name: "ビビ", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "MAX", reason: "", power: 5 },
+      { name: "サージ", reason: "", power: 5 },
+      { name: "サンディ", reason: "", power: 5 },
+      { name: "ダイナマイク", reason: "", power: 4 },
+      { name: "ダリル", reason: "", power: 4 },
+      { name: "カール", reason: "", power: 4 },
+      { name: "コーデリアス", reason: "", power: 4 },
+      { name: "オーティス", reason: "", power: 4 },
+      { name: "バイロン", reason: "", power: 4 },
+      { name: "タラ", reason: "", power: 3 },
+      { name: "リリー", reason: "", power: 3 },
+      { name: "ウィロー", reason: "", power: 3 },
+      { name: "ジャッキー", reason: "", power: 3 },
+      { name: "メイジー", reason: "", power: 3 },
+      { name: "シェイド", reason: "", power: 3 },
+      { name: "モー", reason: "", power: 3 },
+      { name: "スクウィーク", reason: "", power: 2 }
     ],
 
     tips: [
@@ -669,98 +216,27 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     characteristics: ["3ルート構成", "切り替え戦術", "ルート選択"],
     difficulty: "Hard",
     recommendedBrawlers: [
-    {
-      name: "ストゥー",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "ジュジュ",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "バーリー",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "ラリー&ローリー",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "サージ",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "Max",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "ダイナマイク",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "ウィロー",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "バスター",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ニタ",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "ダリル",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "リコ",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "コーデリアス",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "モーティス",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "ビビ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "フランケン",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ジャッキー",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "オーティス",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
+      { name: "ストゥー", reason: "水路での移動が得意", power: 5 },
+      { name: "ジュジュ", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "バーリー", reason: "水路越しの攻撃", power: 5 },
+      { name: "ラリー&ローリー", reason: "水路での移動が得意", power: 5 },
+      { name: "サージ", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "Max", reason: "水路越しの攻撃", power: 5 },
+      { name: "ダイナマイク", reason: "水路での移動が得意", power: 5 },
+      { name: "ウィロー", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "バスター", reason: "水路越しの攻撃", power: 4 },
+      { name: "ニタ", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ダリル", reason: "水路越しの攻撃", power: 4 },
+      { name: "リコ", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "コーデリアス", reason: "水路越しの攻撃", power: 4 },
+      { name: "モーティス", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ビビ", reason: "水路越しの攻撃", power: 3 },
+      { name: "フランケン", reason: "水路越しの攻撃", power: 3 },
+      { name: "ジャッキー", reason: "水路越しの攻撃", power: 3 },
+      { name: "オーティス", reason: "水路越しの攻撃", power: 3 }
     ],
-    tips: [      "常に複数のルートを意識",
+    tips: [
+      "常に複数のルートを意識",
       "チームでのルート分担",
       "切り替えのタイミング"
     ]
@@ -773,96 +249,24 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     characteristics: ["ブッシュ戦術", "待ち伏せ", "展開速度"],
     difficulty: "Medium",
     recommendedBrawlers: [
-      {
-      name: "Max",
-      reason: "水路での移動が得意",
-      power: 5
-    },
-    {
-      name: "サージ",
-      reason: "水路を挟んだ狙撃",
-      power: 5
-    },
-    {
-      name: "ジュジュ",
-      reason: "水路越しの攻撃",
-      power: 5
-    },
-    {
-      name: "オーティス",
-      reason: "水路での移動が得意",
-      power: 4
-    },
-    {
-      name: "バスター",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "リコ",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ジャッキー",
-      reason: "水路での移動が得意",
-      power: 4
-    },
-    {
-      name: "ニタ",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "フランケン",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ビビ",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "ダリル",
-      reason: "水路越しの攻撃",
-      power: 4
-    },
-    {
-      name: "ケンジ",
-      reason: "水路を挟んだ狙撃",
-      power: 4
-    },
-    {
-      name: "ストゥー",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "シェリー",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ラリー&ローリー",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "ローサ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "バズ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
-    {
-      name: "サンディ",
-      reason: "水路越しの攻撃",
-      power: 3
-    },
+      { name: "Max", reason: "水路での移動が得意", power: 5 },
+      { name: "サージ", reason: "水路を挟んだ狙撃", power: 5 },
+      { name: "ジュジュ", reason: "水路越しの攻撃", power: 5 },
+      { name: "オーティス", reason: "水路での移動が得意", power: 4 },
+      { name: "バスター", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "リコ", reason: "水路越しの攻撃", power: 4 },
+      { name: "ジャッキー", reason: "水路での移動が得意", power: 4 },
+      { name: "ニタ", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "フランケン", reason: "水路越しの攻撃", power: 4 },
+      { name: "ビビ", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ダリル", reason: "水路越しの攻撃", power: 4 },
+      { name: "ケンジ", reason: "水路を挟んだ狙撃", power: 4 },
+      { name: "ストゥー", reason: "水路越しの攻撃", power: 3 },
+      { name: "シェリー", reason: "水路越しの攻撃", power: 3 },
+      { name: "ラリー&ローリー", reason: "水路越しの攻撃", power: 3 },
+      { name: "ローサ", reason: "水路越しの攻撃", power: 3 },
+      { name: "バズ", reason: "水路越しの攻撃", power: 3 },
+      { name: "サンディ", reason: "水路越しの攻撃", power: 3 }
     ],
 
     tips: [
@@ -879,81 +283,21 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     characteristics: ["開放地形", "スピード戦", "パスワーク"],
     difficulty: "Easy",
     recommendedBrawlers: [
-      {
-        name: "サンディ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "カール",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "タラ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ラリー&ローリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バーリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "フランケン",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ビビ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ニタ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ダイナマイク",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "コーデリアス",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ケンジ",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "オーティス",
-        reason: "",
-        power: 3
-      },
+      { name: "サンディ", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "カール", reason: "", power: 5 },
+      { name: "タラ", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "ラリー&ローリー", reason: "", power: 5 },
+      { name: "バーリー", reason: "", power: 5 },
+      { name: "フランケン", reason: "", power: 4 },
+      { name: "ビビ", reason: "", power: 4 },
+      { name: "ニタ", reason: "", power: 4 },
+      { name: "ダイナマイク", reason: "", power: 4 },
+      { name: "コーデリアス", reason: "", power: 4 },
+      { name: "ケンジ", reason: "", power: 3 },
+      { name: "バイロン", reason: "", power: 3 },
+      { name: "オーティス", reason: "", power: 3 }
     ],
 
     tips: [
@@ -970,110 +314,30 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     characteristics: ["基本重視", "オーソドックス", "チーム戦"],
     difficulty: "Easy",
     recommendedBrawlers: [
-      {
-        name: "サンディ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "カール",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "タラ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "リコ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ダリル",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ラリー&ローリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バーリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "フランケン",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ビビ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "メイジー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "バスター",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ダイナマイク",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "コーデリアス",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ケンジ",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "バイロン",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ドラコ",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "モーティス",
-        reason: "",
-        power: 3
-      },
-      {
-        name: "ボウ",
-        reason: "",
-        power: 3
-      },
+      { name: "サンディ", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "カール", reason: "", power: 5 },
+      { name: "タラ", reason: "", power: 5 },
+      { name: "リコ", reason: "", power: 5 },
+      { name: "ダリル", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "ラリー&ローリー", reason: "", power: 5 },
+      { name: "バーリー", reason: "", power: 5 },
+      { name: "フランケン", reason: "", power: 4 },
+      { name: "ビビ", reason: "", power: 4 },
+      { name: "メイジー", reason: "", power: 4 },
+      { name: "バスター", reason: "", power: 4 },
+      { name: "ダイナマイク", reason: "", power: 4 },
+      { name: "コーデリアス", reason: "", power: 4 },
+      { name: "ケンジ", reason: "", power: 3 },
+      { name: "バイロン", reason: "", power: 3 },
+      { name: "ドラコ", reason: "", power: 3 },
+      { name: "モーティス", reason: "", power: 3 },
+      { name: "ボウ", reason: "", power: 3 }
     ],
 
     tips: [
-      "基本的なパス回しの徹底",      
+      "基本的なパス回しの徹底",
       "シンプルな攻防の意識",
       "チームワークの重視"
     ]
@@ -1086,66 +350,18 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     characteristics: ["変則的地形", "フェイント重要", "技巧的"],
     difficulty: "Expert",
     recommendedBrawlers: [
-      {
-        name: "サンディ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "コーデリアス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "MAX",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "フランケン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ビビ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "モーティス",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "カール",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ダリル",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "ニタ",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "Emz",
-        reason: "",
-        power: 4
-      },
+      { name: "サンディ", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "コーデリアス", reason: "", power: 5 },
+      { name: "MAX", reason: "", power: 5 },
+      { name: "フランケン", reason: "", power: 5 },
+      { name: "ビビ", reason: "", power: 5 },
+      { name: "モーティス", reason: "", power: 4 },
+      { name: "カール", reason: "", power: 4 },
+      { name: "ダリル", reason: "", power: 4 },
+      { name: "ニタ", reason: "", power: 4 },
+      { name: "Emz", reason: "", power: 4 }
     ],
 
     tips: [
@@ -1162,66 +378,18 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     characteristics: ["ゴール前重視", "シュート精度", "守備重要"],
     difficulty: "Hard",
     recommendedBrawlers: [
-      {
-        name: "コーデリアス",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "サンディ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ニタ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ストゥー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ビビ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "サージ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "フランケン",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ラリー&ローリー",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "ジュジュ",
-        reason: "",
-        power: 5
-      },
-      {
-        name: "バーリー",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "バスター",
-        reason: "",
-        power: 4
-      },
-      {
-        name: "シェイド",
-        reason: "",
-        power: 4
-      },
+      { name: "コーデリアス", reason: "", power: 5 },
+      { name: "サンディ", reason: "", power: 5 },
+      { name: "ニタ", reason: "", power: 5 },
+      { name: "ストゥー", reason: "", power: 5 },
+      { name: "ビビ", reason: "", power: 5 },
+      { name: "サージ", reason: "", power: 5 },
+      { name: "フランケン", reason: "", power: 5 },
+      { name: "ラリー&ローリー", reason: "", power: 5 },
+      { name: "ジュジュ", reason: "", power: 5 },
+      { name: "バーリー", reason: "", power: 4 },
+      { name: "バスター", reason: "", power: 4 },
+      { name: "シェイド", reason: "", power: 4 }
     ],
 
     tips: [
