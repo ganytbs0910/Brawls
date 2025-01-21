@@ -24,7 +24,6 @@ export default function BrawlStarsApp() {
   const playerData = usePlayerData();
   const rankingsData = useGlobalRankings();
 
-  // アプリの初期化処理
   useEffect(() => {
     const initializeApp = async () => {
       try {
@@ -40,36 +39,18 @@ export default function BrawlStarsApp() {
         
         setIsInitialized(true);
       } catch (error) {
-        console.error('Initialization error:', error);
         setIsInitialized(true);
       }
     };
     initializeApp();
   }, []);
 
-  // rankingsデータの取得を最適化
   useEffect(() => {
-    if (isInitialized && brawlersData.data) {
-      // チャンク単位でrankingsを取得
-      const fetchRankingsInChunks = async () => {
-        const CHUNK_SIZE = 5; // 一度に取得するbrawler数
-        const brawlers = [...brawlersData.data];
-        
-        for (let i = 0; i < brawlers.length; i += CHUNK_SIZE) {
-          const chunk = brawlers.slice(i, i + CHUNK_SIZE);
-          await rankingsData.fetchGlobalRankings(chunk);
-          
-          // ユーザーが画面を見ているときのみ次のチャンクを取得
-          if (document.visibilityState === 'visible') {
-            // 次のチャンクまでの短い待機時間
-            await new Promise(resolve => setTimeout(resolve, 100));
-          }
-        }
-      };
-
-      fetchRankingsInChunks();
+    if (isInitialized && playerData.data?.playerInfo) {
+      const playerBrawlers = playerData.data.playerInfo.brawlers;
+      rankingsData.fetchGlobalRankings(playerBrawlers);
     }
-  }, [isInitialized, brawlersData.data]);
+  }, [isInitialized, playerData.data?.playerInfo]);
 
   const sections = [
     {

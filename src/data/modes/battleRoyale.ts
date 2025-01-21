@@ -63,7 +63,7 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "イヴ", reason: "", power: 5 },
       { name: "ガス", reason: "", power: 4 },
       { name: "パール", reason: "", power: 4 },
-      { name: "R-T", reason: "", power: 3 }
+      { name: "R-T", reason: "", power: 3 },
       { name: "ストゥー", reason: "", power: 3 },
       { name: "キット", reason: "", power: 3 },
       { name: "リリー", reason: "", power: 3 },

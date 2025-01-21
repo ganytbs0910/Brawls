@@ -1,5 +1,5 @@
-//userBrawlStarsApi.ts
-import { useState, useEffect } from 'react';
+// useBrawlStarsApi.ts
+import { useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const API_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImUwYTllMGQ5LTgwOGItNDhiNC1hYmYwLWQ1NmI1MTI1ODA0MyIsImlhdCI6MTczNTkzMzEzOSwic3ViIjoiZGV2ZWxvcGVyL2RmZDI0NWMwLWY4ZTgtMDY4NC1hOWRjLWJlMzYyYzRkOTJmOSIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiMTI2LjIwNy4xOTUuMTcyIl0sInR5cGUiOiJjbGllbnQifV19.mcSzoW0kNN40kVY7uSN0MOSXpeQ1WejAqw2gDMzS5otqQBmjeyr9Uef8472UAlDgcc8_ZcZpS0hEcHTsbAGl4Q';
@@ -157,12 +157,21 @@ export const usePlayerData = () => {
       }
 
       const encodedTag = encodeURIComponent('#' + cleanTag);
-      
       await AsyncStorage.setItem('brawlStarsPlayerTag', tag);
       
       const [playerResponse, battleLogResponse] = await Promise.all([
-        fetch(`https://brawls-api-wrapper.onrender.com/api/players/${encodedTag}`),
-        fetch(`https://brawls-api-wrapper.onrender.com/api/battlelog/${encodedTag}`)
+        fetch(`https://api.brawlstars.com/v1/players/${encodedTag}`, {
+          headers: {
+            'Authorization': `Bearer ${API_TOKEN}`,
+            'Accept': 'application/json'
+          }
+        }),
+        fetch(`https://api.brawlstars.com/v1/players/${encodedTag}/battlelog`, {
+          headers: {
+            'Authorization': `Bearer ${API_TOKEN}`,
+            'Accept': 'application/json'
+          }
+        })
       ]);
 
       if (!playerResponse.ok || !battleLogResponse.ok) {
@@ -179,7 +188,7 @@ export const usePlayerData = () => {
         error: '',
         data: {
           playerInfo: playerData,
-          battleLog: battleLogData.items
+          battleLog: battleLogData.items || []
         }
       });
     } catch (err) {
@@ -217,14 +226,18 @@ export const useGlobalRankings = () => {
     setState(prev => ({ ...prev, loading: true, error: '' }));
 
     try {
-      const rankings = {};
-      const brawlerIds = brawlers.map(b => b.id.toString());
+      const rankings: { [key: string]: RankingItem[] } = {};
+      const batchSize = 10;
+      const totalBatches = Math.ceil(brawlers.length / batchSize);
       
-      for (let i = 0; i < brawlerIds.length; i += 5) {
-        const batch = brawlerIds.slice(i, i + 5);
-        await Promise.all(
-          batch.map(async (brawlerId) => {
+      for (let i = 0; i < brawlers.length; i += batchSize) {
+        const batch = brawlers.slice(i, i + batchSize);
+        const currentBatch = Math.floor(i / batchSize) + 1;
+
+        const batchResults = await Promise.all(
+          batch.map(async (brawler) => {
             try {
+              const brawlerId = brawler.id.toString();
               const response = await fetch(
                 `https://api.brawlstars.com/v1/rankings/global/brawlers/${brawlerId}`,
                 {
@@ -236,24 +249,34 @@ export const useGlobalRankings = () => {
               );
 
               if (!response.ok) {
-                console.warn(`ブロウラーID ${brawlerId} のランキング取得に失敗: ${response.status}`);
-                return;
+                return { brawlerId, rankings: [] };
               }
 
               const data = await response.json();
-              rankings[brawlerId] = data.items;
+              return { brawlerId, rankings: data.items };
             } catch (err) {
-              console.warn(`ブロウラーID ${brawlerId} のランキング取得でエラー:`, err);
+              return { brawlerId: brawler.id.toString(), rankings: [] };
             }
           })
         );
 
-        // Rate limiting
-        if (i + 2 < brawlerIds.length) {
-          await new Promise(resolve => setTimeout(resolve, 1000));
+        batchResults.forEach(result => {
+          if (result) {
+            rankings[result.brawlerId] = result.rankings;
+          }
+        });
+
+        setState(prev => ({
+          ...prev,
+          data: { ...rankings },
+          loading: currentBatch < totalBatches
+        }));
+
+        if (currentBatch < totalBatches) {
+          await new Promise(resolve => setTimeout(resolve, 200));
         }
       }
-
+      
       setState({ loading: false, error: '', data: rankings });
     } catch (err) {
       setState({

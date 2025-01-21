@@ -18,7 +18,6 @@ import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages'
 
 const { width } = Dimensions.get('window');
 const CARD_WIDTH = (width - 32) / 3;
-
 interface PlayerInfoProps {
   info: PlayerInfoType;
   rankings: { [key: string]: RankingItem[] };
@@ -37,6 +36,7 @@ const getPortraitSource = (brawlerName: string) => {
       '8bit': 'eightBit',
       'mr.p': 'mrp',
       'larryandlawrie': 'larryandLawrie',
+      'meeple': 'meep',  // MEEPLEのマッピングを追加
     };
 
     const mappedName = nameMap[normalizedName] || normalizedName;
@@ -58,6 +58,8 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
   rankings,
   rankingsLoading
 }) => {
+  console.log('PlayerInfo: 全ブロウラー数', info.brawlers.length);
+  console.log('PlayerInfo: ブロウラー詳細', info.brawlers.map(b => ({id: b.id, name: b.name})));
   const infoPairs = [
     [
       { 
@@ -268,9 +270,6 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
                         </Text>
                       </View>
                     )}
-                    <Text style={styles.brawlerStat}>
-                      Rank {brawler.rank} / Pow {brawler.power}
-                    </Text>
                   </View>
                 </View>
               );
@@ -347,7 +346,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     padding: 8,
     marginBottom: 4,
-    height: 140,
+    height: 120,
   },
   brawlerHeader: {
     flexDirection: 'row',
@@ -379,7 +378,7 @@ const styles = StyleSheet.create({
     color: '#2196F3',
     fontWeight: '500',
   },
-  trophyIcon: {
+  trophyIcon: {　
     width: 14,
     height: 14,
     marginRight: 3,
@@ -387,7 +386,7 @@ const styles = StyleSheet.create({
   },
   rankingsLoading: {
     width: CARD_WIDTH,
-    height: 140,
+    height: 120, 
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#f5f5f5',
