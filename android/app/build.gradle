@@ -17,13 +17,19 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
+    configurations.all {
+        resolutionStrategy {
+            force 'com.facebook.react:react-native:+'
+        }
+    }
+
     namespace "com.gan.brawlstatus"
     defaultConfig {
         applicationId "com.gan.brawlstatus"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 4
-        versionName "1.4"
+        versionCode 5
+        versionName "1.5"
         missingDimensionStrategy 'store', 'play'
     }
 
@@ -36,25 +42,26 @@ android {
     }
 
     signingConfigs {
-        release {  // debugからreleaseに変更
+        release {
             storeFile file('release.keystore')
             storePassword 'Gankou1182'
             keyAlias 'your-key-alias'
             keyPassword 'Gankou1182'
         }
     }
+
     buildTypes {
         debug {
-            signingConfig signingConfigs.release  // releaseに変更
+            signingConfig signingConfigs.release
         }
         release {
-            signingConfig signingConfigs.release  // releaseに変更
+            signingConfig signingConfigs.release
             minifyEnabled true
+            multiDexEnabled true
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
 
-    // Bundle設定を追加
     bundle {
         language {
             enableSplit = true

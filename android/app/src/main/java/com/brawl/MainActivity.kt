@@ -1,4 +1,4 @@
-package com.brawl
+package com.gan.brawlstatus
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

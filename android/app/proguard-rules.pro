@@ -8,3 +8,8 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+
+-keep class android.media.** { *; }
+-dontwarn android.media.**
+-keep class com.google.android.gms.** { *; }
+-dontwarn com.google.android.gms.**
