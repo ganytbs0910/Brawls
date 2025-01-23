@@ -55,23 +55,19 @@ const badCompatibilityCategories: CompatibilityCategory[] = [
 ];
 
 const CharacterDetails: React.FC = () => {
-  // Navigation and route hooks
   const route = useRoute<CharacterDetailsRouteProp>();
   const navigation = useNavigation<CharacterDetailsNavigationProp>();
   const { characterName } = route.params;
 
-  // State hooks
   const [activeTab, setActiveTab] = useState<'info' | 'compatibility'>('info');
   const [compatibilityView, setCompatibilityView] = useState<CompatibilityView>('good');
 
-  // Data preparation
   const character = useMemo(() => getCharacterData(characterName), [characterName]);
   const compatibilityData = useMemo(
     () => Object.values(allCharacterData).find(char => char.name === characterName),
     [characterName]
   );
 
-  // Utility functions
   const getRecommendationColor = useCallback((level: number) => {
     switch (level) {
       case 5: return '#4CAF50';
@@ -94,12 +90,10 @@ const CharacterDetails: React.FC = () => {
     }
   }, []);
 
-  // Navigation handler
   const handleCharacterPress = useCallback((selectedCharName: string) => {
     navigation.push('CharacterDetails', { characterName: selectedCharName });
   }, [navigation]);
 
-  // Compatibility score calculations
   const categorizedScores = useMemo(() => {
     if (!compatibilityData?.compatibilityScores) return {};
 
@@ -124,7 +118,6 @@ const CharacterDetails: React.FC = () => {
 
       acc[category.title].characters.push({ name: char, score });
 
-      // Sort characters within each category
       acc[category.title].characters.sort((a, b) => {
         return compatibilityView === 'good' ? b.score - a.score : a.score - b.score;
       });
@@ -137,7 +130,6 @@ const CharacterDetails: React.FC = () => {
     }>);
   }, [compatibilityData, compatibilityView]);
 
-  // Render functions
   const renderPowerCard = useCallback((power: any, index: number, isPowerStar: boolean) => {
     const recommendationLevel = power.recommendationLevel || 0;
     
@@ -190,46 +182,46 @@ const CharacterDetails: React.FC = () => {
   }, [character?.name, getRecommendationColor, getRecommendationLabel]);
 
   const renderGearSection = useCallback(() => {
-  if (!character) return null;
+    if (!character) return null;
 
-  const recommendedGears = character.gears || [];
-  const characterGears = gearIcons[character.name];
-  if (!characterGears) return null;
+    const recommendedGears = character.gears || [];
+    const characterGears = gearIcons[character.name];
+    if (!characterGears) return null;
 
-  return (
-    <View style={styles.infoCard}>
-      <View style={styles.sectionHeader}>
-        <Text style={styles.sectionTitle}>ギア</Text>
-        <View style={styles.legendContainer}>
-          <View style={[styles.legendItem, { backgroundColor: '#4CAF50' }]} />
-          <Text style={styles.legendText}>おすすめ</Text>
+    return (
+      <View style={styles.infoCard}>
+        <View style={styles.sectionHeader}>
+          <Text style={styles.sectionTitle}>ギア</Text>
+          <View style={styles.legendContainer}>
+            <View style={[styles.legendItem, { backgroundColor: '#4CAF50' }]} />
+            <Text style={styles.legendText}>おすすめ</Text>
+          </View>
+        </View>
+        <View style={styles.gearGrid}>
+          {Object.entries(characterGears).map(([key, iconPath]) => {
+            const currentGearId = parseInt(key);
+            const isRecommended = recommendedGears.includes(currentGearId);
+
+            return (
+              <View 
+                key={key} 
+                style={[
+                  styles.gearItem,
+                  isRecommended && styles.recommendedGearItem
+                ]}
+              >
+                <Image
+                  source={iconPath}
+                  style={styles.gearIcon}
+                  resizeMode="contain"
+                />
+              </View>
+            );
+          })}
         </View>
       </View>
-      <View style={styles.gearGrid}>
-        {Object.entries(characterGears).map(([key, iconPath]) => {
-          const currentGearId = parseInt(key);
-          const isRecommended = recommendedGears.includes(currentGearId);
-
-          return (
-            <View 
-              key={key} 
-              style={[
-                styles.gearItem,
-                isRecommended && styles.recommendedGearItem
-              ]}
-            >
-              <Image
-                source={iconPath}
-                style={styles.gearIcon}
-                resizeMode="contain"
-              />
-            </View>
-          );
-        })}
-      </View>
-    </View>
-  );
-}, [character]);
+    );
+  }, [character]);
 
   const renderCompatibilityContent = useCallback(() => {
     if (!compatibilityData) return null;
@@ -304,7 +296,7 @@ const CharacterDetails: React.FC = () => {
                       </Text>
                     </View>
                     <Text style={[styles.characterScore, { color: data.color }]}>
-                      {char.score.toFixed(1)}/10
+                      {Math.round(char.score)}/10
                     </Text>
                   </TouchableOpacity>
                 ))}
