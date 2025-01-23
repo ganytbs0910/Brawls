@@ -119,7 +119,7 @@ const App = () => {
           const randomValue = Math.random();
           console.log('Ad probability check:', randomValue <= 0.2 ? 'Showing ad' : 'Not showing ad');
           
-          if (randomValue <= 0.2) { // 20%の確率
+          if (randomValue <= 1) { 
             // 広告のロードイベントを監視
             appOpenAd.addAdEventListener('loaded', () => {
               // ロードされたら広告を表示

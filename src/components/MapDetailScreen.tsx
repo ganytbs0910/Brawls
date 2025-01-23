@@ -128,7 +128,7 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
         <Text style={styles.sectionTitle}>マップ説明</Text>
         <Text style={styles.description}>{mapDetail.description}</Text>
 
-        <Text style={styles.sectionTitle}>おすすめブロウラー</Text>
+        <Text style={styles.sectionTitle}>おすすめキャラ</Text>
         
         {groupedBrawlers.optimal.length > 0 && (
           renderBrawlerSection('最適性 (4-5点)', groupedBrawlers.optimal, '#FFF0F0')

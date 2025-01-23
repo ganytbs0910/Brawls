@@ -58,8 +58,6 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
   rankings,
   rankingsLoading
 }) => {
-  console.log('PlayerInfo: 全ブロウラー数', info.brawlers.length);
-  console.log('PlayerInfo: ブロウラー詳細', info.brawlers.map(b => ({id: b.id, name: b.name})));
   const infoPairs = [
     [
       { 
@@ -111,7 +109,6 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
     ]
   ];
 
-  // IDでソートしたブロウラーリスト
   const sortedBrawlers = [...info.brawlers].sort((a, b) => a.id - b.id);
   
   // 3列のグリッドを作成
@@ -212,7 +209,6 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
         </View>
       </View>
 
-      {/* ブロウラーリスト */}
       <Text style={styles.sectionTitle}>キャラ一覧</Text>
       <ScrollView 
         horizontal 

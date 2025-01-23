@@ -120,7 +120,7 @@ export const useBrawlersData = () => {
       );
 
       if (!response.ok) {
-        throw new Error(`ブロウラー情報の取得に失敗しました: ${response.status}`);
+        throw new Error(`キャラ情報の取得に失敗しました: ${response.status}`);
       }
 
       const data = await response.json();
@@ -128,7 +128,7 @@ export const useBrawlersData = () => {
     } catch (err) {
       setState({
         loading: false,
-        error: err instanceof Error ? err.message : 'ブロウラー情報の取得に失敗しました',
+        error: err instanceof Error ? err.message : 'キャラ情報の取得に失敗しました',
         data: null
       });
     }
