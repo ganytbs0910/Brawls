@@ -184,7 +184,7 @@ const App = () => {
  ];
 
  const handleTabPress = (tabKey: typeof activeTab, index: number) => {
-   Vibration.vibrate(100);
+   //Vibration.vibrate(100);
 
    const animations = Object.keys(animatedValues).map((key) =>
      Animated.timing(animatedValues[key], {
