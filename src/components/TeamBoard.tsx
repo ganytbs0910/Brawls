@@ -59,8 +59,8 @@ interface TeamPost {
 
 
 const supabase = createClient(
-  'YOUR_SUPABASE_URL',
-  'YOUR_SUPABASE_ANON_KEY'
+  'https://gfdruxypzjwxlzvdqtlu.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdmZHJ1eHlwemp3eGx6dmRxdGx1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc3MDYyNzMsImV4cCI6MjA1MzI4MjI3M30.5UM-xYGCq9neRV_yIFmVxjMfPcwWNv2hu5gb3s6i8pk'
 );
 
 const TeamBoard: React.FC = () => {
