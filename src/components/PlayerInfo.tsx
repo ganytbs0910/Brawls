@@ -86,24 +86,24 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
     [
       { 
         label: 'レベル', 
-        value: info.expLevel.toString(),
+        value:  info.expLevel.toString(),
         icon: require('../../assets/OtherIcon/ranking_Icon.png')
       },
       { 
         label: '3vs3', 
-        value: info['3vs3Victories'].toLocaleString(),
+        value: info['3vs3Victories'].toLocaleString() + "勝",
         icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
       }
     ],
     [
       { 
         label: 'ソロ', 
-        value: info.soloVictories.toLocaleString(),
+        value: info.soloVictories.toLocaleString() + "勝",
         icon: require('../../assets/GameModeIcons/showdown_icon.png')
       },
       { 
         label: 'デュオ', 
-        value: info.duoVictories.toLocaleString(),
+        value: info.duoVictories.toLocaleString() + "勝",
         icon: require('../../assets/GameModeIcons/duo_showdown_icon.png')
       }
     ]
