@@ -27,7 +27,7 @@ export const maisieData: CharacterCompatibility = {
     "スプラウト": 4,
     "ウィロー": 5,
     "ジュジュ": 4,
-    "ストゥー": 3,
+    "ストゥー": 5,
     "エドガー": 7,
     "シェイド": 1,
     "モーティス": 7,

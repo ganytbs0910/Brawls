@@ -27,7 +27,7 @@ export const bonnieData: CharacterCompatibility = {
     "スプラウト": 4,
     "ウィロー": 6,
     "ジュジュ": 6,
-    "ストゥー": 6,
+    "ストゥー": 4,
     "エドガー": 8,
     "シェイド": 1,
     "モーティス": 3,

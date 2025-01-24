@@ -35,7 +35,7 @@ export const gromData: CharacterCompatibility = {
     "リリー": 0,
     "メロディー": 1,
     "クロウ": 7,
-    "レオン": 4,
+    "レオン": 0,
     "コーデリアス": 3,
     "ケンジ": 0,
     "ブロック": 3,

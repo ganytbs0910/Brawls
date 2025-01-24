@@ -27,7 +27,7 @@ export const geneData: CharacterCompatibility = {
     "スプラウト": 4,
     "ウィロー": 6,
     "ジュジュ": 6,
-    "ストゥー": 5,
+    "ストゥー": 4,
     "エドガー": 6,
     "シェイド": 3,
     "モーティス": 1,

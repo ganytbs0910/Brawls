@@ -27,7 +27,7 @@ export const nitaData: CharacterCompatibility = {
     "スプラウト": 4,
     "ウィロー": 3,
     "ジュジュ": 2,
-    "ストゥー": 4,
+    "ストゥー": 6,
     "エドガー": 8,
     "シェイド": 3,
     "モーティス": 9,
