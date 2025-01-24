@@ -626,4 +626,18 @@ timestamp: {
   fontWeight: '500',
   opacity: 0.9,
 },
+playerTagContainer: {
+  marginBottom: 16,
+},
+playerTagInputContainer: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  gap: 8,
+},
+playerTagInput: {
+  flex: 1,
+},
+loadingIndicator: {
+  marginLeft: 8,
+},
 });
