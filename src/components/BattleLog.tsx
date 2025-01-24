@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import type { BattleLogItem } from '../hooks/useBrawlStarsApi';
 import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages';
+
 const GAME_MODE_ICONS: { [key: string]: any } = {
   'gemGrab': require('../../assets/GameModeIcons/gem_grab_icon.png'),
   'brawlBall': require('../../assets/GameModeIcons/brawl_ball_icon.png'),
@@ -23,6 +24,7 @@ const GAME_MODE_ICONS: { [key: string]: any } = {
   'basketBrawl': require('../../assets/GameModeIcons/basket_brawl_icon.png'),
   'payLoad': require('../../assets/GameModeIcons/payload_icon.png'),
 };
+
 const RANK_ICONS = {
   bronze: require('../../assets/GameModeIcons/rank_bronze.png'),
   silver: require('../../assets/GameModeIcons/rank_silver.png'),
@@ -42,7 +44,6 @@ const VICTORY_COLOR = '#4CAF50';
 const DEFEAT_COLOR = '#F44336';
 const STAR_PLAYER_COLOR = '#FFD700';
 
-// トロフィー数からランクアイコンを取得する関数
 const getRankIcon = (trophies: number) => {
   if (trophies <= 3) return RANK_ICONS.bronze;
   if (trophies <= 6) return RANK_ICONS.silver;
@@ -53,7 +54,6 @@ const getRankIcon = (trophies: number) => {
   return RANK_ICONS.master;
 };
 
-// モード名の正規化関数
 const normalizeModeName = (modeName: string): string => {
   if (!modeName) return '';
 
@@ -61,7 +61,6 @@ const normalizeModeName = (modeName: string): string => {
     return modeName;
   }
 
-  
   const modeNameMapping: { [key: string]: string } = {
     'gemGrab': 'gemGrab',
     'brawlBall': 'brawlBall',
@@ -125,7 +124,6 @@ const getModeIcon = (modeName: string) => {
   return GAME_MODE_ICONS[normalizedName];
 };
 
-// BattleOverviewコンポーネント - 勝敗の概要を表示
 const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog }) => {
   if (!battleLog || !Array.isArray(battleLog)) return null;
 
@@ -134,7 +132,7 @@ const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog })
   ).length;
   const winRate = Math.round((victories / battleLog.length) * 100);
 
-  const renderResultIcon = (battle, index) => {
+  const renderResultIcon = (battle: BattleLogItem, index: number) => {
     const isVictory = (battle.battle?.result || '').toLowerCase() === 'victory';
     const modeIcon = getModeIcon(battle.battle?.mode);
     return (
@@ -193,11 +191,14 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     return null;
   }
 
-  const validBattles = battleLog.filter(battle => 
-    battle?.battle?.teams && 
-    Array.isArray(battle.battle.teams) && 
-    battle.battle.teams.length >= 2
-  );
+  const validBattles = battleLog.filter(battle => {
+    if (battle?.battle?.mode === 'soloShowdown') {
+      return battle?.battle?.players && Array.isArray(battle.battle.players);
+    }
+    return battle?.battle?.teams && 
+           Array.isArray(battle.battle.teams) && 
+           battle.battle.teams.length >= 2;
+  });
 
   const displayBattles = showAllBattles 
     ? validBattles 
@@ -205,11 +206,17 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
 
   const remainingBattlesCount = validBattles.length - INITIAL_DISPLAY_COUNT;
 
-  const renderPlayer = (player: BattleLogItem['battle']['teams'][0][0], battle: BattleLogItem) => {
+  const renderPlayer = (player: any, battle: BattleLogItem, isTeamMode: boolean = true) => {
     const portraitSource = getPortraitSource(player.brawler.name);
     const isStarPlayer = battle.battle.starPlayer?.tag === player.tag;
     const isSoloRanked = battle.battle.type === 'soloRanked';
     const rankIcon = getRankIcon(player.brawler.trophies);
+    
+    console.log('Player data:', {
+      name: player.name,
+      rank: player.rank,
+      result: player.result
+    });
     
     return (
       <View style={styles.playerContainer} key={player.tag}>
@@ -248,6 +255,11 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
               {player.brawler.trophies}
             </Text>
           </View>
+          {!isTeamMode && player.rank && (
+            <View style={styles.rankBadge}>
+              <Text style={styles.rankText}>#{player.rank}</Text>
+            </View>
+          )}
           {isStarPlayer && (
             <View style={styles.starBadge}>
               <Image 
@@ -268,8 +280,26 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     );
   };
 
+  const renderSoloShowdown = (battle: BattleLogItem) => {
+    const players = battle.battle.players;
+    if (!players || !Array.isArray(players)) return null;
+
+    console.log('Solo showdown players:', players.map(p => ({
+      name: p.name,
+      rank: p.rank,
+      result: p.result
+    })));
+
+    return (
+      <View style={styles.soloShowdownContainer}>
+        {players.map(player => renderPlayer(player, battle, false))}
+      </View>
+    );
+  };
+
   const renderBattleItem = (battle: BattleLogItem) => {
-    if (!battle?.battle?.teams || battle.battle.teams.length < 2) {
+    const isSoloMode = battle.battle.mode === 'soloShowdown';
+    if (!isSoloMode && (!battle?.battle?.teams || battle.battle.teams.length < 2)) {
       return null;
     }
     
@@ -311,17 +341,21 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
           </Text>
         </View>
 
-        <View style={styles.teamsContainer}>
-          <View style={styles.teamRow}>
-            {battle.battle.teams[0].map(player => renderPlayer(player, battle))}
+        {isSoloMode ? (
+          renderSoloShowdown(battle)
+        ) : (
+          <View style={styles.teamsContainer}>
+            <View style={styles.teamRow}>
+              {battle.battle.teams[0].map(player => renderPlayer(player, battle))}
+            </View>
+            <View style={styles.vsContainer}>
+              <Text style={styles.vsText}>VS</Text>
+            </View>
+            <View style={styles.teamRow}>
+              {battle.battle.teams[1].map(player => renderPlayer(player, battle))}
+            </View>
           </View>
-          <View style={styles.vsContainer}>
-            <Text style={styles.vsText}>VS</Text>
-          </View>
-          <View style={styles.teamRow}>
-            {battle.battle.teams[1].map(player => renderPlayer(player, battle))}
-          </View>
-        </View>
+        )}
       </View>
     );
   };
@@ -513,6 +547,25 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'white',
   },
+  rankBadge: {
+    position: 'absolute',
+    bottom: -4,
+    right: -4,
+    backgroundColor: '#FFD700',
+    borderRadius: 8,
+    minWidth: 16,
+    height: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'white',
+    paddingHorizontal: 2,
+  },
+  rankText: {
+    fontSize: 8,
+    fontWeight: 'bold',
+    color: '#000',
+  },
   playerName: {
     fontSize: 10,
     marginTop: 2,
@@ -604,5 +657,13 @@ const styles = StyleSheet.create({
     color: '#2196F3',
     fontWeight: 'bold',
     fontSize: 14,
-  }
+  },
+
+  // ソロショーダウン用
+  soloShowdownContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    padding: 8,
+  },
 });
