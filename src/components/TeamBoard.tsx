@@ -1,5 +1,4 @@
 // TeamBoard.tsx
-
 import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
@@ -293,6 +292,7 @@ const TeamBoard: React.FC = () => {
       };
 
       await addDoc(collection(db, 'teamPosts'), newPost);
+      await AsyncStorage.setItem('lastPostTime', Date.now().toString());
       resetForm();
       setModalVisible(false);
       Alert.alert('成功', '投稿が作成されました');
@@ -523,7 +523,16 @@ const TeamBoard: React.FC = () => {
          </TouchableOpacity>
          <TouchableOpacity 
            style={styles.createButton}
-           onPress={() => setModalVisible(true)}
+           onPress={async () => {
+             const lastPostTime = await AsyncStorage.getItem('lastPostTime');
+             const currentTime = Date.now();
+      
+             if (lastPostTime && currentTime - parseInt(lastPostTime) < 180000) {
+               Alert.alert('エラー', 'すでに投稿済みです。3分後に再度お試しください。');
+               return;
+             }
+             setModalVisible(true);
+           }}
          >
            <Text style={styles.createButtonText}>投稿する</Text>
          </TouchableOpacity>
