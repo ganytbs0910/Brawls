@@ -291,22 +291,32 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
   const renderDuoShowdown = (battle: BattleLogItem) => {
     if (!battle?.battle?.teams || !Array.isArray(battle.battle.teams)) return null;
 
-    return (
-      <View style={styles.soloShowdownContainer}>
-        {battle.battle.teams.map((team, teamIndex) => (
-          <React.Fragment key={`team-${teamIndex}`}>
-            {team.map((player, playerIndex) => (
-              <View key={player.tag} style={styles.playerContainer}>
-                {renderPlayer(player, battle, false)}
-                {playerIndex === 0 && (
-                  <View style={[styles.rankBadge, styles.duoRankBadge]}>
-                    <Text style={styles.rankText}>#{teamIndex + 1}</Text>
-                  </View>
-                )}
+    // 各行のプレイヤーを表示
+    const renderRow = (rowIndex: number) => {
+      return battle.battle.teams.map((team, teamIndex) => {
+        if (!team[rowIndex]) return null;
+        const player = team[rowIndex];
+        return (
+          <View key={player.tag} style={[styles.playerContainer, { flex: 1 }]}>
+            {renderPlayer(player, battle, false)}
+            {rowIndex === 0 && (
+              <View style={styles.rankBadge}>
+                <Text style={styles.rankText}>#{teamIndex + 1}</Text>
               </View>
-            ))}
-          </React.Fragment>
-        ))}
+            )}
+          </View>
+        );
+      });
+    };
+
+    return (
+      <View style={styles.duoShowdownContainer}>
+        <View style={styles.duoTeamRow}>
+          {renderRow(0)}
+        </View>
+        <View style={styles.duoTeamRow}>
+          {renderRow(1)}
+        </View>
       </View>
     );
   };
@@ -579,10 +589,6 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     paddingHorizontal: 2,
   },
-  duoRankBadge: {
-    right: -20,
-    bottom: 10,
-  },
   rankText: {
     fontSize: 8,
     fontWeight: 'bold',
@@ -687,6 +693,16 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     padding: 8,
+  },
+
+  // デュオショーダウン用の新しいスタイル
+  duoShowdownContainer: {
+    padding: 8,
+  },
+  duoTeamRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: 8,
   },
 });
 
