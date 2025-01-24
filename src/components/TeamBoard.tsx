@@ -34,16 +34,7 @@ import CharacterSelector, { Character } from './CharacterSelector';
 import { PostCard, styles } from './TeamBoardComponents';
 import { usePlayerData } from '../hooks/useBrawlStarsApi';
 import { nameMap } from '../data/characterData';
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDCuES9P2UaLjQnYNVj0HhakM8o01TR5bQ",
-  authDomain: "brawlstatus-eebf8.firebaseapp.com",
-  projectId: "brawlstatus-eebf8",
-  storageBucket: "brawlstatus-eebf8.appspot.com",
-  messagingSenderId: "799846073884",
-  appId: "1:799846073884:web:33dca774ee25a04a4bc1d9",
-  measurementId: "G-V7C3C0GKQK"
-};
+import { createClient } from '@supabase/supabase-js';
 
 const POST_LIMIT = 6;
 
@@ -66,14 +57,11 @@ interface TeamPost {
   hostInfo: HostInfo;
 }
 
-let app;
-let db;
-try {
-  app = initializeApp(firebaseConfig);
-  db = getFirestore(app);
-} catch (error) {
-  console.error('Firebase initialization failed:', error);
-}
+
+const supabase = createClient(
+  'YOUR_SUPABASE_URL',
+  'YOUR_SUPABASE_ANON_KEY'
+);
 
 const TeamBoard: React.FC = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -101,34 +89,28 @@ const TeamBoard: React.FC = () => {
   const inviteLinkInputRef = useRef<TextInput>(null);
   const playerDataAPI = usePlayerData();
 
-  useEffect(() => {
-    const q = query(
-      collection(db, 'teamPosts'),
-      orderBy('createdAt', 'desc'),
-      limit(POST_LIMIT)
-    );
+ // リアルタイム更新のuseEffectを変更
+useEffect(() => {
+  const channel = supabase.channel('team_posts_channel')
+    .on(
+      'postgres_changes',
+      {
+        event: '*',
+        schema: 'public',
+        table: 'team_posts'
+      },
+      () => {
+        refreshPosts();
+      }
+    )
+    .subscribe();
 
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const postData = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-        hostInfo: doc.data().hostInfo || {
-          wins3v3: 0,
-          totalTrophies: 0,
-          winsDuo: 0
-        },
-        midCharacters: doc.data().midCharacters || [],
-        sideCharacters: doc.data().sideCharacters || []
-      })) as TeamPost[];
-      setPosts(postData);
-      setLoading(false);
-    }, (error) => {
-      console.error('Error listening to posts:', error);
-      setLoading(false);
-    });
+  refreshPosts();
 
-    return () => unsubscribe();
-  }, []);
+  return () => {
+    supabase.removeChannel(channel);
+  };
+}, []);
 
   useEffect(() => {
     loadSavedPlayerTag();
@@ -203,44 +185,67 @@ const TeamBoard: React.FC = () => {
     }
   };
 
-  const handleRefresh = async () => {
-    const currentTime = Date.now();
-    if (currentTime - lastRefreshTime < REFRESH_COOLDOWN) {
-      Alert.alert('エラー', '更新は3秒後に可能になります');
-      return;
-    }
+  // 投稿取得の関数を変更
+const refreshPosts = async () => {
+  const currentTime = Date.now();
+  if (currentTime - lastRefreshTime < REFRESH_COOLDOWN) {
+    Alert.alert('エラー', '更新は3秒後に可能になります');
+    return;
+  }
+  try {
+    const { data, error } = await supabase
+      .from('team_posts')
+      .select('*')
+      .order('created_at', { ascending: false })
+      .limit(POST_LIMIT);
 
-    setIsRefreshing(true);
-    setLastRefreshTime(currentTime);
+    if (error) throw error;
 
-    try {
-      const q = query(
-        collection(db, 'teamPosts'),
-        orderBy('createdAt', 'desc'),
-        limit(POST_LIMIT)
-      );
+    setPosts(data as TeamPost[]);
+    setLoading(false);
+  } catch (error) {
+    console.error('Error fetching posts:', error);
+    setLoading(false);
+  }
+};
+  // const handleRefresh = async () => {
+  //   const currentTime = Date.now();
+  //   if (currentTime - lastRefreshTime < REFRESH_COOLDOWN) {
+  //     Alert.alert('エラー', '更新は3秒後に可能になります');
+  //     return;
+  //   }
+
+  //   setIsRefreshing(true);
+  //   setLastRefreshTime(currentTime);
+
+  //   try {
+  //     const q = query(
+  //       collection(db, 'teamPosts'),
+  //       orderBy('createdAt', 'desc'),
+  //       limit(POST_LIMIT)
+  //     );
       
-      const snapshot = await getDocs(q);
-      const postData = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-        hostInfo: doc.data().hostInfo || {
-          wins3v3: 0,
-          totalTrophies: 0,
-          winsDuo: 0
-        },
-        midCharacters: doc.data().midCharacters || [],
-        sideCharacters: doc.data().sideCharacters || []
-      })) as TeamPost[];
+  //     const snapshot = await getDocs(q);
+  //     const postData = snapshot.docs.map(doc => ({
+  //       id: doc.id,
+  //       ...doc.data(),
+  //       hostInfo: doc.data().hostInfo || {
+  //         wins3v3: 0,
+  //         totalTrophies: 0,
+  //         winsDuo: 0
+  //       },
+  //       midCharacters: doc.data().midCharacters || [],
+  //       sideCharacters: doc.data().sideCharacters || []
+  //     })) as TeamPost[];
       
-      setPosts(postData);
-      setTimeout(() => setIsRefreshing(false), 500);
-    } catch (error) {
-      console.error('Refresh failed:', error);
-      Alert.alert('エラー', '更新に失敗しました');
-      setIsRefreshing(false);
-    }
-  };
+  //     setPosts(postData);
+  //     setTimeout(() => setIsRefreshing(false), 500);
+  //   } catch (error) {
+  //     console.error('Refresh failed:', error);
+  //     Alert.alert('エラー', '更新に失敗しました');
+  //     setIsRefreshing(false);
+  //   }
+  // };
 
   const validateInviteLink = (link: string): boolean => {
     const baseUrl = 'https://link.brawlstars.com/invite/gameroom';
@@ -273,34 +278,56 @@ const TeamBoard: React.FC = () => {
     return true;
   };
 
-  const createPost = async () => {
-    if (!validateInputs()) return;
+  // 投稿作成の関数を変更
+const createPost = async () => {
+  if (!validateInputs()) return;
 
-    try {
-      const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
-      const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
+  try {
+    const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
+    const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
 
-      const newPost = {
-        selectedMode,
-        inviteLink: cleanInviteLink,
-        description: description.trim(),
-        createdAt: Timestamp.now(),
-        selectedCharacter: selectedCharacter!.id,
-        characterTrophies: Number(characterTrophies),
-        midCharacters: midCharacters.map(c => c.id),
-        sideCharacters: sideCharacters.map(c => c.id),
-        hostInfo
-      };
+    // 新しい投稿を作成
+    const { error: insertError } = await supabase
+      .from('team_posts')
+      .insert([
+        {
+          selected_mode: selectedMode,
+          invite_link: cleanInviteLink,
+          description: description.trim(),
+          selected_character: selectedCharacter!.id,
+          character_trophies: Number(characterTrophies),
+          mid_characters: midCharacters.map(c => c.id),
+          side_characters: sideCharacters.map(c => c.id),
+          host_info: hostInfo
+        }
+      ]);
 
-      await addDoc(collection(db, 'teamPosts'), newPost);
-      resetForm();
-      setModalVisible(false);
-      Alert.alert('成功', '投稿が作成されました');
-    } catch (error) {
-      console.error('Error creating post:', error);
-      Alert.alert('エラー', '投稿の作成に失敗しました');
+    if (insertError) throw insertError;
+
+    // 古い投稿の削除処理
+    const { count } = await supabase
+      .from('team_posts')
+      .select('*', { count: 'exact' });
+
+    if (count && count > POST_LIMIT) {
+      const { error: deleteError } = await supabase.rpc('delete_old_posts', {
+        limit_count: POST_LIMIT
+      });
+
+      if (deleteError) {
+        console.error('Error deleting old posts:', deleteError);
+      }
     }
-  };
+
+    resetForm();
+    setModalVisible(false);
+    Alert.alert('成功', '投稿が作成されました');
+    refreshPosts();
+  } catch (error) {
+    console.error('Error creating post:', error);
+    Alert.alert('エラー', '投稿の作成に失敗しました');
+  }
+};
 
   const resetForm = () => {
     setSelectedMode('');
