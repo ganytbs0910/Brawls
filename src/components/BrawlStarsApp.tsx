@@ -16,10 +16,12 @@ import {
   usePlayerData, 
   useGlobalRankings
 } from '../hooks/useBrawlStarsApi';
+import AsyncStorage from '@react-native-async-storage/async-storage'; // AsyncStorageを使用
 
 export default function BrawlStarsApp() {
   const [playerTag, setPlayerTag] = useState('');
   const [isInitialized, setIsInitialized] = useState(false);
+  const [searchHistory, setSearchHistory] = useState([]); // 検索履歴
   const brawlersData = useBrawlersData();
   const playerData = usePlayerData();
   const rankingsData = useGlobalRankings();
@@ -28,15 +30,17 @@ export default function BrawlStarsApp() {
     const initializeApp = async () => {
       try {
         const brawlersPromise = brawlersData.fetchBrawlers();
-        const savedTag = await playerData.loadSavedTag();
+        await brawlersPromise;
+
+        // 前回のタグと検索履歴を取得
+        const savedTag = await AsyncStorage.getItem('lastPlayerTag');
+        const savedHistory = JSON.parse(await AsyncStorage.getItem('searchHistory')) || [];
+
         if (savedTag) {
           setPlayerTag(savedTag);
-          const playerPromise = playerData.fetchPlayerData(savedTag);
-          await Promise.all([brawlersPromise, playerPromise]);
-        } else {
-          await brawlersPromise;
         }
-        
+        setSearchHistory(savedHistory.slice(0, 5)); // 履歴は最大5件に制限
+
         setIsInitialized(true);
       } catch (error) {
         setIsInitialized(true);
@@ -44,6 +48,28 @@ export default function BrawlStarsApp() {
     };
     initializeApp();
   }, []);
+
+  const handleSearch = async () => {
+    if (playerTag.trim()) {
+      // プレイヤータグを検索
+      await playerData.fetchPlayerData(playerTag);
+
+      // 検索履歴に追加
+      const newHistory = [playerTag, ...searchHistory.filter(tag => tag !== playerTag)];
+      if (newHistory.length > 5) {
+        newHistory.pop(); // 最大5件を超えた場合、最も古いものを削除
+      }
+      setSearchHistory(newHistory);
+      await AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory));
+
+      // 前回のタグを保存
+      await AsyncStorage.setItem('lastPlayerTag', playerTag);
+    }
+  };
+
+  const handleHistorySelect = (tag) => {
+    setPlayerTag(tag);
+  };
 
   useEffect(() => {
     if (isInitialized && playerData.data?.playerInfo) {
@@ -89,7 +115,7 @@ export default function BrawlStarsApp() {
         />
         <TouchableOpacity
           style={styles.searchButton}
-          onPress={() => playerData.fetchPlayerData(playerTag)}
+          onPress={handleSearch}
           disabled={playerData.loading || !playerTag.trim()}
         >
           <Text style={styles.searchButtonText}>
@@ -97,7 +123,20 @@ export default function BrawlStarsApp() {
           </Text>
         </TouchableOpacity>
       </View>
+
       {playerData.error && <Text style={styles.errorText}>{playerData.error}</Text>}
+
+      {/* 検索履歴 */}
+      {searchHistory.length > 0 && (
+        <View style={styles.historyContainer}>
+          <Text style={styles.historyTitle}>検索履歴</Text>
+          {searchHistory.map((tag, index) => (
+            <TouchableOpacity key={index} onPress={() => handleHistorySelect(tag)}>
+              <Text style={styles.historyItem}>{tag}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      )}
     </View>
   );
 
@@ -230,5 +269,23 @@ const styles = StyleSheet.create({
   loadingText: {
     marginTop: 12,
     color: '#666',
+  },
+    historyContainer: {
+    marginTop: 16,
+  },
+  historyTitle: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    color: '#333',
+  },
+  historyItem: {
+    fontSize: 14,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    backgroundColor: '#f1f1f1',
+    borderRadius: 8,
+    marginBottom: 4,
+    color: '#2196F3',
   },
 });
