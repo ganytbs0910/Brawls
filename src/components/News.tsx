@@ -43,12 +43,10 @@ interface NewsPost {
   creatorName: string;
 }
 
-// Firebase初期化
 let app;
 let db;
 
 try {
-  // Firebase が未初期化の場合のみ初期化
   if (!getApps().length) {
     app = initializeApp(firebaseConfig);
   } else {
@@ -258,21 +256,37 @@ const News: React.FC = () => {
       >
         <View style={styles.modalOverlay}>
           <View style={styles.modalView}>
+            <TouchableOpacity
+              style={styles.closeButton}
+              onPress={() => {
+                setModalVisible(false);
+                resetForm();
+              }}
+            >
+              <Text style={styles.closeButtonText}>×</Text>
+            </TouchableOpacity>
             {!isPasswordVerified ? (
-              <View>
+              <View style={styles.authContainer}>
                 <Text style={styles.modalTitle}>クリエイター認証</Text>
-                <TextInput
-                  style={styles.input}
-                  value={password}
-                  onChangeText={setPassword}
-                  placeholder="パスワードを入力"
-                  secureTextEntry
-                />
+                <View style={styles.authInputContainer}>
+                  <Image
+                    source={require('../../assets/AppIcon/magnifyingglass_icon.png')}
+                    style={styles.authIcon}
+                  />
+                  <TextInput
+                    style={styles.authInput}
+                    value={password}
+                    onChangeText={setPassword}
+                    placeholder="パスワードを入力"
+                    secureTextEntry
+                    placeholderTextColor="#999"
+                  />
+                </View>
                 <TouchableOpacity
-                  style={styles.submitButton}
+                  style={styles.authButton}
                   onPress={verifyPassword}
                 >
-                  <Text style={styles.submitButtonText}>認証</Text>
+                  <Text style={styles.authButtonText}>認証する</Text>
                 </TouchableOpacity>
               </View>
             ) : (
@@ -490,6 +504,63 @@ const styles = StyleSheet.create({
   submitButtonText: {
     color: '#fff',
     textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  closeButton: {
+    position: 'absolute',
+    right: 10,
+    top: 10,
+    width: 30,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1,
+  },
+  closeButtonText: {
+    fontSize: 24,
+    color: '#666',
+    fontWeight: 'bold',
+  },
+  authContainer: {
+    padding: 20,
+  },
+  authInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    marginBottom: 24,
+    backgroundColor: '#f8f8f8',
+  },
+  authIcon: {
+    width: 20,
+    height: 20,
+    tintColor: '#666',
+    marginRight: 12,
+  },
+  authInput: {
+    flex: 1,
+    height: 48,
+    fontSize: 16,
+    color: '#333',
+  },
+  authButton: {
+    backgroundColor: '#FF0000',
+    borderRadius: 12,
+    height: 48,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  authButtonText: {
+    color: '#fff',
+    fontSize: 16,
     fontWeight: 'bold',
   },
 });
