@@ -9,7 +9,8 @@ import {
   Share, 
   Alert,
   Platform,
-  Dimensions
+  Dimensions,
+  Linking
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
@@ -430,6 +431,21 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
                 ]}>
                   広告を見て支援する（大）
                   {!isRewardedAdReady && ' (準備中)'}
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity 
+                style={styles.settingsItem}
+                onPress={() => {
+                  const url = Platform.select({
+                    ios: 'https://apps.apple.com/jp/app/brawl-status/id6738936691?action=write-review',
+                    android: 'market://details?id=com.brawlstatus'
+                  });
+                  if (url) Linking.openURL(url);
+                }}
+              >
+                <Text style={styles.settingsItemText}>
+                  アプリを評価する
                 </Text>
               </TouchableOpacity>
             </>

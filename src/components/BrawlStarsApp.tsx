@@ -16,12 +16,12 @@ import {
   usePlayerData, 
   useGlobalRankings
 } from '../hooks/useBrawlStarsApi';
-import AsyncStorage from '@react-native-async-storage/async-storage'; // AsyncStorageを使用
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function BrawlStarsApp() {
   const [playerTag, setPlayerTag] = useState('');
   const [isInitialized, setIsInitialized] = useState(false);
-  const [searchHistory, setSearchHistory] = useState([]); // 検索履歴
+  const [searchHistory, setSearchHistory] = useState([]);
   const brawlersData = useBrawlersData();
   const playerData = usePlayerData();
   const rankingsData = useGlobalRankings();
@@ -32,14 +32,13 @@ export default function BrawlStarsApp() {
         const brawlersPromise = brawlersData.fetchBrawlers();
         await brawlersPromise;
 
-        // 前回のタグと検索履歴を取得
         const savedTag = await AsyncStorage.getItem('lastPlayerTag');
         const savedHistory = JSON.parse(await AsyncStorage.getItem('searchHistory')) || [];
 
         if (savedTag) {
           setPlayerTag(savedTag);
         }
-        setSearchHistory(savedHistory.slice(0, 5)); // 履歴は最大5件に制限
+        setSearchHistory(savedHistory.slice(0, 3));
 
         setIsInitialized(true);
       } catch (error) {
@@ -51,19 +50,16 @@ export default function BrawlStarsApp() {
 
   const handleSearch = async () => {
     if (playerTag.trim()) {
-      // プレイヤータグを検索
       await playerData.fetchPlayerData(playerTag);
 
-      // 検索履歴に追加
-      const newHistory = [playerTag, ...searchHistory.filter(tag => tag !== playerTag)];
-      if (newHistory.length > 5) {
-        newHistory.pop(); // 最大5件を超えた場合、最も古いものを削除
+      const cleanTag = playerTag.replace('#', '');
+      const newHistory = [cleanTag, ...searchHistory.filter(tag => tag !== cleanTag)];
+      if (newHistory.length > 3) {
+        newHistory.pop();
       }
       setSearchHistory(newHistory);
       await AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory));
-
-      // 前回のタグを保存
-      await AsyncStorage.setItem('lastPlayerTag', playerTag);
+      await AsyncStorage.setItem('lastPlayerTag', cleanTag);
     }
   };
 
@@ -126,7 +122,6 @@ export default function BrawlStarsApp() {
 
       {playerData.error && <Text style={styles.errorText}>{playerData.error}</Text>}
 
-      {/* 検索履歴 */}
       {searchHistory.length > 0 && (
         <View style={styles.historyContainer}>
           <Text style={styles.historyTitle}>検索履歴</Text>
@@ -270,7 +265,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
     color: '#666',
   },
-    historyContainer: {
+  historyContainer: {
     marginTop: 16,
   },
   historyTitle: {
