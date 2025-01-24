@@ -195,6 +195,9 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     if (battle?.battle?.mode === 'soloShowdown') {
       return battle?.battle?.players && Array.isArray(battle.battle.players);
     }
+    if (battle?.battle?.mode === 'duoShowdown') {
+      return battle?.battle?.teams && Array.isArray(battle.battle.teams);
+    }
     return battle?.battle?.teams && 
            Array.isArray(battle.battle.teams) && 
            battle.battle.teams.length >= 2;
@@ -211,12 +214,6 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     const isStarPlayer = battle.battle.starPlayer?.tag === player.tag;
     const isSoloRanked = battle.battle.type === 'soloRanked';
     const rankIcon = getRankIcon(player.brawler.trophies);
-    
-    console.log('Player data:', {
-      name: player.name,
-      rank: player.rank,
-      result: player.result
-    });
     
     return (
       <View style={styles.playerContainer} key={player.tag}>
@@ -284,12 +281,6 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     const players = battle.battle.players;
     if (!players || !Array.isArray(players)) return null;
 
-    console.log('Solo showdown players:', players.map(p => ({
-      name: p.name,
-      rank: p.rank,
-      result: p.result
-    })));
-
     return (
       <View style={styles.soloShowdownContainer}>
         {players.map(player => renderPlayer(player, battle, false))}
@@ -297,9 +288,34 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     );
   };
 
+  const renderDuoShowdown = (battle: BattleLogItem) => {
+    if (!battle?.battle?.teams || !Array.isArray(battle.battle.teams)) return null;
+
+    return (
+      <View style={styles.soloShowdownContainer}>
+        {battle.battle.teams.map((team, teamIndex) => (
+          <React.Fragment key={`team-${teamIndex}`}>
+            {team.map((player, playerIndex) => (
+              <View key={player.tag} style={styles.playerContainer}>
+                {renderPlayer(player, battle, false)}
+                {playerIndex === 0 && (
+                  <View style={[styles.rankBadge, styles.duoRankBadge]}>
+                    <Text style={styles.rankText}>#{teamIndex + 1}</Text>
+                  </View>
+                )}
+              </View>
+            ))}
+          </React.Fragment>
+        ))}
+      </View>
+    );
+  };
+
   const renderBattleItem = (battle: BattleLogItem) => {
     const isSoloMode = battle.battle.mode === 'soloShowdown';
-    if (!isSoloMode && (!battle?.battle?.teams || battle.battle.teams.length < 2)) {
+    const isDuoMode = battle.battle.mode === 'duoShowdown';
+    
+    if (!isSoloMode && !isDuoMode && (!battle?.battle?.teams || battle.battle.teams.length < 2)) {
       return null;
     }
     
@@ -343,6 +359,8 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
 
         {isSoloMode ? (
           renderSoloShowdown(battle)
+        ) : isDuoMode ? (
+          renderDuoShowdown(battle)
         ) : (
           <View style={styles.teamsContainer}>
             <View style={styles.teamRow}>
@@ -561,6 +579,10 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     paddingHorizontal: 2,
   },
+  duoRankBadge: {
+    right: -20,
+    bottom: 10,
+  },
   rankText: {
     fontSize: 8,
     fontWeight: 'bold',
@@ -659,7 +681,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
 
-  // ソロショーダウン用
+  // ソロ/デュオショーダウン用
   soloShowdownContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -667,3 +689,5 @@ const styles = StyleSheet.create({
     padding: 8,
   },
 });
+
+export default BattleLog;
