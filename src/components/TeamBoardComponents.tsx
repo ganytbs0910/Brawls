@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet, Alert, Linking } from 'react-native';
-import { Timestamp } from 'firebase/firestore';
 import { characters } from './CharacterSelector';
 import { getCurrentMode } from '../utils/gameData';
 
@@ -12,19 +11,19 @@ interface HostInfo {
 
 interface TeamPost {
   id: string;
-  selectedMode: string;
-  inviteLink: string;
+  selected_mode: string;
+  invite_link: string;
   description: string;
-  createdAt: Timestamp;
-  selectedCharacter: string;
-  characterTrophies: number;
-  midCharacters: string[];
-  sideCharacters: string[];
-  hostInfo: HostInfo;
+  created_at: string;
+  selected_character: string;
+  character_trophies: number;
+  mid_characters: string[];
+  side_characters: string[];
+  host_info: HostInfo;
 }
 
-const formatTimestamp = (timestamp: Timestamp) => {
-  const date = timestamp.toDate();
+const timeAgo = (dateString: string) => {
+  const date = new Date(dateString);
   const now = new Date();
   const diffInMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60));
   
@@ -100,7 +99,6 @@ const getCurrentModes = () => {
     }
   ];
 
-  // ホットゾーン/強奪の現在のモード
   const heistMode = getCurrentMode("heist", currentDate);
   if (heistMode) {
     modes.push({
@@ -110,7 +108,6 @@ const getCurrentModes = () => {
     });
   }
 
-  // 5vs5モードの現在のモード
   const brawlBall5v5Mode = getCurrentMode("brawlBall5v5", currentDate);
   if (brawlBall5v5Mode) {
     modes.push({
@@ -120,7 +117,6 @@ const getCurrentModes = () => {
     });
   }
 
-  // デュエル/殲滅/賞金稼ぎの現在のモード
   const duelMode = getCurrentMode("duel", currentDate);
   if (duelMode) {
     modes.push({
@@ -135,8 +131,8 @@ const getCurrentModes = () => {
 
 export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
   const modes = getCurrentModes();
-  const mode = modes.find(m => m.name === post.selectedMode) || {
-    name: post.selectedMode,
+  const mode = modes.find(m => m.name === post.selected_mode) || {
+    name: post.selected_mode,
     color: "#21A0DB",
     icon: require('../../assets/GameModeIcons/4800003.png')
   };
@@ -144,7 +140,7 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
   return (
     <TouchableOpacity
       style={styles.postCard}
-      onPress={() => handleOpenLink(post.inviteLink)}
+      onPress={() => handleOpenLink(post.invite_link)}
     >
       <View style={[
         styles.postHeader,
@@ -156,9 +152,9 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
               source={mode.icon}
               style={styles.modeIcon} 
             />
-            <Text style={styles.modeName}>{post.selectedMode}</Text>
+            <Text style={styles.modeName}>{post.selected_mode}</Text>
           </View>
-          <Text style={styles.timestamp}>{formatTimestamp(post.createdAt)}</Text>
+          <Text style={styles.timestamp}>{timeAgo(post.created_at)}</Text>
         </View>
       </View>
 
@@ -169,7 +165,7 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
               <View style={styles.recruitColumn}>
                 <Text style={styles.sectionTitle}>ミッド募集</Text>
                 <View style={styles.characterList}>
-                  {post.midCharacters.map(charId => (
+                  {post.mid_characters.map(charId => (
                     <Image 
                       key={charId}
                       source={characters.find(c => c.id === charId)?.icon}
@@ -182,7 +178,7 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
               <View style={styles.recruitColumn}>
                 <Text style={styles.sectionTitle}>サイド募集</Text>
                 <View style={styles.characterList}>
-                  {post.sideCharacters.map(charId => (
+                  {post.side_characters.map(charId => (
                     <Image 
                       key={charId}
                       source={characters.find(c => c.id === charId)?.icon}
@@ -195,39 +191,39 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
           </View>
 
           <View style={styles.hostInfoSection}>
-  <Text style={styles.sectionTitle}>ホスト情報</Text>
-  <View style={styles.hostStats}>
-    <View style={styles.hostStatRow}>
-      <Image 
-        source={require('../../assets/OtherIcon/trophy_Icon.png')}
-        style={styles.tinyTrophyIcon}
-      />
-      <Text>総合トロ: {post.hostInfo.totalTrophies}</Text>
-    </View>
-    <View style={styles.hostStatRow}>
-      <Image 
-        source={require('../../assets/GameModeIcons/gem_grab_icon.png')}
-        style={styles.tinyTrophyIcon}
-      />
-      <Text>3vs3勝利数: {post.hostInfo.wins3v3}</Text>
-    </View>
-    <View style={styles.hostStatRow}>
-      <Image 
-        source={require('../../assets/GameModeIcons/duo_showdown_icon.png')}
-        style={styles.tinyTrophyIcon}
-      />
-      <Text>デュオ勝利数: {post.hostInfo.winsDuo}</Text>
-    </View>
-  </View>
-  <View style={styles.hostStatRow}>
-    <Image 
-      source={characters.find(c => c.id === post.selectedCharacter)?.icon}
-      style={styles.smallCharIcon}
-    />
-    <Text>使用キャラ: </Text>
-    <Text>{post.characterTrophies}</Text>
-  </View>
-</View>
+            <Text style={styles.sectionTitle}>ホスト情報</Text>
+            <View style={styles.hostStats}>
+              <View style={styles.hostStatRow}>
+                <Image 
+                  source={require('../../assets/OtherIcon/trophy_Icon.png')}
+                  style={styles.tinyTrophyIcon}
+                />
+                <Text>総合トロ: {post.host_info.totalTrophies}</Text>
+              </View>
+              <View style={styles.hostStatRow}>
+                <Image 
+                  source={require('../../assets/GameModeIcons/gem_grab_icon.png')}
+                  style={styles.tinyTrophyIcon}
+                />
+                <Text>3vs3勝利数: {post.host_info.wins3v3}</Text>
+              </View>
+              <View style={styles.hostStatRow}>
+                <Image 
+                  source={require('../../assets/GameModeIcons/duo_showdown_icon.png')}
+                  style={styles.tinyTrophyIcon}
+                />
+                <Text>デュオ勝利数: {post.host_info.winsDuo}</Text>
+              </View>
+            </View>
+            <View style={styles.hostStatRow}>
+              <Image 
+                source={characters.find(c => c.id === post.selected_character)?.icon}
+                style={styles.smallCharIcon}
+              />
+              <Text>使用キャラ: </Text>
+              <Text>{post.character_trophies}</Text>
+            </View>
+          </View>
         </View>
 
         {post.description && (
@@ -242,7 +238,7 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
 };
 
 export const styles = StyleSheet.create({
-    autoFillSection: {
+  autoFillSection: {
     marginBottom: 8,
   },
   autoFillInputContainer: {
@@ -616,28 +612,28 @@ export const styles = StyleSheet.create({
     color: '#333',
   },
   headerContent: {
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-},
-timestamp: {
-  color: '#fff',
-  fontSize: 12,
-  fontWeight: '500',
-  opacity: 0.9,
-},
-playerTagContainer: {
-  marginBottom: 16,
-},
-playerTagInputContainer: {
-  flexDirection: 'row',
-  alignItems: 'center',
-  gap: 8,
-},
-playerTagInput: {
-  flex: 1,
-},
-loadingIndicator: {
-  marginLeft: 8,
-},
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  timestamp: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: '500',
+    opacity: 0.9,
+  },
+  playerTagContainer: {
+    marginBottom: 16,
+  },
+  playerTagInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  playerTagInput: {
+    flex: 1,
+  },
+  loadingIndicator: {
+    marginLeft: 8,
+  },
 });

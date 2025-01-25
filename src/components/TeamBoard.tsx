@@ -1,4 +1,5 @@
-// TeamBoard.tsx
+import { createClient } from '@supabase/supabase-js';
+import 'react-native-url-polyfill/auto';
 import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
@@ -12,37 +13,18 @@ import {
   ActivityIndicator,
   KeyboardAvoidingView,
   Platform,
-  Keyboard,
   Image
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { initializeApp } from 'firebase/app';
-import { 
-  getFirestore, 
-  collection, 
-  addDoc,
-  query,
-  orderBy,
-  getDocs,
-  Timestamp,
-  limit,
-  onSnapshot
-} from 'firebase/firestore';
-import { getCurrentMode } from '../utils/gameData';
 import CharacterSelector, { Character } from './CharacterSelector';
 import { PostCard, styles } from './TeamBoardComponents';
 import { usePlayerData } from '../hooks/useBrawlStarsApi';
 import { nameMap } from '../data/characterData';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDCuES9P2UaLjQnYNVj0HhakM8o01TR5bQ",
-  authDomain: "brawlstatus-eebf8.firebaseapp.com",
-  projectId: "brawlstatus-eebf8",
-  storageBucket: "brawlstatus-eebf8.appspot.com",
-  messagingSenderId: "799846073884",
-  appId: "1:799846073884:web:33dca774ee25a04a4bc1d9",
-  measurementId: "G-V7C3C0GKQK"
-};
+const supabase = createClient(
+  'https://llxmsbnqtdlqypnwapzz.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxseG1zYm5xdGRscXlwbndhcHp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc4MjA5MjEsImV4cCI6MjA1MzM5NjkyMX0.EkqepILQU0KgOTW1ZaXpe54ERpZbSRodf24r5022VKs'
+);
 
 const POST_LIMIT = 6;
 
@@ -54,24 +36,15 @@ interface HostInfo {
 
 interface TeamPost {
   id: string;
-  selectedMode: string;
-  inviteLink: string;
+  selected_mode: string;
+  invite_link: string;
   description: string;
-  createdAt: Timestamp;
-  selectedCharacter: string;
-  characterTrophies: number;
-  midCharacters: string[];
-  sideCharacters: string[];
-  hostInfo: HostInfo;
-}
-
-let app;
-let db;
-try {
-  app = initializeApp(firebaseConfig);
-  db = getFirestore(app);
-} catch (error) {
-  console.error('Firebase initialization failed:', error);
+  created_at: string;
+  selected_character: string;
+  character_trophies: number;
+  mid_characters: string[];
+  side_characters: string[];
+  host_info: HostInfo;
 }
 
 const TeamBoard: React.FC = () => {
@@ -101,32 +74,38 @@ const TeamBoard: React.FC = () => {
   const playerDataAPI = usePlayerData();
 
   useEffect(() => {
-    const q = query(
-      collection(db, 'teamPosts'),
-      orderBy('createdAt', 'desc'),
-      limit(POST_LIMIT)
-    );
+    const fetchPosts = async () => {
+      const { data, error } = await supabase
+        .from('team_posts')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(POST_LIMIT);
 
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const postData = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-        hostInfo: doc.data().hostInfo || {
-          wins3v3: 0,
-          totalTrophies: 0,
-          winsDuo: 0
-        },
-        midCharacters: doc.data().midCharacters || [],
-        sideCharacters: doc.data().sideCharacters || []
-      })) as TeamPost[];
-      setPosts(postData);
-      setLoading(false);
-    }, (error) => {
-      console.error('Error listening to posts:', error);
-      setLoading(false);
-    });
+      if (error) {
+        console.error('Error fetching posts:', error);
+        return;
+      }
 
-    return () => unsubscribe();
+      setPosts(data as TeamPost[]);
+      setLoading(false);
+    };
+
+    const channel = supabase
+      .channel('team_posts_changes')
+      .on('postgres_changes', 
+        { event: '*', schema: 'public', table: 'team_posts' },
+        payload => {
+          if (payload.eventType === 'INSERT') {
+            setPosts(prev => [payload.new as TeamPost, ...prev].slice(0, POST_LIMIT));
+          }
+        }
+      )
+      .subscribe();
+
+    fetchPosts();
+    return () => {
+      channel.unsubscribe();
+    };
   }, []);
 
   useEffect(() => {
@@ -213,26 +192,14 @@ const TeamBoard: React.FC = () => {
     setLastRefreshTime(currentTime);
 
     try {
-      const q = query(
-        collection(db, 'teamPosts'),
-        orderBy('createdAt', 'desc'),
-        limit(POST_LIMIT)
-      );
-      
-      const snapshot = await getDocs(q);
-      const postData = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-        hostInfo: doc.data().hostInfo || {
-          wins3v3: 0,
-          totalTrophies: 0,
-          winsDuo: 0
-        },
-        midCharacters: doc.data().midCharacters || [],
-        sideCharacters: doc.data().sideCharacters || []
-      })) as TeamPost[];
-      
-      setPosts(postData);
+      const { data, error } = await supabase
+        .from('team_posts')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(POST_LIMIT);
+
+      if (error) throw error;
+      setPosts(data as TeamPost[]);
       setTimeout(() => setIsRefreshing(false), 500);
     } catch (error) {
       console.error('Refresh failed:', error);
@@ -279,19 +246,21 @@ const TeamBoard: React.FC = () => {
       const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
       const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
 
-      const newPost = {
-        selectedMode,
-        inviteLink: cleanInviteLink,
-        description: description.trim(),
-        createdAt: Timestamp.now(),
-        selectedCharacter: selectedCharacter!.id,
-        characterTrophies: Number(characterTrophies),
-        midCharacters: midCharacters.map(c => c.id),
-        sideCharacters: sideCharacters.map(c => c.id),
-        hostInfo
-      };
+      const { error } = await supabase
+        .from('team_posts')
+        .insert([{
+          selected_mode: selectedMode,
+          invite_link: cleanInviteLink,
+          description: description.trim(),
+          selected_character: selectedCharacter!.id,
+          character_trophies: Number(characterTrophies),
+          mid_characters: midCharacters.map(c => c.id),
+          side_characters: sideCharacters.map(c => c.id),
+          host_info: hostInfo
+        }]);
 
-      await addDoc(collection(db, 'teamPosts'), newPost);
+      if (error) throw error;
+
       await AsyncStorage.setItem('lastPostTime', Date.now().toString());
       resetForm();
       setModalVisible(false);
@@ -421,148 +390,147 @@ const TeamBoard: React.FC = () => {
 
         <Text style={styles.inputLabel}>ミッド募集キャラクター (最大3体)</Text>
         <CharacterSelector
-         title=""
-         onSelect={(character) => {
-           if (!character) return;
-           setMidCharacters(prev => {
-             if (prev.some(c => c.id === character.id)) {
-               return prev.filter(c => c.id !== character.id);
-             }
-             if (prev.length >= 3) {
-               Alert.alert('エラー', 'ミッドキャラは3体まで選択できます');
-               return prev;
-             }
-             return [...prev, character];
-           });
-         }}
-         multiSelect={true}
-         selectedCharacters={midCharacters}
-         maxSelections={3}
-       />
+          title=""
+          onSelect={(character) => {
+            if (!character) return;
+            setMidCharacters(prev => {
+              if (prev.some(c => c.id === character.id)) {
+                return prev.filter(c => c.id !== character.id);
+              }
+              if (prev.length >= 3) {
+                Alert.alert('エラー', 'ミッドキャラは3体まで選択できます');
+                return prev;
+              }
+              return [...prev, character];
+            });
+          }}
+          multiSelect={true}
+          selectedCharacters={midCharacters}
+          maxSelections={3}
+        />
 
-       <Text style={styles.inputLabel}>サイド募集キャラクター (最大3体)</Text>
-       <CharacterSelector
-         title=""
-         onSelect={(character) => {
-           if (!character) return;
-           setSideCharacters(prev => {
-             if (prev.some(c => c.id === character.id)) {
-               return prev.filter(c => c.id !== character.id);
-             }
-             if (prev.length >= 3) {
-               Alert.alert('エラー', 'サイドキャラは3体まで選択できます');
-               return prev;
-             }
-             return [...prev, character];
-           });
-         }}
-         multiSelect={true}
-         selectedCharacters={sideCharacters}
-         maxSelections={3}
-       />
+        <Text style={styles.inputLabel}>サイド募集キャラクター (最大3体)</Text>
+        <CharacterSelector
+          title=""
+          onSelect={(character) => {
+            if (!character) return;
+            setSideCharacters(prev => {
+              if (prev.some(c => c.id === character.id)) {
+                return prev.filter(c => c.id !== character.id);
+              }
+              if (prev.length >= 3) {
+                Alert.alert('エラー', 'サイドキャラは3体まで選択できます');
+                return prev;
+              }
+              return [...prev, character];
+            });
+          }}
+          multiSelect={true}
+          selectedCharacters={sideCharacters}
+          maxSelections={3}
+        />
 
-       <Text style={styles.inputLabel}>招待リンク</Text>
-       <TextInput
-         ref={inviteLinkInputRef}
-         style={[styles.input, styles.inviteLinkInput]}
-         value={inviteLink}
-         onChangeText={setInviteLink}
-         placeholder="招待リンクを貼り付け"
-         multiline
-         maxLength={125}
-       />
+        <Text style={styles.inputLabel}>招待リンク</Text>
+        <TextInput
+          ref={inviteLinkInputRef}
+          style={[styles.input, styles.inviteLinkInput]}
+          value={inviteLink}
+          onChangeText={setInviteLink}
+          placeholder="招待リンクを貼り付け"
+          multiline
+          maxLength={125}
+        />
 
-       <Text style={styles.inputLabel}>コメント (任意)</Text>
-       <TextInput
-         style={[styles.input, styles.multilineInput]}
-         value={description}
-         onChangeText={setDescription}
-         placeholder="募集に関する詳細や要望を入力"
-         multiline
-         maxLength={100}
-       />
+        <Text style={styles.inputLabel}>コメント (任意)</Text>
+        <TextInput
+          style={[styles.input, styles.multilineInput]}
+          value={description}
+          onChangeText={setDescription}
+          placeholder="募集に関する詳細や要望を入力"
+          multiline
+          maxLength={100}
+        />
 
-       <View style={styles.modalButtons}>
-         <TouchableOpacity
-           style={[styles.modalButton, styles.cancelButton]}
-           onPress={() => setModalVisible(false)}
-         >
-           <Text style={styles.cancelButtonText}>キャンセル</Text>
-         </TouchableOpacity>
-         <TouchableOpacity
-           style={[styles.modalButton, styles.submitButton]}
-           onPress={createPost}
-         >
-           <Text style={styles.submitButtonText}>投稿</Text>
-         </TouchableOpacity>
-       </View>
-     </View>
-   </ScrollView>
- );
+        <View style={styles.modalButtons}>
+          <TouchableOpacity
+            style={[styles.modalButton, styles.cancelButton]}
+            onPress={() => setModalVisible(false)}
+          >
+            <Text style={styles.cancelButtonText}>キャンセル</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.modalButton, styles.submitButton]}
+            onPress={createPost}
+          >
+            <Text style={styles.submitButtonText}>投稿</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </ScrollView>
+  );
+  if (loading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#21A0DB" />
+      </View>
+    );
+  }
 
- if (loading) {
-   return (
-     <View style={styles.loadingContainer}>
-       <ActivityIndicator size="large" color="#21A0DB" />
-     </View>
-   );
- }
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}>チーム募集掲示板</Text>
+        <View style={styles.headerButtons}>
+          <TouchableOpacity 
+            style={[styles.refreshButton, isRefreshing && styles.refreshButtonDisabled]}
+            onPress={handleRefresh}
+            disabled={isRefreshing}
+          >
+            <Text style={styles.refreshButtonText}>
+              {isRefreshing ? '更新中...' : '更新'}
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={styles.createButton}
+            onPress={async () => {
+              const lastPostTime = await AsyncStorage.getItem('lastPostTime');
+              const currentTime = Date.now();
+       
+              if (lastPostTime && currentTime - parseInt(lastPostTime) < 180000) {
+                Alert.alert('エラー', 'すでに投稿済みです。3分後に再度お試しください。');
+                return;
+              }
+              setModalVisible(true);
+            }}
+          >
+            <Text style={styles.createButtonText}>投稿する</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
 
- return (
-   <SafeAreaView style={styles.container}>
-     <View style={styles.header}>
-       <Text style={styles.title}>チーム募集掲示板</Text>
-       <View style={styles.headerButtons}>
-         <TouchableOpacity 
-           style={[styles.refreshButton, isRefreshing && styles.refreshButtonDisabled]}
-           onPress={handleRefresh}
-           disabled={isRefreshing}
-         >
-           <Text style={styles.refreshButtonText}>
-             {isRefreshing ? '更新中...' : '更新'}
-           </Text>
-         </TouchableOpacity>
-         <TouchableOpacity 
-           style={styles.createButton}
-           onPress={async () => {
-             const lastPostTime = await AsyncStorage.getItem('lastPostTime');
-             const currentTime = Date.now();
-      
-             if (lastPostTime && currentTime - parseInt(lastPostTime) < 180000) {
-               Alert.alert('エラー', 'すでに投稿済みです。3分後に再度お試しください。');
-               return;
-             }
-             setModalVisible(true);
-           }}
-         >
-           <Text style={styles.createButtonText}>投稿する</Text>
-         </TouchableOpacity>
-       </View>
-     </View>
+      <ScrollView style={styles.content}>
+        {posts.map((post) => (
+          <PostCard key={post.id} post={post} />
+        ))}
+      </ScrollView>
 
-     <ScrollView style={styles.content}>
-       {posts.map((post) => (
-         <PostCard key={post.id} post={post} />
-       ))}
-     </ScrollView>
-
-     <Modal
-       animationType="slide"
-       transparent={true}
-       visible={modalVisible}
-       onRequestClose={() => setModalVisible(false)}
-     >
-       <KeyboardAvoidingView 
-         behavior={Platform.OS === "ios" ? "padding" : "height"}
-         style={styles.modalOverlay}
-       >
-         <View style={styles.modalView}>
-           {renderPostForm()}
-         </View>
-       </KeyboardAvoidingView>
-     </Modal>
-   </SafeAreaView>
- );
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <KeyboardAvoidingView 
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={styles.modalOverlay}
+        >
+          <View style={styles.modalView}>
+            {renderPostForm()}
+          </View>
+        </KeyboardAvoidingView>
+      </Modal>
+    </SafeAreaView>
+  );
 };
 
 export default TeamBoard;
