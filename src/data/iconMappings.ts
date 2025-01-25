@@ -20,44 +20,42 @@ const gearData = {
       id: 1,
       name: "スピードギア",
       icon: require('../../assets/GearIcon/gear_superrare_speed.png'),
-      description: "茂みの中での移動速度が上昇します。上昇値はレベルに応じて増加します。",
+      description: "やぶの中を移動する際のスピードが15%上昇する。",
       type: "superrare"
     },
     vision: {
       id: 2,
-      name: "視界ギア",
+      name: "ビジョンギア",
       icon: require('../../assets/GearIcon/gear_superrare_vision.png'),
-      description: "茂みの中での視界が広がります。視界の広さはレベルに応じて増加します。",
+      description: "敵にダメージを与えると、その敵の姿が2秒間見えるようになる。",
       type: "superrare"
     },
     heal: {
       id: 3,
-      name: "回復ギア",
+      name: "ヒールギア",
       icon: require('../../assets/GearIcon/gear_superrare_heal.png'),
-      description: "自然回復の速度が上昇します。回復速度はレベルに応じて増加します。",
+      description: "HPを50%効率的に回復する。",
       type: "superrare"
     },
     shield: {
       id: 4,
       name: "シールドギア",
       icon: require('../../assets/GearIcon/gear_superrare_shield.png'),
-      description: "HPが50%以下のとき、ダメージ軽減効果が発動します。軽減値はレベルに応じて増加します。",
+      description: "消費型のシールドとして最大HPを900増強する。キャラクターのHPが満タンになると、10秒後にシールドが全回復する。",
       type: "superrare"
     },
     damage: {
       id: 5,
       name: "ダメージギア",
       icon: require('../../assets/GearIcon/gear_superrare_damage.png'),
-      description: "茂みの中での攻撃力が上昇します。上昇値はレベルに応じて増加します。",
+      description: "HPが50％未満になると敵に与えるダメージが15%増加する。",
       type: "superrare"
-    }
-  },
-  plusGears: {
+    },
     gadget: {
       id: 6,
       name: "ガジェット強化ギア",
       icon: require('../../assets/GearIcon/gear_plus_gadgets.png'),
-      description: "ガジェットの効果が強化されます。強化効果はレベルに応じて増加します。",
+      description: "バトル中にガジェットを使える回数が1回増える。",
       type: "plus"
     }
   },
@@ -66,21 +64,21 @@ const gearData = {
       id: 7,
       name: "ペット強化ギア",
       icon: require('../../assets/GearIcon/gear_epic_pet.png'),
-      description: "ペットの能力が強化されます。",
+      description: "ペットのパワーが25%増加する。",
       type: "epic"
     },
     reload: {
       id: 7,
       name: "リロード強化ギア",
       icon: require('../../assets/GearIcon/gear_epic_reload.png'),
-      description: "リロード速度が上昇します。",
+      description: "リロード速度が15%上昇する。",
       type: "epic"
     },
     super: {
       id: 7,
       name: "スーパー強化ギア",
       icon: require('../../assets/GearIcon/gear_epic_super.png'),
-      description: "スーパースキルの効果が強化されます。",
+      description: "必殺技のチャージ速度が10%上昇する。",
       type: "epic"
     }
   },
@@ -89,70 +87,70 @@ const gearData = {
       id: 7,
       name: "ティック専用ギア",
       icon: require('../../assets/GearIcon/gear_mythic_tick.png'),
-      description: "ティックの特殊能力が強化されます。",
+      description: "ティックの頭に1000HPを追加で付与する。",
       type: "mythic"
     },
     pam: {
       id: 7,
       name: "パム専用ギア",
       icon: require('../../assets/GearIcon/gear_mythic_pam.png'),
-      description: "パムの特殊能力が強化されます。",
+      description: "タレットによる回復量が20%上昇する。",
       type: "mythic"
     },
     mortis: {
       id: 7,
       name: "モーティス専用ギア",
       icon: require('../../assets/GearIcon/gear_mythic_mortis.png'),
-      description: "モーティスの特殊能力が強化されます。",
+      description: "コウモリのスピードが50%増加する。",
       type: "mythic"
     },
     gene: {
       id: 7,
       name: "ジーン専用ギア",
       icon: require('../../assets/GearIcon/gear_mythic_gene.png'),
-      description: "ジーンの特殊能力が強化されます。",
+      description: "ジーンの魔法の手の射程が伸びる。",
       type: "mythic"
     },
     eve: {
       id: 8,
       name: "イヴ専用ギア",
       icon: require('../../assets/GearIcon/gear_mythic_eve.png'),
-      description: "イヴの特殊能力が強化されます。",
+      description: "必殺技で生まれるベビーが1匹増加する。",
       type: "mythic"
     },
     spike: {
       id: 7,
       name: "スパイク専用ギア",
       icon: require('../../assets/GearIcon/gear_mythic_spike.png'),
-      description: "スパイクの特殊能力が強化されます。",
+      description: "必殺技のスローダウン効果が30％向上する。",
       type: "mythic"
     },
     crow: {
       id: 7,
       name: "クロウ専用ギア",
       icon: require('../../assets/GearIcon/gear_mythic_crow.png'),
-      description: "クロウの特殊能力が強化されます。",
+      description: "クロウの毒のダメージが30%増加する。",
       type: "mythic"
     },
     leon: {
       id: 7,
       name: "レオン専用ギア",
       icon: require('../../assets/GearIcon/gear_mythic_leon.png'),
-      description: "レオンの特殊能力が強化されます。",
+      description: "必殺技の効果時間を2秒延長する。",
       type: "mythic"
     },
     sandy: {
       id: 7,
       name: "サンディ専用ギア",
       icon: require('../../assets/GearIcon/gear_mythic_sandy.png'),
-      description: "サンディの特殊能力が強化されます。",
+      description: "砂嵐内にいる敵のダメージ量を20%減少させる。",
       type: "mythic"
     },
     amber: {
       id: 8,
       name: "アンバー専用ギア",
       icon: require('../../assets/GearIcon/gear_mythic_amber.png'),
-      description: "アンバーの特殊能力が強化されます。",
+      description: "燃料で敵の動きが10%スローダウンする。",
       type: "mythic"
     }
   }
@@ -167,7 +165,6 @@ export const getGearTypeColor = (type: GearInfo['type']): string => {
     case 'superrare': return '#5C9DFF';
     case 'epic': return '#FF8BFF';
     case 'mythic': return '#FF6B6B';
-    case 'plus': return '#85E37D';
     default: return '#5C9DFF';
   }
 };
@@ -885,7 +882,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ニタ": {
     1: gearData.superrareGears.speed,
@@ -893,7 +890,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.pet,
   },
   "コルト": {
@@ -902,7 +899,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.reload,
   },
   "ブル": {
@@ -911,7 +908,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.super,
   },
   "ブロック": {
@@ -920,7 +917,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.reload,
   },
   "エルプリモ": {
@@ -929,7 +926,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.super,
   },
   "バーリー": {
@@ -938,7 +935,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ポコ": {
     1: gearData.superrareGears.speed,
@@ -946,7 +943,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ローサ": {
     1: gearData.superrareGears.speed,
@@ -954,7 +951,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ジェシー": {
     1: gearData.superrareGears.speed,
@@ -962,7 +959,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.pet,
   },
   "ダイナマイク": {
@@ -971,7 +968,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ティック": {
     1: gearData.superrareGears.speed,
@@ -979,7 +976,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.mythicGears.tick,
   },
   "8ビット": {
@@ -988,7 +985,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.reload,
   },
   "リコ": {
@@ -997,7 +994,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.reload,
   },
   "ダリル": {
@@ -1006,7 +1003,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ペニー": {
     1: gearData.superrareGears.speed,
@@ -1014,7 +1011,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.pet,
   },
   "カール": {
@@ -1023,7 +1020,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ジャッキー": {
     1: gearData.superrareGears.speed,
@@ -1031,7 +1028,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.super,
   },
   "ガス": {
@@ -1040,7 +1037,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ボウ": {
     1: gearData.superrareGears.speed,
@@ -1048,7 +1045,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.reload,
   },
   "Emz": {
@@ -1057,7 +1054,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ストゥー": {
     1: gearData.superrareGears.speed,
@@ -1065,7 +1062,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "エリザベス": {
     1: gearData.superrareGears.speed,
@@ -1073,7 +1070,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "パム": {
     1: gearData.superrareGears.speed,
@@ -1081,7 +1078,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.mythicGears.pam,
   },
   "フランケン": {
@@ -1090,7 +1087,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ビビ": {
     1: gearData.superrareGears.speed,
@@ -1098,7 +1095,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ビー": {
     1: gearData.superrareGears.speed,
@@ -1106,7 +1103,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ナーニ": {
     1: gearData.superrareGears.speed,
@@ -1114,7 +1111,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.super,
   },
   "エドガー": {
@@ -1123,7 +1120,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.super,
   },
   "グリフ": {
@@ -1132,7 +1129,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.reload,
   },
   "グロム": {
@@ -1141,7 +1138,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ボニー": {
     1: gearData.superrareGears.speed,
@@ -1149,7 +1146,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.super,
   },
   "ゲイル": {
@@ -1158,7 +1155,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "コレット": {
     1: gearData.superrareGears.speed,
@@ -1166,7 +1163,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ベル": {
     1: gearData.superrareGears.speed,
@@ -1174,7 +1171,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.reload,
   },
   "アッシュ": {
@@ -1183,7 +1180,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.super,
   },
   "ローラ": {
@@ -1192,7 +1189,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.reload,
   },
   "サム": {
@@ -1201,7 +1198,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "マンディ": {
     1: gearData.superrareGears.speed,
@@ -1209,7 +1206,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "メイジー": {
     1: gearData.superrareGears.speed,
@@ -1217,7 +1214,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ハンク": {
     1: gearData.superrareGears.speed,
@@ -1225,7 +1222,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "パール": {
     1: gearData.superrareGears.speed,
@@ -1233,7 +1230,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ラリー&ローリー": {
     1: gearData.superrareGears.speed,
@@ -1241,7 +1238,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "アンジェロ": {
     1: gearData.superrareGears.speed,
@@ -1249,7 +1246,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ベリー": {
     1: gearData.superrareGears.speed,
@@ -1257,7 +1254,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "シェイド": {
     1: gearData.superrareGears.speed,
@@ -1265,7 +1262,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "モーティス": {
     1: gearData.superrareGears.speed,
@@ -1273,7 +1270,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.mythicGears.mortis,
   },
   "タラ": {
@@ -1282,7 +1279,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.pet,
 
   },
@@ -1292,7 +1289,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.mythicGears.gene,
   },
   "MAX": {
@@ -1301,7 +1298,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ミスターP": {
     1: gearData.superrareGears.speed,
@@ -1309,7 +1306,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.pet,
   },
   "スプラウト": {
@@ -1318,7 +1315,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.super,
   },
   "バイロン": {
@@ -1327,7 +1324,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "スクウィーク": {
     1: gearData.superrareGears.speed,
@@ -1335,7 +1332,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ルー": {
     1: gearData.superrareGears.speed,
@@ -1343,7 +1340,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.super,
   },
   "ラフス": {
@@ -1352,7 +1349,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "バズ": {
     1: gearData.superrareGears.speed,
@@ -1360,7 +1357,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ファング": {
     1: gearData.superrareGears.speed,
@@ -1368,7 +1365,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "イヴ": {
     1: gearData.superrareGears.speed,
@@ -1376,9 +1373,9 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.reload,
-    7: gearData.mythicGears.eve,
+    8: gearData.mythicGears.eve,
   },
   "ジャネット": {
     1: gearData.superrareGears.speed,
@@ -1386,7 +1383,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "オーティス": {
     1: gearData.superrareGears.speed,
@@ -1394,7 +1391,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.super,
   },
   "バスター": {
@@ -1403,7 +1400,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "グレイ": {
     1: gearData.superrareGears.speed,
@@ -1411,7 +1408,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "R-T": {
     1: gearData.superrareGears.speed,
@@ -1419,7 +1416,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ウィロー": {
     1: gearData.superrareGears.speed,
@@ -1427,7 +1424,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ダグ": {
     1: gearData.superrareGears.speed,
@@ -1435,7 +1432,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "チャック": {
     1: gearData.superrareGears.speed,
@@ -1443,7 +1440,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "チャーリー": {
     1: gearData.superrareGears.speed,
@@ -1451,7 +1448,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ミコ": {
     1: gearData.superrareGears.speed,
@@ -1459,7 +1456,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "メロディー": {
     1: gearData.superrareGears.speed,
@@ -1467,7 +1464,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "リリー": {
     1: gearData.superrareGears.speed,
@@ -1475,7 +1472,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "クランシー": {
     1: gearData.superrareGears.speed,
@@ -1483,7 +1480,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "モー": {
     1: gearData.superrareGears.speed,
@@ -1491,7 +1488,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ジュジュ": {
     1: gearData.superrareGears.speed,
@@ -1499,7 +1496,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "スパイク": {
     1: gearData.superrareGears.speed,
@@ -1507,7 +1504,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.mythicGears.spike,
   },
   "クロウ": {
@@ -1516,7 +1513,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.mythicGears.crow,
   },
   "レオン": {
@@ -1525,7 +1522,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.mythicGears.leon,
   },
   "サンディ": {
@@ -1534,7 +1531,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.mythicGears.sandy,
   },
   "アンバー": {
@@ -1543,9 +1540,9 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
     7: gearData.epicGears.reload,
-    7: gearData.mythicGears.amber,
+    8: gearData.mythicGears.amber,
   },
   "メグ": {
     1: gearData.superrareGears.speed,
@@ -1553,7 +1550,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "サージ": {
     1: gearData.superrareGears.speed,
@@ -1561,7 +1558,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "チェスター": {
     1: gearData.superrareGears.speed,
@@ -1569,7 +1566,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "コーデリアス": {
     1: gearData.superrareGears.speed,
@@ -1577,7 +1574,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "キット": {
     1: gearData.superrareGears.speed,
@@ -1585,7 +1582,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ドラコ": {
     1: gearData.superrareGears.speed,
@@ -1593,7 +1590,7 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   },
   "ケンジ": {
     1: gearData.superrareGears.speed,
@@ -1601,6 +1598,6 @@ export const gearIcons: IconMapping = {
     3: gearData.superrareGears.heal,
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
-    6: gearData.plusGears.gadget,
+    6: gearData.superrareGears.gadget,
   }
 };

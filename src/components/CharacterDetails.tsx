@@ -5,8 +5,8 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../App';
 import { getCharacterData } from '../data/characterData';
 import CharacterImage from './CharacterImage';
-import { allCharacterData } from '../data/characterCompatibility';
 import { getGearInfo, getGearTypeColor, getStarPowerIcon, getGadgetIcon, gearIcons } from '../data/iconMappings';
+import { allCharacterData } from '../data/characterCompatibility';
 
 type CharacterDetailsRouteProp = RouteProp<RootStackParamList, 'CharacterDetails'>;
 type CharacterDetailsNavigationProp = StackNavigationProp<RootStackParamList, 'CharacterDetails'>;
@@ -210,17 +210,41 @@ const CharacterDetails: React.FC = () => {
               <View 
                 style={[
                   styles.modalContent,
-                  { backgroundColor: getGearTypeColor(selectedGear.type) + '20' }
+                  { borderLeftWidth: 4, borderLeftColor: getGearTypeColor(selectedGear.type) }
                 ]}
               >
-                <View style={styles.modalHeader}>
-                  <Image 
-                    source={selectedGear.icon}
-                    style={styles.modalGearIcon}
-                    resizeMode="contain"
-                  />
-                  <Text style={styles.modalTitle}>{selectedGear.name}</Text>
+                <View style={styles.modalHeaderContainer}>
+                  <View style={styles.modalHeader}>
+                    <View style={[
+                      styles.gearIconContainer,
+                      { backgroundColor: getGearTypeColor(selectedGear.type) + '20' }
+                    ]}>
+                      <Image 
+                        source={selectedGear.icon}
+                        style={styles.modalGearIcon}
+                        resizeMode="contain"
+                      />
+                    </View>
+                    <View style={styles.gearInfoContainer}>
+                      <Text style={styles.modalTitle}>{selectedGear.name}</Text>
+                      <Text style={[
+                        styles.gearTypeText,
+                        { color: getGearTypeColor(selectedGear.type) }
+                      ]}>
+                        {selectedGear.type === 'superrare' ? 'スーパーレア' :
+                         selectedGear.type === 'epic' ? 'エピック' :
+                         selectedGear.type === 'mythic' ? 'ミシック' : 'プラス'}ギア
+                      </Text>
+                    </View>
+                  </View>
+                  <TouchableOpacity 
+                    onPress={() => setIsGearModalOpen(false)}
+                    style={styles.closeButton}
+                  >
+                    <Text style={styles.closeButtonText}>✕</Text>
+                  </TouchableOpacity>
                 </View>
+                <View style={styles.separator} />
                 <Text style={styles.modalDescription}>{selectedGear.description}</Text>
               </View>
             </TouchableOpacity>
@@ -644,29 +668,73 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalContent: {
-    width: '80%',
-    padding: 20,
-    borderRadius: 12,
+    width: '85%',
     backgroundColor: '#ffffff',
+    borderRadius: 16,
+    padding: 0,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalHeaderContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
   },
   modalHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 16,
+    flex: 1,
+  },
+  gearIconContainer: {
+    width: 56,
+    height: 56,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 8,
   },
   modalGearIcon: {
-    width: 40,
-    height: 40,
-    marginRight: 12,
+    width: '100%',
+    height: '100%',
+  },
+  gearInfoContainer: {
+    marginLeft: 12,
+    flex: 1,
   },
   modalTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  gearTypeText: {
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  closeButton: {
+    width: 32,
+    height: 32,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 8,
+  },
+  closeButtonText: {
+    fontSize: 20,
+    color: '#666',
+  },
+  separator: {
+    height: 1,
+    backgroundColor: '#e0e0e0',
+    marginHorizontal: 16,
   },
   modalDescription: {
-    fontSize: 14,
-    lineHeight: 20,
+    fontSize: 15,
+    lineHeight: 22,
     color: '#333333',
+    padding: 16,
   },
   compatibilityContainer: {
     padding: 16,
