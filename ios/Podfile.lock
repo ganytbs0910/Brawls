@@ -1382,8 +1382,8 @@ PODS:
   - nanopb/decode (3.30910.0)
   - nanopb/encode (3.30910.0)
   - PromisesObjC (2.4.0)
-  - PurchasesHybridCommon (13.15.2):
-    - RevenueCat (= 5.14.5)
+  - PurchasesHybridCommon (13.14.0):
+    - RevenueCat (= 5.14.0)
   - RCT-Folly (2024.01.01.00):
     - boost
     - DoubleConversion
@@ -2952,7 +2952,7 @@ PODS:
     - React-logger (= 0.76.6)
     - React-perflogger (= 0.76.6)
     - React-utils (= 0.76.6)
-  - RevenueCat (5.14.5)
+  - RevenueCat (5.14.0)
   - RNCAsyncStorage (2.1.0):
     - DoubleConversion
     - glog
@@ -2995,14 +2995,16 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNFBApp (21.7.1):
+  - RNDeviceInfo (14.0.2):
+    - React-Core
+  - RNFBApp (21.7.0):
     - Firebase/CoreOnly (= 11.7.0)
     - React-Core
-  - RNFBFirestore (21.7.1):
+  - RNFBFirestore (21.7.0):
     - Firebase/Firestore (= 11.7.0)
     - React-Core
     - RNFBApp
-  - RNGestureHandler (2.22.1):
+  - RNGestureHandler (2.22.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -3023,7 +3025,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNGoogleMobileAds (14.8.1):
+  - RNGoogleMobileAds (14.8.0):
     - DoubleConversion
     - glog
     - Google-Mobile-Ads-SDK (= 11.13.0)
@@ -3046,14 +3048,14 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNIap (12.16.1):
+  - RNIap (12.16.0):
     - RCT-Folly
     - RCTRequired
     - RCTTypeSafety
     - React-Core
     - ReactCommon/turbomodule/core
-  - RNPurchases (8.5.1):
-    - PurchasesHybridCommon (= 13.15.2)
+  - RNPurchases (8.5.0):
+    - PurchasesHybridCommon (= 13.14.0)
     - React-Core
   - RNScreens (4.5.0):
     - DoubleConversion
@@ -3179,6 +3181,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNCMaskedView (from `../node_modules/@react-native-masked-view/masked-view`)"
+  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBFirestore (from `../node_modules/@react-native-firebase/firestore`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
@@ -3347,6 +3350,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-async-storage/async-storage"
   RNCMaskedView:
     :path: "../node_modules/@react-native-masked-view/masked-view"
+  RNDeviceInfo:
+    :path: "../node_modules/react-native-device-info"
   RNFBApp:
     :path: "../node_modules/@react-native-firebase/app"
   RNFBFirestore:
@@ -3392,7 +3397,7 @@ SPEC CHECKSUMS:
   leveldb-library: cc8b8f8e013647a295ad3f8cd2ddf49a6f19be19
   nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
-  PurchasesHybridCommon: 8af6bb6d85b794dc47ccef1b536ed0e677c789ea
+  PurchasesHybridCommon: ea662e5a551e6fc79c1eb17feb0478c01c59f3e6
   RCT-Folly: bf5c0376ffe4dd2cf438dcf86db385df9fdce648
   RCTDeprecation: 063fc281b30b7dc944c98fe53a7e266dab1a8706
   RCTRequired: 8eda2a5a745f6081157a4f34baac40b65fe02b31
@@ -3450,15 +3455,16 @@ SPEC CHECKSUMS:
   React-utils: 313aee0d3b79d0f43ddc9e8aebf789b56469aff8
   ReactCodegen: e61f5cbdd7d1c7144f3f9e07bc5f9fcbe7a71ccc
   ReactCommon: 407be731d21caa89dfb2f648868865b76c84d2d2
-  RevenueCat: 4c0e809f7c7428cbe8d79cbb9a0dc7551e71e74e
+  RevenueCat: 34f4147c8d26d2f3c691be4e3c9f033698e557f2
   RNCAsyncStorage: d494bdee892cc6a4d790c960afb7b5dd1d91abb1
   RNCMaskedView: 381d041f80e6bf7983d2c058a34362e6a362ce01
-  RNFBApp: 67229e8085ab427c935defad2a6c3fc57c7f656d
-  RNFBFirestore: 2e4b7bf2824bb68bce11e1036413d4ae49c16343
-  RNGestureHandler: 7843b2a5cef477136a3c1f2ffae7c0b7f6b3255a
-  RNGoogleMobileAds: 61d6165ddc1d0a3d411bd89d2750c4a373d7a6a6
-  RNIap: ac7cf20cd7f9edba5265af5cd77d23ecfec8cab6
-  RNPurchases: 4d21eeedea6609663311af000392db5fc7659871
+  RNDeviceInfo: 3f2e5fcca3637f75c6d30ba287293c2f97206781
+  RNFBApp: 4c7d73433ec658888f3138dc5a20e46b8ebf8de3
+  RNFBFirestore: 2b6d51662e7a75c5280aef0b6ec7c3cff416baa6
+  RNGestureHandler: 73e6b3eb6a65c764f0bca44b6ab5ac259d316a96
+  RNGoogleMobileAds: 065aa2f964f07b0d56b2a9111829c107f795eca8
+  RNIap: 2c3c65e445757dde21e566faa13984786d23fab1
+  RNPurchases: a99a9d9139c977811e5db73178ea21d8c12f11ac
   RNScreens: c5be23653cbe82a7e44c7719af3465e2f152c791
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: fd4ca32b81c4069b4175ad9460b042e17db94b66
