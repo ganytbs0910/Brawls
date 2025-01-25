@@ -27,7 +27,7 @@ export const shellyData: CharacterCompatibility = {
     "スプラウト": 4,
     "ウィロー": 4,
     "ジュジュ": 4,
-    "ストゥー": 3,
+    "ストゥー": 4,
     "エドガー": 10,
     "シェイド": 7,
     "モーティス": 10,

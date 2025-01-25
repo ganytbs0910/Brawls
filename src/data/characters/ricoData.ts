@@ -27,7 +27,7 @@ export const ricoData: CharacterCompatibility = {
     "スプラウト": 4,
     "ウィロー": 4,
     "ジュジュ": 4,
-    "ストゥー": 4,
+    "ストゥー": 1,
     "エドガー": 10,
     "シェイド": 3,
     "モーティス": 9,

@@ -1,11 +1,11 @@
 import React, { useState, useMemo, useCallback } from 'react';
-import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Modal } from 'react-native';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../App';
 import { getCharacterData } from '../data/characterData';
 import CharacterImage from './CharacterImage';
-import { getStarPowerIcon, getGadgetIcon, gearIcons } from '../data/iconMappings';
+import { getGearInfo, getGearTypeColor, getStarPowerIcon, getGadgetIcon, gearIcons } from '../data/iconMappings';
 import { allCharacterData } from '../data/characterCompatibility';
 
 type CharacterDetailsRouteProp = RouteProp<RootStackParamList, 'CharacterDetails'>;
@@ -61,6 +61,8 @@ const CharacterDetails: React.FC = () => {
 
   const [activeTab, setActiveTab] = useState<'info' | 'compatibility'>('info');
   const [compatibilityView, setCompatibilityView] = useState<CompatibilityView>('good');
+  const [selectedGear, setSelectedGear] = useState<any | null>(null);
+  const [isGearModalOpen, setIsGearModalOpen] = useState(false);
 
   const character = useMemo(() => getCharacterData(characterName), [characterName]);
   const compatibilityData = useMemo(
@@ -93,42 +95,6 @@ const CharacterDetails: React.FC = () => {
   const handleCharacterPress = useCallback((selectedCharName: string) => {
     navigation.push('CharacterDetails', { characterName: selectedCharName });
   }, [navigation]);
-
-  const categorizedScores = useMemo(() => {
-    if (!compatibilityData?.compatibilityScores) return {};
-
-    const categories = compatibilityView === 'good' 
-      ? goodCompatibilityCategories 
-      : badCompatibilityCategories;
-
-    return Object.entries(compatibilityData.compatibilityScores).reduce((acc, [char, score]) => {
-      const category = categories.find(
-        cat => score >= cat.minScore && score <= cat.maxScore
-      );
-      
-      if (!category) return acc;
-
-      if (!acc[category.title]) {
-        acc[category.title] = {
-          characters: [],
-          color: category.color,
-          backgroundColor: category.backgroundColor,
-        };
-      }
-
-      acc[category.title].characters.push({ name: char, score });
-
-      acc[category.title].characters.sort((a, b) => {
-        return compatibilityView === 'good' ? b.score - a.score : a.score - b.score;
-      });
-
-      return acc;
-    }, {} as Record<string, { 
-      characters: Array<{ name: string; score: number }>,
-      color: string,
-      backgroundColor: string 
-    }>);
-  }, [compatibilityData, compatibilityView]);
 
   const renderPowerCard = useCallback((power: any, index: number, isPowerStar: boolean) => {
     const recommendationLevel = power.recommendationLevel || 0;
@@ -188,6 +154,12 @@ const CharacterDetails: React.FC = () => {
     const characterGears = gearIcons[character.name];
     if (!characterGears) return null;
 
+    const handleGearClick = (gearId: number) => {
+      const gearInfo = getGearInfo(character.name, gearId);
+      setSelectedGear(gearInfo);
+      setIsGearModalOpen(true);
+    };
+
     return (
       <View style={styles.infoCard}>
         <View style={styles.sectionHeader}>
@@ -198,30 +170,125 @@ const CharacterDetails: React.FC = () => {
           </View>
         </View>
         <View style={styles.gearGrid}>
-          {Object.entries(characterGears).map(([key, iconPath]) => {
-            const currentGearId = parseInt(key);
-            const isRecommended = recommendedGears.includes(currentGearId);
+          {Object.entries(characterGears).map(([key, gearInfo]) => {
+            const gearId = parseInt(key);
+            const isRecommended = recommendedGears.includes(gearId);
+            const typeColor = getGearTypeColor(gearInfo.type);
 
             return (
-              <View 
+              <TouchableOpacity 
                 key={key} 
                 style={[
                   styles.gearItem,
+                  { backgroundColor: typeColor + '20' },
                   isRecommended && styles.recommendedGearItem
                 ]}
+                onPress={() => handleGearClick(gearId)}
               >
                 <Image
-                  source={iconPath}
+                  source={gearInfo.icon}
                   style={styles.gearIcon}
                   resizeMode="contain"
                 />
-              </View>
+              </TouchableOpacity>
             );
           })}
         </View>
+
+        {selectedGear && (
+          <Modal
+            visible={isGearModalOpen}
+            transparent
+            animationType="fade"
+            onRequestClose={() => setIsGearModalOpen(false)}
+          >
+            <TouchableOpacity 
+              style={styles.modalOverlay}
+              activeOpacity={1}
+              onPress={() => setIsGearModalOpen(false)}
+            >
+              <View 
+                style={[
+                  styles.modalContent,
+                  { borderLeftWidth: 4, borderLeftColor: getGearTypeColor(selectedGear.type) }
+                ]}
+              >
+                <View style={styles.modalHeaderContainer}>
+                  <View style={styles.modalHeader}>
+                    <View style={[
+                      styles.gearIconContainer,
+                      { backgroundColor: getGearTypeColor(selectedGear.type) + '20' }
+                    ]}>
+                      <Image 
+                        source={selectedGear.icon}
+                        style={styles.modalGearIcon}
+                        resizeMode="contain"
+                      />
+                    </View>
+                    <View style={styles.gearInfoContainer}>
+                      <Text style={styles.modalTitle}>{selectedGear.name}</Text>
+                      <Text style={[
+                        styles.gearTypeText,
+                        { color: getGearTypeColor(selectedGear.type) }
+                      ]}>
+                        {selectedGear.type === 'superrare' ? 'スーパーレア' :
+                         selectedGear.type === 'epic' ? 'エピック' :
+                         selectedGear.type === 'mythic' ? 'ミシック' : 'プラス'}ギア
+                      </Text>
+                    </View>
+                  </View>
+                  <TouchableOpacity 
+                    onPress={() => setIsGearModalOpen(false)}
+                    style={styles.closeButton}
+                  >
+                    <Text style={styles.closeButtonText}>✕</Text>
+                  </TouchableOpacity>
+                </View>
+                <View style={styles.separator} />
+                <Text style={styles.modalDescription}>{selectedGear.description}</Text>
+              </View>
+            </TouchableOpacity>
+          </Modal>
+        )}
       </View>
     );
-  }, [character]);
+  }, [character, selectedGear, isGearModalOpen]);
+
+  const categorizedScores = useMemo(() => {
+    if (!compatibilityData?.compatibilityScores) return {};
+
+    const categories = compatibilityView === 'good' 
+      ? goodCompatibilityCategories 
+      : badCompatibilityCategories;
+
+    return Object.entries(compatibilityData.compatibilityScores).reduce((acc, [char, score]) => {
+      const category = categories.find(
+        cat => score >= cat.minScore && score <= cat.maxScore
+      );
+      
+      if (!category) return acc;
+
+      if (!acc[category.title]) {
+        acc[category.title] = {
+          characters: [],
+          color: category.color,
+          backgroundColor: category.backgroundColor,
+        };
+      }
+
+      acc[category.title].characters.push({ name: char, score });
+
+      acc[category.title].characters.sort((a, b) => {
+        return compatibilityView === 'good' ? b.score - a.score : a.score - b.score;
+      });
+
+      return acc;
+    }, {} as Record<string, { 
+      characters: Array<{ name: string; score: number }>,
+      color: string,
+      backgroundColor: string 
+    }>);
+  }, [compatibilityData, compatibilityView]);
 
   const renderCompatibilityContent = useCallback(() => {
     if (!compatibilityData) return null;
@@ -305,12 +372,7 @@ const CharacterDetails: React.FC = () => {
           ))}
       </View>
     );
-  }, [
-    compatibilityData,
-    compatibilityView,
-    categorizedScores,
-    handleCharacterPress
-  ]);
+  }, [compatibilityData, compatibilityView, categorizedScores, handleCharacterPress]);
 
   const renderCharacterInfo = useCallback(() => {
     if (!character) {
@@ -375,12 +437,7 @@ const CharacterDetails: React.FC = () => {
         {renderGearSection()}
       </View>
     );
-  }, [
-    character,
-    characterName,
-    renderPowerCard,
-    renderGearSection
-  ]);
+  }, [character, characterName, renderPowerCard, renderGearSection]);
 
   if (!character) {
     return (
@@ -603,6 +660,81 @@ const styles = StyleSheet.create({
   gearIcon: {
     width: '100%',
     height: '100%',
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContent: {
+    width: '85%',
+    backgroundColor: '#ffffff',
+    borderRadius: 16,
+    padding: 0,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalHeaderContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+  },
+  modalHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  gearIconContainer: {
+    width: 56,
+    height: 56,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 8,
+  },
+  modalGearIcon: {
+    width: '100%',
+    height: '100%',
+  },
+  gearInfoContainer: {
+    marginLeft: 12,
+    flex: 1,
+  },
+  modalTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  gearTypeText: {
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  closeButton: {
+    width: 32,
+    height: 32,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 8,
+  },
+  closeButtonText: {
+    fontSize: 20,
+    color: '#666',
+  },
+  separator: {
+    height: 1,
+    backgroundColor: '#e0e0e0',
+    marginHorizontal: 16,
+  },
+  modalDescription: {
+    fontSize: 15,
+    lineHeight: 22,
+    color: '#333333',
+    padding: 16,
   },
   compatibilityContainer: {
     padding: 16,

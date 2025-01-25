@@ -27,7 +27,7 @@ export const sandyData: CharacterCompatibility = {
     "スプラウト": 2,
     "ウィロー": 3,
     "ジュジュ": 0,
-    "ストゥー": 0,
+    "ストゥー": 8,
     "エドガー": 3,
     "シェイド": 2,
     "モーティス": 2,

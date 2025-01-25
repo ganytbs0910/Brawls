@@ -75,7 +75,6 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
       { name: "サージ", reason: "通路に爆弾を置いて進路を妨害", power: 4 },
       { name: "バスター", reason: "通路に爆弾を置いて進路を妨害", power: 4 },
       { name: "ジュジュ", reason: "通路に爆弾を置いて進路を妨害", power: 4 },
-      { name: "8ビット", reason: "通路に爆弾を置いて進路を妨害", power: 4 },
       { name: "エリザベス", reason: "通路に爆弾を置いて進路を妨害", power: 3 },
       { name: "タラ", reason: "通路に爆弾を置いて進路を妨害", power: 3 },
       { name: "Max", reason: "通路に爆弾を置いて進路を妨害", power: 3 },
