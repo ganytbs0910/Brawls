@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   SafeAreaView,
   View,
@@ -26,46 +26,62 @@ export default function BrawlStarsApp() {
   const playerData = usePlayerData();
   const rankingsData = useGlobalRankings();
 
+  const handleSearch = useCallback(async () => {
+    if (!playerTag.trim()) return;
+
+    try {
+      const cleanTag = playerTag.replace('#', '');
+      
+      // 検索前に既存のデータをクリア
+      playerData.data = null;
+      rankingsData.data = null;
+      
+      // 検索履歴の更新
+      const newHistory = [cleanTag, ...searchHistory.filter(tag => tag !== cleanTag)].slice(0, 3);
+      setSearchHistory(newHistory);
+      
+      // 履歴の保存
+      await Promise.all([
+        AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory)),
+        AsyncStorage.setItem('lastPlayerTag', cleanTag)
+      ]);
+
+      // プレイヤーデータの取得
+      await playerData.fetchPlayerData(playerTag);
+    } catch (error) {
+      console.error('Search error:', error);
+    }
+  }, [playerTag, searchHistory, playerData]);
+
   useEffect(() => {
     const initializeApp = async () => {
       try {
-        const brawlersPromise = brawlersData.fetchBrawlers();
-        await brawlersPromise;
-
-        const savedTag = await AsyncStorage.getItem('lastPlayerTag');
-        const savedHistory = JSON.parse(await AsyncStorage.getItem('searchHistory')) || [];
+        setIsInitialized(false);
+        
+        // 保存データの読み込みを先に行う
+        const [savedTag, savedHistoryStr] = await Promise.all([
+          AsyncStorage.getItem('lastPlayerTag'),
+          AsyncStorage.getItem('searchHistory'),
+        ]);
 
         if (savedTag) {
           setPlayerTag(savedTag);
         }
+
+        const savedHistory = savedHistoryStr ? JSON.parse(savedHistoryStr) : [];
         setSearchHistory(savedHistory.slice(0, 3));
 
-        setIsInitialized(true);
+        // Brawlersデータの取得
+        await brawlersData.fetchBrawlers();
       } catch (error) {
+        console.error('Initialization error:', error);
+      } finally {
         setIsInitialized(true);
       }
     };
+
     initializeApp();
   }, []);
-
-  const handleSearch = async () => {
-    if (playerTag.trim()) {
-      await playerData.fetchPlayerData(playerTag);
-
-      const cleanTag = playerTag.replace('#', '');
-      const newHistory = [cleanTag, ...searchHistory.filter(tag => tag !== cleanTag)];
-      if (newHistory.length > 3) {
-        newHistory.pop();
-      }
-      setSearchHistory(newHistory);
-      await AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory));
-      await AsyncStorage.setItem('lastPlayerTag', cleanTag);
-    }
-  };
-
-  const handleHistorySelect = (tag) => {
-    setPlayerTag(tag);
-  };
 
   useEffect(() => {
     if (isInitialized && playerData.data?.playerInfo) {
@@ -73,6 +89,10 @@ export default function BrawlStarsApp() {
       rankingsData.fetchGlobalRankings(playerBrawlers);
     }
   }, [isInitialized, playerData.data?.playerInfo]);
+
+  const handleHistorySelect = useCallback((tag: string) => {
+    setPlayerTag(tag);
+  }, []);
 
   const sections = [
     {
@@ -126,9 +146,24 @@ export default function BrawlStarsApp() {
         <View style={styles.historyContainer}>
           <Text style={styles.historyTitle}>検索履歴</Text>
           {searchHistory.map((tag, index) => (
-            <TouchableOpacity key={index} onPress={() => handleHistorySelect(tag)}>
-              <Text style={styles.historyItem}>{tag}</Text>
-            </TouchableOpacity>
+            <View key={index} style={styles.historyItemContainer}>
+              <TouchableOpacity 
+                style={{ flex: 1 }} 
+                onPress={() => handleHistorySelect(tag)}
+              >
+                <Text style={styles.historyItem}>{tag}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={styles.deleteButton}
+                onPress={async () => {
+                  const newHistory = searchHistory.filter(t => t !== tag);
+                  setSearchHistory(newHistory);
+                  await AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory));
+                }}
+              >
+                <Text style={styles.deleteText}>×</Text>
+              </TouchableOpacity>
+            </View>
           ))}
         </View>
       )}
@@ -274,13 +309,25 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     color: '#333',
   },
-  historyItem: {
-    fontSize: 14,
-    paddingVertical: 8,
-    paddingHorizontal: 12,
+  historyItemContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: '#f1f1f1',
     borderRadius: 8,
     marginBottom: 4,
+    paddingLeft: 12,
+  },
+  historyItem: {
+    flex: 1,
+    fontSize: 14,
+    paddingVertical: 8,
     color: '#2196F3',
+  },
+  deleteButton: {
+    padding: 8,
+  },
+  deleteText: {
+    color: '#f44336',
+    fontSize: 16,
   },
 });
