@@ -13,11 +13,12 @@ import {
   ActivityIndicator,
   KeyboardAvoidingView,
   Platform,
-  Image
+  Image,
+  StyleSheet
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import CharacterSelector, { Character } from './CharacterSelector';
-import { PostCard, styles } from './TeamBoardComponents';
+import { PostCard, styles as commonStyles } from './TeamBoardComponents';
 import { usePlayerData, validatePlayerTag } from '../hooks/useBrawlStarsApi';
 import { nameMap } from '../data/characterData';
 
@@ -46,6 +47,16 @@ interface TeamPost {
   side_characters: string[];
   host_info: HostInfo;
 }
+
+const styles = StyleSheet.create({
+  ...commonStyles,
+  tagDescription: {
+    fontSize: 12,
+    color: '#666',
+    marginTop: -8,
+    marginBottom: 8,
+  },
+});
 
 const TeamBoard: React.FC = () => {
   const scrollViewRef = useRef<ScrollView>(null);
@@ -132,31 +143,31 @@ const TeamBoard: React.FC = () => {
   };
 
   const verifyPlayerTag = async (tag: string) => {
-  if (!tag) return false;
+    if (!tag) return false;
 
-  try {
-    const timeoutPromise = new Promise((_, reject) => {
-      setTimeout(() => reject(new Error('API timeout')), 5000);
-    });
+    try {
+      const timeoutPromise = new Promise((_, reject) => {
+        setTimeout(() => reject(new Error('API timeout')), 5000);
+      });
 
-    const dataPromise = playerDataAPI.fetchPlayerData(tag);
-    await Promise.race([dataPromise, timeoutPromise]);
-    
-    if (!playerDataAPI.data?.playerInfo) return false;
-    
-    const { playerInfo } = playerDataAPI.data;
-    setHostInfo({
-      wins3v3: playerInfo['3vs3Victories'] || 0,
-      winsDuo: playerInfo.duoVictories || 0,
-      totalTrophies: playerInfo.trophies || 0
-    });
-    
-    return true;
-  } catch (error) {
-    console.error('Error verifying player tag:', error);
-    return false;
-  }
-};
+      const dataPromise = playerDataAPI.fetchPlayerData(tag);
+      await Promise.race([dataPromise, timeoutPromise]);
+      
+      if (!playerDataAPI.data?.playerInfo) return false;
+      
+      const { playerInfo } = playerDataAPI.data;
+      setHostInfo({
+        wins3v3: playerInfo['3vs3Victories'] || 0,
+        winsDuo: playerInfo.duoVictories || 0,
+        totalTrophies: playerInfo.trophies || 0
+      });
+      
+      return true;
+    } catch (error) {
+      console.error('Error verifying player tag:', error);
+      return false;
+    }
+  };
 
   const loadSavedPlayerTag = async () => {
     try {
@@ -165,7 +176,7 @@ const TeamBoard: React.FC = () => {
         const validatedTag = validatePlayerTag(savedTag);
         if (validatedTag) {
           setPlayerTag(validatedTag);
-          const isVerified = await verifyPlayerTag(validatedTag, validatedTag);
+          const isVerified = await verifyPlayerTag(validatedTag);
           if (validatedTag === playerTag) {
             setIsPlayerVerified(isVerified);
           }
@@ -177,50 +188,50 @@ const TeamBoard: React.FC = () => {
   };
 
   const handlePlayerTagVerify = async () => {
-  if (!playerTag.trim()) {
-    Alert.alert('エラー', 'プレイヤータグを入力してください');
-    return;
-  }
-
-  setIsLoadingPlayerData(true);
-  
-  try {
-    const cleanTag = playerTag.replace('#', '');
-    const validatedTag = validatePlayerTag(cleanTag);
-    
-    if (!validatedTag) {
-      Alert.alert('エラー', 'プレイヤータグが不正です');
-      setIsPlayerVerified(false);
+    if (!playerTag.trim()) {
+      Alert.alert('エラー', 'プレイヤータグを入力してください');
       return;
     }
 
-    const isVerified = await verifyPlayerTag(validatedTag);
+    setIsLoadingPlayerData(true);
     
-    if (isVerified) {
-      setIsPlayerVerified(true);
-      const newHistory = [validatedTag, ...searchHistory.filter(tag => tag !== validatedTag)].slice(0, 3);
-      setSearchHistory(newHistory);
-      await AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory));
-      await AsyncStorage.setItem('brawlStarsPlayerTag', validatedTag);
-    } else {
+    try {
+      const cleanTag = playerTag.replace('#', '');
+      const validatedTag = validatePlayerTag(cleanTag);
+      
+      if (!validatedTag) {
+        Alert.alert('エラー', 'プレイヤータグが不正です');
+        setIsPlayerVerified(false);
+        return;
+      }
+
+      const isVerified = await verifyPlayerTag(validatedTag);
+      
+      if (isVerified) {
+        setIsPlayerVerified(true);
+        const newHistory = [validatedTag, ...searchHistory.filter(tag => tag !== validatedTag)].slice(0, 3);
+        setSearchHistory(newHistory);
+        await AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory));
+        await AsyncStorage.setItem('brawlStarsPlayerTag', validatedTag);
+      } else {
+        Alert.alert('エラー', 'プレイヤーデータの取得に失敗しました');
+        setIsPlayerVerified(false);
+      }
+    } catch (error) {
+      console.error('Error fetching player data:', error);
       Alert.alert('エラー', 'プレイヤーデータの取得に失敗しました');
       setIsPlayerVerified(false);
+    } finally {
+      setIsLoadingPlayerData(false);
     }
-  } catch (error) {
-    console.error('Error fetching player data:', error);
-    Alert.alert('エラー', 'プレイヤーデータの取得に失敗しました');
-    setIsPlayerVerified(false);
-  } finally {
-    setIsLoadingPlayerData(false);
-  }
-};
+  };
 
   const handleHistorySelect = (tag: string) => {
-  const validatedTag = validatePlayerTag(tag);
-  if (validatedTag) {
-    setPlayerTag(validatedTag);
-  }
-};
+    const validatedTag = validatePlayerTag(tag);
+    if (validatedTag) {
+      setPlayerTag(validatedTag);
+    }
+  };
 
   const handleCharacterSelect = async (character: Character | null) => {
     if (!isPlayerVerified) return;
@@ -433,28 +444,10 @@ const TeamBoard: React.FC = () => {
   const renderPostForm = () => (
     <ScrollView ref={scrollViewRef}>
       <View style={styles.postForm}>
-        <View style={styles.modeSelectorContainer}>
-          <Text style={styles.inputLabel}>モード選択</Text>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {getCurrentModes().map((mode, index) => (
-              <TouchableOpacity
-                key={index}
-                style={[
-                  styles.modeIconButton,
-                  selectedMode === mode.name && styles.selectedModeIconButton,
-                  { borderColor: selectedMode === mode.name ? mode.color : '#e0e0e0' }
-                ]}
-                onPress={() => setSelectedMode(mode.name)}
-                disabled={!isPlayerVerified}
-              >
-                <Image source={mode.icon} style={styles.modeIconLarge} />
-              </TouchableOpacity>
-            ))}
-          </ScrollView>
-        </View>
-
+        {/* プレイヤータグセクションを最上部に移動 */}
         <View style={styles.playerTagContainer}>
           <Text style={styles.inputLabel}>あなたのプレイヤータグ</Text>
+          <Text style={styles.tagDescription}>※このタグからホスト情報を補填しています。</Text>
           <View style={styles.playerTagInputContainer}>
             <TextInput
               style={[
@@ -499,8 +492,29 @@ const TeamBoard: React.FC = () => {
           {renderSearchHistory()}
         </View>
 
+        {/* プレイヤータグが認証された場合のみ以下を表示 */}
         {isPlayerVerified && (
           <>
+            {/* モード選択セクション */}
+            <View style={styles.modeSelectorContainer}>
+              <Text style={styles.inputLabel}>モード選択</Text>
+              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                {getCurrentModes().map((mode, index) => (
+                  <TouchableOpacity
+                    key={index}
+                    style={[
+                      styles.modeIconButton,
+                      selectedMode === mode.name && styles.selectedModeIconButton,
+                      { borderColor: selectedMode === mode.name ? mode.color : '#e0e0e0' }
+                    ]}
+                    onPress={() => setSelectedMode(mode.name)}
+                  >
+                    <Image source={mode.icon} style={styles.modeIconLarge} />
+                  </TouchableOpacity>
+                ))}
+              </ScrollView>
+            </View>
+
             <CharacterSelector
               title="使用キャラクター"
               onSelect={handleCharacterSelect}
