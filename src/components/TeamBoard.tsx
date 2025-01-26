@@ -410,7 +410,7 @@ const TeamBoard: React.FC = () => {
         </View>
 
         <View style={styles.playerTagContainer}>
-          <Text style={styles.inputLabel}>プレイヤータグ</Text>
+          <Text style={styles.inputLabel}>あなたのプレイヤータグ</Text>
           <View style={styles.playerTagInputContainer}>
             <TextInput
               style={[
@@ -423,21 +423,30 @@ const TeamBoard: React.FC = () => {
               placeholder="#XXXXXXXXX"
               autoCapitalize="characters"
               autoCorrect={false}
-              editable={!isPlayerVerified}
             />
             <TouchableOpacity
               style={[
                 styles.verifyButton,
-                (isLoadingPlayerData || isPlayerVerified) && styles.verifyButtonDisabled
+                isLoadingPlayerData && styles.verifyButtonDisabled
               ]}
-              onPress={handlePlayerTagVerify}
-              disabled={isLoadingPlayerData || isPlayerVerified}
+              onPress={() => {
+                if (isPlayerVerified) {
+                  setIsPlayerVerified(false);
+                  setSelectedCharacter(null);
+                  setCharacterTrophies('');
+                  setMidCharacters([]);
+                  setSideCharacters([]);
+                } else {
+                  handlePlayerTagVerify();
+                }
+              }}
+              disabled={isLoadingPlayerData}
             >
               {isLoadingPlayerData ? (
                 <ActivityIndicator size="small" color="#fff" />
               ) : (
                 <Text style={styles.verifyButtonText}>
-                  {isPlayerVerified ? '確認済み' : '取得'}
+                  {isPlayerVerified ? '変更する' : '取得'}
                 </Text>
               )}
             </TouchableOpacity>
