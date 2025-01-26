@@ -42,6 +42,7 @@ interface BattleLogProps {
 const INITIAL_DISPLAY_COUNT = 5;
 const VICTORY_COLOR = '#4CAF50';
 const DEFEAT_COLOR = '#F44336';
+const DRAW_COLOR = '#FFD700';
 const STAR_PLAYER_COLOR = '#FFD700';
 
 const getRankIcon = (trophies: number) => {
@@ -124,23 +125,58 @@ const getModeIcon = (modeName: string) => {
   return GAME_MODE_ICONS[normalizedName];
 };
 
+const getBattleResult = (battle: BattleLogItem) => {
+    const isSoloMode = battle.battle.mode === 'soloShowdown';
+    const isDuoMode = battle.battle.mode === 'duoShowdown';
+    
+    if (isSoloMode && battle.battle.rank) {
+      if (battle.battle.rank <= 4) return 'VICTORY';
+      if (battle.battle.rank === 5) return 'DRAW';
+      return 'DEFEAT';
+    }
+    
+    if (isDuoMode && battle.battle.rank) {
+      if (battle.battle.rank <= 2) return 'VICTORY';
+      if (battle.battle.rank === 3) return 'DRAW';
+      return 'DEFEAT';
+    }
+    
+    const result = battle.battle.result;
+    if (result) {
+      return result.toUpperCase();
+    }
+    
+    return 'Unknown';
+};
+
 const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog }) => {
   if (!battleLog || !Array.isArray(battleLog)) return null;
 
-  const victories = battleLog.filter(b => 
-    (b.battle?.result || '').toLowerCase() === 'victory'
-  ).length;
+  const victories = battleLog.filter(b => {
+    const result = getBattleResult(b);
+    return result === 'VICTORY';
+  }).length;
+  
+  const draws = battleLog.filter(b => {
+    const result = getBattleResult(b);
+    return result === 'DRAW';
+  }).length;
+
+  const defeats = battleLog.length - victories - draws;
   const winRate = Math.round((victories / battleLog.length) * 100);
 
   const renderResultIcon = (battle: BattleLogItem, index: number) => {
-    const isVictory = (battle.battle?.result || '').toLowerCase() === 'victory';
+    const result = getBattleResult(battle);
+    const isVictory = result === 'VICTORY';
+    const isDraw = result === 'DRAW';
+    const resultColor = isDraw ? DRAW_COLOR : isVictory ? VICTORY_COLOR : DEFEAT_COLOR;
     const modeIcon = getModeIcon(battle.battle?.mode);
     return (
       <View 
         key={index}
         style={[
           styles.resultIconContainer,
-          { backgroundColor: isVictory ? VICTORY_COLOR + '30' : DEFEAT_COLOR + '30' }
+          { backgroundColor: resultColor + '30' }
         ]}
       >
         {modeIcon && (
@@ -148,7 +184,7 @@ const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog })
             source={modeIcon} 
             style={[
               styles.resultModeIcon,
-              { opacity: isVictory ? 1 : 0.7 }
+              { opacity: isDraw ? 0.85 : isVictory ? 1 : 0.7 }
             ]} 
             resizeMode="contain"
           />
@@ -174,10 +210,13 @@ const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog })
         </View>
         <View style={styles.statDivider} />
         <View style={styles.statItem}>
+          <Text style={styles.statLabel}>引き分け</Text>
+          <Text style={[styles.statValue, { color: DRAW_COLOR }]}>{draws}</Text>
+        </View>
+        <View style={styles.statDivider} />
+        <View style={styles.statItem}>
           <Text style={styles.statLabel}>敗北</Text>
-          <Text style={[styles.statValue, { color: DEFEAT_COLOR }]}>
-            {battleLog.length - victories}
-          </Text>
+          <Text style={[styles.statValue, { color: DEFEAT_COLOR }]}>{defeats}</Text>
         </View>
       </View>
     </View>
@@ -291,7 +330,6 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
   const renderDuoShowdown = (battle: BattleLogItem) => {
     if (!battle?.battle?.teams || !Array.isArray(battle.battle.teams)) return null;
 
-    // 各行のプレイヤーを表示
     const renderRow = (rowIndex: number) => {
       return battle.battle.teams.map((team, teamIndex) => {
         if (!team[rowIndex]) return null;
@@ -329,8 +367,10 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
       return null;
     }
     
-    const isVictory = (battle.battle.result || '').toLowerCase() === 'victory';
-    const resultColor = isVictory ? VICTORY_COLOR : DEFEAT_COLOR;
+    const result = getBattleResult(battle);
+    const isVictory = result === 'VICTORY';
+    const isDraw = result === 'DRAW';
+    const resultColor = isDraw ? DRAW_COLOR : isVictory ? VICTORY_COLOR : DEFEAT_COLOR;
     const modeIcon = getModeIcon(battle.battle.mode);
     const isSoloRanked = battle.battle.type === 'soloRanked';
     
@@ -363,7 +403,7 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
             </Text>
           </View>
           <Text style={[styles.battleResult, { color: resultColor }]}>
-            {(battle.battle.result || 'Unknown').toUpperCase()}
+            {result}
           </Text>
         </View>
 
