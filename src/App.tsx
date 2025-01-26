@@ -18,33 +18,6 @@ import { BannerAdComponent } from './components/BannerAdComponent';
 const { width } = Dimensions.get('window');
 const TAB_WIDTH = width / 6;
 
-const getCurrentVersion = () => {
-  return Platform.select({
-    ios: NativeModules.RNConfig.version,
-    android: NativeModules.RNConfig.versionName,
-  });
-};
-
-const STORE_URLS = {
-  ios: 'https://apps.apple.com/jp/app/brawl-status/id6738936691?action=write-review',
-  android: 'market://details?id=com.brawlstatus'
-};
-
-const compareVersions = (version1: string, version2: string): number => {
-  const v1Parts = version1.split('.').map(Number);
-  const v2Parts = version2.split('.').map(Number);
-  
-  for (let i = 0; i < Math.max(v1Parts.length, v2Parts.length); i++) {
-    const v1 = v1Parts[i] || 0;
-    const v2 = v2Parts[i] || 0;
-    
-    if (v1 > v2) return 1;
-    if (v1 < v2) return -1;
-  }
-  
-  return 0;
-};
-
 export type RootStackParamList = {
   Main: undefined;
   Rankings: undefined;
@@ -133,62 +106,9 @@ const App = () => {
     news: new Animated.Value(0),
   }).current;
 
-  const checkAppVersion = async () => {
-    try {
-      const currentVersion = getCurrentVersion();
-      const lastVersion = await AsyncStorage.getItem('lastVersion');
-
-      
-      if (!lastVersion) {
-        await AsyncStorage.setItem('lastVersion', currentVersion);
-        return;
-      }
-      
-      const shouldUpdate = compareVersions(currentVersion, lastVersion) < 0;
-      
-      if (shouldUpdate) {
-        Alert.alert(
-          'アップデートのお知らせ',
-          '新しいバージョンが利用可能です。アップデートしますか？',
-          [
-            {
-              text: 'あとで',
-              style: 'cancel',
-              onPress: () => {
-                console.log('Update postponed');
-              }
-            },
-            {
-              text: 'アップデート',
-              onPress: handleUpdate,
-            },
-          ]
-        );
-      }
-    } catch (error) {
-      console.error('バージョンチェックエラー:', error);
-    }
-  };
-
-  const handleUpdate = () => {
-    const storeUrl = Platform.select(STORE_URLS);
-    console.log('Opening store URL:', storeUrl);
-    Linking.canOpenURL(storeUrl).then(supported => {
-      if (supported) {
-        Linking.openURL(storeUrl).catch(err => {
-          console.error('Failed to open store:', err);
-        });
-      } else {
-        console.error('Cannot open URL:', storeUrl);
-      }
-    });
-  };
-
   useEffect(() => {
     const initializeApp = async () => {
       try {
-        await checkAppVersion();
-        
         const status = await AsyncStorage.getItem('adFreeStatus');
         const isAdFreeStatus = status === 'true';
         setIsAdFree(isAdFreeStatus);
