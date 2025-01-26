@@ -148,47 +148,55 @@ export const usePlayerData = () => {
   });
 
   const fetchPlayerData = async (tag: string) => {
-    setState(prev => ({ ...prev, loading: true, error: '' }));
+  setState(prev => ({ ...prev, loading: true, error: '', data: null }));
 
-    try {
-      const cleanTag = validatePlayerTag(tag);
-      if (!cleanTag) {
-        throw new Error('プレイヤータグが不正です');
-      }
-
-      const encodedTag = encodeURIComponent('#' + cleanTag);
-      await AsyncStorage.setItem('brawlStarsPlayerTag', tag);
-      
-      const [playerResponse, battleLogResponse] = await Promise.all([
-        fetch(`https://brawls-api-wrapper.onrender.com/api/players/${encodedTag}`),
-        fetch(`https://brawls-api-wrapper.onrender.com/api/battlelog/${encodedTag}`)
-      ]);
-
-      if (!playerResponse.ok || !battleLogResponse.ok) {
-        throw new Error('プレイヤーデータの取得に失敗しました');
-      }
-
-      const [playerData, battleLogData] = await Promise.all([
-        playerResponse.json(),
-        battleLogResponse.json()
-      ]);
-
-      setState({
-        loading: false,
-        error: '',
-        data: {
-          playerInfo: playerData,
-          battleLog: battleLogData.items || []
-        }
-      });
-    } catch (err) {
-      setState({
-        loading: false,
-        error: err instanceof Error ? err.message : 'プレイヤーデータの取得に失敗しました',
-        data: null
-      });
+  try {
+    const cleanTag = validatePlayerTag(tag);
+    if (!cleanTag) {
+      throw new Error('プレイヤータグが不正です');
     }
-  };
+
+    const encodedTag = encodeURIComponent('#' + cleanTag);
+    
+    const [playerResponse, battleLogResponse] = await Promise.all([
+      fetch(`https://brawls-api-wrapper.onrender.com/api/players/${encodedTag}`),
+      fetch(`https://brawls-api-wrapper.onrender.com/api/battlelog/${encodedTag}`)
+    ]);
+
+    const [playerData, battleLogData] = await Promise.all([
+      playerResponse.json(),
+      battleLogResponse.json()
+    ]).catch(err => {
+      throw new Error('データの解析に失敗しました');
+    });
+
+    if (playerData.error) {
+      throw new Error(playerData.error);
+    }
+
+    // レスポンスのタグから#を除いて比較
+    const responseTag = validatePlayerTag(playerData.tag);
+    if (responseTag !== cleanTag) {
+      throw new Error('プレイヤーデータの検証に失敗しました');
+    }
+
+    setState({
+      loading: false,
+      error: '',
+      data: {
+        playerInfo: playerData,
+        battleLog: battleLogData.items || []
+      }
+    });
+  } catch (err) {
+    setState({
+      loading: false,
+      error: err instanceof Error ? err.message : 'プレイヤーデータの取得に失敗しました',
+      data: null
+    });
+    throw err;
+  }
+};
 
   const loadSavedTag = async () => {
     try {

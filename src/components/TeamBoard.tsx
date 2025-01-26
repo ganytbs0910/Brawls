@@ -18,7 +18,7 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import CharacterSelector, { Character } from './CharacterSelector';
 import { PostCard, styles } from './TeamBoardComponents';
-import { usePlayerData } from '../hooks/useBrawlStarsApi';
+import { usePlayerData, validatePlayerTag } from '../hooks/useBrawlStarsApi';
 import { nameMap } from '../data/characterData';
 
 const supabase = createClient(
@@ -121,18 +121,55 @@ const TeamBoard: React.FC = () => {
       const savedHistoryStr = await AsyncStorage.getItem('searchHistory');
       if (savedHistoryStr) {
         const savedHistory = JSON.parse(savedHistoryStr);
-        setSearchHistory(savedHistory);
+        const validatedHistory = savedHistory
+          .map(tag => validatePlayerTag(tag))
+          .filter(Boolean);
+        setSearchHistory(validatedHistory);
       }
     } catch (error) {
       console.error('Error loading search history:', error);
     }
   };
 
+  const verifyPlayerTag = async (tag: string) => {
+  if (!tag) return false;
+
+  try {
+    const timeoutPromise = new Promise((_, reject) => {
+      setTimeout(() => reject(new Error('API timeout')), 5000);
+    });
+
+    const dataPromise = playerDataAPI.fetchPlayerData(tag);
+    await Promise.race([dataPromise, timeoutPromise]);
+    
+    if (!playerDataAPI.data?.playerInfo) return false;
+    
+    const { playerInfo } = playerDataAPI.data;
+    setHostInfo({
+      wins3v3: playerInfo['3vs3Victories'] || 0,
+      winsDuo: playerInfo.duoVictories || 0,
+      totalTrophies: playerInfo.trophies || 0
+    });
+    
+    return true;
+  } catch (error) {
+    console.error('Error verifying player tag:', error);
+    return false;
+  }
+};
+
   const loadSavedPlayerTag = async () => {
     try {
       const savedTag = await AsyncStorage.getItem('brawlStarsPlayerTag');
       if (savedTag) {
-        setPlayerTag(savedTag);
+        const validatedTag = validatePlayerTag(savedTag);
+        if (validatedTag) {
+          setPlayerTag(validatedTag);
+          const isVerified = await verifyPlayerTag(validatedTag, validatedTag);
+          if (validatedTag === playerTag) {
+            setIsPlayerVerified(isVerified);
+          }
+        }
       }
     } catch (error) {
       console.error('Error loading saved player tag:', error);
@@ -140,43 +177,50 @@ const TeamBoard: React.FC = () => {
   };
 
   const handlePlayerTagVerify = async () => {
-    if (!playerTag.trim()) {
-      Alert.alert('エラー', 'プレイヤータグを入力してください');
+  if (!playerTag.trim()) {
+    Alert.alert('エラー', 'プレイヤータグを入力してください');
+    return;
+  }
+
+  setIsLoadingPlayerData(true);
+  
+  try {
+    const cleanTag = playerTag.replace('#', '');
+    const validatedTag = validatePlayerTag(cleanTag);
+    
+    if (!validatedTag) {
+      Alert.alert('エラー', 'プレイヤータグが不正です');
+      setIsPlayerVerified(false);
       return;
     }
 
-    setIsLoadingPlayerData(true);
-    try {
-      const cleanTag = playerTag.replace('#', '');
-      await playerDataAPI.fetchPlayerData(cleanTag);
-      
-      if (playerDataAPI.data?.playerInfo) {
-        const { playerInfo } = playerDataAPI.data;
-        setHostInfo({
-          wins3v3: playerInfo['3vs3Victories'] || 0,
-          winsDuo: playerInfo.duoVictories || 0,
-          totalTrophies: playerInfo.trophies || 0
-        });
-        setIsPlayerVerified(true);
-        
-        // Update search history
-        const newHistory = [cleanTag, ...searchHistory.filter(tag => tag !== cleanTag)].slice(0, 3);
-        setSearchHistory(newHistory);
-        await AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory));
-        await AsyncStorage.setItem('brawlStarsPlayerTag', cleanTag);
-      }
-    } catch (error) {
-      console.error('Error fetching player data:', error);
-      Alert.alert('エラー', 'プレイヤー情報の取得に失敗しました');
+    const isVerified = await verifyPlayerTag(validatedTag);
+    
+    if (isVerified) {
+      setIsPlayerVerified(true);
+      const newHistory = [validatedTag, ...searchHistory.filter(tag => tag !== validatedTag)].slice(0, 3);
+      setSearchHistory(newHistory);
+      await AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory));
+      await AsyncStorage.setItem('brawlStarsPlayerTag', validatedTag);
+    } else {
+      Alert.alert('エラー', 'プレイヤーデータの取得に失敗しました');
       setIsPlayerVerified(false);
-    } finally {
-      setIsLoadingPlayerData(false);
     }
-  };
+  } catch (error) {
+    console.error('Error fetching player data:', error);
+    Alert.alert('エラー', 'プレイヤーデータの取得に失敗しました');
+    setIsPlayerVerified(false);
+  } finally {
+    setIsLoadingPlayerData(false);
+  }
+};
 
   const handleHistorySelect = (tag: string) => {
-    setPlayerTag(tag);
-  };
+  const validatedTag = validatePlayerTag(tag);
+  if (validatedTag) {
+    setPlayerTag(validatedTag);
+  }
+};
 
   const handleCharacterSelect = async (character: Character | null) => {
     if (!isPlayerVerified) return;
@@ -423,6 +467,7 @@ const TeamBoard: React.FC = () => {
               placeholder="#XXXXXXXXX"
               autoCapitalize="characters"
               autoCorrect={false}
+              editable={!isPlayerVerified}
             />
             <TouchableOpacity
               style={[
