@@ -541,6 +541,9 @@ export const styles = StyleSheet.create({
   submitButton: {
     backgroundColor: '#21A0DB',
   },
+  submitButtonDisabled: {
+    opacity: 0.5,
+  },
   cancelButtonText: {
     textAlign: 'center',
     color: '#666',
@@ -632,8 +635,55 @@ export const styles = StyleSheet.create({
   },
   playerTagInput: {
     flex: 1,
+    marginBottom: 0,
   },
-  loadingIndicator: {
-    marginLeft: 8,
+  verifyButton: {
+    backgroundColor: '#21A0DB',
+    paddingHorizontal: 16,
+    height: 42,
+    borderRadius: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: 80,
+  },
+  verifyButtonDisabled: {
+    opacity: 0.5,
+  },
+  verifyButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  disabledInput: {
+    backgroundColor: '#f5f5f5',
+    color: '#666',
+  },
+  historyContainer: {
+    marginTop: 8,
+  },
+  historyTitle: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: '#666',
+    marginBottom: 4,
+  },
+  historyItemContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#f8f8f8',
+    borderRadius: 4,
+    marginBottom: 4,
+    paddingLeft: 8,
+  },
+  historyItem: {
+    fontSize: 14,
+    paddingVertical: 6,
+    color: '#21A0DB',
+  },
+  deleteButton: {
+    padding: 8,
+  },
+  deleteText: {
+    color: '#ff4444',
+    fontSize: 16,
   },
 });
