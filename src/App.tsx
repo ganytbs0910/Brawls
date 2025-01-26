@@ -18,317 +18,377 @@ import { BannerAdComponent } from './components/BannerAdComponent';
 const { width } = Dimensions.get('window');
 const TAB_WIDTH = width / 6;
 
+const APP_VERSION = Platform.select({
+ ios: "1.2.1",
+ android: "1.8",
+});
+
+interface UpdateInfo {
+ currentVersion: string;
+ message: string;
+ storeUrl: string;
+}
+
+interface VersionResponse {
+ ios: UpdateInfo;
+ android: UpdateInfo;
+}
+
 export type RootStackParamList = {
-  Main: undefined;
-  Rankings: undefined;
-  CharacterDetails: { characterName: string };
+ Main: undefined;
+ Rankings: undefined;
+ CharacterDetails: { characterName: string };
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
 
 const appOpenAdUnitId = Platform.select({
-  ios: AD_CONFIG.IOS_APP_OPEN_ID,
-  android: AD_CONFIG.ANDROID_APP_OPEN_ID,
+ ios: AD_CONFIG.IOS_APP_OPEN_ID,
+ android: AD_CONFIG.ANDROID_APP_OPEN_ID,
 }) || '';
 
 const appOpenAd = AppOpenAd.createForAdRequest(appOpenAdUnitId, {
-  requestNonPersonalizedAdsOnly: true,
+ requestNonPersonalizedAdsOnly: true,
 });
 
 const RankingsStack = ({ isAdFree }: { isAdFree: boolean }) => {
-  return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen 
-        name="Rankings" 
-        component={(props) => <BrawlStarsRankings {...props} isAdFree={isAdFree} />} 
-      />
-      <Stack.Screen 
-        name="CharacterDetails" 
-        component={CharacterDetails}
-        options={{
-          headerShown: true,
-          headerStyle: {
-            backgroundColor: '#21A0DB',
-            elevation: 0,
-            shadowOpacity: 0,
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          }
-        }}
-      />
-    </Stack.Navigator>
-  );
+ return (
+   <Stack.Navigator screenOptions={{ headerShown: false }}>
+     <Stack.Screen 
+       name="Rankings" 
+       component={(props) => <BrawlStarsRankings {...props} isAdFree={isAdFree} />} 
+     />
+     <Stack.Screen 
+       name="CharacterDetails" 
+       component={CharacterDetails}
+       options={{
+         headerShown: true,
+         headerStyle: {
+           backgroundColor: '#21A0DB',
+           elevation: 0,
+           shadowOpacity: 0,
+         },
+         headerTintColor: '#fff',
+         headerTitleStyle: {
+           fontWeight: 'bold',
+         }
+       }}
+     />
+   </Stack.Navigator>
+ );
 };
 
 const HomeStack = ({ isAdFree }: { isAdFree: boolean }) => {
-  return (
-    <NavigationContainer independent>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen 
-          name="Main" 
-          component={(props) => <Home {...props} isAdFree={isAdFree} />}
-        />
-        <Stack.Screen 
-          name="CharacterDetails" 
-          component={CharacterDetails}
-          options={{
-            headerShown: true,
-            headerStyle: {
-              backgroundColor: '#21A0DB',
-              elevation: 0,
-              shadowOpacity: 0,
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            }
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+ return (
+   <NavigationContainer independent>
+     <Stack.Navigator screenOptions={{ headerShown: false }}>
+       <Stack.Screen 
+         name="Main" 
+         component={(props) => <Home {...props} isAdFree={isAdFree} />}
+       />
+       <Stack.Screen 
+         name="CharacterDetails" 
+         component={CharacterDetails}
+         options={{
+           headerShown: true,
+           headerStyle: {
+             backgroundColor: '#21A0DB',
+             elevation: 0,
+             shadowOpacity: 0,
+           },
+           headerTintColor: '#fff',
+           headerTitleStyle: {
+             fontWeight: 'bold',
+           }
+         }}
+       />
+     </Stack.Navigator>
+   </NavigationContainer>
+ );
 };
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings' | 'prediction' | 'news'>('home');
-  const [isAdFree, setIsAdFree] = useState(false);
-  const [shouldShowAd, setShouldShowAd] = useState(true);
-  const slideAnimation = useRef(new Animated.Value(0)).current;
-  
-  const animatedValues = useRef({
-    home: new Animated.Value(1),
-    single: new Animated.Value(0),
-    team: new Animated.Value(0),
-    rankings: new Animated.Value(0),
-    prediction: new Animated.Value(0),
-    news: new Animated.Value(0),
-  }).current;
+ const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings' | 'prediction' | 'news'>('home');
+ const [isAdFree, setIsAdFree] = useState(false);
+ const [shouldShowAd, setShouldShowAd] = useState(true);
+ const slideAnimation = useRef(new Animated.Value(0)).current;
+ 
+ const animatedValues = useRef({
+   home: new Animated.Value(1),
+   single: new Animated.Value(0),
+   team: new Animated.Value(0),
+   rankings: new Animated.Value(0),
+   prediction: new Animated.Value(0),
+   news: new Animated.Value(0),
+ }).current;
 
-  useEffect(() => {
-    const initializeApp = async () => {
-      try {
-        const status = await AsyncStorage.getItem('adFreeStatus');
-        const isAdFreeStatus = status === 'true';
-        setIsAdFree(isAdFreeStatus);
+ const checkVersion = async () => {
+   console.log('バージョンチェック開始');
+   try {
+     console.log('Gistフェッチ開始');
+     const response = await fetch('https://api.github.com/gists/02b6fe84bebb1bc494427a956ed7e7d2');
+     const gistData = await response.json();
+     console.log('Gistデータ:', gistData);
+     const content = JSON.parse(Object.values(gistData.files)[0].content) as VersionResponse;
+     console.log('パース済みデータ:', content);
+     
+     const platform = Platform.OS;
+     const updateInfo = platform === 'ios' ? content.ios : content.android;
+     
+     const isUpdateRequired = APP_VERSION !== updateInfo.currentVersion;
+     console.log('バージョン比較結果:', {
+       currentAppVersion: APP_VERSION,
+       latestVersion: updateInfo.currentVersion,
+       needsUpdate: isUpdateRequired
+     });
+     
+     if (isUpdateRequired) {
+       Alert.alert(
+         'アップデートが必要です',
+         updateInfo.message,
+         [
+           {
+             text: 'アップデート',
+             onPress: () => {
+               Linking.openURL(updateInfo.storeUrl).catch(err => {
+                 console.error('ストアを開けませんでした:', err);
+               });
+             },
+           },
+         ],
+         { cancelable: false }
+       );
+     }
+   } catch (error) {
+     console.error('バージョンチェックに失敗しました:', error);
+   }
+ };
 
-        if (!isAdFreeStatus) {
-          const randomValue = Math.random();
-          console.log('Ad probability check:', randomValue <= 0.2 ? 'Showing ad' : 'Not showing ad');
-          
-          if (randomValue <= 1) {
-            appOpenAd.addAdEventListener('loaded', () => {
-              appOpenAd.show().catch(showError => {
-                console.error('Failed to show app open ad:', showError);
-              });
-            });
+ useEffect(() => {
+   const initializeApp = async () => {
+     try {
+       await checkVersion();
+       
+       const status = await AsyncStorage.getItem('adFreeStatus');
+       const isAdFreeStatus = status === 'true';
+       setIsAdFree(isAdFreeStatus);
 
-            appOpenAd.addAdEventListener('error', (error) => {
-              console.error('App open ad failed to load:', error);
-            });
+       if (!isAdFreeStatus) {
+         const randomValue = Math.random();
+         console.log('Ad probability check:', randomValue <= 0.2 ? 'Showing ad' : 'Not showing ad');
+         
+         if (randomValue <= 1) {
+           appOpenAd.addAdEventListener('loaded', () => {
+             appOpenAd.show().catch(showError => {
+               console.error('Failed to show app open ad:', showError);
+             });
+           });
 
-            await appOpenAd.load();
-          }
-        }
-      } catch (error) {
-        console.error('Failed to initialize app:', error);
-      }
-    };
+           appOpenAd.addAdEventListener('error', (error) => {
+             console.error('App open ad failed to load:', error);
+           });
 
-    initializeApp();
+           await appOpenAd.load();
+         }
+       }
+     } catch (error) {
+       console.error('Failed to initialize app:', error);
+     }
+   };
 
-    return () => {
-      appOpenAd.removeAllListeners();
-    };
-  }, []);
+   initializeApp();
 
-  const tabs = [
-    {
-      key: 'home',
-      label: 'ホーム',
-      icon: require('../assets/AppIcon/home.png'),
-    },
-    {
-      key: 'single',
-      label: '分析',
-      icon: require('../assets/AppIcon/compatibility.png'),
-    },
-    {
-      key: 'team',
-      label: 'チーム募集',
-      icon: require('../assets/AppIcon/analysis.png'),
-    },
-    {
-      key: 'prediction',
-      label: 'ピック想定',
-      icon: require('../assets/AppIcon/prediction.png'),
-    },
-    {
-      key: 'rankings',
-      label: 'ランキング',
-      icon: require('../assets/AppIcon/ranking.png'),
-    },
-    {
-      key: 'news',
-      label: 'ニュース', 
-      icon: require('../assets/AppIcon/loudspeaker_icon.png'),
-    },
-  ];
+   return () => {
+     appOpenAd.removeAllListeners();
+   };
+ }, []);
 
-  const handleTabPress = (tabKey: typeof activeTab, index: number) => {
-    const animations = Object.keys(animatedValues).map((key) =>
-      Animated.timing(animatedValues[key], {
-        toValue: key === tabKey ? 1 : 0,
-        duration: 200,
-        useNativeDriver: true,
-      })
-    );
+ const tabs = [
+   {
+     key: 'home',
+     label: 'ホーム',
+     icon: require('../assets/AppIcon/home.png'),
+   },
+   {
+     key: 'single',
+     label: '分析',
+     icon: require('../assets/AppIcon/compatibility.png'),
+   },
+   {
+     key: 'team',
+     label: 'チーム募集',
+     icon: require('../assets/AppIcon/analysis.png'),
+   },
+   {
+     key: 'prediction',
+     label: 'ピック想定',
+     icon: require('../assets/AppIcon/prediction.png'),
+   },
+   {
+     key: 'rankings',
+     label: 'ランキング',
+     icon: require('../assets/AppIcon/ranking.png'),
+   },
+   {
+     key: 'news',
+     label: 'ニュース', 
+     icon: require('../assets/AppIcon/loudspeaker_icon.png'),
+   },
+ ];
 
-    Animated.parallel([
-      ...animations,
-      Animated.spring(slideAnimation, {
-        toValue: index * TAB_WIDTH,
-        tension: 68,
-        friction: 12,
-        useNativeDriver: true,
-      }),
-    ]).start();
+ const handleTabPress = (tabKey: typeof activeTab, index: number) => {
+   const animations = Object.keys(animatedValues).map((key) =>
+     Animated.timing(animatedValues[key], {
+       toValue: key === tabKey ? 1 : 0,
+       duration: 200,
+       useNativeDriver: true,
+     })
+   );
 
-    setActiveTab(tabKey);
-  };
+   Animated.parallel([
+     ...animations,
+     Animated.spring(slideAnimation, {
+       toValue: index * TAB_WIDTH,
+       tension: 68,
+       friction: 12,
+       useNativeDriver: true,
+     }),
+   ]).start();
 
-  const renderContent = () => {
-    switch (activeTab) {
-      case 'home':
-        return <HomeStack isAdFree={isAdFree} />;
-      case 'single':
-        return <BrawlStarsCompatibility isAdFree={isAdFree} />;
-      case 'team':
-        return <TeamBoard isAdFree={isAdFree} />;
-      case 'prediction':
-        return <PickPrediction isAdFree={isAdFree} />;
-      case 'rankings':
-        return (
-          <NavigationContainer independent>
-            <RankingsStack isAdFree={isAdFree} />
-          </NavigationContainer>
-        );
-      case 'news':
-        return <News isAdFree={isAdFree} />;
-    }
-  };
+   setActiveTab(tabKey);
+ };
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
-        {renderContent()}
-      </View>
+ const renderContent = () => {
+   switch (activeTab) {
+     case 'home':
+       return <HomeStack isAdFree={isAdFree} />;
+     case 'single':
+       return <BrawlStarsCompatibility isAdFree={isAdFree} />;
+     case 'team':
+       return <TeamBoard isAdFree={isAdFree} />;
+     case 'prediction':
+       return <PickPrediction isAdFree={isAdFree} />;
+     case 'rankings':
+       return (
+         <NavigationContainer independent>
+           <RankingsStack isAdFree={isAdFree} />
+         </NavigationContainer>
+       );
+     case 'news':
+       return <News isAdFree={isAdFree} />;
+   }
+ };
 
-      {!isAdFree && shouldShowAd && <BannerAdComponent />}
-      <View style={styles.tabBar}>
-        <Animated.View 
-          style={[
-            styles.activeIndicator,
-            {
-              transform: [{ translateX: slideAnimation }],
-            },
-          ]} 
-        />
-        {tabs.map((tab, index) => (
-          <TouchableOpacity
-            key={tab.key}
-            style={styles.tab}
-            onPress={() => handleTabPress(tab.key as typeof activeTab, index)}
-          >
-            <Animated.View
-              style={[
-                styles.tabContent,
-                {
-                  transform: [
-                    {
-                      scale: animatedValues[tab.key].interpolate({
-                        inputRange: [0, 1],
-                        outputRange: [0.8, 1],
-                      }),
-                    },
-                  ],
-                  opacity: animatedValues[tab.key].interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [0.7, 1],
-                  }),
-                },
-              ]}
-            >
-              <Image
-                source={tab.icon}
-                style={[
-                  styles.tabIcon,
-                  activeTab === tab.key && styles.activeTabIcon,
-                ]}
-              />
-              <Text
-                style={[
-                  styles.tabText,
-                  activeTab === tab.key && styles.activeTabText,
-                ]}
-              >
-                {tab.label}
-              </Text>
-            </Animated.View>
-          </TouchableOpacity>
-        ))}
-      </View>
-    </SafeAreaView>
-  );
+ return (
+   <SafeAreaView style={styles.container}>
+     <View style={styles.content}>
+       {renderContent()}
+     </View>
+
+     {!isAdFree && shouldShowAd && <BannerAdComponent />}
+     <View style={styles.tabBar}>
+       <Animated.View 
+         style={[
+           styles.activeIndicator,
+           {
+             transform: [{ translateX: slideAnimation }],
+           },
+         ]} 
+       />
+       {tabs.map((tab, index) => (
+         <TouchableOpacity
+           key={tab.key}
+           style={styles.tab}
+           onPress={() => handleTabPress(tab.key as typeof activeTab, index)}
+         >
+           <Animated.View
+             style={[
+               styles.tabContent,
+               {
+                 transform: [
+                   {
+                     scale: animatedValues[tab.key].interpolate({
+                       inputRange: [0, 1],
+                       outputRange: [0.8, 1],
+                     }),
+                   },
+                 ],
+                 opacity: animatedValues[tab.key].interpolate({
+                   inputRange: [0, 1],
+                   outputRange: [0.7, 1],
+                 }),
+               },
+             ]}
+           >
+             <Image
+               source={tab.icon}
+               style={[
+                 styles.tabIcon,
+                 activeTab === tab.key && styles.activeTabIcon,
+               ]}
+             />
+             <Text
+               style={[
+                 styles.tabText,
+                 activeTab === tab.key && styles.activeTabText,
+               ]}
+             >
+               {tab.label}
+             </Text>
+           </Animated.View>
+         </TouchableOpacity>
+       ))}
+     </View>
+   </SafeAreaView>
+ );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  content: {
-    flex: 1,
-  },
-  tabBar: {
-    flexDirection: 'row',
-    borderTopWidth: 0,
-    borderTopColor: '#e0e0e0',
-    backgroundColor: '#fff',
-  },
-  tab: {
-    flex: 1,
-    paddingVertical: 8,
-    alignItems: 'center',
-  },
-  tabContent: {
-    alignItems: 'center',
-  },
-  activeIndicator: {
-    position: 'absolute',
-    top: 0,
-    width: TAB_WIDTH,
-    height: 2,
-    backgroundColor: '#65BBE9',
-  },
-  tabIcon: {
-    width: 24,
-    height: 24,
-    marginBottom: 4,
-    tintColor: '#666',
-  },
-  activeTabIcon: {
-    tintColor: '#65BBE9',
-  },
-  tabText: {
-    fontSize: 12,
-    color: '#666',
-  },
-  activeTabText: {
-    color: '#65BBE9',
-    fontWeight: 'bold',
-  },
+ container: {
+   flex: 1,
+   backgroundColor: '#fff',
+ },
+ content: {
+   flex: 1,
+ },
+ tabBar: {
+   flexDirection: 'row',
+   borderTopWidth: 0,
+   borderTopColor: '#e0e0e0',
+   backgroundColor: '#fff',
+ },
+ tab: {
+   flex: 1,
+   paddingVertical: 8,
+   alignItems: 'center',
+ },
+ tabContent: {
+   alignItems: 'center',
+ },
+ activeIndicator: {
+   position: 'absolute',
+   top: 0,
+   width: TAB_WIDTH,
+   height: 2,
+   backgroundColor: '#65BBE9',
+ },
+ tabIcon: {
+   width: 24,
+   height: 24,
+   marginBottom: 4,
+   tintColor: '#666',
+ },
+ activeTabIcon: {
+   tintColor: '#65BBE9',
+ },
+ tabText: {
+   fontSize: 12,
+   color: '#666',
+ },
+ activeTabText: {
+   color: '#65BBE9',
+   fontWeight: 'bold',
+ },
 });
 
 export default App;
