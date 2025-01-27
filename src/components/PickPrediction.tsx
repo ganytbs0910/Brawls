@@ -80,7 +80,7 @@ const GAME_MODES: GameMode[] = [
 const MAPS_BY_MODE: MapsByMode = {
   "エメラルドハント": [
     { name: "ごつごつ坑道", image: require('../../assets/MapImages/Hard_Rock_Mine.png') },
-    { name: "アンダーマイン", image: require('../../assets/MapImages/Flying_Fantasies.png') },
+    { name: "アンダーマイン", image: require('../../assets/MapImages/Undermine.png') },
     { name: "ダブルレール", image: require('../../assets/MapImages/Double_Swoosh.png') },
     { name: "ラストストップ", image: require('../../assets/MapImages/Last_Stop.png') },
   ],
@@ -808,22 +808,25 @@ const styles = StyleSheet.create({
   },
   teamsContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
-    padding: 10,
-    marginHorizontal: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 0,
+    marginHorizontal: 0,
     backgroundColor: '#fff',
   },
   centerContent: {
     alignItems: 'center',
     justifyContent: 'center',
+    width: 80, // 120から80に変更
+    flexShrink: 0,
   },
   selectedMapContainer: {
     alignItems: 'center',
   },
   selectedMapImage: {
-    width: 60,
-    height: 80,
+    width: 80,
+    height: 110,
     borderRadius: 4,
     marginBottom: 4,
     resizeMode: 'cover',

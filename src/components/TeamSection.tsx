@@ -109,8 +109,19 @@ const styles = StyleSheet.create({
   },
   teamSlots: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     width: '100%',
+    gap: 4,
+  },
+  teamSlot: {
+    width: 40,
+    height: 40,
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 2,
   },
   banContainer: {
     alignItems: 'center',
@@ -160,15 +171,6 @@ const styles = StyleSheet.create({
     color: '#ff4444',
     fontSize: 24,
     fontWeight: 'bold',
-  },
-  teamSlot: {
-    width: '32%',
-    aspectRatio: 1,
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-    borderRadius: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   activeTeamSlotA: {
     borderColor: '#FF3B30',
