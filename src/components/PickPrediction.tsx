@@ -19,9 +19,12 @@ type GamePhase = 1 | 2 | 3 | 4;
 interface SelectionState {
   teamA: string[];
   teamB: string[];
+  bansA: string[];
+  bansB: string[];
   currentPhase: GamePhase;
   currentTeam: Team;
   recommendations: CharacterRecommendation[];
+  isBanPhaseEnabled: boolean;
 }
 
 interface CharacterRecommendation {
@@ -35,9 +38,12 @@ const PickPrediction: React.FC = () => {
   const [gameState, setGameState] = useState<SelectionState>({
     teamA: [],
     teamB: [],
+    bansA: [],
+    bansB: [],
     currentPhase: 1,
     currentTeam: 'A',
     recommendations: [],
+    isBanPhaseEnabled: true,
   });
 
   const [showTurnModal, setShowTurnModal] = useState(false);
@@ -61,12 +67,15 @@ const PickPrediction: React.FC = () => {
     setGameState({
       teamA: [],
       teamB: [],
+      bansA: [],
+      bansB: [],
       currentPhase: 1,
       currentTeam: 'A',
       recommendations: [],
+      isBanPhaseEnabled: gameState.isBanPhaseEnabled,
     });
     setExpandedRecommendations(false);
-    showTurnAnnouncement('A', 1);
+    showTurnAnnouncement('A', gameState.isBanPhaseEnabled ? 0 : 1, gameState.isBanPhaseEnabled);
   };
 
   useEffect(() => {
@@ -92,6 +101,11 @@ const PickPrediction: React.FC = () => {
   }, [showTurnModal]);
 
   const getPhaseInstructions = (phase: GamePhase, team: Team): string => {
+    if (gameState.isBanPhaseEnabled) {
+      if (gameState.bansA.length < 3) return `チームAが${3 - gameState.bansA.length}体目のバンを選択`;
+      if (gameState.bansB.length < 3) return `チームBが${3 - gameState.bansB.length}体目のバンを選択`;
+    }
+    
     switch (phase) {
       case 1: return 'チームAが1体目を選択';
       case 2: return 'チームBが1,2体目を選択';
@@ -101,23 +115,27 @@ const PickPrediction: React.FC = () => {
     }
   };
 
-  const showTurnAnnouncement = (team: Team, phase: GamePhase) => {
+  const showTurnAnnouncement = (team: Team, phase: GamePhase, isBanPhase: boolean = false) => {
     let message = `チーム${team}の番！`;
     let subMessage = '';
     
-    switch (phase) {
-      case 1:
-        subMessage = '1体目を選択してください';
-        break;
-      case 2:
-        subMessage = '1,2体目を選択してください';
-        break;
-      case 3:
-        subMessage = '2,3体目を選択してください';
-        break;
-      case 4:
-        subMessage = '最後の1体を選択してください';
-        break;
+    if (isBanPhase) {
+      subMessage = 'バンするキャラクターを選択してください';
+    } else {
+      switch (phase) {
+        case 1:
+          subMessage = '1体目を選択してください';
+          break;
+        case 2:
+          subMessage = '1,2体目を選択してください';
+          break;
+        case 3:
+          subMessage = '2,3体目を選択してください';
+          break;
+        case 4:
+          subMessage = '最後の1体を選択してください';
+          break;
+      }
     }
 
     setTurnMessage(message);
@@ -125,8 +143,162 @@ const PickPrediction: React.FC = () => {
     setShowTurnModal(true);
   };
 
+  const handleBanSelect = (character: string) => {
+    if (!gameState.isBanPhaseEnabled) return;
+    
+    if (gameState.bansA.length < 3 && gameState.currentTeam === 'A') {
+      const newBansA = [...gameState.bansA, character];
+      setGameState(prev => ({
+        ...prev,
+        bansA: newBansA,
+        currentTeam: newBansA.length === 3 ? 'B' : 'A'
+      }));
+      if (newBansA.length === 3) {
+        showTurnAnnouncement('B', 0, true);
+      }
+    } else if (gameState.bansB.length < 3 && gameState.currentTeam === 'B') {
+      const newBansB = [...gameState.bansB, character];
+      setGameState(prev => ({
+        ...prev,
+        bansB: newBansB,
+        currentTeam: newBansB.length === 3 ? 'A' : 'B'
+      }));
+      if (newBansB.length === 3) {
+        showTurnAnnouncement('A', 1, false);
+      }
+    }
+  };
+
+  const handleCharacterSelect = (character: string) => {
+    if (!gameState.isBanPhaseEnabled) {
+      // バン機能が無効の場合の処理
+      const { currentPhase, currentTeam, teamA, teamB } = gameState;
+      
+      if (currentTeam === 'A' && teamA.includes(character)) return;
+      if (currentTeam === 'B' && teamB.includes(character)) return;
+      
+      const newState = { ...gameState };
+      setExpandedRecommendations(false);
+
+      switch (currentPhase) {
+        case 1:
+          if (currentTeam === 'A') {
+            newState.teamA = [character];
+            newState.currentTeam = 'B';
+            newState.currentPhase = 2;
+            newState.recommendations = calculateRecommendations('B', [character], []);
+            showTurnAnnouncement('B', 2);
+          }
+          break;
+        
+        case 2:
+          if (currentTeam === 'B' && teamB.length < 2) {
+            const newTeamB = [...teamB, character];
+            newState.teamB = newTeamB;
+            newState.recommendations = calculateRecommendations('B', teamA, newTeamB);
+            if (newTeamB.length === 2) {
+              newState.currentTeam = 'A';
+              newState.currentPhase = 3;
+              newState.recommendations = calculateRecommendations('A', newTeamB, teamA);
+              showTurnAnnouncement('A', 3);
+            }
+          }
+          break;
+        
+        case 3:
+          if (currentTeam === 'A' && teamA.length < 3) {
+            const newTeamA = [...teamA, character];
+            newState.teamA = newTeamA;
+            newState.recommendations = calculateRecommendations('A', teamB, newTeamA);
+            if (newTeamA.length === 3) {
+              newState.currentTeam = 'B';
+              newState.currentPhase = 4;
+              newState.recommendations = calculateRecommendations('B', newTeamA, teamB);
+              showTurnAnnouncement('B', 4);
+            }
+          }
+          break;
+        
+        case 4:
+          if (currentTeam === 'B' && teamB.length < 3) {
+            const newTeamB = [...teamB, character];
+            newState.teamB = newTeamB;
+            newState.recommendations = [];
+          }
+          break;
+      }
+
+      setGameState(newState);
+    } else {
+      // バン機能が有効の場合の処理
+      if (gameState.bansA.includes(character) || gameState.bansB.includes(character)) {
+        return;
+      }
+      
+      if (gameState.bansA.length === 3 && gameState.bansB.length === 3) {
+        const { currentPhase, currentTeam, teamA, teamB } = gameState;
+        
+        if (currentTeam === 'A' && teamA.includes(character)) return;
+        if (currentTeam === 'B' && teamB.includes(character)) return;
+        
+        const newState = { ...gameState };
+        setExpandedRecommendations(false);
+
+        switch (currentPhase) {
+          case 1:
+            if (currentTeam === 'A') {
+              newState.teamA = [character];
+              newState.currentTeam = 'B';
+              newState.currentPhase = 2;
+              newState.recommendations = calculateRecommendations('B', [character], []);
+              showTurnAnnouncement('B', 2);
+            }
+            break;
+          
+          case 2:
+            if (currentTeam === 'B' && teamB.length < 2) {
+              const newTeamB = [...teamB, character];
+              newState.teamB = newTeamB;
+              newState.recommendations = calculateRecommendations('B', teamA, newTeamB);
+              if (newTeamB.length === 2) {
+                newState.currentTeam = 'A';
+                newState.currentPhase = 3;
+                newState.recommendations = calculateRecommendations('A', newTeamB, teamA);
+                showTurnAnnouncement('A', 3);
+              }
+            }
+            break;
+          
+          case 3:
+            if (currentTeam === 'A' && teamA.length < 3) {
+              const newTeamA = [...teamA, character];
+              newState.teamA = newTeamA;
+              newState.recommendations = calculateRecommendations('A', teamB, newTeamA);
+              if (newTeamA.length === 3) {
+                newState.currentTeam = 'B';
+                newState.currentPhase = 4;
+                newState.recommendations = calculateRecommendations('B', newTeamA, teamB);
+                showTurnAnnouncement('B', 4);
+              }
+            }
+            break;
+          
+          case 4:
+            if (currentTeam === 'B' && teamB.length < 3) {
+              const newTeamB = [...teamB, character];
+              newState.teamB = newTeamB;
+              newState.recommendations = [];
+            }
+            break;
+        }
+
+        setGameState(newState);
+      }
+    }
+  };
+
   const getRecommendationReason = (score: number, opposingTeamSize: number): string => {
-    const maxPossibleScore = opposingTeamSize * 10; // 1体あたり10点満点
+    const maxPossibleScore = opposingTeamSize * 10;
     const scorePercentage = (score / maxPossibleScore) * 100;
     
     if (scorePercentage >= 80) return '最高の選択';
@@ -142,12 +314,14 @@ const PickPrediction: React.FC = () => {
     ownTeamChars: string[]
   ): CharacterRecommendation[] => {
     const recommendations: CharacterRecommendation[] = [];
+    const bannedCharacters = [...gameState.bansA, ...gameState.bansB];
     
     Object.values(CHARACTER_MAP).forEach(character => {
-      if (!opposingTeamChars.includes(character) && !ownTeamChars.includes(character)) {
+      if (!opposingTeamChars.includes(character) && 
+          !ownTeamChars.includes(character) && 
+          !bannedCharacters.includes(character)) {
         let totalScore = 0;
         
-        // 相手チームとの相性スコアを合算
         opposingTeamChars.forEach(opposingChar => {
           const characterId = getCharacterId(character);
           const opposingId = getCharacterId(opposingChar);
@@ -161,7 +335,7 @@ const PickPrediction: React.FC = () => {
         recommendations.push({
           character,
           score: totalScore,
-          maxScore: opposingTeamChars.length * 10, // 最大スコアを追加
+          maxScore: opposingTeamChars.length * 10,
           reason: getRecommendationReason(totalScore, opposingTeamChars.length)
         });
       }
@@ -179,7 +353,6 @@ const PickPrediction: React.FC = () => {
     let teamAScore = 0;
     let teamBScore = 0;
 
-    // チームAの各キャラクターについて、チームBの全キャラクターとの相性スコアを計算
     teamAChars.forEach(aChar => {
       teamBChars.forEach(bChar => {
         const aId = getCharacterId(aChar);
@@ -190,7 +363,6 @@ const PickPrediction: React.FC = () => {
       });
     });
 
-    // チームBの各キャラクターについて、チームAの全キャラクターとの相性スコアを計算
     teamBChars.forEach(bChar => {
       teamAChars.forEach(aChar => {
         const bId = getCharacterId(bChar);
@@ -223,64 +395,32 @@ const PickPrediction: React.FC = () => {
     return '#F44336';
   };
 
-  const handleCharacterSelect = (character: string) => {
-    const { currentPhase, currentTeam, teamA, teamB } = gameState;
+  const renderBanSection = (team: Team) => {
+    if (!gameState.isBanPhaseEnabled) return null;
     
-    if (currentTeam === 'A' && teamA.includes(character)) return;
-    if (currentTeam === 'B' && teamB.includes(character)) return;
+    const banChars = team === 'A' ? gameState.bansA : gameState.bansB;
     
-    const newState = { ...gameState };
-    setExpandedRecommendations(false);
-
-    switch (currentPhase) {
-      case 1:
-        if (currentTeam === 'A') {
-          newState.teamA = [character];
-          newState.currentTeam = 'B';
-          newState.currentPhase = 2;
-          newState.recommendations = calculateRecommendations('B', [character], []);
-          showTurnAnnouncement('B', 2);
-        }
-        break;
-      
-      case 2:
-        if (currentTeam === 'B' && teamB.length < 2) {
-          const newTeamB = [...teamB, character];
-          newState.teamB = newTeamB;
-          newState.recommendations = calculateRecommendations('B', teamA, newTeamB);
-          if (newTeamB.length === 2) {
-            newState.currentTeam = 'A';
-            newState.currentPhase = 3;
-            newState.recommendations = calculateRecommendations('A', newTeamB, teamA);
-            showTurnAnnouncement('A', 3);
-          }
-        }
-        break;
-      
-      case 3:
-        if (currentTeam === 'A' && teamA.length < 3) {
-          const newTeamA = [...teamA, character];
-          newState.teamA = newTeamA;
-          newState.recommendations = calculateRecommendations('A', teamB, newTeamA);
-          if (newTeamA.length === 3) {
-            newState.currentTeam = 'B';
-            newState.currentPhase = 4;
-            newState.recommendations = calculateRecommendations('B', newTeamA, teamB);
-            showTurnAnnouncement('B', 4);
-          }
-        }
-        break;
-      
-      case 4:
-        if (currentTeam === 'B' && teamB.length < 3) {
-          const newTeamB = [...teamB, character];
-          newState.teamB = newTeamB;
-          newState.recommendations = [];
-        }
-        break;
-    }
-
-    setGameState(newState);
+    return (
+      <View style={styles.banContainer}>
+        <Text style={styles.banTitle}>BAN</Text>
+        <View style={styles.banSlotsContainer}>
+          {[0, 1, 2].map((index) => (
+            <View key={index} style={styles.banSlot}>
+              {banChars[index] ? (
+                <View style={styles.selectedBanCharacter}>
+                  <CharacterImage characterName={banChars[index]} size={30} />
+                  <View style={styles.banOverlay}>
+                    <Text style={styles.banX}>×</Text>
+                  </View>
+                </View>
+              ) : (
+                <Text style={styles.emptyBanSlot}>未選択</Text>
+              )}
+            </View>
+          ))}
+        </View>
+      </View>
+    );
   };
 
   const renderTeam = (team: Team) => {
@@ -301,6 +441,7 @@ const PickPrediction: React.FC = () => {
         ]}>
           チーム{team}
         </Text>
+        {renderBanSection(team)}
         <View style={styles.teamSlots}>
           {[...Array(slots)].map((_, index) => (
             <View key={index} style={[
@@ -360,8 +501,12 @@ const PickPrediction: React.FC = () => {
   };
 
   const renderRecommendation = (rec: CharacterRecommendation, index: number) => {
-    const isSelectable = !(gameState.teamA.includes(rec.character) || 
-                          gameState.teamB.includes(rec.character));
+    const isSelectable = !(
+      gameState.teamA.includes(rec.character) || 
+      gameState.teamB.includes(rec.character) ||
+      gameState.bansA.includes(rec.character) ||
+      gameState.bansB.includes(rec.character)
+    );
 
     return (
       <TouchableOpacity
@@ -404,8 +549,47 @@ const PickPrediction: React.FC = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.fixedHeader}>
         <View style={styles.header}>
-          <Text style={styles.title}>ピック想定</Text>
-          <Text style={styles.phase}>{getPhaseInstructions(gameState.currentPhase, gameState.currentTeam)}</Text>
+          <View style={styles.headerLeft}>
+            <TouchableOpacity
+              style={styles.banToggleContainer}
+              onPress={() => {
+                setGameState(prev => {
+                  const newState = {
+                    ...prev,
+                    isBanPhaseEnabled: !prev.isBanPhaseEnabled,
+                    bansA: [],
+                    bansB: [],
+                    teamA: [],
+                    teamB: [],
+                    currentPhase: 1,
+                    currentTeam: 'A',
+                    recommendations: [],
+                  };
+                  
+                  // バン機能を無効化した場合、すぐにピックフェーズを開始
+                  if (!newState.isBanPhaseEnabled) {
+                    showTurnAnnouncement('A', 1, false);
+                  } else {
+                    showTurnAnnouncement('A', 0, true);
+                  }
+                  
+                  return newState;
+                });
+              }}
+            >
+              <View style={[
+                styles.banToggleBox,
+                gameState.isBanPhaseEnabled && styles.banToggleBoxChecked
+              ]}>
+                {gameState.isBanPhaseEnabled && <Text style={styles.banToggleCheck}>✓</Text>}
+              </View>
+              <Text style={styles.banToggleText}>バン選択</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.headerCenter}>
+            <Text style={styles.title}>ピック想定</Text>
+            <Text style={styles.phase}>{getPhaseInstructions(gameState.currentPhase, gameState.currentTeam)}</Text>
+          </View>
           <TouchableOpacity 
             style={styles.resetButton}
             onPress={resetGame}
@@ -454,20 +638,39 @@ const PickPrediction: React.FC = () => {
         )}
 
         <View style={styles.characterGrid}>
-          {Object.values(CHARACTER_MAP).map((character) => (
-            <TouchableOpacity
-              key={character}
-              style={[
-                styles.characterButton,
-                (gameState.teamA.includes(character) || gameState.teamB.includes(character)) && 
-                styles.selectedCharacterButton
-              ]}
-              onPress={() => handleCharacterSelect(character)}
-              disabled={gameState.teamA.includes(character) || gameState.teamB.includes(character)}
-            >
-              <CharacterImage characterName={character} size={40} />
-            </TouchableOpacity>
-          ))}
+          {Object.values(CHARACTER_MAP).map((character) => {
+            const isBanned = gameState.bansA.includes(character) || gameState.bansB.includes(character);
+            const isSelected = gameState.teamA.includes(character) || gameState.teamB.includes(character);
+            
+            return (
+              <TouchableOpacity
+                key={character}
+                style={[
+                  styles.characterButton,
+                  isBanned && styles.bannedCharacterButton,
+                  isSelected && styles.selectedCharacterButton
+                ]}
+                onPress={() => {
+                  if (gameState.isBanPhaseEnabled && (
+                    (gameState.bansA.length < 3 && gameState.currentTeam === 'A') ||
+                    (gameState.bansB.length < 3 && gameState.currentTeam === 'B')
+                  )) {
+                    handleBanSelect(character);
+                  } else {
+                    handleCharacterSelect(character);
+                  }
+                }}
+                disabled={isBanned || isSelected}
+              >
+                <CharacterImage characterName={character} size={40} />
+                {isBanned && (
+                  <View style={styles.banOverlay}>
+                    <Text style={styles.banX}>×</Text>
+                  </View>
+                )}
+              </TouchableOpacity>
+            );
+          })}
         </View>
       </ScrollView>
 
@@ -531,6 +734,46 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     position: 'relative',
+  },
+  headerLeft: {
+    position: 'absolute',
+    left: 10,
+    top: '50%',
+    transform: [{ translateY: -15 }],
+  },
+  headerCenter: {
+    alignItems: 'center',
+  },
+  banToggleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 15,
+  },
+  banToggleBox: {
+    width: 18,
+    height: 18,
+    borderWidth: 2,
+    borderColor: '#fff',
+    borderRadius: 4,
+    marginRight: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  banToggleBoxChecked: {
+    backgroundColor: '#fff',
+  },
+  banToggleCheck: {
+    color: '#21A0DB',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  banToggleText: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: 'bold',
   },
   scrollContent: {
     flex: 1,
@@ -609,6 +852,55 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
+  },
+  banContainer: {
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  banTitle: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: '#666',
+    marginBottom: 4,
+  },
+  banSlotsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    paddingHorizontal: 4,
+  },
+  banSlot: {
+    width: 40,
+    height: 40,
+    borderWidth: 1,
+    borderColor: '#ff4444',
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 68, 68, 0.1)',
+    marginHorizontal: 2,
+  },
+  selectedBanCharacter: {
+    position: 'relative',
+  },
+  emptyBanSlot: {
+    fontSize: 10,
+    color: '#bdbdbd',
+  },
+  banOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(255, 0, 0, 0.3)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  banX: {
+    color: '#ff4444',
+    fontSize: 24,
+    fontWeight: 'bold',
   },
   teamSlot: {
     width: '32%',
@@ -763,6 +1055,10 @@ const styles = StyleSheet.create({
   selectedCharacterButton: {
     backgroundColor: '#e0e0e0',
     opacity: 0.5,
+  },
+  bannedCharacterButton: {
+    backgroundColor: '#ffebee',
+    opacity: 0.7,
   },
   modalOverlay: {
     flex: 1,
