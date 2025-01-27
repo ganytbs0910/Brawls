@@ -54,7 +54,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     id: "eh_hard_rock_mine",
     name: "ごつごつ坑道",
     mode: "emeraldHunt",
-    description: "実装待ち",
+    description: "右サイドに敵が入られるとかなり戦況が厳しくなる。ミッドはやや右をケアしながら負けないようにするのが重要。",
     recommendedBrawlers: [
       { name: "バイロン", reason: "", power: 5 },
       { name: "ガス", reason: "", power: 5 },
@@ -179,7 +179,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     id: "eh_undermine",
     name: "アンダーマイン",
     mode: "emeraldHunt",
-    description: "実装待ち",
+    description: "両サイドが落ちるとほぼ負けが決まるほど苦しくなるため、ミッドが初手からサイドに行くのが主流。",
     recommendedBrawlers: [
       { name: "ジーン", reason: "", power: 5 },
       { name: "オーティス", reason: "", power: 5 },
@@ -212,7 +212,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     id: "eh_last_stop",
     name: "ラストストップ",
     mode: "emeraldHunt",
-    description: "実装待ち",
+    description: "ミッドのエイムがかなり重要である。左サイドが負けると苦しいため、ミッドの介入はやや左を重視するのがオススメ。",
     recommendedBrawlers: [
       { name: "バイロン", reason: "", power: 5 },
       { name: "ガス", reason: "", power: 5 },
@@ -272,7 +272,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     id: "eh_double_swoosh",
     name: "ダブルレール",
     mode: "emeraldHunt",
-    description: "実装待ち",
+    description: "右サイドがかなり不利なため前線を押されないようにし、左サイドは必ず死なないように立ち回る。",
     recommendedBrawlers: [
       { name: "ジーン", reason: "", power: 5 },
       { name: "サージ", reason: "", power: 5 },

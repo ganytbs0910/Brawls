@@ -6,8 +6,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     name: "セカンドチャンス",
     mode: "brawlBall",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Easy",
     recommendedBrawlers: [
       { name: "メロディー", reason: "", power: 5 },
       { name: "MAX", reason: "", power: 5 },
@@ -36,8 +34,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     name: "鉄壁の守り",
     mode: "brawlBall",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
       { name: "バイロン", reason: "", power: 5 },
@@ -71,9 +67,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_pinball_dreams",
     name: "ピンボールドリーム",
     mode: "brawlBall",
-    description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Expert",
+    description: "投げキャラクターがかなり強力であるため、対策しないと一方的に攻撃を喰らうため対策が必須。",
     recommendedBrawlers: [
       { name: "サージ", reason: "", power: 5 },
       { name: "ストゥー", reason: "", power: 5 },
@@ -110,8 +104,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     name: "狭き門",
     mode: "brawlBall",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "サンディ", reason: "", power: 5 },
       { name: "Emz", reason: "", power: 5 },
@@ -143,9 +135,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_center_stage",
     name: "中央コート",
     mode: "brawlBall",
-    description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
+    description: "一度草むらを占拠されると奪い返すのが困難であるため、できるだけ早く占拠することが重要。",
     recommendedBrawlers: [
       { name: "サージ", reason: "", power: 5 },
       { name: "リコ", reason: "", power: 5 },
@@ -182,8 +172,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     name: "ビーチボール",
     mode: "brawlBall",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "ジュジュ", reason: "", power: 5 },
       { name: "ラリー&ローリー", reason: "", power: 5 },
@@ -218,9 +206,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_triple_dribble",
     name: "トリプル・ドリブル",
     mode: "brawlBall",
-    description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
+    description: "投げキャラクターがかなり強いため、対策をするか使用するかしないと試合がかなり苦しくなる。",
     recommendedBrawlers: [
       { name: "ストゥー", reason: "", power: 5 },
       { name: "ジュジュ", reason: "", power: 5 },
@@ -249,9 +235,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_sneaky_fields",
     name: "静かな広場",
     mode: "brawlBall",
-    description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
+    description: "真ん中の草むらを占拠した側がかなり有利となるため、無理に敵を倒すのではなく草むらの占拠を考えて立ち回ると勝率が上がる。",
     recommendedBrawlers: [
       { name: "Max", reason: "", power: 5 },
       { name: "サージ", reason: "", power: 5 },
@@ -282,8 +266,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     name: "スーパービーチ",
     mode: "brawlBall",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Easy",
     recommendedBrawlers: [
       { name: "サンディ", reason: "", power: 5 },
       { name: "ストゥー", reason: "", power: 5 },
@@ -311,8 +293,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     name: "サニーサッカー",
     mode: "brawlBall",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Easy",
     recommendedBrawlers: [
       { name: "サンディ", reason: "", power: 5 },
       { name: "ストゥー", reason: "", power: 5 },
@@ -345,8 +325,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     name: "トリッキー",
     mode: "brawlBall",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Expert",
     recommendedBrawlers: [
       { name: "サンディ", reason: "", power: 5 },
       { name: "ストゥー", reason: "", power: 5 },

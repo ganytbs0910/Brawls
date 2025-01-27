@@ -6,7 +6,7 @@ export const heistMaps: Record<string, MapDetail> = {
     id: "he_safe_zone",
     name: "安全地帯",
     mode: "heist",
-    description: "実装待ち",
+    description: "金庫の右側の壁裏が強いため入られないように気をつけつつ、壁破壊キャラクターがいれば自陣の近くの2×2のブロックを破壊すると壁裏で敵に耐久されないためオススメ",
     recommendedBrawlers: [
       { name: "クロウ", reason: "", power: 5 },
       { name: "コレット", reason: "", power: 5 },
@@ -191,7 +191,7 @@ export const heistMaps: Record<string, MapDetail> = {
     id: "he_hot_potato",
     name: "ホットポテト",
     mode: "heist",
-    description: "実装待ち",
+    description: "",
     recommendedBrawlers: [
       { name: "クロウ", reason: "", power: 5 },
       { name: "コレット", reason: "", power: 5 },
