@@ -29,15 +29,18 @@ export default function BrawlStarsApp() {
   const handleSearch = useCallback(async () => {
     if (!playerTag.trim()) return;
 
+    const cleanTag = playerTag.replace('#', '').toUpperCase();
+    
+    // 検索前に既存のデータをクリア
+    playerData.data = null;
+    rankingsData.data = null;
+
     try {
-      const cleanTag = playerTag.replace('#', '');
+      // プレイヤーデータの取得を先に行う
+      await playerData.fetchPlayerData(playerTag);
       
-      // 検索前に既存のデータをクリア
-      playerData.data = null;
-      rankingsData.data = null;
-      
-      // 検索履歴の更新
-      const newHistory = [cleanTag, ...searchHistory.filter(tag => tag !== cleanTag)].slice(0, 3);
+      // データ取得に成功した場合のみ履歴を更新
+      const newHistory = [cleanTag, ...searchHistory.filter(tag => tag.toUpperCase() !== cleanTag)].slice(0, 3);
       setSearchHistory(newHistory);
       
       // 履歴の保存
@@ -45,9 +48,6 @@ export default function BrawlStarsApp() {
         AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory)),
         AsyncStorage.setItem('lastPlayerTag', cleanTag)
       ]);
-
-      // プレイヤーデータの取得
-      await playerData.fetchPlayerData(playerTag);
     } catch (error) {
       console.error('Search error:', error);
     }
@@ -145,26 +145,28 @@ export default function BrawlStarsApp() {
       {searchHistory.length > 0 && (
         <View style={styles.historyContainer}>
           <Text style={styles.historyTitle}>検索履歴</Text>
-          {searchHistory.map((tag, index) => (
-            <View key={index} style={styles.historyItemContainer}>
-              <TouchableOpacity 
-                style={{ flex: 1 }} 
-                onPress={() => handleHistorySelect(tag)}
-              >
-                <Text style={styles.historyItem}>{tag}</Text>
-              </TouchableOpacity>
-              <TouchableOpacity 
-                style={styles.deleteButton}
-                onPress={async () => {
-                  const newHistory = searchHistory.filter(t => t !== tag);
-                  setSearchHistory(newHistory);
-                  await AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory));
-                }}
-              >
-                <Text style={styles.deleteText}>×</Text>
-              </TouchableOpacity>
-            </View>
-          ))}
+          <View style={styles.historyList}>
+            {searchHistory.map((tag, index) => (
+              <View key={index} style={styles.historyItemContainer}>
+                <TouchableOpacity 
+                  style={styles.deleteButton}
+                  onPress={async () => {
+                    const newHistory = searchHistory.filter(t => t !== tag);
+                    setSearchHistory(newHistory);
+                    await AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory));
+                  }}
+                >
+                  <Text style={styles.deleteText}>×</Text>
+                </TouchableOpacity>
+                <TouchableOpacity 
+                  style={styles.historyItemTextContainer} 
+                  onPress={() => handleHistorySelect(tag)}
+                >
+                  <Text style={styles.historyItem}>{tag}</Text>
+                </TouchableOpacity>
+              </View>
+            ))}
+          </View>
         </View>
       )}
     </View>
@@ -303,6 +305,11 @@ const styles = StyleSheet.create({
   historyContainer: {
     marginTop: 16,
   },
+  historyList: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
   historyTitle: {
     fontSize: 14,
     fontWeight: 'bold',
@@ -315,19 +322,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#f1f1f1',
     borderRadius: 8,
     marginBottom: 4,
-    paddingLeft: 12,
-  },
-  historyItem: {
-    flex: 1,
-    fontSize: 14,
-    paddingVertical: 8,
-    color: '#2196F3',
+    alignSelf: 'flex-start',  // コンテナ自体を内容に合わせる
   },
   deleteButton: {
     padding: 8,
+    paddingRight: 4,
   },
   deleteText: {
     color: '#f44336',
     fontSize: 16,
+  },
+  historyItemTextContainer: {
+    // flex: 1 を削除
+  },
+  historyItem: {
+    fontSize: 14,
+    paddingVertical: 8,
+    paddingRight: 12,  // 右側に少しだけパディングを追加
+    color: '#2196F3',
   },
 });
