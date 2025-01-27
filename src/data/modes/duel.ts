@@ -403,8 +403,6 @@ export const duelMaps: Record<string, MapDetail> = {
     name: "見えざる大蛇",
     mode: "duel",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "シェリー", reason: "", power: 5 },
       { name: "ボウ", reason: "", power: 5 },

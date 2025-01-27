@@ -6,8 +6,6 @@ export const knockoutMaps: Record<string, MapDetail> = {
     name: "白熱対戦",
     mode: "knockout",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
       { name: "バイロン", reason: "", power: 5 },
@@ -33,8 +31,6 @@ export const knockoutMaps: Record<string, MapDetail> = {
     name: "新たなる地平",
     mode: "knockout",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "グレイ", reason: "", power: 5 },
       { name: "エリザベス", reason: "", power: 5 },
@@ -63,8 +59,6 @@ export const knockoutMaps: Record<string, MapDetail> = {
     name: "オープンフィールド",
     mode: "knockout",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Expert",
     recommendedBrawlers: [
       { name: "R-T", reason: "", power: 5 },
       { name: "ガス", reason: "", power: 5 },
@@ -103,8 +97,6 @@ export const knockoutMaps: Record<string, MapDetail> = {
     name: "生い茂る廃墟",
     mode: "knockout",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
       { name: "バイロン", reason: "", power: 5 },
@@ -124,8 +116,6 @@ export const knockoutMaps: Record<string, MapDetail> = {
     name: "バキューン神殿",
     mode: "knockout",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "ジーン", reason: "", power: 5 },
       { name: "エリザベス", reason: "", power: 5 },
@@ -148,8 +138,6 @@ export const knockoutMaps: Record<string, MapDetail> = {
     name: "極小列島",
     mode: "knockout",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Expert",
     recommendedBrawlers: [
       { name: "アンジェロ", reason: "", power: 5 },
       { name: "エリザベス", reason: "", power: 5 },
@@ -176,8 +164,6 @@ export const knockoutMaps: Record<string, MapDetail> = {
     name: "双頭の川",
     mode: "knockout",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "アンジェロ", reason: "", power: 5 },
       { name: "エリザベス", reason: "", power: 5 },
@@ -205,8 +191,6 @@ export const knockoutMaps: Record<string, MapDetail> = {
     name: "ベルの岩",
     mode: "knockout",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "エリザベス", reason: "", power: 5 },
       { name: "バイロン", reason: "", power: 5 },
@@ -240,8 +224,6 @@ export const knockoutMaps: Record<string, MapDetail> = {
     name: "密林の奥地",
     mode: "knockout",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "ボウ", reason: "", power: 5 },
       { name: "バズ", reason: "", power: 5 },
@@ -269,8 +251,6 @@ export const knockoutMaps: Record<string, MapDetail> = {
     name: "燃える不死鳥",
     mode: "knockout",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Expert",
     recommendedBrawlers: [
       { name: "R-T", reason: "", power: 5 },
       { name: "エリザベス", reason: "", power: 5 },
@@ -308,8 +288,6 @@ export const knockoutMaps: Record<string, MapDetail> = {
     name: "四段階層",
     mode: "knockout",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Expert",
     recommendedBrawlers: [
       { name: "ストゥー", reason: "", power: 5 },
       { name: "イヴ", reason: "", power: 5 },
@@ -339,8 +317,6 @@ export const knockoutMaps: Record<string, MapDetail> = {
     name: "ゴールドアームの渓谷",
     mode: "knockout",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "エリザベス", reason: "", power: 5 },
       { name: "バイロン", reason: "", power: 5 },

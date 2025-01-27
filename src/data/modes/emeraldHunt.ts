@@ -6,8 +6,6 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     name: "クリスタルアーケード",
     mode: "emeraldHunt",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "ペニー", reason: "", power: 5 },
       { name: "ラフス", reason: "", power: 5 },
@@ -32,8 +30,6 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     name: "エメラルドの要塞",
     mode: "emeraldHunt",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "R-T", reason: "", power: 5 },
       { name: "リコ", reason: "", power: 5 },
@@ -59,8 +55,6 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     name: "ごつごつ坑道",
     mode: "emeraldHunt",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "バイロン", reason: "", power: 5 },
       { name: "ガス", reason: "", power: 5 },
@@ -98,8 +92,6 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     name: "トロッコの狂気",
     mode: "emeraldHunt",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Expert",
     recommendedBrawlers: [
       { name: "ケンジ", reason: "", power: 5 },
       { name: "モーティス", reason: "", power: 5 },
@@ -128,8 +120,6 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     name: "オープンスペース",
     mode: "emeraldHunt",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "アンジェロ", reason: "", power: 5 },
       { name: "ガス", reason: "", power: 5 },
@@ -158,8 +148,6 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     name: "廃れたアーケード",
     mode: "emeraldHunt",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
       { name: "バイロン", reason: "", power: 5 },
@@ -192,8 +180,6 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     name: "アンダーマイン",
     mode: "emeraldHunt",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "ジーン", reason: "", power: 5 },
       { name: "オーティス", reason: "", power: 5 },
@@ -227,8 +213,6 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     name: "ラストストップ",
     mode: "emeraldHunt",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "バイロン", reason: "", power: 5 },
       { name: "ガス", reason: "", power: 5 },
@@ -261,8 +245,6 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     name: "サボテンの罠",
     mode: "emeraldHunt",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "ペニー", reason: "", power: 5 },
       { name: "ガス", reason: "", power: 5 },
@@ -291,8 +273,6 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     name: "ダブルレール",
     mode: "emeraldHunt",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Expert",
     recommendedBrawlers: [
       { name: "ジーン", reason: "", power: 5 },
       { name: "サージ", reason: "", power: 5 },
@@ -323,8 +303,6 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     name: "森林伐採",
     mode: "emeraldHunt",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
       { name: "バイロン", reason: "", power: 5 },
@@ -351,8 +329,6 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     name: "クールロック",
     mode: "emeraldHunt",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Expert",
     recommendedBrawlers: [
       { name: "リコ", reason: "", power: 5 },
       { name: "ラフス", reason: "", power: 5 },

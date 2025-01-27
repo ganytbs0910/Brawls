@@ -7,8 +7,6 @@ export const heistMaps: Record<string, MapDetail> = {
     name: "安全地帯",
     mode: "heist",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "クロウ", reason: "", power: 5 },
       { name: "コレット", reason: "", power: 5 },
@@ -43,8 +41,6 @@ export const heistMaps: Record<string, MapDetail> = {
     name: "パラレルワールド",
     mode: "heist",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "ストゥー", reason: "", power: 5 },
       { name: "サージ", reason: "", power: 5 },
@@ -76,8 +72,6 @@ export const heistMaps: Record<string, MapDetail> = {
     name: "炎のリング",
     mode: "heist",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Expert",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
       { name: "バイロン", reason: "", power: 5 },
@@ -111,8 +105,6 @@ export const heistMaps: Record<string, MapDetail> = {
     name: "大いなる湖",
     mode: "heist",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "コルト", reason: "", power: 5 },
       { name: "アンジェロ", reason: "", power: 5 },
@@ -143,8 +135,6 @@ export const heistMaps: Record<string, MapDetail> = {
     name: "GG 2.0",
     mode: "heist",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "アンジェロ", reason: "", power: 5 },
       { name: "イヴ", reason: "", power: 5 },
@@ -171,8 +161,6 @@ export const heistMaps: Record<string, MapDetail> = {
     name: "ビートルバトル",
     mode: "heist",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
       { name: "バイロン", reason: "", power: 5 },
@@ -204,8 +192,6 @@ export const heistMaps: Record<string, MapDetail> = {
     name: "ホットポテト",
     mode: "heist",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "クロウ", reason: "", power: 5 },
       { name: "コレット", reason: "", power: 5 },
@@ -240,8 +226,6 @@ export const heistMaps: Record<string, MapDetail> = {
     name: "どんぱち谷",
     mode: "heist",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "クロウ", reason: "", power: 5 },
       { name: "コレット", reason: "", power: 5 },
@@ -278,8 +262,6 @@ export const heistMaps: Record<string, MapDetail> = {
     name: "喧騒居住地",
     mode: "heist",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "ゲイル", reason: "", power: 5 },
       { name: "グレイ", reason: "", power: 5 },
@@ -300,8 +282,6 @@ export const heistMaps: Record<string, MapDetail> = {
     name: "オープンビジネス",
     mode: "heist",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "バイロン", reason: "", power: 5 },
       { name: "ガス", reason: "", power: 5 },
@@ -336,8 +316,6 @@ export const heistMaps: Record<string, MapDetail> = {
     name: "安全地帯・改",
     mode: "heist",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "コルト", reason: "", power: 5 },
       { name: "ブロック", reason: "", power: 5 },
@@ -366,8 +344,6 @@ export const heistMaps: Record<string, MapDetail> = {
     name: "ウォータースポーツ",
     mode: "heist",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Expert",
     recommendedBrawlers: [
       { name: "ジュジュ", reason: "", power: 5 },
       { name: "アンジェロ", reason: "", power: 5 },
@@ -391,8 +367,6 @@ export const heistMaps: Record<string, MapDetail> = {
     name: "橋の彼方",
     mode: "heist",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Expert",
     recommendedBrawlers: [
       { name: "イヴ", reason: "", power: 5 },
       { name: "アンジェロ", reason: "", power: 5 },

@@ -109,21 +109,6 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
           style={styles.mapImage}
           resizeMode="contain"
         />
-
-        <View style={styles.difficultyContainer}>
-          <Text style={styles.difficultyLabel}>難易度:</Text>
-          <View style={[styles.difficultyTag, styles[`difficulty${mapDetail.difficulty}`]]}>
-            <Text style={styles.difficultyText}>{mapDetail.difficulty}</Text>
-          </View>
-        </View>
-
-        <View style={styles.characteristicsContainer}>
-          {mapDetail.characteristics.map((char, index) => (
-            <View key={index} style={styles.characteristicTag}>
-              <Text style={styles.characteristicText}>{char}</Text>
-            </View>
-          ))}
-        </View>
         
         <Text style={styles.sectionTitle}>マップ説明</Text>
         <Text style={styles.description}>{mapDetail.description}</Text>
@@ -207,52 +192,6 @@ const styles = StyleSheet.create({
     height: 200,
     marginBottom: 16,
     borderRadius: 8,
-  },
-  difficultyContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  difficultyLabel: {
-    fontSize: 16,
-    color: '#666',
-    marginRight: 8,
-  },
-  difficultyTag: {
-    paddingHorizontal: 12,
-    paddingVertical: 4,
-    borderRadius: 12,
-  },
-  difficultyEasy: {
-    backgroundColor: '#90EE90',
-  },
-  difficultyMedium: {
-    backgroundColor: '#FFD700',
-  },
-  difficultyHard: {
-    backgroundColor: '#FF6B6B',
-  },
-  difficultyText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 14,
-  },
-  characteristicsContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginBottom: 16,
-  },
-  characteristicTag: {
-    backgroundColor: '#f0f0f0',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 16,
-    marginRight: 8,
-    marginBottom: 8,
-  },
-  characteristicText: {
-    fontSize: 14,
-    color: '#666',
   },
   sectionTitle: {
     fontSize: 20,

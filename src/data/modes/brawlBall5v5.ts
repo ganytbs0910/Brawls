@@ -6,8 +6,6 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     name: "大波",
     mode: "brawlBall5v5",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "ファング", reason: "", power: 5 },
       { name: "バイロン", reason: "", power: 5 },
@@ -27,8 +25,6 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     name: "ガクブル公園",
     mode: "brawlBall5v5",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "Mr.P", reason: "", power: 5 },
       { name: "ベル", reason: "", power: 5 },
@@ -54,8 +50,6 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     name: "ツルツルロード",
     mode: "brawlBall5v5",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "Mr.P", reason: "", power: 5 },
       { name: "ジュジュ", reason: "", power: 5 },
@@ -83,8 +77,6 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     name: "クールシェイプ",
     mode: "brawlBall5v5",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "ファング", reason: "", power: 5 },
       { name: "バイロン", reason: "", power: 5 },
@@ -104,8 +96,6 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     name: "サスペンダーズ",
     mode: "brawlBall5v5",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "ファング", reason: "", power: 5 },
       { name: "バイロン", reason: "", power: 5 },
@@ -126,8 +116,6 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     name: "フロスティトラック",
     mode: "brawlBall5v5",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Expert",
     recommendedBrawlers: [
       { name: "Mr.P", reason: "", power: 5 },
       { name: "ジュジュ", reason: "", power: 5 },
@@ -155,8 +143,6 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     name: "凍てつく波紋",
     mode: "brawlBall5v5",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "ファング", reason: "", power: 5 },
       { name: "バイロン", reason: "", power: 5 },
@@ -177,8 +163,6 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     name: "合流地点",
     mode: "brawlBall5v5",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "Mr.P", reason: "", power: 5 },
       { name: "ジュジュ", reason: "", power: 5 },

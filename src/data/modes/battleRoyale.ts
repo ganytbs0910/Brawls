@@ -6,8 +6,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     name: "酸性湖",
     mode: "battleRoyale",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Expert",
     recommendedBrawlers: [
       { name: "イヴ", reason: "", power: 5 },
       { name: "ジュジュ", reason: "", power: 5 },
@@ -28,8 +26,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     name: "天国と地獄",
     mode: "battleRoyale",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Expert",
     recommendedBrawlers: [
       { name: "ダグ", reason: "", power: 5 },
       { name: "シェリー", reason: "", power: 5 },
@@ -51,8 +47,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     name: "空飛ぶ絨毯",
     mode: "battleRoyale",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "アンジェロ", reason: "", power: 5 },
       { name: "ジュジュ", reason: "", power: 5 },
@@ -74,8 +68,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     name: "囚われた島",
     mode: "battleRoyale",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "バズ", reason: "", power: 5 },
       { name: "シェリー", reason: "", power: 5 },
@@ -97,8 +89,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     name: "狙撃手たちの楽園",
     mode: "battleRoyale",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Expert",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
       { name: "アンジェロ", reason: "", power: 5 },
@@ -119,8 +109,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     name: "岩壁の決戦",
     mode: "battleRoyale",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Expert",
     recommendedBrawlers: [
       { name: "コーデリアス", reason: "", power: 5 },
       { name: "サージ", reason: "", power: 5 },
@@ -140,8 +128,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     name: "安全センター",
     mode: "battleRoyale",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "サージ", reason: "", power: 5 },
       { name: "ストゥー", reason: "", power: 5 },
@@ -161,8 +147,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     name: "ガイコツ川",
     mode: "battleRoyale",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "サージ", reason: "", power: 5 },
       { name: "リリー", reason: "", power: 5 },
@@ -183,8 +167,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     name: "激動の洞窟",
     mode: "battleRoyale",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "シェリー", reason: "", power: 5 },
       { name: "バズ", reason: "", power: 5 },
@@ -205,8 +187,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     name: "暗い廊下",
     mode: "battleRoyale",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "アンジェロ", reason: "", power: 5 },
       { name: "ガス", reason: "", power: 5 },
@@ -228,8 +208,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     name: "ダブルトラブル",
     mode: "battleRoyale",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "ストゥー", reason: "", power: 5 },
       { name: "R-T", reason: "", power: 5 },
@@ -249,8 +227,6 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     name: "枯れた川",
     mode: "battleRoyale",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Medium",
     recommendedBrawlers: [
       { name: "シェイド", reason: "", power: 5 },
       { name: "ジュジュ", reason: "", power: 5 },

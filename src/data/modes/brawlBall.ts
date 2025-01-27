@@ -385,8 +385,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     name: "ペナルティキック",
     mode: "brawlBall",
     description: "実装待ち",
-    characteristics: ["実装待ち"],
-    difficulty: "Hard",
     recommendedBrawlers: [
       { name: "コーデリアス", reason: "", power: 5 },
       { name: "ストゥー", reason: "", power: 5 },
