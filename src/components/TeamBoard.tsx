@@ -150,12 +150,21 @@ const TeamBoard: React.FC = () => {
         setTimeout(() => reject(new Error('API timeout')), 5000);
       });
 
+      const currentTag = tag; // 現在の検証対象のタグを保存
       const dataPromise = playerDataAPI.fetchPlayerData(tag);
-      await Promise.race([dataPromise, timeoutPromise]);
+      const result = await Promise.race([dataPromise, timeoutPromise]);
       
-      if (!playerDataAPI.data?.playerInfo) return false;
+      // 検証完了時に、現在のタグが検証開始時と同じかチェック
+      if (currentTag !== playerTag) {
+        console.log('Tag changed during verification');
+        return false;
+      }
       
-      const { playerInfo } = playerDataAPI.data;
+      if (!result || !result.playerInfo) {
+        return false;
+      }
+      
+      const { playerInfo } = result;
       setHostInfo({
         wins3v3: playerInfo['3vs3Victories'] || 0,
         winsDuo: playerInfo.duoVictories || 0,
@@ -205,9 +214,16 @@ const TeamBoard: React.FC = () => {
         return;
       }
 
-      const isVerified = await verifyPlayerTag(validatedTag);
+      const verificationStartTag = validatedTag; // 検証開始時のタグを保存
+      const verificationResult = await verifyPlayerTag(validatedTag);
       
-      if (isVerified) {
+      // 検証完了時に、現在のタグが検証開始時と同じかチェック
+      if (verificationStartTag !== playerTag) {
+        console.log('Tag changed after verification');
+        return;
+      }
+
+      if (verificationResult) {
         setIsPlayerVerified(true);
         const newHistory = [validatedTag, ...searchHistory.filter(tag => tag !== validatedTag)].slice(0, 3);
         setSearchHistory(newHistory);
@@ -405,7 +421,7 @@ const TeamBoard: React.FC = () => {
         name: "5vs5殲滅",
         color: "#FFA500",
         icon: require('../../assets/GameModeIcons/5v5wipeout_icon.png')
-      },
+      }
     ];
 
     return modes;
@@ -444,7 +460,6 @@ const TeamBoard: React.FC = () => {
   const renderPostForm = () => (
     <ScrollView ref={scrollViewRef}>
       <View style={styles.postForm}>
-        {/* プレイヤータグセクションを最上部に移動 */}
         <View style={styles.playerTagContainer}>
           <Text style={styles.inputLabel}>あなたのプレイヤータグ</Text>
           <Text style={styles.tagDescription}>※このタグからホスト情報を補填しています。</Text>
@@ -492,10 +507,8 @@ const TeamBoard: React.FC = () => {
           {renderSearchHistory()}
         </View>
 
-        {/* プレイヤータグが認証された場合のみ以下を表示 */}
         {isPlayerVerified && (
           <>
-            {/* モード選択セクション */}
             <View style={styles.modeSelectorContainer}>
               <Text style={styles.inputLabel}>モード選択</Text>
               <ScrollView horizontal showsHorizontalScrollIndicator={false}>
