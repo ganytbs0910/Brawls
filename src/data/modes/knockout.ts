@@ -5,8 +5,8 @@ export const knockoutMaps: Record<string, MapDetail> = {
     id: "ko_h_for",
     name: "白熱対戦",
     mode: "knockout",
-    description: "狭いマップながら多くのカバーがあり、接近戦と中距離戦のバランスが重要です。",
-    characteristics: ["狭域戦", "カバー豊富", "集中戦"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Medium",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
@@ -25,17 +25,15 @@ export const knockoutMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "チームメイトとの距離を意識",
-      "カバー間の移動は慎重に",
-      "時間切れを視野に入れた立ち回り"
+      "実装待ち"
     ]
   },
   "新たなる地平": {
     id: "ko_new_horizons",
     name: "新たなる地平",
     mode: "knockout",
-    description: "開放的な地形と要所に配置された壁を活用する戦略的なマップ。",
-    characteristics: ["開放地形", "戦略的壁配置", "視界確保"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Hard",
     recommendedBrawlers: [
       { name: "グレイ", reason: "", power: 5 },
@@ -57,17 +55,15 @@ export const knockoutMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "不用意な露出を避ける",
-      "壁の破壊状況を把握",
-      "チームの射線を分散"
+      "実装待ち"
     ]
   },
   "オープンフィールド": {
     id: "ko_out_in_the_open",
     name: "オープンフィールド",
     mode: "knockout",
-    description: "広大な開放地形での戦い。カバーが少なく、位置取りが極めて重要です。",
-    characteristics: ["超開放地形", "少ないカバー", "長距離戦"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Expert",
     recommendedBrawlers: [
       { name: "R-T", reason: "水路での移動が得意", power: 5 },
@@ -99,17 +95,15 @@ export const knockoutMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "常に複数の退路を確保",
-      "チームの陣形を維持",
-      "カバーの価値を最大化"
+      "実装待ち"
     ]
   },
   "生い茂る廃墟": {
     id: "ko_overgrown_ruins",
     name: "生い茂る廃墟",
     mode: "knockout",
-    description: "廃墟とブッシュが混在する複雑な地形。視界の確保と待ち伏せの駆け引きが重要です。",
-    characteristics: ["廃墟地形", "ブッシュ戦", "視界制限"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Hard",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
@@ -122,17 +116,15 @@ export const knockoutMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "ブッシュチェックを怠らない",
-      "地形の死角を把握",
-      "待ち伏せ位置を予測"
+      "実装待ち"
     ]
   },
   "バキューン神殿": {
     id: "ko_temple_of_vroom",
     name: "バキューン神殿",
     mode: "knockout",
-    description: "神殿をモチーフにした対称マップ。中央部の制圧と側面からの攻めのバランスが重要です。",
-    characteristics: ["対称構造", "中央重要", "立体地形"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Medium",
     recommendedBrawlers: [
       { name: "ジーン", reason: "", power: 5 },
@@ -148,17 +140,15 @@ export const knockoutMaps: Record<string, MapDetail> = {
       { name: "ベル", reason: "", power: 4 }
     ],
     tips: [
-      "高所からの視界を活用",
-      "中央の重要性を意識",
-      "側面からの挟み込みに注意"
+      "実装待ち"
     ]
   },
   "極小列島": {
     id: "ko_tiny_islands",
     name: "極小列島",
     mode: "knockout",
-    description: "小さな島々が散在する特殊なマップ。島の確保と移動のタイミングが勝負の分かれ目です。",
-    characteristics: ["島地形", "水路", "移動制限"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Expert",
     recommendedBrawlers: [
       { name: "アンジェロ", reason: "", power: 5 },
@@ -178,17 +168,15 @@ export const knockoutMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "水中での移動は最小限に",
-      "島間の移動は慎重に",
-      "チームの散開を避ける"
+      "実装待ち"
     ]
   },
   "双頭の川": {
     id: "ko_two_rivers",
     name: "双頭の川",
     mode: "knockout",
-    description: "2本の川によって分断された特殊な地形。川の渡り方と陣地の確保が重要です。",
-    characteristics: ["二重河川", "渡河戦術", "陣地戦"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Hard",
     recommendedBrawlers: [
       { name: "アンジェロ", reason: "", power: 5 },
@@ -209,17 +197,15 @@ export const knockoutMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "渡河時の援護を重視",
-      "川での待ち伏せに注意",
-      "チームの陣形を維持"
+      "実装待ち"
     ]
   },
   "ベルの岩": {
     id: "ko_belles_rock",
     name: "ベルの岩",
     mode: "knockout",
-    description: "大きな岩が特徴的な地形。高低差と岩の配置を活かした戦術が重要です。",
-    characteristics: ["岩場地形", "高低差", "戦略的カバー"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Medium",
     recommendedBrawlers: [
       { name: "エリザベス", reason: "水路での移動が得意", power: 5 },
@@ -246,17 +232,15 @@ export const knockoutMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "岩の配置を味方の盾として活用",
-      "高低差での有利不利を把握",
-      "敵の死角からの接近に注意"
+      "実装待ち"
     ]
   },
   "密林の奥地": {
     id: "ko_deep_forest",
     name: "密林の奥地",
     mode: "knockout",
-    description: "鬱蒼とした森の中での戦い。視界が制限され、近距離戦が多発します。",
-    characteristics: ["森林地帯", "視界制限", "近接戦重視"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Hard",
     recommendedBrawlers: [
       { name: "ボウ", reason: "", power: 5 },
@@ -277,17 +261,15 @@ export const knockoutMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "常にブッシュチェックを怠らない",
-      "味方との距離を意識",
-      "音を頼りに敵を予測"
+      "実装待ち"
     ]
   },
   "燃える不死鳥": {
     id: "ko_flaring_phoenix",
     name: "燃える不死鳥",
     mode: "knockout",
-    description: "不死鳥をモチーフにした対称マップ。中央部の炎のような障害物が特徴的です。",
-    characteristics: ["炎の障害物", "対称構造", "中央集中"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Expert",
     recommendedBrawlers: [
       { name: "R-T", reason: "水路での移動が得意", power: 5 },
@@ -318,17 +300,15 @@ export const knockoutMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "炎の障害物での被弾に注意",
-      "対称性を活かした立ち回り",
-      "中央部での過度な争いを避ける"
+      "実装待ち"
     ]
   },
   "四段階層": {
     id: "ko_four_levels",
     name: "四段階層",
     mode: "knockout",
-    description: "4つの階層に分かれた立体的なマップ。高低差の理解と移動の選択が鍵となります。",
-    characteristics: ["四層構造", "立体地形", "階層戦"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Expert",
     recommendedBrawlers: [
       { name: "ストゥー", reason: "", power: 5 },
@@ -351,17 +331,15 @@ export const knockoutMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "各層の利点欠点を把握",
-      "安全な層移動を心がける",
-      "高所からの攻撃に警戒"
+      "実装待ち"
     ]
   },
   "ゴールドアームの渓谷": {
     id: "ko_goldarm_gulch",
     name: "ゴールドアームの渓谷",
     mode: "knockout",
-    description: "金鉱をモチーフにした渓谷マップ。狭い通路と開けた場所が混在します。",
-    characteristics: ["渓谷地形", "狭路混在", "採掘場"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Hard",
     recommendedBrawlers: [
       { name: "エリザベス", reason: "水路での移動が得意", power: 5 },
@@ -390,9 +368,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
       { name: "Mr.P", reason: "水路越しの攻撃", power: 2 },
     ],
     tips: [
-      "通路での待ち伏せに警戒",
-      "開けた場所での露出を避ける",
-      "チームの散開を防ぐ"
+      "実装待ち"
     ]
   },
 };

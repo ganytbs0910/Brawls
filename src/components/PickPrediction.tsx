@@ -1,22 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
-  ScrollView,
-  TouchableOpacity,
-  StyleSheet,
   SafeAreaView,
   Modal,
   Animated,
+  TouchableOpacity,
   Image,
+  StyleSheet,
+  ScrollView,
 } from 'react-native';
-import { CHARACTER_MAP, allCharacterData, getCharacterId } from '../data/characterCompatibility';
-import CharacterImage from './CharacterImage';
+import { TeamSection } from './TeamSection';
+import { CharacterSelection } from './CharacterSelection';
+import {
+  CHARACTER_MAP,
+  allCharacterData,
+  getCharacterId
+} from '../data/characterCompatibility';
 
-type Team = 'A' | 'B';
-type GamePhase = 1 | 2 | 3 | 4;
+interface GameMode {
+  name: string;
+  color: string;
+  icon: any;
+}
 
-interface SelectionState {
+interface GameMap {
+  name: string;
+  image: any;
+}
+
+interface MapsByMode {
+  [key: string]: GameMap[];
+}
+
+export type Team = 'A' | 'B';
+export type GamePhase = 1 | 2 | 3 | 4;
+
+export interface SelectionState {
   teamA: string[];
   teamB: string[];
   bansA: string[];
@@ -25,14 +45,71 @@ interface SelectionState {
   currentTeam: Team;
   recommendations: CharacterRecommendation[];
   isBanPhaseEnabled: boolean;
+  selectedMode?: string;
+  selectedMap?: string;
 }
 
-interface CharacterRecommendation {
+export interface CharacterRecommendation {
   character: string;
   score: number;
   maxScore: number;
   reason: string;
 }
+
+export interface TeamSectionProps {
+  gameState: SelectionState;
+  team: Team;
+  onBanSelect: (character: string) => void;
+  onCharacterSelect: (character: string) => void;
+}
+
+const GAME_MODES: GameMode[] = [
+  { name: "エメラルドハント", color: "#DA70D6", icon: require('../../assets/GameModeIcons/gem_grab_icon.png') },
+  { name: "ブロストライカー", color: "#cccccc", icon: require('../../assets/GameModeIcons/brawl_ball_icon.png') },
+  { name: "強奪", color: "#cccccc", icon: require('../../assets/GameModeIcons/heist_icon.png') },
+  { name: "ノックアウト", color: "#FFA500", icon: require('../../assets/GameModeIcons/knock_out_icon.png') },
+  { name: "賞金稼ぎ", color: "#DA70D6", icon: require('../../assets/GameModeIcons/bounty_icon.png') },
+  { name: "ホットゾーン", color: "#cccccc", icon: require('../../assets/GameModeIcons/hot_zone_icon.png') },
+];
+
+const MAPS_BY_MODE: MapsByMode = {
+  "エメラルドハント": [
+    { name: "ごつごつ坑道", image: require('../../assets/MapImages/Hard_Rock_Mine.png') },
+    { name: "アンダーマイン", image: require('../../assets/MapImages/Flying_Fantasies.png') },
+    { name: "ダブルレール", image: require('../../assets/MapImages/Double_Swoosh.png') },
+    { name: "ラストストップ", image: require('../../assets/MapImages/Last_Stop.png') },
+  ],
+  "ブロストライカー": [
+    { name: "トリプル・ドリブル", image: require('../../assets/MapImages/Triple_Dribble.png') },
+    { name: "静かな広場", image: require('../../assets/MapImages/Sneaky_Fields.png') },
+    { name: "中央コート", image: require('../../assets/MapImages/Center_Stage.png') },
+    { name: "ピンボールドリーム", image: require('../../assets/MapImages/Pinball_Dreams.png') },
+  ],
+  "強奪": [
+    { name: "安全地帯", image: require('../../assets/MapImages/Safe_Zone.png') },
+    { name: "ホットポテト", image: require('../../assets/MapImages/Hot_Potato.png') },
+    { name: "どんぱち谷", image: require('../../assets/MapImages/Kaboom_Canyon.png') },
+    { name: "橋の彼方", image: require('../../assets/MapImages/Bridge_Too_Far.png') },
+  ],
+  "ノックアウト": [
+    { name: "ベルの岩", image: require('../../assets/MapImages/Belles_Rock.png') },
+    { name: "燃える不死鳥", image: require('../../assets/MapImages/Flaring_Phoenix.png') },
+    { name: "オープンフィールド", image: require('../../assets/MapImages/Out_In_The_Open.png') },
+    { name: "ゴールドアームの渓谷", image: require('../../assets/MapImages/Goldarm_Gulch.png') },
+  ],
+  "賞金稼ぎ": [
+    { name: "流れ星", image: require('../../assets/MapImages/Shooting_Star.png') },
+    { name: "隠れ家", image: require('../../assets/MapImages/Hideout.png') },
+    { name: "ジグザグ草原", image: require('../../assets/MapImages/Snake_Prairie.png') },
+    { name: "グランドカナル", image: require('../../assets/MapImages/Canal_Grande.png') },
+  ],
+  "ホットゾーン": [
+    { name: "炎のリング", image: require('../../assets/MapImages/Ring_Of_Fire.png') },
+    { name: "ビートルバトル", image: require('../../assets/MapImages/Dueling_Beetles.png') },
+    { name: "オープンビジネス", image: require('../../assets/MapImages/Open_Business.png') },
+    { name: "パラレルワールド", image: require('../../assets/MapImages/Parallel_Plays.png') },
+  ],
+};
 
 const PickPrediction: React.FC = () => {
   const [gameState, setGameState] = useState<SelectionState>({
@@ -44,13 +121,31 @@ const PickPrediction: React.FC = () => {
     currentTeam: 'A',
     recommendations: [],
     isBanPhaseEnabled: true,
+    selectedMode: undefined,
+    selectedMap: undefined,
   });
 
   const [showTurnModal, setShowTurnModal] = useState(false);
+  const [showModeModal, setShowModeModal] = useState(false);
   const [turnMessage, setTurnMessage] = useState('');
   const [turnSubMessage, setTurnSubMessage] = useState('');
-  const [expandedRecommendations, setExpandedRecommendations] = useState<boolean>(false);
-  const scaleAnim = React.useRef(new Animated.Value(0)).current;
+  const scaleAnim = useRef(new Animated.Value(0)).current;
+
+  const handleModeSelect = (modeName: string) => {
+    setGameState(prev => ({
+      ...prev,
+      selectedMode: modeName,
+      selectedMap: undefined
+    }));
+  };
+
+  const handleMapSelect = (mapName: string) => {
+    setGameState(prev => ({
+      ...prev,
+      selectedMap: mapName
+    }));
+    setShowModeModal(false);
+  };
 
   const handleModalClose = () => {
     Animated.timing(scaleAnim, {
@@ -63,8 +158,12 @@ const PickPrediction: React.FC = () => {
     });
   };
 
+  const handleModeButtonPress = () => {
+    setShowModeModal(true);
+  };
+
   const resetGame = () => {
-    setGameState({
+    setGameState(prev => ({
       teamA: [],
       teamB: [],
       bansA: [],
@@ -72,9 +171,10 @@ const PickPrediction: React.FC = () => {
       currentPhase: 1,
       currentTeam: 'A',
       recommendations: [],
-      isBanPhaseEnabled: gameState.isBanPhaseEnabled,
-    });
-    setExpandedRecommendations(false);
+      isBanPhaseEnabled: prev.isBanPhaseEnabled,
+      selectedMode: prev.selectedMode,
+      selectedMap: prev.selectedMap,
+    }));
     showTurnAnnouncement('A', gameState.isBanPhaseEnabled ? 0 : 1, gameState.isBanPhaseEnabled);
   };
 
@@ -170,15 +270,13 @@ const PickPrediction: React.FC = () => {
   };
 
   const handleCharacterSelect = (character: string) => {
-    if (!gameState.isBanPhaseEnabled) {
-      // バン機能が無効の場合の処理
+    const handlePickPhase = () => {
       const { currentPhase, currentTeam, teamA, teamB } = gameState;
       
       if (currentTeam === 'A' && teamA.includes(character)) return;
       if (currentTeam === 'B' && teamB.includes(character)) return;
       
       const newState = { ...gameState };
-      setExpandedRecommendations(false);
 
       switch (currentPhase) {
         case 1:
@@ -229,83 +327,19 @@ const PickPrediction: React.FC = () => {
       }
 
       setGameState(newState);
+    };
+
+    if (!gameState.isBanPhaseEnabled) {
+      handlePickPhase();
     } else {
-      // バン機能が有効の場合の処理
       if (gameState.bansA.includes(character) || gameState.bansB.includes(character)) {
         return;
       }
       
       if (gameState.bansA.length === 3 && gameState.bansB.length === 3) {
-        const { currentPhase, currentTeam, teamA, teamB } = gameState;
-        
-        if (currentTeam === 'A' && teamA.includes(character)) return;
-        if (currentTeam === 'B' && teamB.includes(character)) return;
-        
-        const newState = { ...gameState };
-        setExpandedRecommendations(false);
-
-        switch (currentPhase) {
-          case 1:
-            if (currentTeam === 'A') {
-              newState.teamA = [character];
-              newState.currentTeam = 'B';
-              newState.currentPhase = 2;
-              newState.recommendations = calculateRecommendations('B', [character], []);
-              showTurnAnnouncement('B', 2);
-            }
-            break;
-          
-          case 2:
-            if (currentTeam === 'B' && teamB.length < 2) {
-              const newTeamB = [...teamB, character];
-              newState.teamB = newTeamB;
-              newState.recommendations = calculateRecommendations('B', teamA, newTeamB);
-              if (newTeamB.length === 2) {
-                newState.currentTeam = 'A';
-                newState.currentPhase = 3;
-                newState.recommendations = calculateRecommendations('A', newTeamB, teamA);
-                showTurnAnnouncement('A', 3);
-              }
-            }
-            break;
-          
-          case 3:
-            if (currentTeam === 'A' && teamA.length < 3) {
-              const newTeamA = [...teamA, character];
-              newState.teamA = newTeamA;
-              newState.recommendations = calculateRecommendations('A', teamB, newTeamA);
-              if (newTeamA.length === 3) {
-                newState.currentTeam = 'B';
-                newState.currentPhase = 4;
-                newState.recommendations = calculateRecommendations('B', newTeamA, teamB);
-                showTurnAnnouncement('B', 4);
-              }
-            }
-            break;
-          
-          case 4:
-            if (currentTeam === 'B' && teamB.length < 3) {
-              const newTeamB = [...teamB, character];
-              newState.teamB = newTeamB;
-              newState.recommendations = [];
-            }
-            break;
-        }
-
-        setGameState(newState);
+        handlePickPhase();
       }
     }
-  };
-
-  const getRecommendationReason = (score: number, opposingTeamSize: number): string => {
-    const maxPossibleScore = opposingTeamSize * 10;
-    const scorePercentage = (score / maxPossibleScore) * 100;
-    
-    if (scorePercentage >= 80) return '最高の選択';
-    if (scorePercentage >= 65) return '非常に良い選択';
-    if (scorePercentage >= 50) return '良い選択';
-    if (scorePercentage >= 35) return '標準的な選択';
-    return '要検討';
   };
 
   const calculateRecommendations = (
@@ -342,6 +376,17 @@ const PickPrediction: React.FC = () => {
     });
 
     return recommendations.sort((a, b) => b.score - a.score).slice(0, 10);
+  };
+
+  const getRecommendationReason = (score: number, opposingTeamSize: number): string => {
+    const maxPossibleScore = opposingTeamSize * 10;
+    const scorePercentage = (score / maxPossibleScore) * 100;
+    
+    if (scorePercentage >= 80) return '最高の選択';
+    if (scorePercentage >= 65) return '非常に良い選択';
+    if (scorePercentage >= 50) return '良い選択';
+    if (scorePercentage >= 35) return '標準的な選択';
+    return '要検討';
   };
 
   const calculateTeamAdvantage = (teamAChars: string[], teamBChars: string[]): {
@@ -388,166 +433,64 @@ const PickPrediction: React.FC = () => {
     };
   };
 
-  const getScoreColor = (score: number): string => {
-    if (score >= 72) return '#4CAF50';
-    if (score >= 63) return '#2196F3';
-    if (score >= 54) return '#FFC107';
-    return '#F44336';
-  };
-
-  const renderBanSection = (team: Team) => {
-    if (!gameState.isBanPhaseEnabled) return null;
-    
-    const banChars = team === 'A' ? gameState.bansA : gameState.bansB;
-    
+  const renderModeAndMapModal = () => {
     return (
-      <View style={styles.banContainer}>
-        <Text style={styles.banTitle}>BAN</Text>
-        <View style={styles.banSlotsContainer}>
-          {[0, 1, 2].map((index) => (
-            <View key={index} style={styles.banSlot}>
-              {banChars[index] ? (
-                <View style={styles.selectedBanCharacter}>
-                  <CharacterImage characterName={banChars[index]} size={30} />
-                  <View style={styles.banOverlay}>
-                    <Text style={styles.banX}>×</Text>
-                  </View>
-                </View>
-              ) : (
-                <Text style={styles.emptyBanSlot}>未選択</Text>
-              )}
-            </View>
-          ))}
-        </View>
-      </View>
-    );
-  };
-
-  const renderTeam = (team: Team) => {
-    const teamChars = team === 'A' ? gameState.teamA : gameState.teamB;
-    const slots = 3;
-
-    return (
-      <View style={[
-        styles.teamContainer,
-        gameState.currentTeam === team && 
-          (team === 'A' ? styles.activeTeamContainerA : styles.activeTeamContainerB)
-      ]}>
-        <Text style={[
-          styles.teamTitle,
-          team === 'A' ? styles.teamTitleA : styles.teamTitleB,
-          gameState.currentTeam === team && 
-            (team === 'A' ? styles.activeTeamTitleA : styles.activeTeamTitleB)
-        ]}>
-          チーム{team}
-        </Text>
-        {renderBanSection(team)}
-        <View style={styles.teamSlots}>
-          {[...Array(slots)].map((_, index) => (
-            <View key={index} style={[
-              styles.teamSlot,
-              gameState.currentTeam === team && 
-                (team === 'A' ? styles.activeTeamSlotA : styles.activeTeamSlotB)
-            ]}>
-              {teamChars[index] ? (
-                <View style={styles.selectedCharacter}>
-                  <CharacterImage characterName={teamChars[index]} size={40} />
-                </View>
-              ) : (
-                <Text style={styles.emptySlot}>未選択</Text>
-              )}
-            </View>
-          ))}
-        </View>
-      </View>
-    );
-  };
-
-  const renderAdvantageMessage = () => {
-    if (gameState.teamA.length === 3 && gameState.teamB.length === 3) {
-      const advantage = calculateTeamAdvantage(gameState.teamA, gameState.teamB);
-      
-      return (
-        <View style={styles.advantageContainer}>
-          <Text style={styles.advantageTitle}>チーム相性分析</Text>
-          <View style={styles.scoreComparisonContainer}>
-            <Text style={styles.teamScore}>
-              チームA編成得点: {advantage.teamAScore.toFixed(1)}pt
-            </Text>
-            <Text style={styles.teamScore}>
-              チームB編成得点: {advantage.teamBScore.toFixed(1)}pt
-            </Text>
-          </View>
-          <Text style={[
-            styles.advantageText,
-            { 
-              color: advantage.advantageTeam === 'A' ? '#FF3B30' : 
-                     advantage.advantageTeam === 'B' ? '#007AFF' : '#666'
-            }
-          ]}>
-            {advantage.advantageTeam 
-              ? `チーム${advantage.advantageTeam}が有利 (編成得点差: ${advantage.difference.toFixed(1)}pt)`
-              : '両チーム互角 (編成得点差: 1pt未満)'}
-          </Text>
-          <Text style={styles.advantageDescription}>
-            {advantage.advantageTeam
-              ? '相手のキャラクターに対してより効果的な戦術を取れる可能性が高いです'
-              : '両チームとも相手に対して同程度の戦術的優位性があります'}
-          </Text>
-        </View>
-      );
-    }
-    return null;
-  };
-
-  const renderRecommendation = (rec: CharacterRecommendation, index: number) => {
-    const isSelectable = !(
-      gameState.teamA.includes(rec.character) || 
-      gameState.teamB.includes(rec.character) ||
-      gameState.bansA.includes(rec.character) ||
-      gameState.bansB.includes(rec.character)
-    );
-
-    return (
-      <TouchableOpacity
-        key={index}
-        style={[
-          styles.recommendationRow,
-          isSelectable && styles.selectableRecommendation,
-          !isSelectable && styles.disabledRecommendation
-        ]}
-        onPress={() => isSelectable && handleCharacterSelect(rec.character)}
-        disabled={!isSelectable}
+      <Modal
+        transparent={true}
+        visible={showModeModal}
+        animationType="fade"
+        onRequestClose={() => setShowModeModal(false)}
       >
-        <View style={styles.recommendationContent}>
-          <View style={styles.characterInfo}>
-            <Text style={styles.rankText}>#{index + 1}</Text>
-            <CharacterImage characterName={rec.character} size={25} />
-            <Text style={styles.characterName}>{rec.character}</Text>
+        <TouchableOpacity 
+          style={styles.modalOverlay}
+          activeOpacity={1}
+          onPress={() => setShowModeModal(false)}
+        >
+          <View style={styles.modeModalContent}>
+            <View style={styles.modeGrid}>
+              {GAME_MODES.map((mode) => (
+                <TouchableOpacity
+                  key={mode.name}
+                  style={[
+                    styles.modeModalButton,
+                    gameState.selectedMode === mode.name && { backgroundColor: mode.color }
+                  ]}
+                  onPress={() => handleModeSelect(mode.name)}
+                >
+                  <Image source={mode.icon} style={styles.modeIcon} />
+                </TouchableOpacity>
+              ))}
+            </View>
+            {gameState.selectedMode && (
+              <>
+                <Text style={styles.mapModalTitle}>ステージを選択</Text>
+                <View style={styles.mapGrid}>
+                  {(MAPS_BY_MODE[gameState.selectedMode] || []).map((map) => (
+                    <TouchableOpacity
+                      key={map.name}
+                      style={[
+                        styles.mapModalButton,
+                        gameState.selectedMap === map.name && styles.selectedMapButton
+                      ]}
+                      onPress={() => handleMapSelect(map.name)}
+                    >
+                      <Image source={map.image} style={styles.mapModalImage} />
+                      <Text style={styles.mapModalText}>{map.name}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
+              </>
+            )}
           </View>
-          <View style={styles.scoreInfo}>
-            <Text style={styles.score}>{rec.score.toFixed(1)}/{rec.maxScore}pt</Text>
-            <Text style={styles.reasonText}>{rec.reason}</Text>
-          </View>
-        </View>
-        <View style={styles.scoreBarContainer}>
-          <View
-            style={[
-              styles.scoreBar,
-              { 
-                width: `${(rec.score / rec.maxScore) * 100}%`,
-                backgroundColor: getScoreColor(rec.score)
-              }
-            ]}
-          />
-        </View>
-      </TouchableOpacity>
+        </TouchableOpacity>
+      </Modal>
     );
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.fixedHeader}>
+        {renderModeAndMapModal()}
         <View style={styles.header}>
           <View style={styles.headerLeft}>
             <TouchableOpacity
@@ -566,7 +509,6 @@ const PickPrediction: React.FC = () => {
                     recommendations: [],
                   };
                   
-                  // バン機能を無効化した場合、すぐにピックフェーズを開始
                   if (!newState.isBanPhaseEnabled) {
                     showTurnAnnouncement('A', 1, false);
                   } else {
@@ -587,7 +529,19 @@ const PickPrediction: React.FC = () => {
             </TouchableOpacity>
           </View>
           <View style={styles.headerCenter}>
-            <Text style={styles.title}>ピック想定</Text>
+            <TouchableOpacity 
+              style={styles.modeSelectButton}
+              onPress={handleModeButtonPress}
+            >
+              <Text style={styles.modeSelectText}>
+                {gameState.selectedMode ? gameState.selectedMode : "モードを選択"}
+              </Text>
+              {gameState.selectedMap && (
+                <Text style={styles.selectedMapText}>
+                  {gameState.selectedMap}
+                </Text>
+              )}
+            </TouchableOpacity>
             <Text style={styles.phase}>{getPhaseInstructions(gameState.currentPhase, gameState.currentTeam)}</Text>
           </View>
           <TouchableOpacity 
@@ -598,81 +552,43 @@ const PickPrediction: React.FC = () => {
           </TouchableOpacity>
         </View>
         <View style={styles.teamsContainer}>
-          {renderTeam('A')}
-          <Image 
-            source={require('../../assets/AppIcon/VSIcon.png')}
-            style={styles.vsIcon}
+          <TeamSection
+            gameState={gameState}
+            team="A"
+            onBanSelect={handleBanSelect}
+            onCharacterSelect={handleCharacterSelect}
           />
-          {renderTeam('B')}
+          <View style={styles.centerContent}>
+            {gameState.selectedMap ? (
+              <View style={styles.selectedMapContainer}>
+                <Image 
+                  source={MAPS_BY_MODE[gameState.selectedMode || ""]?.find(m => m.name === gameState.selectedMap)?.image}
+                  style={styles.selectedMapImage}
+                />
+                <Text style={styles.selectedMapText}>{gameState.selectedMap}</Text>
+              </View>
+            ) : (
+              <Image 
+                source={require('../../assets/AppIcon/VSIcon.png')}
+                style={styles.vsIcon}
+              />
+            )}
+          </View>
+          <TeamSection
+            gameState={gameState}
+            team="B"
+            onBanSelect={handleBanSelect}
+            onCharacterSelect={handleCharacterSelect}
+          />
         </View>
       </View>
 
-      <ScrollView style={styles.scrollContent}>
-        {renderAdvantageMessage()}
-        {gameState.recommendations.length > 0 && (
-          <View style={styles.recommendationsContainer}>
-            <Text style={styles.recommendationsTitle}>おすすめキャラクター</Text>
-            {(expandedRecommendations 
-              ? gameState.recommendations 
-              : gameState.recommendations.slice(0, 3)
-            ).map((rec, index) => renderRecommendation(rec, index))}
-            {gameState.recommendations.length > 3 && !expandedRecommendations && (
-              <TouchableOpacity 
-                style={styles.expandButton}
-                onPress={() => setExpandedRecommendations(true)}
-              >
-                <Text style={styles.expandButtonText}>
-                  さらに表示 ({gameState.recommendations.length - 3}体)
-                </Text>
-              </TouchableOpacity>
-            )}
-            {expandedRecommendations && (
-              <TouchableOpacity 
-                style={styles.expandButton}
-                onPress={() => setExpandedRecommendations(false)}
-              >
-                <Text style={styles.expandButtonText}>閉じる</Text>
-              </TouchableOpacity>
-            )}
-          </View>
-        )}
-
-        <View style={styles.characterGrid}>
-          {Object.values(CHARACTER_MAP).map((character) => {
-            const isBanned = gameState.bansA.includes(character) || gameState.bansB.includes(character);
-            const isSelected = gameState.teamA.includes(character) || gameState.teamB.includes(character);
-            
-            return (
-              <TouchableOpacity
-                key={character}
-                style={[
-                  styles.characterButton,
-                  isBanned && styles.bannedCharacterButton,
-                  isSelected && styles.selectedCharacterButton
-                ]}
-                onPress={() => {
-                  if (gameState.isBanPhaseEnabled && (
-                    (gameState.bansA.length < 3 && gameState.currentTeam === 'A') ||
-                    (gameState.bansB.length < 3 && gameState.currentTeam === 'B')
-                  )) {
-                    handleBanSelect(character);
-                  } else {
-                    handleCharacterSelect(character);
-                  }
-                }}
-                disabled={isBanned || isSelected}
-              >
-                <CharacterImage characterName={character} size={40} />
-                {isBanned && (
-                  <View style={styles.banOverlay}>
-                    <Text style={styles.banX}>×</Text>
-                  </View>
-                )}
-              </TouchableOpacity>
-            );
-          })}
-        </View>
-      </ScrollView>
+      <CharacterSelection
+        gameState={gameState}
+        onBanSelect={handleBanSelect}
+        onCharacterSelect={handleCharacterSelect}
+        calculateTeamAdvantage={calculateTeamAdvantage}
+      />
 
       <Modal
         transparent={true}
@@ -775,9 +691,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: 'bold',
   },
-  scrollContent: {
-    flex: 1,
-  },
   resetButton: {
     position: 'absolute',
     right: 10,
@@ -795,11 +708,18 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: 'bold',
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#fff',
+  modeSelectButton: {
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+    alignItems: 'center',
     marginBottom: 5,
+  },
+  modeSelectText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   phase: {
     fontSize: 14,
@@ -813,258 +733,103 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     backgroundColor: '#fff',
   },
+  centerContent: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  selectedMapContainer: {
+    alignItems: 'center',
+  },
+  selectedMapImage: {
+    width: 60,
+    height: 80,
+    borderRadius: 4,
+    marginBottom: 4,
+    resizeMode: 'cover',
+  },
+  selectedMapText: {
+    fontSize: 12,
+    color: '#333',
+    textAlign: 'center',
+  },
   vsIcon: {
     width: 30,
     height: 30,
     resizeMode: 'contain',
-    marginTop: 35,
-  },
-  teamContainer: {
-    width: '42%',
-    alignItems: 'center',
-    padding: 10,
-    borderRadius: 10,
-  },
-  activeTeamContainerA: {
-    backgroundColor: 'rgba(255, 59, 48, 0.1)',
-  },
-  activeTeamContainerB: {
-    backgroundColor: 'rgba(0, 122, 255, 0.1)',
-  },
-  teamTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  teamTitleA: {
-    color: '#FF3B30',
-  },
-  teamTitleB: {
-    color: '#007AFF',
-  },
-  activeTeamTitleA: {
-    color: '#FF3B30',
-  },
-  activeTeamTitleB: {
-    color: '#007AFF',
-  },
-  teamSlots: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-  },
-  banContainer: {
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-  banTitle: {
-    fontSize: 12,
-    fontWeight: 'bold',
-    color: '#666',
-    marginBottom: 4,
-  },
-  banSlotsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-    paddingHorizontal: 4,
-  },
-  banSlot: {
-    width: 40,
-    height: 40,
-    borderWidth: 1,
-    borderColor: '#ff4444',
-    borderRadius: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(255, 68, 68, 0.1)',
-    marginHorizontal: 2,
-  },
-  selectedBanCharacter: {
-    position: 'relative',
-  },
-  emptyBanSlot: {
-    fontSize: 10,
-    color: '#bdbdbd',
-  },
-  banOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(255, 0, 0, 0.3)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  banX: {
-    color: '#ff4444',
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-  teamSlot: {
-    width: '32%',
-    aspectRatio: 1,
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-    borderRadius: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  activeTeamSlotA: {
-    borderColor: '#FF3B30',
-  },
-  activeTeamSlotB: {
-    borderColor: '#007AFF',
-  },
-  selectedCharacter: {
-    alignItems: 'center',
-  },
-  emptySlot: {
-    fontSize: 10,
-    color: '#bdbdbd',
-  },
-  advantageContainer: {
-    backgroundColor: '#f5f5f5',
-    margin: 10,
-    padding: 12,
-    borderRadius: 10,
-    alignItems: 'center',
-  },
-  advantageTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 8,
-  },
-  scoreComparisonContainer: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  teamScore: {
-    fontSize: 14,
-    color: '#666',
-    fontWeight: '500',
-    marginBottom: 4,
-  },
-  advantageText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 8,
-  },
-  advantageDescription: {
-    fontSize: 12,
-    color: '#666',
-    textAlign: 'center',
-    paddingHorizontal: 10,
-  },
-  recommendationsContainer: {
-    padding: 8,
-    backgroundColor: '#f5f5f5',
-    margin: 10,
-    borderRadius: 10,
-  },
-  recommendationsTitle: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    marginBottom: 8,
-    color: '#333',
-  },
-  recommendationRow: {
-    marginVertical: 3,
-    backgroundColor: '#fff',
-    borderRadius: 6,
-    padding: 6,
-  },
-  selectableRecommendation: {
-    cursor: 'pointer',
-  },
-  disabledRecommendation: {
-    opacity: 0.6,
-  },
-  recommendationContent: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 3,
-  },
-  characterInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 2,
-  },
-  scoreInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-    justifyContent: 'flex-end',
-  },
-  rankText: {
-    fontSize: 12,
-    fontWeight: 'bold',
-    marginRight: 8,
-    width: 20,
-    color: '#666',
-  },
-  characterName: {
-    marginLeft: 8,
-    fontSize: 12,
-    color: '#333',
-  },
-  score: {
-    fontSize: 12,
-    fontWeight: 'bold',
-    marginRight: 6,
-    color: '#333',
-  },
-  reasonText: {
-    fontSize: 10,
-    color: '#666',
-  },
-  scoreBarContainer: {
-    height: 4,
-    backgroundColor: '#e0e0e0',
-    borderRadius: 2,
-    overflow: 'hidden',
-    marginTop: 4,
-  },
-  scoreBar: {
-    height: '100%',
-    borderRadius: 2,
-  },
-  characterGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    padding: 5,
-    marginTop: 10,
-    paddingBottom: 20,
-  },
-  characterButton: {
-    padding: 8,
-    margin: 4,
-    backgroundColor: '#f0f0f0',
-    borderRadius: 5,
-    width: 60,
-    height: 60,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  selectedCharacterButton: {
-    backgroundColor: '#e0e0e0',
-    opacity: 0.5,
-  },
-  bannedCharacterButton: {
-    backgroundColor: '#ffebee',
-    opacity: 0.7,
   },
   modalOverlay: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  modeModalContent: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 20,
+    width: '80%',
+    maxHeight: '80%',
+  },
+  modeModalTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 15,
+    marginTop: 10,
+    textAlign: 'center',
+  },
+  modeGrid: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+    paddingHorizontal: 10,
+    flexWrap: 'wrap',
+  },
+  modeModalButton: {
+    width: '15%',
+    aspectRatio: 1,
+    padding: 8,
+    borderRadius: 6,
+    backgroundColor: '#f0f0f0',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 10,
+  },
+  modeIcon: {
+    width: 28,
+    height: 28,
+    resizeMode: 'contain',
+  },
+  mapGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  mapModalButton: {
+    width: '48%',
+    marginBottom: 15,
+    padding: 8,
+    borderRadius: 8,
+    backgroundColor: '#f0f0f0',
+    alignItems: 'center',
+  },
+  selectedMapButton: {
+    backgroundColor: '#e0e0e0',
+    borderWidth: 2,
+    borderColor: '#21A0DB',
+  },
+  mapModalImage: {
+    width: '100%',
+    height: 150,
+    borderRadius: 4,
+    marginBottom: 4,
+    resizeMode: 'cover',
+  },
+  mapModalText: {
+    fontSize: 12,
+    textAlign: 'center',
+    color: '#333',
   },
   turnAnnouncement: {
     width: 300,
@@ -1108,20 +873,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: 'rgba(255, 255, 255, 0.8)',
     marginTop: 8,
-  },
-  expandButton: {
-    backgroundColor: '#fff',
-    padding: 8,
-    borderRadius: 5,
-    marginTop: 8,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-  },
-  expandButtonText: {
-    fontSize: 12,
-    color: '#666',
-    fontWeight: '500',
   },
 });
 

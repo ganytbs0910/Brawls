@@ -98,6 +98,11 @@ const getCurrentModes = () => {
         icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
       },
       {
+        name: "強奪",
+        color: "#cccccc",
+        icon: require('../../assets/GameModeIcons/heist_icon.png')
+      },
+      {
         name: "ノックアウト",
         color: "#FFA500",
         icon: require('../../assets/GameModeIcons/knock_out_icon.png')

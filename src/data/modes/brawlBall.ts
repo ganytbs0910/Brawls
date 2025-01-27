@@ -5,8 +5,8 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_second_try",
     name: "セカンドチャンス",
     mode: "brawlBall",
-    description: "シンプルながら戦略性の高いブロウルボールマップ。基本に忠実な立ち回りが重要です。",
-    characteristics: ["基本重視", "シンプル構造", "戦略性"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Easy",
     recommendedBrawlers: [
       { name: "メロディー", reason: "", power: 5 },
@@ -28,17 +28,15 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       { name: "チャーリー", reason: "", power: 2 }
     ],
     tips: [
-      "基本的なパス回しを重視",
-      "無理な突っ込みを避ける",
-      "守備の基本を固める"
+      "実装待ち"
     ]
   },
   "鉄壁の守り": {
     id: "bb_backyard_bowl",
     name: "鉄壁の守り",
     mode: "brawlBall",
-    description: "防衛が重要視されるブロウルボールマップ。堅実な攻めが求められます。",
-    characteristics: ["防衛重視", "ゴール前狭い", "堅実プレー"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Medium",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
@@ -66,17 +64,15 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "ゴール前の陣形を維持",
-      "無理な攻めを控える",
-      "カウンター機会を狙う"
+      "実装待ち"
     ]
   },
   "ピンボールドリーム": {
     id: "bb_pinball_dreams",
     name: "ピンボールドリーム",
     mode: "brawlBall",
-    description: "壁の配置が特徴的なマップ。ボールの跳ね返りを活用した攻撃が有効です。",
-    characteristics: ["壁反射", "複雑な地形", "技巧的"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Expert",
     recommendedBrawlers: [
       { name: "サージ", reason: "水路での移動が得意", power: 5 },
@@ -106,17 +102,15 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "壁の跳ね返りを計算",
-      "地形変化に対応",
-      "相手の移動を制限"
+      "実装待ち"
     ]
   },
   "狭き門": {
     id: "bb_pinhole_punt",
     name: "狭き門",
     mode: "brawlBall",
-    description: "ゴール前が特に狭いブロウルボールマップ。正確なシュートと堅実な守備が求められます。",
-    characteristics: ["狭いゴール前", "精密性", "守備重要"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Hard",
     recommendedBrawlers: [
       { name: "サンディ", reason: "", power: 5 },
@@ -142,17 +136,15 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       { name: "イヴ", reason: "", power: 3 }
     ],
     tips: [
-      "シュートは確実に",
-      "ゴール前の守備を固める",
-      "焦らず正確なプレーを"
+      "実装待ち"
     ]
   },
   "中央コート": {
     id: "bb_center_stage",
     name: "中央コート",
     mode: "brawlBall",
-    description: "中央に広場があるシンメトリーなマップ。中央支配権の争いが重要です。",
-    characteristics: ["中央広場", "シンメトリー", "エリア支配"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Medium",
     recommendedBrawlers: [
       { name: "サージ", reason: "水路での移動が得意", power: 5 },
@@ -182,17 +174,15 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "中央の支配権を維持",
-      "サイドからの展開も意識",
-      "チームの散開と集中"
+      "実装待ち"
     ]
   },
   "ビーチボール": {
     id: "bb_beach_ball",
     name: "ビーチボール",
     mode: "brawlBall",
-    description: "ビーチをテーマにした開放的なマップ。砂地での機動力と正確な判断が求められます。",
-    characteristics: ["開放地形", "砂地戦", "機動戦"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Medium",
     recommendedBrawlers: [
       { name: "ジュジュ", reason: "", power: 5 },
@@ -221,17 +211,15 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "砂地での移動速度を意識",
-      "広い地形を活かしたパス",
-      "味方との距離を適切に保つ"
+      "実装待ち"
     ]
   },
   "トリプル・ドリブル": {
     id: "bb_triple_dribble",
     name: "トリプル・ドリブル",
     mode: "brawlBall",
-    description: "3つの主要ルートがあるマップ。ルート選択と切り替えのタイミングが重要です。",
-    characteristics: ["3ルート構成", "切り替え戦術", "ルート選択"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Hard",
     recommendedBrawlers: [
       { name: "ストゥー", reason: "水路での移動が得意", power: 5 },
@@ -254,17 +242,15 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       { name: "オーティス", reason: "水路越しの攻撃", power: 3 }
     ],
     tips: [
-      "常に複数のルートを意識",
-      "チームでのルート分担",
-      "切り替えのタイミング"
+      "実装待ち"
     ]
   },
   "静かな広場": {
     id: "bb_sneaky_fields",
     name: "静かな広場",
     mode: "brawlBall",
-    description: "一見静かな広場での戦い。ブッシュを活用した駆け引きが重要です。",
-    characteristics: ["ブッシュ戦術", "待ち伏せ", "展開速度"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Medium",
     recommendedBrawlers: [
       { name: "Max", reason: "水路での移動が得意", power: 5 },
@@ -288,17 +274,15 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "ブッシュチェックを怠らない",
-      "相手の視界を把握",
-      "待ち伏せ位置の工夫"
+      "実装待ち"
     ]
   },
   "スーパービーチ": {
     id: "bb_super_beach",
     name: "スーパービーチ",
     mode: "brawlBall",
-    description: "ビーチでの開放的な戦い。広い地形を活かした展開が求められます。",
-    characteristics: ["開放地形", "スピード戦", "パスワーク"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Easy",
     recommendedBrawlers: [
       { name: "サンディ", reason: "", power: 5 },
@@ -319,17 +303,15 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "広いスペースの活用",
-      "スピーディーなパス回し",
-      "チーム全体での連携"
+      "実装待ち"
     ]
   },
   "サニーサッカー": {
     id: "bb_sunny_soccer",
     name: "サニーサッカー",
     mode: "brawlBall",
-    description: "明るい雰囲気の基本に忠実なサッカーマップ。基礎的な戦術の完成度が問われます。",
-    characteristics: ["基本重視", "オーソドックス", "チーム戦"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Easy",
     recommendedBrawlers: [
       { name: "サンディ", reason: "", power: 5 },
@@ -355,17 +337,15 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "基本的なパス回しの徹底",
-      "シンプルな攻防の意識",
-      "チームワークの重視"
+      "実装待ち"
     ]
   },
   "トリッキー": {
     id: "bb_trickey",
     name: "トリッキー",
     mode: "brawlBall",
-    description: "トリッキーな地形配置が特徴のマップ。予想外の展開とフェイントが効果的です。",
-    characteristics: ["変則的地形", "フェイント重要", "技巧的"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Expert",
     recommendedBrawlers: [
       { name: "サンディ", reason: "", power: 5 },
@@ -397,17 +377,15 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "地形の特徴を最大限活用",
-      "予想外の動きを心がける",
-      "相手の死角を突く展開"
+      "実装待ち"
     ]
   },
   "ペナルティキック": {
     id: "bb_penalty_kick",
     name: "ペナルティキック",
     mode: "brawlBall",
-    description: "ゴール前の攻防が重要なマップ。正確なシュートと堅実な守備が求められます。",
-    characteristics: ["ゴール前重視", "シュート精度", "守備重要"],
+    description: "実装待ち",
+    characteristics: ["実装待ち"],
     difficulty: "Hard",
     recommendedBrawlers: [
       { name: "コーデリアス", reason: "", power: 5 },
@@ -430,9 +408,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     ],
 
     tips: [
-      "シュートの精度を重視",
-      "ゴール前の守備を固める",
-      "チームでのカバーを意識"
+      "実装待ち"
     ]
   }
 };
