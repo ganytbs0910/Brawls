@@ -17,6 +17,11 @@ import {
   allCharacterData,
   getCharacterId
 } from '../data/characterCompatibility';
+import { heistMaps } from '../data/modes/heist';
+import { brawlBallMaps } from '../data/modes/brawlBall';
+import { duelMaps } from '../data/modes/duel';
+import { emeraldHuntMaps } from '../data/modes/emeraldHunt';
+import { knockoutMaps } from '../data/modes/knockout';
 
 interface GameMode {
   name: string;
@@ -159,8 +164,17 @@ const PickPrediction: React.FC = () => {
   };
 
   const handleModeButtonPress = () => {
-    setShowModeModal(true);
-  };
+  if (!gameState.selectedMode) {
+    const initialMode = GAME_MODES[0].name;
+    const initialMap = MAPS_BY_MODE[initialMode][0].name;
+    setGameState(prev => ({
+      ...prev,
+      selectedMode: initialMode,
+      selectedMap: initialMap
+    }));
+  }
+  setShowModeModal(true);
+};
 
   const resetGame = () => {
     setGameState(prev => ({
@@ -202,15 +216,15 @@ const PickPrediction: React.FC = () => {
 
   const getPhaseInstructions = (phase: GamePhase, team: Team): string => {
     if (gameState.isBanPhaseEnabled) {
-      if (gameState.bansA.length < 3) return `チームAが${3 - gameState.bansA.length}体目のバンを選択`;
-      if (gameState.bansB.length < 3) return `チームBが${3 - gameState.bansB.length}体目のバンを選択`;
+      if (gameState.bansA.length < 3) return `チームA`;
+      if (gameState.bansB.length < 3) return `チームB`;
     }
     
     switch (phase) {
-      case 1: return 'チームAが1体目を選択';
-      case 2: return 'チームBが1,2体目を選択';
-      case 3: return 'チームAが2,3体目を選択';
-      case 4: return 'チームBが3体目を選択';
+      case 1: return 'チームA';
+      case 2: return 'チームB';
+      case 3: return 'チームA';
+      case 4: return 'チームB';
       default: return '';
     }
   };
@@ -224,16 +238,16 @@ const PickPrediction: React.FC = () => {
     } else {
       switch (phase) {
         case 1:
-          subMessage = '1体目を選択してください';
+          subMessage = 'キャラクターを選択してください';
           break;
         case 2:
-          subMessage = '1,2体目を選択してください';
+          subMessage = 'キャラクターを選択してください';
           break;
         case 3:
-          subMessage = '2,3体目を選択してください';
+          subMessage = 'キャラクターを選択してください';
           break;
         case 4:
-          subMessage = '最後の1体を選択してください';
+          subMessage = 'キャラクターを選択してください';
           break;
       }
     }
@@ -335,7 +349,7 @@ const PickPrediction: React.FC = () => {
       if (gameState.bansA.includes(character) || gameState.bansB.includes(character)) {
         return;
       }
-      
+
       if (gameState.bansA.length === 3 && gameState.bansB.length === 3) {
         handlePickPhase();
       }
@@ -355,7 +369,9 @@ const PickPrediction: React.FC = () => {
           !ownTeamChars.includes(character) && 
           !bannedCharacters.includes(character)) {
         let totalScore = 0;
+        let mapBonus = 0;
         
+        // 相性スコアの計算
         opposingTeamChars.forEach(opposingChar => {
           const characterId = getCharacterId(character);
           const opposingId = getCharacterId(opposingChar);
@@ -366,11 +382,43 @@ const PickPrediction: React.FC = () => {
           }
         });
 
+        // マップ適性ボーナスの計算
+        let mapData;
+        switch (gameState.selectedMode) {
+          case "強奪":
+            mapData = gameState.selectedMap && heistMaps[gameState.selectedMap];
+            break;
+          case "ブロストライカー":
+            mapData = gameState.selectedMap && brawlBallMaps[gameState.selectedMap];
+            break;
+          case "エメラルドハント":
+            mapData = gameState.selectedMap && emeraldHuntMaps[gameState.selectedMap];
+            break;
+          case "ノックアウト":
+            mapData = gameState.selectedMap && knockoutMaps[gameState.selectedMap];
+            break;
+          case "デュエル":
+            mapData = gameState.selectedMap && duelMaps[gameState.selectedMap];
+            break;
+        }
+
+        if (mapData) {
+          const characterBonus = mapData.recommendedBrawlers.find(
+            brawler => brawler.name === character
+          );
+          if (characterBonus) {
+            mapBonus = characterBonus.power;
+            totalScore += mapBonus;
+          }
+        }
+
         recommendations.push({
           character,
           score: totalScore,
           maxScore: opposingTeamChars.length * 10,
-          reason: getRecommendationReason(totalScore, opposingTeamChars.length)
+          reason: mapBonus > 0 
+            ? `${getRecommendationReason(totalScore, opposingTeamChars.length)}`
+            : getRecommendationReason(totalScore, opposingTeamChars.length)
         });
       }
     });
@@ -398,6 +446,7 @@ const PickPrediction: React.FC = () => {
     let teamAScore = 0;
     let teamBScore = 0;
 
+    // 相性スコアの計算
     teamAChars.forEach(aChar => {
       teamBChars.forEach(bChar => {
         const aId = getCharacterId(aChar);
@@ -417,6 +466,44 @@ const PickPrediction: React.FC = () => {
         }
       });
     });
+
+    // マップ適性ボーナスの計算
+    let mapData;
+    switch (gameState.selectedMode) {
+      case "強奪":
+        mapData = gameState.selectedMap && heistMaps[gameState.selectedMap];
+        break;
+      case "ブロストライカー":
+        mapData = gameState.selectedMap && brawlBallMaps[gameState.selectedMap];
+        break;
+      case "エメラルドハント":
+        mapData = gameState.selectedMap && emeraldHuntMaps[gameState.selectedMap];
+        break;
+      case "ノックアウト":
+        mapData = gameState.selectedMap && knockoutMaps[gameState.selectedMap];
+        break;
+      case "デュエル":
+        mapData = gameState.selectedMap && duelMaps[gameState.selectedMap];
+        break;
+    }
+
+    if (mapData) {
+      // チームAのマップボーナス
+      teamAChars.forEach(char => {
+        const bonus = mapData.recommendedBrawlers.find(b => b.name === char);
+        if (bonus) {
+          teamAScore += bonus.power;
+        }
+      });
+
+      // チームBのマップボーナス
+      teamBChars.forEach(char => {
+        const bonus = mapData.recommendedBrawlers.find(b => b.name === char);
+        if (bonus) {
+          teamBScore += bonus.power;
+        }
+      });
+    }
 
     const difference = Math.abs(teamAScore - teamBScore);
     let advantageTeam: Team | null = null;
@@ -542,7 +629,6 @@ const PickPrediction: React.FC = () => {
                 </Text>
               )}
             </TouchableOpacity>
-            <Text style={styles.phase}>{getPhaseInstructions(gameState.currentPhase, gameState.currentTeam)}</Text>
           </View>
           <TouchableOpacity 
             style={styles.resetButton}
@@ -565,7 +651,6 @@ const PickPrediction: React.FC = () => {
                   source={MAPS_BY_MODE[gameState.selectedMode || ""]?.find(m => m.name === gameState.selectedMap)?.image}
                   style={styles.selectedMapImage}
                 />
-                <Text style={styles.selectedMapText}>{gameState.selectedMap}</Text>
               </View>
             ) : (
               <Image 
@@ -696,7 +781,7 @@ const styles = StyleSheet.create({
     right: 10,
     top: '50%',
     transform: [{ translateY: -15 }],
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor:'rgba(255, 255, 255, 0.2)',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 15,
@@ -720,10 +805,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
-  },
-  phase: {
-    fontSize: 14,
-    color: '#fff',
   },
   teamsContainer: {
     flexDirection: 'row',

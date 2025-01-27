@@ -1,9 +1,9 @@
-//CharacterSelection.tsx
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
 import { CHARACTER_MAP } from '../data/characterCompatibility';
 import CharacterImage from './CharacterImage';
 import { SelectionState, Team } from './PickPrediction';
+
 interface CharacterSelectionProps {
   gameState: SelectionState;
   onBanSelect: (character: string) => void;
@@ -14,6 +14,13 @@ interface CharacterSelectionProps {
     advantageTeam: Team | null;
     difference: number;
   };
+}
+
+interface CharacterRecommendation {
+  character: string;
+  score: number;
+  maxScore: number;
+  reason: string;
 }
 
 export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
@@ -35,6 +42,11 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
     if (gameState.teamA.length === 3 && gameState.teamB.length === 3) {
       const advantage = calculateTeamAdvantage(gameState.teamA, gameState.teamB);
       
+      // Calculate winning percentage using sigmoid function
+      const amplifier = 0.5;
+      const scoreDiff = advantage.teamAScore - advantage.teamBScore;
+      const winningPercentage = Math.round(100 / (1 + Math.exp(-amplifier * scoreDiff)));
+      
       return (
         <View style={styles.advantageContainer}>
           <Text style={styles.advantageTitle}>チーム相性分析</Text>
@@ -49,18 +61,10 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
           <Text style={[
             styles.advantageText,
             { 
-              color: advantage.advantageTeam === 'A' ? '#FF3B30' : 
-                     advantage.advantageTeam === 'B' ? '#007AFF' : '#666'
+              color: advantage.teamAScore > advantage.teamBScore ? '#FF3B30' : '#007AFF'
             }
           ]}>
-            {advantage.advantageTeam 
-              ? `チーム${advantage.advantageTeam}が有利 (編成得点差: ${advantage.difference.toFixed(1)}pt)`
-              : '両チーム互角 (編成得点差: 1pt未満)'}
-          </Text>
-          <Text style={styles.advantageDescription}>
-            {advantage.advantageTeam
-              ? '相手のキャラクターに対してより効果的な戦術を取れる可能性が高いです'
-              : '両チームとも相手に対して同程度の戦術的優位性があります'}
+            チーム{advantage.teamAScore > advantage.teamBScore ? 'A' : 'B'}の勝利確率: {winningPercentage}%
           </Text>
         </View>
       );
@@ -69,49 +73,49 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
   };
 
   const renderRecommendation = (rec: CharacterRecommendation, index: number) => {
-    const isSelectable = !(
-      gameState.teamA.includes(rec.character) || 
-      gameState.teamB.includes(rec.character) ||
-      gameState.bansA.includes(rec.character) ||
-      gameState.bansB.includes(rec.character)
-    );
+  const isSelectable = !(
+    gameState.teamA.includes(rec.character) || 
+    gameState.teamB.includes(rec.character) ||
+    gameState.bansA.includes(rec.character) ||
+    gameState.bansB.includes(rec.character)
+  );
 
-    return (
-      <TouchableOpacity
-        key={index}
-        style={[
-          styles.recommendationRow,
-          isSelectable && styles.selectableRecommendation,
-          !isSelectable && styles.disabledRecommendation
-        ]}
-        onPress={() => isSelectable && onCharacterSelect(rec.character)}
-        disabled={!isSelectable}
-      >
-        <View style={styles.recommendationContent}>
-          <View style={styles.characterInfo}>
-            <Text style={styles.rankText}>#{index + 1}</Text>
-            <CharacterImage characterName={rec.character} size={25} />
-            <Text style={styles.characterName}>{rec.character}</Text>
-          </View>
-          <View style={styles.scoreInfo}>
-            <Text style={styles.score}>{rec.score.toFixed(1)}/{rec.maxScore}pt</Text>
-            <Text style={styles.reasonText}>{rec.reason}</Text>
-          </View>
+  return (
+    <TouchableOpacity
+      key={index}
+      style={[
+        styles.recommendationRow,
+        isSelectable && styles.selectableRecommendation,
+        !isSelectable && styles.disabledRecommendation
+      ]}
+      onPress={() => isSelectable && onCharacterSelect(rec.character)}
+      disabled={!isSelectable}
+    >
+      <View style={styles.recommendationContent}>
+        <View style={styles.characterInfo}>
+          <Text style={styles.rankText}>#{index + 1}</Text>
+          <CharacterImage characterName={rec.character} size={25} />
+          <Text style={styles.characterName}>{rec.character}</Text>
         </View>
-        <View style={styles.scoreBarContainer}>
-          <View
-            style={[
-              styles.scoreBar,
-              { 
-                width: `${(rec.score / rec.maxScore) * 100}%`,
-                backgroundColor: getScoreColor(rec.score)
-              }
-            ]}
-          />
+        <View style={styles.scoreInfo}>
+          <Text style={styles.score}>{rec.score.toFixed(1)}pt</Text>
+          <Text style={styles.reasonText}>{rec.reason}</Text>
         </View>
-      </TouchableOpacity>
-    );
-  };
+      </View>
+      <View style={styles.scoreBarContainer}>
+        <View
+          style={[
+            styles.scoreBar,
+            { 
+              width: `${(rec.score / rec.maxScore) * 100}%`,
+              backgroundColor: getScoreColor(rec.score)
+            }
+          ]}
+        />
+      </View>
+    </TouchableOpacity>
+  );
+};
 
   return (
     <ScrollView style={styles.scrollContent}>
@@ -215,13 +219,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 8,
-  },
-  advantageDescription: {
-    fontSize: 12,
-    color: '#666',
-    textAlign: 'center',
-    paddingHorizontal: 10,
   },
   recommendationsContainer: {
     padding: 8,

@@ -1,3 +1,4 @@
+//heist.ts
 import { MapDetail } from '../../types/type';
 
 export const heistMaps: Record<string, MapDetail> = {
