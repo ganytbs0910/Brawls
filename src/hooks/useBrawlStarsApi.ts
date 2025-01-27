@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const API_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImUwYTllMGQ5LTgwOGItNDhiNC1hYmYwLWQ1NmI1MTI1ODA0MyIsImlhdCI6MTczNTkzMzEzOSwic3ViIjoiZGV2ZWxvcGVyL2RmZDI0NWMwLWY4ZTgtMDY4NC1hOWRjLWJlMzYyYzRkOTJmOSIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiMTI2LjIwNy4xOTUuMTcyIl0sInR5cGUiOiJjbGllbnQifV19.mcSzoW0kNN40kVY7uSN0MOSXpeQ1WejAqw2gDMzS5otqQBmjeyr9Uef8472UAlDgcc8_ZcZpS0hEcHTsbAGl4Q';
+const API_BASE_URL = 'https://brawls-api-wrapper.onrender.com/api';
 
 export interface Brawler {
   id: number;
@@ -78,10 +78,25 @@ export interface BattleLogItem {
   };
 }
 
-interface ApiResponse<T> {
-  loading: boolean;
-  error: string;
-  data: T | null;
+interface BrawlStarsState {
+  brawlers: {
+    loading: boolean;
+    error: string | null;
+    data: Brawler[] | null;
+  };
+  player: {
+    loading: boolean;
+    error: string | null;
+    data: {
+      playerInfo: PlayerInfo;
+      battleLog: BattleLogItem[];
+    } | null;
+  };
+  rankings: {
+    loading: boolean;
+    error: string | null;
+    data: { [key: string]: RankingItem[] } | null;
+  };
 }
 
 export const validatePlayerTag = (tag: string | undefined): string => {
@@ -98,130 +113,140 @@ export const validatePlayerTag = (tag: string | undefined): string => {
   }
 };
 
-export const useBrawlersData = () => {
-  const [state, setState] = useState<ApiResponse<Brawler[]>>({
-    loading: false,
-    error: '',
-    data: null
+export const useBrawlStarsApi = () => {
+  const [state, setState] = useState<BrawlStarsState>({
+    brawlers: {
+      loading: false,
+      error: null,
+      data: null
+    },
+    player: {
+      loading: false,
+      error: null,
+      data: null
+    },
+    rankings: {
+      loading: false,
+      error: null,
+      data: null
+    }
   });
 
+  const resetErrors = () => {
+    setState(prev => ({
+      ...prev,
+      brawlers: { ...prev.brawlers, error: null },
+      player: { ...prev.player, error: null },
+      rankings: { ...prev.rankings, error: null }
+    }));
+  };
+
   const fetchBrawlers = async () => {
-    setState(prev => ({ ...prev, loading: true, error: '' }));
+    setState(prev => ({
+      ...prev,
+      brawlers: { ...prev.brawlers, loading: true, error: null }
+    }));
     
     try {
-      const response = await fetch(
-        'https://api.brawlstars.com/v1/brawlers',
-        {
-          headers: {
-            'Authorization': `Bearer ${API_TOKEN}`,
-            'Accept': 'application/json'
-          }
-        }
-      );
+      const response = await fetch(`${API_BASE_URL}/brawlers`);
 
       if (!response.ok) {
         throw new Error(`キャラ情報の取得に失敗しました: ${response.status}`);
       }
 
       const data = await response.json();
-      setState({ loading: false, error: '', data: data.items });
+      setState(prev => ({
+        ...prev,
+        brawlers: { loading: false, error: null, data: data.items }
+      }));
+
+      return data.items;
     } catch (err) {
-      setState({
-        loading: false,
-        error: err instanceof Error ? err.message : 'キャラ情報の取得に失敗しました',
-        data: null
-      });
+      const error = err instanceof Error ? err.message : 'キャラ情報の取得に失敗しました';
+      setState(prev => ({
+        ...prev,
+        brawlers: { loading: false, error, data: null }
+      }));
+      return null;
     }
   };
-
-  return { ...state, fetchBrawlers };
-};
-
-export const usePlayerData = () => {
-  const [state, setState] = useState<ApiResponse<{
-    playerInfo: PlayerInfo;
-    battleLog: BattleLogItem[];
-  }>>({
-    loading: false,
-    error: '',
-    data: null
-  });
 
   const fetchPlayerData = async (tag: string) => {
-  setState(prev => ({ ...prev, loading: true, error: '', data: null }));
+    resetErrors();
 
-  try {
-    const cleanTag = validatePlayerTag(tag);
-    if (!cleanTag) {
-      throw new Error('プレイヤータグが不正です');
-    }
+    setState(prev => ({
+      ...prev,
+      player: { ...prev.player, loading: true, error: null }
+    }));
 
-    const encodedTag = encodeURIComponent('#' + cleanTag);
-    
-    const [playerResponse, battleLogResponse] = await Promise.all([
-      fetch(`https://brawls-api-wrapper.onrender.com/api/players/${encodedTag}`),
-      fetch(`https://brawls-api-wrapper.onrender.com/api/battlelog/${encodedTag}`)
-    ]);
+    try {
+      const cleanTag = validatePlayerTag(tag);
+      if (!cleanTag) {
+        throw new Error('プレイヤータグが不正です');
+      }
 
-    const [playerData, battleLogData] = await Promise.all([
-      playerResponse.json(),
-      battleLogResponse.json()
-    ]).catch(err => {
-      throw new Error('データの解析に失敗しました');
-    });
+      const encodedTag = encodeURIComponent('#' + cleanTag);
+      
+      const [playerResponse, battleLogResponse] = await Promise.all([
+        fetch(`${API_BASE_URL}/players/${encodedTag}`),
+        fetch(`${API_BASE_URL}/battlelog/${encodedTag}`)
+      ]);
 
-    if (playerData.error) {
-      throw new Error(playerData.error);
-    }
+      if (!playerResponse.ok || !battleLogResponse.ok) {
+        throw new Error('プレイヤーが見つかりませんでした');
+      }
 
-    // レスポンスのタグから#を除いて比較
-    const responseTag = validatePlayerTag(playerData.tag);
-    if (responseTag !== cleanTag) {
-      throw new Error('プレイヤーデータの検証に失敗しました');
-    }
+      const [playerData, battleLogData] = await Promise.all([
+        playerResponse.json(),
+        battleLogResponse.json()
+      ]).catch(err => {
+        throw new Error('データの解析に失敗しました');
+      });
 
-    setState({
-      loading: false,
-      error: '',
-      data: {
+      if (playerData.error) {
+        throw new Error(playerData.error);
+      }
+
+      const responseTag = validatePlayerTag(playerData.tag);
+      if (responseTag !== cleanTag) {
+        throw new Error('プレイヤーデータの検証に失敗しました');
+      }
+
+      const result = {
         playerInfo: playerData,
         battleLog: battleLogData.items || []
-      }
-    });
-  } catch (err) {
-    setState({
-      loading: false,
-      error: err instanceof Error ? err.message : 'プレイヤーデータの取得に失敗しました',
-      data: null
-    });
-    throw err;
-  }
-};
+      };
 
-  const loadSavedTag = async () => {
-    try {
-      const savedTag = await AsyncStorage.getItem('brawlStarsPlayerTag');
-      if (savedTag) {
-        return savedTag;
+      setState(prev => ({
+        ...prev,
+        player: {
+          loading: false,
+          error: null,
+          data: result
+        }
+      }));
+
+      const brawlers = await fetchBrawlers();
+      if (brawlers) {
+        await fetchGlobalRankings(brawlers);
       }
+
+      return result;
     } catch (err) {
-      console.error('保存されたタグの読み込みに失敗:', err);
+      const error = err instanceof Error ? err.message : 'プレイヤーデータの取得に失敗しました';
+      setState(prev => ({
+        ...prev,
+        player: { loading: false, error, data: null }
+      }));
+      return null;
     }
-    return null;
   };
 
-  return { ...state, fetchPlayerData, loadSavedTag };
-};
-
-export const useGlobalRankings = () => {
-  const [state, setState] = useState<ApiResponse<{ [key: string]: RankingItem[] }>>({
-    loading: false,
-    error: '',
-    data: null
-  });
-
   const fetchGlobalRankings = async (brawlers: Brawler[]) => {
-    setState(prev => ({ ...prev, loading: true, error: '' }));
+    setState(prev => ({
+      ...prev,
+      rankings: { ...prev.rankings, loading: true, error: null }
+    }));
 
     try {
       const rankings: { [key: string]: RankingItem[] } = {};
@@ -237,22 +262,18 @@ export const useGlobalRankings = () => {
             try {
               const brawlerId = brawler.id.toString();
               const response = await fetch(
-                `https://api.brawlstars.com/v1/rankings/global/brawlers/${brawlerId}`,
-                {
-                  headers: {
-                    'Authorization': `Bearer ${API_TOKEN}`,
-                    'Accept': 'application/json'
-                  }
-                }
+                `${API_BASE_URL}/rankings/global/brawlers/${brawlerId}`
               );
 
               if (!response.ok) {
+                console.error(`Rankings fetch failed for brawler ${brawlerId}: ${response.status}`);
                 return { brawlerId, rankings: [] };
               }
 
               const data = await response.json();
               return { brawlerId, rankings: data.items };
             } catch (err) {
+              console.error(`Error fetching rankings for brawler ${brawler.id}:`, err);
               return { brawlerId: brawler.id.toString(), rankings: [] };
             }
           })
@@ -266,24 +287,92 @@ export const useGlobalRankings = () => {
 
         setState(prev => ({
           ...prev,
-          data: { ...rankings },
-          loading: currentBatch < totalBatches
+          rankings: {
+            ...prev.rankings,
+            loading: currentBatch < totalBatches,
+            data: { ...rankings }
+          }
         }));
 
         if (currentBatch < totalBatches) {
-          await new Promise(resolve => setTimeout(resolve, 200));
+          await new Promise(resolve => setTimeout(resolve, 500));
         }
       }
       
-      setState({ loading: false, error: '', data: rankings });
+      setState(prev => ({
+        ...prev,
+        rankings: { loading: false, error: null, data: rankings }
+      }));
+
+      return rankings;
     } catch (err) {
-      setState({
-        loading: false,
-        error: err instanceof Error ? err.message : 'ランキングの取得に失敗しました',
-        data: null
-      });
+      console.error('Global rankings fetch error:', err);
+      const error = err instanceof Error ? err.message : 'ランキングの取得に失敗しました';
+      setState(prev => ({
+        ...prev,
+        rankings: { loading: false, error, data: null }
+      }));
+      return null;
     }
   };
 
-  return { ...state, fetchGlobalRankings };
+  const loadSavedTag = async () => {
+    try {
+      const savedTag = await AsyncStorage.getItem('brawlStarsPlayerTag');
+      return savedTag;
+    } catch (err) {
+      console.error('保存されたタグの読み込みに失敗:', err);
+      return null;
+    }
+  };
+
+  const savePlayerTag = async (tag: string) => {
+    try {
+      await AsyncStorage.setItem('brawlStarsPlayerTag', tag);
+      return true;
+    } catch (err) {
+      console.error('タグの保存に失敗:', err);
+      return false;
+    }
+  };
+
+  return {
+    state,
+    fetchBrawlers,
+    fetchPlayerData,
+    fetchGlobalRankings,
+    loadSavedTag,
+    savePlayerTag,
+    validatePlayerTag,
+    resetErrors
+  };
+};
+
+// 後方互換性のための個別フック
+export const useBrawlersData = () => {
+  const { state: { brawlers }, fetchBrawlers } = useBrawlStarsApi();
+  return { ...brawlers, fetchBrawlers };
+};
+
+export const usePlayerData = () => {
+  const { 
+    state: { player }, 
+    fetchPlayerData, 
+    loadSavedTag, 
+    savePlayerTag,
+    resetErrors 
+  } = useBrawlStarsApi();
+  
+  return { 
+    ...player, 
+    fetchPlayerData, 
+    loadSavedTag,
+    savePlayerTag,
+    resetErrors
+  };
+};
+
+export const useGlobalRankings = () => {
+  const { state: { rankings }, fetchGlobalRankings } = useBrawlStarsApi();
+  return { ...rankings, fetchGlobalRankings };
 };
