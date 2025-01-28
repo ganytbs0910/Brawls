@@ -9,9 +9,11 @@ import {
   Image,
   StyleSheet,
   ScrollView,
+  Dimensions,
 } from 'react-native';
 import { TeamSection } from './TeamSection';
 import { CharacterSelection } from './CharacterSelection';
+import MapDetailScreen from './MapDetailScreen';
 import {
   CHARACTER_MAP,
   allCharacterData,
@@ -25,7 +27,7 @@ import { knockoutMaps } from '../data/modes/knockout';
 
 interface GameMode {
   name: string;
-  color: string;
+  color: string | (() => string);
   icon: any;
 }
 
@@ -40,6 +42,7 @@ interface MapsByMode {
 
 export type Team = 'A' | 'B';
 export type GamePhase = 1 | 2 | 3 | 4;
+export type ScreenType = 'home' | 'settings' | 'mapDetail';
 
 export interface SelectionState {
   teamA: string[];
@@ -52,6 +55,13 @@ export interface SelectionState {
   isBanPhaseEnabled: boolean;
   selectedMode?: string;
   selectedMap?: string;
+  mapDetailProps?: {
+    mapName: string;
+    modeName: string;
+    modeColor: string;
+    modeIcon: any;
+    mapImage: any;
+  } | null;
 }
 
 export interface CharacterRecommendation {
@@ -68,6 +78,11 @@ export interface TeamSectionProps {
   onCharacterSelect: (character: string) => void;
 }
 
+export interface ScreenState {
+  type: ScreenType;
+  translateX: Animated.Value;
+  zIndex: number;
+}
 const GAME_MODES: GameMode[] = [
   { name: "エメラルドハント", color: "#DA70D6", icon: require('../../assets/GameModeIcons/gem_grab_icon.png') },
   { name: "ブロストライカー", color: "#cccccc", icon: require('../../assets/GameModeIcons/brawl_ball_icon.png') },
@@ -115,7 +130,6 @@ const MAPS_BY_MODE: MapsByMode = {
     { name: "パラレルワールド", image: require('../../assets/MapImages/Parallel_Plays.png') },
   ],
 };
-
 const PickPrediction: React.FC = () => {
   const [gameState, setGameState] = useState<SelectionState>({
     teamA: [],
@@ -128,13 +142,33 @@ const PickPrediction: React.FC = () => {
     isBanPhaseEnabled: true,
     selectedMode: undefined,
     selectedMap: undefined,
+    mapDetailProps: null,
   });
 
   const [showTurnModal, setShowTurnModal] = useState(false);
   const [showModeModal, setShowModeModal] = useState(false);
   const [turnMessage, setTurnMessage] = useState('');
   const [turnSubMessage, setTurnSubMessage] = useState('');
+  const [screenStack, setScreenStack] = useState<ScreenState[]>([
+    { type: 'home', translateX: new Animated.Value(0), zIndex: 0 }
+  ]);
   const scaleAnim = useRef(new Animated.Value(0)).current;
+
+  const handleMapInfoPress = (mode: GameMode, mapName: string) => {
+    const mapDetail = {
+      mapName,
+      modeName: mode.name,
+      modeColor: typeof mode.color === 'function' ? mode.color() : mode.color,
+      modeIcon: mode.icon,
+      mapImage: MAPS_BY_MODE[mode.name]?.find(m => m.name === mapName)?.image
+    };
+
+    setGameState(prev => ({
+      ...prev,
+      mapDetailProps: mapDetail
+    }));
+    showScreen('mapDetail');
+  };
 
   const handleModeSelect = (modeName: string) => {
     setGameState(prev => ({
@@ -176,6 +210,36 @@ const PickPrediction: React.FC = () => {
     setShowModeModal(true);
   };
 
+  const showScreen = (screenType: ScreenType) => {
+    const newScreen: ScreenState = {
+      type: screenType,
+      translateX: new Animated.Value(Dimensions.get('window').width),
+      zIndex: screenStack.length
+    };
+
+    setScreenStack(prev => [...prev, newScreen]);
+
+    Animated.timing(newScreen.translateX, {
+      toValue: 0,
+      duration: 300,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const goBack = () => {
+    if (screenStack.length <= 1) return;
+
+    const currentScreen = screenStack[screenStack.length - 1];
+
+    Animated.timing(currentScreen.translateX, {
+      toValue: Dimensions.get('window').width,
+      duration: 300,
+      useNativeDriver: true,
+    }).start(() => {
+      setScreenStack(prev => prev.slice(0, -1));
+    });
+  };
+
   const resetGame = () => {
     setGameState(prev => ({
       teamA: [],
@@ -188,6 +252,7 @@ const PickPrediction: React.FC = () => {
       isBanPhaseEnabled: prev.isBanPhaseEnabled,
       selectedMode: prev.selectedMode,
       selectedMap: prev.selectedMap,
+      mapDetailProps: null,
     }));
     showTurnAnnouncement('A', gameState.isBanPhaseEnabled ? 0 : 1, gameState.isBanPhaseEnabled);
   };
@@ -238,14 +303,8 @@ const PickPrediction: React.FC = () => {
     } else {
       switch (phase) {
         case 1:
-          subMessage = 'キャラクターを選択してください';
-          break;
         case 2:
-          subMessage = 'キャラクターを選択してください';
-          break;
         case 3:
-          subMessage = 'キャラクターを選択してください';
-          break;
         case 4:
           subMessage = 'キャラクターを選択してください';
           break;
@@ -270,7 +329,7 @@ const PickPrediction: React.FC = () => {
       if (newBansA.length === 3) {
         showTurnAnnouncement('B', 0, true);
       }
-    } else if (gameState.bansB.length < 3 && gameState.currentTeam === 'B') {
+      } else if (gameState.bansB.length < 3 && gameState.currentTeam === 'B') {
       const newBansB = [...gameState.bansB, character];
       setGameState(prev => ({
         ...prev,
@@ -519,7 +578,6 @@ const PickPrediction: React.FC = () => {
       difference
     };
   };
-
   const renderModeAndMapModal = () => {
     return (
       <Modal
@@ -540,7 +598,9 @@ const PickPrediction: React.FC = () => {
                   key={mode.name}
                   style={[
                     styles.modeModalButton,
-                    gameState.selectedMode === mode.name && { backgroundColor: mode.color }
+                    gameState.selectedMode === mode.name && { 
+                      backgroundColor: typeof mode.color === 'function' ? mode.color() : mode.color 
+                    }
                   ]}
                   onPress={() => handleModeSelect(mode.name)}
                 >
@@ -563,7 +623,17 @@ const PickPrediction: React.FC = () => {
                     >
                       <View style={styles.mapModalImageContainer}>
                         <Image source={map.image} style={styles.mapModalImage} />
-                        <TouchableOpacity style={styles.mapModalInfoButton}>
+                        <TouchableOpacity 
+                          style={styles.mapModalInfoButton}
+                          onPress={(e) => {
+                            e.stopPropagation();
+                            const selectedMode = GAME_MODES.find(mode => mode.name === gameState.selectedMode);
+                            if (selectedMode) {
+                              setShowModeModal(false);  // モーダルを閉じる
+                              handleMapInfoPress(selectedMode, map.name);
+                            }
+                          }}
+                        >
                           <Image 
                             source={require('../../assets/OtherIcon/button_info.png')}
                             style={styles.mapModalInfoIcon}
@@ -659,7 +729,15 @@ const PickPrediction: React.FC = () => {
                   source={MAPS_BY_MODE[gameState.selectedMode || ""]?.find(m => m.name === gameState.selectedMap)?.image}
                   style={styles.selectedMapImage}
                 />
-                <TouchableOpacity style={styles.infoButton}>
+                <TouchableOpacity 
+                  style={styles.infoButton}
+                  onPress={() => {
+                    const selectedMode = GAME_MODES.find(mode => mode.name === gameState.selectedMode);
+                    if (selectedMode && gameState.selectedMap) {
+                      handleMapInfoPress(selectedMode, gameState.selectedMap);
+                    }
+                  }}
+                >
                   <Image 
                     source={require('../../assets/OtherIcon/button_info.png')}
                     style={styles.infoIcon}
@@ -721,6 +799,26 @@ const PickPrediction: React.FC = () => {
           </Animated.View>
         </TouchableOpacity>
       </Modal>
+
+      {screenStack.map((screen, index) => (
+        index > 0 && screen.type === 'mapDetail' && gameState.mapDetailProps && (
+          <Animated.View
+            key={`${screen.type}-${screen.zIndex}`}
+            style={[
+              styles.screenContainer,
+              {
+                transform: [{ translateX: screen.translateX }],
+                zIndex: screen.zIndex,
+              },
+            ]}
+          >
+            <MapDetailScreen
+              {...gameState.mapDetailProps}
+              onClose={goBack}
+            />
+          </Animated.View>
+        )
+      ))}
     </SafeAreaView>
   );
 };
@@ -795,7 +893,7 @@ const styles = StyleSheet.create({
     right: 10,
     top: '50%',
     transform: [{ translateY: -15 }],
-    backgroundColor:'rgba(255, 255, 255, 0.2)',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 15,
@@ -819,6 +917,10 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  selectedMapText: {
+    color: '#fff',
+    fontSize: 12,
   },
   teamsContainer: {
     flexDirection: 'row',
@@ -859,11 +961,6 @@ const styles = StyleSheet.create({
     height: '100%',
     resizeMode: 'contain',
   },
-  selectedMapText: {
-    fontSize: 12,
-    color: '#333',
-    textAlign: 'center',
-  },
   vsIcon: {
     width: 30,
     height: 30,
@@ -875,20 +972,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  screenContainer: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: '#fff',
+  },
   modeModalContent: {
     backgroundColor: '#fff',
     borderRadius: 12,
     padding: 20,
     width: '80%',
     maxHeight: '80%',
-  },
-  modeModalTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 15,
-    marginTop: 10,
-    textAlign: 'center',
   },
   modeGrid: {
     flexDirection: 'row',
@@ -912,6 +1005,14 @@ const styles = StyleSheet.create({
     width: 28,
     height: 28,
     resizeMode: 'contain',
+  },
+  mapModalTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 15,
+    marginTop: 10,
+    textAlign: 'center',
   },
   mapGrid: {
     flexDirection: 'row',
