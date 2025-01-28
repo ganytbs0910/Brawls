@@ -25,6 +25,10 @@ target 'Brawl' do
   pod 'gRPC-C++', :modular_headers => true
   pod 'gRPC-Core', :modular_headers => true
   
+  # Gesture Handler と Reanimated
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler', :modular_headers => true
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated', :modular_headers => true
+  
   use_react_native!(
     :path => config[:reactNativePath],
     :app_path => "#{Pod::Config.instance.installation_root}/.."
@@ -36,11 +40,7 @@ target 'Brawl' do
 
   post_install do |installer|
     # React Native の post install 処理
-    react_native_post_install(
-      installer,
-      config[:reactNativePath],
-      :mac_catalyst_enabled => false
-    )
+    react_native_post_install(installer, config[:reactNativePath])
     
     # ビルド設定の調整
     installer.pods_project.targets.each do |target|
@@ -50,8 +50,17 @@ target 'Brawl' do
         config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
         config.build_settings['DEFINES_MODULE'] = 'YES'
         
-        # M1 Mac対応（必要な場合）
-        config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+        # Split Viewサポートのための設定
+        config.build_settings['SUPPORTS_MACCATALYST'] = 'YES'
+        config.build_settings['SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD'] = 'YES'
+        config.build_settings['SUPPORTED_PLATFORMS'] = 'iphoneos iphonesimulator'
+        
+        # M1 Mac対応
+        if config.name == 'Debug'
+          config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = ''
+        else
+          config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+        end
       end
     end
   end
