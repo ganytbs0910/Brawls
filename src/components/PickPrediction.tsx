@@ -164,17 +164,17 @@ const PickPrediction: React.FC = () => {
   };
 
   const handleModeButtonPress = () => {
-  if (!gameState.selectedMode) {
-    const initialMode = GAME_MODES[0].name;
-    const initialMap = MAPS_BY_MODE[initialMode][0].name;
-    setGameState(prev => ({
-      ...prev,
-      selectedMode: initialMode,
-      selectedMap: initialMap
-    }));
-  }
-  setShowModeModal(true);
-};
+    if (!gameState.selectedMode) {
+      const initialMode = GAME_MODES[0].name;
+      const initialMap = MAPS_BY_MODE[initialMode][0].name;
+      setGameState(prev => ({
+        ...prev,
+        selectedMode: initialMode,
+        selectedMap: initialMap
+      }));
+    }
+    setShowModeModal(true);
+  };
 
   const resetGame = () => {
     setGameState(prev => ({
@@ -417,7 +417,7 @@ const PickPrediction: React.FC = () => {
           score: totalScore,
           maxScore: opposingTeamChars.length * 10,
           reason: mapBonus > 0 
-            ? `${getRecommendationReason(totalScore, opposingTeamChars.length)}`
+            ? `${getRecommendationReason(totalScore, opposingTeamChars.length)}` 
             : getRecommendationReason(totalScore, opposingTeamChars.length)
         });
       }
@@ -561,7 +561,15 @@ const PickPrediction: React.FC = () => {
                       ]}
                       onPress={() => handleMapSelect(map.name)}
                     >
-                      <Image source={map.image} style={styles.mapModalImage} />
+                      <View style={styles.mapModalImageContainer}>
+                        <Image source={map.image} style={styles.mapModalImage} />
+                        <TouchableOpacity style={styles.mapModalInfoButton}>
+                          <Image 
+                            source={require('../../assets/OtherIcon/button_info.png')}
+                            style={styles.mapModalInfoIcon}
+                          />
+                        </TouchableOpacity>
+                      </View>
                       <Text style={styles.mapModalText}>{map.name}</Text>
                     </TouchableOpacity>
                   ))}
@@ -651,6 +659,12 @@ const PickPrediction: React.FC = () => {
                   source={MAPS_BY_MODE[gameState.selectedMode || ""]?.find(m => m.name === gameState.selectedMap)?.image}
                   style={styles.selectedMapImage}
                 />
+                <TouchableOpacity style={styles.infoButton}>
+                  <Image 
+                    source={require('../../assets/OtherIcon/button_info.png')}
+                    style={styles.infoIcon}
+                  />
+                </TouchableOpacity>
               </View>
             ) : (
               <Image 
@@ -818,11 +832,12 @@ const styles = StyleSheet.create({
   centerContent: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: 80, // 120から80に変更
+    width: 80,
     flexShrink: 0,
   },
   selectedMapContainer: {
     alignItems: 'center',
+    position: 'relative',
   },
   selectedMapImage: {
     width: 80,
@@ -830,6 +845,19 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     marginBottom: 4,
     resizeMode: 'cover',
+  },
+  infoButton: {
+    position: 'absolute',
+    top: 4,
+    right: 4,
+    width: 20,
+    height: 20,
+    zIndex: 1,
+  },
+  infoIcon: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain',
   },
   selectedMapText: {
     fontSize: 12,
@@ -903,12 +931,29 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#21A0DB',
   },
+  mapModalImageContainer: {
+    position: 'relative',
+    width: '100%',
+  },
   mapModalImage: {
     width: '100%',
     height: 150,
     borderRadius: 4,
     marginBottom: 4,
     resizeMode: 'cover',
+  },
+  mapModalInfoButton: {
+    position: 'absolute',
+    top: 4,
+    right: 4,
+    width: 20,
+    height: 20,
+    zIndex: 1,
+  },
+  mapModalInfoIcon: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain',
   },
   mapModalText: {
     fontSize: 12,
