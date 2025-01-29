@@ -29,10 +29,11 @@ import CharacterDetails from './components/CharacterDetails';
 import PickPrediction from './components/PickPrediction';
 import Home from './components/Home';
 import News from './components/News';
+import Gacha from './components/Gacha';
 import { BannerAdComponent } from './components/BannerAdComponent';
 
 const { width, height: SCREEN_HEIGHT } = Dimensions.get('window');
-const TAB_WIDTH = width / 6;
+const TAB_WIDTH = width / 7;  // 7タブ対応
 
 const SNAP_POINTS = {
   TOP: 0,
@@ -72,6 +73,46 @@ const appOpenAdUnitId = Platform.select({
 const appOpenAd = AppOpenAd.createForAdRequest(appOpenAdUnitId, {
   requestNonPersonalizedAdsOnly: true,
 });
+
+// サーバー時間を取得する関数
+const getServerTime = async (): Promise<number> => {
+  try {
+    const response = await fetch('https://worldtimeapi.org/api/timezone/Asia/Tokyo', {
+      // タイムアウトの設定
+      timeout: 5000,
+      // より詳細なヘッダーの設定
+      headers: {
+        'Accept': 'application/json',
+        'User-Agent': 'YourApp/1.0'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const text = await response.text();
+    if (!text) {
+      throw new Error('Empty response');
+    }
+
+    const data = JSON.parse(text);
+    return Math.floor(new Date(data.datetime).getTime() / 1000);
+  } catch (error) {
+    console.error('Failed to fetch server time:', error);
+    // フォールバック: デバイスの時間を使用
+    const now = new Date();
+    const jstDate = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+    return Math.floor(jstDate.getTime() / 1000);
+  }
+};
+
+// 最後のリセット時刻を取得する関数（直前の0時）
+const getLastResetTime = (currentTimestamp: number): number => {
+  const date = new Date(currentTimestamp * 1000);
+  date.setHours(0, 0, 0, 0);
+  return Math.floor(date.getTime() / 1000);
+};
 
 // iPad detection utility
 const isIpad = () => {
@@ -330,6 +371,13 @@ const TabBar = React.memo<{
       label: 'ニュース',
       icon: require('../assets/AppIcon/loudspeaker_icon.png'),
     },
+    /*
+    {
+      key: 'gacha',
+      label: 'ガチャ',
+      icon: require('../assets/AppIcon/loudspeaker_icon.png'),
+    },
+    */
   ];
 
   return (
@@ -391,13 +439,14 @@ const TabBar = React.memo<{
 
 // Main App Component
 const App = () => {
-  const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings' | 'prediction' | 'news'>('home');
+  const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings' | 'prediction' | 'news' | 'gacha'>('home');
   const [isAdFree, setIsAdFree] = useState(false);
   const [shouldShowAd, setShouldShowAd] = useState(true);
   const [isSlideOverVisible, setIsSlideOverVisible] = useState(false);
   const [previousTab, setPreviousTab] = useState<typeof activeTab>('home');
   const [isSecondaryContentVisible, setIsSecondaryContentVisible] = useState(false);
   const [secondaryContent, setSecondaryContent] = useState<React.ReactNode>(null);
+  const [tickets, setTickets] = useState(0);
   const slideAnimation = useRef(new Animated.Value(0)).current;
 
   const animatedValues = useRef({
@@ -407,6 +456,7 @@ const App = () => {
     rankings: new Animated.Value(0),
     prediction: new Animated.Value(0),
     news: new Animated.Value(0),
+    gacha: new Animated.Value(0),
   }).current;
 
   const checkVersion = async () => {
@@ -441,14 +491,50 @@ const App = () => {
     }
   };
 
+  // ログインボーナスを付与する関数
+  const giveLoginBonus = async () => {
+    const newTickets = tickets + 1;
+    setTickets(newTickets);
+    await AsyncStorage.setItem('tickets', newTickets.toString());
+    
+    Alert.alert(
+      'ログインボーナス！',
+      'デイリーガチャチケット1枚をプレゼント！',
+      [{ text: 'OK' }]
+    );
+  };
+
   useEffect(() => {
     const initializeApp = async () => {
       try {
         await checkVersion();
-
         const status = await AsyncStorage.getItem('adFreeStatus');
         const isAdFreeStatus = status === 'true';
         setIsAdFree(isAdFreeStatus);
+
+        // サーバー時間を取得
+        const currentTimestamp = await getServerTime();
+        const lastResetTime = getLastResetTime(currentTimestamp);
+        const lastBonusTimestamp = await AsyncStorage.getItem('lastBonusTimestamp');
+        const savedTickets = await AsyncStorage.getItem('tickets');
+        
+        // 保存されているチケット数を復元
+        /*
+        setTickets(savedTickets ? parseInt(savedTickets) : 0);
+
+        if (!lastBonusTimestamp) {
+          // 初回ログイン
+          await AsyncStorage.setItem('lastBonusTimestamp', lastResetTime.toString());
+          await giveLoginBonus();
+        } else {
+          const lastBonus = parseInt(lastBonusTimestamp);
+          // 最後のボーナス受け取り時から次の0時を超えているかチェック
+          if (lastBonus < lastResetTime) {
+            await AsyncStorage.setItem('lastBonusTimestamp', lastResetTime.toString());
+            await giveLoginBonus();
+          }
+        }
+        */
 
         if (!isAdFreeStatus) {
           const randomValue = Math.random();
@@ -478,13 +564,22 @@ const App = () => {
     };
   }, []);
 
+  const useTicket = async () => {
+    if (tickets > 0) {
+      const newTickets = tickets - 1;
+      setTickets(newTickets);
+      await AsyncStorage.setItem('tickets', newTickets.toString());
+      return true;
+    }
+    return false;
+  };
+
   const handleShowSecondaryContent = (content: React.ReactNode) => {
     setSecondaryContent(content);
     setIsSecondaryContentVisible(true);
   };
 
   const handleTabPress = (tabKey: typeof activeTab, index: number) => {
-    // アニメーションを先に実行
     const animations = Object.keys(animatedValues).map((key) =>
       Animated.timing(animatedValues[key], {
         toValue: key === tabKey ? 1 : 0,
@@ -505,7 +600,6 @@ const App = () => {
 
     setActiveTab(tabKey);
 
-    // チーム募集タブの特別な処理
     if (tabKey === 'team') {
       if (!isIpad()) {
         setIsSlideOverVisible(true);
@@ -519,7 +613,6 @@ const App = () => {
         );
       }
     } else {
-      // 他のタブに切り替わった時はSlideOverとセカンダリコンテンツを閉じる
       setIsSlideOverVisible(false);
       setIsSecondaryContentVisible(false);
     }
@@ -546,7 +639,6 @@ const App = () => {
           />
         );
       case 'team':
-        // チーム募集タブの場合もメインコンテンツを表示
         return (
           <TeamBoard 
             isAdFree={isAdFree}
@@ -575,6 +667,15 @@ const App = () => {
           <News 
             isAdFree={isAdFree}
             onShowDetails={handleShowSecondaryContent}
+          />
+        );
+      case 'gacha':
+        return (
+          <Gacha 
+            isAdFree={isAdFree}
+            onShowDetails={handleShowSecondaryContent}
+            tickets={tickets}
+            useTicket={useTicket}
           />
         );
       default:
