@@ -33,7 +33,7 @@ import Gacha from './components/Gacha';
 import { BannerAdComponent } from './components/BannerAdComponent';
 
 const { width, height: SCREEN_HEIGHT } = Dimensions.get('window');
-const TAB_WIDTH = width / 7;  // 7タブ対応
+const TAB_WIDTH = width / 6;  // 7タブ対応
 
 const SNAP_POINTS = {
   TOP: 0,
@@ -42,8 +42,8 @@ const SNAP_POINTS = {
 };
 
 const APP_VERSION = Platform.select({
-  ios: "1.2.1",
-  android: "1.8",
+  ios: "1.23",
+  android: "2.11",
 });
 
 interface UpdateInfo {
@@ -460,36 +460,52 @@ const App = () => {
   }).current;
 
   const checkVersion = async () => {
-    try {
-      const response = await fetch('https://api.github.com/gists/02b6fe84bebb1bc494427a956ed7e7d2');
-      const gistData = await response.json();
-      const content = JSON.parse(Object.values(gistData.files)[0].content) as VersionResponse;
+  try {
+    const response = await fetch('https://api.github.com/gists/02b6fe84bebb1bc494427a956ed7e7d2');
+    const gistData = await response.json();
+    const content = JSON.parse(Object.values(gistData.files)[0].content) as VersionResponse;
+    
+    const platform = Platform.OS;
+    const updateInfo = platform === 'ios' ? content.ios : content.android;
+    
+    // セマンティックバージョニング用の比較関数
+    const compareVersions = (v1, v2) => {
+      const parts1 = v1.split('.').map(Number);
+      const parts2 = v2.split('.').map(Number);
       
-      const platform = Platform.OS;
-      const updateInfo = platform === 'ios' ? content.ios : content.android;
-      const isUpdateRequired = APP_VERSION !== updateInfo.currentVersion;
-
-      if (isUpdateRequired) {
-        Alert.alert(
-          'アップデートが必要です',
-          updateInfo.message,
-          [
-            {
-              text: 'アップデート',
-              onPress: () => {
-                Linking.openURL(updateInfo.storeUrl).catch(err => {
-                  console.error('ストアを開けませんでした:', err);
-                });
-              },
-            },
-          ],
-          { cancelable: false }
-        );
+      for (let i = 0; i < Math.max(parts1.length, parts2.length); i++) {
+        const num1 = parts1[i] || 0;
+        const num2 = parts2[i] || 0;
+        if (num1 < num2) return true;
+        if (num1 > num2) return false;
       }
-    } catch (error) {
-      console.error('バージョンチェックに失敗しました:', error);
+      return false;
+    };
+
+    // 既存の比較を保持しつつ、新しい比較も追加
+    const isUpdateRequired = compareVersions(APP_VERSION, updateInfo.currentVersion);
+
+    if (isUpdateRequired) {
+      Alert.alert(
+        'アップデートが必要です',
+        updateInfo.message,
+        [
+          {
+            text: 'アップデート',
+            onPress: () => {
+              Linking.openURL(updateInfo.storeUrl).catch(err => {
+                console.error('ストアを開けませんでした:', err);
+              });
+            },
+          },
+        ],
+        { cancelable: false }
+      );
     }
-  };
+  } catch (error) {
+    console.error('バージョンチェックに失敗しました:', error);
+  }
+};
 
   // ログインボーナスを付与する関数
   const giveLoginBonus = async () => {

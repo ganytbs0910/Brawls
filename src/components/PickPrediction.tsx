@@ -926,7 +926,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 10,
+    paddingVertical: 6,
     paddingHorizontal: 0,
     marginHorizontal: 0,
     backgroundColor: '#fff',
@@ -934,7 +934,7 @@ const styles = StyleSheet.create({
   centerContent: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: 80,
+    width: 90,
     flexShrink: 0,
   },
   selectedMapContainer: {
@@ -942,8 +942,8 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   selectedMapImage: {
-    width: 80,
-    height: 110,
+    width: 90,
+    height: 120,
     borderRadius: 4,
     marginBottom: 4,
     resizeMode: 'cover',

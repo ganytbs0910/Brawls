@@ -1,4 +1,3 @@
-//TeamSection.tsx
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { TeamSectionProps } from './PickPrediction';
@@ -10,42 +9,63 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
   onBanSelect,
   onCharacterSelect
 }) => {
-  const renderBanSection = () => {
-    if (!gameState.isBanPhaseEnabled) return null;
+  const renderSlot = (type: 'ban' | 'team', index: number) => {
+    const characters = type === 'ban' 
+      ? (team === 'A' ? gameState.bansA : gameState.bansB)
+      : (team === 'A' ? gameState.teamA : gameState.teamB);
     
-    const banChars = team === 'A' ? gameState.bansA : gameState.bansB;
+    const character = characters[index];
+    const isActive = gameState.currentTeam === team;
+    
+    const slotStyle = [
+      styles.slot,
+      type === 'ban' && styles.banSlot,
+      type === 'team' && styles.teamSlot,
+      isActive && type === 'team' && 
+        (team === 'A' ? styles.activeTeamSlotA : styles.activeTeamSlotB)
+    ];
+
+    return (
+      <View key={index} style={slotStyle}>
+        {character ? (
+          <View style={styles.selectedCharacter}>
+            <CharacterImage 
+              characterName={character} 
+              size={type === 'ban' ? 30 : 36} 
+            />
+            {type === 'ban' && (
+              <View style={styles.banOverlay}>
+                <Text style={styles.banX}>×</Text>
+              </View>
+            )}
+          </View>
+        ) : (
+          <Text style={styles.emptySlot}>未選択</Text>
+        )}
+      </View>
+    );
+  };
+
+  const renderSection = (type: 'ban' | 'team') => {
+    const count = type === 'ban' ? 3 : 3;
     
     return (
-      <View style={styles.banContainer}>
-        <Text style={styles.banTitle}>BAN</Text>
-        <View style={styles.banSlotsContainer}>
-          {[0, 1, 2].map((index) => (
-            <View key={index} style={styles.banSlot}>
-              {banChars[index] ? (
-                <View style={styles.selectedBanCharacter}>
-                  <CharacterImage characterName={banChars[index]} size={30} />
-                  <View style={styles.banOverlay}>
-                    <Text style={styles.banX}>×</Text>
-                  </View>
-                </View>
-              ) : (
-                <Text style={styles.emptyBanSlot}>未選択</Text>
-              )}
-            </View>
-          ))}
+      <View style={styles.section}>
+        {type === 'ban' && (
+          <Text style={styles.sectionTitle}>BAN</Text>
+        )}
+        <View style={styles.slotsContainer}>
+          {[...Array(count)].map((_, index) => renderSlot(type, index))}
         </View>
       </View>
     );
   };
 
-  const teamChars = team === 'A' ? gameState.teamA : gameState.teamB;
-  const slots = 3;
-
   return (
     <View style={[
-      styles.teamContainer,
+      styles.container,
       gameState.currentTeam === team && 
-        (team === 'A' ? styles.activeTeamContainerA : styles.activeTeamContainerB)
+        (team === 'A' ? styles.activeContainerA : styles.activeContainerB)
     ]}>
       <Text style={[
         styles.teamTitle,
@@ -55,45 +75,29 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
       ]}>
         チーム{team}
       </Text>
-      {renderBanSection()}
-      <View style={styles.teamSlots}>
-        {[...Array(slots)].map((_, index) => (
-          <View key={index} style={[
-            styles.teamSlot,
-            gameState.currentTeam === team && 
-              (team === 'A' ? styles.activeTeamSlotA : styles.activeTeamSlotB)
-          ]}>
-            {teamChars[index] ? (
-              <View style={styles.selectedCharacter}>
-                <CharacterImage characterName={teamChars[index]} size={40} />
-              </View>
-            ) : (
-              <Text style={styles.emptySlot}>未選択</Text>
-            )}
-          </View>
-        ))}
-      </View>
+      {gameState.isBanPhaseEnabled && renderSection('ban')}
+      {renderSection('team')}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  teamContainer: {
-    width: '42%',
+  container: {
+    width: '34%',        // 38%から42%に変更
     alignItems: 'center',
-    padding: 10,
+    padding: 4,
     borderRadius: 10,
   },
-  activeTeamContainerA: {
+  activeContainerA: {
     backgroundColor: 'rgba(255, 59, 48, 0.1)',
   },
-  activeTeamContainerB: {
+  activeContainerB: {
     backgroundColor: 'rgba(0, 122, 255, 0.1)',
   },
   teamTitle: {
     fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 6,
   },
   teamTitleA: {
     color: '#FF3B30',
@@ -107,53 +111,49 @@ const styles = StyleSheet.create({
   activeTeamTitleB: {
     color: '#007AFF',
   },
-  teamSlots: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+  section: {
     width: '100%',
-    gap: 4,
-  },
-  teamSlot: {
-    width: 40,
-    height: 40,
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-    borderRadius: 5,
-    justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 2,
+    marginBottom: 6,
   },
-  banContainer: {
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-  banTitle: {
+  sectionTitle: {
     fontSize: 12,
     fontWeight: 'bold',
     color: '#666',
     marginBottom: 4,
   },
-  banSlotsContainer: {
+  slotsContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-    paddingHorizontal: 4,
+    justifyContent: 'center',
+    width: '96%',
+    gap: 2,
   },
-  banSlot: {
-    width: 40,
-    height: 40,
+  slot: {
+    width: 36,
+    height: 36,
     borderWidth: 1,
-    borderColor: '#ff4444',
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  banSlot: {
+    borderColor: '#ff4444',
     backgroundColor: 'rgba(255, 68, 68, 0.1)',
-    marginHorizontal: 2,
   },
-  selectedBanCharacter: {
+  teamSlot: {
+    borderColor: '#e0e0e0',
+  },
+  activeTeamSlotA: {
+    borderColor: '#FF3B30',
+  },
+  activeTeamSlotB: {
+    borderColor: '#007AFF',
+  },
+  selectedCharacter: {
     position: 'relative',
+    alignItems: 'center',
   },
-  emptyBanSlot: {
+  emptySlot: {
     fontSize: 10,
     color: '#bdbdbd',
   },
@@ -172,18 +172,4 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
   },
-  activeTeamSlotA: {
-    borderColor: '#FF3B30',
-  },
-  activeTeamSlotB: {
-    borderColor: '#007AFF',
-  },
-  selectedCharacter: {
-    alignItems: 'center',
-  },
-  emptySlot: {
-    fontSize: 10,
-    color: '#bdbdbd',
-  },
 });
-
