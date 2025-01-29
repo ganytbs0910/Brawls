@@ -94,7 +94,7 @@ interface MapDetail {
   tips: string[];
 }
 
-type ScreenType = 'home' | 'settings' | 'privacy' | 'terms' | 'allTips' | 'mapDetail' | 'punishmentGame';
+type ScreenType = 'settings' | 'privacy' | 'terms' | 'allTips' | 'punishmentGame' | 'language';
 
 interface ScreenState {
   type: ScreenType;

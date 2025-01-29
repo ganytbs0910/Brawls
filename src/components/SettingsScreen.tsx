@@ -33,6 +33,7 @@ import AdMobService from '../services/AdMobService';
 import MapDetailScreen from './MapDetailScreen';
 import PunishmentGameScreen from './PunishmentGameScreen';
 import { MapDetail, ScreenType, ScreenState } from '../types';
+import { LanguageSelector } from './LanguageSelector';
 
 // 商品ID定義
 const AD_REMOVAL_SKU_IOS = 'com.brawlstatus.adremoval';
@@ -396,6 +397,12 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
           <Text style={styles.backButtonText}>←</Text>
         </TouchableOpacity>
       </View>
+      <TouchableOpacity 
+        style={styles.settingsItem}
+        onPress={() => navigateToScreen('language')}
+      >
+        <Text style={styles.settingsItemText}>言語設定</Text>
+      </TouchableOpacity>
       <ScrollView style={styles.settingsContent}>
         <TouchableOpacity 
           style={styles.settingsItem}
@@ -526,6 +533,8 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
         return <AllTipsScreen onClose={goBack} />;
       case 'punishmentGame':
         return <PunishmentGameScreen onClose={goBack} />;
+      case 'language':
+        return <LanguageSelector onClose={goBack} />;
       default:
         return null;
     }
