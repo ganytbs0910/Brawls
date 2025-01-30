@@ -317,103 +317,101 @@ const PickPrediction: React.FC = () => {
   };
 
   const handleBanSelect = (character: string) => {
-    if (!gameState.isBanPhaseEnabled) return;
-    
-    if (gameState.bansA.length < 3 && gameState.currentTeam === 'A') {
-      const newBansA = [...gameState.bansA, character];
-      setGameState(prev => ({
-        ...prev,
-        bansA: newBansA,
-        currentTeam: newBansA.length === 3 ? 'B' : 'A'
-      }));
-      if (newBansA.length === 3) {
-        showTurnAnnouncement('B', 0, true);
-      }
-      } else if (gameState.bansB.length < 3 && gameState.currentTeam === 'B') {
-      const newBansB = [...gameState.bansB, character];
-      setGameState(prev => ({
-        ...prev,
-        bansB: newBansB,
-        currentTeam: newBansB.length === 3 ? 'A' : 'B'
-      }));
-      if (newBansB.length === 3) {
-        showTurnAnnouncement('A', 1, false);
-      }
+  if (!gameState.isBanPhaseEnabled) return;
+  
+  if (gameState.bansA.length < 3 && gameState.currentTeam === 'A') {
+    const newBansA = [...gameState.bansA, character];
+    setGameState(prev => ({
+      ...prev,
+      bansA: newBansA,
+      currentTeam: newBansA.length === 3 ? 'B' : 'A'
+    }));
+    if (newBansA.length === 3) {
+      showTurnAnnouncement('B', 0, true);
     }
-  };
+  } else if (gameState.bansB.length < 3 && gameState.currentTeam === 'B') {
+    const newBansB = [...gameState.bansB, character];
+    setGameState(prev => ({
+      ...prev,
+      bansB: newBansB,
+      currentTeam: newBansB.length === 3 ? 'A' : 'B'
+    }));
+    if (newBansB.length === 3) {
+      showTurnAnnouncement('A', 1, false);
+    }
+  }
+};
 
   const handleCharacterSelect = (character: string) => {
-    const handlePickPhase = () => {
-      const { currentPhase, currentTeam, teamA, teamB } = gameState;
-      
-      if (currentTeam === 'A' && teamA.includes(character)) return;
-      if (currentTeam === 'B' && teamB.includes(character)) return;
-      
-      const newState = { ...gameState };
+  // キャラクター選択フェーズの処理
+  const handlePickPhase = () => {
+    const { currentPhase, currentTeam, teamA, teamB } = gameState;
+    
+    if (currentTeam === 'A' && teamA.includes(character)) return;
+    if (currentTeam === 'B' && teamB.includes(character)) return;
+    
+    const newState = { ...gameState };
 
-      switch (currentPhase) {
-        case 1:
-          if (currentTeam === 'A') {
-            newState.teamA = [character];
+    switch (currentPhase) {
+      case 1:
+        if (currentTeam === 'A') {
+          newState.teamA = [character];
+          newState.currentTeam = 'B';
+          newState.currentPhase = 2;
+          newState.recommendations = calculateRecommendations('B', [character], []);
+          showTurnAnnouncement('B', 2);
+        }
+        break;
+      
+      case 2:
+        if (currentTeam === 'B' && teamB.length < 2) {
+          const newTeamB = [...teamB, character];
+          newState.teamB = newTeamB;
+          newState.recommendations = calculateRecommendations('B', teamA, newTeamB);
+          if (newTeamB.length === 2) {
+            newState.currentTeam = 'A';
+            newState.currentPhase = 3;
+            newState.recommendations = calculateRecommendations('A', newTeamB, teamA);
+            showTurnAnnouncement('A', 3);
+          }
+        }
+        break;
+      
+      case 3:
+        if (currentTeam === 'A' && teamA.length < 3) {
+          const newTeamA = [...teamA, character];
+          newState.teamA = newTeamA;
+          newState.recommendations = calculateRecommendations('A', teamB, newTeamA);
+          if (newTeamA.length === 3) {
             newState.currentTeam = 'B';
-            newState.currentPhase = 2;
-            newState.recommendations = calculateRecommendations('B', [character], []);
-            showTurnAnnouncement('B', 2);
+            newState.currentPhase = 4;
+            newState.recommendations = calculateRecommendations('B', newTeamA, teamB);
+            showTurnAnnouncement('B', 4);
           }
-          break;
-        
-        case 2:
-          if (currentTeam === 'B' && teamB.length < 2) {
-            const newTeamB = [...teamB, character];
-            newState.teamB = newTeamB;
-            newState.recommendations = calculateRecommendations('B', teamA, newTeamB);
-            if (newTeamB.length === 2) {
-              newState.currentTeam = 'A';
-              newState.currentPhase = 3;
-              newState.recommendations = calculateRecommendations('A', newTeamB, teamA);
-              showTurnAnnouncement('A', 3);
-            }
-          }
-          break;
-        
-        case 3:
-          if (currentTeam === 'A' && teamA.length < 3) {
-            const newTeamA = [...teamA, character];
-            newState.teamA = newTeamA;
-            newState.recommendations = calculateRecommendations('A', teamB, newTeamA);
-            if (newTeamA.length === 3) {
-              newState.currentTeam = 'B';
-              newState.currentPhase = 4;
-              newState.recommendations = calculateRecommendations('B', newTeamA, teamB);
-              showTurnAnnouncement('B', 4);
-            }
-          }
-          break;
-        
-        case 4:
-          if (currentTeam === 'B' && teamB.length < 3) {
-            const newTeamB = [...teamB, character];
-            newState.teamB = newTeamB;
-            newState.recommendations = [];
-          }
-          break;
-      }
-
-      setGameState(newState);
-    };
-
-    if (!gameState.isBanPhaseEnabled) {
-      handlePickPhase();
-    } else {
-      if (gameState.bansA.includes(character) || gameState.bansB.includes(character)) {
-        return;
-      }
-
-      if (gameState.bansA.length === 3 && gameState.bansB.length === 3) {
-        handlePickPhase();
-      }
+        }
+        break;
+      
+      case 4:
+        if (currentTeam === 'B' && teamB.length < 3) {
+          const newTeamB = [...teamB, character];
+          newState.teamB = newTeamB;
+          newState.recommendations = [];
+        }
+        break;
     }
+
+    setGameState(newState);
   };
+
+  if (!gameState.isBanPhaseEnabled) {
+    handlePickPhase();
+  } else {
+    // バンフェーズ後のキャラクター選択
+    if (gameState.bansA.length === 3 && gameState.bansB.length === 3) {
+      handlePickPhase();
+    }
+  }
+};
 
   const calculateRecommendations = (
     currentTeam: Team,

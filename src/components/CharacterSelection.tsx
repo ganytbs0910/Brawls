@@ -42,10 +42,20 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
     if (gameState.teamA.length === 3 && gameState.teamB.length === 3) {
       const advantage = calculateTeamAdvantage(gameState.teamA, gameState.teamB);
       
-      // Calculate winning percentage using sigmoid function
-      const amplifier = 0.5;
-      const scoreDiff = advantage.teamAScore - advantage.teamBScore;
-      const winningPercentage = Math.round(100 / (1 + Math.exp(-amplifier * scoreDiff)));
+      // チーム間のスコア差を正規化して勝率を計算
+      // スコア差の計算を修正（チームBのスコアがチームAより高い場合、チームBの勝率が高くなるように）
+      const maxPossibleScore = 100; // 理論上の最大スコア差
+      const normalizedDiff = (advantage.teamBScore - advantage.teamAScore) / maxPossibleScore;
+      
+      // スコア差を勝率に変換（ロジスティック関数を使用）
+      // amplifierを2.0に増やして、スコア差がより勝率に反映されるようにする
+      const amplifier = 2.0;
+      const baseWinRate = 50; // 基準勝率（スコアが同じ場合）
+      const maxEffect = 45;   // スコア差による最大の勝率変動
+      
+      const winningPercentage = Math.round(
+        baseWinRate + (maxEffect * Math.tanh(amplifier * normalizedDiff))
+      );
       
       return (
         <View style={styles.advantageContainer}>
@@ -61,10 +71,10 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
           <Text style={[
             styles.advantageText,
             { 
-              color: advantage.teamAScore > advantage.teamBScore ? '#FF3B30' : '#007AFF'
+              color: advantage.teamBScore > advantage.teamAScore ? '#007AFF' : '#FF3B30'
             }
           ]}>
-            チーム{advantage.teamAScore > advantage.teamBScore ? 'A' : 'B'}の勝利確率: {winningPercentage}%
+            チーム{advantage.teamBScore > advantage.teamAScore ? 'B' : 'A'}の勝利確率: {winningPercentage}%
           </Text>
         </View>
       );
@@ -73,49 +83,45 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
   };
 
   const renderRecommendation = (rec: CharacterRecommendation, index: number) => {
-  const isSelectable = !(
-    gameState.teamA.includes(rec.character) || 
-    gameState.teamB.includes(rec.character) ||
-    gameState.bansA.includes(rec.character) ||
-    gameState.bansB.includes(rec.character)
-  );
+    const isSelectable = !gameState.teamA.includes(rec.character) && 
+                        !gameState.teamB.includes(rec.character);
 
-  return (
-    <TouchableOpacity
-      key={index}
-      style={[
-        styles.recommendationRow,
-        isSelectable && styles.selectableRecommendation,
-        !isSelectable && styles.disabledRecommendation
-      ]}
-      onPress={() => isSelectable && onCharacterSelect(rec.character)}
-      disabled={!isSelectable}
-    >
-      <View style={styles.recommendationContent}>
-        <View style={styles.characterInfo}>
-          <Text style={styles.rankText}>#{index + 1}</Text>
-          <CharacterImage characterName={rec.character} size={25} />
-          <Text style={styles.characterName}>{rec.character}</Text>
+    return (
+      <TouchableOpacity
+        key={index}
+        style={[
+          styles.recommendationRow,
+          isSelectable && styles.selectableRecommendation,
+          !isSelectable && styles.disabledRecommendation
+        ]}
+        onPress={() => isSelectable && onCharacterSelect(rec.character)}
+        disabled={!isSelectable}
+      >
+        <View style={styles.recommendationContent}>
+          <View style={styles.characterInfo}>
+            <Text style={styles.rankText}>#{index + 1}</Text>
+            <CharacterImage characterName={rec.character} size={25} />
+            <Text style={styles.characterName}>{rec.character}</Text>
+          </View>
+          <View style={styles.scoreInfo}>
+            <Text style={styles.score}>{rec.score.toFixed(1)}pt</Text>
+            <Text style={styles.reasonText}>{rec.reason}</Text>
+          </View>
         </View>
-        <View style={styles.scoreInfo}>
-          <Text style={styles.score}>{rec.score.toFixed(1)}pt</Text>
-          <Text style={styles.reasonText}>{rec.reason}</Text>
+        <View style={styles.scoreBarContainer}>
+          <View
+            style={[
+              styles.scoreBar,
+              { 
+                width: `${(rec.score / rec.maxScore) * 100}%`,
+                backgroundColor: getScoreColor(rec.score)
+              }
+            ]}
+          />
         </View>
-      </View>
-      <View style={styles.scoreBarContainer}>
-        <View
-          style={[
-            styles.scoreBar,
-            { 
-              width: `${(rec.score / rec.maxScore) * 100}%`,
-              backgroundColor: getScoreColor(rec.score)
-            }
-          ]}
-        />
-      </View>
-    </TouchableOpacity>
-  );
-};
+      </TouchableOpacity>
+    );
+  };
 
   return (
     <ScrollView style={styles.scrollContent}>
@@ -150,15 +156,22 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
 
       <View style={styles.characterGrid}>
         {Object.values(CHARACTER_MAP).map((character) => {
-          const isBanned = gameState.bansA.includes(character) || gameState.bansB.includes(character);
+          // バンされているかどうかの判定を変更
+          const isBannedByTeamA = gameState.bansA.includes(character);
+          const isBannedByTeamB = gameState.bansB.includes(character);
           const isSelected = gameState.teamA.includes(character) || gameState.teamB.includes(character);
+          
+          // バンフェーズ中の場合、既に選択されているキャラクターのみを無効化
+          const isDisabled = isSelected || (
+            !gameState.isBanPhaseEnabled && (isBannedByTeamA || isBannedByTeamB)
+          );
           
           return (
             <TouchableOpacity
               key={character}
               style={[
                 styles.characterButton,
-                isBanned && styles.bannedCharacterButton,
+                (isBannedByTeamA || isBannedByTeamB) && styles.bannedCharacterButton,
                 isSelected && styles.selectedCharacterButton
               ]}
               onPress={() => {
@@ -167,16 +180,20 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
                   (gameState.bansB.length < 3 && gameState.currentTeam === 'B')
                 )) {
                   onBanSelect(character);
-                } else {
+                } else if (!isSelected) {
                   onCharacterSelect(character);
                 }
               }}
-              disabled={isBanned || isSelected}
+              disabled={isDisabled}
             >
               <CharacterImage characterName={character} size={40} />
-              {isBanned && (
+              {(isBannedByTeamA || isBannedByTeamB) && (
                 <View style={styles.banOverlay}>
                   <Text style={styles.banX}>×</Text>
+                  <Text style={styles.banTeam}>
+                    {isBannedByTeamA && isBannedByTeamB ? 'A,B' :
+                     isBannedByTeamA ? 'A' : 'B'}
+                  </Text>
                 </View>
               )}
             </TouchableOpacity>
@@ -333,6 +350,13 @@ const styles = StyleSheet.create({
   banX: {
     color: '#ff4444',
     fontSize: 24,
+    fontWeight: 'bold',
+  },
+  banTeam: {
+    position: 'absolute',
+    bottom: 2,
+    fontSize: 10,
+    color: '#ff4444',
     fontWeight: 'bold',
   },
   expandButton: {

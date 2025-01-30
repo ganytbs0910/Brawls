@@ -410,11 +410,13 @@ const TabBar = React.memo<{
       label: 'ニュース',
       icon: require('../assets/AppIcon/loudspeaker_icon.png'),
     },
+    /*
     {
       key: 'gacha',
       label: 'ガチャ',
       icon: require('../assets/AppIcon/loudspeaker_icon.png'),
     },
+    */
   ];
 
   return (
@@ -578,13 +580,13 @@ const App = () => {
         if (!lastBonusTimestamp) {
           // 初回ログイン
           await AsyncStorage.setItem('lastBonusTimestamp', lastResetTime.toString());
-          await giveLoginBonus();
+          //await giveLoginBonus();
         } else {
           const lastBonus = parseInt(lastBonusTimestamp);
           // 最後のボーナス受け取り時から次の0時を超えているかチェック
           if (lastBonus < lastResetTime) {
             await AsyncStorage.setItem('lastBonusTimestamp', lastResetTime.toString());
-            await giveLoginBonus();
+            //await giveLoginBonus();
           }
         }
 
@@ -724,6 +726,7 @@ const App = () => {
             onShowDetails={handleShowSecondaryContent}
           />
         );
+        /*
       case 'gacha':
         return (
           <Gacha 
@@ -732,7 +735,7 @@ const App = () => {
             tickets={tickets}
             useTicket={useTicket}
           />
-        );
+        */
       default:
         return null;
     }
