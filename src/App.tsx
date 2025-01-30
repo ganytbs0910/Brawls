@@ -33,7 +33,7 @@ import Gacha from './components/Gacha';
 import { BannerAdComponent } from './components/BannerAdComponent';
 
 const { width, height: SCREEN_HEIGHT } = Dimensions.get('window');
-const TAB_WIDTH = width / 6;  // 7タブ対応
+const TAB_WIDTH = width / 6;
 
 const SNAP_POINTS = {
   TOP: 0,
@@ -76,35 +76,74 @@ const appOpenAd = AppOpenAd.createForAdRequest(appOpenAdUnitId, {
 
 // サーバー時間を取得する関数
 const getServerTime = async (): Promise<number> => {
-  try {
-    const response = await fetch('https://worldtimeapi.org/api/timezone/Asia/Tokyo', {
-      // タイムアウトの設定
-      timeout: 5000,
-      // より詳細なヘッダーの設定
-      headers: {
-        'Accept': 'application/json',
-        'User-Agent': 'YourApp/1.0'
-      }
-    });
+  const MAX_RETRIES = 3;
+  const RETRY_DELAY = 1000; // 1秒
+  
+  // バックアップのタイムサーバーリスト
+  const TIME_SERVERS = [
+    'https://worldtimeapi.org/api/timezone/Asia/Tokyo',
+    'https://timeapi.io/api/Time/current/zone?timeZone=Asia/Tokyo',
+    'https://www.timeapi.io/api/Time/current/zone?timeZone=Asia/Tokyo'
+  ];
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const text = await response.text();
-    if (!text) {
-      throw new Error('Empty response');
-    }
-
-    const data = JSON.parse(text);
-    return Math.floor(new Date(data.datetime).getTime() / 1000);
-  } catch (error) {
-    console.error('Failed to fetch server time:', error);
-    // フォールバック: デバイスの時間を使用
+  // ローカル時間でフォールバックする関数
+  const getFallbackTime = (): number => {
     const now = new Date();
     const jstDate = new Date(now.getTime() + (9 * 60 * 60 * 1000));
     return Math.floor(jstDate.getTime() / 1000);
+  };
+
+  // リトライ処理を含むフェッチ関数
+  const fetchWithRetry = async (url: string, retryCount: number = 0): Promise<number> => {
+    try {
+      const response = await fetch(url, {
+        timeout: 5000,
+        headers: {
+          'Accept': 'application/json',
+          'User-Agent': 'YourApp/1.0'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      
+      // APIによって異なるレスポンス形式に対応
+      if (url.includes('worldtimeapi.org')) {
+        return Math.floor(new Date(data.datetime).getTime() / 1000);
+      } else if (url.includes('timeapi.io')) {
+        return Math.floor(new Date(data.dateTime).getTime() / 1000);
+      }
+      
+      throw new Error('Unknown API format');
+
+    } catch (error) {
+      console.warn(`Attempt ${retryCount + 1} failed for ${url}:`, error);
+
+      if (retryCount < MAX_RETRIES) {
+        await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
+        return fetchWithRetry(url, retryCount + 1);
+      }
+
+      throw error;
+    }
+  };
+
+  // 各タイムサーバーを順番に試す
+  for (const server of TIME_SERVERS) {
+    try {
+      return await fetchWithRetry(server);
+    } catch (error) {
+      console.warn(`Failed to fetch time from ${server}:`, error);
+      continue; // 次のサーバーを試す
+    }
   }
+
+  // すべてのサーバーが失敗した場合はローカル時間を使用
+  console.warn('All time servers failed, using local time as fallback');
+  return getFallbackTime();
 };
 
 // 最後のリセット時刻を取得する関数（直前の0時）
@@ -371,13 +410,11 @@ const TabBar = React.memo<{
       label: 'ニュース',
       icon: require('../assets/AppIcon/loudspeaker_icon.png'),
     },
-    /*
     {
       key: 'gacha',
       label: 'ガチャ',
       icon: require('../assets/AppIcon/loudspeaker_icon.png'),
     },
-    */
   ];
 
   return (
@@ -460,52 +497,51 @@ const App = () => {
   }).current;
 
   const checkVersion = async () => {
-  try {
-    const response = await fetch('https://api.github.com/gists/02b6fe84bebb1bc494427a956ed7e7d2');
-    const gistData = await response.json();
-    const content = JSON.parse(Object.values(gistData.files)[0].content) as VersionResponse;
-    
-    const platform = Platform.OS;
-    const updateInfo = platform === 'ios' ? content.ios : content.android;
-    
-    // セマンティックバージョニング用の比較関数
-    const compareVersions = (v1, v2) => {
-      const parts1 = v1.split('.').map(Number);
-      const parts2 = v2.split('.').map(Number);
+    try {
+      const response = await fetch('https://api.github.com/gists/02b6fe84bebb1bc494427a956ed7e7d2');
+      const gistData = await response.json();
+      const content = JSON.parse(Object.values(gistData.files)[0].content) as VersionResponse;
       
-      for (let i = 0; i < Math.max(parts1.length, parts2.length); i++) {
-        const num1 = parts1[i] || 0;
-        const num2 = parts2[i] || 0;
-        if (num1 < num2) return true;
-        if (num1 > num2) return false;
-      }
-      return false;
-    };
+      const platform = Platform.OS;
+      const updateInfo = platform === 'ios' ? content.ios : content.android;
+      
+      // セマンティックバージョニング用の比較関数
+      const compareVersions = (v1: string, v2: string): boolean => {
+        const parts1 = v1.split('.').map(Number);
+        const parts2 = v2.split('.').map(Number);
+        
+        for (let i = 0; i < Math.max(parts1.length, parts2.length); i++) {
+          const num1 = parts1[i] || 0;
+          const num2 = parts2[i] || 0;
+          if (num1 < num2) return true;
+          if (num1 > num2) return false;
+        }
+        return false;
+      };
 
-    // 既存の比較を保持しつつ、新しい比較も追加
-    const isUpdateRequired = compareVersions(APP_VERSION, updateInfo.currentVersion);
+      const isUpdateRequired = compareVersions(APP_VERSION, updateInfo.currentVersion);
 
-    if (isUpdateRequired) {
-      Alert.alert(
-        'アップデートが必要です',
-        updateInfo.message,
-        [
-          {
-            text: 'アップデート',
-            onPress: () => {
-              Linking.openURL(updateInfo.storeUrl).catch(err => {
-                console.error('ストアを開けませんでした:', err);
-              });
+      if (isUpdateRequired) {
+        Alert.alert(
+          'アップデートが必要です',
+          updateInfo.message,
+          [
+            {
+              text: 'アップデート',
+              onPress: () => {
+                Linking.openURL(updateInfo.storeUrl).catch(err => {
+                  console.error('ストアを開けませんでした:', err);
+                });
+              },
             },
-          },
-        ],
-        { cancelable: false }
-      );
+          ],
+          { cancelable: false }
+        );
+      }
+    } catch (error) {
+      console.error('バージョンチェックに失敗しました:', error);
     }
-  } catch (error) {
-    console.error('バージョンチェックに失敗しました:', error);
-  }
-};
+  };
 
   // ログインボーナスを付与する関数
   const giveLoginBonus = async () => {
@@ -524,6 +560,8 @@ const App = () => {
     const initializeApp = async () => {
       try {
         await checkVersion();
+        
+        // 広告フリーステータスの確認
         const status = await AsyncStorage.getItem('adFreeStatus');
         const isAdFreeStatus = status === 'true';
         setIsAdFree(isAdFreeStatus);
@@ -535,7 +573,6 @@ const App = () => {
         const savedTickets = await AsyncStorage.getItem('tickets');
         
         // 保存されているチケット数を復元
-        /*
         setTickets(savedTickets ? parseInt(savedTickets) : 0);
 
         if (!lastBonusTimestamp) {
@@ -550,8 +587,8 @@ const App = () => {
             await giveLoginBonus();
           }
         }
-        */
 
+        // 広告の初期化と表示
         if (!isAdFreeStatus) {
           const randomValue = Math.random();
           if (randomValue <= 1) {
@@ -573,12 +610,14 @@ const App = () => {
       }
     };
 
+    // 初期化関数の呼び出し
     initializeApp();
 
+    // クリーンアップ関数
     return () => {
       appOpenAd.removeAllListeners();
     };
-  }, []);
+  }, []); // 空の依存配列を指定して初期化を1回だけ実行
 
   const useTicket = async () => {
     if (tickets > 0) {
