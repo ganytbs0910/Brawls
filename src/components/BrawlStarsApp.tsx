@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
   StyleSheet,
   SectionList,
+  Image,
 } from 'react-native';
 import { BattleLog } from './BattleLog';
 import { PlayerInfo } from './PlayerInfo';
@@ -36,18 +37,20 @@ export default function BrawlStarsApp() {
     rankingsData.data = null;
 
     try {
-      // プレイヤーデータの取得を先に行う
-      await playerData.fetchPlayerData(playerTag);
+      // プレイヤーデータの取得を試みる
+      const result = await playerData.fetchPlayerData(playerTag);
       
       // データ取得に成功した場合のみ履歴を更新
-      const newHistory = [cleanTag, ...searchHistory.filter(tag => tag.toUpperCase() !== cleanTag)].slice(0, 3);
-      setSearchHistory(newHistory);
-      
-      // 履歴の保存
-      await Promise.all([
-        AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory)),
-        AsyncStorage.setItem('lastPlayerTag', cleanTag)
-      ]);
+      if (result && result.success) {
+        const newHistory = [cleanTag, ...searchHistory.filter(tag => tag.toUpperCase() !== cleanTag)].slice(0, 3);
+        setSearchHistory(newHistory);
+        
+        // 履歴の保存
+        await Promise.all([
+          AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory)),
+          AsyncStorage.setItem('lastPlayerTag', cleanTag)
+        ]);
+      }
     } catch (error) {
       console.error('Search error:', error);
     }
@@ -167,6 +170,16 @@ export default function BrawlStarsApp() {
               </View>
             ))}
           </View>
+        </View>
+      )}
+
+      {!playerData.data?.playerInfo && (
+        <View style={styles.imageContainer}>
+          <Image
+            source={require('../../assets/OtherIcon/aboutTag.png')}
+            style={styles.heroImage}
+            resizeMode="contain"
+          />
         </View>
       )}
     </View>
@@ -322,7 +335,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f1f1f1',
     borderRadius: 8,
     marginBottom: 4,
-    alignSelf: 'flex-start',  // コンテナ自体を内容に合わせる
+    alignSelf: 'flex-start',
   },
   deleteButton: {
     padding: 8,
@@ -333,12 +346,19 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   historyItemTextContainer: {
-    // flex: 1 を削除
   },
   historyItem: {
     fontSize: 14,
     paddingVertical: 8,
-    paddingRight: 12,  // 右側に少しだけパディングを追加
+    paddingRight: 12,
     color: '#2196F3',
+  },
+  imageContainer: {
+    marginTop: 24,
+    alignItems: 'center',
+  },
+  heroImage: {
+    width: '100%',
+    height: 200,
   },
 });
