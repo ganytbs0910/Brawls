@@ -291,88 +291,72 @@ const CharacterDetails: React.FC = () => {
   }, [compatibilityData, compatibilityView]);
 
   const renderCompatibilityContent = useCallback(() => {
-    if (!compatibilityData) return null;
+  if (!compatibilityData) return null;
 
-    return (
-      <View style={styles.compatibilityContainer}>
-        <View style={styles.compatibilityHeader}>
-          <Text style={styles.compatibilityTitle}>相性表</Text>
-          <View style={styles.toggleContainer}>
-            <TouchableOpacity
-              style={[
-                styles.toggleButton,
-                compatibilityView === 'good' && styles.activeToggleButton,
-              ]}
-              onPress={() => setCompatibilityView('good')}
-            >
-              <Text style={[
-                styles.toggleButtonText,
-                compatibilityView === 'good' && styles.activeToggleButtonText,
-              ]}>
-                得意
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                styles.toggleButton,
-                compatibilityView === 'bad' && styles.activeToggleButton,
-              ]}
-              onPress={() => setCompatibilityView('bad')}
-            >
-              <Text style={[
-                styles.toggleButtonText,
-                compatibilityView === 'bad' && styles.activeToggleButtonText,
-              ]}>
-                苦手
-              </Text>
-            </TouchableOpacity>
-          </View>
+  return (
+    <View style={styles.compatibilityContainer}>
+      <View style={styles.compatibilityHeader}>
+        <View style={styles.toggleContainer}>
+          <TouchableOpacity
+            style={[styles.toggleButton, compatibilityView === 'good' && styles.activeToggleButton]}
+            onPress={() => setCompatibilityView('good')}
+          >
+            <Text style={[styles.toggleButtonText, compatibilityView === 'good' && styles.activeToggleButtonText]}>
+              得意
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.toggleButton, compatibilityView === 'bad' && styles.activeToggleButton]}
+            onPress={() => setCompatibilityView('bad')}
+          >
+            <Text style={[styles.toggleButtonText, compatibilityView === 'bad' && styles.activeToggleButtonText]}>
+              苦手
+            </Text>
+          </TouchableOpacity>
         </View>
-        
-        {Object.entries(categorizedScores)
-          .sort(([categoryA], [categoryB]) => {
-            if (compatibilityView === 'good') {
-              return categoryA === '最高の相性' ? -1 : 1;
-            } else {
-              return categoryA === '相性が悪い' ? -1 : 1;
-            }
-          })
-          .map(([category, data]) => (
-            <View 
-              key={category}
-              style={[
-                styles.categoryContainer,
-                { backgroundColor: data.backgroundColor }
-              ]}
-            >
+      </View>
+      
+      {Object.entries(categorizedScores)
+        .sort(([categoryA], [categoryB]) => {
+          if (compatibilityView === 'good') {
+            return categoryA === '最高の相性' ? -1 : 1;
+          } else {
+            return categoryA === '相性が悪い' ? -1 : 1;
+          }
+        })
+        .map(([category, data]) => (
+          <View key={category} style={[styles.categoryContainer, { backgroundColor: data.backgroundColor }]}>
+            <View style={styles.categoryHeader}>
+              <CharacterImage characterName={characterName} size={32} style={styles.categoryCharacterImage} />
               <Text style={[styles.categoryTitle, { color: data.color }]}>
                 {category}
               </Text>
-              <View style={styles.characterGrid}>
-                {data.characters.map((char) => (
-                  <TouchableOpacity
-                    key={char.name}
-                    style={styles.characterCard}
-                    onPress={() => handleCharacterPress(char.name)}
-                    activeOpacity={0.7}
-                  >
-                    <View style={styles.characterInfo}>
-                      <CharacterImage characterName={char.name} size={32} />
-                      <Text style={styles.characterName} numberOfLines={1}>
-                        {char.name}
-                      </Text>
-                    </View>
-                    <Text style={[styles.characterScore, { color: data.color }]}>
-                      {Math.round(char.score)}/10
-                    </Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
             </View>
-          ))}
-      </View>
-    );
-  }, [compatibilityData, compatibilityView, categorizedScores, handleCharacterPress]);
+            <View style={styles.characterGrid}>
+              {data.characters.map((char) => (
+                <TouchableOpacity
+                  key={char.name}
+                  style={styles.characterCard}
+                  onPress={() => handleCharacterPress(char.name)}
+                  activeOpacity={0.7}
+                >
+                  <View style={styles.characterInfo}>
+                    <CharacterImage characterName={char.name} size={32} />
+                    <Text style={styles.characterName} numberOfLines={1}>
+                      {char.name}
+                    </Text>
+                  </View>
+                  <Text style={[styles.characterScore, { color: data.color }]}>
+                    {Math.round(char.score)}/10
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          </View>
+        ))}
+    </View>
+  );
+}, [compatibilityData, compatibilityView, categorizedScores, characterName, handleCharacterPress]);
 
   const renderCharacterInfo = useCallback(() => {
     if (!character) {
@@ -514,42 +498,44 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   content: {
-    padding: 16,
+    padding: 12,
   },
   characterImage: {
     alignSelf: 'center',
-    marginVertical: 24,
+    marginVertical: 12,
+    width: 120,
+    height: 120,
   },
   name: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 16,
+    marginBottom: 12,
   },
   infoCard: {
     backgroundColor: '#f5f5f5',
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 16,
+    borderRadius: 10,
+    padding: 12,
+    marginBottom: 12,
   },
   sectionHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: 12,
   },
   legendContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   legendItem: {
-    width: 16,
-    height: 16,
+    width: 14,
+    height: 14,
     borderRadius: 4,
-    marginRight: 8,
+    marginRight: 6,
   },
   legendText: {
-    fontSize: 14,
+    fontSize: 13,
     color: '#666',
   },
   powerGrid: {
@@ -560,8 +546,9 @@ const styles = StyleSheet.create({
   powerCard: {
     width: '48%',
     borderRadius: 8,
-    padding: 12,
-    marginBottom: 12,
+    padding: 10,
+    marginBottom: 10,
+    backgroundColor: '#ffffff',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
@@ -576,18 +563,18 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   recommendationBar: {
-    padding: 4,
+    padding: 3,
     borderTopRightRadius: 8,
     borderBottomLeftRadius: 8,
   },
   recommendationText: {
     color: '#ffffff',
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: 'bold',
-    paddingHorizontal: 8,
+    paddingHorizontal: 6,
   },
   sectionTitle: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#2196F3',
   },
@@ -597,56 +584,56 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   infoLabel: {
-    fontSize: 16,
+    fontSize: 14,
   },
   powerHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
-    marginTop: 8,
+    marginBottom: 6,
+    marginTop: 6,
   },
   powerIcon: {
-    width: 32,
-    height: 32,
-    marginRight: 8,
+    width: 28,
+    height: 28,
+    marginRight: 6,
   },
   skillName: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
     flex: 1,
   },
   description: {
-    fontSize: 14,
+    fontSize: 13,
     color: '#333',
-    lineHeight: 20,
-    marginBottom: 8,
+    lineHeight: 18,
+    marginBottom: 6,
   },
   reasonContainer: {
     marginTop: 8,
   },
   reasonLabel: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: 'bold',
-    marginBottom: 4,
+    marginBottom: 3,
   },
   recommendationReason: {
-    fontSize: 14,
+    fontSize: 13,
   },
   gearGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 8,
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
+    paddingHorizontal: 2,
   },
   gearItem: {
-    width: '18%',
+    width: '15%',
     aspectRatio: 1,
     backgroundColor: '#ffffff',
-    borderRadius: 8,
-    padding: 8,
+    borderRadius: 6,
+    padding: 6,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 6,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -706,12 +693,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   modalTitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 4,
   },
   gearTypeText: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '600',
   },
   closeButton: {
@@ -731,22 +718,28 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   modalDescription: {
-    fontSize: 15,
-    lineHeight: 22,
+    fontSize: 14,
+    lineHeight: 20,
     color: '#333333',
-    padding: 16,
+    padding: 14,
   },
   compatibilityContainer: {
     padding: 16,
   },
   compatibilityHeader: {
-    marginBottom: 16,
+    marginBottom: 12,
   },
-  compatibilityTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#2196F3',
+  categoryHeader: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
     marginBottom: 8,
+    paddingTop: 4,
+  },
+  categoryCharacterImage: {
+    width: 24,
+    height: 24,
+    marginRight: 6,
+    marginTop: -2,
   },
   toggleContainer: {
     flexDirection: 'row',
@@ -765,7 +758,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#2196F3',
   },
   toggleButtonText: {
-    fontSize: 14,
+    fontSize: 13,
     color: '#666',
   },
   activeToggleButtonText: {
@@ -779,7 +772,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   categoryTitle: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: 'bold',
     marginBottom: 8,
   },
@@ -792,9 +785,9 @@ const styles = StyleSheet.create({
     width: '48%',
     backgroundColor: '#ffffff',
     borderRadius: 8,
-    padding: 8,
+    padding: 6,
     marginHorizontal: '1%',
-    marginBottom: 8,
+    marginBottom: 6,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -810,14 +803,14 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   characterName: {
-    fontSize: 14,
-    marginLeft: 8,
+    fontSize: 13,
+    marginLeft: 6,
     flex: 1,
   },
   characterScore: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: 'bold',
-    marginLeft: 8,
+    marginLeft: 6,
   },
 });
 

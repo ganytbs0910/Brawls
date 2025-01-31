@@ -1,57 +1,39 @@
+//characterAPI.json
 {
   "list": [
     {
       "id": 16000087,
       "avatarId": 28000648,
-      "name": {
-        "ja": "ジュジュ",
-        "en": "Juju"
-      },
+      "nameKey": "character.juju.name",
       "path": "Juju",
       "class": {
         "id": 4,
-        "name": "グレネーディア"
+        "nameKey": "class.thrower"
       },
       "rarity": {
         "id": 5,
-        "name": "ミシック",
+        "nameKey": "rarity.mythic",
         "color": "#fe5e72"
       },
-      "description": "ジュジュは骨董品店を所有しており、彼女の「ペット」のブードゥー人形グリグリ（グレゴリーと発音）が常に一緒にいます。彼女は自然の要素を操ることができますが、スターパークの多くの訪問者に販売する人形を作る腕の立つ人形作家でもあります。",
+      "descriptionKey": "character.juju.description",
       "starPowers": [
         {
           "id": 23000848,
-          "name": "グリグリシールド",
+          "nameKey": "character.juju.starpower.1.name",
           "path": "Guarded-Gris-Gris",
-          "description": "召喚したグリグリにシールドが付与される。",
+          "descriptionKey": "character.juju.starpower.1.description",
           "recommendationLevel": 3,
-          "recommendationReason": "強力な必殺技のグリグリの耐久力が増すことで前線の押し上げをしやすくなる。"
-        },
-        {
-          "id": 23000849,
-          "name": "スローニードル",
-          "path": "Numbing-Needles",
-          "description": "グリグリの攻撃は敵を1.0秒間減速させるようになります",
-          "recommendationLevel": 5,
-          "recommendationReason": "一撃喰らうと距離次第で攻撃を避けられなくなるため超強力。"
+          "recommendationReasonKey": "character.juju.starpower.1.recommendation"
         }
       ],
       "gadgets": [
         {
           "id": 23000850,
-          "name": "ブードゥーの子",
+          "nameKey": "character.juju.gadget.1.name",
           "path": "Voodoo-Chile",
-          "description": "ジュジュの次のメイン攻撃は3つの要素すべての力を持ちます。",
+          "descriptionKey": "character.juju.gadget.1.description",
           "recommendationLevel": 4,
-          "recommendationReason": "能力としてはかなり強いが、もう一つのガジェットがあまりにも優秀..."
-        },
-        {
-          "id": 23000851,
-          "name": "エレメンタリスト",
-          "path": "Elementalist",
-          "description": "ジュジュは現在立っている環境に基づいて一時的なバフを得ます。\n土：ダメージ軽減\n草：透明化\n水：移動速度上昇",
-          "recommendationLevel": 5,
-          "recommendationReason": "透明化とダメージ軽減の能力が最強で投げなのにアサシンとしての立ち回りもできるため強力。"
+          "recommendationReasonKey": "character.juju.gadget.1.recommendation"
         }
       ],
       "gears": [
