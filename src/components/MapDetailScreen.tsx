@@ -16,7 +16,7 @@ const { width } = Dimensions.get('window');
 const SCREEN_PADDING = 16;  // 画面の左右パディング
 const SECTION_PADDING = 12;  // セクションの内側パディング
 const CARD_MARGIN = 4;  // カード間のマージン
-const CARD_WIDTH = (width - (SCREEN_PADDING * 2) - (SECTION_PADDING * 2) - (CARD_MARGIN * 4)) / 3;  // 3列の場合の1カードの幅
+const CARD_WIDTH = (width - (SCREEN_PADDING * 2) - (SECTION_PADDING * 2) - (CARD_MARGIN * 6)) / 4;  // 4列の場合の1カードの幅
 
 interface MapDetailScreenProps {
   mapName: string;
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
     marginRight: 16,
   },
   backButtonText: {
-    fontSize: 24,
+    fontSize: 20,
     color: '#fff',
   },
   modeTag: {
@@ -175,14 +175,14 @@ const styles = StyleSheet.create({
   modeTagText: {
     color: '#fff',
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: 12,
   },
   content: {
     flex: 1,
     padding: 16,
   },
   mapName: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 16,
     color: '#333',
@@ -194,15 +194,15 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   sectionTitle: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'bold',
     marginTop: 24,
     marginBottom: 16,
     color: '#333',
   },
   description: {
-    fontSize: 16,
-    lineHeight: 24,
+    fontSize: 14,
+    lineHeight: 20,
     color: '#666',
     marginBottom: 16,
   },
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   brawlerSectionTitle: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
     color: '#333',
     marginBottom: 8,
@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
     marginHorizontal: CARD_MARGIN / 2,
     backgroundColor: '#FFFFFF',
     borderRadius: 6,
-    padding: 6,
+    padding: 4,
     marginBottom: 6,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
@@ -244,31 +244,31 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   brawlerName: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: 'bold',
     color: '#333',
     textAlign: 'center',
     marginBottom: 2,
   },
   powerIndicator: {
-    fontSize: 12,
+    fontSize: 10,
     color: '#666',
     marginBottom: 4,
   },
   brawlerReason: {
-    fontSize: 12,
+    fontSize: 10,
     color: '#666',
     textAlign: 'center',
-    lineHeight: 16,
+    lineHeight: 14,
   },
   tipItem: {
     marginBottom: 12,
     paddingLeft: 8,
   },
   tipText: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#666',
-    lineHeight: 24,
+    lineHeight: 20,
   },
   errorText: {
     fontSize: 16,
