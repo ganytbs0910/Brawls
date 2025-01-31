@@ -9,6 +9,7 @@ import {
 import type { BattleLogItem } from '../hooks/useBrawlStarsApi';
 import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages';
 
+// ゲームモードのアイコン定義
 const GAME_MODE_ICONS: { [key: string]: any } = {
   'gemGrab': require('../../assets/GameModeIcons/gem_grab_icon.png'),
   'brawlBall': require('../../assets/GameModeIcons/brawl_ball_icon.png'),
@@ -25,6 +26,7 @@ const GAME_MODE_ICONS: { [key: string]: any } = {
   'payLoad': require('../../assets/GameModeIcons/payload_icon.png'),
 };
 
+// ランクアイコン定義
 const RANK_ICONS = {
   bronze: require('../../assets/GameModeIcons/rank_bronze.png'),
   silver: require('../../assets/GameModeIcons/rank_silver.png'),
@@ -35,16 +37,18 @@ const RANK_ICONS = {
   master: require('../../assets/GameModeIcons/rank_masters.png'),
 };
 
-interface BattleLogProps {
-  battleLog: BattleLogItem[];
-}
-
+// 定数定義
 const INITIAL_DISPLAY_COUNT = 5;
 const VICTORY_COLOR = '#4CAF50';
 const DEFEAT_COLOR = '#F44336';
 const DRAW_COLOR = '#FFD700';
 const STAR_PLAYER_COLOR = '#FFD700';
 
+interface BattleLogProps {
+  battleLog: BattleLogItem[];
+}
+
+// トロフィー数に応じたランクアイコンを取得
 const getRankIcon = (trophies: number) => {
   if (trophies <= 3) return RANK_ICONS.bronze;
   if (trophies <= 6) return RANK_ICONS.silver;
@@ -55,6 +59,7 @@ const getRankIcon = (trophies: number) => {
   return RANK_ICONS.master;
 };
 
+// ゲームモード名の正規化
 const normalizeModeName = (modeName: string): string => {
   if (!modeName) return '';
 
@@ -91,6 +96,7 @@ const normalizeModeName = (modeName: string): string => {
   return existingKey || mappedName;
 };
 
+// キャラクターの画像を取得
 const getPortraitSource = (brawlerName: string) => {
   try {
     const normalizedName = brawlerName
@@ -119,58 +125,72 @@ const getPortraitSource = (brawlerName: string) => {
   }
 };
 
+// ゲームモードのアイコンを取得
 const getModeIcon = (modeName: string) => {
   if (!modeName) return null;
   const normalizedName = normalizeModeName(modeName);
   return GAME_MODE_ICONS[normalizedName];
 };
 
+// バトル結果を取得
 const getBattleResult = (battle: BattleLogItem) => {
-    const isSoloMode = battle.battle.mode === 'soloShowdown';
-    const isDuoMode = battle.battle.mode === 'duoShowdown';
-    
-    if (isSoloMode && battle.battle.rank) {
-      if (battle.battle.rank <= 4) return 'VICTORY';
-      if (battle.battle.rank === 5) return 'DRAW';
-      return 'DEFEAT';
-    }
-    
-    if (isDuoMode && battle.battle.rank) {
-      if (battle.battle.rank <= 2) return 'VICTORY';
-      if (battle.battle.rank === 3) return 'DRAW';
-      return 'DEFEAT';
-    }
-    
-    const result = battle.battle.result;
-    if (result) {
-      return result.toUpperCase();
-    }
-    
-    return 'Unknown';
+  const isSoloMode = battle.battle.mode === 'soloShowdown';
+  const isDuoMode = battle.battle.mode === 'duoShowdown';
+  
+  if (isSoloMode && battle.battle.rank) {
+    if (battle.battle.rank <= 4) return 'VICTORY';
+    if (battle.battle.rank === 5) return 'DRAW';
+    return 'DEFEAT';
+  }
+  
+  if (isDuoMode && battle.battle.rank) {
+    if (battle.battle.rank <= 2) return 'VICTORY';
+    if (battle.battle.rank === 3) return 'DRAW';
+    return 'DEFEAT';
+  }
+  
+  const result = battle.battle.result;
+  if (result) {
+    return result.toUpperCase();
+  }
+  
+  return 'Unknown';
 };
 
+// バトル概要コンポーネント
 const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog }) => {
   if (!battleLog || !Array.isArray(battleLog)) return null;
 
-  const victories = battleLog.filter(b => {
+  // フレンドバトル以外のみを集計対象とする
+  const nonFriendlyBattles = battleLog.filter(b => b.battle.type !== 'friendly');
+
+  const victories = nonFriendlyBattles.filter(b => {
     const result = getBattleResult(b);
     return result === 'VICTORY';
   }).length;
   
-  const draws = battleLog.filter(b => {
+  const draws = nonFriendlyBattles.filter(b => {
     const result = getBattleResult(b);
     return result === 'DRAW';
   }).length;
 
-  const defeats = battleLog.length - victories - draws;
-  const winRate = Math.round((victories / battleLog.length) * 100);
+  const defeats = nonFriendlyBattles.length - victories - draws;
+  const winRate = nonFriendlyBattles.length > 0 
+    ? Math.round((victories / nonFriendlyBattles.length) * 100)
+    : 0;
 
   const renderResultIcon = (battle: BattleLogItem, index: number) => {
+    // フレンドバトルの場合はスキップ
+    if (battle.battle.type === 'friendly') {
+      return null;
+    }
+
     const result = getBattleResult(battle);
     const isVictory = result === 'VICTORY';
     const isDraw = result === 'DRAW';
     const resultColor = isDraw ? DRAW_COLOR : isVictory ? VICTORY_COLOR : DEFEAT_COLOR;
     const modeIcon = getModeIcon(battle.battle?.mode);
+    
     return (
       <View 
         key={index}
@@ -196,7 +216,7 @@ const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog })
   return (
     <View style={styles.overviewContainer}>
       <View style={styles.resultsRow}>
-        {battleLog.map((battle, index) => renderResultIcon(battle, index))}
+        {battleLog.map((battle, index) => renderResultIcon(battle, index)).filter(icon => icon !== null)}
       </View>
       <View style={styles.statsContainer}>
         <View style={styles.statItem}>
@@ -223,6 +243,7 @@ const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog })
   );
 };
 
+// メインのバトルログコンポーネント
 export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
   const [showAllBattles, setShowAllBattles] = useState(false);
 
@@ -230,6 +251,7 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     return null;
   }
 
+  // 有効なバトルデータのフィルタリング
   const validBattles = battleLog.filter(battle => {
     if (battle?.battle?.mode === 'soloShowdown') {
       return battle?.battle?.players && Array.isArray(battle.battle.players);
@@ -248,6 +270,7 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
 
   const remainingBattlesCount = validBattles.length - INITIAL_DISPLAY_COUNT;
 
+  // プレイヤー情報の表示
   const renderPlayer = (player: any, battle: BattleLogItem, isTeamMode: boolean = true) => {
     const portraitSource = getPortraitSource(player.brawler.name);
     const isStarPlayer = battle.battle.starPlayer?.tag === player.tag;
@@ -299,7 +322,7 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
           {isStarPlayer && (
             <View style={styles.starBadge}>
               <Image 
-                source={require('../../assets/OtherIcon/trophy_Icon.png')}
+                source={require('../../assets/OtherIcon/starPlayer.png')}
                 style={styles.starIcon}
                 resizeMode="contain"
               />
@@ -316,6 +339,7 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     );
   };
 
+  // ソロショーダウンの表示
   const renderSoloShowdown = (battle: BattleLogItem) => {
     const players = battle.battle.players;
     if (!players || !Array.isArray(players)) return null;
@@ -327,6 +351,7 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     );
   };
 
+  // デュオショーダウンの表示
   const renderDuoShowdown = (battle: BattleLogItem) => {
     if (!battle?.battle?.teams || !Array.isArray(battle.battle.teams)) return null;
 
@@ -359,6 +384,7 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     );
   };
 
+  // バトル詳細の表示
   const renderBattleItem = (battle: BattleLogItem) => {
     const isSoloMode = battle.battle.mode === 'soloShowdown';
     const isDuoMode = battle.battle.mode === 'duoShowdown';
@@ -373,6 +399,7 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     const resultColor = isDraw ? DRAW_COLOR : isVictory ? VICTORY_COLOR : DEFEAT_COLOR;
     const modeIcon = getModeIcon(battle.battle.mode);
     const isSoloRanked = battle.battle.type === 'soloRanked';
+    const isFriendly = battle.battle.type === 'friendly';
     
     return (
       <View 
@@ -395,7 +422,8 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
                 />
               )}
               <Text style={styles.battleMode}>
-                {battle.battle.mode} - {battle.event?.map}
+                {isFriendly ? 'フレンドバトル' : battle.battle.mode}
+                {battle.event?.map ? ` - ${battle.event.map}` : ''}
               </Text>
             </View>
             <Text style={styles.battleTime}>
@@ -734,8 +762,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     padding: 8,
   },
-
-  // デュオショーダウン用の新しいスタイル
   duoShowdownContainer: {
     padding: 8,
   },
