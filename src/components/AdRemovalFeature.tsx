@@ -24,7 +24,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // 商品ID定義
 const AD_REMOVAL_SKU_IOS = 'com.brawlstatus.adremoval';
-const AD_REMOVAL_SKU_ANDROID = 'brawl_status_ad_removal';
+const AD_REMOVAL_SKU_ANDROID = 'com.brawlstatus.adremoval';
 
 const PURCHASE_CONFIG = {
   PRICE: 200,
