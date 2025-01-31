@@ -3,7 +3,10 @@
     {
       "id": 16000087,
       "avatarId": 28000648,
-      "name": "ジュジュ",
+      "name": {
+        "ja": "ジュジュ",
+        "en": "Juju"
+      },
       "path": "Juju",
       "class": {
         "id": 4,
