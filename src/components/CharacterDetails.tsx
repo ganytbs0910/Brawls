@@ -125,8 +125,8 @@ const CharacterDetails: React.FC = () => {
         <View style={styles.powerHeader}>
           <Image
             source={isPowerStar 
-              ? getStarPowerIcon(character.name, index)
-              : getGadgetIcon(character.name, index)
+              ? getStarPowerIcon(character?.name || '', index)
+              : getGadgetIcon(character?.name || '', index)
             }
             style={styles.powerIcon}
           />
@@ -195,18 +195,18 @@ const CharacterDetails: React.FC = () => {
           })}
         </View>
 
-        {selectedGear && (
-          <Modal
-            visible={isGearModalOpen}
-            transparent
-            animationType="fade"
-            onRequestClose={() => setIsGearModalOpen(false)}
+        <Modal
+          visible={isGearModalOpen}
+          transparent
+          animationType="fade"
+          onRequestClose={() => setIsGearModalOpen(false)}
+        >
+          <TouchableOpacity 
+            style={styles.modalOverlay}
+            activeOpacity={1}
+            onPress={() => setIsGearModalOpen(false)}
           >
-            <TouchableOpacity 
-              style={styles.modalOverlay}
-              activeOpacity={1}
-              onPress={() => setIsGearModalOpen(false)}
-            >
+            {selectedGear && (
               <View 
                 style={[
                   styles.modalContent,
@@ -247,9 +247,9 @@ const CharacterDetails: React.FC = () => {
                 <View style={styles.separator} />
                 <Text style={styles.modalDescription}>{selectedGear.description}</Text>
               </View>
-            </TouchableOpacity>
-          </Modal>
-        )}
+            )}
+          </TouchableOpacity>
+        </Modal>
       </View>
     );
   }, [character, selectedGear, isGearModalOpen]);
@@ -291,72 +291,72 @@ const CharacterDetails: React.FC = () => {
   }, [compatibilityData, compatibilityView]);
 
   const renderCompatibilityContent = useCallback(() => {
-  if (!compatibilityData) return null;
+    if (!compatibilityData) return null;
 
-  return (
-    <View style={styles.compatibilityContainer}>
-      <View style={styles.compatibilityHeader}>
-        <View style={styles.toggleContainer}>
-          <TouchableOpacity
-            style={[styles.toggleButton, compatibilityView === 'good' && styles.activeToggleButton]}
-            onPress={() => setCompatibilityView('good')}
-          >
-            <Text style={[styles.toggleButtonText, compatibilityView === 'good' && styles.activeToggleButtonText]}>
-              得意
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.toggleButton, compatibilityView === 'bad' && styles.activeToggleButton]}
-            onPress={() => setCompatibilityView('bad')}
-          >
-            <Text style={[styles.toggleButtonText, compatibilityView === 'bad' && styles.activeToggleButtonText]}>
-              苦手
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-      
-      {Object.entries(categorizedScores)
-        .sort(([categoryA], [categoryB]) => {
-          if (compatibilityView === 'good') {
-            return categoryA === '最高の相性' ? -1 : 1;
-          } else {
-            return categoryA === '相性が悪い' ? -1 : 1;
-          }
-        })
-        .map(([category, data]) => (
-          <View key={category} style={[styles.categoryContainer, { backgroundColor: data.backgroundColor }]}>
-            <View style={styles.categoryHeader}>
-              <CharacterImage characterName={characterName} size={32} style={styles.categoryCharacterImage} />
-              <Text style={[styles.categoryTitle, { color: data.color }]}>
-                {category}
+    return (
+      <View style={styles.compatibilityContainer}>
+        <View style={styles.compatibilityHeader}>
+          <View style={styles.toggleContainer}>
+            <TouchableOpacity
+              style={[styles.toggleButton, compatibilityView === 'good' && styles.activeToggleButton]}
+              onPress={() => setCompatibilityView('good')}
+            >
+              <Text style={[styles.toggleButtonText, compatibilityView === 'good' && styles.activeToggleButtonText]}>
+                得意
               </Text>
-            </View>
-            <View style={styles.characterGrid}>
-              {data.characters.map((char) => (
-                <TouchableOpacity
-                  key={char.name}
-                  style={styles.characterCard}
-                  onPress={() => handleCharacterPress(char.name)}
-                  activeOpacity={0.7}
-                >
-                  <View style={styles.characterInfo}>
-                    <CharacterImage characterName={char.name} size={32} />
-                    <Text style={styles.characterName} numberOfLines={1}>
-                      {char.name}
-                    </Text>
-                  </View>
-                  <Text style={[styles.characterScore, { color: data.color }]}>
-                    {Math.round(char.score)}/10
-                  </Text>
-                </TouchableOpacity>
-              ))}
-            </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.toggleButton, compatibilityView === 'bad' && styles.activeToggleButton]}
+              onPress={() => setCompatibilityView('bad')}
+            >
+              <Text style={[styles.toggleButtonText, compatibilityView === 'bad' && styles.activeToggleButtonText]}>
+                苦手
+              </Text>
+            </TouchableOpacity>
           </View>
-        ))}
-    </View>
-  );
-}, [compatibilityData, compatibilityView, categorizedScores, characterName, handleCharacterPress]);
+        </View>
+        
+        {Object.entries(categorizedScores)
+          .sort(([categoryA], [categoryB]) => {
+            if (compatibilityView === 'good') {
+              return categoryA === '最高の相性' ? -1 : 1;
+            } else {
+              return categoryA === '相性が悪い' ? -1 : 1;
+            }
+          })
+          .map(([category, data]) => (
+            <View key={category} style={[styles.categoryContainer, { backgroundColor: data.backgroundColor }]}>
+              <View style={styles.categoryHeader}>
+                <CharacterImage characterName={characterName} size={32} style={styles.categoryCharacterImage} />
+                <Text style={[styles.categoryTitle, { color: data.color }]}>
+                  {category}
+                </Text>
+              </View>
+              <View style={styles.characterGrid}>
+                {data.characters.map((char) => (
+                  <TouchableOpacity
+                    key={char.name}
+                    style={styles.characterCard}
+                    onPress={() => handleCharacterPress(char.name)}
+                    activeOpacity={0.7}
+                  >
+                    <View style={styles.characterInfo}>
+                      <CharacterImage characterName={char.name} size={32} />
+                      <Text style={styles.characterName} numberOfLines={1}>
+                        {char.name}
+                      </Text>
+                    </View>
+                    <Text style={[styles.characterScore, { color: data.color }]}>
+                      {Math.round(char.score)}/10
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            </View>
+          ))}
+      </View>
+    );
+  }, [compatibilityData, compatibilityView, categorizedScores, characterName, handleCharacterPress]);
 
   const renderCharacterInfo = useCallback(() => {
     if (!character) {
@@ -380,7 +380,7 @@ const CharacterDetails: React.FC = () => {
             </Text>
             <Text style={styles.infoLabel}>
               レアリティ: {character.rarity?.name}
-            </Text>
+              </Text>
           </View>
         </View>
 
@@ -472,77 +472,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  tabContainer: {
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
-  },
-  tab: {
-    flex: 1,
-    paddingVertical: 12,
-    alignItems: 'center',
-  },
-  activeTab: {
-    borderBottomWidth: 2,
-    borderBottomColor: '#2196F3',
-  },
-  tabText: {
-    fontSize: 16,
-    color: '#666',
-  },
-  activeTabText: {
-    color: '#2196F3',
-    fontWeight: 'bold',
-  },
-  scrollContainer: {
-    flex: 1,
-  },
-  content: {
-    padding: 12,
-  },
-  characterImage: {
-    alignSelf: 'center',
-    marginVertical: 12,
-    width: 120,
-    height: 120,
-  },
-  name: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 12,
-  },
-  infoCard: {
-    backgroundColor: '#f5f5f5',
-    borderRadius: 10,
-    padding: 12,
-    marginBottom: 12,
-  },
-  sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  legendContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  legendItem: {
-    width: 14,
-    height: 14,
-    borderRadius: 4,
-    marginRight: 6,
-  },
-  legendText: {
-    fontSize: 13,
-    color: '#666',
-  },
-  powerGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-  },
   powerCard: {
     width: '48%',
     borderRadius: 8,
@@ -572,19 +501,6 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: 'bold',
     paddingHorizontal: 6,
-  },
-  sectionTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#2196F3',
-  },
-  basicInfo: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginBottom: 8,
-  },
-  infoLabel: {
-    fontSize: 14,
   },
   powerHeader: {
     flexDirection: 'row',
@@ -618,35 +534,7 @@ const styles = StyleSheet.create({
   },
   recommendationReason: {
     fontSize: 13,
-  },
-  gearGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    paddingHorizontal: 2,
-  },
-  gearItem: {
-    width: '15%',
-    aspectRatio: 1,
-    backgroundColor: '#ffffff',
-    borderRadius: 6,
-    padding: 6,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 6,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  recommendedGearItem: {
-    borderColor: '#4CAF50',
-    borderWidth: 2,
-  },
-  gearIcon: {
-    width: '100%',
-    height: '100%',
+    color: '#666',
   },
   modalOverlay: {
     flex: 1,
@@ -723,11 +611,132 @@ const styles = StyleSheet.create({
     color: '#333333',
     padding: 14,
   },
+  gearGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    paddingHorizontal: 2,
+  },
+  gearItem: {
+    width: '15%',
+    aspectRatio: 1,
+    backgroundColor: '#ffffff',
+    borderRadius: 6,
+    padding: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 6,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  recommendedGearItem: {
+    borderColor: '#4CAF50',
+    borderWidth: 2,
+  },
+  gearIcon: {
+    width: '100%',
+    height: '100%',
+  },
+  tabContainer: {
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+  },
+  tab: {
+    flex: 1,
+    paddingVertical: 12,
+    alignItems: 'center',
+  },
+  activeTab: {
+    borderBottomWidth: 2,
+    borderBottomColor: '#2196F3',
+  },
+  tabText: {
+    fontSize: 16,
+    color: '#666',
+  },
+  activeTabText: {
+    color: '#2196F3',
+    fontWeight: 'bold',
+  },
+  scrollContainer: {
+    flex: 1,
+  },
+  content: {
+    padding: 12,
+  },
+  characterImage: {
+    alignSelf: 'center',
+    marginVertical: 12,
+    width: 120,
+    height: 120,
+  },
+  name: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 12,
+  },
+  infoCard: {
+    backgroundColor: '#f5f5f5',
+    borderRadius: 10,
+    padding: 12,
+    marginBottom: 12,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  legendContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  legendItem: {
+    width: 14,
+    height: 14,
+    borderRadius: 4,
+    marginRight: 6,
+  },
+  legendText: {
+    fontSize: 13,
+    color: '#666',
+  },
+  powerGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  basicInfo: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: 8,
+  },
+  infoLabel: {
+    fontSize: 14,
+    color: '#333',
+  },
+  sectionTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#2196F3',
+    marginBottom: 8,
+  },
   compatibilityContainer: {
     padding: 16,
   },
   compatibilityHeader: {
     marginBottom: 12,
+  },
+  categoryContainer: {
+    marginBottom: 16,
+    borderRadius: 12,
+    padding: 12,
+    overflow: 'hidden',
   },
   categoryHeader: {
     flexDirection: 'row',
@@ -740,6 +749,11 @@ const styles = StyleSheet.create({
     height: 24,
     marginRight: 6,
     marginTop: -2,
+  },
+  categoryTitle: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    marginBottom: 8,
   },
   toggleContainer: {
     flexDirection: 'row',
@@ -764,17 +778,6 @@ const styles = StyleSheet.create({
   activeToggleButtonText: {
     color: '#ffffff',
     fontWeight: 'bold',
-  },
-  categoryContainer: {
-    marginBottom: 16,
-    borderRadius: 12,
-    padding: 12,
-    overflow: 'hidden',
-  },
-  categoryTitle: {
-    fontSize: 15,
-    fontWeight: 'bold',
-    marginBottom: 8,
   },
   characterGrid: {
     flexDirection: 'row',
@@ -811,7 +814,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: 'bold',
     marginLeft: 6,
-  },
+  }
 });
 
 export default CharacterDetails;

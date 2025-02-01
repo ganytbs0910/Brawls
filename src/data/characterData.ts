@@ -1,37 +1,52 @@
-//characterData.ts
 import { CharacterData } from '../types/types';
 import characterData from '../data/characterAPI.json';
 import { generateCustomRankings } from './customRankings';
 
+// 多言語テキスト用のインターフェース
+interface LocalizedText {
+  ja: string;
+  en: string;
+  ko: string;
+}
+
+// 新しいJSONの構造に合わせたインターフェース
 interface BrawlifyStarPower {
   id: number;
-  name: string;
-  description: string;
-  recommendationLevel?: number;
-  recommendationReason?: string;
+  name: LocalizedText;
+  description: LocalizedText;
+  recommendation: {
+    level: number;
+    reason: LocalizedText;
+  };
 }
 
 interface BrawlifyGadget {
   id: number;
-  name: string;
-  description: string;
-  recommendationLevel?: number;
-  recommendationReason?: string;
+  name: LocalizedText;
+  description: LocalizedText;
+  recommendation: {
+    level: number;
+    reason: LocalizedText;
+  };
 }
 
 interface BrawlifyCharacter {
   id: number;
-  name: string;
-  description: string;
+  name: LocalizedText;
+  image: string;
+  description: LocalizedText;
   class: {
-    name: string;
+    id: number;
+    name: LocalizedText;
   };
   rarity: {
-    name: string;
+    id: number;
+    name: LocalizedText;
+    color: string;
   };
-  starPowers: Array<BrawlifyStarPower>;
-  gadgets: Array<BrawlifyGadget>;
-  gears: number[];  // 追加：おすすめギアの配列
+  starPowers: BrawlifyStarPower[];
+  gadgets: BrawlifyGadget[];
+  gears: number[];
 }
 
 export interface RankingItem {
@@ -39,99 +54,6 @@ export interface RankingItem {
   characterName: string;
   description: string;
 }
-
-export const nameMap: Record<string, string> = {
-  'Shelly': 'シェリー',
-  'Nita': 'ニタ',
-  'Colt': 'コルト',
-  'Bull': 'ブル',
-  'Jessie': 'ジェシー',
-  'Brock': 'ブロック',
-  'Dynamike': 'ダイナマイク',
-  'Bo': 'ボウ',
-  'Tick': 'ティック',
-  '8-Bit': '8ビット',
-  'Emz': 'Emz',
-  'El Primo': 'エルプリモ',
-  'Barley': 'バーリー',
-  'Poco': 'ポコ',
-  'Rosa': 'ローサ',
-  'Rico': 'リコ',
-  'Darryl': 'ダリル',
-  'Penny': 'ペニー',
-  'Carl': 'カール',
-  'Jacky': 'ジャッキー',
-  'Piper': 'エリザベス',
-  'Pam': 'パム',
-  'Frank': 'フランケン',
-  'Bibi': 'ビビ',
-  'Bea': 'ビー',
-  'Nani': 'ナーニ',
-  'Edgar': 'エドガー',
-  'Griff': 'グリフ',
-  'Grom': 'グロム',
-  'Bonnie': 'ボニー',
-  'Mortis': 'モーティス',
-  'Tara': 'タラ',
-  'Gene': 'ジーン',
-  'Max': 'MAX',
-  'Mr.P': 'Mr.P',
-  'Sprout': 'スプラウト',
-  'Byron': 'バイロン',
-  'Squeak': 'スクウィーク',
-  'Gray': 'グレイ',
-  'Pearl': 'パール',
-  'Crow': 'クロウ',
-  'Spike': 'スパイク',
-  'Leon': 'レオン',
-  'Sandy': 'サンディ',
-  'Amber': 'アンバー',
-  'Meg': 'メグ',
-  'Chester': 'チェスター',
-  'Willow': 'ウィロー',
-  'Cordelius': 'コーデリアス',
-  'Gus': 'ガス',
-  'Buster': 'バスター',
-  'Sam': 'サム',
-  'Otis': 'オーティス',
-  'Lou': 'ルー',
-  'Ruffs': 'ラフス',
-  'Belle': 'ベル',
-  'Buzz': 'バズ',
-  'Ash': 'アッシュ',
-  'Lola': 'ローラ',
-  'Fang': 'ファング',
-  'Eve': 'イヴ',
-  'Janet': 'ジャネット',
-  'Chuck': 'チャック',
-  'Charlie': 'チャーリー',
-  'Elizabeth': 'エリザベス',
-  'Mandy': 'マンディ',
-  'Doug': 'ダグ',
-  'R-T': 'R-T',
-  'Hank': 'ハンク',
-  'Maisie': 'メイジー',
-  'Kit': 'キット',
-  'Melody': 'メロディー',
-  'Larry & Lawrie': 'ラリー&ローリー',
-  'Clancy': 'クランシー',
-  'Angelo': 'アンジェロ',
-  'Draco': 'ドラコ',
-  'Lily': 'リリー',
-  'Berry': 'ベリー',
-  'Kenji': 'ケンジ',
-  'Shade': 'シェイド',
-  'Juju': 'ジュジュ',
-  'Block': 'ブロック',
-  'Mico': 'ミコ',
-  'Surge': 'サージ',
-  'Colette': 'コレット',
-  'Moe': 'モー',
-  'Melodie': 'メロディー',
-  'Stu': 'スチュー',
-  'Gale': 'ゲイル',
-  'Buzz Lightyear': 'バズ・ライトイヤー'
-};
 
 export const roleMap: Record<string, string> = {
   all: '全体',
@@ -142,16 +64,6 @@ export const roleMap: Record<string, string> = {
   attacker: 'アタッカー',
   support: 'サポート',
   controller: 'コントローラー'
-};
-
-export const rarityMap: Record<string, string> = {
-  'Common': 'ノーマル',
-  'Rare': 'レア',
-  'Super Rare': 'スーパーレア',
-  'Epic': 'エピック',
-  'Mythic': 'ミシック',
-  'Legendary': 'レジェンダリー',
-  'Starting': 'スターター',
 };
 
 export const rankingTypes = [
@@ -178,7 +90,7 @@ export const characterTypes: { [key: string]: string[] } = {
 
 let charactersDataCache: Record<string, CharacterData> = {};
 
-const getCharacterType = (className: string): string => {
+const getCharacterType = (className: LocalizedText): string => {
   const typeMap: Record<string, string> = {
     'タンク': 'tank',
     'アサシン': 'assassin',
@@ -188,17 +100,18 @@ const getCharacterType = (className: string): string => {
     'スナイパー': 'sniper',
     'アタッカー': 'attacker',
   };
-  return typeMap[className] || 'all';
+  return typeMap[className.ja] || 'all';
 };
 
-const updateCharacterTypes = (brawlers: any[]) => {
-  characterTypes.all = brawlers.map(brawler => brawler.name);
+const updateCharacterTypes = (brawlers: BrawlifyCharacter[]) => {
+  // 全キャラクター名を日本語で登録
+  characterTypes.all = brawlers.map(brawler => brawler.name.ja);
   
   brawlers.forEach(brawler => {
     const type = getCharacterType(brawler.class.name).toLowerCase();
     
     if (characterTypes[type]) {
-      characterTypes[type].push(brawler.name);
+      characterTypes[type].push(brawler.name.ja);
     }
   });
 };
@@ -207,33 +120,41 @@ const processCharactersData = (brawlers: BrawlifyCharacter[]): Record<string, Ch
   const processedData: Record<string, CharacterData> = {};
 
   brawlers.forEach((brawler) => {
-    const characterName = brawler.name;
+    const characterName = brawler.name.ja;
     
     if (!characterName) {
-      console.warn(`Missing character name for brawler:`, brawler);
+      console.warn('Missing character name for brawler:', brawler);
       return;
     }
     
     processedData[characterName] = {
       id: brawler.id.toString(),
       name: characterName,
-      description: brawler.description,
-      class: brawler.class,  // クラス情報をそのまま保持
-      role: roleMap[brawler.class.name] || brawler.class.name,
-      rarity: brawler.rarity,  // レアリティ情報をそのまま保持
+      description: brawler.description.ja,
+      class: {
+        id: brawler.class.id,
+        name: brawler.class.name.ja
+      },
+      role: roleMap[brawler.class.name.ja] || brawler.class.name.ja,
+      rarity: {
+        id: brawler.rarity.id,
+        name: brawler.rarity.name.ja,
+        color: brawler.rarity.color
+      },
+      // recommendationLevelとreasonの取得方法を修正
       starPowers: brawler.starPowers.map(sp => ({
-        name: sp.name,
-        description: sp.description,
-        recommendationLevel: sp.recommendationLevel,
-        recommendationReason: sp.recommendationReason
+        name: sp.name.ja,
+        description: sp.description.ja,
+        recommendationLevel: sp.recommendation?.level || 0,
+        recommendationReason: sp.recommendation?.reason?.ja || ''
       })),
       gadgets: brawler.gadgets.map(gadget => ({
-        name: gadget.name,
-        description: gadget.description,
-        recommendationLevel: gadget.recommendationLevel,
-        recommendationReason: gadget.recommendationReason
+        name: gadget.name.ja,
+        description: gadget.description.ja,
+        recommendationLevel: gadget.recommendation?.level || 0,
+        recommendationReason: gadget.recommendation?.reason?.ja || ''
       })),
-      gears: brawler.gears || [],  // gearsプロパティを追加
+      gears: brawler.gears,
       recommendations: {
         bestModes: [],
         bestMaps: [],
@@ -246,21 +167,46 @@ const processCharactersData = (brawlers: BrawlifyCharacter[]): Record<string, Ch
   return processedData;
 };
 
+// fetchAndProcessCharactersDataの実装を追加
+export const fetchAndProcessCharactersData = async (): Promise<Record<string, CharacterData>> => {
+  try {
+    const brawlers = characterData.list;
+    const processedData = processCharactersData(brawlers);
+    updateCharacterTypes(brawlers);
+    charactersDataCache = processedData;
+    return processedData;
+  } catch (error) {
+    console.error('Error processing character data:', error);
+    throw error;
+  }
+};
+
 export const initializeCharacterData = (): Record<string, CharacterData> => {
   const brawlers = characterData.list;
   const processedData = processCharactersData(brawlers);
   updateCharacterTypes(brawlers);
   
   charactersDataCache = processedData;
+  // デバッグ用ログ
+  console.log('Initialized characters:', Object.keys(charactersDataCache));
   return processedData;
 };
 
-export const fetchAndProcessCharactersData = async (): Promise<Record<string, CharacterData>> => {
-  return initializeCharacterData();
-};
-
 export const getCharacterData = (characterId: string): CharacterData | undefined => {
-  return charactersDataCache[characterId];
+  try {
+    // 日本語名でのルックアップを試みる
+    const character = charactersDataCache[characterId];
+    if (character) return character;
+
+    // 英語名からの変換を試みる
+    const characterFromEnglish = Object.values(charactersDataCache).find(
+      char => char.name === characterId
+    );
+    return characterFromEnglish;
+  } catch (error) {
+    console.error('Error getting character data:', error);
+    return undefined;
+  }
 };
 
 export const getAllCharacters = (): CharacterData[] => {
@@ -288,6 +234,7 @@ export const getCharacterRankings = (rankingType: string = 'all'): RankingItem[]
   return generateCustomRankings(charactersDataCache, rankingType);
 };
 
+// 初期化を実行
 initializeCharacterData();
 
 export type { CharacterData, BrawlifyCharacter };
