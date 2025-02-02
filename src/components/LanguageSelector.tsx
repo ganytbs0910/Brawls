@@ -59,14 +59,15 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ onClose }) =
   }, []);
 
   const handleLanguageSelect = async (language: Language) => {
-    try {
-      await AsyncStorage.setItem('selectedLanguage', language);
-      setCurrentLanguage(language);
-      // TODO: 必要に応じて言語変更後の処理を追加
-    } catch (error) {
-      console.error('Failed to save language:', error);
-    }
-  };
+  try {
+    await AsyncStorage.setItem('selectedLanguage', language);
+    setCurrentLanguage(language);
+    await refreshCharacterDataWithNewLanguage();
+    // 必要に応じて追加の処理
+  } catch (error) {
+    console.error('Failed to save language:', error);
+  }
+};
 
   return (
     <View style={styles.container}>

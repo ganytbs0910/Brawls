@@ -1,6 +1,7 @@
 import { CharacterData } from '../types/types';
 import characterData from '../data/characterAPI.json';
 import { generateCustomRankings } from './customRankings';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // 多言語テキスト用のインターフェース
 interface LocalizedText {
@@ -55,6 +56,17 @@ export interface RankingItem {
   description: string;
 }
 
+// 現在の言語設定を取得する関数
+const getCurrentLanguage = async (): Promise<'en' | 'ja' | 'ko'> => {
+  try {
+    const savedLanguage = await AsyncStorage.getItem('selectedLanguage');
+    return (savedLanguage as 'en' | 'ja' | 'ko') || 'en';
+  } catch (error) {
+    console.error('Error getting language:', error);
+    return 'en';
+  }
+};
+
 export const roleMap: Record<string, string> = {
   all: '全体',
   tank: 'タンク',
@@ -103,34 +115,37 @@ const getCharacterType = (className: LocalizedText): string => {
   return typeMap[className.ja] || 'all';
 };
 
-const updateCharacterTypes = (brawlers: BrawlifyCharacter[]) => {
-  // 全キャラクター名を日本語で登録
-  characterTypes.all = brawlers.map(brawler => brawler.name.ja);
+const updateCharacterTypes = async (brawlers: BrawlifyCharacter[]) => {
+  const currentLang = await getCurrentLanguage();
+  characterTypes.all = brawlers.map(brawler => brawler.name[currentLang]);
   
   brawlers.forEach(brawler => {
-    const type = getCharacterType(brawler.class.name).toLowerCase();
+    const type = getCharacterType(brawler.class.name);
     
     if (characterTypes[type]) {
-      characterTypes[type].push(brawler.name.ja);
+      characterTypes[type].push(brawler.name[currentLang]);
     }
   });
 };
 
-const processCharactersData = (brawlers: BrawlifyCharacter[]): Record<string, CharacterData> => {
+const processCharactersData = async (
+  brawlers: BrawlifyCharacter[]
+): Promise<Record<string, CharacterData>> => {
   const processedData: Record<string, CharacterData> = {};
+  const currentLang = await getCurrentLanguage();
 
-  brawlers.forEach((brawler) => {
+  for (const brawler of brawlers) {
     const characterName = brawler.name.ja;
     
     if (!characterName) {
       console.warn('Missing character name for brawler:', brawler);
-      return;
+      continue;
     }
     
     processedData[characterName] = {
       id: brawler.id.toString(),
       name: characterName,
-      description: brawler.description.ja,
+      description: brawler.description[currentLang],
       class: {
         id: brawler.class.id,
         name: brawler.class.name.ja
@@ -141,18 +156,17 @@ const processCharactersData = (brawlers: BrawlifyCharacter[]): Record<string, Ch
         name: brawler.rarity.name.ja,
         color: brawler.rarity.color
       },
-      // recommendationLevelとreasonの取得方法を修正
       starPowers: brawler.starPowers.map(sp => ({
-        name: sp.name.ja,
-        description: sp.description.ja,
+        name: sp.name[currentLang],
+        description: sp.description[currentLang],
         recommendationLevel: sp.recommendation?.level || 0,
-        recommendationReason: sp.recommendation?.reason?.ja || ''
+        recommendationReason: sp.recommendation?.reason?.[currentLang] || ''
       })),
       gadgets: brawler.gadgets.map(gadget => ({
-        name: gadget.name.ja,
-        description: gadget.description.ja,
+        name: gadget.name[currentLang],
+        description: gadget.description[currentLang],
         recommendationLevel: gadget.recommendation?.level || 0,
-        recommendationReason: gadget.recommendation?.reason?.ja || ''
+        recommendationReason: gadget.recommendation?.reason?.[currentLang] || ''
       })),
       gears: brawler.gears,
       recommendations: {
@@ -162,17 +176,16 @@ const processCharactersData = (brawlers: BrawlifyCharacter[]): Record<string, Ch
         counters: []
       }
     };
-  });
+  }
 
   return processedData;
 };
 
-// fetchAndProcessCharactersDataの実装を追加
 export const fetchAndProcessCharactersData = async (): Promise<Record<string, CharacterData>> => {
   try {
     const brawlers = characterData.list;
-    const processedData = processCharactersData(brawlers);
-    updateCharacterTypes(brawlers);
+    const processedData = await processCharactersData(brawlers);
+    await updateCharacterTypes(brawlers);
     charactersDataCache = processedData;
     return processedData;
   } catch (error) {
@@ -181,28 +194,33 @@ export const fetchAndProcessCharactersData = async (): Promise<Record<string, Ch
   }
 };
 
-export const initializeCharacterData = (): Record<string, CharacterData> => {
+export const initializeCharacterData = async (): Promise<Record<string, CharacterData>> => {
   const brawlers = characterData.list;
-  const processedData = processCharactersData(brawlers);
-  updateCharacterTypes(brawlers);
+  const processedData = await processCharactersData(brawlers);
+  await updateCharacterTypes(brawlers);
   
   charactersDataCache = processedData;
-  // デバッグ用ログ
   console.log('Initialized characters:', Object.keys(charactersDataCache));
   return processedData;
 };
 
+export const refreshCharacterDataWithNewLanguage = async (): Promise<void> => {
+  try {
+    charactersDataCache = await fetchAndProcessCharactersData();
+  } catch (error) {
+    console.error('Error refreshing character data:', error);
+  }
+};
+
 export const getCharacterData = (characterId: string): CharacterData | undefined => {
   try {
-    // 日本語名でのルックアップを試みる
     const character = charactersDataCache[characterId];
     if (character) return character;
 
-    // 英語名からの変換を試みる
-    const characterFromEnglish = Object.values(charactersDataCache).find(
+    const characterFromOtherLang = Object.values(charactersDataCache).find(
       char => char.name === characterId
     );
-    return characterFromEnglish;
+    return characterFromOtherLang;
   } catch (error) {
     console.error('Error getting character data:', error);
     return undefined;
@@ -234,7 +252,9 @@ export const getCharacterRankings = (rankingType: string = 'all'): RankingItem[]
   return generateCustomRankings(charactersDataCache, rankingType);
 };
 
-// 初期化を実行
-initializeCharacterData();
+// アプリ起動時に初期化を実行
+initializeCharacterData().catch(error => {
+  console.error('Failed to initialize character data:', error);
+});
 
 export type { CharacterData, BrawlifyCharacter };
