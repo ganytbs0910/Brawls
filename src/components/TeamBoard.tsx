@@ -18,7 +18,7 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import CharacterSelector, { Character } from './CharacterSelector';
-import { PostCard, styles as commonStyles } from './TeamBoardComponents';
+import { PostCard } from './TeamBoardComponents';
 import { usePlayerData, validatePlayerTag } from '../hooks/useBrawlStarsApi';
 import { nameMap } from '../data/characterData';
 
@@ -27,7 +27,7 @@ const supabase = createClient(
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxseG1zYm5xdGRscXlwbndhcHp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc4MjA5MjEsImV4cCI6MjA1MzM5NjkyMX0.EkqepILQU0KgOTW1ZaXpe54ERpZbSRodf24r5022VKs'
 );
 
-const POST_LIMIT = 6;
+const POST_LIMIT = 50;
 
 interface HostInfo {
   wins3v3: number;
@@ -48,16 +48,6 @@ interface TeamPost {
   host_info: HostInfo;
 }
 
-const styles = StyleSheet.create({
-  ...commonStyles,
-  tagDescription: {
-    fontSize: 12,
-    color: '#666',
-    marginTop: -8,
-    marginBottom: 8,
-  },
-});
-
 const TeamBoard: React.FC = () => {
   const scrollViewRef = useRef<ScrollView>(null);
   const inviteLinkInputRef = useRef<TextInput>(null);
@@ -65,6 +55,7 @@ const TeamBoard: React.FC = () => {
 
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedMode, setSelectedMode] = useState('');
+  const [selectedModeFilter, setSelectedModeFilter] = useState<string | null>(null);
   const [inviteLink, setInviteLink] = useState('');
   const [description, setDescription] = useState('');
   const [posts, setPosts] = useState<TeamPost[]>([]);
@@ -89,11 +80,17 @@ const TeamBoard: React.FC = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const { data, error } = await supabase
+      let query = supabase
         .from('team_posts')
         .select('*')
         .order('created_at', { ascending: false })
         .limit(POST_LIMIT);
+      
+      if (selectedModeFilter) {
+        query = query.eq('selected_mode', selectedModeFilter);
+      }
+
+      const { data, error } = await query;
 
       if (error) {
         console.error('Error fetching posts:', error);
@@ -120,7 +117,7 @@ const TeamBoard: React.FC = () => {
     return () => {
       channel.unsubscribe();
     };
-  }, []);
+  }, [selectedModeFilter]);
 
   useEffect(() => {
     loadSavedPlayerTag();
@@ -150,11 +147,10 @@ const TeamBoard: React.FC = () => {
         setTimeout(() => reject(new Error('API timeout')), 5000);
       });
 
-      const currentTag = tag; // 現在の検証対象のタグを保存
+      const currentTag = tag;
       const dataPromise = playerDataAPI.fetchPlayerData(tag);
       const result = await Promise.race([dataPromise, timeoutPromise]);
       
-      // 検証完了時に、現在のタグが検証開始時と同じかチェック
       if (currentTag !== playerTag) {
         console.log('Tag changed during verification');
         return false;
@@ -214,10 +210,9 @@ const TeamBoard: React.FC = () => {
         return;
       }
 
-      const verificationStartTag = validatedTag; // 検証開始時のタグを保存
+      const verificationStartTag = validatedTag;
       const verificationResult = await verifyPlayerTag(validatedTag);
       
-      // 検証完了時に、現在のタグが検証開始時と同じかチェック
       if (verificationStartTag !== playerTag) {
         console.log('Tag changed after verification');
         return;
@@ -280,11 +275,17 @@ const TeamBoard: React.FC = () => {
     setLastRefreshTime(currentTime);
 
     try {
-      const { data, error } = await supabase
+      let query = supabase
         .from('team_posts')
         .select('*')
         .order('created_at', { ascending: false })
         .limit(POST_LIMIT);
+      
+      if (selectedModeFilter) {
+        query = query.eq('selected_mode', selectedModeFilter);
+      }
+
+      const { data, error } = await query;
 
       if (error) throw error;
       setPosts(data as TeamPost[]);
@@ -367,7 +368,6 @@ const TeamBoard: React.FC = () => {
     setCharacterTrophies('');
     setMidCharacters([]);
     setSideCharacters([]);
-    setIsPlayerVerified(false);
   };
 
   const getCurrentModes = () => {
@@ -428,7 +428,6 @@ const TeamBoard: React.FC = () => {
         icon: require('../../assets/GameModeIcons/5v5wipeout_icon.png')
       }
     ];
-
     return modes;
   };
 
@@ -632,6 +631,45 @@ const TeamBoard: React.FC = () => {
     </ScrollView>
   );
 
+  const renderModeFilter = () => (
+    <View style={styles.filterContainer}>
+      <ScrollView 
+        horizontal 
+        showsHorizontalScrollIndicator={false}
+        style={styles.filterScroll}
+        contentContainerStyle={styles.filterScrollContent}
+      >
+        <TouchableOpacity
+          style={[
+            styles.filterButton,
+            !selectedModeFilter && styles.filterButtonActive,
+            { borderColor: '#21A0DB' }
+          ]}
+          onPress={() => setSelectedModeFilter(null)}
+        >
+          <Image 
+            source={require('../../assets/OtherIcon/starPlayer.png')}
+            style={styles.filterIcon}
+          />
+        </TouchableOpacity>
+
+        {getCurrentModes().map((mode, index) => (
+          <TouchableOpacity
+            key={index}
+            style={[
+              styles.filterButton,
+              selectedModeFilter === mode.name && styles.filterButtonActive,
+              { borderColor: mode.color }
+            ]}
+            onPress={() => setSelectedModeFilter(mode.name)}
+          >
+            <Image source={mode.icon} style={styles.filterIcon} />
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+    </View>
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -655,6 +693,8 @@ const TeamBoard: React.FC = () => {
           </TouchableOpacity>
         </View>
       </View>
+
+      {renderModeFilter()}
 
       <View style={styles.content}>
         {loading ? (
@@ -691,5 +731,277 @@ const TeamBoard: React.FC = () => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  header: {
+    height: 60,
+    backgroundColor: '#21A0DB',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+  content: {
+    flex: 1,
+  },
+  headerButtons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  createButton: {
+    backgroundColor: '#fff',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+  },
+  refreshButton: {
+    backgroundColor: '#fff',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+    marginRight: 8,
+  },
+  refreshButtonDisabled: {
+    opacity: 0.5,
+  },
+  createButtonText: {
+    color: '#21A0DB',
+    fontWeight: 'bold',
+  },
+  refreshButtonText: {
+    color: '#21A0DB',
+    fontWeight: 'bold',
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalView: {
+    width: '90%',
+    maxHeight: '90%',
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  filterContainer: {
+    backgroundColor: '#fff',
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+    paddingVertical: 8,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  filterScroll: {
+    flexGrow: 0,
+  },
+  filterScrollContent: {
+    paddingHorizontal: 16,
+    gap: 8,
+  },
+  filterButton: {
+    padding: 8,
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: '#e0e0e0',
+    backgroundColor: '#fff',
+    height: 40,
+    width: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  filterButtonActive: {
+    backgroundColor: '#f0f0f0',
+  },
+  filterButtonText: {
+    color: '#666',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  filterButtonTextActive: {
+    color: '#21A0DB',
+  },
+  filterIcon: {
+    width: 20,
+    height: 20,
+    resizeMode: 'contain',
+  },
+  modeSelectorContainer: {
+    marginBottom: 16,
+  },
+  modeIconButton: {
+    padding: 12,
+    marginRight: 8,
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    borderWidth: 2,
+    borderColor: '#e0e0e0',
+    width: 40,
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  selectedModeIconButton: {
+    backgroundColor: '#f8f8f8',
+    borderWidth: 2,
+  },
+  modeIconLarge: {
+    width: 24,
+    height: 24,
+    resizeMode: 'contain',
+  },
+  inputLabel: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    color: '#333',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+    borderRadius: 8,
+    padding: 12,
+    marginBottom: 16,
+    backgroundColor: '#fff',
+  },
+  inviteLinkInput: {
+    minHeight: 60,
+    paddingTop: 12,
+    paddingBottom: 12,
+  },
+  multilineInput: {
+    height: 100,
+    textAlignVertical: 'top',
+  },
+  modalButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 20,
+    paddingHorizontal: 16,
+    paddingBottom: 16,
+  },
+  modalButton: {
+    flex: 1,
+    padding: 12,
+    borderRadius: 8,
+    marginHorizontal: 8,
+  },
+  cancelButton: {
+    backgroundColor: '#f0f0f0',
+  },
+  submitButton: {
+    backgroundColor: '#21A0DB',
+  },
+  submitButtonDisabled: {
+    opacity: 0.5,
+  },
+  cancelButtonText: {
+    textAlign: 'center',
+    color: '#666',
+    fontWeight: 'bold',
+  },
+  submitButtonText: {
+    textAlign: 'center',
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  historyContainer: {
+    marginTop: 8,
+  },
+  historyTitle: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: '#666',
+    marginBottom: 4,
+  },
+  historyItemContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#f8f8f8',
+    borderRadius: 4,
+    marginBottom: 4,
+    paddingLeft: 8,
+  },
+  historyItem: {
+    fontSize: 14,
+    paddingVertical: 6,
+    color: '#21A0DB',
+  },
+  deleteButton: {
+    padding: 8,
+  },
+  deleteText: {
+    color: '#ff4444',
+    fontSize: 16,
+  },
+  playerTagContainer: {
+    marginBottom: 16,
+  },
+  playerTagInputContainer: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  playerTagInput: {
+    flex: 1,
+  },
+  verifyButton: {
+    backgroundColor: '#21A0DB',
+    paddingHorizontal: 12,
+    height: 42,
+    borderRadius: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: 80,
+  },
+  verifyButtonDisabled: {
+    opacity: 0.5,
+  },
+  verifyButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  tagDescription: {
+    fontSize: 12,
+    color: '#666',
+    marginTop: -8,
+    marginBottom: 8,
+  },
+  disabledInput: {
+    backgroundColor: '#f5f5f5',
+    color: '#666',
+  },
+  postForm: {
+    padding: 16,
+  },
+});
 
 export default TeamBoard;
