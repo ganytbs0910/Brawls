@@ -3,6 +3,9 @@ import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-nati
 import { CHARACTER_MAP } from '../data/characterCompatibility';
 import CharacterImage from './CharacterImage';
 import { SelectionState, Team } from './PickPrediction';
+import { usePickPredictionTranslation } from '../i18n/pickPrediction';
+import { CharacterSelectionTranslation } from '../i18n/characterSelection';
+import { pickPredictionTranslations } from '../i18n/pickPrediction';
 
 interface CharacterSelectionProps {
   gameState: SelectionState;
@@ -23,12 +26,20 @@ interface CharacterRecommendation {
   reason: string;
 }
 
+// Character Selection用の翻訳を取得する関数
+const getCharacterSelectionTranslation = (language: string): CharacterSelectionTranslation => {
+  const translations = require('../i18n/characterSelection');
+  return translations[language];
+};
+
 export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
   gameState,
   onBanSelect,
   onCharacterSelect,
   calculateTeamAdvantage
 }) => {
+  const { t, currentLanguage } = usePickPredictionTranslation();
+  const ct = getCharacterSelectionTranslation(currentLanguage);
   const [expandedRecommendations, setExpandedRecommendations] = useState(false);
 
   const getScoreColor = (score: number): string => {
@@ -43,12 +54,10 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
       const advantage = calculateTeamAdvantage(gameState.teamA, gameState.teamB);
       
       // チーム間のスコア差を正規化して勝率を計算
-      // スコア差の計算を修正（チームBのスコアがチームAより高い場合、チームBの勝率が高くなるように）
       const maxPossibleScore = 100; // 理論上の最大スコア差
       const normalizedDiff = (advantage.teamBScore - advantage.teamAScore) / maxPossibleScore;
       
       // スコア差を勝率に変換（ロジスティック関数を使用）
-      // amplifierを2.0に増やして、スコア差がより勝率に反映されるようにする
       const amplifier = 2.0;
       const baseWinRate = 50; // 基準勝率（スコアが同じ場合）
       const maxEffect = 45;   // スコア差による最大の勝率変動
@@ -59,13 +68,13 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
       
       return (
         <View style={styles.advantageContainer}>
-          <Text style={styles.advantageTitle}>チーム相性分析</Text>
+          <Text style={styles.advantageTitle}>{ct.advantage.title}</Text>
           <View style={styles.scoreComparisonContainer}>
             <Text style={styles.teamScore}>
-              チームA編成得点: {advantage.teamAScore.toFixed(1)}pt
+              {ct.advantage.teamScore('A')}{advantage.teamAScore.toFixed(1)}pt
             </Text>
             <Text style={styles.teamScore}>
-              チームB編成得点: {advantage.teamBScore.toFixed(1)}pt
+              {ct.advantage.teamScore('B')}{advantage.teamBScore.toFixed(1)}pt
             </Text>
           </View>
           <Text style={[
@@ -74,7 +83,8 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
               color: advantage.teamBScore > advantage.teamAScore ? '#007AFF' : '#FF3B30'
             }
           ]}>
-            チーム{advantage.teamBScore > advantage.teamAScore ? 'B' : 'A'}の勝利確率: {winningPercentage}%
+            {ct.advantage.winningProbability(advantage.teamBScore > advantage.teamAScore ? 'B' : 'A')}
+            {winningPercentage}%
           </Text>
         </View>
       );
@@ -99,7 +109,7 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
       >
         <View style={styles.recommendationContent}>
           <View style={styles.characterInfo}>
-            <Text style={styles.rankText}>#{index + 1}</Text>
+            <Text style={styles.rankText}>{ct.recommendations.rank(index)}</Text>
             <CharacterImage characterName={rec.character} size={25} />
             <Text style={styles.characterName}>{rec.character}</Text>
           </View>
@@ -128,7 +138,7 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
       {renderAdvantageMessage()}
       {gameState.recommendations.length > 0 && (
         <View style={styles.recommendationsContainer}>
-          <Text style={styles.recommendationsTitle}>おすすめキャラクター</Text>
+          <Text style={styles.recommendationsTitle}>{ct.recommendations.title}</Text>
           {(expandedRecommendations 
             ? gameState.recommendations 
             : gameState.recommendations.slice(0, 3)
@@ -139,7 +149,7 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
               onPress={() => setExpandedRecommendations(true)}
             >
               <Text style={styles.expandButtonText}>
-                さらに表示 ({gameState.recommendations.length - 3}体)
+                {ct.recommendations.showMore(gameState.recommendations.length - 3)}
               </Text>
             </TouchableOpacity>
           )}
@@ -148,7 +158,7 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
               style={styles.expandButton}
               onPress={() => setExpandedRecommendations(false)}
             >
-              <Text style={styles.expandButtonText}>閉じる</Text>
+              <Text style={styles.expandButtonText}>{ct.recommendations.close}</Text>
             </TouchableOpacity>
           )}
         </View>
@@ -156,12 +166,10 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
 
       <View style={styles.characterGrid}>
         {Object.values(CHARACTER_MAP).map((character) => {
-          // バンされているかどうかの判定を変更
           const isBannedByTeamA = gameState.bansA.includes(character);
           const isBannedByTeamB = gameState.bansB.includes(character);
           const isSelected = gameState.teamA.includes(character) || gameState.teamB.includes(character);
           
-          // バンフェーズ中の場合、既に選択されているキャラクターのみを無効化
           const isDisabled = isSelected || (
             !gameState.isBanPhaseEnabled && (isBannedByTeamA || isBannedByTeamB)
           );

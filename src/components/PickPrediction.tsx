@@ -14,6 +14,7 @@ import {
 import { TeamSection } from './TeamSection';
 import { CharacterSelection } from './CharacterSelection';
 import MapDetailScreen from './MapDetailScreen';
+import { usePickPredictionTranslation } from '../i18n/pickPrediction';
 import {
   CHARACTER_MAP,
   allCharacterData,
@@ -26,8 +27,8 @@ import { emeraldHuntMaps } from '../data/modes/emeraldHunt';
 import { knockoutMaps } from '../data/modes/knockout';
 
 interface GameMode {
-  name: string;
-  color: string | (() => string);
+  name: keyof typeof pickPredictionTranslations.ja.modes;
+  color: string;
   icon: any;
 }
 
@@ -43,6 +44,12 @@ interface MapsByMode {
 export type Team = 'A' | 'B';
 export type GamePhase = 1 | 2 | 3 | 4;
 export type ScreenType = 'home' | 'settings' | 'mapDetail';
+
+export interface ScreenState {
+  type: ScreenType;
+  translateX: Animated.Value;
+  zIndex: number;
+}
 
 export interface SelectionState {
   teamA: string[];
@@ -71,25 +78,13 @@ export interface CharacterRecommendation {
   reason: string;
 }
 
-export interface TeamSectionProps {
-  gameState: SelectionState;
-  team: Team;
-  onBanSelect: (character: string) => void;
-  onCharacterSelect: (character: string) => void;
-}
-
-export interface ScreenState {
-  type: ScreenType;
-  translateX: Animated.Value;
-  zIndex: number;
-}
 const GAME_MODES: GameMode[] = [
-  { name: "エメラルドハント", color: "#DA70D6", icon: require('../../assets/GameModeIcons/gem_grab_icon.png') },
-  { name: "ブロストライカー", color: "#cccccc", icon: require('../../assets/GameModeIcons/brawl_ball_icon.png') },
-  { name: "強奪", color: "#cccccc", icon: require('../../assets/GameModeIcons/heist_icon.png') },
-  { name: "ノックアウト", color: "#FFA500", icon: require('../../assets/GameModeIcons/knock_out_icon.png') },
-  { name: "賞金稼ぎ", color: "#DA70D6", icon: require('../../assets/GameModeIcons/bounty_icon.png') },
-  { name: "ホットゾーン", color: "#cccccc", icon: require('../../assets/GameModeIcons/hot_zone_icon.png') },
+  { name: "emeraldHunt", color: "#DA70D6", icon: require('../../assets/GameModeIcons/gem_grab_icon.png') },
+  { name: "brawlBall", color: "#cccccc", icon: require('../../assets/GameModeIcons/brawl_ball_icon.png') },
+  { name: "heist", color: "#cccccc", icon: require('../../assets/GameModeIcons/heist_icon.png') },
+  { name: "knockout", color: "#FFA500", icon: require('../../assets/GameModeIcons/knock_out_icon.png') },
+  { name: "bounty", color: "#DA70D6", icon: require('../../assets/GameModeIcons/bounty_icon.png') },
+  { name: "hotZone", color: "#cccccc", icon: require('../../assets/GameModeIcons/hot_zone_icon.png') },
 ];
 
 const MAPS_BY_MODE: MapsByMode = {
@@ -131,6 +126,7 @@ const MAPS_BY_MODE: MapsByMode = {
   ],
 };
 const PickPrediction: React.FC = () => {
+  const { t } = usePickPredictionTranslation();
   const [gameState, setGameState] = useState<SelectionState>({
     teamA: [],
     teamB: [],
@@ -154,13 +150,96 @@ const PickPrediction: React.FC = () => {
   ]);
   const scaleAnim = useRef(new Animated.Value(0)).current;
 
+  const calculateTeamAdvantage = (teamAChars: string[], teamBChars: string[]): {
+    teamAScore: number;
+    teamBScore: number;
+    advantageTeam: Team | null;
+    difference: number;
+  } => {
+    let teamAScore = 0;
+    let teamBScore = 0;
+
+    // 相性スコアの計算
+    teamAChars.forEach(aChar => {
+      teamBChars.forEach(bChar => {
+        const aId = getCharacterId(aChar);
+        if (aId && allCharacterData[aId]) {
+          const score = allCharacterData[aId].compatibilityScores[bChar] || 0;
+          teamAScore += score;
+        }
+      });
+    });
+
+    teamBChars.forEach(bChar => {
+      teamAChars.forEach(aChar => {
+        const bId = getCharacterId(bChar);
+        if (bId && allCharacterData[bId]) {
+          const score = allCharacterData[bId].compatibilityScores[aChar] || 0;
+          teamBScore += score;
+        }
+      });
+    });
+
+    // マップ適性ボーナスの計算
+    let mapData;
+    switch (gameState.selectedMode) {
+      case t.modes.heist:
+        mapData = gameState.selectedMap && heistMaps[gameState.selectedMap];
+        break;
+      case t.modes.brawlBall:
+        mapData = gameState.selectedMap && brawlBallMaps[gameState.selectedMap];
+        break;
+      case t.modes.emeraldHunt:
+        mapData = gameState.selectedMap && emeraldHuntMaps[gameState.selectedMap];
+        break;
+      case t.modes.knockout:
+        mapData = gameState.selectedMap && knockoutMaps[gameState.selectedMap];
+        break;
+      case "デュエル":  // デュエルはローカライズ対象外
+        mapData = gameState.selectedMap && duelMaps[gameState.selectedMap];
+        break;
+    }
+
+    if (mapData) {
+      // チームAのマップボーナス
+      teamAChars.forEach(char => {
+        const bonus = mapData.recommendedBrawlers.find(b => b.name === char);
+        if (bonus) {
+          teamAScore += bonus.power;
+        }
+      });
+
+      // チームBのマップボーナス
+      teamBChars.forEach(char => {
+        const bonus = mapData.recommendedBrawlers.find(b => b.name === char);
+        if (bonus) {
+          teamBScore += bonus.power;
+        }
+      });
+    }
+
+    const difference = Math.abs(teamAScore - teamBScore);
+    let advantageTeam: Team | null = null;
+    
+    if (difference > 1) {
+      advantageTeam = teamAScore > teamBScore ? 'A' : 'B';
+    }
+
+    return {
+      teamAScore,
+      teamBScore,
+      advantageTeam,
+      difference
+    };
+  };
+
   const handleMapInfoPress = (mode: GameMode, mapName: string) => {
     const mapDetail = {
       mapName,
-      modeName: mode.name,
+      modeName: t.modes[mode.name],
       modeColor: typeof mode.color === 'function' ? mode.color() : mode.color,
       modeIcon: mode.icon,
-      mapImage: MAPS_BY_MODE[mode.name]?.find(m => m.name === mapName)?.image
+      mapImage: MAPS_BY_MODE[t.modes[mode.name]]?.find(m => m.name === mapName)?.image
     };
 
     setGameState(prev => ({
@@ -199,7 +278,7 @@ const PickPrediction: React.FC = () => {
 
   const handleModeButtonPress = () => {
     if (!gameState.selectedMode) {
-      const initialMode = GAME_MODES[0].name;
+      const initialMode = t.modes[GAME_MODES[0].name];
       const initialMap = MAPS_BY_MODE[initialMode][0].name;
       setGameState(prev => ({
         ...prev,
@@ -209,7 +288,6 @@ const PickPrediction: React.FC = () => {
     }
     setShowModeModal(true);
   };
-
   const showScreen = (screenType: ScreenType) => {
     const newScreen: ScreenState = {
       type: screenType,
@@ -279,139 +357,27 @@ const PickPrediction: React.FC = () => {
     }
   }, [showTurnModal]);
 
-  const getPhaseInstructions = (phase: GamePhase, team: Team): string => {
-    if (gameState.isBanPhaseEnabled) {
-      if (gameState.bansA.length < 3) return `チームA`;
-      if (gameState.bansB.length < 3) return `チームB`;
-    }
-    
-    switch (phase) {
-      case 1: return 'チームA';
-      case 2: return 'チームB';
-      case 3: return 'チームA';
-      case 4: return 'チームB';
-      default: return '';
-    }
-  };
-
   const showTurnAnnouncement = (team: Team, phase: GamePhase, isBanPhase: boolean = false) => {
-    let message = `チーム${team}の番！`;
-    let subMessage = '';
-    
-    if (isBanPhase) {
-      subMessage = 'バンするキャラクターを選択してください';
-    } else {
-      switch (phase) {
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-          subMessage = 'キャラクターを選択してください';
-          break;
-      }
-    }
+    const message = t.turnAnnouncement.teamTurn(team);
+    const subMessage = isBanPhase 
+      ? t.turnAnnouncement.selectBan 
+      : t.turnAnnouncement.selectCharacter;
 
     setTurnMessage(message);
     setTurnSubMessage(subMessage);
     setShowTurnModal(true);
   };
 
-  const handleBanSelect = (character: string) => {
-  if (!gameState.isBanPhaseEnabled) return;
-  
-  if (gameState.bansA.length < 3 && gameState.currentTeam === 'A') {
-    const newBansA = [...gameState.bansA, character];
-    setGameState(prev => ({
-      ...prev,
-      bansA: newBansA,
-      currentTeam: newBansA.length === 3 ? 'B' : 'A'
-    }));
-    if (newBansA.length === 3) {
-      showTurnAnnouncement('B', 0, true);
-    }
-  } else if (gameState.bansB.length < 3 && gameState.currentTeam === 'B') {
-    const newBansB = [...gameState.bansB, character];
-    setGameState(prev => ({
-      ...prev,
-      bansB: newBansB,
-      currentTeam: newBansB.length === 3 ? 'A' : 'B'
-    }));
-    if (newBansB.length === 3) {
-      showTurnAnnouncement('A', 1, false);
-    }
-  }
-};
-
-  const handleCharacterSelect = (character: string) => {
-  // キャラクター選択フェーズの処理
-  const handlePickPhase = () => {
-    const { currentPhase, currentTeam, teamA, teamB } = gameState;
+  const getRecommendationReason = (score: number, opposingTeamSize: number): string => {
+    const maxPossibleScore = opposingTeamSize * 10;
+    const scorePercentage = (score / maxPossibleScore) * 100;
     
-    if (currentTeam === 'A' && teamA.includes(character)) return;
-    if (currentTeam === 'B' && teamB.includes(character)) return;
-    
-    const newState = { ...gameState };
-
-    switch (currentPhase) {
-      case 1:
-        if (currentTeam === 'A') {
-          newState.teamA = [character];
-          newState.currentTeam = 'B';
-          newState.currentPhase = 2;
-          newState.recommendations = calculateRecommendations('B', [character], []);
-          showTurnAnnouncement('B', 2);
-        }
-        break;
-      
-      case 2:
-        if (currentTeam === 'B' && teamB.length < 2) {
-          const newTeamB = [...teamB, character];
-          newState.teamB = newTeamB;
-          newState.recommendations = calculateRecommendations('B', teamA, newTeamB);
-          if (newTeamB.length === 2) {
-            newState.currentTeam = 'A';
-            newState.currentPhase = 3;
-            newState.recommendations = calculateRecommendations('A', newTeamB, teamA);
-            showTurnAnnouncement('A', 3);
-          }
-        }
-        break;
-      
-      case 3:
-        if (currentTeam === 'A' && teamA.length < 3) {
-          const newTeamA = [...teamA, character];
-          newState.teamA = newTeamA;
-          newState.recommendations = calculateRecommendations('A', teamB, newTeamA);
-          if (newTeamA.length === 3) {
-            newState.currentTeam = 'B';
-            newState.currentPhase = 4;
-            newState.recommendations = calculateRecommendations('B', newTeamA, teamB);
-            showTurnAnnouncement('B', 4);
-          }
-        }
-        break;
-      
-      case 4:
-        if (currentTeam === 'B' && teamB.length < 3) {
-          const newTeamB = [...teamB, character];
-          newState.teamB = newTeamB;
-          newState.recommendations = [];
-        }
-        break;
-    }
-
-    setGameState(newState);
+    if (scorePercentage >= 80) return t.recommendations.excellent;
+    if (scorePercentage >= 65) return t.recommendations.veryGood;
+    if (scorePercentage >= 50) return t.recommendations.good;
+    if (scorePercentage >= 35) return t.recommendations.average;
+    return t.recommendations.needsConsideration;
   };
-
-  if (!gameState.isBanPhaseEnabled) {
-    handlePickPhase();
-  } else {
-    // バンフェーズ後のキャラクター選択
-    if (gameState.bansA.length === 3 && gameState.bansB.length === 3) {
-      handlePickPhase();
-    }
-  }
-};
 
   const calculateRecommendations = (
     currentTeam: Team,
@@ -442,19 +408,19 @@ const PickPrediction: React.FC = () => {
         // マップ適性ボーナスの計算
         let mapData;
         switch (gameState.selectedMode) {
-          case "強奪":
+          case t.modes.heist:
             mapData = gameState.selectedMap && heistMaps[gameState.selectedMap];
             break;
-          case "ブロストライカー":
+          case t.modes.brawlBall:
             mapData = gameState.selectedMap && brawlBallMaps[gameState.selectedMap];
             break;
-          case "エメラルドハント":
+          case t.modes.emeraldHunt:
             mapData = gameState.selectedMap && emeraldHuntMaps[gameState.selectedMap];
             break;
-          case "ノックアウト":
+          case t.modes.knockout:
             mapData = gameState.selectedMap && knockoutMaps[gameState.selectedMap];
             break;
-          case "デュエル":
+          case "デュエル":  // デュエルはローカライズ対象外
             mapData = gameState.selectedMap && duelMaps[gameState.selectedMap];
             break;
         }
@@ -483,98 +449,99 @@ const PickPrediction: React.FC = () => {
     return recommendations.sort((a, b) => b.score - a.score).slice(0, 10);
   };
 
-  const getRecommendationReason = (score: number, opposingTeamSize: number): string => {
-    const maxPossibleScore = opposingTeamSize * 10;
-    const scorePercentage = (score / maxPossibleScore) * 100;
+  const handleBanSelect = (character: string) => {
+    if (!gameState.isBanPhaseEnabled) return;
     
-    if (scorePercentage >= 80) return '最高の選択';
-    if (scorePercentage >= 65) return '非常に良い選択';
-    if (scorePercentage >= 50) return '良い選択';
-    if (scorePercentage >= 35) return '標準的な選択';
-    return '要検討';
+    if (gameState.bansA.length < 3 && gameState.currentTeam === 'A') {
+      const newBansA = [...gameState.bansA, character];
+      setGameState(prev => ({
+        ...prev,
+        bansA: newBansA,
+        currentTeam: newBansA.length === 3 ? 'B' : 'A'
+      }));
+      if (newBansA.length === 3) {
+        showTurnAnnouncement('B', 0, true);
+      }
+    } else if (gameState.bansB.length < 3 && gameState.currentTeam === 'B') {
+      const newBansB = [...gameState.bansB, character];
+      setGameState(prev => ({
+        ...prev,
+        bansB: newBansB,
+        currentTeam: newBansB.length === 3 ? 'A' : 'B'
+      }));
+      if (newBansB.length === 3) {
+        showTurnAnnouncement('A', 1, false);
+      }
+    }
   };
 
-  const calculateTeamAdvantage = (teamAChars: string[], teamBChars: string[]): {
-    teamAScore: number;
-    teamBScore: number;
-    advantageTeam: Team | null;
-    difference: number;
-  } => {
-    let teamAScore = 0;
-    let teamBScore = 0;
+  const handleCharacterSelect = (character: string) => {
+    const handlePickPhase = () => {
+      const { currentPhase, currentTeam, teamA, teamB } = gameState;
+      
+      if (currentTeam === 'A' && teamA.includes(character)) return;
+      if (currentTeam === 'B' && teamB.includes(character)) return;
+      
+      const newState = { ...gameState };
 
-    // 相性スコアの計算
-    teamAChars.forEach(aChar => {
-      teamBChars.forEach(bChar => {
-        const aId = getCharacterId(aChar);
-        if (aId && allCharacterData[aId]) {
-          const score = allCharacterData[aId].compatibilityScores[bChar] || 0;
-          teamAScore += score;
-        }
-      });
-    });
+      switch (currentPhase) {
+        case 1:
+          if (currentTeam === 'A') {
+            newState.teamA = [character];
+            newState.currentTeam = 'B';
+            newState.currentPhase = 2;
+            newState.recommendations = calculateRecommendations('B', [character], []);
+            showTurnAnnouncement('B', 2);
+          }
+          break;
+        
+        case 2:
+          if (currentTeam === 'B' && teamB.length < 2) {
+            const newTeamB = [...teamB, character];
+            newState.teamB = newTeamB;
+            newState.recommendations = calculateRecommendations('B', teamA, newTeamB);
+            if (newTeamB.length === 2) {
+              newState.currentTeam = 'A';
+              newState.currentPhase = 3;
+              newState.recommendations = calculateRecommendations('A', newTeamB, teamA);
+              showTurnAnnouncement('A', 3);
+            }
+          }
+          break;
+        
+        case 3:
+          if (currentTeam === 'A' && teamA.length < 3) {
+            const newTeamA = [...teamA, character];
+            newState.teamA = newTeamA;
+            newState.recommendations = calculateRecommendations('A', teamB, newTeamA);
+            if (newTeamA.length === 3) {
+              newState.currentTeam = 'B';
+              newState.currentPhase = 4;
+              newState.recommendations = calculateRecommendations('B', newTeamA, teamB);
+              showTurnAnnouncement('B', 4);
+            }
+          }
+          break;
+        
+        case 4:
+          if (currentTeam === 'B' && teamB.length < 3) {
+            const newTeamB = [...teamB, character];
+            newState.teamB = newTeamB;
+            newState.recommendations = [];
+          }
+          break;
+      }
 
-    teamBChars.forEach(bChar => {
-      teamAChars.forEach(aChar => {
-        const bId = getCharacterId(bChar);
-        if (bId && allCharacterData[bId]) {
-          const score = allCharacterData[bId].compatibilityScores[aChar] || 0;
-          teamBScore += score;
-        }
-      });
-    });
-
-    // マップ適性ボーナスの計算
-    let mapData;
-    switch (gameState.selectedMode) {
-      case "強奪":
-        mapData = gameState.selectedMap && heistMaps[gameState.selectedMap];
-        break;
-      case "ブロストライカー":
-        mapData = gameState.selectedMap && brawlBallMaps[gameState.selectedMap];
-        break;
-      case "エメラルドハント":
-        mapData = gameState.selectedMap && emeraldHuntMaps[gameState.selectedMap];
-        break;
-      case "ノックアウト":
-        mapData = gameState.selectedMap && knockoutMaps[gameState.selectedMap];
-        break;
-      case "デュエル":
-        mapData = gameState.selectedMap && duelMaps[gameState.selectedMap];
-        break;
-    }
-
-    if (mapData) {
-      // チームAのマップボーナス
-      teamAChars.forEach(char => {
-        const bonus = mapData.recommendedBrawlers.find(b => b.name === char);
-        if (bonus) {
-          teamAScore += bonus.power;
-        }
-      });
-
-      // チームBのマップボーナス
-      teamBChars.forEach(char => {
-        const bonus = mapData.recommendedBrawlers.find(b => b.name === char);
-        if (bonus) {
-          teamBScore += bonus.power;
-        }
-      });
-    }
-
-    const difference = Math.abs(teamAScore - teamBScore);
-    let advantageTeam: Team | null = null;
-    
-    if (difference > 1) {
-      advantageTeam = teamAScore > teamBScore ? 'A' : 'B';
-    }
-
-    return {
-      teamAScore,
-      teamBScore,
-      advantageTeam,
-      difference
+      setGameState(newState);
     };
+
+    if (!gameState.isBanPhaseEnabled) {
+      handlePickPhase();
+    } else {
+      if (gameState.bansA.length === 3 && gameState.bansB.length === 3) {
+        handlePickPhase();
+      }
+    }
   };
   const renderModeAndMapModal = () => {
     return (
@@ -596,11 +563,11 @@ const PickPrediction: React.FC = () => {
                   key={mode.name}
                   style={[
                     styles.modeModalButton,
-                    gameState.selectedMode === mode.name && { 
-                      backgroundColor: typeof mode.color === 'function' ? mode.color() : mode.color 
+                    gameState.selectedMode === t.modes[mode.name] && {
+                      backgroundColor: typeof mode.color === 'function' ? mode.color() : mode.color
                     }
                   ]}
-                  onPress={() => handleModeSelect(mode.name)}
+                  onPress={() => handleModeSelect(t.modes[mode.name])}
                 >
                   <Image source={mode.icon} style={styles.modeIcon} />
                 </TouchableOpacity>
@@ -608,7 +575,7 @@ const PickPrediction: React.FC = () => {
             </View>
             {gameState.selectedMode && (
               <>
-                <Text style={styles.mapModalTitle}>ステージを選択</Text>
+                <Text style={styles.mapModalTitle}>{t.mapSelection.title}</Text>
                 <View style={styles.mapGrid}>
                   {(MAPS_BY_MODE[gameState.selectedMode] || []).map((map) => (
                     <TouchableOpacity
@@ -625,9 +592,9 @@ const PickPrediction: React.FC = () => {
                           style={styles.mapModalInfoButton}
                           onPress={(e) => {
                             e.stopPropagation();
-                            const selectedMode = GAME_MODES.find(mode => mode.name === gameState.selectedMode);
+                            const selectedMode = GAME_MODES.find(mode => t.modes[mode.name] === gameState.selectedMode);
                             if (selectedMode) {
-                              setShowModeModal(false);  // モーダルを閉じる
+                              setShowModeModal(false);
                               handleMapInfoPress(selectedMode, map.name);
                             }
                           }}
@@ -688,7 +655,7 @@ const PickPrediction: React.FC = () => {
               ]}>
                 {gameState.isBanPhaseEnabled && <Text style={styles.banToggleCheck}>✓</Text>}
               </View>
-              <Text style={styles.banToggleText}>バン選択</Text>
+              <Text style={styles.banToggleText}>{t.header.banToggle}</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.headerCenter}>
@@ -697,7 +664,7 @@ const PickPrediction: React.FC = () => {
               onPress={handleModeButtonPress}
             >
               <Text style={styles.modeSelectText}>
-                {gameState.selectedMode ? gameState.selectedMode : "モードを選択"}
+                {gameState.selectedMode ? gameState.selectedMode : t.header.selectMode}
               </Text>
               {gameState.selectedMap && (
                 <Text style={styles.selectedMapText}>
@@ -710,9 +677,10 @@ const PickPrediction: React.FC = () => {
             style={styles.resetButton}
             onPress={resetGame}
           >
-            <Text style={styles.resetButtonText}>リセット</Text>
+            <Text style={styles.resetButtonText}>{t.header.reset}</Text>
           </TouchableOpacity>
         </View>
+
         <View style={styles.teamsContainer}>
           <TeamSection
             gameState={gameState}
@@ -730,7 +698,7 @@ const PickPrediction: React.FC = () => {
                 <TouchableOpacity 
                   style={styles.infoButton}
                   onPress={() => {
-                    const selectedMode = GAME_MODES.find(mode => mode.name === gameState.selectedMode);
+                    const selectedMode = GAME_MODES.find(mode => t.modes[mode.name] === gameState.selectedMode);
                     if (selectedMode && gameState.selectedMap) {
                       handleMapInfoPress(selectedMode, gameState.selectedMap);
                     }
@@ -792,7 +760,7 @@ const PickPrediction: React.FC = () => {
             ]}>
               <Text style={styles.turnMessageMain}>{turnMessage}</Text>
               <Text style={styles.turnMessageSub}>{turnSubMessage}</Text>
-              <Text style={styles.skipText}>タップでスキップ</Text>
+              <Text style={styles.skipText}>{t.turnAnnouncement.skipTap}</Text>
             </View>
           </Animated.View>
         </TouchableOpacity>
@@ -820,7 +788,6 @@ const PickPrediction: React.FC = () => {
     </SafeAreaView>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -983,11 +950,9 @@ const styles = StyleSheet.create({
   },
   modeGrid: {
     flexDirection: 'row',
-    alignItems: 'center',
+    flexWrap: 'wrap',
     justifyContent: 'space-between',
     marginBottom: 20,
-    paddingHorizontal: 10,
-    flexWrap: 'wrap',
   },
   modeModalButton: {
     width: '15%',
