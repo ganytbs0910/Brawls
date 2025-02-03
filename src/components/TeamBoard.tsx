@@ -1,6 +1,5 @@
-import { createClient } from '@supabase/supabase-js';
-import 'react-native-url-polyfill/auto';
-import React, { useState, useEffect, useRef } from 'react';
+// src/components/TeamBoard.tsx
+import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   Text,
@@ -21,6 +20,11 @@ import CharacterSelector, { Character } from './CharacterSelector';
 import { PostCard } from './TeamBoardComponents';
 import { usePlayerData, validatePlayerTag } from '../hooks/useBrawlStarsApi';
 import { nameMap } from '../data/characterData';
+import { useTeamBoardTranslation } from '../i18n/teamBoard';
+import { TeamBoardTranslation } from '../i18n/teamBoard';
+
+import { createClient } from '@supabase/supabase-js';
+import 'react-native-url-polyfill/auto';
 
 const supabase = createClient(
   'https://llxmsbnqtdlqypnwapzz.supabase.co',
@@ -48,7 +52,15 @@ interface TeamPost {
   host_info: HostInfo;
 }
 
+interface GameMode {
+  id: keyof TeamBoardTranslation['modes'];
+  name: string;
+  color: string;
+  icon: any;
+}
+
 const TeamBoard: React.FC = () => {
+  const { t } = useTeamBoardTranslation();
   const scrollViewRef = useRef<ScrollView>(null);
   const inviteLinkInputRef = useRef<TextInput>(null);
   const playerDataAPI = usePlayerData();
@@ -77,6 +89,78 @@ const TeamBoard: React.FC = () => {
   });
 
   const REFRESH_COOLDOWN = 3000;
+
+  const getCurrentModes = () => {
+    const modes: GameMode[] = [
+      {
+        id: 'ranked',
+        name: t.modes.ranked,
+        color: "#99ff66",
+        icon: require('../../assets/GameModeIcons/rank_front.png')
+      },
+      {
+        id: 'duoShowdown',
+        name: t.modes.duoShowdown,
+        color: "#99ff66",
+        icon: require('../../assets/GameModeIcons/duo_showdown_icon.png')
+      },
+      {
+        id: 'gemGrab',
+        name: t.modes.gemGrab,
+        color: "#DA70D6",
+        icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
+      },
+      {
+        id: 'brawlBall',
+        name: t.modes.brawlBall,
+        color: "#cccccc",
+        icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
+      },
+      {
+        id: 'heist',
+        name: t.modes.heist,
+        color: "#cccccc",
+        icon: require('../../assets/GameModeIcons/heist_icon.png')
+      },
+      {
+        id: 'knockout',
+        name: t.modes.knockout,
+        color: "#FFA500",
+        icon: require('../../assets/GameModeIcons/knock_out_icon.png')
+      },
+      {
+        id: 'bounty',
+        name: t.modes.bounty,
+        color: "#DA70D6",
+        icon: require('../../assets/GameModeIcons/bounty_icon.png')
+      },
+      {
+        id: 'wipeout',
+        name: t.modes.wipeout,
+        color: "#DA70D6",
+        icon: require('../../assets/GameModeIcons/wipeout_icon.png')
+      },
+      {
+        id: 'hotZone',
+        name: t.modes.hotZone,
+        color: "#cccccc",
+        icon: require('../../assets/GameModeIcons/hot_zone_icon.png')
+      },
+      {
+        id: 'brawlBall5v5',
+        name: t.modes.brawlBall5v5,
+        color: "#FFA500",
+        icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
+      },
+      {
+        id: 'wipeout5v5',
+        name: t.modes.wipeout5v5,
+        color: "#FFA500",
+        icon: require('../../assets/GameModeIcons/5v5wipeout_icon.png')
+      }
+    ];
+    return modes;
+  };
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -140,7 +224,10 @@ const TeamBoard: React.FC = () => {
   };
 
   const verifyPlayerTag = async (tag: string) => {
-    if (!tag) return false;
+    if (!tag) {
+      Alert.alert('Error', t.errors.enterTag);
+      return false;
+    }
 
     try {
       const timeoutPromise = new Promise((_, reject) => {
@@ -194,7 +281,7 @@ const TeamBoard: React.FC = () => {
 
   const handlePlayerTagVerify = async () => {
     if (!playerTag.trim()) {
-      Alert.alert('エラー', 'プレイヤータグを入力してください');
+      Alert.alert('Error', t.errors.enterTag);
       return;
     }
 
@@ -205,7 +292,7 @@ const TeamBoard: React.FC = () => {
       const validatedTag = validatePlayerTag(cleanTag);
       
       if (!validatedTag) {
-        Alert.alert('エラー', 'プレイヤータグが不正です');
+        Alert.alert('Error', t.errors.invalidTag);
         setIsPlayerVerified(false);
         return;
       }
@@ -225,12 +312,12 @@ const TeamBoard: React.FC = () => {
         await AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory));
         await AsyncStorage.setItem('brawlStarsPlayerTag', validatedTag);
       } else {
-        Alert.alert('エラー', 'プレイヤーデータの取得に失敗しました');
+        Alert.alert('Error', t.errors.fetchFailed);
         setIsPlayerVerified(false);
       }
     } catch (error) {
       console.error('Error fetching player data:', error);
-      Alert.alert('エラー', 'プレイヤーデータの取得に失敗しました');
+      Alert.alert('Error', t.errors.fetchFailed);
       setIsPlayerVerified(false);
     } finally {
       setIsLoadingPlayerData(false);
@@ -267,7 +354,7 @@ const TeamBoard: React.FC = () => {
   const handleRefresh = async () => {
     const currentTime = Date.now();
     if (currentTime - lastRefreshTime < REFRESH_COOLDOWN) {
-      Alert.alert('エラー', '更新は3秒後に可能になります');
+      Alert.alert('Error', t.errors.refreshCooldown);
       return;
     }
 
@@ -292,7 +379,7 @@ const TeamBoard: React.FC = () => {
       setTimeout(() => setIsRefreshing(false), 500);
     } catch (error) {
       console.error('Refresh failed:', error);
-      Alert.alert('エラー', '更新に失敗しました');
+      Alert.alert('Error', t.errors.refreshFailed);
       setIsRefreshing(false);
     }
   };
@@ -306,22 +393,22 @@ const TeamBoard: React.FC = () => {
 
   const validateInputs = () => {
     if (!selectedMode) {
-      Alert.alert('エラー', 'モードを選択してください');
+      Alert.alert('Error', t.errors.selectMode);
       return false;
     }
 
     if (!isPlayerVerified) {
-      Alert.alert('エラー', 'プレイヤー情報を取得してください');
+      Alert.alert('Error', t.errors.playerInfo);
       return false;
     }
 
     if (!selectedCharacter) {
-      Alert.alert('エラー', 'キャラクターを選択してください');
+      Alert.alert('Error', t.errors.selectCharacter);
       return false;
     }
 
     if (!inviteLink || !validateInviteLink(inviteLink)) {
-      Alert.alert('エラー', '有効な招待リンクを入力してください');
+      Alert.alert('Error', t.errors.invalidLink);
       return false;
     }
 
@@ -353,10 +440,10 @@ const TeamBoard: React.FC = () => {
       await AsyncStorage.setItem('lastPostTime', Date.now().toString());
       resetForm();
       setModalVisible(false);
-      Alert.alert('成功', '投稿が作成されました');
+      Alert.alert('Success', t.success.postCreated);
     } catch (error) {
       console.error('Error creating post:', error);
-      Alert.alert('エラー', '投稿の作成に失敗しました');
+      Alert.alert('Error', t.errors.postCreationFailed);
     }
   };
 
@@ -370,73 +457,12 @@ const TeamBoard: React.FC = () => {
     setSideCharacters([]);
   };
 
-  const getCurrentModes = () => {
-    const modes = [
-      {
-        name: "ガチバトル",
-        color: "#99ff66",
-        icon: require('../../assets/GameModeIcons/rank_front.png')
-      },
-      {
-        name: "デュオバトルロワイヤル",
-        color: "#99ff66",
-        icon: require('../../assets/GameModeIcons/duo_showdown_icon.png')
-      },
-      {
-        name: "エメラルドハント",
-        color: "#DA70D6",
-        icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
-      },
-      {
-        name: "ブロストライカー",
-        color: "#cccccc",
-        icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
-      },
-      {
-        name: "強奪",
-        color: "#cccccc",
-        icon: require('../../assets/GameModeIcons/heist_icon.png')
-      },
-      {
-        name: "ノックアウト",
-        color: "#FFA500",
-        icon: require('../../assets/GameModeIcons/knock_out_icon.png')
-      },
-      {
-        name: "賞金稼ぎ",
-        color: "#DA70D6",
-        icon: require('../../assets/GameModeIcons/bounty_icon.png')
-      },
-      {
-        name: "殲滅",
-        color: "#DA70D6",
-        icon: require('../../assets/GameModeIcons/wipeout_icon.png')
-      },
-      {
-        name: "ホットゾーン",
-        color: "#cccccc",
-        icon: require('../../assets/GameModeIcons/hot_zone_icon.png')
-      },
-      {
-        name: "5vs5ブロストライカー",
-        color: "#FFA500",
-        icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
-      },
-      {
-        name: "5vs5殲滅",
-        color: "#FFA500",
-        icon: require('../../assets/GameModeIcons/5v5wipeout_icon.png')
-      }
-    ];
-    return modes;
-  };
-
   const renderSearchHistory = () => {
     if (searchHistory.length === 0 || isPlayerVerified) return null;
 
     return (
       <View style={styles.historyContainer}>
-        <Text style={styles.historyTitle}>検索履歴</Text>
+        <Text style={styles.historyTitle}>{t.searchHistory}</Text>
         {searchHistory.map((tag, index) => (
           <View key={index} style={styles.historyItemContainer}>
             <TouchableOpacity 
@@ -465,8 +491,8 @@ const TeamBoard: React.FC = () => {
     <ScrollView ref={scrollViewRef}>
       <View style={styles.postForm}>
         <View style={styles.playerTagContainer}>
-          <Text style={styles.inputLabel}>あなたのプレイヤータグ</Text>
-          <Text style={styles.tagDescription}>※このタグからホスト情報を補填しています。</Text>
+          <Text style={styles.inputLabel}>{t.playerTag}</Text>
+          <Text style={styles.tagDescription}>{t.tagDescription}</Text>
           <View style={styles.playerTagInputContainer}>
             <TextInput
               style={[
@@ -476,7 +502,7 @@ const TeamBoard: React.FC = () => {
               ]}
               value={playerTag}
               onChangeText={setPlayerTag}
-              placeholder="#XXXXXXXXX"
+              placeholder={t.tagPlaceholder}
               autoCapitalize="characters"
               autoCorrect={false}
               editable={!isPlayerVerified}
@@ -503,7 +529,7 @@ const TeamBoard: React.FC = () => {
                 <ActivityIndicator size="small" color="#fff" />
               ) : (
                 <Text style={styles.verifyButtonText}>
-                  {isPlayerVerified ? '変更する' : '取得'}
+                  {isPlayerVerified ? t.change : t.verify}
                 </Text>
               )}
             </TouchableOpacity>
@@ -514,7 +540,7 @@ const TeamBoard: React.FC = () => {
         {isPlayerVerified && (
           <>
             <View style={styles.modeSelectorContainer}>
-              <Text style={styles.inputLabel}>モード選択</Text>
+              <Text style={styles.inputLabel}>{t.modeSelection}</Text>
               <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                 {getCurrentModes().map((mode, index) => (
                   <TouchableOpacity
@@ -533,13 +559,13 @@ const TeamBoard: React.FC = () => {
             </View>
 
             <CharacterSelector
-              title="使用キャラクター"
+              title={t.useCharacter}
               onSelect={handleCharacterSelect}
               selectedCharacterId={selectedCharacter?.id}
               isRequired={true}
             />
 
-            <Text style={styles.inputLabel}>ミッド募集キャラクター (最大3体)</Text>
+            <Text style={styles.inputLabel}>{t.midCharacters}</Text>
             <CharacterSelector
               title=""
               onSelect={(character) => {
@@ -549,7 +575,7 @@ const TeamBoard: React.FC = () => {
                     return prev.filter(c => c.id !== character.id);
                   }
                   if (prev.length >= 3) {
-                    Alert.alert('エラー', 'ミッドキャラは3体まで選択できます');
+                    Alert.alert('Error', t.errors.maxMidChars);
                     return prev;
                   }
                   return [...prev, character];
@@ -560,7 +586,7 @@ const TeamBoard: React.FC = () => {
               maxSelections={3}
             />
 
-            <Text style={styles.inputLabel}>サイド募集キャラクター (最大3体)</Text>
+            <Text style={styles.inputLabel}>{t.sideCharacters}</Text>
             <CharacterSelector
               title=""
               onSelect={(character) => {
@@ -570,7 +596,7 @@ const TeamBoard: React.FC = () => {
                     return prev.filter(c => c.id !== character.id);
                   }
                   if (prev.length >= 3) {
-                    Alert.alert('エラー', 'サイドキャラは3体まで選択できます');
+                    Alert.alert('Error', t.errors.maxSideChars);
                     return prev;
                   }
                   return [...prev, character];
@@ -581,23 +607,23 @@ const TeamBoard: React.FC = () => {
               maxSelections={3}
             />
 
-            <Text style={styles.inputLabel}>招待リンク</Text>
+            <Text style={styles.inputLabel}>{t.inviteLink}</Text>
             <TextInput
               ref={inviteLinkInputRef}
               style={[styles.input, styles.inviteLinkInput]}
               value={inviteLink}
               onChangeText={setInviteLink}
-              placeholder="招待リンクを貼り付け"
+              placeholder={t.inviteLinkPlaceholder}
               multiline
               maxLength={125}
             />
 
-            <Text style={styles.inputLabel}>コメント (任意)</Text>
+            <Text style={styles.inputLabel}>{t.comment}</Text>
             <TextInput
               style={[styles.input, styles.multilineInput]}
               value={description}
               onChangeText={setDescription}
-              placeholder="募集に関する詳細や要望を入力"
+              placeholder={t.commentPlaceholder}
               multiline
               maxLength={100}
             />
@@ -613,7 +639,7 @@ const TeamBoard: React.FC = () => {
               resetForm();
             }}
           >
-            <Text style={styles.cancelButtonText}>キャンセル</Text>
+            <Text style={styles.cancelButtonText}>{t.cancel}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[
@@ -624,7 +650,7 @@ const TeamBoard: React.FC = () => {
             onPress={createPost}
             disabled={!isPlayerVerified}
           >
-            <Text style={styles.submitButtonText}>投稿</Text>
+            <Text style={styles.submitButtonText}>{t.submit}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -673,7 +699,7 @@ const TeamBoard: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>募集掲示板</Text>
+        <Text style={styles.title}>{t.boardTitle}</Text>
         <View style={styles.headerButtons}>
           <TouchableOpacity
             style={[
@@ -683,13 +709,13 @@ const TeamBoard: React.FC = () => {
             onPress={handleRefresh}
             disabled={isRefreshing}
           >
-            <Text style={styles.refreshButtonText}>更新</Text>
+            <Text style={styles.refreshButtonText}>{t.refresh}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.createButton}
             onPress={() => setModalVisible(true)}
           >
-            <Text style={styles.createButtonText}>募集する</Text>
+            <Text style={styles.createButtonText}>{t.create}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -842,14 +868,6 @@ const styles = StyleSheet.create({
   filterButtonActive: {
     backgroundColor: '#f0f0f0',
   },
-  filterButtonText: {
-    color: '#666',
-    fontSize: 12,
-    fontWeight: 'bold',
-  },
-  filterButtonTextActive: {
-    color: '#21A0DB',
-  },
   filterIcon: {
     width: 20,
     height: 20,
@@ -1001,7 +1019,7 @@ const styles = StyleSheet.create({
   },
   postForm: {
     padding: 16,
-  },
+  }
 });
 
 export default TeamBoard;

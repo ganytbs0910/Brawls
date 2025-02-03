@@ -9,6 +9,7 @@ import {
   Image,
   Alert
 } from 'react-native';
+import { useCharacterSelectorTranslation } from '../i18n/characterSelector';
 
 // Character Interface
 export interface Character {
@@ -126,13 +127,14 @@ export const CharacterSelector: React.FC<CharacterSelectorProps> = ({
   selectedCharacters = [],
   maxSelections = 5
 }) => {
+  const { t } = useCharacterSelectorTranslation();
   const [modalVisible, setModalVisible] = useState(false);
   const [tempSelectedCharacters, setTempSelectedCharacters] = useState<Character[]>(selectedCharacters);
 
   const handleSelect = (character: Character) => {
     if (!multiSelect) {
       if (character.id === 'none' && isRequired) {
-        Alert.alert('エラー', 'このキャラクター選択は必須です');
+        Alert.alert('エラー', t.errors.required);
         return;
       }
       onSelect(character.id === 'none' ? null : character);
@@ -150,7 +152,7 @@ export const CharacterSelector: React.FC<CharacterSelectorProps> = ({
       } else {
         // 新規選択
         if (prev.length >= maxSelections) {
-          Alert.alert('エラー', `最大${maxSelections}体まで選択できます`);
+          Alert.alert('エラー', t.errors.maxSelection.replace('{count}', maxSelections.toString()));
           return prev;
         }
         return [...prev, character];
@@ -174,7 +176,7 @@ export const CharacterSelector: React.FC<CharacterSelectorProps> = ({
     return selectedCharacterId === character.id;
   };
 
- return (
+  return (
     <View style={styles.characterSelectorContainer}>
       {title && <Text style={styles.inputLabel}>{title}</Text>}
       
@@ -197,7 +199,9 @@ export const CharacterSelector: React.FC<CharacterSelectorProps> = ({
                 ))}
               </View>
             ) : (
-              <Text style={styles.placeholderText}>キャラクターを選択 (最大{maxSelections}体)</Text>
+              <Text style={styles.placeholderText}>
+                {t.selectCharacter} {t.maxSelectionsInfo.replace('{count}', maxSelections.toString())}
+              </Text>
             )
           ) : (
             selectedCharacterId ? (
@@ -211,7 +215,7 @@ export const CharacterSelector: React.FC<CharacterSelectorProps> = ({
                 </Text>
               </View>
             ) : (
-              <Text style={styles.placeholderText}>キャラクターを選択</Text>
+              <Text style={styles.placeholderText}>{t.selectCharacter}</Text>
             )
           )}
         </View>
@@ -226,7 +230,7 @@ export const CharacterSelector: React.FC<CharacterSelectorProps> = ({
         <View style={styles.characterModalOverlay}>
           <View style={styles.characterModalView}>
             <Text style={styles.modalTitle}>
-              キャラクター選択
+              {t.modalTitle}
               {multiSelect && ` (${tempSelectedCharacters.length}/${maxSelections})`}
             </Text>
             
@@ -253,7 +257,7 @@ export const CharacterSelector: React.FC<CharacterSelectorProps> = ({
                 style={[styles.modalButton, styles.cancelButton]}
                 onPress={() => setModalVisible(false)}
               >
-                <Text style={styles.cancelButtonText}>キャンセル</Text>
+                <Text style={styles.cancelButtonText}>{t.cancel}</Text>
               </TouchableOpacity>
               
               {multiSelect && (
@@ -261,7 +265,7 @@ export const CharacterSelector: React.FC<CharacterSelectorProps> = ({
                   style={[styles.modalButton, styles.confirmButton]}
                   onPress={handleConfirm}
                 >
-                  <Text style={styles.confirmButtonText}>確定</Text>
+                  <Text style={styles.confirmButtonText}>{t.confirm}</Text>
                 </TouchableOpacity>
               )}
             </View>
@@ -291,7 +295,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  selectedCharactersPreview: {
+  selectedCharactersContainer: {
+    flexDirection: 'column',
+  },
+  selectedCharactersGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 8,
