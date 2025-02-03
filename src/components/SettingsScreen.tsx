@@ -34,6 +34,7 @@ import MapDetailScreen from './MapDetailScreen';
 import PunishmentGameScreen from './PunishmentGameScreen';
 import { MapDetail, ScreenType, ScreenState } from '../types';
 import { LanguageSelector } from './LanguageSelector';
+import { useSettingsScreenTranslation } from '../i18n/settingsScreen';
 
 // 商品ID定義
 const AD_REMOVAL_SKU_IOS = 'com.brawlstatus.adremoval';
@@ -63,48 +64,12 @@ interface SettingsScreenProps {
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const AllTipsScreen: React.FC<{ onClose: () => void }> = ({ onClose }) => {
-  const [currentLanguage, setCurrentLanguage] = useState<'ja' | 'en' | 'ko'>('ja');
+  const { t, currentLanguage } = useSettingsScreenTranslation();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const getLanguage = async () => {
-      try {
-        setIsLoading(true);
-        const savedLanguage = await AsyncStorage.getItem('selectedLanguage');
-        if (savedLanguage && ['ja', 'en', 'ko'].includes(savedLanguage)) {
-          setCurrentLanguage(savedLanguage as 'ja' | 'en' | 'ko');
-        }
-      } catch (error) {
-        console.error('Failed to get language setting:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    getLanguage();
+    setIsLoading(false);
   }, []);
-
-  useEffect(() => {
-    const watchLanguage = async () => {
-      try {
-        const savedLanguage = await AsyncStorage.getItem('selectedLanguage');
-        if (savedLanguage && savedLanguage !== currentLanguage && ['ja', 'en', 'ko'].includes(savedLanguage)) {
-          setCurrentLanguage(savedLanguage as 'ja' | 'en' | 'ko');
-        }
-      } catch (error) {
-        console.error('Failed to watch language setting:', error);
-      }
-    };
-
-    const interval = setInterval(watchLanguage, 1000);
-    return () => clearInterval(interval);
-  }, [currentLanguage]);
-
-  const headerText = {
-    ja: '豆知識一覧',
-    en: 'All Tips',
-    ko: '모든 팁'
-  };
 
   if (isLoading) {
     return null;
@@ -113,7 +78,7 @@ const AllTipsScreen: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   return (
     <View style={styles.settingsContainer}>
       <View style={styles.settingsHeader}>
-        <Text style={styles.settingsTitle}>{headerText[currentLanguage]}</Text>
+        <Text style={styles.settingsTitle}>{t.header.allTips}</Text>
         <TouchableOpacity onPress={onClose} style={styles.backButton}>
           <Text style={styles.backButtonText}>←</Text>
         </TouchableOpacity>
@@ -177,6 +142,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   mapDetailProps,
   onCharacterPress
 }) => {
+  const { t, currentLanguage } = useSettingsScreenTranslation();
   const [loading, setLoading] = useState(false);
   const [isIAPAvailable, setIsIAPAvailable] = useState(false);
   const [screenStack, setScreenStack] = useState<ScreenState[]>([screen]);
@@ -207,13 +173,31 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   const handleShare = async () => {
     try {
       const appStoreUrl = 'https://apps.apple.com/jp/app/brawl-status/id6738936691';
+      const shareMessage = {
+        ja: `ブロスタのマップ情報をチェックできるアプリ「Brawl Status」\n\nApp Storeからダウンロード：\n${appStoreUrl}`,
+        en: `Check Brawl Stars map information with "Brawl Status"\n\nDownload from App Store:\n${appStoreUrl}`,
+        ko: `브롤스타즈 맵 정보를 확인할 수 있는 앱 "Brawl Status"\n\nApp Store에서 다운로드：\n${appStoreUrl}`
+      };
+      
+      const shareTitle = {
+        ja: 'Brawl Status - ブロスタ攻略アプリ',
+        en: 'Brawl Status - Brawl Stars Guide',
+        ko: 'Brawl Status - 브롤스타즈 가이드'
+      };
+      
+      const dialogTitle = {
+        ja: 'Brawl Statusを共有',
+        en: 'Share Brawl Status',
+        ko: 'Brawl Status 공유'
+      };
+
       await Share.share({
-        message: 'ブロスタのマップ情報をチェックできるアプリ「Brawl Status」\n\nApp Storeからダウンロード：\n' + appStoreUrl,
+        message: shareMessage[currentLanguage],
         url: appStoreUrl,
-        title: 'Brawl Status - ブロスタ攻略アプリ'
+        title: shareTitle[currentLanguage]
       }, {
-        dialogTitle: 'Brawl Statusを共有',
-        subject: 'Brawl Status - ブロスタ攻略アプリ',
+        dialogTitle: dialogTitle[currentLanguage],
+        subject: shareTitle[currentLanguage],
         tintColor: '#21A0DB'
       });
     } catch (error) {
@@ -225,15 +209,17 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
     if (loading || isAdFree || !isIAPAvailable) return;
 
     Alert.alert(
-      '広告削除の購入',
-      `リリース記念セール中！\n通常${PURCHASE_CONFIG.ORIGINAL_PRICE_DISPLAY}→${PURCHASE_CONFIG.SALE_PRICE_DISPLAY}で広告を完全に削除します。\n購入を続けますか？`,
+      t.purchase.title,
+      t.purchase.message
+        .replace('{originalPrice}', PURCHASE_CONFIG.ORIGINAL_PRICE_DISPLAY)
+        .replace('{salePrice}', PURCHASE_CONFIG.SALE_PRICE_DISPLAY),
       [
         {
-          text: 'キャンセル',
+          text: t.purchase.cancel,
           style: 'cancel'
         },
         {
-          text: '購入する',
+          text: t.purchase.confirm,
           onPress: async () => {
             try {
               setLoading(true);
@@ -266,28 +252,28 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
                 
                 setIsAdFree(true);
                 await AsyncStorage.setItem('adFreeStatus', 'true');
-                Alert.alert('完了', '広告の削除が完了しました！');
+                Alert.alert('完了', t.purchase.complete);
               }
 
             } catch (error) {
               console.error('Purchase error:', error);
-              let errorMessage = '購入処理に失敗しました。';
+              let errorMessage = t.purchase.errors.failed;
               
               if (error instanceof PurchaseError) {
                 switch (error.code) {
                   case 'E_USER_CANCELLED':
                     return;
                   case 'E_ALREADY_OWNED':
-                    errorMessage = 'すでに購入済みです。購入の復元をお試しください。';
+                    errorMessage = t.purchase.errors.alreadyOwned;
                     break;
                   case 'E_NOT_PREPARED':
-                    errorMessage = 'ストアとの接続に失敗しました。後でもう一度お試しください。';
+                    errorMessage = t.purchase.errors.notPrepared;
                     break;
                   case 'E_PRODUCT_NOT_AVAILABLE':
-                    errorMessage = '現在この商品は購入できません。';
+                    errorMessage = t.purchase.errors.notAvailable;
                     break;
                   default:
-                    errorMessage = `購入処理中にエラーが発生しました。(${error.code})`;
+                    errorMessage = t.purchase.errors.default.replace('{code}', error.code);
                 }
               }
               Alert.alert('エラー', errorMessage);
@@ -315,13 +301,13 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
       if (adRemovalPurchase) {
         setIsAdFree(true);
         await AsyncStorage.setItem('adFreeStatus', 'true');
-        Alert.alert('完了', '広告削除の購入を復元しました！');
+        Alert.alert('完了', t.purchase.restore.success);
       } else {
-        Alert.alert('お知らせ', '復元可能な購入が見つかりませんでした。');
+        Alert.alert('お知らせ', t.purchase.restore.notFound);
       }
     } catch (error) {
       console.error('Restore error:', error);
-      Alert.alert('エラー', '購入の復元に失敗しました。');
+      Alert.alert('エラー', t.purchase.restore.error);
     } finally {
       setLoading(false);
     }
@@ -336,7 +322,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
       await adService.current.showInterstitial();
     } catch (error) {
       console.error('Failed to show interstitial ad:', error);
-      Alert.alert('エラー', '広告の表示に失敗しました。');
+      Alert.alert('エラー', t.ads.showError);
     }
   };
 
@@ -349,7 +335,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
       await rewarded.show();
     } catch (error) {
       console.error('Failed to show rewarded ad:', error);
-      Alert.alert('エラー', 'リワード広告の表示に失敗しました。');
+      Alert.alert('エラー', t.ads.rewardError);
     }
   };
 
@@ -362,8 +348,8 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
         >
           <Text style={[styles.settingsItemText, styles.settingsItemTextDisabled]}>
             {Platform.select({
-              ios: 'App Storeに接続できません',
-              android: 'Google Playに接続できません'
+              ios: t.purchase.errors.storeConnect,
+              android: t.purchase.errors.storeConnect.replace('App Store', 'Google Play')
             })}
           </Text>
         </TouchableOpacity>
@@ -384,7 +370,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
             styles.settingsItemText,
             (loading || isAdFree) && styles.settingsItemTextDisabled
           ]}>
-            {isAdFree ? '広告削除済み' : '広告を削除'}
+            {isAdFree ? t.menuItems.adsRemoved : t.menuItems.removeAds}
             {loading && ' (処理中...)'}
           </Text>
           {!isAdFree && !loading && (
@@ -395,7 +381,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
               <Text style={styles.salePrice}>
                 {PURCHASE_CONFIG.SALE_PRICE_DISPLAY}
               </Text>
-              <Text style={styles.saleLabel}>リリース記念セール</Text>
+              <Text style={styles.saleLabel}>{t.sale.label}</Text>
             </View>
           )}
         </View>
@@ -420,301 +406,298 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   };
 
   const goBack = () => {
-   if (screenStack.length <= 1) {
-     onClose();
-     return;
-   }
+    if (screenStack.length <= 1) {
+      onClose();
+      return;
+    }
 
-   const currentScreen = screenStack[screenStack.length - 1];
-   
-   Animated.timing(currentScreen.translateX, {
-     toValue: SCREEN_WIDTH,
-     duration: 300,
-     useNativeDriver: true,
-   }).start(() => {
-     setScreenStack(prev => prev.slice(0, -1));
-   });
- };
+    const currentScreen = screenStack[screenStack.length - 1];
+    
+    Animated.timing(currentScreen.translateX, {
+      toValue: SCREEN_WIDTH,
+      duration: 300,
+      useNativeDriver: true,
+    }).start(() => {
+      setScreenStack(prev => prev.slice(0, -1));
+    });
+  };
 
- const renderSettingsContent = () => (
-   <View style={styles.settingsContainer}>
-     <View style={styles.settingsHeader}>
-       <Text style={styles.settingsTitle}>設定</Text>
-       <TouchableOpacity onPress={onClose} style={styles.backButton}>
-         <Text style={styles.backButtonText}>←</Text>
-       </TouchableOpacity>
-     </View>
-     <TouchableOpacity 
-       style={styles.settingsItem}
-       onPress={() => navigateToScreen('language')}
-     >
-       <Text style={styles.settingsItemText}>言語設定</Text>
-     </TouchableOpacity>
-     <ScrollView style={styles.settingsContent}>
-       <TouchableOpacity 
-         style={styles.settingsItem}
-         onPress={handleShare}
-       >
-         <Text style={styles.settingsItemText}>友達に共有する</Text>
-       </TouchableOpacity>
+  const renderSettingsContent = () => (
+    <View style={styles.settingsContainer}>
+      <View style={styles.settingsHeader}>
+        <Text style={styles.settingsTitle}>{t.header.settings}</Text>
+        <TouchableOpacity onPress={onClose} style={styles.backButton}>
+          <Text style={styles.backButtonText}>←</Text>
+        </TouchableOpacity>
+      </View>
+      <TouchableOpacity 
+        style={styles.settingsItem}
+        onPress={() => navigateToScreen('language')}
+      >
+        <Text style={styles.settingsItemText}>{t.menuItems.language}</Text>
+      </TouchableOpacity>
+      <ScrollView style={styles.settingsContent}>
+        <TouchableOpacity 
+          style={styles.settingsItem}
+          onPress={handleShare}
+        >
+          <Text style={styles.settingsItemText}>{t.menuItems.share}</Text>
+        </TouchableOpacity>
 
-       {renderPurchaseButton()}
+        {renderPurchaseButton()}
 
-       {!isAdFree && (
-         <>
-           <TouchableOpacity 
-             style={styles.settingsItem}
-             onPress={handleSupportClick}
-           >
-             <Text style={styles.settingsItemText}>
-               広告を見て支援する（小）
-             </Text>
-           </TouchableOpacity>
+        {!isAdFree && (
+          <>
+            <TouchableOpacity 
+              style={styles.settingsItem}
+              onPress={handleSupportClick}
+            >
+              <Text style={styles.settingsItemText}>
+                {t.menuItems.supportSmall}
+              </Text>
+            </TouchableOpacity>
 
-           <TouchableOpacity 
-             style={[
-               styles.settingsItem,
-               !isRewardedAdReady && styles.settingsItemDisabled
-             ]}
-             onPress={showRewardedAd}
-             disabled={!isRewardedAdReady}
-           >
-             <Text style={[
-               styles.settingsItemText,
-               !isRewardedAdReady && styles.settingsItemTextDisabled
-             ]}>
-               広告を見て支援する（大）
-               {!isRewardedAdReady && ' (準備中)'}
-             </Text>
-           </TouchableOpacity>
+            <TouchableOpacity 
+              style={[
+                styles.settingsItem,
+                !isRewardedAdReady && styles.settingsItemDisabled
+              ]}
+              onPress={showRewardedAd}
+              disabled={!isRewardedAdReady}
+            >
+              <Text style={[
+                styles.settingsItemText,
+                !isRewardedAdReady && styles.settingsItemTextDisabled
+              ]}>
+                {isRewardedAdReady ? t.menuItems.supportLarge : t.menuItems.supportLargeLoading}
+              </Text>
+            </TouchableOpacity>
 
-           <TouchableOpacity 
-             style={styles.settingsItem}
-             onPress={() => {
-               const url = Platform.select({
-                 ios: 'https://apps.apple.com/jp/app/brawl-status/id6738936691?action=write-review',
-                 android: 'market://details?id=com.brawlstatus'
-               });
-               if (url) Linking.openURL(url);
-             }}
-           >
-             <Text style={styles.settingsItemText}>
-               アプリを評価する
-             </Text>
-           </TouchableOpacity>
-         </>
-       )}
+            <TouchableOpacity 
+              style={styles.settingsItem}
+              onPress={() => {
+                const url = Platform.select({
+                  ios: 'https://apps.apple.com/jp/app/brawl-status/id6738936691?action=write-review',
+                  android: 'market://details?id=com.brawlstatus'
+                });
+                if (url) Linking.openURL(url);
+              }}
+            >
+              <Text style={styles.settingsItemText}>{t.menuItems.rateApp}</Text>
+            </TouchableOpacity>
+          </>
+        )}
 
-       <TouchableOpacity 
-         style={styles.settingsItem}
-         onPress={() => navigateToScreen('privacy')}
-       >
-         <Text style={styles.settingsItemText}>プライバシーポリシー</Text>
-       </TouchableOpacity>
+        <TouchableOpacity 
+          style={styles.settingsItem}
+          onPress={() => navigateToScreen('privacy')}
+        >
+          <Text style={styles.settingsItemText}>{t.menuItems.privacy}</Text>
+        </TouchableOpacity>
 
-       <TouchableOpacity 
-         style={styles.settingsItem}
-         onPress={() => navigateToScreen('terms')}
-       >
-         <Text style={styles.settingsItemText}>利用規約</Text>
-       </TouchableOpacity>
+        <TouchableOpacity 
+          style={styles.settingsItem}
+          onPress={() => navigateToScreen('terms')}
+        >
+          <Text style={styles.settingsItemText}>{t.menuItems.terms}</Text>
+        </TouchableOpacity>
 
-       <TouchableOpacity 
-         style={styles.settingsItem}
-         onPress={() => navigateToScreen('allTips')}
-       >
-         <Text style={styles.settingsItemText}>豆知識一覧</Text>
-       </TouchableOpacity>
+        <TouchableOpacity 
+          style={styles.settingsItem}
+          onPress={() => navigateToScreen('allTips')}
+        >
+          <Text style={styles.settingsItemText}>{t.menuItems.allTips}</Text>
+        </TouchableOpacity>
 
-       <TouchableOpacity 
-         style={styles.settingsItem}
-         onPress={() => navigateToScreen('punishmentGame')}
-       >
-         <Text style={styles.settingsItemText}>罰ゲーム</Text>
-       </TouchableOpacity>
-     </ScrollView>
-   </View>
- );
+        <TouchableOpacity 
+          style={styles.settingsItem}
+          onPress={() => navigateToScreen('punishmentGame')}
+        >
+          <Text style={styles.settingsItemText}>{t.menuItems.punishmentGame}</Text>
+        </TouchableOpacity>
+      </ScrollView>
+    </View>
+  );
 
- const renderScreenContent = (screen: ScreenState) => {
-   switch (screen.type) {
-     case 'mapDetail':
-       return mapDetailProps ? (
-         <MapDetailScreen
-           {...mapDetailProps}
-           onClose={goBack}
-           onCharacterPress={onCharacterPress}
-         />
-       ) : null;
-     case 'settings':
-       return renderSettingsContent();
-     case 'privacy':
-       return (
-         <View style={styles.settingsContainer}>
-           <View style={styles.settingsHeader}>
-             <Text style={styles.settingsTitle}>プライバシーポリシー</Text>
-             <TouchableOpacity onPress={goBack} style={styles.backButton}>
-               <Text style={styles.backButtonText}>←</Text>
-             </TouchableOpacity>
-           </View>
-           <ScrollView style={styles.contentContainer}>
-             <Text style={styles.contentText}>{privacyPolicyContent}</Text>
-           </ScrollView>
-         </View>
-       );
-     case 'terms':
-       return (
-         <View style={styles.settingsContainer}>
-           <View style={styles.settingsHeader}>
-             <Text style={styles.settingsTitle}>利用規約</Text>
-             <TouchableOpacity onPress={goBack} style={styles.backButton}>
-               <Text style={styles.backButtonText}>←</Text>
-             </TouchableOpacity>
-           </View>
-           <ScrollView style={styles.contentContainer}>
-             <Text style={styles.contentText}>{termsContent}</Text>
-           </ScrollView>
-         </View>
-       );
-     case 'allTips':
-       return <AllTipsScreen onClose={goBack} />;
-     case 'punishmentGame':
-       return <PunishmentGameScreen onClose={goBack} />;
-     case 'language':
-       return <LanguageSelector onClose={goBack} />;
-     default:
-       return null;
-   }
- };
+  const renderScreenContent = (screen: ScreenState) => {
+    switch (screen.type) {
+      case 'mapDetail':
+        return mapDetailProps ? (
+          <MapDetailScreen
+            {...mapDetailProps}
+            onClose={goBack}
+            onCharacterPress={onCharacterPress}
+          />
+        ) : null;
+      case 'settings':
+        return renderSettingsContent();
+      case 'privacy':
+        return (
+          <View style={styles.settingsContainer}>
+            <View style={styles.settingsHeader}>
+              <Text style={styles.settingsTitle}>{t.header.privacy}</Text>
+              <TouchableOpacity onPress={goBack} style={styles.backButton}>
+                <Text style={styles.backButtonText}>←</Text>
+              </TouchableOpacity>
+            </View>
+            <ScrollView style={styles.contentContainer}>
+              <Text style={styles.contentText}>{privacyPolicyContent}</Text>
+            </ScrollView>
+          </View>
+        );
+      case 'terms':
+        return (
+          <View style={styles.settingsContainer}>
+            <View style={styles.settingsHeader}>
+              <Text style={styles.settingsTitle}>{t.header.terms}</Text>
+              <TouchableOpacity onPress={goBack} style={styles.backButton}>
+                <Text style={styles.backButtonText}>←</Text>
+              </TouchableOpacity>
+            </View>
+            <ScrollView style={styles.contentContainer}>
+              <Text style={styles.contentText}>{termsContent}</Text>
+            </ScrollView>
+          </View>
+        );
+      case 'allTips':
+        return <AllTipsScreen onClose={goBack} />;
+      case 'punishmentGame':
+        return <PunishmentGameScreen onClose={goBack} />;
+      case 'language':
+        return <LanguageSelector onClose={goBack} />;
+      default:
+        return null;
+    }
+  };
 
- return (
-   <>
-     {screenStack.map((screenState, index) => (
-       <Animated.View 
-         key={`${screenState.type}-${index}`}
-         style={[
-           styles.settingsOverlay,
-           {
-             transform: [{ translateX: screenState.translateX }],
-             zIndex: screenState.zIndex
-           },
-         ]}>
-         {renderScreenContent(screenState)}
-       </Animated.View>
-     ))}
-   </>
- );
+  return (
+    <>
+      {screenStack.map((screenState, index) => (
+        <Animated.View 
+          key={`${screenState.type}-${index}`}
+          style={[
+            styles.settingsOverlay,
+            {
+              transform: [{ translateX: screenState.translateX }],
+              zIndex: screenState.zIndex
+            },
+          ]}>
+          {renderScreenContent(screenState)}
+        </Animated.View>
+      ))}
+    </>
+  );
 };
 
 const styles = StyleSheet.create({
- settingsOverlay: {
-   position: 'absolute',
-   top: 0,
-   right: 0,
-   bottom: 0,
-   width: '100%',
-   backgroundColor: '#fff',
- },
- settingsContainer: {
-   flex: 1,
- },
- settingsHeader: {
-   height: 60,
-   backgroundColor: '#21A0DB',
-   flexDirection: 'row',
-   justifyContent: 'center',
-   alignItems: 'center',
-   width: '100%',
-   paddingHorizontal: 16,
-   borderBottomWidth: 1,
-   borderBottomColor: '#4FA8D6',
- },
- settingsTitle: {
-   fontSize: 20,
-   fontWeight: 'bold',
-   color: '#fff',
-   flex: 1,
-   textAlign: 'center',
- },
- settingsContent: {
-   flex: 1,
- },
- settingsItem: {
-   padding: 16,
-   borderBottomWidth: 1,
-   borderBottomColor: '#e0e0e0',
-   flexDirection: 'row',
-   justifyContent: 'space-between',
-   alignItems: 'center',
- },
- settingsItemDisabled: {
-   opacity: 0.5,
- },
- settingsItemText: {
-   fontSize: 16,
- },
- settingsItemTextDisabled: {
-   color: '#999',
- },
- backButton: {
-   position: 'absolute',
-   left: 16,
-   padding: 8,
- },
- backButtonText: {
-   fontSize: 24,
-   color: '#fff',
- },
- contentContainer: {
-   flex: 1,
-   padding: 16,
- },
- contentText: {
-   fontSize: 16,
-   lineHeight: 24,
- },
- tipItem: {
-   padding: 16,
-   borderBottomWidth: 1,
-   borderBottomColor: '#e0e0e0',
- },
- tipItemTitle: {
-   fontSize: 16,
-   fontWeight: 'bold',
-   marginBottom: 8,
-   color: '#333',
- },
- tipItemContent: {
-   fontSize: 14,
-   lineHeight: 20,
-   color: '#666',
- },
- priceContainer: {
-   flexDirection: 'row',
-   alignItems: 'center',
-   marginTop: 4,
- },
- originalPrice: {
-   fontSize: 14,
-   color: '#999',
-   textDecorationLine: 'line-through',
-   marginRight: 8,
- },
- salePrice: {
-   fontSize: 16,
-   color: '#FF4444',
-   fontWeight: 'bold',
-   marginRight: 8,
- },
- saleLabel: {
-   fontSize: 12,
-   color: '#FF4444',
-   borderWidth: 1,
-   borderColor: '#FF4444',
-   borderRadius: 4,
-   paddingHorizontal: 4,
-   paddingVertical: 2,
- }
+  settingsOverlay: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    width: '100%',
+    backgroundColor: '#fff',
+  },
+  settingsContainer: {
+    flex: 1,
+  },
+  settingsHeader: {
+    height: 60,
+    backgroundColor: '#21A0DB',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    paddingHorizontal: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#4FA8D6',
+  },
+  settingsTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#fff',
+    flex: 1,
+    textAlign: 'center',
+  },
+  settingsContent: {
+    flex: 1,
+  },
+  settingsItem: {
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  settingsItemDisabled: {
+    opacity: 0.5,
+  },
+  settingsItemText: {
+    fontSize: 16,
+  },
+  settingsItemTextDisabled: {
+    color: '#999',
+  },
+  backButton: {
+    position: 'absolute',
+    left: 16,
+    padding: 8,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: '#fff',
+  },
+  contentContainer: {
+    flex: 1,
+    padding: 16,
+  },
+  contentText: {
+    fontSize: 16,
+    lineHeight: 24,
+  },
+  tipItem: {
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+  },
+  tipItemTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    color: '#333',
+  },
+  tipItemContent: {
+    fontSize: 14,
+    lineHeight: 20,
+    color: '#666',
+  },
+  priceContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 4,
+  },
+  originalPrice: {
+    fontSize: 14,
+    color: '#999',
+    textDecorationLine: 'line-through',
+    marginRight: 8,
+  },
+  salePrice: {
+    fontSize: 16,
+    color: '#FF4444',
+    fontWeight: 'bold',
+    marginRight: 8,
+  },
+  saleLabel: {
+    fontSize: 12,
+    color: '#FF4444',
+    borderWidth: 1,
+    borderColor: '#FF4444',
+    borderRadius: 4,
+    paddingHorizontal: 4,
+    paddingVertical: 2,
+  }
 });
 
 export default SettingsScreen;

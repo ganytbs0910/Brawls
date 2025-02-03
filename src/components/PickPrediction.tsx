@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   Text,
@@ -71,6 +71,11 @@ export interface SelectionState {
   } | null;
 }
 
+interface HistoryEntry {
+  state: SelectionState;
+  timestamp: number;
+}
+
 export interface CharacterRecommendation {
   character: string;
   score: number;
@@ -125,8 +130,11 @@ const MAPS_BY_MODE: MapsByMode = {
     { name: "パラレルワールド", image: require('../../assets/MapImages/Parallel_Plays.png') },
   ],
 };
+
 const PickPrediction: React.FC = () => {
   const { t } = usePickPredictionTranslation();
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
+  const [currentHistoryIndex, setCurrentHistoryIndex] = useState<number>(0);
   const [gameState, setGameState] = useState<SelectionState>({
     teamA: [],
     teamB: [],
@@ -150,6 +158,42 @@ const PickPrediction: React.FC = () => {
   ]);
   const scaleAnim = useRef(new Animated.Value(0)).current;
 
+  const addToHistory = (newState: SelectionState) => {
+    const newEntry: HistoryEntry = {
+      state: JSON.parse(JSON.stringify(newState)),
+      timestamp: Date.now()
+    };
+
+    const newHistory = [...history.slice(0, currentHistoryIndex + 1), newEntry];
+    setHistory(newHistory);
+    setCurrentHistoryIndex(newHistory.length - 1);
+  };
+
+  const setGameStateWithHistory = (
+    newState: SelectionState | ((prev: SelectionState) => SelectionState)
+  ) => {
+    setGameState((prev) => {
+      const nextState = typeof newState === 'function' ? newState(prev) : newState;
+      addToHistory(nextState);
+      return nextState;
+    });
+  };
+
+  const handleUndo = () => {
+    if (currentHistoryIndex > 0) {
+      const previousState = history[currentHistoryIndex - 1].state;
+      setCurrentHistoryIndex(currentHistoryIndex - 1);
+      setGameState(previousState);
+      
+      if (previousState.isBanPhaseEnabled && 
+          previousState.bansA.length + previousState.bansB.length < 6) {
+        showTurnAnnouncement(previousState.currentTeam, 0, true);
+      } else {
+        showTurnAnnouncement(previousState.currentTeam, previousState.currentPhase);
+      }
+    }
+  };
+
   const calculateTeamAdvantage = (teamAChars: string[], teamBChars: string[]): {
     teamAScore: number;
     teamBScore: number;
@@ -159,7 +203,6 @@ const PickPrediction: React.FC = () => {
     let teamAScore = 0;
     let teamBScore = 0;
 
-    // 相性スコアの計算
     teamAChars.forEach(aChar => {
       teamBChars.forEach(bChar => {
         const aId = getCharacterId(aChar);
@@ -180,7 +223,6 @@ const PickPrediction: React.FC = () => {
       });
     });
 
-    // マップ適性ボーナスの計算
     let mapData;
     switch (gameState.selectedMode) {
       case t.modes.heist:
@@ -195,13 +237,12 @@ const PickPrediction: React.FC = () => {
       case t.modes.knockout:
         mapData = gameState.selectedMap && knockoutMaps[gameState.selectedMap];
         break;
-      case "デュエル":  // デュエルはローカライズ対象外
+      case "デュエル":
         mapData = gameState.selectedMap && duelMaps[gameState.selectedMap];
         break;
     }
 
     if (mapData) {
-      // チームAのマップボーナス
       teamAChars.forEach(char => {
         const bonus = mapData.recommendedBrawlers.find(b => b.name === char);
         if (bonus) {
@@ -209,7 +250,6 @@ const PickPrediction: React.FC = () => {
         }
       });
 
-      // チームBのマップボーナス
       teamBChars.forEach(char => {
         const bonus = mapData.recommendedBrawlers.find(b => b.name === char);
         if (bonus) {
@@ -242,7 +282,7 @@ const PickPrediction: React.FC = () => {
       mapImage: MAPS_BY_MODE[t.modes[mode.name]]?.find(m => m.name === mapName)?.image
     };
 
-    setGameState(prev => ({
+    setGameStateWithHistory(prev => ({
       ...prev,
       mapDetailProps: mapDetail
     }));
@@ -250,7 +290,7 @@ const PickPrediction: React.FC = () => {
   };
 
   const handleModeSelect = (modeName: string) => {
-    setGameState(prev => ({
+    setGameStateWithHistory(prev => ({
       ...prev,
       selectedMode: modeName,
       selectedMap: undefined
@@ -258,7 +298,7 @@ const PickPrediction: React.FC = () => {
   };
 
   const handleMapSelect = (mapName: string) => {
-    setGameState(prev => ({
+    setGameStateWithHistory(prev => ({
       ...prev,
       selectedMap: mapName
     }));
@@ -280,7 +320,7 @@ const PickPrediction: React.FC = () => {
     if (!gameState.selectedMode) {
       const initialMode = t.modes[GAME_MODES[0].name];
       const initialMap = MAPS_BY_MODE[initialMode][0].name;
-      setGameState(prev => ({
+      setGameStateWithHistory(prev => ({
         ...prev,
         selectedMode: initialMode,
         selectedMap: initialMap
@@ -288,6 +328,7 @@ const PickPrediction: React.FC = () => {
     }
     setShowModeModal(true);
   };
+
   const showScreen = (screenType: ScreenType) => {
     const newScreen: ScreenState = {
       type: screenType,
@@ -319,7 +360,7 @@ const PickPrediction: React.FC = () => {
   };
 
   const resetGame = () => {
-    setGameState(prev => ({
+    setGameStateWithHistory({
       teamA: [],
       teamB: [],
       bansA: [],
@@ -327,11 +368,13 @@ const PickPrediction: React.FC = () => {
       currentPhase: 1,
       currentTeam: 'A',
       recommendations: [],
-      isBanPhaseEnabled: prev.isBanPhaseEnabled,
-      selectedMode: prev.selectedMode,
-      selectedMap: prev.selectedMap,
+      isBanPhaseEnabled: gameState.isBanPhaseEnabled,
+      selectedMode: gameState.selectedMode,
+      selectedMap: gameState.selectedMap,
       mapDetailProps: null,
-    }));
+    });
+    setHistory([]);
+    setCurrentHistoryIndex(0);
     showTurnAnnouncement('A', gameState.isBanPhaseEnabled ? 0 : 1, gameState.isBanPhaseEnabled);
   };
 
@@ -394,7 +437,6 @@ const PickPrediction: React.FC = () => {
         let totalScore = 0;
         let mapBonus = 0;
         
-        // 相性スコアの計算
         opposingTeamChars.forEach(opposingChar => {
           const characterId = getCharacterId(character);
           const opposingId = getCharacterId(opposingChar);
@@ -405,7 +447,6 @@ const PickPrediction: React.FC = () => {
           }
         });
 
-        // マップ適性ボーナスの計算
         let mapData;
         switch (gameState.selectedMode) {
           case t.modes.heist:
@@ -420,7 +461,7 @@ const PickPrediction: React.FC = () => {
           case t.modes.knockout:
             mapData = gameState.selectedMap && knockoutMaps[gameState.selectedMap];
             break;
-          case "デュエル":  // デュエルはローカライズ対象外
+          case "デュエル":
             mapData = gameState.selectedMap && duelMaps[gameState.selectedMap];
             break;
         }
@@ -452,27 +493,33 @@ const PickPrediction: React.FC = () => {
   const handleBanSelect = (character: string) => {
     if (!gameState.isBanPhaseEnabled) return;
     
+    let newState = { ...gameState };
+    
     if (gameState.bansA.length < 3 && gameState.currentTeam === 'A') {
       const newBansA = [...gameState.bansA, character];
-      setGameState(prev => ({
-        ...prev,
+      newState = {
+        ...newState,
         bansA: newBansA,
         currentTeam: newBansA.length === 3 ? 'B' : 'A'
-      }));
+      };
+      
       if (newBansA.length === 3) {
         showTurnAnnouncement('B', 0, true);
       }
     } else if (gameState.bansB.length < 3 && gameState.currentTeam === 'B') {
       const newBansB = [...gameState.bansB, character];
-      setGameState(prev => ({
-        ...prev,
+      newState = {
+        ...newState,
         bansB: newBansB,
         currentTeam: newBansB.length === 3 ? 'A' : 'B'
-      }));
+      };
+      
       if (newBansB.length === 3) {
         showTurnAnnouncement('A', 1, false);
       }
     }
+    
+    setGameStateWithHistory(newState);
   };
 
   const handleCharacterSelect = (character: string) => {
@@ -482,15 +529,18 @@ const PickPrediction: React.FC = () => {
       if (currentTeam === 'A' && teamA.includes(character)) return;
       if (currentTeam === 'B' && teamB.includes(character)) return;
       
-      const newState = { ...gameState };
+      let newState = { ...gameState };
 
       switch (currentPhase) {
         case 1:
           if (currentTeam === 'A') {
-            newState.teamA = [character];
-            newState.currentTeam = 'B';
-            newState.currentPhase = 2;
-            newState.recommendations = calculateRecommendations('B', [character], []);
+            newState = {
+              ...newState,
+              teamA: [character],
+              currentTeam: 'B',
+              currentPhase: 2,
+              recommendations: calculateRecommendations('B', [character], [])
+            };
             showTurnAnnouncement('B', 2);
           }
           break;
@@ -498,12 +548,19 @@ const PickPrediction: React.FC = () => {
         case 2:
           if (currentTeam === 'B' && teamB.length < 2) {
             const newTeamB = [...teamB, character];
-            newState.teamB = newTeamB;
-            newState.recommendations = calculateRecommendations('B', teamA, newTeamB);
+            newState = {
+              ...newState,
+              teamB: newTeamB,
+              recommendations: calculateRecommendations('B', teamA, newTeamB)
+            };
+            
             if (newTeamB.length === 2) {
-              newState.currentTeam = 'A';
-              newState.currentPhase = 3;
-              newState.recommendations = calculateRecommendations('A', newTeamB, teamA);
+              newState = {
+                ...newState,
+                currentTeam: 'A',
+                currentPhase: 3,
+                recommendations: calculateRecommendations('A', newTeamB, teamA)
+              };
               showTurnAnnouncement('A', 3);
             }
           }
@@ -512,12 +569,19 @@ const PickPrediction: React.FC = () => {
         case 3:
           if (currentTeam === 'A' && teamA.length < 3) {
             const newTeamA = [...teamA, character];
-            newState.teamA = newTeamA;
-            newState.recommendations = calculateRecommendations('A', teamB, newTeamA);
+            newState = {
+              ...newState,
+              teamA: newTeamA,
+              recommendations: calculateRecommendations('A', teamB, newTeamA)
+            };
+            
             if (newTeamA.length === 3) {
-              newState.currentTeam = 'B';
-              newState.currentPhase = 4;
-              newState.recommendations = calculateRecommendations('B', newTeamA, teamB);
+              newState = {
+                ...newState,
+                currentTeam: 'B',
+                currentPhase: 4,
+                recommendations: calculateRecommendations('B', newTeamA, teamB)
+              };
               showTurnAnnouncement('B', 4);
             }
           }
@@ -526,13 +590,16 @@ const PickPrediction: React.FC = () => {
         case 4:
           if (currentTeam === 'B' && teamB.length < 3) {
             const newTeamB = [...teamB, character];
-            newState.teamB = newTeamB;
-            newState.recommendations = [];
+            newState = {
+              ...newState,
+              teamB: newTeamB,
+              recommendations: []
+            };
           }
           break;
       }
 
-      setGameState(newState);
+      setGameStateWithHistory(newState);
     };
 
     if (!gameState.isBanPhaseEnabled) {
@@ -543,6 +610,7 @@ const PickPrediction: React.FC = () => {
       }
     }
   };
+
   const renderModeAndMapModal = () => {
     return (
       <Modal
@@ -626,7 +694,7 @@ const PickPrediction: React.FC = () => {
             <TouchableOpacity
               style={styles.banToggleContainer}
               onPress={() => {
-                setGameState(prev => {
+                setGameStateWithHistory(prev => {
                   const newState = {
                     ...prev,
                     isBanPhaseEnabled: !prev.isBanPhaseEnabled,
@@ -673,12 +741,21 @@ const PickPrediction: React.FC = () => {
               )}
             </TouchableOpacity>
           </View>
-          <TouchableOpacity 
-            style={styles.resetButton}
-            onPress={resetGame}
-          >
-            <Text style={styles.resetButtonText}>{t.header.reset}</Text>
-          </TouchableOpacity>
+          <View style={styles.headerRight}>
+            <TouchableOpacity 
+              style={[styles.headerButton, { opacity: currentHistoryIndex > 0 ? 1 : 0.5 }]}
+              onPress={handleUndo}
+              disabled={currentHistoryIndex === 0}
+            >
+              <Text style={styles.undoButtonText}>↩</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+              style={styles.resetButton}
+              onPress={resetGame}
+            >
+              <Text style={styles.resetButtonText}>{t.header.reset}</Text>
+            </TouchableOpacity>
+          </View>
         </View>
 
         <View style={styles.teamsContainer}>
@@ -788,6 +865,7 @@ const PickPrediction: React.FC = () => {
     </SafeAreaView>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -822,6 +900,25 @@ const styles = StyleSheet.create({
   headerCenter: {
     alignItems: 'center',
   },
+  headerRight: {
+    position: 'absolute',
+    right: 10,
+    top: '50%',
+    transform: [{ translateY: -15 }],
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  headerButton: {
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    padding: 8,
+    borderRadius: 15,
+    marginRight: 8,
+  },
+  undoButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
   banToggleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -854,10 +951,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   resetButton: {
-    position: 'absolute',
-    right: 10,
-    top: '50%',
-    transform: [{ translateY: -15 }],
     backgroundColor: 'rgba(255, 255, 255, 0.2)',
     paddingHorizontal: 12,
     paddingVertical: 6,
@@ -876,7 +969,6 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 20,
     alignItems: 'center',
-    marginBottom: 5,
   },
   modeSelectText: {
     color: '#fff',
