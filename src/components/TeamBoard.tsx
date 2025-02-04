@@ -416,46 +416,64 @@ const TeamBoard: React.FC = () => {
   };
 
   const createPost = async () => {
-  if (!validateInputs()) return;
+ // 入力検証
+ if (!validateInputs()) return;
 
-  try {
-    const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
-    const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
+ // レートリミット確認
+ const lastPostTime = await AsyncStorage.getItem('lastPostTime'); 
+ if (lastPostTime) {
+   const timeSinceLastPost = Date.now() - Number(lastPostTime);
+   if (timeSinceLastPost < 60000) { // 1分の制限
+     Alert.alert('Error', t.errors.postTooFrequent);
+     return;
+   }
+ }
 
-    const { error } = await supabase
-      .from('team_posts')
-      .insert([{
-        selected_mode: selectedMode,
-        invite_link: cleanInviteLink,
-        description: description.trim(),
-        selected_character: selectedCharacter!.id,
-        character_trophies: Number(characterTrophies),
-        mid_characters: midCharacters.map(c => c.id),
-        side_characters: sideCharacters.map(c => c.id),
-        host_info: hostInfo
-      }]);
+ try {
+   // 招待リンクのクリーニング
+   const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
+   const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
 
-    if (error) throw error;
+   // Supabaseにポストを作成
+   const { error } = await supabase
+     .from('team_posts')
+     .insert([{
+       selected_mode: selectedMode,
+       invite_link: cleanInviteLink,
+       description: description.trim(),
+       selected_character: selectedCharacter!.id,
+       character_trophies: Number(characterTrophies),
+       mid_characters: midCharacters.map(c => c.id),
+       side_characters: sideCharacters.map(c => c.id),
+       host_info: hostInfo
+     }]);
 
-    await AsyncStorage.setItem('lastPostTime', Date.now().toString());
-    resetForm();
-    setModalVisible(false);
+   if (error) throw error;
 
-    // 投稿成功後にインタースティシャル広告を表示
-    try {
-      // AdMobServiceのインスタンスを取得
-      const adService = await AdMobService.initialize();
-      await adService.showInterstitial();
-    } catch (adError) {
-      console.error('Failed to show interstitial ad:', adError);
-      // 広告表示に失敗しても投稿自体は成功しているのでエラー表示はしない
-    }
+   // 最終投稿時刻を更新
+   await AsyncStorage.setItem('lastPostTime', Date.now().toString());
+   
+   // フォームをリセット
+   resetForm();
+   setModalVisible(false);
 
-    Alert.alert('Success', t.success.postCreated);
-  } catch (error) {
-    console.error('Error creating post:', error);
-    Alert.alert('Error', t.errors.postCreationFailed);
-  }
+   // 非課金ユーザーのみ広告を表示
+   if (!isAdFree) {
+     try {
+       const adService = await AdMobService.initialize();
+       await adService.showInterstitial();
+     } catch (adError) {
+       console.error('Failed to show interstitial ad:', adError);
+       // 広告エラーは無視して続行
+     }
+   }
+
+   Alert.alert('Success', t.success.postCreated);
+   
+ } catch (error) {
+   console.error('Error creating post:', error);
+   Alert.alert('Error', t.errors.postCreationFailed);
+ }
 };
 
   const resetForm = () => {
