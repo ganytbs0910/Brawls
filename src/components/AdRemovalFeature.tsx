@@ -1,4 +1,3 @@
-// AdRemovalFeature.tsx
 import React, { useState, useEffect } from 'react';
 import {
   TouchableOpacity,
@@ -18,13 +17,19 @@ import {
   Product,
   getPurchases,
   acknowledgePurchase,
-  consumeAllItems
+  consumeAllItems,
+  validateReceiptIos,
+  validateReceiptAndroid,
+  clearTransactionIOS,
+  type Purchase
 } from 'react-native-iap';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import AdMobService from './AdMobService';
 
-// 商品ID定義
-const AD_REMOVAL_SKU_IOS = 'com.brawlstatus.adremoval';
-const AD_REMOVAL_SKU_ANDROID = 'com.brawlstatus.adremoval';
+const AD_REMOVAL_SKU = Platform.select({
+  ios: 'com.brawlstatus.adremoval',
+  android: 'com.brawlstatus.adremoval'
+});
 
 const PURCHASE_CONFIG = {
   PRICE: 200,
@@ -32,257 +37,236 @@ const PURCHASE_CONFIG = {
   PRODUCT_NAME: '広告削除パック',
 } as const;
 
-// カスタムフック
+class IAPManager {
+  private static instance: IAPManager;
+  private initialized = false;
+  private adMobService: AdMobService | null = null;
+
+  private constructor() {}
+
+  static getInstance(): IAPManager {
+    if (!IAPManager.instance) {
+      IAPManager.instance = new IAPManager();
+    }
+    return IAPManager.instance;
+  }
+
+  async init(): Promise<void> {
+    if (this.initialized) return;
+
+    try {
+      await initConnection();
+      await this.cleanupPendingPurchases();
+      await this.loadProducts();
+      this.adMobService = AdMobService.getInstance();
+      this.initialized = true;
+    } catch (error) {
+      throw new Error('Failed to initialize IAP');
+    }
+  }
+
+  private async cleanupPendingPurchases(): Promise<void> {
+    try {
+      if (Platform.OS === 'ios') {
+        await clearTransactionIOS();
+      } else {
+        await consumeAllItems();
+      }
+    } catch (error) {
+      console.warn('[IAP] Cleanup warning:', error);
+    }
+  }
+
+  private async loadProducts(): Promise<void> {
+    if (!AD_REMOVAL_SKU) return;
+    await getProducts({ skus: [AD_REMOVAL_SKU] });
+  }
+
+  private async validatePurchase(purchase: Purchase): Promise<boolean> {
+    try {
+      if (Platform.OS === 'ios') {
+        const receipt = purchase.transactionReceipt;
+        if (!receipt) return false;
+        
+        const validation = await validateReceiptIos({
+          receiptBody: {
+            'receipt-data': receipt,
+            password: 'YOUR_SHARED_SECRET'
+          },
+          isTest: __DEV__
+        });
+        
+        return validation.status === 0;
+      } else {
+        const validation = await validateReceiptAndroid({
+          packageName: 'com.brawlstatus',
+          productId: purchase.productId,
+          purchaseToken: purchase.purchaseToken,
+          accessToken: 'YOUR_ACCESS_TOKEN'
+        });
+        
+        return validation.purchaseState === 1;
+      }
+    } catch (error) {
+      return false;
+    }
+  }
+
+  async handlePurchase(purchase: Purchase): Promise<boolean> {
+    try {
+      const isValid = await this.validatePurchase(purchase);
+      if (!isValid) return false;
+
+      if (Platform.OS === 'android' && !purchase.acknowledged) {
+        await acknowledgePurchase(purchase.purchaseToken);
+      } else {
+        await finishTransaction(purchase);
+      }
+
+      await AsyncStorage.setItem('adFreeStatus', 'true');
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  async purchaseAdRemoval(): Promise<boolean> {
+    if (!AD_REMOVAL_SKU) return false;
+
+    try {
+      const purchases = await getPurchases();
+      const existingPurchase = purchases.find(p => p.productId === AD_REMOVAL_SKU);
+
+      if (existingPurchase) {
+        return this.handlePurchase(existingPurchase);
+      }
+
+      const purchase = await requestPurchase({
+        sku: AD_REMOVAL_SKU,
+        andDangerouslyFinishTransactionAutomatically: false
+      });
+
+      if (!purchase) return false;
+      const success = await this.handlePurchase(purchase);
+      
+      if (success && this.adMobService) {
+        // 広告表示を無効化
+        await AsyncStorage.setItem('adFreeStatus', 'true');
+      }
+
+      return success;
+
+    } catch (error) {
+      if (error instanceof PurchaseError) {
+        switch (error.code) {
+          case 'E_USER_CANCELLED':
+            return false;
+          case 'E_ALREADY_OWNED':
+            await AsyncStorage.setItem('adFreeStatus', 'true');
+            return true;
+          default:
+            return false;
+        }
+      }
+      return false;
+    }
+  }
+
+  async restorePurchases(): Promise<boolean> {
+    if (!AD_REMOVAL_SKU) return false;
+
+    try {
+      const purchases = await getPurchases();
+      
+      for (const purchase of purchases) {
+        if (purchase.productId === AD_REMOVAL_SKU) {
+          const success = await this.handlePurchase(purchase);
+          if (success && this.adMobService) {
+            await AsyncStorage.setItem('adFreeStatus', 'true');
+          }
+          return success;
+        }
+      }
+
+      const storedStatus = await AsyncStorage.getItem('adFreeStatus');
+      return storedStatus === 'true';
+    } catch (error) {
+      return false;
+    }
+  }
+
+  async checkPurchaseStatus(): Promise<boolean> {
+    try {
+      const storedStatus = await AsyncStorage.getItem('adFreeStatus');
+      if (storedStatus === 'true') return true;
+
+      if (!AD_REMOVAL_SKU) return false;
+      
+      const purchases = await getPurchases();
+      return purchases.some(p => p.productId === AD_REMOVAL_SKU);
+    } catch (error) {
+      return false;
+    }
+  }
+}
+
 const useAdRemoval = () => {
   const [isAdFree, setIsAdFree] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [products, setProducts] = useState<Product[]>([]);
 
-  // 初期化
   useEffect(() => {
-    const initIAP = async () => {
+    const initializeIAP = async () => {
       try {
-        console.log('[IAP] Starting initialization');
-        console.log('[IAP] Environment:', __DEV__ ? 'Sandbox' : 'Production');
-        console.log('[IAP] Platform:', Platform.OS);
-        
-        if (Platform.OS === 'ios' && Platform.constants.isSimulator) {
-          console.warn('[IAP] Running on iOS Simulator - IAP may not work');
-        }
-
-        // Android向けの追加ログ
-        if (Platform.OS === 'android') {
-          console.log('[IAP] Android SKU:', AD_REMOVAL_SKU_ANDROID);
-        }
-
-        const result = await initConnection();
-        console.log('[IAP] Connection initialized:', result);
-
-        const skuId = Platform.select({
-          ios: AD_REMOVAL_SKU_IOS,
-          android: AD_REMOVAL_SKU_ANDROID
-        });
-
-        if (!skuId) {
-          throw new Error('Platform not supported');
-        }
-
-        // Android向けの未消費アイテムのクリーンアップ
-        if (Platform.OS === 'android') {
-          try {
-            await consumeAllItems();
-            console.log('[IAP] Cleaned up unconsumed items');
-          } catch (error) {
-            console.warn('[IAP] Error cleaning up items:', error);
-          }
-        }
-
-        // 利用可能な商品の確認
-        const availableProducts = await getProducts({ skus: [skuId] });
-        console.log('[IAP] Available products:', availableProducts);
-        setProducts(availableProducts);
-
-        // 購入状態の確認
-        const storedStatus = await AsyncStorage.getItem('adFreeStatus');
-        if (storedStatus === 'true') {
-          setIsAdFree(true);
-        } else {
-          // 既存の購入を確認
-          const purchases = await getPurchases();
-          const hasValidPurchase = purchases.some(
-            purchase => purchase.productId === AD_REMOVAL_SKU_IOS || 
-                       purchase.productId === AD_REMOVAL_SKU_ANDROID
-          );
-          
-          if (hasValidPurchase) {
-            await AsyncStorage.setItem('adFreeStatus', 'true');
-            setIsAdFree(true);
-          }
-        }
-
+        const iapManager = IAPManager.getInstance();
+        await iapManager.init();
+        const hasValidPurchase = await iapManager.checkPurchaseStatus();
+        setIsAdFree(hasValidPurchase);
       } catch (error) {
-        console.error('[IAP] Initialization error:', error);
         setError('初期化に失敗しました');
       } finally {
         setLoading(false);
       }
     };
 
-    initIAP();
+    initializeIAP();
   }, []);
 
-  // Android向けの購入承認処理
-  const handleAndroidPurchase = async (purchase: any) => {
-    try {
-      if (!purchase.acknowledged) {
-        await acknowledgePurchase(purchase.purchaseToken);
-        console.log('[IAP] Android purchase acknowledged');
-      }
-      await AsyncStorage.setItem('adFreeStatus', 'true');
-      setIsAdFree(true);
-      return true;
-    } catch (error) {
-      console.error('[IAP] Error acknowledging Android purchase:', error);
-      throw error;
-    }
-  };
-
-  // 広告削除の購入
   const purchaseAdRemoval = async () => {
     try {
       setLoading(true);
       setError(null);
 
-      const skuId = Platform.select({
-        ios: AD_REMOVAL_SKU_IOS,
-        android: AD_REMOVAL_SKU_ANDROID
-      });
-
-      if (!skuId) {
-        throw new Error('Platform not supported');
+      const iapManager = IAPManager.getInstance();
+      const success = await iapManager.purchaseAdRemoval();
+      
+      if (success) {
+        setIsAdFree(true);
       }
-
-      console.log('[IAP] Starting purchase for SKU:', skuId);
-
-      // 既存の購入を確認
-      try {
-        const purchases = await getPurchases();
-        const existingPurchase = purchases.find(
-          p => p.productId === AD_REMOVAL_SKU_IOS || 
-               p.productId === AD_REMOVAL_SKU_ANDROID
-        );
-        
-        if (existingPurchase) {
-          if (Platform.OS === 'android') {
-            return await handleAndroidPurchase(existingPurchase);
-          } else {
-            await AsyncStorage.setItem('adFreeStatus', 'true');
-            setIsAdFree(true);
-            return true;
-          }
-        }
-      } catch (error) {
-        console.warn('[IAP] Error checking existing purchases:', error);
-      }
-
-      // 新規購入を試行
-      const purchase = await requestPurchase({
-        sku: skuId,
-        andDangerouslyFinishTransactionAutomatically: false
-      }).catch(async error => {
-        if (error.code === 'E_ALREADY_OWNED') {
-          if (Platform.OS === 'android') {
-            const purchases = await getPurchases();
-            const existingPurchase = purchases.find(p => p.productId === AD_REMOVAL_SKU_ANDROID);
-            if (existingPurchase) {
-              return handleAndroidPurchase(existingPurchase);
-            }
-          }
-          await AsyncStorage.setItem('adFreeStatus', 'true');
-          setIsAdFree(true);
-          return true;
-        }
-        throw error;
-      });
-
-      if (purchase === true) {
-        return true;
-      }
-
-      if (purchase) {
-        if (Platform.OS === 'android') {
-          await handleAndroidPurchase(purchase);
-        } else {
-          await finishTransaction(purchase);
-          await AsyncStorage.setItem('adFreeStatus', 'true');
-          setIsAdFree(true);
-        }
-        return true;
-      }
-
-      return false;
-
+      
+      return success;
     } catch (error) {
-      console.error('[IAP] Purchase error:', error);
-      let errorMessage = '購入処理に失敗しました。';
-
-      if (error instanceof PurchaseError) {
-        switch (error.code) {
-          case 'E_USER_CANCELLED':
-            return false;
-          case 'E_ALREADY_OWNED':
-            if (Platform.OS === 'android') {
-              const purchases = await getPurchases();
-              const existingPurchase = purchases.find(p => p.productId === AD_REMOVAL_SKU_ANDROID);
-              if (existingPurchase) {
-                return handleAndroidPurchase(existingPurchase);
-              }
-            }
-            await AsyncStorage.setItem('adFreeStatus', 'true');
-            setIsAdFree(true);
-            return true;
-          case 'E_NETWORK_ERROR':
-            errorMessage = 'ネットワークエラーが発生しました。接続を確認してください。';
-            break;
-          case 'E_SERVICE_ERROR':
-            errorMessage = 'ストア接続エラーが発生しました。';
-            break;
-          case 'E_RECEIPT_FAILED':
-            errorMessage = 'レシートの検証に失敗しました。';
-            break;
-          case 'E_DEVELOPER_ERROR':
-            errorMessage = '開発者エラーが発生しました。';
-            break;
-          default:
-            errorMessage = `購入エラー: ${error.code}`;
-        }
-      }
-
-      setError(errorMessage);
+      setError('購入処理に失敗しました');
       return false;
     } finally {
       setLoading(false);
     }
   };
 
-  // 購入の復元
   const restorePurchases = async () => {
     try {
       setLoading(true);
       setError(null);
 
-      console.log('[IAP] Starting purchase restoration');
+      const iapManager = IAPManager.getInstance();
+      const success = await iapManager.restorePurchases();
       
-      // プラットフォームごとの購入確認
-      const purchases = await getPurchases();
-      console.log('[IAP] Retrieved purchases:', purchases);
-
-      const hasAdRemoval = purchases.some(purchase => {
-        if (Platform.OS === 'android' && !purchase.acknowledged) {
-          // Android未承認の購入を処理
-          handleAndroidPurchase(purchase).catch(console.error);
-        }
-        return purchase.productId === AD_REMOVAL_SKU_IOS || 
-               purchase.productId === AD_REMOVAL_SKU_ANDROID;
-      });
-
-      if (hasAdRemoval) {
-        await AsyncStorage.setItem('adFreeStatus', 'true');
+      if (success) {
         setIsAdFree(true);
-        return true;
       }
-
-      // ローカルストレージのバックアップチェック
-      const storedStatus = await AsyncStorage.getItem('adFreeStatus');
-      if (storedStatus === 'true') {
-        setIsAdFree(true);
-        return true;
-      }
-
-      return false;
+      
+      return success;
     } catch (error) {
-      console.error('[IAP] Restore error:', error);
       setError('購入の復元に失敗しました');
       return false;
     } finally {
@@ -299,7 +283,6 @@ const useAdRemoval = () => {
   };
 };
 
-// ボタンコンポーネント
 export const AdRemovalButton: React.FC = () => {
   const { 
     isAdFree, 

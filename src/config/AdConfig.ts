@@ -1,3 +1,4 @@
+//AdConfig.ts
 import { TestIds } from 'react-native-google-mobile-ads';
 
 const isDevelopment = __DEV__;
