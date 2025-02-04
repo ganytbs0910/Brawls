@@ -20,6 +20,7 @@ import { DailyTip } from '../components/DailyTip';
 import { RewardedAd, RewardedAdEventType } from 'react-native-google-mobile-ads';
 import { AD_CONFIG } from '../config/AdConfig';
 import { BannerAdComponent } from '../components/BannerAdComponent';
+import { useHomeTranslation } from '../i18n/home';
 import { 
   rotatingModes, 
   mapImages,
@@ -98,6 +99,7 @@ const useMapUpdateTimer = (updateHours: number[]) => {
 };
 
 const Home: React.FC = () => {
+  const { t } = useHomeTranslation();
   const currentTime = useMapUpdateTimer(UPDATE_HOURS);
   const navigation = useNavigation<RankingsScreenNavigationProp>();
   const [screenStack, setScreenStack] = useState<ScreenState[]>([
@@ -122,7 +124,6 @@ const Home: React.FC = () => {
     })
   ).current;
 
-  // 広告関連の設定
   useEffect(() => {
     const unsubscribeLoaded = rewarded.addAdEventListener(RewardedAdEventType.LOADED, () => {
       setIsRewardedAdReady(true);
@@ -143,7 +144,6 @@ const Home: React.FC = () => {
     };
   }, [rewarded]);
 
-  // 広告削除状態の確認
   useEffect(() => {
     const checkAdFreeStatus = async () => {
       try {
@@ -157,7 +157,6 @@ const Home: React.FC = () => {
     checkAdFreeStatus();
   }, []);
 
-  // バックグラウンド更新のサポート
   useEffect(() => {
     const handleAppStateChange = async (nextAppState: string) => {
       if (nextAppState === 'active') {
@@ -172,7 +171,6 @@ const Home: React.FC = () => {
     };
   }, []);
 
-  // 日付比較のヘルパー関数
   const isSameDate = (date1: Date, date2: Date): boolean => {
     return (
       date1.getFullYear() === date2.getFullYear() &&
@@ -181,13 +179,11 @@ const Home: React.FC = () => {
     );
   };
 
-  // 現在の日付と選択された日付が同じかどうかをチェック
   const isCurrentDate = (date: Date) => {
     const now = new Date();
     return isSameDate(date, now);
   };
 
-  // モードごとの更新時刻を取得
   const getModeUpdateTime = (gameMode: keyof GameMaps): number => {
     switch (gameMode) {
       case 'battleRoyale': return 5;
@@ -287,7 +283,7 @@ const Home: React.FC = () => {
     const hours = Math.floor(diff / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-    return `${hours}時間${minutes}分`;
+    return t.updateTime.timeUntilUpdate(hours, minutes);
   };
 
   const changeDate = (days: number) => {
@@ -304,13 +300,13 @@ const Home: React.FC = () => {
     tomorrow.setDate(tomorrow.getDate() + 1);
 
     if (isSameDate(date, now)) {
-      return '今日';
+      return t.dateSelector.today;
     } else if (isSameDate(date, yesterday)) {
-      return '昨日';
+      return t.dateSelector.yesterday;
     } else if (isSameDate(date, tomorrow)) {
-      return '明日';
+      return t.dateSelector.tomorrow;
     } else {
-      return `${date.getMonth() + 1}月${date.getDate()}日`;
+      return t.dateSelector.monthDay(date.getMonth() + 1, date.getDate());
     }
   };
 
@@ -326,28 +322,32 @@ const Home: React.FC = () => {
 
   const modes = [
     {
-      name: "バトルロワイヤル",
+      name: t.modes.battleRoyale,
       currentMap: currentGameData.battleRoyale.map,
       updateTime: 5,
       color: "#99ff66",
       icon: require('../../assets/GameModeIcons/showdown_icon.png')
     },
     {
-      name: "エメラルドハント",
+      name: t.modes.emeraldHunt,
       currentMap: currentGameData.emeraldHunt.map,
       updateTime: 11,
       color: "#DA70D6",
       icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
     },
     {
-      name: currentGameData.heist.mode?.name || "ホットゾーン＆強奪",
+      name: currentGameData.heist.mode?.name 
+        ? (currentGameData.heist.mode.name === t.modes.heist 
+          ? t.modes.heist 
+          : t.modes.hotZone)
+        : `${t.modes.hotZone} & ${t.modes.heist}`,
       currentMap: currentGameData.heist.map,
       updateTime: 23,
       color: () => {
         switch (currentGameData.heist.mode?.name) {
-          case "強奪":
+          case t.modes.heist:
             return "#FF69B4";
-          case "ホットゾーン":
+          case t.modes.hotZone:
             return "#ff7f7f";
           default:
             return "#FF69B4";
@@ -357,7 +357,7 @@ const Home: React.FC = () => {
       icon: currentGameData.heist.mode?.icon || require('../../assets/GameModeIcons/heist_icon.png')
     },
     {
-      name: "ブロストライカー",
+      name: t.modes.brawlBall,
       currentMap: currentGameData.brawlBall.map,
       updateTime: 17,
       color: "#cccccc",
@@ -365,14 +365,18 @@ const Home: React.FC = () => {
       icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
     },
     {
-      name: currentGameData.brawlBall5v5.mode?.name || "5vs5ブロストライカー",
+      name: currentGameData.brawlBall5v5.mode?.name 
+        ? (currentGameData.brawlBall5v5.mode.name === t.modes.brawlBall5v5 
+          ? t.modes.brawlBall5v5 
+          : t.modes.annihilation)
+        : t.modes.brawlBall5v5,
       currentMap: currentGameData.brawlBall5v5.map,
       updateTime: 17,
       color: () => {
         switch (currentGameData.brawlBall5v5.mode?.name) {
-          case "5vs5ブロストライカー":
+          case t.modes.brawlBall5v5:
             return "#cccccc";
-          case "5vs5殲滅":
+          case t.modes.annihilation:
             return "#e95295";
           default:
             return "#d3d3d3";
@@ -382,16 +386,18 @@ const Home: React.FC = () => {
       icon: currentGameData.brawlBall5v5.mode?.icon || require('../../assets/GameModeIcons/brawl_ball_icon.png')
     },
     {
-      name: currentGameData.duel.mode?.name || "デュエル＆殲滅＆賞金稼ぎ",
-      currentMap: currentGameData.duel.map,
+      name: currentGameData.duel.mode?.name 
+        ? currentGameData.duel.mode.name 
+        : t.modes.duelRotating,
+        currentMap: currentGameData.duel.map,
       updateTime: 23,
       color: () => {
         switch (currentGameData.duel.mode?.name) {
-          case "賞金稼ぎ":
+          case t.modes.bounty:
             return "#00ccff";
-          case "殲滅":
+          case t.modes.annihilation:
             return "#e95295";
-          case "デュエル":
+          case t.modes.duel:
             return "#FF0000";
           default:
             return "#FF0000";
@@ -401,7 +407,7 @@ const Home: React.FC = () => {
       icon: currentGameData.duel.mode?.icon || require('../../assets/GameModeIcons/bounty_icon.png')
     },
     {
-      name: "ノックアウト",
+      name: t.modes.knockout,
       currentMap: currentGameData.knockout.map,
       updateTime: 11,
       color: "#FFA500",
@@ -413,7 +419,7 @@ const Home: React.FC = () => {
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}>ブロスタ マップ情報</Text>
+          <Text style={styles.title}>{t.header.title}</Text>
           <TouchableOpacity
             style={styles.settingsButton}
             onPress={() => showScreen('settings')}
@@ -439,9 +445,10 @@ const Home: React.FC = () => {
               <TouchableOpacity 
                 style={styles.todayButton} 
                 onPress={() => setSelectedDate(new Date())}>
-                <Text style={styles.todayButtonText}>Today</Text>
+                <Text style={styles.todayButtonText}>{t.dateSelector.today}</Text>
               </TouchableOpacity>
             </View>
+            
             <View style={styles.modeGrid}>
               {modes.map((mode, index) => (
                 <View key={index} style={styles.modeCard}>
@@ -455,7 +462,7 @@ const Home: React.FC = () => {
                   </View>
                   {isCurrentDate(selectedDate) && (
                     <Text style={styles.updateTime}>
-                      更新まで {formatTimeUntilUpdate(mode)}
+                      {formatTimeUntilUpdate(mode)}
                     </Text>
                   )}
                   <TouchableOpacity 

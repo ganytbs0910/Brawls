@@ -22,7 +22,7 @@ import { usePlayerData, validatePlayerTag } from '../hooks/useBrawlStarsApi';
 import { nameMap } from '../data/characterData';
 import { useTeamBoardTranslation } from '../i18n/teamBoard';
 import { TeamBoardTranslation } from '../i18n/teamBoard';
-
+import AdMobService from '../services/AdMobService';
 import { createClient } from '@supabase/supabase-js';
 import 'react-native-url-polyfill/auto';
 
@@ -416,36 +416,47 @@ const TeamBoard: React.FC = () => {
   };
 
   const createPost = async () => {
-    if (!validateInputs()) return;
+  if (!validateInputs()) return;
 
+  try {
+    const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
+    const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
+
+    const { error } = await supabase
+      .from('team_posts')
+      .insert([{
+        selected_mode: selectedMode,
+        invite_link: cleanInviteLink,
+        description: description.trim(),
+        selected_character: selectedCharacter!.id,
+        character_trophies: Number(characterTrophies),
+        mid_characters: midCharacters.map(c => c.id),
+        side_characters: sideCharacters.map(c => c.id),
+        host_info: hostInfo
+      }]);
+
+    if (error) throw error;
+
+    await AsyncStorage.setItem('lastPostTime', Date.now().toString());
+    resetForm();
+    setModalVisible(false);
+
+    // 投稿成功後にインタースティシャル広告を表示
     try {
-      const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
-      const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
-
-      const { error } = await supabase
-        .from('team_posts')
-        .insert([{
-          selected_mode: selectedMode,
-          invite_link: cleanInviteLink,
-          description: description.trim(),
-          selected_character: selectedCharacter!.id,
-          character_trophies: Number(characterTrophies),
-          mid_characters: midCharacters.map(c => c.id),
-          side_characters: sideCharacters.map(c => c.id),
-          host_info: hostInfo
-        }]);
-
-      if (error) throw error;
-
-      await AsyncStorage.setItem('lastPostTime', Date.now().toString());
-      resetForm();
-      setModalVisible(false);
-      Alert.alert('Success', t.success.postCreated);
-    } catch (error) {
-      console.error('Error creating post:', error);
-      Alert.alert('Error', t.errors.postCreationFailed);
+      // AdMobServiceのインスタンスを取得
+      const adService = await AdMobService.initialize();
+      await adService.showInterstitial();
+    } catch (adError) {
+      console.error('Failed to show interstitial ad:', adError);
+      // 広告表示に失敗しても投稿自体は成功しているのでエラー表示はしない
     }
-  };
+
+    Alert.alert('Success', t.success.postCreated);
+  } catch (error) {
+    console.error('Error creating post:', error);
+    Alert.alert('Error', t.errors.postCreationFailed);
+  }
+};
 
   const resetForm = () => {
     setSelectedMode('');

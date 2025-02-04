@@ -17,12 +17,15 @@ import {
   usePlayerData, 
   useGlobalRankings
 } from '../hooks/useBrawlStarsApi';
+import { useBrawlStarsAppTranslation } from '../i18n/brawlStarsApp';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function BrawlStarsApp() {
   const [playerTag, setPlayerTag] = useState('');
   const [isInitialized, setIsInitialized] = useState(false);
-  const [searchHistory, setSearchHistory] = useState([]);
+  const [searchHistory, setSearchHistory] = useState<string[]>([]);
+  const { t } = useBrawlStarsAppTranslation();
+  
   const brawlersData = useBrawlersData();
   const playerData = usePlayerData();
   const rankingsData = useGlobalRankings();
@@ -105,7 +108,7 @@ export default function BrawlStarsApp() {
     ...(playerData.data?.playerInfo ? [
       {
         type: 'player',
-        title: 'プレイヤー情報',
+        title: t.sections.playerInfo,
         data: [{
           info: playerData.data.playerInfo,
           rankings: rankingsData.data || {},
@@ -114,7 +117,7 @@ export default function BrawlStarsApp() {
       },
       {
         type: 'battles',
-        title: '直近の対戦',
+        title: t.sections.recentBattles,
         data: [playerData.data.battleLog]
       }
     ] : [])
@@ -122,13 +125,13 @@ export default function BrawlStarsApp() {
 
   const renderSearchSection = () => (
     <View style={styles.section}>
-      <Text style={styles.sectionTitle}>プレイヤータグ</Text>
+      <Text style={styles.sectionTitle}>{t.search.playerTag}</Text>
       <View style={styles.searchContainer}>
         <TextInput
           style={styles.input}
           value={playerTag}
           onChangeText={setPlayerTag}
-          placeholder="#XXXXXXXXX"
+          placeholder={t.search.placeholder}
           autoCapitalize="characters"
           autoCorrect={false}
         />
@@ -138,7 +141,7 @@ export default function BrawlStarsApp() {
           disabled={playerData.loading || !playerTag.trim()}
         >
           <Text style={styles.searchButtonText}>
-            {playerData.loading ? '読み込み中...' : '取得'}
+            {playerData.loading ? t.search.button.loading : t.search.button.default}
           </Text>
         </TouchableOpacity>
       </View>
@@ -147,7 +150,7 @@ export default function BrawlStarsApp() {
 
       {searchHistory.length > 0 && (
         <View style={styles.historyContainer}>
-          <Text style={styles.historyTitle}>検索履歴</Text>
+          <Text style={styles.historyTitle}>{t.search.history.title}</Text>
           <View style={styles.historyList}>
             {searchHistory.map((tag, index) => (
               <View key={index} style={styles.historyItemContainer}>
@@ -208,7 +211,7 @@ export default function BrawlStarsApp() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>プレイヤー分析</Text>
+        <Text style={styles.headerTitle}>{t.header.title}</Text>
       </View>
 
       <SectionList
@@ -230,7 +233,7 @@ export default function BrawlStarsApp() {
         <View style={styles.loadingOverlay}>
           <View style={styles.loadingContainer}>
             <ActivityIndicator size="large" color="#2196F3" />
-            <Text style={styles.loadingText}>データを取得中...</Text>
+            <Text style={styles.loadingText}>{t.loading.text}</Text>
           </View>
         </View>
       )}

@@ -3370,6 +3370,14 @@
             "ja": "ナックルバスターを呼び戻すと、失ったHPの20%を瞬時に回復する。",
             "en": "When recalling Knuckle Buster, instantly recover 20% of lost HP.",
             "ko": "너클버스터를 회수하면 잃은 HP의 20%를 즉시 회복합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "これがないと貧弱超雑魚になるので必須中の必須。",
+              "en": "Essential as it's necessary to avoid becoming weak and useless.",
+              "ko": "이것이 없으면 빈약한 초초약이 되므로 필수 중의 필수입니다."
+            }
           }
         },
         {
@@ -3383,6 +3391,14 @@
             "ja": "地上のナックルバスターの近くに敵がいると、必殺技がチャージされる。",
             "en": "Super charges when enemies are near the grounded Knuckle Buster.",
             "ko": "지상의 너클버스터 근처에 적이 있으면 궁극기가 충전됩니다."
+          },
+          "recommendation": {
+            "level": 1,
+            "reason": {
+              "ja": "使ってる人がいたら笑ってあげて欲しい。",
+              "en": "If you see someone using this, please laugh at them.",
+              "ko": "사용하는 사람이 있다면 웃어 주세요."
+            }
           }
         }
       ],
@@ -3398,6 +3414,14 @@
             "ja": "ナックルバスターが地上にある状態で発動すると、近くの敵がナックルに引き寄せられる。",
             "en": "When activated while Knuckle Buster is on the ground, pulls nearby enemies towards it.",
             "ko": "너클버스터가 지상에 있는 상태에서 발동하면 근처의 적이 너클로 끌려옵니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "確定シュートや無防備にさせられるのでかなり優秀。",
+              "en": "Very useful as it can secure shots and leave enemies defenseless.",
+              "ko": "확정 슈팅이나 무방비 상태로 만들어주기 때문에 상당히 유용합니다."
+            }
           }
         },
         {
@@ -3411,6 +3435,14 @@
             "ja": "次にナックルバスターを発動すると、地上に落ちると同時に電磁パルスが発生して敵をノックバックする。",
             "en": "The next Knuckle Buster activation creates an electromagnetic pulse on landing, knocking back enemies.",
             "ko": "다음 너클버스터를 발동하면 지상에 떨어지면서 전자기 펄스가 발생하여 적을 넉백시킵니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "ノックバックの距離が長く使いこなすのが難しすぎる。",
+              "en": "The knockback distance is too long, making it difficult to use effectively.",
+              "ko": "넉백 거리가 너무 길어서 효과적으로 사용하기 어렵습니다."
+            }
           }
         }
       ]
@@ -3457,6 +3489,14 @@
             "ja": "ヒトデのシルが全力で敵にへばりつき、敵の攻撃を封じる時間が33%長くなる。",
             "en": "Starfish Sil sticks firmly to enemies, increasing the duration of attack sealing by 33%.",
             "ko": "불가사리 실이 전력으로 적에게 달라붙어 적의 공격을 봉인하는 시간이 33% 늘어납니다."
+          },
+          "recommendation": {
+            "level": 1,
+            "reason": {
+              "ja": "火力不足であまり封じる効果が長くなる恩恵を感じにくい。",
+              "en": "It's hard to feel the benefits of a longer sealing effect when there's not enough firepower.",
+              "ko": "화력 부족으로 봉인 효과가 길어지는 혜택을 느끼기 어렵습니다."
+            }
           }
         },
         {
@@ -3470,6 +3510,14 @@
             "ja": "オーティスの放つインク玉が33％増える。",
             "en": "Otis's ink projectiles increase by 33%.",
             "ko": "오티스가 발사하는 잉크 탄환이 33% 증가합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "火力もウルトのチャージ効率も上がるため超必須のスタパ。",
+              "en": "A super essential star power as it increases firepower and ultimate charge efficiency.",
+              "ko": "화력도 궁극기 충전 효율도 높아져서 초필수 스타파워입니다."
+            }
           }
         }
       ],
@@ -3485,6 +3533,14 @@
             "ja": "次にシルを投げたときに敵に当たらなかった場合は地面に張り付き、敵が近付くまで目を覚まさない。",
             "en": "If Sil misses when thrown next, it sticks to the ground and remains dormant until an enemy approaches.",
             "ko": "다음에 실을 던졌을 때 적에게 맞지 않았을 경우 지면에 붙어서 적이 가까이 올 때까지 잠들어 있습니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "ウルトを外しすぎる人なら割と良い。",
+              "en": "It's pretty good for those who miss their ultimates too often.",
+              "ko": "궁극기를 너무 많이 놓치는 사람들에게는 꽤 좋습니다."
+            }
           }
         },
         {
@@ -3498,6 +3554,14 @@
             "ja": "次にオーティスが放つ攻撃が巨大なインク玉となり、落ちた場所にインクの水たまりを作る。水たまりは3.8秒にわたって、敵に1150ずつダメージを与える。",
             "en": "Otis's next attack becomes a giant ink ball that creates an ink puddle where it lands. The puddle deals 1150 damage to enemies over 3.8 seconds.",
             "ko": "다음에 오티스가 발사하는 공격이 거대한 잉크 구슬이 되어 떨어진 곳에 잉크 웅덩이를 만듭니다. 웅덩이는 3.8초 동안 적에게 1150씩 데미지를 줍니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "敵の侵入を防ぐエリアを作り出せ、確実に回復阻止したい時や敵の索敵などでかなり有用。",
+              "en": "Creates an area to prevent enemy intrusion, making it very useful when you want to prevent healing or when enemies are searching.",
+              "ko": "적의 침입을 막는 영역을 만들어내어, 확실히 회복을 막고 싶을 때나 적의 수색 등에서 상당히 유용합니다."
+            }
           }
         }
       ],
@@ -3548,6 +3612,14 @@
             "ja": "必殺技の射程が36%伸びる。",
             "en": "Super's range is extended by 36%.",
             "ko": "궁극기의 사거리가 36% 늘어납니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "ウルトの射程を伸ばすことでウルトの汎用性が向上する",
+              "en": "Increasing the range of the ult increases the versatility of the ult.",
+              "ko": "울트의 사정거리를 늘림으로써 울트의 범용성이 향상된다"
+            }
           }
         },
         {
@@ -3561,6 +3633,14 @@
             "ja": "通常攻撃が命中すると拡散して周囲の敵に25％の追加ダメージを与える。",
             "en": "When normal attacks hit, they spread and deal 25% additional damage to surrounding enemies.",
             "ko": "일반 공격이 명중하면 확산되어 주변의 적에게 25%의 추가 데미지를 줍니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "攻撃の拡散が短すぎてほとんど当たらないためほぼ無駄となってしまう。",
+              "en": "The spread of the attack is too short, making it almost useless.",
+              "ko": "공격의 확산이 너무 짧아 거의 쓸모가 없습니다."
+            }
           }
         }
       ],
@@ -3576,6 +3656,14 @@
             "ja": "大砲の移動速度とリロード速度が5秒にわたって30％上昇する。",
             "en": "Cannon's movement and reload speed increase by 30% for 5 seconds.",
             "ko": "대포의 이동 속도와 재장전 속도가 5초 동안 30% 상승합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "これを使用することで弱点の移動速度の問題を解消できるため、一時的に圧を出して前線を押し上げられる。",
+              "en": "By using this, you can temporarily relieve the problem of slow movement speed, allowing you to push the front line and exert pressure.",
+              "ko": "이를 사용하면 약점인 이동 속도의 문제를 해결할 수 있어, 일시적으로 압박을 가해 전선을 밀어올릴 수 있습니다."
+            }
           }
         },
         {
@@ -3589,6 +3677,14 @@
             "ja": "前方にダッシュして敵をノックバックしながら2320ダメージを与える。",
             "en": "Dashes forward, knocking back enemies while dealing 2320 damage.",
             "ko": "전방으로 대시하여 적을 넉백시키면서 2320 데미지를 줍니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "バトロワやタンクが多い状態でごく稀に使用されることがあるが使い所がいまいち。",
+              "en": "It is rarely used in situations with many brawlers or tanks, but its usage is not very good.",
+              "ko": "배틀로얄이나 탱크가 많은 상황에서 드물게 사용되기도 하지만 사용처가 그리 좋지 않습니다."
+            }
           }
         }
       ]
@@ -3634,6 +3730,14 @@
             "ja": "飛行中は周囲のやぶの中が広範囲にわたって見えるようになる。",
             "en": "While flying, can see inside bushes over a wide area.",
             "ko": "비행 중에는 주변의 수풀 안이 넓은 범위에 걸쳐 보이게 됩니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "ガジェットがあるのでそこまで必要とされていない。",
+              "en": "It's not that necessary because there is a gadget.",
+              "ko": "가젯이 있기 때문에 그렇게 필요성이 높지 않습니다."
+            }
           }
         },
         {
@@ -3647,6 +3751,14 @@
             "ja": "通常攻撃のエイムの集約速度が30％上昇する。",
             "en": "Normal attack aim convergence speed increases by 30%.",
             "ko": "일반 공격의 조준 집중 속도가 30% 상승합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "最大射程の攻撃インターバルが短くなるので、攻撃の癖が減りかなり使いやすくなる。",
+              "en": "The attack interval of the maximum range is shortened, so the attack habit is reduced, making it much easier to use.",
+              "ko": "최대 사거리의 공격 간격이 짧아져 공격의 습관이 줄어들어 상당히 사용하기 쉬워집니다."
+            }
           }
         }
       ],
@@ -3662,6 +3774,14 @@
             "ja": "重低音を轟かすスピーカーを投入し、破壊されるまで効果範囲内の敵に毎秒200ダメージを与える。",
             "en": "Deploys a speaker that blasts heavy bass, dealing 200 damage per second to enemies in range until destroyed.",
             "ko": "중저음을 울리는 스피커를 설치하여 파괴될 때까지 효과 범위 내의 적에게 초당 200 데미지를 줍니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "索敵と回復阻止の面で超有能で範囲もかなり広い、",
+              "en": "Extremely useful in terms of searching and preventing healing, with a very wide range.",
+              "ko": "수색과 회복 방지 면에서 초 유능하며 범위도 상당히 넓습니다."
+            }
           }
         },
         {
@@ -3675,6 +3795,14 @@
             "ja": "次の通常攻撃で、反動を使って大きく後ろにジャンプする。壁を越えることも可能で、エイムが集約されているほど、後退する距離も長くなる。",
             "en": "Next normal attack uses recoil to jump far backwards. Can jump over walls, and jump distance increases with aim convergence.",
             "ko": "다음 일반 공격으로 반동을 사용하여 크게 뒤로 점프합니다. 벽을 넘을 수도 있으며, 조준이 집중될수록 후퇴 거리가 길어집니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "バトロワでは必須のガジェで生存性能が超大幅に増加する。",
+              "en": "In Battle Royale, it's a must-have gadget that greatly increases survivability.",
+              "ko": "배틀로얄에서는 필수적인 가젯으로 생존 능력이 대폭 증가합니다."
+            }
           }
         }
       ]
@@ -3720,6 +3848,14 @@
             "ja": "通常攻撃で撃ち出されるタマゴの順番が逆になる。",
             "en": "Reverses the order of eggs fired in normal attack.",
             "ko": "일반 공격으로 발사되는 알의 순서가 역순이 됩니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "強攻撃がかなり当たりやすくなるのが非常に強力。",
+              "en": "The strong attack becomes much easier to hit, making it very powerful.",
+              "ko": "강한 공격이 상당히 맞기 쉬워지는 것이 매우 강력합니다."
+            }
           }
         },
         {
@@ -3733,6 +3869,14 @@
             "ja": "通常攻撃の一番大きなタマゴが命中すると、そのタマゴから5秒ごとにベビーが産まれる。",
             "en": "When the largest egg from normal attack hits, it spawns a baby every 5 seconds.",
             "ko": "일반 공격의 가장 큰 알이 명중하면, 그 알에서 5초마다 아기가 태어납니다."
+          },
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "最後の弾を当てるとかなり強力だが、少し使用難易度が高い。",
+              "en": "It's quite powerful when you hit the last shot, but it's a bit difficult to use.",
+              "ko": "마지막 탄을 맞추면 상당히 강력하지만, 사용 난이도가 조금 높습니다."
+            }
           }
         }
       ],
@@ -3748,6 +3892,14 @@
             "ja": "ベビーを1体その場に産み落とし、大きくジャンプする。",
             "en": "Drops a baby on the spot and makes a big jump.",
             "ko": "아기를 한 마리 그 자리에 낳고 크게 점프합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "緊急脱出と地味にベビーの生み出しがかなり強い。壁を越えることができるのも好評。",
+              "en": "Emergency escape and the subtle baby spawning are quite strong. The ability to jump over walls is also well received.",
+              "ko": "긴급 탈출과 조용한 아기 생성이 상당히 강력합니다. 벽을 넘을 수 있는 것도 호평받고 있습니다."
+            }
           }
         },
         {
@@ -3761,6 +3913,14 @@
             "ja": "タマゴから産まれるベビーが時間とともに味方を回復する。ただし、敵には攻撃を加えなくなる。",
             "en": "Babies hatched from eggs heal allies over time but no longer attack enemies.",
             "ko": "알에서 태어난 아기가 시간이 지나면서 아군을 회복시킵니다. 단, 적에게는 공격을 하지 않게 됩니다."
+          },
+          "recommendation": {
+            "level": 2,
+            "reason": {
+              "ja": "ハイパーチャージとごく稀に合わせることができるが、基本ネタ枠。",
+              "en": "It can be combined with Hyper Charge very rarely, but it's basically a joke slot.",
+              "ko": "하이퍼 차지와 매우 드물게 결합할 수 있지만, 기본적으로 네타 슬롯입니다."
+            }
           }
         }
       ]
@@ -3808,8 +3968,14 @@
             "en": "When defeating an enemy with Super, the gauge is fully charged and can be used again immediately.",
             "ko": "궁극기로 적을 처치하면 게이지가 완전히 충전되어 바로 다시 사용할 수 있게 됩니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "ウルトループが可能なためかなり強いが、ダメージ計算が必要で使うのが非常に難しい・"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "ウルトループが可能なためかなり強いが、ダメージ計算が必要で使うのが非常に難しい・",
+              "en": "It's quite strong because it allows for ult looping, but it's very difficult to use because it requires damage calculation.",
+              "ko": "울트 루프가 가능하기 때문에 상당히 강하지만, 데미지 계산이 필요하기 때문에 사용하기가 매우 어렵습니다."
+            }
+          }
         },
         {
           "id": 23000439,
@@ -3823,8 +3989,14 @@
             "en": "Once every 3 seconds, reduces enemy attack damage by 688. Maximum reduction is 90% of damage received.",
             "ko": "3초마다 한 번씩 적의 공격을 688 데미지 감소시킵니다. 최대 감소율은 받은 데미지의 90%입니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "かなり使い勝手が良く生存性をあげることができるので良い。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "かなり使い勝手が良く生存性をあげることができるので良い。",
+              "en": "It's quite easy to use and can increase survivability, so it's good.",
+              "ko": "상당히 사용하기 쉽고 생존 능력을 높일 수 있어 좋습니다."
+            }
+          }
         }
       ],
       "gadgets": [
@@ -3840,8 +4012,14 @@
             "en": "Scatters small bombs in the air that burst like popcorn. Each bomb deals 1088 damage.",
             "ko": "작은 폭탄을 공중에 뿌려서 팝콘처럼 터뜨립니다. 폭탄 하나당 1088 데미지를 줍니다."
           },
-          "recommendationLevel": 4,
-          "recommendationReason": "索敵とアサシンとタンクに強いがギリもう一つのガジェの方が強い。"
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "索敵ができ、アサシンとタンクを少しだけメタれる",
+              "en": "It can search and slightly meta assassins and tanks.",
+              "ko": "수색이 가능하며 어쌔신과 탱크를 약간 메타할 수 있습니다."
+            }
+          }
         },
         {
           "id": 23000464,
@@ -3855,8 +4033,14 @@
             "en": "Spins and kicks all enemies in the vicinity. Hit enemies are stunned and immobilized for 0.5 seconds.",
             "ko": "회전하여 주변에 있는 적 전원을 발로 차서 흩어놓습니다. 명중한 적은 0.5초 동안 기절하여 움직일 수 없게 됩니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "小技で攻撃のインターバルの時間が短くなり、接近状態の1vs1の勝率が超大幅に上がるためウルトとの相性が良い。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "小技で攻撃のインターバルの時間が短くなり、接近状態の1vs1の勝率が超大幅に上がるためウルトとの相性が良い。",
+              "en": "The interval between attacks is shortened by a small technique, greatly increasing the winning rate of 1vs1 in close combat, making it compatible with the ult.",
+              "ko": "소기술로 공격 간격이 짧아져 접근 상태의 1대1 승률이 대폭 상승하여 울트와의 상성이 좋습니다."
+            }
+          }
         }
       ],
       "gears": [
@@ -3908,8 +4092,14 @@
             "en": "When attacking with the last bullet, deals 30% additional damage to enemies.",
             "ko": "남은 탄약이 1발인 상태로 공격하면 적에게 30%의 추가 데미지를 줍니다."
           },
-          "recommendationLevel": 4,
-          "recommendationReason": "火力の底上げができるためまぁまぁ強いが、もう一つのスタパが強すぎる。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "火力の底上げができるため、タンクが多い状況でかなり強力",
+              "en": "It's quite powerful in situations with many tanks because it can increase firepower.",
+              "ko": "화력을 높일 수 있기 때문에 탱크가 많은 상황에서 상당히 강력합니다."
+            }
+          }
         },
         {
           "id": 23000432,
@@ -3923,8 +4113,14 @@
             "en": "Heals allies in the bullet trajectory from the clone by 224 HP.",
             "ko": "분신이 발사하는 탄환의 궤도상에 있는 아군의 HP를 224 회복시킵니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "耐久力と味方の回復ができるため耐久力が超大幅に上がり、ウルトがあると中距離では最強格に君臨する。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "耐久力と味方の回復ができるため耐久力が超大幅に上がり、ウルトがあると対中距離戦では最強に君臨する。",
+              "en": "It greatly increases survivability and ally recovery, making it the strongest in mid-range combat with ult.",
+              "ko": "생존 능력과 아군 회복이 가능하기 때문에 생존 능력이 대폭 상승하며, 울트가 있으면 중거리 전투에서 최강으로 군림합니다."
+            }
+          }
         }
       ],
       "gadgets": [
@@ -3940,8 +4136,14 @@
             "en": "When the clone stops moving and strikes a pose, activates a shield for 4 seconds that reduces damage taken by the clone by 50%.",
             "ko": "분신이 움직임을 멈추고 포즈를 취하면 4초 동안 실드가 발동되어 분신이 받는 데미지를 50% 감소시킵니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "分身が超重要なキャラクターなので耐久力が上がるとマジで強い。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "分身が超重要なキャラクターなので耐久力が上がるとマジで強い。",
+              "en": "The clone is a super important character, so it's really strong when survivability increases.",
+              "ko": "분신이 초 중요한 캐릭터이기 때문에 생존 능력이 높아지면 정말 강합니다."
+            }
+          }
         },
         {
           "id": 23000456,
@@ -3955,8 +4157,14 @@
             "en": "Swaps positions with the clone and heals Lola for 1520 HP.",
             "ko": "롤라와 분신의 위치가 바뀌고 롤라의 HP가 1520 회복됩니다."
           },
-          "recommendationLevel": 4,
-          "recommendationReason": "緊急回復と不意打ちの観点でかなり強力だが使うのが難しい。"
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "緊急回復と不意打ちの観点でかなり強力だが使うのが難しい。",
+              "en": "It's quite powerful in terms of emergency recovery and surprise attacks, but it's difficult to use.",
+              "ko": "긴급 회복과 불의의 공격 측면에서 상당히 강력하지만 사용하기가 어렵습니다."
+            }
+          }
         }
       ],
       "gears": [
@@ -4009,8 +4217,14 @@
             "en": "When the mech is destroyed, activates a shield that reduces damage by 25% and protects Meg for 10 seconds.",
             "ko": "메카가 파괴되면 데미지를 25% 감소시키는 실드가 발동되어 10초 동안 메그를 보호합니다."
           },
-          "recommendationLevel": 4,
-          "recommendationReason": "生存能力が増すことで前線が押し上げられにくくなる。"
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "生存能力が増すことで前線が押し上げられにくくなる。",
+              "en": "Survivability increases, making it difficult to push the front line.",
+              "ko": "생존 능력이 높아져 전선을 밀기 어려워집니다."
+            }
+          }
         },
         {
           "id": 23000422,
@@ -4024,8 +4238,14 @@
             "en": "When the mech runs out of HP, it explodes, dealing 2400 damage to nearby enemies and knocking them back.",
             "ko": "메카의 HP가 없어지면 폭발하여 근처의 적에게 2400 데미지를 주고 넉백시킵니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "アサシンやタンクに対して強くなるので弱点がかなり減るので強い。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "アサシンやタンクに対して強くなるため弱点がかなり減ることが強い。",
+              "en": "It's strong because it becomes stronger against assassins and tanks, reducing its weaknesses considerably.",
+              "ko": "어쌔신이나 탱크에 대해 강해지기 때문에 약점이 상당히 줄어들어 강합니다."
+            }
+          }
         }
       ],
       "gadgets": [
@@ -4041,8 +4261,14 @@
             "en": "The mech recovers 490 HP per second for 5 seconds.",
             "ko": "메카의 HP가 5초 동안 매초 490씩 회복됩니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "回復量がかなり多いので前線のキープ力が高まる。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "回復量がかなり多いので前線のキープ力が高まる。",
+              "en": "The amount of recovery is quite high, so the front line's keep power is increased.",
+              "ko": "회복량이 상당히 많기 때문에 전선의 킵력이 높아집니다."
+            }
+          }
         },
         {
           "id": 23000489,
@@ -4056,8 +4282,14 @@
             "en": "Places a toolbox on the ground that increases nearby allies' reload speed by 35% until destroyed.",
             "ko": "지면에 툴박스를 설치하여 파괴될 때까지 근처 아군의 재장전 속도를 35% 증가시킵니다."
           },
-          "recommendationLevel": 4,
-          "recommendationReason": "何らかの戦術がある時はかなり強いが使いこなすのが非常に困難だが性能は悪くない。"
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "何らかの戦術がある時はかなり強いが使いこなすのが非常に困難だが性能は悪くない。",
+              "en": "It's quite strong when there's some kind of tactic, but it's very difficult to master, but the performance is not bad.",
+              "ko": "어떤 전술이 있을 때 상당히 강하지만 사용하기가 매우 어렵지만 성능은 나쁘지 않습니다."
+            }
+          }
         }
       ],
       "gears": [
@@ -4109,8 +4341,14 @@
             "en": "When attacking enemies with a full normal attack gauge, rage gauge increase rate is boosted by 200%.",
             "ko": "일반 공격 게이지가 가득 찬 상태로 적을 공격하면 분노 게이지 상승률이 200% 증가합니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "怒りゲージが命なキャラなので必須と言っても過言ではない。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "怒りゲージが命なキャラなので必須と言っても過言ではない。",
+              "en": "It's not an exaggeration to say that it's essential because the rage gauge is life.",
+              "ko": "분노 게이지가 목숨인 캐릭터이기 때문에 필수라고 말해도 과언이 아닙니다."
+            }
+          }
         },
         {
           "id": 23000415,
@@ -4124,8 +4362,14 @@
             "en": "As rage builds up, reload speed gradually increases up to 40%.",
             "ko": "분노가 쌓일수록 재장전 속도가 최대 40%까지 점차 증가합니다."
           },
-          "recommendationLevel": 2,
-          "recommendationReason": "リロードにはあまり困らないのでそこまで必要ではない。"
+          "recommendation": {
+            "level": 2,
+            "reason": {
+              "ja": "リロードにはあまり困らないのでそこまで必要ではない。",
+              "en": "It's not that necessary because you don't have much trouble reloading.",
+              "ko": "재장전에는 그다지 곤란하지 않으므로 그렇게 필요하지 않습니다."
+            }
+          }
         }
       ],
       "gadgets": [
@@ -4141,8 +4385,14 @@
             "en": "Even when angry, don't lose yourself. Heals proportionally to rage gauge, recovering 3240 HP when activated at full gauge.",
             "ko": "화가 나도 자신을 잃어서는 안 됩니다. 분노 게이지에 비례하여 자신을 치유하며, 게이지가 가득 찬 상태에서 발동하면 HP가 3240 회복됩니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "回復量が多くタイマンで打ち負けるギリギリで使うと勝てるようになることがあり強い。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "回復量が多くタイマンで打ち負けるギリギリで使うと勝てるようになることがあり強い。",
+              "en": "It's strong because it can win by using it at the last minute when you lose in a one-on-one battle with a lot of recovery.",
+              "ko": "회복량이 많아서 타이만에서 패배하는 가장자리에서 사용하면 이길 수 있게 되는 경우가 있어 강합니다."
+            }
+          }
         },
         {
           "id": 23000465,
@@ -4156,8 +4406,14 @@
             "en": "Instantly gains 40% rage gauge in exchange for 10% of your HP.",
             "ko": "자신의 HP 10%와 교환으로 즉시 40%의 분노 게이지가 채워집니다."
           },
-          "recommendationLevel": 4,
-          "recommendationReason": "強い性能ではあるが使用難易度があまりにも高く、スタパで怒りゲージはあまり困らないのでちょっと難しい。"
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "強い性能ではあるが使用難易度があまりにも高く、スタパで怒りゲージはあまり困らないのでちょっと難しい。",
+              "en": "It has a strong performance, but it's too difficult to use, and the rage gauge is not that troublesome in the starpa, so it's a little difficult.",
+              "ko": "강력한 성능을 가지고 있지만 사용 난이도가 너무 높고, 스타파에서 분노 게이지는 그다지 곤란하지 않기 때문에 조금 어렵습니다."
+            }
+          }
         }
       ],
       "gears": [
@@ -4208,8 +4464,14 @@
             "en": "Rage explodes, increasing normal attack firing speed by 25%.",
             "ko": "분노가 폭발하여 일반 공격의 발사 속도가 25% 증가합니다."
           },
-          "recommendationLevel": 4,
-          "recommendationReason": "悪くはないがもう一つのスタパの方が強い。"
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "悪くはないがもう一つのスタパの方が強い。",
+              "en": "It's not bad, but the other starpa is stronger.",
+              "ko": "나쁘지 않지만 다른 스타파가 더 강합니다."
+            }
+          }
         },
         {
           "id": 23000398,
@@ -4223,8 +4485,14 @@
             "en": "Recovers up to 15% of lost HP every 2 seconds.",
             "ko": "2초마다 잃은 HP의 최대 15%를 회복합니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "回復量が多いのと2秒ごとに回復というのが強く常時ダメージギア発動もできるためかなり汎用性も高く強い"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "回復量が多いのと2秒ごとに回復というのが強く常時ダメージギア発動もできるためかなり汎用性も高く強い",
+              "en": "The amount of recovery is high, and the recovery every 2 seconds is strong, and it can be activated by damage gear at all times, so it is quite versatile and strong.",
+              "ko": "회복량이 많고 2초마다 회복되는 것이 강하며, 상시로 데미지 기어를 발동할 수 있어 상당히 다재다능하고 강합니다."
+            }
+          }
         }
       ],
       "gadgets": [
@@ -4240,8 +4508,14 @@
             "en": "Spawns a piggy bank filled with explosives. When placed, it explodes after a short delay, destroying obstacles and dealing 1400 damage to enemies in range.",
             "ko": "폭약이 든 돼지 저금통을 소환합니다. 설치하면 잠시 후 폭발하여 장애물을 파괴하고 범위 내의 적에게 1400 데미지를 줍니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "自由なタイミングで自由な場所の壁を壊せるのがかなり優秀。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "自由なタイミングで自由な場所の壁を壊せるのがかなり優秀。",
+              "en": "It's quite excellent because you can break walls in free places at free timing.",
+              "ko": "자유로운 타이밍에 자유로운 장소의 벽을 부술 수 있어 상당히 우수합니다."
+            }
+          }
         },
         {
           "id": 23000487,
@@ -4255,8 +4529,14 @@
             "en": "Increases the number of coins fired in normal attacks by 33%.",
             "ko": "일반 공격으로 발사되는 코인이 33% 증가합니다."
           },
-          "recommendationLevel": 2,
-          "recommendationReason": "いらねぇ。"
+          "recommendation": {
+            "level": 1,
+            "reason": {
+              "ja": "弱い",
+              "en": "Weak",
+              "ko": "약함"
+            }
+          }
         }
       ],
       "gears": [
@@ -4309,8 +4589,14 @@
             "en": "Increases minimum stun duration from Super by 0.5 seconds.",
             "ko": "궁극기로 인한 기절의 최소 효과 시간이 0.5초 늘어납니다."
           },
-          "recommendationLevel": 3,
-          "recommendationReason": "ウルトの回転率が重要なのでもう一つが強すぎてあまり使用されない。"
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "ウルトの回転率が重要なのでもう一つが強すぎてあまり使用されない。",
+              "en": "The rotation rate of the ult is important, so the other one is too strong and not used much.",
+              "ko": "울트의 회전률이 중요하기 때문에 다른 하나가 너무 강해서 그다지 사용되지 않습니다."
+            }
+          }
         },
         {
           "id": 23000391,
@@ -4324,8 +4610,14 @@
             "en": "Increases Super charge area by 33%.",
             "ko": "궁극기의 충전 영역이 33% 확대됩니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "ウルトの回転率が上昇することで活躍の幅が広がる。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "ウルトの回転率が上昇することで活躍の幅が広がる。",
+              "en": "The range of activities is expanded by increasing the rotation rate of the ult.",
+              "ko": "울트의 회전률이 상승함으로써 활약의 폭이 넓어집니다."
+            }
+          }
         }
       ],
       "gadgets": [
@@ -4341,8 +4633,14 @@
             "en": "Instantly fills Super gauge but removes stun effect from next use.",
             "ko": "궁극기 게이지를 즉시 가득 채우지만 다음 기절 효과는 사라집니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "ハイパーチャージとの相性が非常に良く、機動力が上がるのもかなり高得点。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "ハイパーチャージとの相性が非常に良く、機動力が上がるのもかなり高得点。",
+              "en": "It has a very good compatibility with Hypercharge, and the mobility is quite high.",
+              "ko": "하이퍼차지와의 호환성이 매우 좋고, 기동력이 상당히 높습니다."
+            }
+          }
         },
         {
           "id": 23000490,
@@ -4356,8 +4654,14 @@
             "en": "Reveals enemies in bushes within Super charge range for 12 seconds.",
             "ko": "궁극기가 충전되는 범위 내에서는 수풀 속에 있는 적이 12초 동안 보이게 됩니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "草むらが多いマップでかなり強く、効果時間が長いのも良い。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "草むらが多いマップでかなり強く、効果時間が長いのも良い。",
+              "en": "It's quite strong on maps with a lot of bushes, and the long duration is good.",
+              "ko": "수풀이 많은 맵에서 상당히 강하며, 효과 시간이 길어서 좋습니다."
+            }
+          }
         }
       ],
       "gears": [
@@ -4408,8 +4712,14 @@
             "en": "Increases movement speed by 15% when Super is fully charged.",
             "ko": "궁극기가 완전히 충전되어 있는 동안 이동 속도가 15% 증가합니다."
           },
-          "recommendationLevel": 2,
-          "recommendationReason": "もう一つのスタパが強すぎる。"
+          "recommendation": {
+            "level": 2,
+            "reason": {
+              "ja": "もう一つのスタパが強すぎる。",
+              "en": "The other starpa is too strong.",
+              "ko": "다른 스타파가 너무 강합니다."
+            }
+          }
         },
         {
           "id": 23000384,
@@ -4423,8 +4733,14 @@
             "en": "The explosion from normal attacks deals up to 30% more damage the further it is from the center.",
             "ko": "일반 공격의 폭발이 중심에서 멀어질수록 위력이 증가하여 최대 30%의 추가 데미지를 줍니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "火力が上がりすぎてマジで強い。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "火力が上がりすぎてどんな状況でもマジで強い。",
+              "en": "The firepower is too high, so it's really strong in any situation.",
+              "ko": "화력이 너무 높아 어떤 상황에서도 정말 강합니다."
+            }
+          }
         }
       ],
       "gadgets": [
@@ -4440,8 +4756,14 @@
             "en": "Deploys a small camera that reveals enemies in bushes over a wide area. The camera's HP slowly decreases over time.",
             "ko": "주머니에서 소형 카메라를 꺼내면 넓은 범위에 걸쳐 감시 기능이 작동하여 수풀에 숨은 적이 아군에게 보이게 됩니다. 소형 카메라의 HP는 시간이 지남에 따라 조금씩 감소합니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "草むらを索敵でき、盾としても使用できる汎用性の高さが人気。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "草むらを索敵でき、盾としても使用できる汎用性の高さが人気。",
+              "en": "It is popular for its high versatility that can search for bushes and be used as a shield.",
+              "ko": "수풀을 탐색할 수 있고, 방패로 사용할 수 있는 다재다능함이 인기입니다."
+            }
+          }
         },
         {
           "id": 23000460,
@@ -4455,8 +4777,14 @@
             "en": "Next normal attack throws 3 walkie-talkies in quick succession.",
             "ko": "다음 일반 공격으로 3개의 무전기를 빠르게 연속으로 던집니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "強奪では超必須の火力バグマシーンとなるが、それ以外の場面ではほぼ当たらないのでイマイチ使えない"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "強奪では超必須の火力バグマシーンとなるが、それ以外の場面ではほぼ当たらないのでイマイチ使えない",
+              "en": "It becomes a super essential firepower bug machine in Robbery, but it is almost useless in other situations because it hardly hits.",
+              "ko": "강탈에서 초필수의 화력 버그 머신이 되지만, 그 외의 상황에서는 거의 맞지 않아서 그다지 사용할 수 없습니다."
+            }
+          }
         }
       ],
       "gears": [
@@ -4508,8 +4836,14 @@
             "en": "For each enemy in the blast radius, sticky bomb damage is amplified by 15%.",
             "ko": "점착 젤 폭탄의 폭발 범위 내에 있는 적 1명당 주는 데미지가 15% 증폭됩니다."
           },
-          "recommendationLevel": 3,
-          "recommendationReason": "強奪では少し強いがもう一つのスタパが強すぎる。"
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "敵が密集しやすい場所では少し強いが、もう一つのスタパが強すぎる。",
+              "en": "It's a little strong in places where enemies are likely to gather, but the other starpa is too strong.",
+              "ko": "적이 밀집하기 쉬운 곳에서는 조금 강하지만, 다른 스타파가 너무 강합니다."
+            }
+          }
         },
         {
           "id": 23000377,
@@ -4523,8 +4857,14 @@
             "en": "Enemies caught in Super's secondary explosion are slowed down for 4 seconds.",
             "ko": "궁극기의 이차 폭발에 휘말린 적을 4초 동안 슬로우시킵니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "長すぎるスローダウンが一般ウルトから超強力ウルトに化けさせる。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "長すぎるスローダウンが一般ウルトから超強力ウルトに化けさせる。",
+              "en": "The too long slowdown turns the general ult into a super powerful ult.",
+              "ko": "너무 긴 슬로우다운이 일반 울트를 초강력 울트로 변신시킵니다."
+            }
+          }
         }
       ],
       "gadgets": [
@@ -4540,8 +4880,14 @@
             "en": "Next attack deals 50% more damage and has 100% increased range.",
             "ko": "다음 일반 공격의 데미지가 50%, 사거리가 100% 증가합니다."
           },
-          "recommendationLevel": 3,
-          "recommendationReason": "悪くはないがもう一つのスタパの方が強い。"
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "悪くはないがもう一つのスタパの方が強い。",
+              "en": "",
+              "ko": ""
+            }
+          }
         },
         {
           "id": 23000462,
@@ -4555,8 +4901,14 @@
             "en": "Next attack creates a contaminated area after bursting that slows enemies for 6 seconds. Also allows you and allies to see into bushes.",
             "ko": "다음 일반 공격이 터진 후 오염된 구역을 만들어내어 6초 동안 적을 슬로우시킵니다. 또한 자신과 아군이 수풀 안을 볼 수 있게 됩니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "索敵と前線キープにおける最強ガジェットでこれが無いと始まらない。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "索敵と前線キープにおける最強ガジェットでこれが無いと始まらない。",
+              "en": "It is the strongest gadget in searching and keeping the front line, and it cannot start without it.",
+              "ko": "수색과 전선 유지에서 최강의 가젯으로 이것이 없으면 시작할 수 없습니다."
+            }
+          }
         }
       ],
       "gears": [
@@ -4607,8 +4959,14 @@
             "en": "Hitting a target with shock grants a shield that reduces damage taken by 20%.",
             "ko": "전격이 타겟에 명중하면 받는 데미지를 20% 감소시키는 실드를 얻습니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "耐久力上昇で圧が出るので前線を押し上げるきっかけとなる強力さとダメージ計算を狂わせる強みがある。"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "耐久力上昇で圧が出るので前線を押し上げるきっかけとなる強力さとダメージ計算を狂わせる強みがある。",
+              "en": "It has the strength to push the front line by increasing durability, and the strength to disrupt damage calculations.",
+              "ko": "내구력이 증가하여 압박을 줄 수 있으며, 데미지 계산을 괴롭히는 강점이 있습니다."
+            }
+          }
         },
         {
           "id": 23000370,
@@ -4622,8 +4980,14 @@
             "en": "Enemies marked by Super cannot reload their normal attacks for 5 seconds.",
             "ko": "궁극기로 마킹된 적은 5초 동안 일반 공격을 재장전할 수 없게 됩니다."
           },
-          "recommendationLevel": 3,
-          "recommendationReason": "リロードができなくなっても基本３リロードあれば敵を倒せるので、リロード1発の敵以外にはあまり刺さらない。"
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "単発攻撃のキャラクターに対して強力だが汎用性が低い",
+              "en": "Powerful against characters with single attacks, but low versatility",
+              "ko": "단발 공격의 캐릭터에 대해서 강력하지만 범용성이 낮다"
+            }
+          }
         }
       ],
       "gadgets": [
@@ -4639,8 +5003,14 @@
             "en": "Places a trap on the ground that activates when enemies touch it. The trap deals 624 damage and slows all enemies in range for 3 seconds.",
             "ko": "적이 닿으면 작동하는 트랩을 지면에 설치합니다. 트랩은 624 데미지를 주고 범위 내의 모든 적을 3초 동안 슬로우시킵니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": "スローダウンが意外に長くて回復阻止もできてとにかく優秀"
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "スローダウンが意外に長くて回復阻止もできてとにかく優秀",
+              "en": "The slowdown is surprisingly long, preventing recovery and being excellent in any case.",
+              "ko": "슬로우다운이 의외로 길어 회복을 방해하고 어떤 경우에도 우수합니다."
+            }
+          }
         },
         {
           "id": 23000463,
@@ -4654,8 +5024,14 @@
             "en": "Next normal attack bounces off walls.",
             "ko": "다음 일반 공격이 벽에서 튕겨나옵니다."
           },
-          "recommendationLevel": 3,
-          "recommendationReason": "天才以外は使わない方が良い。当たらない。"
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "天才以外は使わない方が良い。当たらない。",
+              "en": "It's better not to use it unless you're a genius. It doesn't hit.",
+              "ko": "천재가 아니라면 사용하지 않는 것이 좋습니다. 맞지 않습니다."
+            }
+          }
         }
       ],
       "gears": [
@@ -4709,11 +5085,13 @@
             "en": "Increases dash distance of Super by 71%.",
             "ko": "궁극기 대시 거리가 71% 증가합니다."
           },
-          "recommendationLevel": 4,
-          "recommendationReason": {
-            "ja": "機動力が大幅に上がるがそこまで必須というわけでも無い。悪くは無いが。",
-            "en": "Mobility increases significantly but not necessarily essential. Not bad though.",
-            "ko": "기동성이 크게 향상되지만 필수적이지는 않습니다. 나쁘지는 않습니다."
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "機動力が大幅に上がるがそこまで必須というわけでも無い。悪くは無いが。",
+              "en": "Mobility is greatly increased, but it is not essential. It's not bad.",
+              "ko": "기동력이 크게 상승하지만 그렇게 필수라는 것도 아닙니다. 나쁘지 않습니다."
+            }
           }
         },
         {
@@ -4728,11 +5106,13 @@
             "en": "When Super is activated, heals 640 HP.",
             "ko": "궁극기 발동 시 체력을 640 회복합니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "攻撃毎に640回復できるため耐久力が化け物になり、ハイパーチャージとの相性も最高。",
-            "en": "Can heal 640 HP per attack making durability monstrous, also works great with Hypercharge.",
-            "ko": "공격마다 640의 체력을 회복할 수 있어 내구성이 엄청나며, 하이퍼차지와의 시너지도 최고입니다."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "攻撃毎に640回復できるため耐久力が化け物になり、ハイパーチャージとの相性も最高。",
+              "en": "It can recover 640 HP per attack, making it a monster in durability, and it has the best compatibility with Hypercharge.",
+              "ko": "공격마다 640 체력을 회복할 수 있어 내구력이 괴물이 되며, 하이퍼차지와의 호환성도 최고입니다."
+            }
           }
         }
       ],
@@ -4749,11 +5129,13 @@
             "en": "Places a booster that increases movement speed for allies and self within its area of effect.",
             "ko": "부스터를 설치하여 효과 범위 내의 아군과 자신의 이동 속도를 가속화합니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "全員の移動速度が上昇するため前線復帰の速度が上がったり弾除けがしやすくなったりと強力。",
-            "en": "Powerful as it increases movement speed for everyone, making front line recovery faster and dodging easier.",
-            "ko": "모두의 이동 속도가 증가하여 전선 복귀가 빨라지고 탄환 회피가 쉬워져 강력합니다."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "全員の移動速度が上昇するため前線復帰の速度が上がったり弾除けがしやすくなったりと強力。",
+              "en": "The speed of everyone increases, making it easier to return to the front line and easier to avoid bullets.",
+              "ko": "모두의 이동 속도가 증가하여 전선 복귀 속도가 빨라지거나 탄을 피하기 쉬워져 강력합니다."
+            }
           }
         },
         {
@@ -4768,11 +5150,13 @@
             "en": "Next Super can break through obstacles. Scattered debris hitting enemies deals 216 damage per piece.",
             "ko": "다음 궁극기로 장애물을 뚫을 수 있습니다. 앞으로 흩어진 파편이 적중하면 하나당 216의 피해를 줍니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "自由なタイミングで壁を割れるため壁裏の瀕死の敵や大事な壁を破壊できるのが超優秀。",
-            "en": "Excellent as it can break walls at any time to destroy crucial walls or finish off enemies behind them.",
-            "ko": "자유로운 타이밍에 벽을 부술 수 있어 벽 뒤의 빈사 상태의 적이나 중요한 벽을 파괴할 수 있어 매우 우수합니다."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "自由なタイミングで壁を割れるため壁裏の瀕死の敵や大事な壁を破壊できるのが超優秀。",
+              "en": "It is super excellent because it can break through walls at any time, so it can destroy enemies on the verge of death behind walls or important walls.",
+              "ko": "자유로운 타이밍으로 벽을 부술 수 있어 벽 뒤의 죽을 위기에 처한 적이나 중요한 벽을 파괴할 수 있어 초우수입니다."
+            }
           }
         }
       ],
@@ -4825,11 +5209,13 @@
             "en": "Supply drops now contain bombs, increasing impact damage by 120% and allowing them to break walls.",
             "ko": "보급품에 폭탄을 장착하여 낙하 데미지가 120% 증가하고 벽을 파괴할 수 있게 됩니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "自在に壁を壊せるのでぼちぼち強い。",
-            "en": "Fairly strong as it allows breaking walls at will.",
-            "ko": "자유자재로 벽을 부술 수 있어서 꽤 강력합니다."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "自在に壁を壊せるのでぼちぼち強い。",
+              "en": "It's pretty strong because you can break walls at will.",
+              "ko": "자유롭게 벽을 부술 수 있어 그럭저럭 강합니다."
+            }
           }
         },
         {
@@ -4844,11 +5230,13 @@
             "en": "Allies within this ability's range gain 30 maximum HP per second.",
             "ko": "이 능력의 효과 범위 내에 있는 아군의 최대 체력이 초당 30씩 증가합니다."
           },
-          "recommendationLevel": 2,
-          "recommendationReason": {
-            "ja": "企画と特殊戦術でのみ使用される。",
-            "en": "Only used in specific strategies and special tactics.",
-            "ko": "기획과 특수 전술에서만 사용됩니다."
+          "recommendation": {
+            "level": 2,
+            "reason": {
+              "ja": "企画と特殊戦術でのみ使用される。",
+              "en": "It is used only in planning and special tactics.",
+              "ko": "기획과 특수 전술에서만 사용됩니다."
+            }
           }
         }
       ],
@@ -4865,11 +5253,13 @@
             "en": "Creates 3 sandbag walls around you. Each sandbag has HP equal to 35% of Ruffs' maximum HP.",
             "ko": "자신의 주위에 3개의 샌드백 벽을 생성합니다. 각 샌드백의 체력은 러프스 최대 체력의 35%입니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "かなり体力の高い壁を3つ生成できるため単発攻撃のメタキャラとして君臨するために必須。",
-            "en": "Essential for dominating as a counter to single-shot attacks, as it can generate three walls with high HP.",
-            "ko": "상당히 체력이 높은 벽을 3개 생성할 수 있어 단일 공격의 메타 캐릭터로 군림하는데 필수적입니다."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "かなり体力の高い壁を3つ生成できるため単発攻撃のメタキャラとして君臨するために必須。",
+              "en": "It is essential to reign as a meta character with single attack by generating three walls with quite high HP.",
+              "ko": "상당히 체력이 높은 벽을 3개 생성할 수 있어 단발 공격의 메타 캐릭터로서 통치하기 위해 필수입니다."
+            }
           }
         },
         {
@@ -4884,11 +5274,13 @@
             "en": "Calls in aerial bombardment to attack the nearest enemy. Each missile deals 1200 damage.",
             "ko": "공중에서 일제 포화를 요청하여 가장 가까운 적을 공격합니다. 미사일 한 발당 1200의 피해를 줍니다."
           },
-          "recommendationLevel": 3,
-          "recommendationReason": {
-            "ja": "貫通攻撃の敵ばかりで「バリケード」が腐る状況でのみまぁ使える。",
-            "en": "Only usable when facing enemies with piercing attacks where 'Take Cover' becomes ineffective.",
-            "ko": "관통 공격의 적들만 있어서 '엄폐'가 무용지물이 되는 상황에서만 그럭저럭 사용할 만합니다."
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "貫通攻撃の敵ばかりで「バリケード」が腐る状況でのみまぁ使える。",
+              "en": "It can only be used in situations where the enemy is a penetrating attack and the barricade is rotten.",
+              "ko": "관통 공격의 적만 있는 '바리케이드'가 썩는 상황에서만 사용할 수 있습니다."
+            }
           }
         }
       ],
@@ -4940,11 +5332,13 @@
             "en": "Deals 1300 damage to nearby enemies upon landing with Super.",
             "ko": "궁극기로 착지할 때 주변 적들에게 1300 데미지를 줍니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "敵のDPSが高い時にやられる前に倒すのにかなり使える。",
-            "en": "Very useful for taking down enemies before they can deal high DPS.",
-            "ko": "적의 DPS가 높을 때 당하기 전에 처치하는 데 상당히 유용합니다."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "敵の攻撃力が高い時にやられる前に倒すのにかなり使える。",
+              "en": "It is quite useful to defeat before being defeated when the enemy's attack power is high.",
+              "ko": "적의 공격력이 높을 때 죽기 전에 쓰러뜨리는 데 상당히 유용합니다."
+            }
           }
         },
         {
@@ -4959,11 +5353,13 @@
             "en": "Increases healing from normal attacks by 25%.",
             "ko": "일반 공격의 회복률이 25% 증가합니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "敵のDPSが低い時にウルトループができるためかなり使える。",
-            "en": "Very useful for ultimate chaining when enemy DPS is low.",
-            "ko": "적의 DPS가 낮을 때 궁극기 연계가 가능해 상당히 유용합니다."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "敵のDPSが低い時にウルトループができるためかなり使える。",
+              "en": "It is quite useful because you can loop the ult when the enemy's DPS is low.",
+              "ko": "적의 DPS가 낮을 때 울트 루프를 할 수 있어 상당히 유용합니다."
+            }
           }
         }
       ],
@@ -4980,11 +5376,13 @@
             "en": "Increases Super charge rate by 525% for 4 seconds.",
             "ko": "4초 동안 궁극기 충전 속도가 525% 증가합니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "これ一つでウルトが9割貯まるので、汎用性も高くてかなり優秀。",
-            "en": "Excellent and versatile as it charges up to 90% of the ultimate with just one use.",
-            "ko": "이것 하나로 궁극기가 90% 충전되어 범용성도 높고 매우 우수합니다."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "これ一つでウルトが9割貯まるので、汎用性も高くてかなり優秀。",
+              "en": "With this alone, the ult is 90% full, so it is highly versatile and quite excellent.",
+              "ko": "이것 하나로 울트가 9할이 채워지기 때문에 범용성이 높고 상당히 우수합니다."
+            }
           }
         },
         {
@@ -4999,11 +5397,13 @@
             "en": "Activates a shield that nullifies the next 3300 damage. Shield durability decreases over time.",
             "ko": "다음에 받는 3300 데미지를 무효화하는 보호막을 발동합니다. 보호막은 시간이 지날수록 내구도가 감소합니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "主にバトロワや試合テンポが遅いモードで使用され、タイマンの勝率が大幅に上がるため強い。",
-            "en": "Strong in Battle Royale and slower-paced modes, significantly increases win rate in 1v1 situations.",
-            "ko": "주로 배틀로얄이나 시합 템포가 느린 모드에서 사용되며, 1대1 승률이 크게 올라가서 강력합니다."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "主にバトロワや試合テンポが遅いモードで使用され、タイマンの勝率が大幅に上がるため強い。",
+              "en": "It is mainly used in Battle Royale and slow-paced modes, and is strong because the win rate in one-on-one battles is greatly increased.",
+              "ko": "주로 배틀로얄과 게임 템포가 느린 모드에서 사용되며, 타이만 승률이 크게 상승하여 강합니다."
+            }
           }
         }
       ],
@@ -5056,11 +5456,13 @@
             "en": "Enemies hit by Super have all healing effects reduced by 75% for 9 seconds.",
             "ko": "궁극기에 맞은 적은 모든 회복 효과가 9초 동안 75% 감소합니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "いかなる時でも回復阻害の時間が長すぎて最強。",
-            "en": "Extremely powerful due to the long duration of healing reduction in all situations.",
-            "ko": "어떤 상황에서도 회복 방해 시간이 너무 길어서 최강입니다."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "いかなる時でも回復阻害の時間が長すぎて最強。",
+              "en": "It is the strongest because the recovery inhibition time is too long at any time.",
+              "ko": "어느 때나 회복 억제 시간이 너무 길어 최강입니다."
+            }
           }
         },
         {
@@ -5075,11 +5477,13 @@
             "en": "Normal attacks pierce through targets every 3.5 seconds.",
             "ko": "일반 공격이 3.5초마다 대상을 관통하게 됩니다."
           },
-          "recommendationLevel": 3,
-          "recommendationReason": {
-            "ja": "この効果を使いこなすのが困難すぎてあまり使えない。",
-            "en": "Rarely used as it's too difficult to utilize this effect effectively.",
-            "ko": "이 효과를 활용하기가 너무 어려워서 잘 사용되지 않습니다."
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "この効果を使いこなすのが困難すぎてあまり使えない。",
+              "en": "It is difficult to master this effect, so it is not used much.",
+              "ko": "이 효과를 잘 다루기가 너무 어려워서 그렇게 많이 사용되지 않습니다."
+            }
           }
         }
       ],
@@ -5096,11 +5500,13 @@
             "en": "Injects yourself with medicine, healing 1200 HP per second for 3 seconds.",
             "ko": "자신에게 약물을 주입하여 3초 동안 초당 1200의 체력을 회복합니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "タイマンマップでデス数を減らしたい時にかなり強い。",
-            "en": "Very strong when you want to reduce deaths in 1v1 map situations.",
-            "ko": "1대1 맵에서 사망 횟수를 줄이고 싶을 때 상당히 강력합니다."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "タイマンマップでデス数を減らしたい時にかなり強い。",
+              "en": "It is quite strong when you want to reduce the number of deaths on the one-on-one map.",
+              "ko": "타이만 맵에서 데스 수를 줄이고 싶을 때 상당히 강합니다."
+            }
           }
         },
         {
@@ -5115,11 +5521,13 @@
             "en": "Next normal attack fires 3 shots simultaneously. However, each shot deals 20% less damage and heals 40% less.",
             "ko": "다음 일반 공격으로 3발의 샷을 동시에 발사합니다. 단, 각각의 데미지는 20%, 회복량은 40% 감소합니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "対アサシンとタンクに対して強くなり、味方を超回復の面でも強力で汎用性が高い。",
-            "en": "Highly versatile, strong against assassins and tanks, and powerful for overhealing allies.",
-            "ko": "암살자와 탱크에 대해 강해지고, 아군 초과 회복 면에서도 강력해서 범용성이 높습니다."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "対アサシンとタンクに対して強くなり、味方を超回復の面でも強力で汎用性が高い。",
+              "en": "It becomes strong against assassins and tanks, and is powerful in terms of super recovery for allies, making it highly versatile.",
+              "ko": "암살자와 탱크에 강해지며, 아군을 초회복의 면에서도 강력하여 범용성이 높습니다."
+            }
           }
         }
       ],
@@ -5172,11 +5580,13 @@
             "en": "Enemies in Super's area of effect have their freeze rate increased by 33%.",
             "ko": "궁극기의 효과 범위 안에 있는 적의 빙결 속도가 33% 증가합니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "凍結ループがしやすくタンクやアサシンなどにかなり強くなる。",
-            "en": "Very strong against tanks and assassins as it makes freeze-locking easier.",
-            "ko": "빙결 연계가 쉬워져서 탱크나 암살자 등에게 상당히 강해집니다."
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "凍結ループがしやすくタンクやアサシンなどにかなり強くなる。",
+              "en": "It is quite strong against tanks and assassins because it is easy to freeze loop.",
+              "ko": "빙결 루프가 쉽기 때문에 탱크나 암살자 등에 상당히 강합니다."
+            }
           }
         },
         {
@@ -5191,11 +5601,13 @@
             "en": "Reduces enemy attack power by up to 50% based on their freeze level.",
             "ko": "공격으로 인한 빙결 정도에 따라 적의 공격력을 최대 50%까지 감소시킵니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "攻撃力を大幅に低下させられるので前線を押し上げやすくなる。",
-            "en": "Makes pushing the front line easier by significantly reducing enemy attack power.",
-            "ko": "공격력을 대폭 감소시킬 수 있어서 전선을 밀어붙이기 쉬워집니다."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "攻撃力を大幅に低下させられるので生存性が上昇し、前線がかなり押し上げやすくなる。",
+              "en": "Survivability increases and the front line is pushed up quite easily because the attack power is greatly reduced.",
+              "ko": "공격력을 대폭 감소시킬 수 있어 생존성이 상승하고 전선이 상당히 쉽게 밀려올라갑니다."
+            }
           }
         }
       ],
@@ -5212,11 +5624,13 @@
             "en": "Creates an ice shield that nullifies damage for 1.0 seconds.",
             "ko": "얼음 보호막을 생성하여 1.0초 동안 데미지를 무효화합니다."
           },
-          "recommendationLevel": 3,
-          "recommendationReason": {
-            "ja": "無敵なのは良いがもう片方が強いので目立たない。",
-            "en": "The invincibility is good but overshadowed by the other gadget's strength.",
-            "ko": "무적이라는 점은 좋지만 다른 가젯이 더 강력해서 두각을 나타내지 못합니다."
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "無敵なのは良いがもう片方が強いので目立たない。",
+              "en": "It is good to be invincible, but it is not noticeable because the other side is stronger.",
+              "ko": "무적이라는 것은 좋지만 다른 쪽이 더 강하기 때문에 눈에 띄지 않습니다."
+            }
           }
         },
         {
@@ -5231,11 +5645,13 @@
             "en": "Enemies in Super's area of effect have their freeze meter increased by 50%.",
             "ko": "궁극기의 효과 범위에 있는 적의 빙결 게이지가 50% 증가합니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "好きなタイミングで半分凍結状態の敵を凍結できるので超強い。",
-            "en": "Extremely strong as it can freeze half-frozen enemies at will.",
-            "ko": "원하는 타이밍에 절반 빙결 상태의 적을 빙결시킬 수 있어서 매우 강력합니다."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "好きなタイミングで半分凍結状態の敵を凍結できるので超強い。",
+              "en": "It is super strong because you can freeze enemies in half frozen state at any time.",
+              "ko": "원하는 타이밍에 반 빙결 상태의 적을 언제든지 빙결시킬 수 있어 초강력입니다."
+            }
           }
         }
       ],
@@ -5288,11 +5704,13 @@
             "en": "Can create 2 fuel puddles on the ground simultaneously. Super gauge charges automatically while near fuel.",
             "ko": "지면에 연료 웅덩이를 동시에 2개 만들 수 있습니다. 연료 근처에 있는 동안 궁극기 게이지가 자동으로 충전됩니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "燃料の水たまりで敵の行動を制限できルエリアが増えるので攻撃の幅が広がり前線をキープしやすくなる。",
-            "en": "Extends attack options and makes front line control easier by restricting enemy movement with fuel puddles.",
-            "ko": "연료 웅덩이로 적의 행동을 제한할 수 있는 영역이 늘어나 공격의 폭이 넓어지고 전선을 유지하기 쉬워집니다."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "燃料の水たまりで敵の行動を制限できルエリアが増えるので攻撃の幅が広がり前線をキープしやすくなる。",
+              "en": "The range of attack is widened and it is easy to keep the front line because the enemy's movement can be restricted and the area is increased by the fuel puddle.",
+              "ko": "연료 웅덩이로 적의 행동을 제한할 수 있어 루리어가 늘어나 공격의 폭이 넓어져 전선을 유지하기 쉬워집니다."
+            }
           }
         },
         {
@@ -5307,11 +5725,13 @@
             "en": "Increases flame charge speed by 50% while near fuel puddles.",
             "ko": "연료 웅덩이 근처에 있는 동안 화염 충전 속도가 50% 증가합니다."
           },
-          "recommendationLevel": 3,
-          "recommendationReason": {
-            "ja": "そこまでチャージ速度には困らないため、少し効果の相性が悪い。",
-            "en": "Charge speed isn't much of an issue, making this effect somewhat less synergistic.",
-            "ko": "충전 속도에 그다지 어려움을 겪지 않아서 효과의 시너지가 조금 낮습니다."
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "そこまでチャージ速度には困らないため、少し効果の相性が悪い。",
+              "en": "It is not so difficult to charge speed, so the compatibility of the effect is a little bad.",
+              "ko": "그렇게 충전 속도에 고민할 필요가 없기 때문에 약간 효과의 상성이 나쁩니다."
+            }
           }
         }
       ],
@@ -5328,11 +5748,13 @@
             "en": "Quickly moves around the map for 3 seconds, spreading fuel on the ground. The fuel can be ignited.",
             "ko": "3초 동안 맵을 빠르게 이동하며 지면에 연료를 뿌립니다. 연료에 불을 붙일 수 있습니다."
           },
-          "recommendationLevel": 4,
-          "recommendationReason": {
-            "ja": "スタパの「ワイルドフレイム」との相性がよく、攻撃せずともウルトを貯められるようになるのでそこそこ強い。",
-            "en": "Fairly strong as it synergizes well with 'Wild Flames' Star Power and allows Ultimate charge without attacking.",
-            "ko": "스타 파워 '와일드 플레임'과 시너지가 좋고, 공격하지 않고도 궁극기를 모을 수 있어서 꽤 강력합니다."
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "スタパの「ワイルドフレイム」との相性がよく、攻撃せずともウルトを貯められるようになるのでそこそこ強い。",
+              "en": "It is quite strong because it is compatible with the star power 'Wild Flames' and can charge the ult without attacking.",
+              "ko": "스타파 '와일드 플레임'과의 상성이 좋아 공격하지 않아도 울트를 채울 수 있어 상당히 강합니다."
+            }
           }
         },
         {
@@ -5347,11 +5769,13 @@
             "en": "3 fireballs orbit around you for 5 seconds, dealing 1890 damage each time they hit an enemy.",
             "ko": "3개의 화염구가 5초 동안 자신의 주위를 선회하며, 적에게 맞을 때마다 1890 데미지를 줍니다."
           },
-          "recommendationLevel": 4,
-          "recommendationReason": {
-            "ja": "タンクやアサシン、壁裏の敵などに対して超強くなり弱点が大幅に減るのでかなりおすすめ。",
-            "en": "Highly recommended as it becomes very strong against tanks, assassins, and enemies behind walls, significantly reducing weaknesses.",
-            "ko": "탱크나 암살자, 벽 뒤의 적 등에 대해 매우 강해지고 약점이 크게 줄어들어서 상당히 추천합니다."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "タンクやアサシン、壁裏の敵などに対して超強くなり弱点が大幅に減るのでかなりおすすめ。",
+              "en": "It is highly recommended because it becomes super strong against tanks, assassins, enemies behind walls, etc., and the weaknesses are greatly reduced.",
+              "ko": "탱크나 암살자, 벽 뒤의 적 등에 대해 초강력이 되어 약점이 크게 줄어들어 상당히 추천합니다."
+            }
           }
         }
       ],
@@ -5405,11 +5829,13 @@
             "en": "All enemies hit by Super are pushed back to the maximum dash distance.",
             "ko": "궁극기에 맞은 모든 적이 대시의 최대 거리까지 밀려납니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "強奪以外では絶対にこっち。",
-            "en": "Always choose this except in Heist.",
-            "ko": "하이스트 외에는 절대 이쪽을 선택하세요."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "敵を遠ざけられるためタンクとアサシンにかなり強力となる",
+              "en": "It becomes quite powerful against tanks and assassins because the enemy is pushed away.",
+              "ko": "적을 멀리 밀어낼 수 있어 탱크와 암살자에 상당히 강력해집니다."
+            }
           }
         },
         {
@@ -5424,11 +5850,13 @@
             "en": "Activating Super generates a shield for 5 seconds that reduces damage by 20%. Each enemy hit increases reduction by 10%.",
             "ko": "궁극기 발동 시 데미지를 20% 감소시키는 보호막이 5초간 생성됩니다. 명중한 적 1명당 감소율이 10% 증가합니다."
           },
-          "recommendationLevel": 5,
-          "recommendationReason": {
-            "ja": "強奪では絶対にこっち。",
-            "en": "Always choose this in Heist.",
-            "ko": "하이스트에서는 절대 이쪽을 선택하세요."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "強奪の金庫を攻撃すると大幅に耐久力が上昇するためかなり強力。",
+              "en": "It is quite powerful because the durability increases significantly when attacking the Robo Rumble safe.",
+              "ko": "강탈의 금고를 공격하면 대폭 체력이 상승하기 때문에 상당히 강력합니다."
+            }
           }
         }
       ],
@@ -5445,11 +5873,13 @@
             "en": "Next shot deals 1500 additional damage.",
             "ko": "다음 발사로 1500의 추가 데미지를 줍니다."
           },
-          "recommendationLevel": 2,
-          "recommendationReason": {
-            "ja": "ネタガジェット。ちょっと効果は嬉しいが圧倒的にもう一つのガジェットの方が強い。",
-            "en": "Meme gadget. Effect is nice but significantly weaker than the other gadget.",
-            "ko": "밈 가젯입니다. 효과는 좋지만 다른 가젯이 압도적으로 더 강력합니다."
+          "recommendation": {
+            "level": 2,
+            "reason": {
+              "ja": "ネタガジェット。ちょっと効果は嬉しいが圧倒的にもう一つのガジェットの方が強い。",
+              "en": "A gaget. The effect is a little pleasing, but the other gadget is overwhelmingly stronger.",
+              "ko": "개그 가젯. 효과는 조금 기쁘지만 압도적으로 다른 가젯이 더 강합니다."
+            }
           }
         },
         {
@@ -5464,11 +5894,13 @@
             "en": "For 5 seconds after activation, 80% of damage dealt to enemies is converted to HP.",
             "ko": "발동 후 5초 동안 적에게 가한 데미지의 80%가 자신의 체력으로 전환됩니다."
           },
-          "recommendationLevel": 4,
-          "recommendationReason": {
-            "ja": "回復量が多すぎるため耐久力が超大幅に増加する前線キープで超有能。",
-            "en": "Extremely useful for frontline maintenance due to massive durability increase from excessive healing.",
-            "ko": "회복량이 너무 많아서 내구력이 크게 증가하는 전선 유지에 매우 유능합니다."
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "回復量が多すぎるため耐久力が超大幅に増加する前線キープで超有能。",
+              "en": "It is super capable of keeping the front line because the recovery amount is too high and the durability increases significantly.",
+              "ko": "회복량이 너무 많아 체력이 초대폭으로 증가하여 전선 유지에 초강력입니다."
+            }
           }
         }
       ],
@@ -5520,6 +5952,14 @@
             "ja": "通常攻撃が壁に当たると、弾丸が分裂する。",
             "en": "Normal attacks split when hitting walls.",
             "ko": "일반 공격이 벽에 맞으면 총알이 분열됩니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "バトルロワイヤルでは別のスターパワーが不要であるため必須",
+              "en": "It is essential because another star power is not required in Battle Royale.",
+              "ko": "배틀 로얄에서 다른 스타파워가 필요하지 않기 때문에 필수입니다."
+            }
           }
         },
         {
@@ -5533,6 +5973,14 @@
             "ja": "バトルの間、常に第1段階の強化が維持される。",
             "en": "Always maintain Stage 1 upgrade throughout the battle.",
             "ko": "배틀 동안 항상 1단계 강화가 유지됩니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "3vs3で1段階目の進化が弱すぎるため必須スタパとなる。",
+              "en": "It is essential because the first stage of evolution is too weak in 3vs3.",
+              "ko": "3vs3에서 1단계 진화가 너무 약하기 때문에 필수 스타파가 됩니다."
+            }
           }
         }
       ],
@@ -5548,6 +5996,14 @@
             "ja": "出力のリミッターを外し、10秒にわたって自分自身を1段階強化する。",
             "en": "Remove output limiter and upgrade yourself by 1 stage for 10 seconds.",
             "ko": "출력 리미터를 해제하고 10초 동안 자신을 1단계 강화합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "射程が短い敵がいない状態で進化ゲージを貯めるのに重宝する。",
+              "en": "It is useful for accumulating evolution gauges when there are no enemies with short range.",
+              "ko": "사정거리가 짧은 적이 없는 상태에서 진화 게이지를 쌓는 데 유용합니다."
+            }
           }
         },
         {
@@ -5561,6 +6017,14 @@
             "ja": "発動してから2秒以内にダメージを受けると、そのダメージを50％軽減して、弾を2発リロードする。",
             "en": "When taking damage within 2 seconds of activation, reduce that damage by 50% and reload 2 ammo.",
             "ko": "발동 후 2초 이내에 데미지를 받으면 해당 데미지를 50% 감소시키고 탄환을 2발 리로드합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "タンクが多い時に火力不足を補えるため非常に強力。",
+              "en": "It is very powerful because it can compensate for insufficient firepower when there are many tanks.",
+              "ko": "탱크가 많을 때 화력 부족을 보충할 수 있어 매우 강력합니다."
+            }
           }
         }
       ]
@@ -5607,6 +6071,14 @@
             "ja": "発射する種爆弾の爆発半径が大きくなる。この効果は5秒ごとに使用できる。",
             "en": "Increase the explosion radius of seed bombs. This effect can be used every 5 seconds.",
             "ko": "발사하는 씨앗 폭탄의 폭발 반경이 커집니다. 이 효과는 5초마다 사용할 수 있습니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "爆発半径が大幅に広くなるためかなり攻撃を回避するのが困難となるので強い",
+              "en": "It is strong because it is difficult to avoid attacks because the explosion radius is significantly wider.",
+              "ko": "폭발 반경이 크게 넓어져 공격을 회피하기가 어려워져 강합니다."
+            }
           }
         },
         {
@@ -5620,6 +6092,14 @@
             "ja": "やぶの中にいる間はシールドが発生し、すべての攻撃からある程度守ってくれる。",
             "en": "While in bushes, generate a shield that provides some protection from all attacks.",
             "ko": "덤불 속에 있는 동안 실드가 발생하여 모든 공격으로부터 어느 정도 보호해줍니다."
+          },
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "ダメージ軽減率が高くかなり死ににくくなるがおすすめ度は少しだけ低い。",
+              "en": "The damage reduction rate is high and it is quite difficult to die, but the recommendation level is slightly lower.",
+              "ko": "피해 감소율이 높아 상당히 죽기 어려워지지만 추천도는 조금만 낮습니다."
+            }
           }
         }
       ],
@@ -5635,6 +6115,14 @@
             "ja": "やぶを消費してHPを1800回復する。",
             "en": "Consume bushes to recover 1800 HP.",
             "ko": "덤불을 소비하여 HP를 1800 회복합니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "草むらがほどほどにあるマップだとぼちぼち使える。",
+              "en": "It can be used moderately on maps with moderate bushes.",
+              "ko": "덤불이 적당히 있는 맵에서 쓸만합니다."
+            }
           }
         },
         {
@@ -5648,6 +6136,14 @@
             "ja": "生成した生け垣ブロックを破壊する代わりに、必殺技のゲージを瞬時に満タンにする。",
             "en": "Instead of destroying the generated hedge blocks, instantly fill your Super gauge.",
             "ko": "생성한 생울타리 블록을 파괴하는 대신 필살기 게이지를 즉시 채웁니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "ウルトループができるようになり、ハイパーチャージや緊急時などの多様な状況で使用できるため強力。",
+              "en": "It is powerful because it can loop the ult, and can be used in various situations such as hypercharge and emergency.",
+              "ko": "울트루프가 가능해져 하이퍼차지나 긴급시 등 다양한 상황에서 사용할 수 있어 강력합니다."
+            }
           }
         }
       ]
@@ -5694,6 +6190,14 @@
             "ja": "ピープが移動距離に基づいて最大1850追加ダメージ与える。",
             "en": "Peep deals up to 1850 additional damage based on travel distance.",
             "ko": "핍이 이동 거리에 따라 최대 1850의 추가 데미지를 줍니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "賞金稼ぎやノックアウトなどのモードで使用され、低体力の敵を倒せる幅が広がるため安定して強い。",
+              "en": "It is stable and strong because it is used in modes such as Bounty Hunter and Knockout, and the range of defeating low-health enemies is expanded.",
+              "ko": "바운티 헌터나 노크아웃 등의 모드에서 사용되어 체력이 낮은 적을 물리치는 폭이 넓어져 안정적으로 강합니다."
+            }
           }
         },
         {
@@ -5707,6 +6211,14 @@
             "ja": "必殺技発動中に受けるダメージが80%低下する。",
             "en": "Reduce damage taken by 80% while Super is active.",
             "ko": "필살기 발동 중에 받는 데미지가 80% 감소합니다."
+          },
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "ウルトを接近キャラに使用する時に活躍する。",
+              "en": "It is active when using the ult on a close character.",
+              "ko": "울트를 접근 캐릭터에 사용할 때 활약합니다."
+            }
           }
         }
       ],
@@ -5722,6 +6234,14 @@
             "ja": "ナーニはピープを爆発させ、ピープが最後にいた場所にテレポートする。",
             "en": "Nani detonates Peep and teleports to Peep's last location.",
             "ko": "나니가 핍을 폭발시키고 핍이 마지막으로 있던 위치로 텔레포트합니다."
+          },
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "初見殺しでそこそこ強いが練度とワープのタイミングが非常に難しい。",
+              "en": "It is quite strong in the first kill, but the level of training and the timing of the warp are very difficult.",
+              "ko": "첫눈에 죽이기는 그럭저럭 강하지만 연습 수준과 워프 타이밍이 매우 어렵습니다."
+            }
           }
         },
         {
@@ -5735,6 +6255,14 @@
             "ja": "発動してから2秒以内に敵からダメージを受けると、最初のダメージの80％をその敵に返す。",
             "en": "When taking damage from enemies within 2 seconds of activation, return 80% of the initial damage to that enemy.",
             "ko": "발동 후 2초 이내에 적으로부터 데미지를 받으면 최초 데미지의 80%를 해당 적에게 되돌립니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "単発高火力の敵に対して大幅に強くなるため特定のキャラをメタるのに多く使用される。",
+              "en": "It is used a lot to meta certain characters because it becomes significantly stronger against single high-power enemies.",
+              "ko": "단발 고화력의 적에 대해 대폭 강해져 특정 캐릭터를 메타하기 위해 많이 사용됩니다."
+            }
           }
         }
       ]
@@ -5781,6 +6309,14 @@
             "ja": "必殺技で押し戻されて障害物に激突した敵は1.2秒間気絶する。",
             "en": "Enemies pushed back by Super and colliding with obstacles are stunned for 1.2 seconds.",
             "ko": "필살기로 밀려나 장애물에 부딪힌 적은 1.2초간 기절합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "タンクを木っ端微塵するために必要で、気絶時間が長く超強力。",
+              "en": "It is necessary to crush the tank to pieces, and the stun time is long and super powerful.",
+              "ko": "탱크를 조각내기 위해 필요하며, 기절 시간이 길고 초강력입니다."
+            }
           }
         },
         {
@@ -5794,6 +6330,14 @@
             "ja": "雪玉に当たった敵は、0.5秒にわたってスローダウンする。",
             "en": "Enemies hit by snowballs are slowed down for 0.5 seconds.",
             "ko": "눈덩이에 맞은 적은 0.5초 동안 슬로우됩니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "主に中距離攻撃をメタるのに使用され、2発目以降の攻撃が大幅に当てやすくなる。",
+              "en": "It is mainly used to meta medium-range attacks, and the second and subsequent attacks are significantly easier to hit.",
+              "ko": "주로 중거리 공격을 메타하기 위해 사용되며, 2발 이후의 공격이 대폭 맞기 쉬워집니다."
+            }
           }
         }
       ],
@@ -5809,6 +6353,14 @@
             "ja": "ゲイルは足元にジャンプ台を置いて、味方も敵も空中に跳ね上げる。",
             "en": "Gale places a jump pad at his feet that launches both allies and enemies into the air.",
             "ko": "게일이 발밑에 점프대를 설치하여 아군과 적 모두를 공중으로 튀어오르게 합니다."
+          },
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "特殊な戦術と特定のマップでかなり使用されているが、汎用性があまりにも低い。",
+              "en": "It is used quite a lot in special tactics and specific maps, but its versatility is too low.",
+              "ko": "특수한 전술과 특정 맵에서 많이 사용되지만, 범용성이 너무 낮습니다."
+            }
           }
         },
         {
@@ -5822,6 +6374,14 @@
             "ja": "噴射機で小さな竜巻を起こし、通り抜けようとする敵を押し戻す。",
             "en": "Create a small tornado with the blower that pushes back enemies trying to pass through.",
             "ko": "분사기로 작은 회오리바람을 일으켜 통과하려는 적을 밀어냅니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "アサシンやタンクが一切近づけなくなり、さらにタンクメタとして効力を発揮させるのに必須。",
+              "en": "Assassins and tanks can no longer approach at all, and it is essential to exert its effectiveness as a tank meta.",
+              "ko": "어쌔신과 탱크가 전혀 가까이 다가갈 수 없게 되며, 더욱 강력한 탱크 메타로서 효력을 발휘하기 위해 필수입니다."
+            }
           }
         }
       ]
@@ -5868,6 +6428,14 @@
             "ja": "ダメージを受けると、グラウンドブレイカーで反撃し30％のダメージを相手に返す。",
             "en": "When taking damage, counter-attack with Ground Breaker and return 30% of the damage to the opponent.",
             "ko": "데미지를 받으면 그라운드 브레이커로 반격하여 30%의 데미지를 상대에게 돌려줍니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "この効果の範囲内の敵は基本大ダメージを喰らうため、遠距離以外を涙目にできる強力スタパ。",
+              "en": "It is a powerful star power that can make enemies other than long range cry because enemies within the range of this effect basically take a lot of damage.",
+              "ko": "이 효과 범위 내의 적은 기본적으로 많은 데미지를 입기 때문에 원거리 이외의 적을 울게 할 수 있는 강력한 스타파입니다."
+            }
           }
         },
         {
@@ -5881,6 +6449,14 @@
             "ja": "被っている硬いヘルメットのおかげで、受けるダメージが20％減少する。",
             "en": "Thanks to her hard helmet, damage taken is reduced by 20%.",
             "ko": "쓰고 있는 단단한 헬멧 덕분에 받는 데미지가 20% 감소합니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "ダメージ減少率はかなり高いものの、もう一つのスタパが強すぎて霞む。",
+              "en": "The damage reduction rate is quite high, but the other star power is too strong to be overshadowed.",
+              "ko": "피해 감소율은 상당히 높지만, 다른 스타파가 너무 강해서 그림자를 드리웁니다."
+            }
           }
         }
       ],
@@ -5896,6 +6472,14 @@
             "ja": "力を全身にみなぎらせ、4秒間25％移動速度が上がる。",
             "en": "Channel power throughout her body, increasing movement speed by 25% for 4 seconds.",
             "ko": "힘을 온몸에 끌어올려 4초 동안 이동 속도가 25% 증가합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "一気に前線を押し上げられ、追いつけずに倒せない敵も倒せるようになるためかなり強い。",
+              "en": "It is quite strong because it can push the front line at once and defeat enemies that cannot catch up.",
+              "ko": "일격에 전선을 밀어올려 따라잡지 못하는 적도 쓰러뜨릴 수 있어 상당히 강합니다."
+            }
           }
         },
         {
@@ -5909,6 +6493,14 @@
             "ja": "周囲にある障害物を作り直す。",
             "en": "Rebuild obstacles in the surrounding area.",
             "ko": "주변에 있는 장애물을 다시 만듭니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "使用する難易度こそ超高いものの、刺さればある程度は強い。",
+              "en": "The difficulty of use is extremely high, but it is somewhat strong if you stab it.",
+              "ko": "사용 난이도는 초고지만 찌르면 어느 정도는 강합니다."
+            }
           }
         }
       ]
@@ -5916,7 +6508,7 @@
     {
       "id": 16000032,
       "name": {
-        "ja": "マックス",
+        "ja": "Max",
         "en": "Max",
         "ko": "맥스"
       },
@@ -5955,6 +6547,14 @@
             "ja": "移動中も必殺技がチャージされるようになる。",
             "en": "Super charges even while moving.",
             "ko": "이동 중에도 필살기가 차지됩니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "5vs5や戦いが停滞しやすいモードでは稀に使用される。",
+              "en": "It is rarely used in 5vs5 and modes where battles are easily stalled.",
+              "ko": "5vs5나 전투가 정체되기 쉬운 모드에서는 드물게 사용됩니다."
+            }
           }
         },
         {
@@ -5968,6 +6568,14 @@
             "ja": "移動中のリロード速度が上昇する。",
             "en": "Reload speed increases while moving.",
             "ko": "이동 중의 재장전 속도가 증가합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "攻撃の当てにくさを数で誤魔化したり、タンクに対して有利にしたりするのに超必須の強スタパ。",
+              "en": "It is a super essential strong star power to deceive the difficulty of hitting attacks with numbers and to gain an advantage over tanks.",
+              "ko": "공격의 맞히기 어려움을 수로 속이거나, 탱크에게 유리하게 하기 위해 초필수의 강력한 스타파입니다."
+            }
           }
         }
       ],
@@ -5983,6 +6591,14 @@
             "ja": "前にダッシュする。ダッシュしている間は、敵から受けるダメージがすべて無効になる。",
             "en": "Dash forward. While dashing, all damage from enemies is negated.",
             "ko": "앞으로 돌진합니다. 돌진하는 동안에는 적으로부터 받는 모든 데미지가 무효화됩니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "敵の攻撃を防ぎながら接近できるので敵のリロード把握とダメージ計算などができれば最強と化す。",
+              "en": "It becomes the strongest if you can grasp the enemy's reload and damage calculation while approaching while preventing enemy attacks.",
+              "ko": "적의 공격을 막으면서 접근할 수 있기 때문에 적의 재장전 파악과 데미지 계산 등을 할 수 있다면 최강이 됩니다."
+            }
           }
         },
         {
@@ -5996,6 +6612,14 @@
             "ja": "3秒間経過後に、発動地点まで瞬時に戻る。この間に受けたダメージはすべて回復する。",
             "en": "After 3 seconds, instantly return to the activation point. All damage taken during this time is healed.",
             "ko": "3초 후에 발동 지점으로 즉시 돌아옵니다. 이 동안 받은 모든 데미지가 회복됩니다."
+          },
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "完璧なダメージ管理ができれば強いが使いこなすのがあまりにも難しい。死ななければ前線キープ力は超大幅に上がる。",
+              "en": "It is strong if you can manage damage perfectly, but it is too difficult to master. If you don't die, your front line keeping power will increase significantly.",
+              "ko": "완벽한 데미지 관리가 가능하다면 강하지만 사용하기가 너무 어렵습니다. 죽지 않으면 전선 유지력이 초대폭 상승합니다."
+            }
           }
         }
       ]
@@ -6042,6 +6666,14 @@
             "ja": "次に投げるスーツケースによる爆発ダメージが、4秒間のチャージ後に40％増加する。",
             "en": "After charging for 4 seconds, the explosion damage from the next suitcase throw increases by 40%.",
             "ko": "4초간 차지 후 다음에 던지는 서류가방의 폭발 데미지가 40% 증가합니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "爆発を当てるのが難しいためあまりこの恩恵を感じられない。",
+              "en": "It is difficult to feel this benefit because it is difficult to hit the explosion.",
+              "ko": "폭발을 맞히기 어려워 이 혜택을 느끼기 어렵습니다."
+            }
           }
         },
         {
@@ -6055,6 +6687,14 @@
             "ja": "拠点から召喚されるロボットポーターのHPが20％、敵に与えるダメージが30％増加する。",
             "en": "Robot Porters summoned from the base have 20% more HP and deal 30% more damage to enemies.",
             "ko": "기지에서 소환되는 로봇 포터의 HP가 20%, 적에게 주는 데미지가 30% 증가합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "子ペンの体力が上昇することでさらに前線キープ力が上昇する。",
+              "en": "The front line keeping power increases further as the child pen's HP increases.",
+              "ko": "자식 펜의 체력이 상승함으로써 더욱 전선 유지력이 상승합니다."
+            }
           }
         }
       ],
@@ -6070,6 +6710,14 @@
             "ja": "出現しているポーターのダメージを228、HPを1360強化する。",
             "en": "Boost the damage by 228 and HP by 1360 for existing Porters.",
             "ko": "출현해 있는 포터의 데미지를 228, HP를 1360 강화합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "体力を最大まで回復させられるので敵のリロードを奪いやすく攻撃力も大幅に上がるため強力",
+              "en": "It is powerful because it can recover HP to the maximum, making it easy to steal enemy reloads and significantly increasing attack power.",
+              "ko": "체력을 최대까지 회복시킬 수 있어 적의 재장전을 빼앗기 쉽고 공격력도 대폭 상승하기 때문에 강력합니다."
+            }
           }
         },
         {
@@ -6083,6 +6731,14 @@
             "ja": "次の通常攻撃の落下地点に、低出力のポーターの1体出現させる。",
             "en": "Spawn a low-powered Porter at the landing spot of your next normal attack.",
             "ko": "다음 일반 공격의 착지 지점에 저출력 포터 1기를 출현시킵니다."
+          },
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "索敵や回復阻止などでかなり有能だがこのコペンの性能が低いのが難点。",
+              "en": "It is quite capable in scouting and preventing recovery, but the low performance of this Coppen is a drawback.",
+              "ko": "정찰이나 회복 방해 등에서 상당히 유능하지만 이 코펜의 성능이 낮은 것이 단점입니다."
+            }
           }
         }
       ]
@@ -6090,8 +6746,8 @@
     {
       "id": 16000030,
       "name": {
-        "ja": "エムズ",
-        "en": "EMZ",
+        "ja": "Emz",
+        "en": "Emz",
         "ko": "이엠지"
       },
       "image": "require('../../assets/BrawlerIcons/emz_pin.png')",
@@ -6129,6 +6785,14 @@
             "ja": "彼女のヘアスプレーの範囲内にいる敵は、時間の経過とともに25％ずつ受けるダメージが増加する。",
             "en": "Enemies within her hairspray range take 25% more damage over time.",
             "ko": "그녀의 헤어스프레이 범위 안에 있는 적은 시간이 지날수록 25%씩 받는 데미지가 증가합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "タンクや中距離の敵を倒すのにかなり強力でとにかく火力でねじ伏せられる。",
+              "en": "It is quite powerful to defeat tanks and medium-range enemies, and it can be overwhelmed by firepower anyway.",
+              "ko": "탱크나 중거리의 적을 물리치기에 상당히 강력하며 어차피 화력으로 꺾어버릴 수 있습니다."
+            }
           }
         },
         {
@@ -6142,6 +6806,14 @@
             "ja": "必殺技の範囲内にいる敵1体につき、EmzのHPが毎秒576回復する。",
             "en": "EMZ heals 576 HP per second for each enemy within her Super's range.",
             "ko": "필살기 범위 안에 있는 적 1명당 이엠지의 HP가 초당 576씩 회복됩니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "前線の維持力が上昇し、回復量も多くて汎用性がかなり高い。",
+              "en": "The front line keeping power increases, the recovery amount is large, and the versatility is quite high.",
+              "ko": "전선 유지력이 상승하고, 회복량도 많아서 범용성이 상당히 높습니다."
+            }
           }
         }
       ],
@@ -6157,6 +6829,14 @@
             "ja": "周囲にいる敵全員を押しのけ、同時に676ダメージを与える。",
             "en": "Push away all nearby enemies while dealing 676 damage to them.",
             "ko": "주변에 있는 모든 적을 밀어내고 동시에 676 데미지를 줍니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "これがないとタンクとアサシンにボコボコにされる超必須ガジェット。",
+              "en": "It is a super essential gadget that will be beaten up by tanks and assassins without it.",
+              "ko": "이것이 없으면 탱크와 어쌔신에게 두들겨 맞을 초필수 가젯입니다."
+            }
           }
         },
         {
@@ -6170,6 +6850,14 @@
             "ja": "次の通常攻撃が壁をすり抜け、向こう側にいる敵まで届く。ただし、ダメージは10％低減する。",
             "en": "Next normal attack passes through walls and reaches enemies on the other side. However, damage is reduced by 10%.",
             "ko": "다음 일반 공격이 벽을 통과하여 반대편에 있는 적까지 닿습니다. 단, 데미지는 10% 감소합니다."
+          },
+          "recommendation": {
+            "level": 2,
+            "reason": {
+              "ja": "余程のことがない限り使用されない。",
+              "en": "It is not used unless there is something very special.",
+              "ko": "아주 특별한 일이 없는 한 사용되지 않습니다."
+            }
           }
         }
       ]
@@ -6216,6 +6904,14 @@
             "ja": "ブーストされた攻撃を外した場合、もう1ショット分の「針の一撃」を瞬時にパワーアップする。",
             "en": "If you miss a boosted shot, instantly power up another 'Charged Sting'.",
             "ko": "부스트된 공격을 빗나갔을 경우, 또 다른 '바늘 찌르기'를 즉시 파워업합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "タンクキラーとして君臨するのに重宝される。",
+              "en": "It is useful for reigning as a tank killer.",
+              "ko": "탱크 킬러로서 통치하는 데 유용합니다."
+            }
           }
         },
         {
@@ -6229,6 +6925,14 @@
             "ja": "通常攻撃がパワーアップしている間、シールドを発動してダメージを30％軽減する。",
             "en": "While normal attack is powered up, activate a shield that reduces damage by 30%.",
             "ko": "일반 공격이 파워업되어 있는 동안 실드를 발동하여 데미지를 30% 감소시킵니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "死亡リスクをかなり抑えられ、シールドを持った状態だと前線を押し上げやすくかなり強い。",
+              "en": "The risk of death is significantly reduced, and it is quite strong because it is easy to push the front line when in a shielded state.",
+              "ko": "사망 리스크를 상당히 억제하고, 실드를 가진 상태라면 전선을 밀어올리기 쉽기 때문에 상당히 강합니다."
+            }
           }
         }
       ],
@@ -6244,6 +6948,14 @@
             "ja": "ネバネバのはちみつが付いたハチの巣を設置し、あふれ出た蜜に触れた敵をスローダウンさせる。",
             "en": "Place a beehive with sticky honey that slows down enemies who touch the overflowing nectar.",
             "ko": "끈적끈적한 꿀이 묻은 벌집을 설치하고, 넘쳐난 꿀에 닿은 적을 슬로우시킵니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "シールドや壁裏の敵に使用するとかなり強く、タンクメタとしてさらに強化される。",
+              "en": "It is quite strong when used on shields or enemies behind walls, and is further strengthened as a tank meta.",
+              "ko": "실드나 벽 뒤의 적에 사용하면 상당히 강하며, 탱크 메타로서 더욱 강화됩니다."
+            }
           }
         },
         {
@@ -6257,6 +6969,14 @@
             "ja": "怒ったハチが4匹が、渦を描くように周囲を飛び回る。ハチが遠くに行くほど、与えるダメージが大きくなる(最大1200ダメージ)。",
             "en": "4 angry bees spiral around, dealing more damage the further they travel (up to 1200 damage).",
             "ko": "화난 벌 4마리가 소용돌이를 그리며 주위를 날아다닙니다. 벌이 멀리 갈수록 주는 데미지가 커집니다(최대 1200 데미지)."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "壁裏の敵でもキルを取るのにかなり使え、回復阻止としてもかなり優秀。",
+              "en": "It is quite useful for getting kills even on enemies behind walls, and is quite excellent as a recovery prevention.",
+              "ko": "벽 뒤의 적에게도 킬을 따는 데 상당히 유용하며, 회복 방해로서도 상당히 우수합니다."
+            }
           }
         }
       ]
@@ -6303,6 +7023,14 @@
             "ja": "砂嵐が、範囲内にいる敵に毎秒216ダメージを与えるようになる。",
             "en": "The sandstorm deals 216 damage per second to enemies within its range.",
             "ko": "모래폭풍이 범위 안에 있는 적에게 초당 216 데미지를 줍니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "超範囲の敵の回復阻止と索敵として優秀で、間違いなく必須のスタパ",
+              "en": "It is excellent as a recovery prevention and scouting for enemies with super range, and is undoubtedly an essential star power.",
+              "ko": "초범위의 적의 회복 방해와 정찰로서 우수하며, 틀림없이 필수 스타파입니다."
+            }
           }
         },
         {
@@ -6316,6 +7044,14 @@
             "ja": "砂嵐が、範囲内にいる味方のHPを毎秒380回復する。",
             "en": "The sandstorm heals allies within its range for 380 HP per second.",
             "ko": "모래폭풍이 범위 안에 있는 아군의 HP를 초당 380 회복시킵니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "ごく稀に編成次第で強いが基本的にはもう一つのスタパを使用するべき。",
+              "en": "It is strong depending on the formation very rarely, but basically you should use another star power.",
+              "ko": "매우 드물게 편성에 따라 강하지만 기본적으로 다른 스타파를 사용해야 합니다."
+            }
           }
         }
       ],
@@ -6331,6 +7067,14 @@
             "ja": "1.5秒間眠りに落ちるが、HPが全回復する。",
             "en": "Fall asleep for 1.5 seconds but fully recover HP.",
             "ko": "1.5초 동안 잠에 들지만 HP가 전부 회복됩니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "効果自体は悪くないがもう一つのガジェットが強すぎる。",
+              "en": "The effect itself is not bad, but the other gadget is too strong.",
+              "ko": "효과 자체는 나쁘지 않지만 다른 가젯이 너무 강합니다."
+            }
           }
         },
         {
@@ -6344,6 +7088,14 @@
             "ja": "次の通常攻撃で、敵を1.0秒間眠りに落とす。ただし、敵はダメージを受けると目を覚ます。",
             "en": "Next normal attack puts enemies to sleep for 1.0 seconds. However, enemies wake up when taking damage.",
             "ko": "다음 일반 공격으로 적을 1.0초 동안 잠들게 합니다. 단, 적은 데미지를 받으면 깨어납니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "アサシンやタンクに襲われても一時的に距離を置くことができ、確定シュートなどもできるため汎用性があまりにも高い。",
+              "en": "Even if you are attacked by assassins or tanks, you can temporarily keep your distance, and it is so versatile because you can also make a definite shot.",
+              "ko": "어쌔신이나 탱크에게 습격당해도 일시적으로 거리를 둘 수 있고, 확정 슈트 등도 할 수 있어서 범용성이 매우 높습니다."
+            }
           }
         }
       ]
@@ -6390,6 +7142,14 @@
             "ja": "ダメージブースターの効果範囲が50％拡大し、与えるダメージがさらに15％増加する。",
             "en": "Damage booster's effect range is increased by 50% and dealt damage is increased by an additional 15%.",
             "ko": "데미지 부스터의 효과 범위가 50% 확대되고, 주는 데미지가 추가로 15% 증가합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "強奪最強でこのエリアにいる味方の火力も上昇する効果もあるため刺されば超強力。",
+              "en": "It is super powerful when stabbed because it is the strongest in robbery and has the effect of increasing the firepower of allies in this area.",
+              "ko": "강도 최강이며 이 영역에 있는 아군의 화력도 상승하는 효과가 있어 찌르면 초강력입니다."
+            }
           }
         },
         {
@@ -6403,6 +7163,14 @@
             "ja": "ダメージブースターの近くにいると、電力供給を受けて移動速度が増加する。",
             "en": "When near the damage booster, receive power supply and increase movement speed.",
             "ko": "데미지 부스터 근처에 있으면 전력 공급을 받아 이동 속도가 증가합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "移動速度の遅さの難点を克服できるため、これが発動中はかなり厄介な性能になる。",
+              "en": "It can be quite troublesome when activated because it can overcome the drawback of slow movement speed.",
+              "ko": "이동 속도의 느림의 단점을 극복할 수 있기 때문에 이것이 발동 중에는 상당히 귀찮은 성능이 됩니다."
+            }
           }
         }
       ],
@@ -6418,6 +7186,14 @@
             "ja": "ダメージブースターの位置まで瞬時にテレポートする。",
             "en": "Instantly teleport to the damage booster's location.",
             "ko": "데미지 부스터의 위치로 즉시 텔레포트합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "緊急脱出として使用でき、強引に前線を上げることもできる優秀なガジェット。",
+              "en": "It is an excellent gadget that can be used as an emergency escape and can forcibly raise the front line.",
+              "ko": "긴급 탈출로 사용할 수 있으며, 강제로 전선을 올릴 수 있는 우수한 가젯입니다."
+            }
           }
         },
         {
@@ -6431,6 +7207,14 @@
             "ja": "次の攻撃で、発射するブラスタービームの数が18発に増える。",
             "en": "In the next attack, increase the number of blaster beams fired to 18.",
             "ko": "다음 공격에서 발사하는 블래스터 빔의 수가 18발로 증가합니다."
+          },
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "強奪でのみ使用され、火力の底上げとしてかなり重宝される。",
+              "en": "It is used only in robbery and is quite useful as a firepower booster.",
+              "ko": "강도에서만 사용되며, 화력의 바닥을 높이는 데 상당히 유용합니다."
+            }
           }
         }
       ]
@@ -6477,6 +7261,14 @@
             "ja": "ホームランゲージが満タンの間、移動速度が12％向上する。",
             "en": "While Home Run bar is full, movement speed is increased by 12%.",
             "ko": "홈런 게이지가 가득 찼을 때 이동 속도가 12% 증가합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "移動速度が大幅に上昇することで弾除けがしやすくなり、敵似接近しやすくかなり強力。",
+              "en": "By significantly increasing the movement speed, it is easy to avoid bullets, easy to approach enemies, and quite powerful.",
+              "ko": "이동 속도가 크게 상승하여 탄을 피하기 쉽고, 적에게 접근하기 쉽고 상당히 강력합니다."
+            }
           }
         },
         {
@@ -6490,6 +7282,14 @@
             "ja": "ホームランゲージが満タンの間、受けるダメージが20％減少する。",
             "en": "While Home Run bar is full, damage taken is reduced by 20%.",
             "ko": "홈런 게이지가 가득 찼을 때 받는 데미지가 20% 감소합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "性能が強いものの移動速度上昇の方がほのかに性能が勝るが、編成やモードによってはこちらを使用されることもある",
+              "en": "Although the performance is strong, the increase in movement speed is slightly superior in performance, but depending on the formation and mode, this may be used.",
+              "ko": "성능은 강하지만 이동 속도 상승이 약간 우세하지만, 편성과 모드에 따라 이것을 사용할 수도 있습니다."
+            }
           }
         }
       ],
@@ -6505,6 +7305,14 @@
             "ja": "4秒間、毎秒960ずつHPを回復する。",
             "en": "Heal 960 HP per second for 4 seconds.",
             "ko": "4초 동안 초당 960씩 HP를 회복합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "回復量がかなり多く耐久性がかなり上昇し使いやすくて強力。",
+              "en": "The amount of recovery is quite large, the durability is significantly increased, easy to use, and powerful.",
+              "ko": "회복량이 상당히 많고 내구성이 상당히 증가하여 사용하기 쉽고 강력합니다."
+            }
           }
         },
         {
@@ -6518,6 +7326,14 @@
             "ja": "次の必殺技が命中すると、敵を3秒間にわたってスローダウンする。",
             "en": "When the next Super hits, slow down enemies for 3 seconds.",
             "ko": "다음 필살기가 명중하면 적을 3초 동안 슬로우시킵니다."
+          },
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "使いこなすのが難しく、かなりの熟練度が必要だが使いこなせれば強いはず。",
+              "en": "It is difficult to master and requires a considerable degree of skill, but it should be strong if mastered.",
+              "ko": "사용하는 것이 어렵고 상당한 숙련도가 필요하지만 사용하는 것이 어렵다면 강해질 것입니다."
+            }
           }
         }
       ]
@@ -6564,6 +7380,14 @@
             "ja": "カールが投げるツルハシの速度が10％増加し、より早く戻ってくるようになる。",
             "en": "Carl's pickaxe speed increases by 10%, making it return faster.",
             "ko": "칼이 던지는 곡괭이의 속도가 10% 증가하여 더 빨리 돌아옵니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "速度増加量が10%のため、あまり違いを感じられないため人気が低い。",
+              "en": "The popularity is low because the speed increase is 10% and you can't feel much difference.",
+              "ko": "속도 증가량이 10%이기 때문에 차이를 느끼기 어려워 인기가 낮습니다."
+            }
           }
         },
         {
@@ -6577,6 +7401,14 @@
             "ja": "必殺技の発動中は、受けるダメージが35％減少する。",
             "en": "During Super activation, damage taken is reduced by 35%.",
             "ko": "필살기 발동 중에는 받는 데미지가 35% 감소합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "ダメージ低減率がかなり高くウルトの破壊力が大幅に上昇するのでおすすめ。",
+              "en": "It is recommended because the damage reduction rate is quite high and the destructive power of the Ultimate is significantly increased.",
+              "ko": "데미지 감소율이 상당히 높고 울트의 파괴력이 대폭 상승하기 때문에 추천합니다."
+            }
           }
         }
       ],
@@ -6592,6 +7424,14 @@
             "ja": "次の通常攻撃で、ツルハシの下にアツアツの石を落とす。石に触れた敵は引火し、毎秒740ダメージを受ける。",
             "en": "Next normal attack drops hot rocks below the pickaxe. Enemies touching the rocks ignite and take 740 damage per second.",
             "ko": "다음 일반 공격으로 곡괭이 아래에 뜨거운 돌을 떨어뜨립니다. 돌에 닿은 적은 발화되어 초당 740 데미지를 받습니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "触れると2960の持続ダメージを与えることができ、回復阻止とかなりのダメージを与えられるため当たれば強力",
+              "en": "It can deal 2960 sustained damage when touched, and is quite powerful because it can prevent recovery and deal considerable damage.",
+              "ko": "닿으면 2960의 지속 데미지를 줄 수 있고, 회복 방해와 상당한 데미지를 줄 수 있어 맞으면 강력합니다."
+            }
           }
         },
         {
@@ -6605,6 +7445,14 @@
             "ja": "次の攻撃で、投げたツルハシの最高到達地点まで自分を引き寄せる。",
             "en": "Next attack pulls yourself to the highest point reached by the thrown pickaxe.",
             "ko": "다음 공격에서 던진 곡괭이의 최고 도달 지점까지 자신을 끌어당깁니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "機動力が一気に向上することで特定のキャラクターをメタるのに使える。",
+              "en": "It can be used to meta certain characters by significantly improving mobility.",
+              "ko": "기동력이 한꺼번에 상승하여 특정 캐릭터를 메타할 때 사용할 수 있습니다."
+            }
           }
         }
       ]
@@ -6651,6 +7499,14 @@
             "ja": "やぶに入ると自身のHPが毎秒300回復する。",
             "en": "When entering bushes, heal 300 HP per second.",
             "ko": "덤불에 들어가면 자신의 HP가 초당 300 회복됩니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "ダメージ計算を狂わせながらウルトとの相性が非常に良く耐久力がかなり上昇する。",
+              "en": "It is very compatible with the Ultimate, significantly increases durability, and disrupts damage calculations.",
+              "ko": "데미지 계산을 괴롭히면서 울트와의 상성이 매우 좋고 내구력이 상당히 증가합니다."
+            }
           }
         },
         {
@@ -6664,6 +7520,14 @@
             "ja": "必殺技の発動中は、パンチのダメージが+276増加する。",
             "en": "During Super activation, punch damage increases by +276.",
             "ko": "필살기 발동 중에는 펀치의 데미지가 +276 증가합니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "基本的にダメージが不足することがあまりないため、そこまで必要と感じられない。",
+              "en": "Basically, you don't feel the need for it because you don't often lack damage.",
+              "ko": "기본적으로 데미지가 부족할 필요가 없기 때문에 그렇게 필요하지 않습니다."
+            }
           }
         }
       ],
@@ -6679,6 +7543,14 @@
             "ja": "周囲の地面に肥料を撒くと、瞬時にやぶが出現し、身を隠すことができる。",
             "en": "Spread fertilizer on the surrounding ground, instantly creating bushes to hide in.",
             "ko": "주변 지면에 비료를 뿌리면 즉시 덤불이 생겨나 몸을 숨길 수 있습니다."
+          },
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "特定のマップで戦術があれば使用されるが基本的にはあまり強くはない。",
+              "en": "It is used if there is a tactic on a specific map, but it is not very strong in general.",
+              "ko": "특정 맵에서 전술이 있다면 사용되지만, 기본적으로는 그다지 강하지 않습니다."
+            }
           }
         },
         {
@@ -6692,6 +7564,14 @@
             "ja": "やぶの中に隠れている敵全員に276ダメージを与え、3秒間スローダウンさせる。",
             "en": "Deal 276 damage to all enemies hiding in bushes and slow them down for 3 seconds.",
             "ko": "덤불 속에 숨어있는 모든 적에게 276 데미지를 주고 3초간 슬로우시킵니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "効果時間が長い強制スローダウンが超強力でこのキャラの強みのほとんどを占めているレベル。",
+              "en": "The long-lasting forced slow down effect is super powerful and occupies most of this character's strengths.",
+              "ko": "효과 시간이 긴 강제 슬로우다운이 초강력이며, 이 캐릭터의 강점의 대부분을 차지하고 있습니다."
+            }
           }
         }
       ]
@@ -6739,11 +7619,13 @@
             "en": "When Super is activated, movement speed is boosted by 30% while invisible.",
             "ko": "궁극기를 발동하면 주변에서 모습이 보이지 않는 동안 이동 속도가 30% 증가합니다."
           },
-          "recommendationLevel": 3,
           "recommendation": {
-            "ja": "回復が簡単に行えるマップなどではごく稀に使用されるが、そこまで強力ではない。",
-            "en": "Rarely used on maps where healing is easily accessible, but not very powerful.",
-            "ko": "회복이 쉽게 가능한 맵 등에서는 매우 드물게 사용되지만, 그다지 강력하지는 않습니다."
+            "level": 3,
+            "reason": {
+              "ja": "回復が簡単に行えるマップなどではごく稀に使用されるが、そこまで強力ではない。",
+              "en": "It is used very rarely on maps where recovery is easy, but it is not that powerful.",
+              "ko": "회복이 쉽게 이루어지는 맵 등에서는 매우 드물게 사용되지만, 그다지 강력하지 않습니다."
+            }
           }
         },
         {
@@ -6758,11 +7640,13 @@
             "en": "While Super is active, Leon heals 1360 HP per second.",
             "ko": "궁극기 발동 중에는 레온의 HP가 매초 1360 회복됩니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "ウルトを回復目的でも使用することができ、耐久力が超大幅に上昇することでウルトループなどもしやすくなり安定する。",
-            "en": "Can use Super for healing purposes, greatly increases durability making Super chaining easier and more stable.",
-            "ko": "궁극기를 회복 목적으로도 사용할 수 있고, 내구력이 매우 크게 상승하여 궁극기 연계 등도 쉬워져 안정적입니다."
+            "level": 5,
+            "reason": {
+              "ja": "ウルトを回復目的でも使用することができ、耐久力が超大幅に上昇することでウルトループなどもしやすくなり安定する。",
+              "en": "It can be used for recovery purposes even with the Ultimate, and stability is improved by significantly increasing durability, making it easier to perform Ultimate loops.",
+              "ko": "울트를 회복 목적으로도 사용할 수 있으며, 내구력이 초대폭으로 상승하여 울트 루프 등을 쉽게 수행할 수 있어 안정됩니다."
+            }
           }
         }
       ],
@@ -6779,11 +7663,13 @@
             "en": "Summons a clone of yourself to confuse enemies.",
             "ko": "자신의 분신을 소환하여 적을 혼란시킵니다."
           },
-          "recommendationLevel": 3,
           "recommendation": {
-            "ja": "経験を積むと分身と本体が見分けられるため上級者にはあまり刺さらない。",
-            "en": "Not very effective against experienced players who can distinguish between clone and original.",
-            "ko": "경험이 쌓이면 분신과 본체를 구별할 수 있어서 상급자에게는 잘 통하지 않습니다."
+            "level": 3,
+            "reason": {
+              "ja": "経験を積むと分身と本体が見分けられるため上級者にはあまり刺さらない。",
+              "en": "As you gain experience, the clone and the main body can be distinguished, so it doesn't appeal to advanced players.",
+              "ko": "경험을 쌓으면 분신과 본체를 구별할 수 있기 때문에 고급 플레이어에게는 그다지 매력적이지 않습니다."
+            }
           }
         },
         {
@@ -6798,11 +7684,13 @@
             "en": "Creates an area where allies become invisible. The candy's HP slowly decreases over time.",
             "ko": "아군이 투명해지는 영역을 만듭니다. 캔디의 HP는 시간이 지남에 따라 천천히 감소합니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "味方ともに透明になるため非常に強力で、盾としても活躍するため汎用性が非常に高い。",
-            "en": "Very powerful and versatile as it makes allies invisible and can also act as a shield.",
-            "ko": "아군과 함께 투명해지므로 매우 강력하고, 방패로도 활약하므로 범용성이 매우 높습니다."
+            "level": 5,
+            "reason": {
+              "ja": "味方ともに透明になるため非常に強力で、盾としても活躍するため汎用性が非常に高い。",
+              "en": "It is very powerful because it makes both allies and enemies invisible, and it is very versatile because it also acts as a shield.",
+              "ko": "아군과 함께 투명해지기 때문에 매우 강력하며, 방패로서도 활약하기 때문에 다용도성이 매우 높습니다."
+            }
           }
         }
       ],
@@ -6854,6 +7742,14 @@
             "ja": "ダメージを受けず攻撃も行わなければ、ティックのHPが通常より2秒速く回復する。",
             "en": "When not taking damage or attacking, Tick's HP recovers 2 seconds faster than normal.",
             "ko": "데미지를 받지 않고 공격도 하지 않으면, 틱의 HP가 통상보다 2초 빠르게 회복됩니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "回復開始の速度が大幅に上昇し、弱点だった耐久力が上昇するためほぼ必須のスタパとなっている。",
+              "en": "The recovery start speed is significantly increased, and the durability, which was a weak point, is increased, making it almost a required Star Power.",
+              "ko": "회복 시작 속도가 크게 증가하고, 약점이었던 내구성이 증가하여 거의 필수 스타 파워가 되어 있습니다."
+            }
           }
         },
         {
@@ -6867,6 +7763,14 @@
             "ja": "リロード時間が9％短縮される。",
             "en": "Reload time is reduced by 9%.",
             "ko": "재장전 시간이 9% 단축됩니다."
+          },
+          "recommendation": {
+            "level": 2,
+            "reason": {
+              "ja": "編成的に攻撃を喰らわない状態でのみ使用できるがほとんど使用されない。",
+              "en": "It can only be used in a state where you do not take damage from attacks, but it is rarely used.",
+              "ko": "편성적으로 공격을 받지 않는 상태에서만 사용할 수 있지만 거의 사용되지 않습니다."
+            }
           }
         }
       ],
@@ -6882,6 +7786,14 @@
             "ja": "次の攻撃で、6個の地雷を投げる。",
             "en": "Next attack throws 6 mines.",
             "ko": "다음 공격으로 6개의 지뢰를 던집니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "急接近してくる敵がいない時はたまに使用されるが、そこまで強力とは言えない。",
+              "en": "It is used occasionally when there are no enemies approaching quickly, but it is not that powerful.",
+              "ko": "급접근하는 적이 없을 때 가끔 사용되지만, 그다지 강력하지 않습니다."
+            }
           }
         },
         {
@@ -6895,6 +7807,14 @@
             "ja": "1秒間にわたってシールドを発動し、ダメージを50％軽減する。効果時間が過ぎると、シールドが爆発して1280ダメージを与える。",
             "en": "Activates a shield for 1 second, reducing damage by 50%. When the effect ends, the shield explodes dealing 1280 damage.",
             "ko": "1초 동안 실드를 발동하여 데미지를 50% 경감합니다. 효과 시간이 지나면 실드가 폭발하여 1280 데미지를 줍니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "弱点である近距離をカバーするためにかなり重要なガジェットで生存能力を向上させられる。",
+              "en": "It is a very important gadget to improve survivability by covering the weak point of close range.",
+              "ko": "약점인 근거리를 커버하기 위해 상당히 중요한 가젯으로 생존 능력을 향상시킬 수 있습니다."
+            }
           }
         }
       ]
@@ -6942,11 +7862,13 @@
             "en": "Nearby allies heal 576 HP per second.",
             "ko": "주변에 있는 동료의 HP가 매초 576 회복됩니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "回復量がかなり高く、様々な戦術やシチュエーションで多く使用される。",
-            "en": "Very high healing amount, widely used in various tactics and situations.",
-            "ko": "회복량이 상당히 높고, 다양한 전술과 상황에서 많이 사용됩니다."
+            "level": 5,
+            "reason": {
+              "ja": "回復量がかなり高く、様々な戦術やシチュエーションで多く使用される。",
+              "en": "The recovery amount is quite high and is used in many tactics and situations.",
+              "ko": "회복량이 상당히 높고 다양한 전술과 상황에서 많이 사용됩니다."
+            }
           }
         },
         {
@@ -6961,11 +7883,13 @@
             "en": "Magic hand can also damage enemies (2000 damage on hit).",
             "ko": "마법의 손으로 적에게 데미지도 줄 수 있습니다. (명중 데미지 2000)."
           },
-          "recommendationLevel": 1,
           "recommendation": {
-            "ja": "追加ダメージの必要性がない。",
-            "en": "Additional damage is unnecessary.",
-            "ko": "추가 데미지의 필요성이 없습니다."
+            "level": 2,
+            "reason": {
+              "ja": "追加ダメージの必要性がない。",
+              "en": "There is no need for additional damage.",
+              "ko": "추가 데미지가 필요하지 않습니다."
+            }
           }
         }
       ],
@@ -6982,11 +7906,13 @@
             "en": "Instantly knocks back all nearby enemies. If at least one enemy is in range, recovers 10% of maximum HP.",
             "ko": "가까이 있는 적 전원을 즉시 넉백합니다. 효과 범위 내에 적이 1명 이상 있었을 경우, 자신의 최대 HP의 10%를 회복합니다."
           },
-          "recommendationLevel": 4,
           "recommendation": {
-            "ja": "接近キャラに対して有効な回避手段となり、回復も付いてくるため汎用性が高い。",
-            "en": "Versatile with effective evasion against close-range characters and bonus healing.",
-            "ko": "근접 캐릭터에 대해 효과적인 회피 수단이 되고, 회복도 따라오므로 범용성이 높습니다."
+            "level": 5,
+            "reason": {
+              "ja": "アサシンやタンクに対しての弱点が減るため生存性が増す",
+              "en": "Survivability increases by reducing weaknesses against Assassins and Tanks.",
+              "ko": "어쌔신과 탱크에 대한 약점이 줄어 생존성이 증가합니다."
+            }
           }
         },
         {
@@ -7001,11 +7927,13 @@
             "en": "Fires homing missiles at all enemies in range across a wide area, dealing up to 1600 damage based on distance.",
             "ko": "사거리 내에 있는 모든 적에게 광범위하게 유도 미사일을 발사하여 거리에 따라 최대 1600 데미지를 줍니다."
           },
-          "recommendationLevel": 4,
           "recommendation": {
-            "ja": "味方が近くに居れないマップでよく使用され、回復阻止や確定キルなど汎用性が高い。",
-            "en": "Commonly used on maps where allies can't stay close, versatile for preventing healing and securing kills.",
-            "ko": "아군이 가까이 있을 수 없는 맵에서 자주 사용되며, 회복 방해나 확정 킬 등 범용성이 높습니다."
+            "level": 5,
+            "reason": {
+              "ja": "味方が近くに居れない賞金稼ぎなどのマップでよく使用され、回復阻止や確定キルなどの汎用性も高い。",
+              "en": "It is often used on maps such as Bounty where allies are not nearby, and it is versatile, such as preventing recovery and securing kills.",
+              "ko": "아군이 가까이에 없는 바운티 등의 맵에서 자주 사용되며, 회복 방지 및 확정 킬 등 다양한 용도로 사용됩니다."
+            }
           }
         }
       ],
@@ -7058,6 +7986,14 @@
             "ja": "倒した敵の生気を吸い取ることで、12秒間にわたってダメージが25％増加する！",
             "en": "By absorbing defeated enemies' vitality, damage increases by 25% for 12 seconds!",
             "ko": "처치한 적의 생기를 흡수하여 12초 동안 데미지가 25% 증가합니다!"
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "攻撃上昇の条件とHPが減るほど攻撃速度が上がる効果の相性が良く、かなり暴れられるようになる。",
+              "en": "The compatibility with the attack increase condition and the effect that the attack speed increases as the HP decreases is good, and it becomes quite violent.",
+              "ko": "공격 상승 조건과 HP가 줄어들수록 공격 속도가 증가하는 효과의 호환성이 좋아져 상당히 난폭해집니다."
+            }
           }
         },
         {
@@ -7071,6 +8007,14 @@
             "ja": "自身のHPが+1340増加する。",
             "en": "Increases own HP by +1340.",
             "ko": "자신의 HP가 +1340 증가합니다."
+          },
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "耐久力が向上するため悪くはないが、上昇する値が少し少ないのがネック。",
+              "en": "It is not bad because durability is improved, but the neck is that the rising value is a little less.",
+              "ko": "내구력이 향상되어 나쁘지 않지만, 상승하는 값이 조금 적은 것이 단점입니다."
+            }
           }
         }
       ],
@@ -7086,6 +8030,14 @@
             "ja": "自分が受けている状態異常の効果をすべて無効化し、一時的に気絶、スローダウン、ノックバックを受けなくなる。",
             "en": "Nullifies all status effects currently affecting self and temporarily becomes immune to stun, slow, and knockback.",
             "ko": "자신이 받고 있는 상태이상 효과를 모두 무효화하고, 일시적으로 기절, 슬로우다운, 넉백을 받지 않게 됩니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "妨害系の敵が多い際に超強力で一時的に止まらなくなる。",
+              "en": "It is super powerful when there are many interfering enemies and you temporarily stop.",
+              "ko": "방해하는 적이 많을 때 초강력하며 일시적으로 멈추지 않습니다."
+            }
           }
         },
         {
@@ -7099,6 +8051,14 @@
             "ja": "次の通常攻撃で敵を自分の方へ引き寄せ、50％の追加ダメージを与える。",
             "en": "Next normal attack pulls enemies toward self and deals 50% additional damage.",
             "ko": "다음 일반 공격으로 적을 자신쪽으로 끌어당기고, 50%의 추가 데미지를 줍니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "攻撃の上昇率と引き寄せの効果がかなり強く対面勝率が大幅に上昇する。",
+              "en": "The effect of the attack increase rate and the attraction is quite strong, and the face-to-face winning rate increases significantly.",
+              "ko": "공격의 상승률과 끌어당김 효과가 상당히 강력하여 대면 승률이 대폭 상승합니다."
+            }
           }
         }
       ]
@@ -7146,11 +8106,13 @@
             "en": "The splash area of coins increases by 100% with each enemy hit.",
             "ko": "금화의 튀는 범위가 적에게 명중할 때마다 100% 넓어집니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "敵が密集しやすいモードで強力で、実質的にウルトの回転率も上昇するためかなり強い。",
-            "en": "Powerful in modes where enemies cluster together, very strong as it effectively increases ultimate charge rate.",
-            "ko": "적이 밀집하기 쉬운 모드에서 강력하고, 실질적으로 궁극기 회전율도 상승하기 때문에 매우 강합니다."
+            "level": 5,
+            "reason": {
+              "ja": "敵が密集しやすいモードで強力で、実質的にウルトの回転率も上昇するためかなり強い。",
+              "en": "It is powerful in modes where enemies are likely to be crowded, and it is quite strong because the rotation rate of the Ultimate actually increases.",
+              "ko": "적이 밀집하기 쉬운 모드에서 강력하며, 실질적으로 울트의 회전률도 상승하여 상당히 강합니다."
+            }
           }
         },
         {
@@ -7165,11 +8127,13 @@
             "en": "Knocks back enemies at the mortar's location and deals 1372 damage.",
             "ko": "대포를 설치한 위치에 있는 적을 넉백시키고 1372 데미지를 줍니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "接近キャラクターに強くなり、耐久性が上昇することで死ににくくなる。",
-            "en": "Becomes stronger against close-range characters and harder to kill due to increased durability.",
-            "ko": "근접 캐릭터에 강해지고, 내구성이 상승하여 죽기 어려워집니다."
+            "level": 5,
+            "reason": {
+              "ja": "接近キャラクターに強くなり、耐久性が上昇することで死ににくくなる。",
+              "en": "It becomes stronger against close-range characters, and it becomes difficult to die because durability increases.",
+              "ko": "근거리 캐릭터에 강해지며, 내구성이 증가하여 죽기 어려워집니다."
+            }
           }
         }
       ],
@@ -7186,11 +8150,13 @@
             "en": "Spawns a barrel of salt that blocks enemy attacks. When attacked, the barrel spreads coins.",
             "ko": "소금이 든 통을 소환하여 적의 공격을 막습니다. 통을 공격하면 금화가 흩어집니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "拡散攻撃の火力が非常に高く、接近系の高体力の敵に対してかなり強くなり、盾としても遠距離の相手にもかなり優位が取れるようになる。",
-            "en": "Very high splash damage, strong against high-HP close-range enemies, and provides good advantage against long-range opponents as a shield.",
-            "ko": "확산 공격의 화력이 매우 높고, 근접형 고체력 적에 대해 상당히 강해지며, 방패로서도 원거리 상대에게도 상당한 이점을 얻을 수 있습니다."
+            "level": 5,
+            "reason": {
+              "ja": "拡散攻撃の火力が非常に高く、接近系の高体力の敵に対してかなり強くなり、盾としても遠距離の相手にもかなり優位が取れるようになる。",
+              "en": "The firepower of the spread attack is very high, making it quite strong against close-range high-health enemies, and it becomes quite advantageous against long-range opponents as a shield.",
+              "ko": "확산 공격의 화력이 매우 높아져 근거리 고체력 적에 대해 상당히 강해지며, 방패로서도 원거리 상대에 대해 상당히 유리하게 됩니다."
+            }
           }
         },
         {
@@ -7205,11 +8171,13 @@
             "en": "Penny's mortar fires at all visible enemies within range.",
             "ko": "페니의 대포가 사거리 내의 보이는 모든 적에게 포격을 합니다."
           },
-          "recommendationLevel": 3,
           "recommendation": {
-            "ja": "たまに強いときもあるが、基本的に避けられるためそこまで強くない。",
-            "en": "Sometimes strong, but not very powerful as it can be easily avoided.",
-            "ko": "가끔 강할 때도 있지만, 기본적으로 피할 수 있어서 그다지 강하지 않습니다."
+            "level": 3,
+            "reason": {
+              "ja": "たまに強いときもあるが、基本的に避けられるためそこまで強くない。",
+              "en": "Sometimes it is strong, but it is not that strong because it can be avoided.",
+              "ko": "가끔 강할 때도 있지만, 피할 수 있기 때문에 그다지 강하지 않습니다."
+            }
           }
         }
       ],
@@ -7262,6 +8230,14 @@
             "ja": "バレルロールを発動すると、受けるダメージを2秒にわたって25％軽減する。",
             "en": "When Barrel Roll is activated, damage taken is reduced by 25% for 2 seconds.",
             "ko": "배럴 롤을 발동하면 받는 데미지를 2초 동안 25% 경감합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "強奪以外のマップで使用され、耐久力がかなり上昇するため強力。",
+              "en": "It is used on maps other than Robbery, and it is powerful because durability increases significantly.",
+              "ko": "강도외의 맵에서 사용되며 내구력이 상당히 증가하여 강력합니다."
+            }
           }
         },
         {
@@ -7275,6 +8251,14 @@
             "ja": "必殺技を発動すると、リロード速度が5秒間2倍になる。",
             "en": "When Super is activated, reload speed is doubled for 5 seconds.",
             "ko": "궁극기를 발동하면 재장전 속도가 5초 동안 2배가 됩니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "主に強奪で使用され、火力が大幅に上昇するため強力。",
+              "en": "It is mainly used in Robbery, and it is powerful because firepower increases significantly.",
+              "ko": "주로 강도에서 사용되며, 화력이 대폭 상승하여 강력합니다."
+            }
           }
         }
       ],
@@ -7290,6 +8274,14 @@
             "ja": "身体を回転させながら、あらゆる方向に弾丸を放つ。弾丸1発につき600ダメージを与え、敵に命中すると必殺技ゲージが25%ずつ溜まっていく。",
             "en": "Spins while firing bullets in all directions. Each bullet deals 600 damage, and hitting enemies charges Super gauge by 25%.",
             "ko": "몸을 회전시키면서 모든 방향으로 탄환을 발사합니다. 탄환 1발당 600 데미지를 주며, 적에게 명중하면 궁극기 게이지가 25%씩 쌓입니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "最大9000ダメージが出る超強力ガジェットで強奪の金庫に当てるのを極めると最強と化す",
+              "en": "It becomes the strongest when you hit the Robbery safe with the ultra-powerful gadget that can deal up to 9000 damage.",
+              "ko": "최대 9000 데미지가 나가는 초강력 가젯으로 강도 금고에 맞추는 것을 극복하면 최강이 됩니다."
+            }
           }
         },
         {
@@ -7303,6 +8295,14 @@
             "ja": "敵の移動速度を低下させるエリアを周囲に5秒間生成する。",
             "en": "Creates an area around you that slows enemy movement speed for 5 seconds.",
             "ko": "적의 이동속도를 저하시키는 영역을 주위에 5초간 생성합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "5秒間と長い間で移動速度を低下させられ、さまざまな状況で活躍する。",
+              "en": "It slows down the movement speed for 5 seconds, and it plays an active role in various situations.",
+              "ko": "5초 동안 이동 속도를 저하시키며 다양한 상황에서 활약합니다."
+            }
           }
         }
       ],
@@ -7354,11 +8354,13 @@
             "en": "A dimensional door opens with mystical power...! Her shadow appears and attacks enemies one after another.",
             "ko": "신비의 힘으로 차원의 문이 열립니다...! 그녀의 그림자가 나타나 다음々로 적을 공격합니다."
           },
-          "recommendationLevel": 3,
           "recommendation": {
-            "ja": "投げの敵が多い時は強いが、刺さらない時が多い。",
-            "en": "Strong when there are many ranged enemies, but often ineffective.",
-            "ko": "원거리 적이 많을 때는 강하지만, 효과가 없을 때가 많습니다."
+            "level": 3,
+            "reason": {
+              "ja": "投げの敵が多い時は強いが、刺さらない時が多い。",
+              "en": "It is strong when there are many throwing enemies, but it often does not stick.",
+              "ko": "던지는 적이 많을 때 강하지만, 꽂히지 않는 경우가 많습니다."
+            }
           }
         },
         {
@@ -7373,11 +8375,13 @@
             "en": "Tara's shadow released from another dimension heals herself and teammates.",
             "ko": "이차원의 공간에서 풀려난 타라의 그림자가 자신과 팀원을 회복시킵니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "回復量も多く体力の低い味方を追従するため影自体の生存時間も長く強力。",
-            "en": "Powerful with high healing and long shadow survival time as it follows low HP allies.",
-            "ko": "회복량도 많고 체력이 낮은 아군을 추적하므로 그림자 자체의 생존 시간도 길어 강력합니다."
+            "level": 5,
+            "reason": {
+              "ja": "回復量も多く体力の低い味方を追従するため影自体の生存時間も長く強力。",
+              "en": "The amount of recovery is large, and it is strong because the survival time of the shadow itself is long as it follows low-health allies.",
+              "ko": "회복량도 많고 체력이 낮은 아군을 추종하기 때문에 그림자 자체의 생존 시간도 길고 강력합니다."
+            }
           }
         }
       ],
@@ -7394,11 +8398,13 @@
             "en": "Allows you and allies to see all enemies hiding in bushes for 4 seconds.",
             "ko": "자신과 아군이 덤불에 숨어있는 적 전원을 4초 동안 꿰뚫어 볼 수 있게 됩니다."
           },
-          "recommendationLevel": 4,
           "recommendation": {
-            "ja": "草むらが多いマップでは使えるが汎用性は低い。",
-            "en": "Useful on maps with many bushes but has low versatility.",
-            "ko": "덤불이 많은 맵에서는 사용할 수 있지만 범용성은 낮습니다."
+            "level": 4,
+            "reason": {
+              "ja": "草むらが多いマップでは使えるが汎用性は低い。",
+              "en": "It can be used on maps with many bushes, but it has low versatility.",
+              "ko": "풀이 많은 맵에서 사용할 수 있지만, 다용성이 낮습니다."
+            }
           }
         },
         {
@@ -7413,11 +8419,13 @@
             "en": "Summons 3 weak shadows around you that attack enemies. Shadows disappear after 6 seconds.",
             "ko": "자신의 주변에 약한 그림자 3개를 출현시켜 적을 공격합니다. 그림자는 6초가 지나면 사라집니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "守りでも攻めでも非常に強力でいつでも使える。",
-            "en": "Very powerful both defensively and offensively, usable anytime.",
-            "ko": "수비에서도 공격에서도 매우 강력하고 언제든지 사용할 수 있습니다."
+            "level": 5,
+            "reason": {
+              "ja": "守りでも攻めでも非常に強力でいつでも使える。",
+              "en": "It is very powerful in defense or offense and can be used at any time.",
+              "ko": "방어나 공격 모두 매우 강력하며 언제든지 사용할 수 있습니다."
+            }
           }
         }
       ],
@@ -7471,11 +8479,13 @@
             "en": "When attacking enemies with Metal Storm, heals yourself and nearby allies for 96 HP.",
             "ko": "메탈 스톰으로 적을 공격할 때마다 자신과 주변 동료의 HP가 96 회복됩니다."
           },
-          "recommendationLevel": 3,
           "recommendation": {
-            "ja": "回復量と効果の範囲が狭く少し微妙。",
-            "en": "Somewhat mediocre due to low healing amount and narrow effect range.",
-            "ko": "회복량과 효과 범위가 좁아 조금 애매합니다."
+            "level": 3,
+            "reason": {
+              "ja": "回復量と効果の範囲が狭く少し微妙。",
+              "en": "The amount of recovery and the range of the effect are narrow and a little subtle.",
+              "ko": "회복량과 효과 범위가 좁아 조금 미묘합니다."
+            }
           }
         },
         {
@@ -7490,11 +8500,13 @@
             "en": "The healing turret now deals 960 damage per second to enemies.",
             "ko": "치유 터렛이 적에게 초당 960 데미지를 주게 됩니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "確実に敵を倒したい時や壁裏に配置する時に使用すると非常に強力なものとなる。",
-            "en": "Becomes very powerful when used to secure kills or placed behind walls.",
-            "ko": "확실하게 적을 처치하고 싶을 때나 벽 뒤에 배치할 때 사용하면 매우 강력한 것이 됩니다."
+            "level": 5,
+            "reason": {
+              "ja": "確実に敵を倒したい時や壁裏に配置する時に使用すると非常に強力なものとなる。",
+              "en": "It is very powerful when used when you want to defeat enemies reliably or when you place it behind a wall.",
+              "ko": "확실히 적을 물리치고 싶을 때나 벽 뒤에 배치할 때 사용하면 매우 강력합니다."
+            }
           }
         }
       ],
@@ -7511,11 +8523,13 @@
             "en": "Generates a wave from the turret that heals you and allies in range for 1920 HP.",
             "ko": "터렛에서 파동을 발생시켜 사거리 내에 있는 아군과 자신의 HP를 1920 회복합니다."
           },
-          "recommendationLevel": 1,
           "recommendation": {
-            "ja": "回復量が微量なのと使用条件が厳しく汎用性に欠ける。",
-            "en": "Lacks versatility due to small healing amount and strict usage conditions.",
-            "ko": "회복량이 미량이고 사용 조건이 까다로워 범용성이 부족합니다."
+            "level": 1,
+            "reason": {
+              "ja": "回復量が微量なのと使用条件が厳しく汎用性に欠ける。",
+              "en": "The amount of recovery is small, the usage conditions are strict, and the versatility is lacking.",
+              "ko": "회복량이 미량이며 사용 조건이 엄격하여 다용성이 부족합니다."
+            }
           }
         },
         {
@@ -7530,11 +8544,13 @@
             "en": "Next normal attack reduces enemy's max ammo by 25% per bullet hit, charging yourself with 50% of it.",
             "ko": "다음 일반 공격이 명중하면 탄환 1발마다 적 캐릭터의 최대 장탄수의 25%를 감소시키고, 그 중 50%를 자신에게 충전합니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "タンクやアサシンに攻撃を当てると基本的にタイマンが負けなくなるため超強力。",
-            "en": "Super powerful as it basically prevents losing 1v1s against tanks and assassins when hitting them.",
-            "ko": "탱커나 어쌔신에게 공격을 맞추면 기본적으로 1대1에서 지지 않게 되므로 초강력합니다."
+            "level": 5,
+            "reason": {
+              "ja": "タンクやアサシンに攻撃を当てると基本的にタイマンが負けなくなるため超強力。",
+              "en": "It is extremely powerful because you will not lose in a one-on-one battle when you hit tanks or assassins.",
+              "ko": "탱크나 어쌔신에게 공격을 맞추면 기본적으로 타이만에서 지지 않게 되어 초강력합니다."
+            }
           }
         }
       ],
@@ -7586,6 +8602,14 @@
             "ja": "やぶに隠れた状態で攻撃すると、最大射程において+1190の追加ダメージが発生する。",
             "en": "When attacking while hidden in bushes, deals +1190 additional damage at maximum range.",
             "ko": "덤불에 숨은 상태로 공격하면 최대 사거리에서 +1190의 추가 데미지가 발생합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "草むらがあるマップではかなり重宝する。",
+              "en": "It is very useful on maps with bushes.",
+              "ko": "풀이 있는 맵에서 매우 유용합니다."
+            }
           }
         },
         {
@@ -7599,6 +8623,14 @@
             "ja": "敵にダメージを与えた際に、0.4発の弾を瞬時にリロードする。",
             "en": "When dealing damage to enemies, instantly reloads 0.4 ammo.",
             "ko": "적에게 데미지를 주었을 때 0.4발의 탄환을 즉시 재장전합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "汎用性があまりにも高いためどの状況でも使用できるため、一番無難。",
+              "en": "It is the safest because it can be used in any situation due to its high versatility.",
+              "ko": "다양성이 높아 어떤 상황에서도 사용할 수 있기 때문에 가장 안전합니다."
+            }
           }
         }
       ],
@@ -7614,6 +8646,14 @@
             "ja": "一番近くにいる敵に高速で射撃を浴びせ、170ダメージを与えてノックバックさせる。",
             "en": "Rapidly fires at the nearest enemy, dealing 170 damage and knocking them back.",
             "ko": "가장 가까이 있는 적에게 고속으로 사격을 퍼부어 170 데미지를 주고 넉백시킵니다."
+          },
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "アサシンやタンクに対しての弱点が減るため生存性が上昇する",
+              "en": "Survivability increases because weaknesses against assassins and tanks are reduced.",
+              "ko": "어쌔신이나 탱크에 대한 약점이 줄어 생존성이 상승합니다."
+            }
           }
         },
         {
@@ -7627,6 +8667,14 @@
             "ja": "使用すると、エリザベスの次の通常攻撃が敵にホーミングされる。",
             "en": "When used, Piper's next normal attack homes in on enemies.",
             "ko": "사용하면 파이퍼의 다음 일반 공격이 적에게 유도됩니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "壁がないマップでの確定キルが強力で賞金稼ぎなどで超必須",
+              "en": "It is extremely powerful for guaranteed kills on maps without walls and is a must-have for bounty hunters.",
+              "ko": "벽이 없는 맵에서 확정 킬이 강력하며, 현상금 사냥꾼 등에서 초필수입니다."
+            }
           }
         }
       ],
@@ -7679,6 +8727,14 @@
             "ja": "やぶに隠れた敵を、通常の150％の距離から見つけられる。",
             "en": "Can spot enemies hiding in bushes from 150% the normal distance.",
             "ko": "덤불에 숨은 적을 일반 거리의 150%에서 발견할 수 있습니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "草むらだらけの「ジグザグ草原」というマップでは重宝するがそれ以外では基本使えない。",
+              "en": "It is useful on the map called Zigzag Prairie, which is full of bushes, but it is basically unusable on other maps.",
+              "ko": "덤불이 가득한 '직사각형 초원'이라는 맵에서 유용하지만, 다른 맵에서는 기본적으로 사용할 수 없습니다."
+            }
           }
         },
         {
@@ -7692,6 +8748,14 @@
             "ja": "トラップが敵を2秒間気絶させる(ノックバックは無効)。",
             "en": "Traps stun enemies for 2 seconds (knockback disabled).",
             "ko": "트랩이 적을 2초간 기절시킵니다(넉백은 무효)."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "地雷に引っ掛かれば死は免れなくなるため恐ろしすぎる効果が付与される。",
+              "en": "If you get caught in a mine, you will inevitably die, so you will be given a terrifying effect.",
+              "ko": "지뢰에 걸리면 죽음을 면할 수 없어 무서운 효과가 부여됩니다."
+            }
           }
         }
       ],
@@ -7707,6 +8771,14 @@
             "ja": "トーテムを出現させ、仲間の必殺技のチャージ率を50％増加させる。トーテムのHPは時間とともに少しずつ減少する。",
             "en": "Spawns a totem that increases allies' Super charge rate by 50%. The totem's HP gradually decreases over time.",
             "ko": "토템을 소환하여 동료의 궁극기 차지율을 50% 증가시킵니다. 토템의 HP는 시간이 지남에 따라 조금씩 감소합니다."
+          },
+          "recommendation": {
+            "level": 2,
+            "reason": {
+              "ja": "動画の企画や何らかの戦術以外では基本使用されない。",
+              "en": "It is basically not used except for video planning or some tactics.",
+              "ko": "동영상 기획이나 어떤 전술을 제외하고는 기본적으로 사용되지 않습니다."
+            }
           }
         },
         {
@@ -7720,6 +8792,14 @@
             "ja": "1.5秒後にすべての地雷を起爆させる。起爆するまで、敵は地雷がどこにあるか分からない。",
             "en": "Detonates all mines after 1.5 seconds. Until detonation, enemies can't see where the mines are.",
             "ko": "1.5초 후에 모든 지뢰를 폭발시킵니다. 폭발할 때까지 적은 지뢰가 어디에 있는지 알 수 없습니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "破壊したい壁や狙いすまして敵を地雷に引っ掛けるなど攻撃の幅が広く強力。",
+              "en": "It is powerful because it has a wide range of attacks, such as destroying walls you want to destroy or catching enemies on mines.",
+              "ko": "파괴하고 싶은 벽이나 노리고 있는 적을 지뢰에 걸리게 하는 등 공격의 폭이 넓고 강력합니다."
+            }
           }
         }
       ],
@@ -7731,94 +8811,127 @@
       ]
     },
     {
-      "id": 16000059,
+      "id": 16000013,
       "name": {
-        "ja": "オーティス",
-        "en": "Otis",
-        "ko": "오티스"
+        "ja": "ポコ",
+        "en": "Poco",
+        "ko": "포코"
       },
-      "image": "require('../../assets/BrawlerIcons/otis_pin.png')",
+      "image": "require('../../assets/BrawlerIcons/poco_pin.png')",
       "class": {
-        "id": 5,
+        "id": 7,
         "name": {
-          "ja": "コントローラー",
-          "en": "Controller",
-          "ko": "컨트롤러"
+          "ja": "サポート",
+          "en": "Support",
+          "ko": "서포터"
         }
       },
       "rarity": {
-        "id": 5,
+        "id": 2,
         "name": {
-          "ja": "ミシック",
-          "en": "Mythic",
-          "ko": "미틱"
+          "ja": "レア",
+          "en": "Rare",
+          "ko": "레어"
         },
-        "color": "#fe5e72"
+        "color": "#68fd58"
       },
       "description": {
-        "ja": "オーティスは壁にインクを撃って作品を作る新進のストリートアーティストです。誰も彼の正体を知らず、それが彼の神秘性を高めています！",
-        "en": "Otis is an up-and-coming street artist who creates artwork by shooting ink on walls. Nobody knows his true identity, which only adds to his mystique!",
-        "ko": "오티스는 벽에 잉크를 쏘아 작품을 만드는 신예 스트리트 아티스트입니다. 아무도 그의 정체를 모르며, 그것이 그의 신비감을 높이고 있습니다!"
+        "ja": "ポコは音楽が人生を変えられると信じています。その熱意のあまり、人々に止められても演奏を止めません！",
+        "en": "Poco believes music can change lives. So much so that he won't stop playing, even if people try to stop him!",
+        "ko": "포코는 음악이 인생을 바꿀 수 있다고 믿습니다. 그 열정이 너무도 강해서 사람들이 막으려 해도 연주를 멈추지 않습니다!"
       },
       "starPowers": [
         {
-          "id": 23000495,
+          "id": 23000089,
           "name": {
-            "ja": "ぺったんこシール",
-            "en": "Stencil Glue",
-            "ko": "스텐실 글루"
+            "ja": "ダ・カーポ",
+            "en": "Da Capo",
+            "ko": "다 카포"
           },
           "description": {
-            "ja": "ヒトデのシルが全力で敵にへばりつき、敵の攻撃を封じる時間が33%長くなる。",
-            "en": "Starfish Sil sticks firmly to enemies, increasing the duration of attack sealing by 33%.",
-            "ko": "불가사리 실이 전력으로 적에게 달라붙어 적의 공격을 봉인하는 시간이 33% 늘어납니다."
+            "ja": "彼の攻撃が仲間に当たると、その仲間のHPが962回復する。",
+            "en": "When his attack hits allies, it heals them for 962 HP.",
+            "ko": "그의 공격이 아군에게 명중하면, 그 아군의 HP가 962 회복됩니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "タンクとの相性が良く強引に前線を押し上げられるようになり、非常に強力。",
+              "en": "It is very powerful because it is compatible with tanks and can be forced to push the front line.",
+              "ko": "탱크와의 호환성이 좋아 강제로 전선을 밀어올릴 수 있어 매우 강력합니다."
+            }
           }
         },
         {
-          "id": 23000496,
+          "id": 23000144,
           "name": {
-            "ja": "詰替用インク",
-            "en": "Ink Refills",
-            "ko": "잉크 리필"
+            "ja": "むせび泣くギター",
+            "en": "Screeching Solo",
+            "ko": "울부짖는 기타"
           },
           "description": {
-            "ja": "オーティスの放つインク玉が33％増える。",
-            "en": "Otis's ink projectiles increase by 33%.",
-            "ko": "오티스가 발사하는 잉크 탄환이 33% 증가합니다."
+            "ja": "必殺技が、敵に対して1520ダメージを与える。",
+            "en": "Super deals 1520 damage to enemies.",
+            "ko": "궁극기가 적에게 1520 데미지를 줍니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "広い範囲で壁を貫通して攻撃を与えられるため、確定キルや回復阻止などを狙えるため強力",
+              "en": "It is powerful because it can penetrate walls and deal damage over a wide range, allowing you to aim for guaranteed kills and prevent recovery.",
+              "ko": "넓은 범위에서 벽을 관통하고 공격을 가할 수 있어 확정 킬이나 회복 방지 등을 노리기 때문에 강력합니다."
+            }
           }
         }
       ],
       "gadgets": [
         {
-          "id": 23000497,
+          "id": 23000267,
           "name": {
-            "ja": "スリープスター",
-            "en": "Dormant Star",
-            "ko": "휴면 스타"
+            "ja": "癒しの音叉",
+            "en": "Tuning Fork",
+            "ko": "치유의 딸랑이"
           },
           "description": {
-            "ja": "次にシルを投げたときに敵に当たらなかった場合は地面に張り付き、敵が近付くまで目を覚まさない。",
-            "en": "If Sil misses when thrown next, it sticks to the ground and remains dormant until an enemy approaches.",
-            "ko": "다음에 실을 던졌을 때 적에게 맞지 않았을 경우 지면에 붙어서 적이 가까이 올 때까지 잠들어 있습니다."
+            "ja": "自分と周囲にいる味方のHPが5秒間、毎秒740回復する。",
+            "en": "Heals yourself and allies in range for 740 HP per second for 5 seconds.",
+            "ko": "자신과 주변에 있는 아군의 HP가 5초 동안 초당 740 회복됩니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "回復量がかなり多いためかなり強気で前線を押し上げられるきっかけとなる",
+              "en": "The amount of recovery is quite high, so it is a strong trigger that can push the front line.",
+              "ko": "회복량이 상당히 많아 강력하게 전선을 밀어올릴 수 있는 계기가 됩니다."
+            }
           }
         },
         {
-          "id": 23000498,
+          "id": 23000350,
           "name": {
-            "ja": "黒潮",
-            "en": "Phat Splatter",
-            "ko": "검은 물결"
+            "ja": "護りのメロディー",
+            "en": "Protective Melody",
+            "ko": "보호의 멜로디"
           },
           "description": {
-            "ja": "次にオーティスが放つ攻撃が巨大なインク玉となり、落ちた場所にインクの水たまりを作る。水たまりは3.8秒にわたって、敵に1150ずつダメージを与える。",
-            "en": "Otis's next attack becomes a giant ink ball that creates an ink puddle where it lands. The puddle deals 1150 damage to enemies over 3.8 seconds.",
-            "ko": "다음에 오티스가 발사하는 공격이 거대한 잉크 구슬이 되어 떨어진 곳에 잉크 웅덩이를 만듭니다. 웅덩이는 3.8초 동안 적에게 1150씩 데미지를 줍니다."
+            "ja": "味方の状態異常を癒す効果を広範囲に発動し、状態異常攻撃を4秒間無効にする。",
+            "en": "Activates a wide-range effect that cures allies' status effects and nullifies status effect attacks for 4 seconds.",
+            "ko": "아군의 상태이상을 치유하는 효과를 광범위하게 발동하고 상태이상 공격을 4초간 무효화합니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "効果こそ強力だが使用するタイミングが難しいため安定性に欠ける。",
+              "en": "The effect is powerful, but it lacks stability because it is difficult to use.",
+              "ko": "효과는 강력하지만 사용하는 타이밍이 어려워 안정성이 부족합니다."
+            }
           }
         }
       ],
       "gears": [
         1,
         2,
+        5,
         7
       ]
     },
@@ -7865,11 +8978,13 @@
             "en": "Activates a wide-range effect that cures allies' status effects and nullifies status effect attacks for 4 seconds.",
             "ko": "아군의 상태이상을 치유하는 효과를 광범위하게 발동하고 상태이상 공격을 4초간 무효화합니다."
           },
-          "recommendationLevel": 4,
           "recommendation": {
-            "ja": "敵の攻撃力が下がるため死亡するリスクが減少する。",
-            "en": "Reduces death risk as it lowers enemy attack power.",
-            "ko": "적의 공격력이 낮아져서 사망 위험이 감소합니다."
+            "level": 4,
+            "reason": {
+              "ja": "敵の攻撃力が下がるため死亡するリスクが減少する。",
+              "en": "The risk of death is reduced because the enemy's attack power decreases.",
+              "ko": "적의 공격력이 낮아져 사망 위험이 감소합니다."
+            }
           }
         },
         {
@@ -7884,11 +8999,13 @@
             "en": "Crow's normal attacks and Super deal +40% additional damage to enemies below 50% HP.",
             "ko": "HP가 50% 이하인 적에 대해 크로우의 일반 공격과 궁극기로 +40%의 추가 데미지가 발생합니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "低体力の敵をかなり倒しやすくなるためアサシンとの相性が良い。",
-            "en": "Good synergy with assassin role as it makes it much easier to finish low HP enemies.",
-            "ko": "낮은 체력의 적을 상당히 처치하기 쉬워져서 어쌔신과의 궁합이 좋습니다."
+            "level": 5,
+            "reason": {
+              "ja": "低体力の敵をかなり倒しやすくなるためアサシンとの相性が良い。",
+              "en": "It is good with assassins because it is much easier to defeat enemies with low health.",
+              "ko": "낮은 체력의 적을 상당히 쉽게 물리칠 수 있어 어쌔신과의 호환성이 좋습니다."
+            }
           }
         }
       ],
@@ -7905,11 +9022,13 @@
             "en": "Activates a shield for 3 seconds, negating 40% of incoming damage.",
             "ko": "3초 동안 실드를 발동하여 받는 데미지의 40%를 무효화합니다."
           },
-          "recommendationLevel": 3,
           "recommendation": {
-            "ja": "耐久力が大幅に上昇して強いが元の体力が低すぎるため相性が悪い。",
-            "en": "Strong due to increased durability but poor synergy due to low base HP.",
-            "ko": "내구력이 크게 상승하여 강하지만 원래 체력이 너무 낮아서 궁합이 좋지 않습니다."
+            "level": 3,
+            "reason": {
+              "ja": "耐久力が大幅に上昇して強いが元の体力が低すぎるため相性が悪い。",
+              "en": "It is strong because the durability is greatly increased, but it is not compatible because the original health is too low.",
+              "ko": "내구력이 크게 상승하여 강하지만 원래 체력이 너무 낮아 호환성이 나쁩니다."
+            }
           }
         },
         {
@@ -7924,11 +9043,13 @@
             "en": "When used, all poisoned enemies are slowed for 2 seconds.",
             "ko": "사용 시 독 상태의 적 전원의 움직임이 2초간 느려집니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "好きなタイミングで敵に遅延をかけることができるため超強力。",
-            "en": "Super powerful as it can slow enemies at any desired timing.",
-            "ko": "원하는 타이밍에 적에게 지연을 걸 수 있어서 초강력합니다."
+            "level": 5,
+            "reason": {
+              "ja": "好きなタイミングで敵に遅延をかけることができるため超強力。",
+              "en": "It is extremely powerful because you can slow down enemies at your favorite timing.",
+              "ko": "좋아하는 타이밍에 적에게 지연을 걸 수 있어 초강력합니다."
+            }
           }
         }
       ],
@@ -7982,11 +9103,13 @@
             "en": "Harvesting defeated enemies' souls restores 20% of maximum HP.",
             "ko": "처치한 적의 영혼을 수확하여 자신의 최대 HP의 20%를 회복합니다."
           },
-          "recommendationLevel": 4,
           "recommendation": {
-            "ja": "複数の敵を倒そうとする際に安定度が増すためモーティス初心者には優しい。",
-            "en": "Beginner-friendly as it provides more stability when trying to defeat multiple enemies.",
-            "ko": "여러 적을 처치하려고 할 때 안정성이 증가하므로 모티스 초보자에게 친숙합니다."
+            "level": 4,
+            "reason": {
+              "ja": "複数の敵を倒そうとする際に安定度が増すためモーティス初心者には優しい。",
+              "en": "It is beginner-friendly for Mortis because it increases stability when trying to defeat multiple enemies.",
+              "ko": "여러 적을 처치하려고 할 때 안정성이 증가하여 모티스 초보자에게 친숙합니다."
+            }
           }
         },
         {
@@ -8001,11 +9124,13 @@
             "en": "Long-range dash charge time is reduced by 2 seconds.",
             "ko": "장거리 대시 차지에 걸리는 시간이 2초 줄어듭니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "機動力が大幅に増えるため攻撃のチャンスが増えるが、体力管理が難しくなる上級者向けの強力なスターパワー",
-            "en": "Powerful star power for advanced players as it increases mobility and attack opportunities, but makes HP management more challenging.",
-            "ko": "기동력이 크게 증가하여 공격 기회가 늘어나지만, 체력 관리가 어려워지는 상급자용 강력한 스타파워입니다."
+            "level": 5,
+            "reason": {
+              "ja": "機動力が大幅に増えるため攻撃のチャンスが増えるが、体力管理が難しくなる上級者向けの強力なスターパワー",
+              "en": "It is a powerful Star Power for advanced players because it significantly increases mobility, increases attack opportunities, and makes it difficult to manage health.",
+              "ko": "기동력이 크게 증가하여 공격 기회가 늘어나지만, 체력 관리가 어려워지는 고급 플레이어를 위한 강력한 스타 파워입니다."
+            }
           }
         }
       ],
@@ -8022,11 +9147,13 @@
             "en": "Spins the shovel, dealing 2000 damage to all surrounding enemies.",
             "ko": "삽을 휘둘러 주변의 모든 적에게 2000 데미지를 줍니다."
           },
-          "recommendationLevel": 4,
           "recommendation": {
-            "ja": "サクッと火力を出せる上に攻撃回数を増やせるため、アサシンとタンクには有効。",
-            "en": "Effective against assassins and tanks as it provides quick burst damage and increases attack count.",
-            "ko": "순식간에 화력을 낼 수 있고 공격 횟수를 늘릴 수 있어서 어쌔신과 탱커에게 유효합니다."
+            "level": 3,
+            "reason": {
+              "ja": "瞬間的に火力を出せるためかなり扱いやすい",
+              "en": "It is quite easy to handle because it can instantly output firepower.",
+              "ko": "순간적으로 화력을 낼 수 있어 상당히 다루기 쉽습니다."
+            }
           }
         },
         {
@@ -8041,11 +9168,13 @@
             "en": "Increases reload speed for 4 seconds.",
             "ko": "4초 동안 재장전이 빨라집니다."
           },
-          "recommendationLevel": 4,
           "recommendation": {
-            "ja": "アサシンを倒して次のキャラを倒す時にかなり有効に使える。",
-            "en": "Very effective for chaining kills after defeating an assassin.",
-            "ko": "어쌔신을 처치하고 다음 캐릭터를 처치할 때 상당히 효과적으로 사용할 수 있습니다."
+            "level": 5,
+            "reason": {
+              "ja": "リロード速度が上昇することでウルトループや移動、攻撃など全てにおいて優位になり非常に強力",
+              "en": "It is extremely powerful because the reload speed increases, giving you an advantage in all aspects such as ult loop, movement, and attack.",
+              "ko": "재장전 속도가 증가하여 울트 루프, 이동, 공격 등 모든 면에서 우위를 차지하기 때문에 매우 강력합니다."
+            }
           }
         }
       ],
@@ -8097,6 +9226,14 @@
             "ja": "彼の必殺技の標的となった敵は、4秒間にわたり炎に包まれ1800ダメージを受ける。",
             "en": "Enemies hit by his Super are engulfed in flames, taking 1800 damage over 4 seconds.",
             "ko": "그의 궁극기의 표적이 된 적은 4초 동안 불꽃에 휩싸여 1800 데미지를 받습니다."
+          },
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "火力が上がり敵を倒し切りやすくなる。",
+              "en": "The firepower increases, making it easier to defeat enemies.",
+              "ko": "화력이 증가하여 적을 물리치기 쉬워집니다."
+            }
           }
         },
         {
@@ -8110,6 +9247,14 @@
             "ja": "必殺技の発動後、4秒間にわたって速度が25%ブーストされる。",
             "en": "After using Super, movement speed is boosted by 25% for 4 seconds.",
             "ko": "궁극기 발동 후 4초 동안 이동속도가 25% 증가됩니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "必殺技で敵を倒してから次の敵を倒すのに必須となる。",
+              "en": "It is essential to defeat the next enemy after defeating the enemy with Super.",
+              "ko": "궁극기로 적을 물리친 후 다음 적을 물리치기 위해 필수적입니다."
+            }
           }
         }
       ],
@@ -8125,6 +9270,14 @@
             "ja": "手近な敵をつかんで、パンケーキをひっくり返すようにヒラリと後ろに投げ飛ばす。",
             "en": "Grabs the nearest enemy and throws them behind like flipping a pancake.",
             "ko": "가까운 적을 잡아서 팬케이크를 뒤집듯이 뒤로 휙 던져버립니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "確定シュートや一瞬攻撃できない状況を作れるのがかなり強力。",
+              "en": "It is quite powerful because it can create situations where you can't shoot or attack instantly.",
+              "ko": "확정 슈트나 순간 공격할 수 없는 상황을 만들 수 있어 상당히 강력합니다."
+            }
           }
         },
         {
@@ -8138,6 +9291,14 @@
             "ja": "小惑星を召喚して最も近くにいる敵にぶつける。3040ダメージを与え、壁を破壊する。",
             "en": "Summons an asteroid to hit the nearest enemy, dealing 3040 damage and destroying walls.",
             "ko": "소행성을 소환하여 가장 가까이 있는 적에게 부딪힙니다. 3040 데미지를 주고 벽을 파괴합니다."
+          },
+          "recommendation": {
+            "level": 1,
+            "reason": {
+              "ja": "よほど特別な戦術がない限りタンクで壁を壊すのはナンセンス。",
+              "en": "It is nonsense to break walls with a tank unless there is a very special tactic.",
+              "ko": "매우 특별한 전술이 없는 한 탱크로 벽을 부수는 것은 무의미합니다."
+            }
           }
         }
       ]
@@ -8184,6 +9345,14 @@
             "ja": "自ら生み出す爆風に乗って、障害物を飛び越える！",
             "en": "Ride your own blast wave to jump over obstacles!",
             "ko": "스스로 만들어낸 폭풍을 타고 장애물을 뛰어넘습니다!"
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "使用の難易度があまりにも高すぎるため、強力だがオススメができない。",
+              "en": "It is powerful, but it is not recommended because the difficulty of use is too high.",
+              "ko": "사용의 난이도가 너무 높아 강력하지만 추천할 수 없습니다."
+            }
           }
         },
         {
@@ -8197,6 +9366,14 @@
             "ja": "必殺技に+1600ダメージを増加する。",
             "en": "Super damage increased by +1600.",
             "ko": "궁극기에 +1600 데미지가 증가합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "火力の底上げで一撃で倒せるようになる敵が多くかなり強い",
+              "en": "It is quite powerful because there are many enemies that can be defeated in one blow by raising the firepower.",
+              "ko": "화력을 높여 한 방에 물리칠 수 있는 적이 많아 상당히 강력합니다."
+            }
           }
         }
       ],
@@ -8212,6 +9389,14 @@
             "ja": "激しく身体を回転させて、ダイナマイトを勢いよく周囲にまき散らす。敵にダイナマイトが当たるたびに2400ダメージを与える。",
             "en": "Rapidly spin your body, scattering dynamite all around. Each dynamite hit deals 2400 damage to enemies.",
             "ko": "격렬하게 몸을 회전시켜 다이너마이트를 기세 좋게 주위에 뿌립니다. 적에게 다이너마이트가 맞을 때마다 2400 데미지를 줍니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "弱くはないがもう片方のガジェットが優秀すぎる。",
+              "en": "It is not weak, but the other gadget is too excellent.",
+              "ko": "약하지는 않지만 다른 가제트가 너무 뛰어납니다."
+            }
           }
         },
         {
@@ -8225,6 +9410,14 @@
             "ja": "使用すると、次の通常攻撃は敵を1.5秒間気絶させる。",
             "en": "When used, your next normal attack stuns enemies for 1.5 seconds.",
             "ko": "사용하면 다음 일반 공격이 적을 1.5초간 기절시킵니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "これを当てて数発攻撃を打つと確実に敵を倒せるため最強のガジェットの一つとされている。",
+              "en": "It is considered one of the strongest gadgets because you can defeat enemies with certainty by hitting them and attacking several times.",
+              "ko": "이것을 맞추고 몇 발 공격을 하면 확실히 적을 물리칠 수 있어 최강의 가제트 중 하나로 여겨집니다."
+            }
           }
         }
       ]
@@ -8272,11 +9465,13 @@
             "en": "When Bear attacks enemies, Nita heals 1040 HP, and when Nita damages enemies, Bear heals 1040 HP.",
             "ko": "곰이 적을 공격할 때마다 니타의 HP가 1040 회복되고, 니타가 적에게 데미지를 주면 곰의 HP가 1040 회복됩니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "クマとニタの生存力が増すため前線を押し続けやすくなる。",
-            "en": "Makes it easier to maintain frontline pressure as both Bear and Nita's survivability increases.",
-            "ko": "곰과 니타의 생존력이 증가하여 전선을 계속 밀어붙이기 쉬워집니다."
+            "level": 5,
+            "reason": {
+              "ja": "クマとニタの生存力が増すため前線を押し続けやすくなる。",
+              "en": "It is easier to keep pushing the front line because the survivability of Bear and Nita increases.",
+              "ko": "곰과 니타의 생존력이 증가하여 전선을 계속 밀기 쉬워집니다."
+            }
           }
         },
         {
@@ -8291,11 +9486,13 @@
             "en": "Bear's attack speed increases. Attack interval is reduced by 60%.",
             "ko": "곰의 공격 속도가 올라갑니다. 공격 간격이 60% 감소합니다."
           },
-          "recommendationLevel": 4,
           "recommendation": {
-            "ja": "強奪でのみ非常に強力。",
-            "en": "Only very powerful in Heist.",
-            "ko": "강탈에서만 매우 강력합니다."
+            "level": 4,
+            "reason": {
+              "ja": "強奪でのみ非常に強力。",
+              "en": "It is extremely powerful only in Robbery.",
+              "ko": "강탈에서만 매우 강력합니다."
+            }
           }
         }
       ],
@@ -8312,11 +9509,13 @@
             "en": "Bear slams the ground heavily, stunning all enemies in range.",
             "ko": "곰이 지면을 강렬하게 내리쳐서 효과 범위 내의 모든 적을 기절시킵니다."
           },
-          "recommendationLevel": 4,
           "recommendation": {
-            "ja": "タンクが多い状況ではかなり強力で、サッカーでのみ使用されることが多い。",
-            "en": "Very powerful when there are many tanks, mostly used in Brawl Ball.",
-            "ko": "탱커가 많은 상황에서는 상당히 강력하고, 브롤볼에서만 주로 사용됩니다."
+            "level": 4,
+            "reason": {
+              "ja": "タンクが多い状況ではかなり強力で、サッカーでのみ使用されることが多い。",
+              "en": "It is quite powerful in situations with many tanks and is often used only in soccer.",
+              "ko": "탱크가 많은 상황에서 상당히 강력하며, 축구에서만 사용되는 경우가 많습니다."
+            }
           }
         },
         {
@@ -8331,11 +9530,13 @@
             "en": "Activates a shield that reduces damage to Bear by 35% for 3 seconds.",
             "ko": "곰에 대한 데미지를 3초 동안 35% 감소시키는 실드를 발동합니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "クマの生存能力が向上することで前線を押し上げる能力が上がるため安定して強い。",
-            "en": "Consistently strong as it increases Bear's survival ability and frontline pushing capability.",
-            "ko": "곰의 생존 능력이 향상되어 전선을 밀어올리는 능력이 올라가서 안정적으로 강합니다."
+            "level": 5,
+            "reason": {
+              "ja": "クマの生存能力が向上することで前線を押し上げる能力が上がるため安定して強い。",
+              "en": "It is stable and powerful because the ability to push the front line increases as the survivability of Bear improves.",
+              "ko": "곰의 생존 능력이 향상되어 전선을 밀어올리는 능력이 증가하여 안정적이고 강력합니다."
+            }
           }
         }
       ],
@@ -8389,11 +9590,13 @@
             "en": "By hitting the turret with attacks, it can recover 1060 lost HP.",
             "ko": "자신의 공격으로 터렛에 전기를 보내 잃은 HP를 1060 회복할 수 있습니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "タレットの生存力が増すため前線を押し続けやすくなる。",
-            "en": "Makes it easier to maintain frontline pressure as the turret's survivability increases.",
-            "ko": "터렛의 생존력이 증가하여 전선을 계속 밀어붙이기 쉬워집니다."
+            "level": 5,
+            "reason": {
+              "ja": "タレットの生存力が増すため前線を押し続けやすくなる。",
+              "en": "It is easier to keep pushing the front line because the survivability of the turret increases.",
+              "ko": "터렛의 생존력이 증가하여 전선을 계속 밀기 쉬워집니다."
+            }
           }
         },
         {
@@ -8408,11 +9611,13 @@
             "en": "The turret fires energy orbs that bounce between enemies. The bounce range is 51% of normal range.",
             "ko": "터렛이 적에서 적으로 튀는 에너지 탄을 발사합니다. 튄 후의 비거리는 통상의 51%가 됩니다."
           },
-          "recommendationLevel": 3,
           "recommendation": {
-            "ja": "使用するタイミングが限られすぎていて汎用性が低すぎる。",
-            "en": "Too situational with very limited usability.",
-            "ko": "사용하는 타이밍이 너무 제한적이어서 범용성이 너무 낮습니다."
+            "level": 3,
+            "reason": {
+              "ja": "使用するタイミングが限られすぎていて汎用性が低すぎる。",
+              "en": "The timing of use is too limited and the versatility is too low.",
+              "ko": "사용 타이밍이 너무 제한적이고 다용성이 너무 낮습니다."
+            }
           }
         }
       ],
@@ -8429,11 +9634,13 @@
             "en": "Emits a shockwave from the turret that slows all enemies in range.",
             "ko": "터렛에서 충격파를 내보내 효과 범위 내의 모든 적의 움직임을 슬로우시킵니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "タレットを投げて直後に打つと確実にスローダウンを与えられるため強力",
-            "en": "Powerful as it guarantees slowdown when used immediately after throwing the turret",
-            "ko": "터렛을 던진 직후에 치면 확실하게 슬로우다운을 줄 수 있어서 강력합니다"
+            "level": 5,
+            "reason": {
+              "ja": "タレットを投げて直後に打つと確実にスローダウンを与えられるため強力",
+              "en": "It is powerful because you can give a slow down effect by throwing the turret and hitting it immediately.",
+              "ko": "터렛을 던지고 바로 공격하면 확실히 슬로우다운 효과를 줄 수 있어 강력합니다."
+            }
           }
         },
         {
@@ -8448,11 +9655,13 @@
             "en": "Doubles the turret's attack speed for 5 seconds.",
             "ko": "터렛의 공격 속도가 5초 동안 2배가 됩니다."
           },
-          "recommendationLevel": 3,
           "recommendation": {
-            "ja": "強奪でのみ非常に強力。",
-            "en": "Only very powerful in Heist.",
-            "ko": "강탈에서만 매우 강력합니다."
+            "level": 3,
+            "reason": {
+              "ja": "強奪でのみ非常に強力。",
+              "en": "It is extremely powerful only in Robbery.",
+              "ko": "강탈에서만 매우 강력합니다."
+            }
           }
         }
       ],
@@ -8506,11 +9715,13 @@
             "en": "Heals 480 HP with each normal attack",
             "ko": "일반 공격할 때마다 HP가 480 회복됩니다"
           },
-          "recommendationLevel": 4,
           "recommendation": {
-            "ja": "耐久力が非常に高くになるため、前線のキープ力がかなり上昇する",
-            "en": "Significantly increases frontline sustainability due to high durability",
-            "ko": "내구력이 매우 높아져서 전선 유지력이 상당히 상승합니다"
+            "level": 5,
+            "reason": {
+              "ja": "耐久力が非常に高くになるため、前線のキープ力がかなり上昇する",
+              "en": "The durability becomes very high, so the ability to keep the front line increases significantly.",
+              "ko": "내구력이 매우 높아져 전선을 유지하는 능력이 상당히 증가합니다."
+            }
           }
         },
         {
@@ -8525,11 +9736,13 @@
             "en": "Adds +200 damage per second to attacks",
             "ko": "자신의 공격에 초당 +200 데미지를 추가합니다"
           },
-          "recommendationLevel": 2,
           "recommendation": {
-            "ja": "被弾しない自信のある強気すぎる人以外は使用できない。",
-            "en": "Only usable by overly aggressive players confident in not getting hit.",
-            "ko": "피격되지 않을 자신이 있는 너무 강한 사람 외에는 사용할 수 없습니다."
+            "level": 3,
+            "reason": {
+              "ja": "強奪やタンクが多い状況で活躍するが汎用性が低い",
+              "en": "It is active in Robbery and situations with many tanks, but it has low versatility.",
+              "ko": "강탈이나 탱크가 많은 상황에서 활약하지만 다용성이 낮습니다."
+            }
           }
         }
       ],
@@ -8546,11 +9759,13 @@
             "en": "Creates a sticky puddle that slows down enemies who touch it.",
             "ko": "끈적끈적한 혼합물을 떨어뜨려 물웅덩이를 만듭니다. 닿은 적은 이동이 느려집니다."
           },
-          "recommendationLevel": 3,
           "recommendation": {
-            "ja": "タンクが多い時のみ、減速で逃げ切れるため重宝する",
-            "en": "Only valuable when there are many tanks, as the slowdown helps escape",
-            "ko": "탱커가 많을 때만 감속으로 도망칠 수 있어서 중요합니다"
+            "level": 4,
+            "reason": {
+              "ja": "タンクが多い時に減速で逃げ切れるため重宝する",
+              "en": "It is useful for escaping with deceleration when there are many tanks.",
+              "ko": "탱크가 많을 때 감속으로 도망치는 데 유용합니다."
+            }
           }
         },
         {
@@ -8565,11 +9780,13 @@
             "en": "Throws a healing potion at nearby allies, creating an area that heals 720 HP per second.",
             "ko": "근처의 아군에게 회복 포션을 던져 범위 내에서 초당 720 체력을 회복하는 장을 만듭니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "味方全員の生存力が上昇し、一気に前線を押し上げるきっかけとなる。",
-            "en": "Increases survival of all allies, becoming a catalyst for pushing the frontline.",
-            "ko": "아군 전원의 생존력이 상승하고, 일시에 전선을 밀어올리는 계기가 됩니다."
+            "level": 5,
+            "reason": {
+              "ja": "味方全員の生存力が上昇し、一気に前線を押し上げるきっかけとなる。",
+              "en": "The survivability of all allies increases, providing an opportunity to push the front line at once.",
+              "ko": "아군 전원의 생존력이 증가하여 한 번에 전선을 밀어올리는 계기가 됩니다."
+            }
           }
         }
       ],
@@ -8623,11 +9840,13 @@
             "en": "When activating Super and standing in its area, heals 1400 HP per second.",
             "ko": "궁극기를 발동할 때 자신이 그 효과 범위에 들어가면 HP가 초당 1400 회복됩니다."
           },
-          "recommendationLevel": 3,
           "recommendation": {
-            "ja": "生存性が大幅に向上するため前線をキープしやすいが、もう一つのガジェットが優秀すぎる。",
-            "en": "Improves survivability and helps maintain frontline, but the other gadget is too good.",
-            "ko": "생존성이 크게 향상되어 전선을 유지하기 쉽지만, 다른 가젯이 너무 뛰어납니다."
+            "level": 3,
+            "reason": {
+              "ja": "生存性が大幅に向上するため前線をキープしやすいが、もう一つのガジェットが優秀すぎる。",
+              "en": "It is easy to keep the front line because the survivability is greatly improved, but the other gadget is too excellent.",
+              "ko": "생존성이 크게 향상되어 전선을 유지하기 쉽지만 다른 가제트가 너무 뛰어납니다."
+            }
           }
         },
         {
@@ -8642,11 +9861,13 @@
             "en": "Spike's projectile spikes curve in their trajectory, making them easier to hit enemies.",
             "ko": "선인장 파편이 곡선을 그리며 날아가 적에게 맞추기 쉬워집니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "弾がカーブするため実質射程が伸びる。また、これがないと弾を避けられやすいためほぼ必須。",
-            "en": "Effectively extends range due to curving projectiles. Almost mandatory as shots are easily dodged without it.",
-            "ko": "탄환이 커브해서 실질적인 사거리가 늘어납니다. 또한, 이것이 없으면 탄환을 피하기 쉬워서 거의 필수입니다."
+            "level": 5,
+            "reason": {
+              "ja": "弾がカーブするため実質射程が伸びる。また、これがないと弾を避けられやすいためほぼ必須。",
+              "en": "The projectile curves, effectively extending the range. Also, it is almost essential because it is easy to avoid the bullets without it.",
+              "ko": "탄이 커브되어 사실상 사거리가 늘어납니다. 또한 이것이 없으면 탄을 피하기 쉬우므로 거의 필수입니다."
+            }
           }
         }
       ],
@@ -8663,11 +9884,13 @@
             "en": "Fires a large number of needles in all directions 3 times, dealing 1080 damage per hit.",
             "ko": "모든 방향으로 3회 대량의 바늘을 발사하여 히트당 1080 데미지를 줍니다."
           },
-          "recommendationLevel": 3,
           "recommendation": {
-            "ja": "強奪やアサシン系のキャラが多いときはかなり強いが、強奪でのスパイクが弱いのが難点。",
-            "en": "Very strong against assassins and in Heist, but Spike is weak in Heist which is a drawback.",
-            "ko": "강탈이나 암살자 계열 캐릭터가 많을 때는 상당히 강하지만, 강탈에서 스파이크가 약한 것이 단점입니다."
+            "level": 3,
+            "reason": {
+              "ja": "強奪やアサシン系のキャラが多いときはかなり強いが、強奪でのスパイクが弱いのが難点。",
+              "en": "",
+              "ko": ""
+            }
           }
         },
         {
@@ -8682,11 +9905,13 @@
             "en": "Places a cactus with 2800 HP as an ally shield. When destroyed, heals all nearby allies for 1680 HP.",
             "ko": "체력 2800의 선인장을 설치하여 아군의 방패를 만듭니다. 파괴되면 근처의 모든 아군의 체력을 1680 회복시킵니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "盾としての性能が非常に高く、回復の効果も良いため汎用性が非常に高い。",
-            "en": "Very versatile due to high performance as a shield and good healing effect.",
-            "ko": "방패로서의 성능이 매우 높고 회복 효과도 좋아서 범용성이 매우 높습니다."
+            "level": 5,
+            "reason": {
+              "ja": "盾と回復としての性能が高く前線キープ力が上昇し汎用性も高い",
+              "en": "It has high performance as a shield and recovery, increases the ability to keep the front line, and is highly versatile.",
+              "ko": "방패와 회복으로서의 성능이 높고 전선 유지력이 상승하여 범용성도 높다."
+            }
           }
         }
       ],
@@ -8740,11 +9965,13 @@
             "en": "Normal attack and Super bullets gain extra power on their first bounce, increasing damage by 256.",
             "ko": "일반 공격과 궁극기의 탄환이 첫 번째 바운드에서 추가 파워를 얻어 데미지가 256 증가합니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "火力がかなり上昇するため安定性とタンクを倒しやすくなるため強力。",
-            "en": "Powerful due to increased damage output, making it more stable and effective against tanks.",
-            "ko": "화력이 상당히 증가하여 안정성과 탱커를 처치하기 쉬워져서 강력합니다."
+            "level": 5,
+            "reason": {
+              "ja": "火力がかなり上昇するため安定性とタンクを倒しやすくなるため強力。",
+              "en": "It is powerful because the firepower increases significantly, making it easier to defeat tanks.",
+              "ko": "화력이 상당히 증가하여 안정성이 높아지고 탱크를 쉽게 물리칠 수 있어 강력합니다."
+            }
           }
         },
         {
@@ -8759,11 +9986,13 @@
             "en": "When health drops below 40%, movement speed increases by 34%!",
             "ko": "체력이 40% 미만이 되면 이동 속도가 34% 증가합니다!"
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "移動速度がかなり早くなるため扱うのは難しいが、使いこなすと全然死なない強力な効果となる。",
-            "en": "While difficult to handle due to increased speed, becomes very powerful when mastered as it greatly improves survival.",
-            "ko": "이동 속도가 상당히 빨라져서 다루기는 어렵지만, 숙달하면 전혀 죽지 않는 강력한 효과가 됩니다."
+            "level": 5,
+            "reason": {
+              "ja": "移動速度がかなり早くなるため扱うのは難しいが、使いこなすと全然死なない強力な効果となる。",
+              "en": "It is difficult to handle because the movement speed becomes quite fast, but it becomes a powerful effect that does not die at all when used properly.",
+              "ko": "이동 속도가 상당히 빨라져 다루기 어렵지만, 제대로 사용하면 전혀 죽지 않는 강력한 효과가 됩니다."
+            }
           }
         }
       ],
@@ -8780,11 +10009,13 @@
             "en": "Rapidly fires bouncing bullets in all directions.",
             "ko": "모든 방향으로 튀는 탄환을 연사합니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "接近してきたキャラクターを一瞬で倒すことが出来るため、どの敵でもどのタイミングでも最強。",
-            "en": "Strongest against any enemy at any time as it can instantly defeat approaching characters.",
-            "ko": "접근해 오는 캐릭터를 순식간에 처치할 수 있어서 어떤 적이든 어떤 타이밍에서도 최강입니다."
+            "level": 5,
+            "reason": {
+              "ja": "接近してきたキャラクターを一瞬で倒すことが出来るため、どの敵でもどのタイミングでも最強。",
+              "en": "It is the strongest at any timing against any enemy because it can defeat characters that approach in an instant.",
+              "ko": "접근해 오는 캐릭터를 순식간에 쓰러뜨릴 수 있어 어떤 적이든 어떤 타이밍에서도 최강입니다."
+            }
           }
         },
         {
@@ -8799,11 +10030,13 @@
             "en": "Next normal attack heals 256 HP for each bounce.",
             "ko": "다음 일반 공격이 튈 때마다 HP가 256 회복됩니다."
           },
-          "recommendationLevel": 2,
           "recommendation": {
-            "ja": "壁がないと使用しづらく、敵を倒せるもう一つのガジェットの方が強い。",
-            "en": "Difficult to use without walls, and the other gadget is stronger as it can defeat enemies.",
-            "ko": "벽이 없으면 사용하기 어렵고, 적을 처치할 수 있는 다른 가젯이 더 강합니다."
+            "level": 2,
+            "reason": {
+              "ja": "壁がないと使用しづらく、敵を倒せるもう一つのガジェットの方が強い。",
+              "en": "It is difficult to use without walls, and the other gadget that can defeat enemies is stronger.",
+              "ko": "벽이 없으면 사용하기 어렵고 적을 물리칠 수 있는 다른 가제트가 더 강합니다."
+            }
           }
         }
       ],
@@ -8856,11 +10089,34 @@
             "en": "Super fires 44% more rockets.",
             "ko": "궁극기로 발사하는 로켓이 44% 증가합니다."
           },
-          "recommendationLevel": 1,
           "recommendation": {
-            "ja": "誰も使わないでください。",
-            "en": "Please don't use this.",
-            "ko": "아무도 사용하지 마세요."
+            "level": 3,
+            "reason": {
+              "ja": "強奪や賞金稼ぎなどでごく稀に使用されることがある",
+              "en": "It is rarely used in Robbery and Bounty.",
+              "ko": "강탈이나 현상금 사냥에서 가끔 사용됩니다."
+            }
+          }
+        },
+        {
+          "id": 23000150,
+          "name": {
+            "ja": "第4のロケット",
+            "en": "Incendiary",
+            "ko": "화염탄"
+          },
+          "description": {
+            "ja": "ランチャーに4発目のロケットを装填し、弾薬容量が増加します。",
+            "en": "Adds a fourth rocket to the launcher, increasing ammo capacity.",
+            "ko": "런처에 4발째의 로켓을 장전하여 탄약 용량이 증가합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "装弾数が増えることで安定性が上昇するため非常に強力",
+              "en": "It is very powerful because the stability increases as the number of rounds increases.",
+              "ko": "탄약 수가 늘어나면 안정성이 상승하여 매우 강력합니다."
+            }
           }
         }
       ],
@@ -8877,11 +10133,34 @@
             "en": "Jumps into the air by exploding the ground below. The explosion deals 580 damage to nearby enemies.",
             "ko": "발밑을 폭파하여 공중으로 도약합니다. 폭발은 근처의 적에게 580 데미지를 줍니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "バトロワで使用していない人は戦犯レベルで最強ガジェット。生存能力が段違いに上がる。",
-            "en": "The strongest gadget - not using it in Showdown is criminal. Dramatically increases survival ability.",
-            "ko": "배틀로얄에서 사용하지 않는 사람은 전범급으로 최강의 가젯입니다. 생존력이 단계적으로 올라갑니다."
+            "level": 5,
+            "reason": {
+              "ja": "バトロワで使用していない人は戦犯レベルで最強ガジェット。生存能力が段違いに上がる。",
+              "en": "It is the strongest gadget at the level of war criminals for those who are not using it in Battle Royale. The survivability is significantly increased.",
+              "ko": "배틀로얄에서 사용하지 않는 사람은 전쟁 범죄자 수준의 최강 가제트입니다. 생존 능력이 크게 향상됩니다."
+            }
+          }
+        },
+        {
+          "id": 23000245,
+          "name": {
+            "ja": "ロケット燃料",
+            "en": "Rocket Fuel",
+            "ko": "로켓 연료"
+          },
+          "description": {
+            "ja": "次の通常攻撃で、大きさと速度が増したど迫力のロケットを発射し、壁までも破壊する。",
+            "en": "Fires a powerful rocket that increases in size and speed, breaking walls.",
+            "ko": "다음 일반 공격으로 크기와 속도가 증가한 강력한 로켓을 발사하여 벽도 파괴합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "壁が多いマップで即座に壁を破壊できるため不利な地形を一気に有利な地形にすることができる",
+              "en": "It can instantly turn unfavorable terrain into favorable terrain by breaking walls immediately on maps with many walls.",
+              "ko": "벽이 많은 맵에서 즉시 벽을 파괴하여 불리한 지형을 한 번에 유리한 지형으로 바꿀 수 있습니다."
+            }
           }
         }
       ],
@@ -8934,11 +10213,13 @@
             "en": "When HP falls below 60%, reload speed doubles!",
             "ko": "HP가 60% 이하가 되면 재장전 속도가 2배가 됩니다!"
           },
-          "recommendationLevel": 4,
           "recommendation": {
-            "ja": "強奪では非常に多く使用される。",
-            "en": "Very frequently used in Heist.",
-            "ko": "강탈에서 매우 자주 사용됩니다."
+            "level": 4,
+            "reason": {
+              "ja": "DPSが大幅に上昇するため強奪で非常に役に立つ",
+              "en": "It is very useful in Robbery because the DPS increases significantly.",
+              "ko": "DPS가 크게 상승하여 강탈에서 매우 유용합니다."
+            }
           }
         },
         {
@@ -8953,11 +10234,13 @@
             "en": "When HP falls below 40%, all damage taken is reduced by 30%.",
             "ko": "HP가 40% 이하가 되면 받는 모든 데미지가 30% 감소됩니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "ダメージ計算を狂わせつつ耐久力が増すため汎用性が非常に高い。",
-            "en": "Very versatile as it increases durability while disrupting damage calculations.",
-            "ko": "데미지 계산을 방해하면서 내구력이 증가하여 범용성이 매우 높습니다."
+            "level": 5,
+            "reason": {
+              "ja": "ダメージ計算を狂わせつつ耐久力が増すため汎用性が非常に高い。",
+              "en": "It is highly versatile because it increases durability while disrupting damage calculations.",
+              "ko": "데미지 계산을 괴롭히면서 내구력이 증가하여 다용성이 매우 높습니다."
+            }
           }
         }
       ],
@@ -8974,11 +10257,13 @@
             "en": "Instantly heals for 2000 health.",
             "ko": "즉시 체력을 2000 회복합니다."
           },
-          "recommendationLevel": 4,
           "recommendation": {
-            "ja": "スターパワーの「暴れウシ」と併用して強奪で多く使用される",
-            "en": "Frequently used in Heist in combination with the Berserker star power",
-            "ko": "스타파워 '광전사'와 함께 강탈에서 자주 사용됩니다"
+            "level": 4,
+            "reason": {
+              "ja": "スターパワーの「暴れウシ」と併用して強奪で多く使用される",
+              "en": "It is often used in Robbery in combination with the Star Power \"Berserker\".",
+              "ko": "스타파워의 \"광전사\"와 함께 강탈에서 많이 사용됩니다."
+            }
           }
         },
         {
@@ -8993,11 +10278,13 @@
             "en": "Interrupts Super's charge to stomp the ground magnificently, reducing movement speed of all nearby enemies for 1.5 seconds.",
             "ko": "궁극기의 돌진을 중단하고 지면을 호쾌하게 밟아 가까이 있는 모든 적의 이동 속도를 1.5초간 감소시킵니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "スローダウンとショットガンの攻撃の相性が非常に良く汎用性が高い。",
-            "en": "Very versatile with excellent synergy between slowdown and shotgun attacks.",
-            "ko": "슬로우다운과 샷건 공격의 시너지가 매우 좋아 범용성이 높습니다."
+            "level": 5,
+            "reason": {
+              "ja": "スローダウンとショットガンの攻撃の相性が非常に良く汎用性が高い。",
+              "en": "It has high versatility because the slowdown and shotgun attacks are very compatible.",
+              "ko": "슬로우다운과 샷건 공격이 매우 호환되어 다용성이 높습니다."
+            }
           }
         }
       ],
@@ -9050,11 +10337,13 @@
             "en": "Movement speed is increased by 13%.",
             "ko": "이동 속도가 13% 증가합니다."
           },
-          "recommendationLevel": 2,
           "recommendation": {
-            "ja": "移動速度はかなり早くなるが、射程を伸ばして射程外から敵を攻撃した方が強い。",
-            "en": "While movement speed becomes quite fast, it's stronger to extend range and attack enemies from outside their range.",
-            "ko": "이동 속도는 상당히 빨라지지만, 사거리를 늘려 사거리 밖에서 적을 공격하는 것이 더 강력합니다."
+            "level": 3,
+            "reason": {
+              "ja": "移動速度はかなり早くなるが、射程を伸ばして射程外から敵を攻撃した方が強い。",
+              "en": "The movement speed becomes quite fast, but it is stronger to attack enemies from outside the range by extending the range.",
+              "ko": "이동 속도가 상당히 빨라지지만 사거리를 늘려서 사거리 밖에서 적을 공격하는 것이 더 강합니다."
+            }
           }
         },
         {
@@ -9069,11 +10358,13 @@
             "en": "Attack range and bullet speed increased by 11%.",
             "ko": "공격 사거리와 탄속이 11% 증가합니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "射程と弾速が伸びるため攻撃を当てやすく敵の射程外から攻撃することができる",
-            "en": "Easier to hit attacks and can attack from outside enemy range due to increased range and bullet speed",
-            "ko": "사거리와 탄속이 늘어나 공격을 맞추기 쉽고 적의 사거리 밖에서 공격할 수 있습니다"
+            "level": 5,
+            "reason": {
+              "ja": "射程と弾速が伸びるため攻撃を当てやすく敵の射程外から攻撃することができる",
+              "en": "The range and bullet speed increase, making it easier to hit attacks and allowing you to attack from outside the enemy's range.",
+              "ko": "사거리와 탄속이 늘어나 공격을 맞추기 쉽고 적의 사거리 밖에서 공격할 수 있습니다."
+            }
           }
         }
       ],
@@ -9090,11 +10381,13 @@
             "en": "Instantly reloads 2 ammo.",
             "ko": "즉시 2발의 탄환을 재장전합니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "強奪や壁が少ないマップでは使用率が非常に高く汎用性が非常に高い。",
-            "en": "Very high usage rate and versatility in Heist and maps with few walls.",
-            "ko": "강탈이나 벽이 적은 맵에서는 사용률이 매우 높고 범용성이 매우 높습니다."
+            "level": 5,
+            "reason": {
+              "ja": "強奪や壁が少ないマップでは使用率が非常に高く汎用性が非常に高い。",
+              "en": "It is very versatile and has a very high usage rate in Robbery and maps with few walls.",
+              "ko": "강탈이나 벽이 적은 맵에서 사용률이 매우 높고 다용성이 매우 높습니다."
+            }
           }
         },
         {
@@ -9109,11 +10402,13 @@
             "en": "Colt's next attack has increased range, breaks obstacles, and deals 3040 damage.",
             "ko": "콜트의 다음 공격은 사거리가 늘어나고, 장애물을 파괴하며, 3040 데미지를 줍니다."
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "壁を自由に破壊でき、高いダメージも与えられるため確定キルにも使える汎用性の高さが魅力。",
-            "en": "Very versatile as it can freely break walls and deal high damage, useful for securing kills.",
-            "ko": "벽을 자유롭게 부술 수 있고 높은 데미지도 줄 수 있어서 확정 킬에도 사용할 수 있는 범용성의 높이가 매력적입니다."
+            "level": 5,
+            "reason": {
+              "ja": "壁が多いマップで即座に壁を破壊できるため不利な地形を一気に有利な地形にすることができる",
+              "en": "It can instantly turn unfavorable terrain into favorable terrain by breaking walls immediately on maps with many walls.",
+              "ko": "벽이 많은 맵에서 즉시 벽을 파괴하여 불리한 지형을 한 번에 유리한 지형으로 바꿀 수 있습니다."
+            }
           }
         }
       ],
@@ -9167,11 +10462,13 @@
             "en": "Super Shell slows down enemies for 2 seconds!",
             "ko": "슈퍼 쉘이 적의 이동 속도를 2초간 둔화시킵니다!"
           },
-          "recommendationLevel": 5,
           "recommendation": {
-            "ja": "ウルトでスローダウンからのガジェット「クレイピジョン」のオートエイム連打の相性がかなり良い",
-            "en": "Works very well with auto-aim spam from the Clay Pigeons gadget after slowing with Super",
-            "ko": "궁극기로 둔화시킨 후 가젯 '클레이 피전'의 자동 조준 연타와 시너지가 매우 좋습니다"
+            "level": 5,
+            "reason": {
+              "ja": "ウルトでスローダウンからのガジェット「クレイピジョン」のオートエイム連打の相性がかなり良い",
+              "en": "The compatibility with the auto-aim spam of the gadget \"Clay Pigeons\" from the slowdown in the ult is quite good.",
+              "ko": "울트의 슬로우다운에서 가젯 \"클레이 피전\"의 오토 에임 연타와의 호환성이 상당히 좋습니다."
+            }
           }
         },
         {
@@ -9186,11 +10483,13 @@
             "en": "When HP drops below 40%, instantly heals for 2220. Takes 15 seconds to recharge.",
             "ko": "HP가 40% 미만이 되면 즉시 2220을 회복합니다. 재사용까지 15초가 필요합니다."
           },
-          "recommendationLevel": 4,
           "recommendation": {
-            "ja": "バトロワで主に使用される。生存性が大幅に向上しかなり安定度が増す",
-            "en": "Mainly used in Showdown. Greatly improves survivability and stability",
-            "ko": "배틀로얄에서 주로 사용됩니다. 생존력이 크게 향상되어 안정성이 높아집니다"
+            "level": 5,
+            "reason": {
+              "ja": "バトロワで主に使用される。生存性が大幅に向上しかなり安定度が増す",
+              "en": "It is mainly used in Battle Royale. Survivability is significantly improved and stability is greatly increased.",
+              "ko": "배틀로얄에서 주로 사용됩니다. 생존 능력이 크게 향상되고 안정성이 크게 증가합니다."
+            }
           }
         }
       ],
@@ -9207,11 +10506,13 @@
             "en": "Dashes forward quickly with efficient, light footwork!",
             "ko": "낭비 없는 가벼운 발걸음으로 앞으로 빠르게 대시합니다!"
           },
-          "recommendationLevel": 1,
           "recommendation": {
-            "ja": "誰も使用しないでください。",
-            "en": "Please don't use this.",
-            "ko": "아무도 사용하지 마세요."
+            "level": 1,
+            "reason": {
+              "ja": "誰も使用しないでください。",
+              "en": "Please do not use it.",
+              "ko": "사용하지 마십시오."
+            }
           }
         },
         {
@@ -9226,11 +10527,13 @@
             "en": "For 5 seconds after activation, normal attacks become narrower with increased range.",
             "ko": "발동 후 5초 동안 일반 공격의 폭이 좁아지고 사거리가 늘어납니다."
           },
-          "recommendationLevel": 4,
           "recommendation": {
-            "ja": "射程と弾速が増すためダメージが入りやすく、スタパ「シェルショック」との併用が非常に強力。",
-            "en": "Easier to deal damage due to increased range and bullet speed. Very powerful when combined with Shell Shock star power.",
-            "ko": "사거리와 탄속이 증가하여 데미지를 주기 쉽고, 스타파워 '쉘 쇼크'와 함께 사용하면 매우 강력합니다."
+            "level": 5,
+            "reason": {
+              "ja": "射程と弾速が増すためスローダウンとの相性が非常に良い。",
+              "en": "The compatibility with the slowdown is very good because the range and bullet speed increase.",
+              "ko": "사거리와 탄속이 늘어나므로 슬로우다운과의 호환성이 매우 좋습니다."
+            }
           }
         }
       ],

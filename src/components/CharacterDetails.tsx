@@ -254,6 +254,71 @@ const CharacterDetails: React.FC = () => {
     );
   }, [character, selectedGear, isGearModalOpen]);
 
+  const renderCharacterInfo = useCallback(() => {
+    if (!character) {
+      return <Text>キャラクターが見つかりませんでした。</Text>;
+    }
+
+    return (
+      <View style={styles.content}>
+        <CharacterImage 
+          characterName={characterName} 
+          size={160} 
+          style={styles.characterImage} 
+        />
+        <Text style={styles.name}>{character.name}</Text>
+        
+        <View style={styles.infoCard}>
+          <Text style={styles.sectionTitle}>基本情報</Text>
+          <View style={styles.basicInfo}>
+            <Text style={styles.infoLabel}>
+              役割: {character.class?.name}
+            </Text>
+            <Text style={styles.infoLabel}>
+              レアリティ: {character.rarity?.name}
+            </Text>
+          </View>
+        </View>
+
+        {character.starPowers && character.starPowers.length > 0 && (
+          <View style={styles.infoCard}>
+            <View style={styles.sectionHeader}>
+              <Text style={styles.sectionTitle}>スターパワー</Text>
+              <View style={styles.legendContainer}>
+                <View style={[styles.legendItem, { backgroundColor: '#4CAF50' }]} />
+                <Text style={styles.legendText}>おすすめ</Text>
+              </View>
+            </View>
+            <View style={styles.powerGrid}>
+              {character.starPowers.map((starPower, index) => 
+                renderPowerCard(starPower, index, true)
+              )}
+            </View>
+          </View>
+        )}
+
+        {character.gadgets && character.gadgets.length > 0 && (
+          <View style={styles.infoCard}>
+            <View style={styles.sectionHeader}>
+              <Text style={styles.sectionTitle}>ガジェット</Text>
+              <View style={styles.legendContainer}>
+                <View style={[styles.legendItem, { backgroundColor: '#4CAF50' }]} />
+                <Text style={styles.legendText}>おすすめ</Text>
+              </View>
+            </View>
+            <View style={styles.powerGrid}>
+              {character.gadgets.map((gadget, index) => 
+                renderPowerCard(gadget, index, false)
+              )}
+            </View>
+          </View>
+        )}
+
+        {renderGearSection()}
+      </View>
+    );
+  }, [character, characterName, renderPowerCard, renderGearSection]);
+
   const categorizedScores = useMemo(() => {
     if (!compatibilityData?.compatibilityScores) return {};
 
@@ -356,72 +421,7 @@ const CharacterDetails: React.FC = () => {
           ))}
       </View>
     );
-  }, [compatibilityData, compatibilityView, categorizedScores, characterName, handleCharacterPress]);
-
-  const renderCharacterInfo = useCallback(() => {
-    if (!character) {
-      return <Text>キャラクターが見つかりませんでした。</Text>;
-    }
-
-    return (
-      <View style={styles.content}>
-        <CharacterImage 
-          characterName={characterName} 
-          size={160} 
-          style={styles.characterImage} 
-        />
-        <Text style={styles.name}>{character.name}</Text>
-        
-        <View style={styles.infoCard}>
-          <Text style={styles.sectionTitle}>基本情報</Text>
-          <View style={styles.basicInfo}>
-            <Text style={styles.infoLabel}>
-              役割: {character.class?.name}
-            </Text>
-            <Text style={styles.infoLabel}>
-              レアリティ: {character.rarity?.name}
-              </Text>
-          </View>
-        </View>
-
-        {character.starPowers && character.starPowers.length > 0 && (
-          <View style={styles.infoCard}>
-            <View style={styles.sectionHeader}>
-              <Text style={styles.sectionTitle}>スターパワー</Text>
-              <View style={styles.legendContainer}>
-                <View style={[styles.legendItem, { backgroundColor: '#4CAF50' }]} />
-                <Text style={styles.legendText}>おすすめ</Text>
-              </View>
-            </View>
-            <View style={styles.powerGrid}>
-              {character.starPowers.map((starPower, index) => 
-                renderPowerCard(starPower, index, true)
-              )}
-            </View>
-          </View>
-        )}
-
-        {character.gadgets && character.gadgets.length > 0 && (
-          <View style={styles.infoCard}>
-            <View style={styles.sectionHeader}>
-              <Text style={styles.sectionTitle}>ガジェット</Text>
-              <View style={styles.legendContainer}>
-                <View style={[styles.legendItem, { backgroundColor: '#4CAF50' }]} />
-                <Text style={styles.legendText}>おすすめ</Text>
-              </View>
-            </View>
-            <View style={styles.powerGrid}>
-              {character.gadgets.map((gadget, index) => 
-                renderPowerCard(gadget, index, false)
-              )}
-            </View>
-          </View>
-        )}
-
-        {renderGearSection()}
-      </View>
-    );
-  }, [character, characterName, renderPowerCard, renderGearSection]);
+  }, [compatibilityData, compatibilityView, characterName, handleCharacterPress, categorizedScores]);
 
   if (!character) {
     return (
@@ -671,8 +671,6 @@ const styles = StyleSheet.create({
   characterImage: {
     alignSelf: 'center',
     marginVertical: 12,
-    width: 120,
-    height: 120,
   },
   name: {
     fontSize: 20,
@@ -736,13 +734,11 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     borderRadius: 12,
     padding: 12,
-    overflow: 'hidden',
   },
   categoryHeader: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     marginBottom: 8,
-    paddingTop: 4,
   },
   categoryCharacterImage: {
     width: 24,

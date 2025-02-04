@@ -742,20 +742,23 @@ const PickPrediction: React.FC = () => {
             </TouchableOpacity>
           </View>
           <View style={styles.headerRight}>
-            <TouchableOpacity 
-              style={[styles.headerButton, { opacity: currentHistoryIndex > 0 ? 1 : 0.5 }]}
-              onPress={handleUndo}
-              disabled={currentHistoryIndex === 0}
-            >
-              <Text style={styles.undoButtonText}>↩</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-              style={styles.resetButton}
-              onPress={resetGame}
-            >
-              <Text style={styles.resetButtonText}>{t.header.reset}</Text>
-            </TouchableOpacity>
-          </View>
+  <TouchableOpacity 
+    style={[styles.headerButton, { opacity: currentHistoryIndex > 0 ? 1 : 0.5 }]}
+    onPress={handleUndo}
+    disabled={currentHistoryIndex === 0}
+  >
+    <Image 
+      source={require('../../assets/OtherIcon/undo.png')}
+      style={styles.undoButtonImage}
+    />
+  </TouchableOpacity>
+  <TouchableOpacity 
+    style={styles.resetButton}
+    onPress={resetGame}
+  >
+    <Text style={styles.resetButtonText}>{t.header.reset}</Text>
+  </TouchableOpacity>
+</View>
         </View>
 
         <View style={styles.teamsContainer}>
@@ -901,24 +904,36 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerRight: {
-    position: 'absolute',
-    right: 10,
-    top: '50%',
-    transform: [{ translateY: -15 }],
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  headerButton: {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    padding: 8,
-    borderRadius: 15,
-    marginRight: 8,
-  },
-  undoButtonText: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
+  position: 'absolute',
+  right: 10,
+  top: '50%',
+  transform: [{ translateY: -15 }],
+  flexDirection: 'row',
+  alignItems: 'center',
+},
+headerButton: {
+  padding: 8,
+  marginRight: 8,
+},
+undoButtonImage: {
+  width: 20,
+  height: 20,
+  resizeMode: 'contain',
+  tintColor: '#fff'
+},
+resetButton: {
+  backgroundColor: 'rgba(255, 255, 255, 0.2)',
+  paddingHorizontal: 12,
+  paddingVertical: 6,
+  borderRadius: 15,
+  borderWidth: 1,
+  borderColor: '#fff',
+},
+resetButtonText: {
+  color: '#fff',
+  fontSize: 12,
+  fontWeight: 'bold',
+},
   banToggleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
