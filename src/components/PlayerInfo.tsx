@@ -1,4 +1,3 @@
-// PlayerInfo.tsx
 import React from 'react';
 import {
   View,
@@ -11,13 +10,14 @@ import {
 } from 'react-native';
 import type { 
   PlayerInfo as PlayerInfoType,
-  Brawler,
   RankingItem
 } from '../hooks/useBrawlStarsApi';
 import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages';
+import { usePlayerInfoTranslation } from '../i18n/playerInfo';
 
 const { width } = Dimensions.get('window');
 const CARD_WIDTH = (width - 32) / 3;
+
 interface PlayerInfoProps {
   info: PlayerInfoType;
   rankings: { [key: string]: RankingItem[] };
@@ -36,7 +36,7 @@ const getPortraitSource = (brawlerName: string) => {
       '8bit': 'eightBit',
       'mr.p': 'mrp',
       'larryandlawrie': 'larryandLawrie',
-      'meeple': 'meep',  // MEEPLEのマッピングを追加
+      'meeple': 'meep',
     };
 
     const mappedName = nameMap[normalizedName] || normalizedName;
@@ -58,65 +58,64 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
   rankings,
   rankingsLoading
 }) => {
+  const { t } = usePlayerInfoTranslation();
+
   const infoPairs = [
     [
       { 
-        label: '名前', 
+        label: t.labels.name, 
         value: info.name,
         icon: require('../../assets/OtherIcon/name_icon.png')
       },
       { 
-        label: 'タグ', 
+        label: t.labels.tag, 
         value: info.tag,
         icon: require('../../assets/OtherIcon/Infor_Icon.png')
       }
     ],
     [
       { 
-        label: '最高トロフィー', 
+        label: t.labels.highestTrophies, 
         value: info.highestTrophies.toLocaleString(),
         icon: require('../../assets/OtherIcon/trophy_Icon.png')
       },
       { 
-        label: '現在トロフィー', 
+        label: t.labels.currentTrophies, 
         value: info.trophies.toLocaleString(),
         icon: require('../../assets/OtherIcon/trophy_Icon.png')
       }
     ],
     [
       { 
-        label: 'レベル', 
-        value:  info.expLevel.toString(),
+        label: t.labels.level, 
+        value: info.expLevel.toString(),
         icon: require('../../assets/OtherIcon/ranking_Icon.png')
       },
       { 
-        label: '3vs3', 
-        value: info['3vs3Victories'].toLocaleString() + "勝",
+        label: t.labels.threeVsThree, 
+        value: `${info['3vs3Victories'].toLocaleString()}${t.labels.wins}`,
         icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
       }
     ],
     [
       { 
-        label: 'ソロ', 
-        value: info.soloVictories.toLocaleString() + "勝",
+        label: t.labels.solo, 
+        value: `${info.soloVictories.toLocaleString()}${t.labels.wins}`,
         icon: require('../../assets/GameModeIcons/showdown_icon.png')
       },
       { 
-        label: 'デュオ', 
-        value: info.duoVictories.toLocaleString() + "勝",
+        label: t.labels.duo, 
+        value: `${info.duoVictories.toLocaleString()}${t.labels.wins}`,
         icon: require('../../assets/GameModeIcons/duo_showdown_icon.png')
       }
     ]
   ];
 
   const sortedBrawlers = [...info.brawlers].sort((a, b) => a.id - b.id);
-  
-  // 3列のグリッドを作成
   const numColumns = 3;
   const numRows = Math.ceil(sortedBrawlers.length / numColumns);
   const grid = [];
   
-  // 縦方向に並べる
   for (let col = 0; col < numColumns; col++) {
     for (let row = 0; row < numRows; row++) {
       const index = row + (col * numRows);
@@ -126,7 +125,6 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
     }
   }
 
-  // 3つずつの行に分割
   const rows = [];
   for (let i = 0; i < grid.length; i += 3) {
     rows.push(grid.slice(i, i + 3));
@@ -134,10 +132,8 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
 
   return (
     <View style={styles.container}>
-      {/* Player info grid with paired layout */}
       <View style={styles.infoGrid}>
         <View style={styles.infoPairContainer}>
-          {/* First pair group */}
           <View style={styles.infoPair}>
             {infoPairs[0].map((item, index) => (
               <View key={index} style={styles.infoItem}>
@@ -154,7 +150,6 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
             ))}
           </View>
           
-          {/* Second pair group */}
           <View style={styles.infoPair}>
             {infoPairs[1].map((item, index) => (
               <View key={index} style={styles.infoItem}>
@@ -173,7 +168,6 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
         </View>
 
         <View style={styles.infoPairContainer}>
-          {/* Third pair group */}
           <View style={styles.infoPair}>
             {infoPairs[2].map((item, index) => (
               <View key={index} style={styles.infoItem}>
@@ -190,7 +184,6 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
             ))}
           </View>
           
-          {/* Fourth pair group */}
           <View style={styles.infoPair}>
             {infoPairs[3].map((item, index) => (
               <View key={index} style={styles.infoItem}>
@@ -209,7 +202,7 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
         </View>
       </View>
 
-      <Text style={styles.sectionTitle}>キャラ一覧</Text>
+      <Text style={styles.sectionTitle}>{t.labels.characterList}</Text>
       <ScrollView 
         horizontal 
         showsHorizontalScrollIndicator={false}
@@ -241,7 +234,7 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
                         resizeMode="contain"
                       />
                       <Text style={styles.brawlerStat}>
-                        現在: {brawler.trophies.toLocaleString()}
+                        {`${t.labels.current}: ${brawler.trophies.toLocaleString()}`}
                       </Text>
                     </View>
                     <View style={styles.statContainer}>
@@ -251,7 +244,7 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
                         resizeMode="contain"
                       />
                       <Text style={styles.brawlerStat}>
-                        最高: {brawler.highestTrophies.toLocaleString()}
+                        {`${t.labels.highest}: ${brawler.highestTrophies.toLocaleString()}`}
                       </Text>
                     </View>
                     {globalTopTrophies && (
@@ -262,7 +255,7 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
                           resizeMode="contain"
                         />
                         <Text style={[styles.brawlerStat, styles.globalTopTrophies]}>
-                          世界Top: {globalTopTrophies.toLocaleString()}
+                          {`${t.labels.worldTop}: ${globalTopTrophies.toLocaleString()}`}
                         </Text>
                       </View>
                     )}
@@ -275,7 +268,7 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
         {rankingsLoading && (
           <View style={styles.rankingsLoading}>
             <ActivityIndicator size="small" color="#2196F3" />
-            <Text>ランキング取得中...</Text>
+            <Text>{t.labels.loadingRankings}</Text>
           </View>
         )}
       </ScrollView>
@@ -374,7 +367,7 @@ const styles = StyleSheet.create({
     color: '#2196F3',
     fontWeight: '500',
   },
-  trophyIcon: {　
+  trophyIcon: {
     width: 14,
     height: 14,
     marginRight: 3,
