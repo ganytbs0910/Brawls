@@ -60,7 +60,7 @@ const roleSpecificRankings: CustomRankingConfig = {
   fighter: {
     displayName: "ファイター",
     characters: [
-      'サージ', 'シェイド', 'ダリル', 'モーティス', 'エドガー',
+      'サージ', 'シェイド', 'モーティス', 'エドガー',
       'バイロン', 'ファング', 'ビビ', 'ガス', 'クロウ'
     ]
   },

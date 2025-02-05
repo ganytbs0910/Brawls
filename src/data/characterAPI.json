@@ -2278,11 +2278,11 @@
             "ko": "일반 공격을 80% 이상 차지하면 이동 속도가 10% 증가합니다"
           },
           "recommendation": {
-            "level": 3,
+            "level": 5,
             "reason": {
-              "ja": "敵の距離を積めるのに使えるが肝心の上昇率が低くあまり使えない。",
-              "en": "Can be used to close distance with enemies but the increase rate is too low to be very effective.",
-              "ko": "적과의 거리를 좁히는 데 사용할 수 있지만 중요한 증가율이 낮아 잘 사용되지 않습니다."
+              "ja": "敵の距離を詰めるのにかなり強く、これがないと始まらない。",
+              "en": "Very strong for closing the distance with enemies, and can't start without it.",
+              "ko": "적과의 거리를 좁히는 데 상당히 강하며, 이것이 없으면 시작할 수 없습니다."
             }
           }
         },
@@ -2299,7 +2299,7 @@
             "ko": "벽 근처에 있을 때 받는 데미지가 20% 감소합니다."
           },
           "recommendation": {
-            "level": 5,
+            "level": 3,
             "reason": {
               "ja": "耐久力が上昇することでさらに生存率が上がる。",
               "en": "Survival rate increases further due to increased durability.",
@@ -3147,11 +3147,11 @@
             "ko": "궁극기 차지 영역 내의 아군 1명당 일반 공격의 데미지를 15% 증가시킵니다."
           },
           "recommendation": {
-            "level": 5,
+            "level": 3,
             "reason": {
-              "ja": "性能とこの効果の相性が良く、火力の上昇率も高いためかなり強力。",
-              "en": "Very powerful due to good synergy with abilities and high damage increase.",
-              "ko": "성능과 이 효과의 궁합이 좋고, 화력 상승률도 높아서 상당히 강력합니다."
+              "ja": "妨害系がいない場合はこちらでそうでない場合はもう一つの方。",
+              "en": "Use this if there are no disruptors, otherwise use the other star power.",
+              "ko": "방해 요소가 없는 경우 이것을 사용하고, 그렇지 않은 경우 다른 스타 파워를 사용합니다."
             }
           }
         },
@@ -3168,7 +3168,7 @@
             "ko": "몽타주 사용 중 버스터가 받는 데미지를 10% 감소시키고, 넉백, 슬로우다운, 기절을 무효화합니다"
           },
           "recommendation": {
-            "level": 3,
+            "level": 5,
             "reason": {
               "ja": "効果自体は悪くないが、そこまで恩恵を感じることができないのが惜しい。",
               "en": "Effect isn't bad, but the benefits aren't as noticeable as desired.",
@@ -7429,7 +7429,7 @@
             "ko": "다음 필살기가 명중하면 적을 3초 동안 슬로우시킵니다."
           },
           "recommendation": {
-            "level": 4,
+            "level": 2,
             "reason": {
               "ja": "使いこなすのが難しく、かなりの熟練度が必要だが使いこなせれば強いはず。",
               "en": "It is difficult to master and requires a considerable degree of skill, but it should be strong if mastered.",
@@ -7611,11 +7611,11 @@
             "ko": "덤불에 들어가면 자신의 HP가 초당 300 회복됩니다."
           },
           "recommendation": {
-            "level": 5,
+            "level": 3,
             "reason": {
-              "ja": "ダメージ計算を狂わせながらウルトとの相性が非常に良く耐久力がかなり上昇する。",
-              "en": "It is very compatible with the Ultimate, significantly increases durability, and disrupts damage calculations.",
-              "ko": "데미지 계산을 괴롭히면서 울트와의 상성이 매우 좋고 내구력이 상당히 증가합니다."
+              "ja": "回復がかなり少量かつ草がないと効果を発揮しないので少し残念",
+              "en": "Recovery is quite small and the effect is not effective without grass, so it is a little disappointing.",
+              "ko": "회복량이 상당히 적고, 풀이 없으면 효과가 발휘되지 않아 조금 아쉽습니다."
             }
           }
         },
@@ -7632,11 +7632,11 @@
             "ko": "필살기 발동 중에는 펀치의 데미지가 +276 증가합니다."
           },
           "recommendation": {
-            "level": 3,
+            "level": 5,
             "reason": {
-              "ja": "基本的にダメージが不足することがあまりないため、そこまで必要と感じられない。",
-              "en": "Basically, you don't feel the need for it because you don't often lack damage.",
-              "ko": "기본적으로 데미지가 부족할 필요가 없기 때문에 그렇게 필요하지 않습니다."
+              "ja": "火力不足を補うことができ、対タンクでもかなり戦えて汎用性が向上する。",
+              "en": "It can compensate for insufficient firepower, fight quite well against tanks, and improve versatility.",
+              "ko": "화력 부족을 보충할 수 있고, 대 탱크에도 상당히 싸울 수 있으며, 범용성이 향상됩니다."
             }
           }
         }

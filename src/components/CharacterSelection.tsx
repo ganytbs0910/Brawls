@@ -26,7 +26,6 @@ interface CharacterRecommendation {
   reason: string;
 }
 
-// Character Selection用の翻訳を取得する関数
 const getCharacterSelectionTranslation = (language: string): CharacterSelectionTranslation => {
   const translations = require('../i18n/characterSelection');
   return translations[language];
@@ -53,14 +52,12 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
     if (gameState.teamA.length === 3 && gameState.teamB.length === 3) {
       const advantage = calculateTeamAdvantage(gameState.teamA, gameState.teamB);
       
-      // チーム間のスコア差を正規化して勝率を計算
-      const maxPossibleScore = 100; // 理論上の最大スコア差
+      const maxPossibleScore = 100;
       const normalizedDiff = (advantage.teamBScore - advantage.teamAScore) / maxPossibleScore;
       
-      // スコア差を勝率に変換（ロジスティック関数を使用）
       const amplifier = 2.0;
-      const baseWinRate = 50; // 基準勝率（スコアが同じ場合）
-      const maxEffect = 45;   // スコア差による最大の勝率変動
+      const baseWinRate = 50;
+      const maxEffect = 45;
       
       const winningPercentage = Math.round(
         baseWinRate + (maxEffect * Math.tanh(amplifier * normalizedDiff))
@@ -180,7 +177,10 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
               style={[
                 styles.characterButton,
                 (isBannedByTeamA || isBannedByTeamB) && styles.bannedCharacterButton,
-                isSelected && styles.selectedCharacterButton
+                isSelected && styles.selectedCharacterButton,
+                gameState.recommendations.slice(0, 10).some(rec => rec.character === character) && {
+                  borderColor: '#00BCD4'
+                }
               ]}
               onPress={() => {
                 if (gameState.isBanPhaseEnabled && (
@@ -336,6 +336,8 @@ const styles = StyleSheet.create({
     height: 56,
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: 'transparent',
   },
   selectedCharacterButton: {
     backgroundColor: '#e0e0e0',
