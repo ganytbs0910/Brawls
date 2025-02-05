@@ -5,8 +5,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 type Language = 'en' | 'ja' | 'ko';
 
 const SUPPORTED_LANGUAGES = {
-  en: 'English',
   ja: '日本語',
+  en: 'English',
   ko: '한국어',
 } as const;
 
