@@ -10,9 +10,6 @@ export type SettingsScreenTranslation = {
     share: string;
     removeAds: string;
     adsRemoved: string;
-    supportSmall: string;
-    supportLarge: string;
-    supportLargeLoading: string;
     rateApp: string;
     privacy: string;
     terms: string;
@@ -60,9 +57,6 @@ export const ja: SettingsScreenTranslation = {
     share: '友達に共有する',
     removeAds: '広告を削除',
     adsRemoved: '広告削除済み',
-    supportSmall: '広告を見て支援する（小）',
-    supportLarge: '広告を見て支援する（大）',
-    supportLargeLoading: '広告を見て支援する（大） (準備中)',
     rateApp: 'アプリを評価する',
     privacy: 'プライバシーポリシー',
     terms: '利用規約',
@@ -110,9 +104,6 @@ export const en: SettingsScreenTranslation = {
     share: 'Share with Friends',
     removeAds: 'Remove Ads',
     adsRemoved: 'Ads Removed',
-    supportSmall: 'Support with Ad (Small)',
-    supportLarge: 'Support with Ad (Large)',
-    supportLargeLoading: 'Support with Ad (Large) (Loading...)',
     rateApp: 'Rate App',
     privacy: 'Privacy Policy',
     terms: 'Terms of Service',
@@ -160,9 +151,6 @@ export const ko: SettingsScreenTranslation = {
     share: '친구에게 공유',
     removeAds: '광고 제거',
     adsRemoved: '광고 제거됨',
-    supportSmall: '광고로 지원하기 (소)',
-    supportLarge: '광고로 지원하기 (대)',
-    supportLargeLoading: '광고로 지원하기 (대) (로딩 중)',
     rateApp: '앱 평가하기',
     privacy: '개인정보 처리방침',
     terms: '이용약관',

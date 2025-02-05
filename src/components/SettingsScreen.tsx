@@ -36,11 +36,9 @@ import { MapDetail, ScreenType, ScreenState } from '../types';
 import { LanguageSelector } from './LanguageSelector';
 import { useSettingsScreenTranslation } from '../i18n/settingsScreen';
 
-// 商品ID定義
 const AD_REMOVAL_SKU_IOS = 'com.brawlstatus.adremoval';
 const AD_REMOVAL_SKU_ANDROID = 'brawl_status_ad_removal';
 
-// 価格設定
 const PURCHASE_CONFIG = {
   ORIGINAL_PRICE: 400,
   SALE_PRICE: 200,
@@ -313,82 +311,6 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
     }
   };
 
-  const handleSupportClick = async () => {
-    try {
-      if (!adService.current) {
-        console.warn('AdMobService not initialized');
-        return;
-      }
-      await adService.current.showInterstitial();
-    } catch (error) {
-      console.error('Failed to show interstitial ad:', error);
-      Alert.alert('エラー', t.ads.showError);
-    }
-  };
-
-  const showRewardedAd = async () => {
-    try {
-      if (!isRewardedAdReady) {
-        console.warn('Rewarded ad not ready');
-        return;
-      }
-      await rewarded.show();
-    } catch (error) {
-      console.error('Failed to show rewarded ad:', error);
-      Alert.alert('エラー', t.ads.rewardError);
-    }
-  };
-
-  const renderPurchaseButton = () => {
-    if (!isIAPAvailable) {
-      return (
-        <TouchableOpacity 
-          style={[styles.settingsItem, styles.settingsItemDisabled]}
-          disabled={true}
-        >
-          <Text style={[styles.settingsItemText, styles.settingsItemTextDisabled]}>
-            {Platform.select({
-              ios: t.purchase.errors.storeConnect,
-              android: t.purchase.errors.storeConnect.replace('App Store', 'Google Play')
-            })}
-          </Text>
-        </TouchableOpacity>
-      );
-    }
-
-    return (
-      <TouchableOpacity 
-        style={[
-          styles.settingsItem,
-          (loading || isAdFree) && styles.settingsItemDisabled
-        ]}
-        onPress={handlePurchaseAdRemoval}
-        disabled={loading || isAdFree}
-      >
-        <View>
-          <Text style={[
-            styles.settingsItemText,
-            (loading || isAdFree) && styles.settingsItemTextDisabled
-          ]}>
-            {isAdFree ? t.menuItems.adsRemoved : t.menuItems.removeAds}
-            {loading && ' (処理中...)'}
-          </Text>
-          {!isAdFree && !loading && (
-            <View style={styles.priceContainer}>
-              <Text style={styles.originalPrice}>
-                {PURCHASE_CONFIG.ORIGINAL_PRICE_DISPLAY}
-              </Text>
-              <Text style={styles.salePrice}>
-                {PURCHASE_CONFIG.SALE_PRICE_DISPLAY}
-              </Text>
-              <Text style={styles.saleLabel}>{t.sale.label}</Text>
-            </View>
-          )}
-        </View>
-      </TouchableOpacity>
-    );
-  };
-
   const navigateToScreen = (newScreenType: ScreenType) => {
     const newScreen: ScreenState = {
       type: newScreenType,
@@ -450,31 +372,6 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
           <>
             <TouchableOpacity 
               style={styles.settingsItem}
-              onPress={handleSupportClick}
-            >
-              <Text style={styles.settingsItemText}>
-                {t.menuItems.supportSmall}
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity 
-              style={[
-                styles.settingsItem,
-                !isRewardedAdReady && styles.settingsItemDisabled
-              ]}
-              onPress={showRewardedAd}
-              disabled={!isRewardedAdReady}
-            >
-              <Text style={[
-                styles.settingsItemText,
-                !isRewardedAdReady && styles.settingsItemTextDisabled
-              ]}>
-                {isRewardedAdReady ? t.menuItems.supportLarge : t.menuItems.supportLargeLoading}
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity 
-              style={styles.settingsItem}
               onPress={() => {
                 const url = Platform.select({
                   ios: 'https://apps.apple.com/jp/app/brawl-status/id6738936691?action=write-review',
@@ -518,6 +415,56 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
       </ScrollView>
     </View>
   );
+
+  const renderPurchaseButton = () => {
+    if (!isIAPAvailable) {
+      return (
+        <TouchableOpacity 
+          style={[styles.settingsItem, styles.settingsItemDisabled]}
+          disabled={true}
+        >
+          <Text style={[styles.settingsItemText, styles.settingsItemTextDisabled]}>
+            {Platform.select({
+              ios: t.purchase.errors.storeConnect,
+              android: t.purchase.errors.storeConnect.replace('App Store', 'Google Play')
+            })}
+          </Text>
+        </TouchableOpacity>
+      );
+    }
+
+    return (
+      <TouchableOpacity 
+        style={[
+          styles.settingsItem,
+          (loading || isAdFree) && styles.settingsItemDisabled
+        ]}
+        onPress={handlePurchaseAdRemoval}
+        disabled={loading || isAdFree}
+      >
+        <View>
+          <Text style={[
+            styles.settingsItemText,
+            (loading || isAdFree) && styles.settingsItemTextDisabled
+          ]}>
+            {isAdFree ? t.menuItems.adsRemoved : t.menuItems.removeAds}
+            {loading && ' (処理中...)'}
+          </Text>
+          {!isAdFree && !loading && (
+            <View style={styles.priceContainer}>
+              <Text style={styles.originalPrice}>
+                {PURCHASE_CONFIG.ORIGINAL_PRICE_DISPLAY}
+              </Text>
+              <Text style={styles.salePrice}>
+                {PURCHASE_CONFIG.SALE_PRICE_DISPLAY}
+              </Text>
+              <Text style={styles.saleLabel}>{t.sale.label}</Text>
+            </View>
+          )}
+        </View>
+      </TouchableOpacity>
+    );
+  };
 
   const renderScreenContent = (screen: ScreenState) => {
     switch (screen.type) {
