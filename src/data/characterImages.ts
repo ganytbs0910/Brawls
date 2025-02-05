@@ -92,7 +92,6 @@ export const CHARACTER_IMAGES = {
   'kit': require('../../assets/BrawlerIcons/kit_pin.png'),
   'draco': require('../../assets/BrawlerIcons/draco_pin.png'),
   'kenji': require('../../assets/BrawlerIcons/kenji_pin.png'),
-  'buzzlightyear': require('../../assets/BrawlerIcons/buzzlightyear_pin.png'),
 } as const;
 
 // キャラクター名の型定義

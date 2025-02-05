@@ -59,6 +59,9 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
   rankingsLoading
 }) => {
   const { t } = usePlayerInfoTranslation();
+  
+  const validBrawlers = info.brawlers.filter(brawler => brawler.id !== 16000088);
+  const currentTrophies = validBrawlers.reduce((sum, brawler) => sum + brawler.trophies, 0);
 
   const infoPairs = [
     [
@@ -81,7 +84,7 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
       },
       { 
         label: t.labels.currentTrophies, 
-        value: info.trophies.toLocaleString(),
+        value: currentTrophies.toLocaleString(),
         icon: require('../../assets/OtherIcon/trophy_Icon.png')
       }
     ],
@@ -111,7 +114,8 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
     ]
   ];
 
-  const sortedBrawlers = [...info.brawlers].sort((a, b) => a.id - b.id);
+  const sortedBrawlers = [...validBrawlers].sort((a, b) => a.id - b.id);
+    
   const numColumns = 3;
   const numRows = Math.ceil(sortedBrawlers.length / numColumns);
   const grid = [];
