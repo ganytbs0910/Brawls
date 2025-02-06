@@ -10,7 +10,7 @@ export const coltData: CharacterCompatibility = {
     "ダリル": 8,
     "ジャッキー": 8,
     "フランケン": 8,
-    "ビビ": 9,
+    "ビビ": 4,
     "アッシュ": 6,
     "サム": 8,
     "ハンク": 8,
@@ -85,7 +85,7 @@ export const coltData: CharacterCompatibility = {
     "スクウィーク": 6,
     "ルー": 7,
     "オーティス": 8,
-    "チャック": 9,
+    "チャック": 8,
     "チャーリー": 8,
     "アンバー": 7,
     "サンディ": 8

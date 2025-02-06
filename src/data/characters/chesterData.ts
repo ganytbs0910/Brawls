@@ -49,7 +49,7 @@ export const chesterData: CharacterCompatibility = {
     "メイジー": 5,
     "アンジェロ": 3,
     "ジャネット": 5,
-    "シェリー": 6,
+    "シェリー": 7,
     "ニタ": 5,
     "コルト": 4,
     "8ビット": 4,
@@ -85,7 +85,7 @@ export const chesterData: CharacterCompatibility = {
     "スクウィーク": 5,
     "ルー": 7,
     "オーティス": 4,
-    "チャック": 9,
+    "チャック": 8,
     "チャーリー": 5,
     "アンバー": 4,
     "サンディ": 7

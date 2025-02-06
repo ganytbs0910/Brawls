@@ -58,7 +58,7 @@ export const moeData: CharacterCompatibility = {
     "コレット": 6,
     "ローラ": 5,
     "パール": 4,
-    "タラ": 5,
+    "タラ": 3,
     "イヴ": 4,
     "R-T": 5,
     "クランシー": 9,

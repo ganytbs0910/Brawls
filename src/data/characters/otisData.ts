@@ -27,7 +27,7 @@ export const otisData: CharacterCompatibility = {
     "スプラウト": 3,
     "ウィロー": 3,
     "ジュジュ": 2,
-    "ストゥー": 3,
+    "ストゥー": 4,
     "エドガー": 7,
     "シェイド": 2,
     "モーティス": 9,
@@ -85,7 +85,7 @@ export const otisData: CharacterCompatibility = {
     "ミスターP": 7,
     "スクウィーク": 5,
     "ルー": 5,
-    "チャック": 10,
+    "チャック": 9,
     "チャーリー": 6,
     "アンバー": 3,
     "サンディ": 4
