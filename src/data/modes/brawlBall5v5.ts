@@ -1,3 +1,4 @@
+//brawlBall5v5.ts
 import { MapDetail } from '../../types/type';
 
 export const brawlBall5v5Maps: Record<string, MapDetail> = {

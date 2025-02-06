@@ -1,3 +1,4 @@
+//battleRoyale.ts
 import { MapDetail } from '../../types/type';
 
 export const battleRoyaleMaps: Record<string, MapDetail> = {

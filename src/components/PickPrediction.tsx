@@ -14,7 +14,7 @@ import {
 import { TeamSection } from './TeamSection';
 import { CharacterSelection } from './CharacterSelection';
 import MapDetailScreen from './MapDetailScreen';
-import { usePickPredictionTranslation } from '../i18n/pickPrediction';
+import { usePickPredictionTranslation, PickPredictionTranslation } from '../i18n/pickPrediction';
 import {
   CHARACTER_MAP,
   allCharacterData,
@@ -92,44 +92,44 @@ const GAME_MODES: GameMode[] = [
   { name: "hotZone", color: "#cccccc", icon: require('../../assets/GameModeIcons/hot_zone_icon.png') },
 ];
 
-const MAPS_BY_MODE: MapsByMode = {
-  "エメラルドハント": [
+const createMapsByMode = (t: PickPredictionTranslation): MapsByMode => ({
+  [t.modes.emeraldHunt]: [
     { name: "ごつごつ坑道", image: require('../../assets/MapImages/Hard_Rock_Mine.png') },
     { name: "アンダーマイン", image: require('../../assets/MapImages/Undermine.png') },
     { name: "ダブルレール", image: require('../../assets/MapImages/Double_Swoosh.png') },
     { name: "ラストストップ", image: require('../../assets/MapImages/Last_Stop.png') },
   ],
-  "ブロストライカー": [
+  [t.modes.brawlBall]: [
     { name: "トリプル・ドリブル", image: require('../../assets/MapImages/Triple_Dribble.png') },
     { name: "静かな広場", image: require('../../assets/MapImages/Sneaky_Fields.png') },
     { name: "中央コート", image: require('../../assets/MapImages/Center_Stage.png') },
     { name: "ピンボールドリーム", image: require('../../assets/MapImages/Pinball_Dreams.png') },
   ],
-  "強奪": [
+  [t.modes.heist]: [
     { name: "安全地帯", image: require('../../assets/MapImages/Safe_Zone.png') },
     { name: "ホットポテト", image: require('../../assets/MapImages/Hot_Potato.png') },
     { name: "どんぱち谷", image: require('../../assets/MapImages/Kaboom_Canyon.png') },
     { name: "橋の彼方", image: require('../../assets/MapImages/Bridge_Too_Far.png') },
   ],
-  "ノックアウト": [
+  [t.modes.knockout]: [
     { name: "ベルの岩", image: require('../../assets/MapImages/Belles_Rock.png') },
     { name: "燃える不死鳥", image: require('../../assets/MapImages/Flaring_Phoenix.png') },
     { name: "オープンフィールド", image: require('../../assets/MapImages/Out_In_The_Open.png') },
     { name: "ゴールドアームの渓谷", image: require('../../assets/MapImages/Goldarm_Gulch.png') },
   ],
-  "賞金稼ぎ": [
+  [t.modes.bounty]: [
     { name: "流れ星", image: require('../../assets/MapImages/Shooting_Star.png') },
     { name: "隠れ家", image: require('../../assets/MapImages/Hideout.png') },
     { name: "ジグザグ草原", image: require('../../assets/MapImages/Snake_Prairie.png') },
     { name: "グランドカナル", image: require('../../assets/MapImages/Canal_Grande.png') },
   ],
-  "ホットゾーン": [
+  [t.modes.hotZone]: [
     { name: "炎のリング", image: require('../../assets/MapImages/Ring_Of_Fire.png') },
     { name: "ビートルバトル", image: require('../../assets/MapImages/Dueling_Beetles.png') },
     { name: "オープンビジネス", image: require('../../assets/MapImages/Open_Business.png') },
     { name: "パラレルワールド", image: require('../../assets/MapImages/Parallel_Plays.png') },
   ],
-};
+});
 
 const PickPrediction: React.FC = () => {
   const { t } = usePickPredictionTranslation();
@@ -157,6 +157,12 @@ const PickPrediction: React.FC = () => {
     { type: 'home', translateX: new Animated.Value(0), zIndex: 0 }
   ]);
   const scaleAnim = useRef(new Animated.Value(0)).current;
+  const MAPS_BY_MODE = createMapsByMode(t);
+
+  const getMapsByMode = (selectedMode: string | undefined) => {
+    if (!selectedMode) return [];
+    return MAPS_BY_MODE[selectedMode] || [];
+  };
 
   const addToHistory = (newState: SelectionState) => {
     const newEntry: HistoryEntry = {
@@ -290,46 +296,43 @@ const PickPrediction: React.FC = () => {
   };
 
   const handleModeSelect = (modeName: string) => {
+    const translatedMode = t.modes[modeName as keyof typeof t.modes];
     setGameStateWithHistory(prev => ({
       ...prev,
-      selectedMode: modeName,
+      selectedMode: translatedMode,
       selectedMap: undefined
     }));
   };
 
   const handleMapSelect = (mapName: string) => {
-  setGameStateWithHistory(prev => ({
-    ...prev,
-    selectedMap: mapName,
-    recommendations: calculateRecommendations('A', [], []) // 追加
-  }));
-  setShowModeModal(false);
-};
-
-  const handleModalClose = () => {
-    Animated.timing(scaleAnim, {
-      toValue: 0,
-      duration: 200,
-      useNativeDriver: true,
-    }).start(() => {
-      setShowTurnModal(false);
-      scaleAnim.setValue(0);
-    });
+    const maps = getMapsByMode(gameState.selectedMode);
+    if (maps.length > 0) {
+      setGameStateWithHistory(prev => ({
+        ...prev,
+        selectedMap: mapName,
+        recommendations: calculateRecommendations('A', [], [])
+      }));
+      setShowModeModal(false);
+    }
   };
 
   const handleModeButtonPress = () => {
-  if (!gameState.selectedMode) {
-    const initialMode = t.modes[GAME_MODES[0].name];
-    const initialMap = MAPS_BY_MODE[initialMode][0].name;
-    setGameStateWithHistory(prev => ({
-      ...prev,
-      selectedMode: initialMode,
-      selectedMap: initialMap,
-      recommendations: calculateRecommendations('A', [], []) // 追加
-    }));
-  }
-  setShowModeModal(true);
-};
+    if (!gameState.selectedMode) {
+      const initialMode = t.modes[GAME_MODES[0].name];
+      const maps = getMapsByMode(initialMode);
+      const initialMap = maps[0]?.name;
+      
+      if (initialMap) {
+        setGameStateWithHistory(prev => ({
+          ...prev,
+          selectedMode: initialMode,
+          selectedMap: initialMap,
+          recommendations: calculateRecommendations('A', [], [])
+        }));
+      }
+    }
+    setShowModeModal(true);
+  };
 
   const showScreen = (screenType: ScreenType) => {
     const newScreen: ScreenState = {
@@ -425,72 +428,72 @@ const PickPrediction: React.FC = () => {
   };
 
   const calculateRecommendations = (
-  currentTeam: Team,
-  opposingTeamChars: string[],
-  ownTeamChars: string[]
-): CharacterRecommendation[] => {
-  const recommendations: CharacterRecommendation[] = [];
-  const bannedCharacters = [...gameState.bansA, ...gameState.bansB];
-  
-  Object.values(CHARACTER_MAP).forEach(character => {
-    if (!opposingTeamChars.includes(character) && 
-        !ownTeamChars.includes(character) && 
-        !bannedCharacters.includes(character)) {
-      let totalScore = 0;
-      let mapBonus = 0;
-      
-      opposingTeamChars.forEach(opposingChar => {
-        const characterId = getCharacterId(character);
-        const opposingId = getCharacterId(opposingChar);
+    currentTeam: Team,
+    opposingTeamChars: string[],
+    ownTeamChars: string[]
+  ): CharacterRecommendation[] => {
+    const recommendations: CharacterRecommendation[] = [];
+    const bannedCharacters = [...gameState.bansA, ...gameState.bansB];
+    
+    Object.values(CHARACTER_MAP).forEach(character => {
+      if (!opposingTeamChars.includes(character) && 
+          !ownTeamChars.includes(character) && 
+          !bannedCharacters.includes(character)) {
+        let totalScore = 0;
+        let mapBonus = 0;
         
-        if (characterId && opposingId && allCharacterData[characterId]) {
-          const score = allCharacterData[characterId].compatibilityScores[opposingChar] || 0;
-          totalScore += score;
+        opposingTeamChars.forEach(opposingChar => {
+          const characterId = getCharacterId(character);
+          const opposingId = getCharacterId(opposingChar);
+          
+          if (characterId && opposingId && allCharacterData[characterId]) {
+            const score = allCharacterData[characterId].compatibilityScores[opposingChar] || 0;
+            totalScore += score;
+          }
+        });
+
+        let mapData;
+        switch (gameState.selectedMode) {
+          case t.modes.heist:
+            mapData = gameState.selectedMap && heistMaps[gameState.selectedMap];
+            break;
+          case t.modes.brawlBall:
+            mapData = gameState.selectedMap && brawlBallMaps[gameState.selectedMap];
+            break;
+          case t.modes.emeraldHunt:
+            mapData = gameState.selectedMap && emeraldHuntMaps[gameState.selectedMap];
+            break;
+          case t.modes.knockout:
+            mapData = gameState.selectedMap && knockoutMaps[gameState.selectedMap];
+            break;
+          case "デュエル":
+            mapData = gameState.selectedMap && duelMaps[gameState.selectedMap];
+            break;
         }
-      });
 
-      let mapData;
-      switch (gameState.selectedMode) {
-        case t.modes.heist:
-          mapData = gameState.selectedMap && heistMaps[gameState.selectedMap];
-          break;
-        case t.modes.brawlBall:
-          mapData = gameState.selectedMap && brawlBallMaps[gameState.selectedMap];
-          break;
-        case t.modes.emeraldHunt:
-          mapData = gameState.selectedMap && emeraldHuntMaps[gameState.selectedMap];
-          break;
-        case t.modes.knockout:
-          mapData = gameState.selectedMap && knockoutMaps[gameState.selectedMap];
-          break;
-        case "デュエル":
-          mapData = gameState.selectedMap && duelMaps[gameState.selectedMap];
-          break;
-      }
-
-      if (mapData) {
-        const characterBonus = mapData.recommendedBrawlers.find(
-          brawler => brawler.name === character
-        );
-        if (characterBonus) {
-          mapBonus = characterBonus.power;
-          totalScore += mapBonus;
+        if (mapData) {
+          const characterBonus = mapData.recommendedBrawlers.find(
+            brawler => brawler.name === character
+          );
+          if (characterBonus) {
+            mapBonus = characterBonus.power;
+            totalScore += mapBonus;
+          }
         }
+
+        recommendations.push({
+          character,
+          score: totalScore,
+          maxScore: opposingTeamChars.length * 10,
+          reason: mapBonus > 0 
+            ? `${getRecommendationReason(totalScore, opposingTeamChars.length)}` 
+            : getRecommendationReason(totalScore, opposingTeamChars.length)
+        });
       }
+    });
 
-      recommendations.push({
-        character,
-        score: totalScore,
-        maxScore: opposingTeamChars.length * 10,
-        reason: mapBonus > 0 
-          ? `${getRecommendationReason(totalScore, opposingTeamChars.length)}` 
-          : getRecommendationReason(totalScore, opposingTeamChars.length)
-      });
-    }
-  });
-
-  return recommendations.sort((a, b) => b.score - a.score).slice(0, 10);
-};
+    return recommendations.sort((a, b) => b.score - a.score).slice(0, 10);
+  };
 
   const handleBanSelect = (character: string) => {
     if (!gameState.isBanPhaseEnabled) return;
@@ -525,101 +528,100 @@ const PickPrediction: React.FC = () => {
   };
 
   const handleCharacterSelect = (character: string) => {
-  const handlePickPhase = () => {
-    const { currentPhase, currentTeam, teamA, teamB } = gameState;
-    
-    if (currentTeam === 'A' && teamA.includes(character)) return;
-    if (currentTeam === 'B' && teamB.includes(character)) return;
-    
-    let newState = { ...gameState };
-
-    // Phase 1開始時にマップのおすすめキャラクターを表示
-    if (currentPhase === 1 && teamA.length === 0 && teamB.length === 0) {
-      newState = {
-        ...newState,
-        recommendations: calculateRecommendations('A', [], [])
-      };
-    }
-
-    switch (currentPhase) {
-      case 1:
-        if (currentTeam === 'A') {
-          newState = {
-            ...newState,
-            teamA: [character],
-            currentTeam: 'B',
-            currentPhase: 2,
-            recommendations: calculateRecommendations('B', [character], [])
-          };
-          showTurnAnnouncement('B', 2);
-        }
-        break;
+    const handlePickPhase = () => {
+      const { currentPhase, currentTeam, teamA, teamB } = gameState;
       
-      case 2:
-        if (currentTeam === 'B' && teamB.length < 2) {
-          const newTeamB = [...teamB, character];
-          newState = {
-            ...newState,
-            teamB: newTeamB,
-            recommendations: calculateRecommendations('B', teamA, newTeamB)
-          };
-          
-          if (newTeamB.length === 2) {
+      if (currentTeam === 'A' && teamA.includes(character)) return;
+      if (currentTeam === 'B' && teamB.includes(character)) return;
+      
+      let newState = { ...gameState };
+
+      if (currentPhase === 1 && teamA.length === 0 && teamB.length === 0) {
+        newState = {
+          ...newState,
+          recommendations: calculateRecommendations('A', [], [])
+        };
+      }
+
+      switch (currentPhase) {
+        case 1:
+          if (currentTeam === 'A') {
             newState = {
               ...newState,
-              currentTeam: 'A',
-              currentPhase: 3,
-              recommendations: calculateRecommendations('A', newTeamB, teamA)
-            };
-            showTurnAnnouncement('A', 3);
-          }
-        }
-        break;
-      
-      case 3:
-        if (currentTeam === 'A' && teamA.length < 3) {
-          const newTeamA = [...teamA, character];
-          newState = {
-            ...newState,
-            teamA: newTeamA,
-            recommendations: calculateRecommendations('A', teamB, newTeamA)
-          };
-          
-          if (newTeamA.length === 3) {
-            newState = {
-              ...newState,
+              teamA: [character],
               currentTeam: 'B',
-              currentPhase: 4,
-              recommendations: calculateRecommendations('B', newTeamA, teamB)
+              currentPhase: 2,
+              recommendations: calculateRecommendations('B', [character], [])
             };
-            showTurnAnnouncement('B', 4);
+            showTurnAnnouncement('B', 2);
           }
-        }
-        break;
-      
-      case 4:
-        if (currentTeam === 'B' && teamB.length < 3) {
-          const newTeamB = [...teamB, character];
-          newState = {
-            ...newState,
-            teamB: newTeamB,
-            recommendations: []
-          };
-        }
-        break;
-    }
+          break;
+        
+        case 2:
+          if (currentTeam === 'B' && teamB.length < 2) {
+            const newTeamB = [...teamB, character];
+            newState = {
+              ...newState,
+              teamB: newTeamB,
+              recommendations: calculateRecommendations('B', teamA, newTeamB)
+            };
+            
+            if (newTeamB.length === 2) {
+              newState = {
+                ...newState,
+                currentTeam: 'A',
+                currentPhase: 3,
+                recommendations: calculateRecommendations('A', newTeamB, teamA)
+              };
+              showTurnAnnouncement('A', 3);
+            }
+          }
+          break;
+        
+        case 3:
+          if (currentTeam === 'A' && teamA.length < 3) {
+            const newTeamA = [...teamA, character];
+            newState = {
+              ...newState,
+              teamA: newTeamA,
+              recommendations: calculateRecommendations('A', teamB, newTeamA)
+            };
+            
+            if (newTeamA.length === 3) {
+              newState = {
+                ...newState,
+                currentTeam: 'B',
+                currentPhase: 4,
+                recommendations: calculateRecommendations('B', newTeamA, teamB)
+              };
+              showTurnAnnouncement('B', 4);
+            }
+          }
+          break;
+        
+        case 4:
+          if (currentTeam === 'B' && teamB.length < 3) {
+            const newTeamB = [...teamB, character];
+            newState = {
+              ...newState,
+              teamB: newTeamB,
+              recommendations: []
+            };
+          }
+          break;
+      }
 
-    setGameStateWithHistory(newState);
-  };
+      setGameStateWithHistory(newState);
+    };
 
-  if (!gameState.isBanPhaseEnabled) {
-    handlePickPhase();
-  } else {
-    if (gameState.bansA.length === 3 && gameState.bansB.length === 3) {
+    if (!gameState.isBanPhaseEnabled) {
       handlePickPhase();
+    } else {
+      if (gameState.bansA.length === 3 && gameState.bansB.length === 3) {
+        handlePickPhase();
+      }
     }
-  }
-};
+  };
 
   const renderModeAndMapModal = () => {
     return (
@@ -645,7 +647,7 @@ const PickPrediction: React.FC = () => {
                       backgroundColor: typeof mode.color === 'function' ? mode.color() : mode.color
                     }
                   ]}
-                  onPress={() => handleModeSelect(t.modes[mode.name])}
+                  onPress={() => handleModeSelect(mode.name)}
                 >
                   <Image source={mode.icon} style={styles.modeIcon} />
                 </TouchableOpacity>
@@ -655,7 +657,7 @@ const PickPrediction: React.FC = () => {
               <>
                 <Text style={styles.mapModalTitle}>{t.mapSelection.title}</Text>
                 <View style={styles.mapGrid}>
-                  {(MAPS_BY_MODE[gameState.selectedMode] || []).map((map) => (
+                  {getMapsByMode(gameState.selectedMode).map((map) => (
                     <TouchableOpacity
                       key={map.name}
                       style={[
@@ -694,6 +696,18 @@ const PickPrediction: React.FC = () => {
       </Modal>
     );
   };
+
+  // PickPrediction コンポーネント内で、他の関数の近くに追加
+const handleModalClose = () => {
+  Animated.timing(scaleAnim, {
+    toValue: 0,
+    duration: 200,
+    useNativeDriver: true,
+  }).start(() => {
+    setShowTurnModal(false);
+    scaleAnim.setValue(0);
+  });
+};
 
   return (
     <SafeAreaView style={styles.container}>
@@ -752,23 +766,23 @@ const PickPrediction: React.FC = () => {
             </TouchableOpacity>
           </View>
           <View style={styles.headerRight}>
-  <TouchableOpacity 
-    style={[styles.headerButton, { opacity: currentHistoryIndex > 0 ? 1 : 0.5 }]}
-    onPress={handleUndo}
-    disabled={currentHistoryIndex === 0}
-  >
-    <Image 
-      source={require('../../assets/OtherIcon/undo.png')}
-      style={styles.undoButtonImage}
-    />
-  </TouchableOpacity>
-  <TouchableOpacity 
-    style={styles.resetButton}
-    onPress={resetGame}
-  >
-    <Text style={styles.resetButtonText}>{t.header.reset}</Text>
-  </TouchableOpacity>
-</View>
+            <TouchableOpacity 
+              style={[styles.headerButton, { opacity: currentHistoryIndex > 0 ? 1 : 0.5 }]}
+              onPress={handleUndo}
+              disabled={currentHistoryIndex === 0}
+            >
+              <Image 
+                source={require('../../assets/OtherIcon/undo.png')}
+                style={styles.undoButtonImage}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity 
+              style={styles.resetButton}
+              onPress={resetGame}
+            >
+              <Text style={styles.resetButtonText}>{t.header.reset}</Text>
+            </TouchableOpacity>
+          </View>
         </View>
 
         <View style={styles.teamsContainer}>
@@ -914,36 +928,36 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerRight: {
-  position: 'absolute',
-  right: 10,
-  top: '50%',
-  transform: [{ translateY: -15 }],
-  flexDirection: 'row',
-  alignItems: 'center',
-},
-headerButton: {
-  padding: 8,
-  marginRight: 8,
-},
-undoButtonImage: {
-  width: 20,
-  height: 20,
-  resizeMode: 'contain',
-  tintColor: '#fff'
-},
-resetButton: {
-  backgroundColor: 'rgba(255, 255, 255, 0.2)',
-  paddingHorizontal: 12,
-  paddingVertical: 6,
-  borderRadius: 15,
-  borderWidth: 1,
-  borderColor: '#fff',
-},
-resetButtonText: {
-  color: '#fff',
-  fontSize: 12,
-  fontWeight: 'bold',
-},
+    position: 'absolute',
+    right: 10,
+    top: '50%',
+    transform: [{ translateY: -15 }],
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  headerButton: {
+    padding: 8,
+    marginRight: 8,
+  },
+  undoButtonImage: {
+    width: 20,
+    height: 20,
+    resizeMode: 'contain',
+    tintColor: '#fff'
+  },
+  resetButton: {
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 15,
+    borderWidth: 1,
+    borderColor: '#fff',
+  },
+  resetButtonText: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
   banToggleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -971,19 +985,6 @@ resetButtonText: {
     fontWeight: 'bold',
   },
   banToggleText: {
-    color: '#fff',
-    fontSize: 12,
-    fontWeight: 'bold',
-  },
-  resetButton: {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 15,
-    borderWidth: 1,
-    borderColor: '#fff',
-  },
-  resetButtonText: {
     color: '#fff',
     fontSize: 12,
     fontWeight: 'bold',

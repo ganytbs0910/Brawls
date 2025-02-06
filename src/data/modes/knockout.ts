@@ -1,3 +1,4 @@
+//knockout.ts
 import { MapDetail } from '../../types/type';
 
 export const knockoutMaps: Record<string, MapDetail> = {

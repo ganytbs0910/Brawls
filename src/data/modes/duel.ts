@@ -1,3 +1,4 @@
+//duel.ts
 import { MapDetail } from '../../types/type';
 
 export const duelMaps: Record<string, MapDetail> = {

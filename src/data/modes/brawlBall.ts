@@ -1,3 +1,4 @@
+//brawlBall.ts
 import { MapDetail } from '../../types/type';
 
 export const brawlBallMaps: Record<string, MapDetail> = {

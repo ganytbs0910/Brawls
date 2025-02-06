@@ -1,3 +1,4 @@
+//emeraldHunt.ts
 import { MapDetail } from '../../types';
 
 export const emeraldHuntMaps: Record<string, MapDetail> = {
