@@ -298,12 +298,13 @@ const PickPrediction: React.FC = () => {
   };
 
   const handleMapSelect = (mapName: string) => {
-    setGameStateWithHistory(prev => ({
-      ...prev,
-      selectedMap: mapName
-    }));
-    setShowModeModal(false);
-  };
+  setGameStateWithHistory(prev => ({
+    ...prev,
+    selectedMap: mapName,
+    recommendations: calculateRecommendations('A', [], []) // 追加
+  }));
+  setShowModeModal(false);
+};
 
   const handleModalClose = () => {
     Animated.timing(scaleAnim, {
@@ -317,17 +318,18 @@ const PickPrediction: React.FC = () => {
   };
 
   const handleModeButtonPress = () => {
-    if (!gameState.selectedMode) {
-      const initialMode = t.modes[GAME_MODES[0].name];
-      const initialMap = MAPS_BY_MODE[initialMode][0].name;
-      setGameStateWithHistory(prev => ({
-        ...prev,
-        selectedMode: initialMode,
-        selectedMap: initialMap
-      }));
-    }
-    setShowModeModal(true);
-  };
+  if (!gameState.selectedMode) {
+    const initialMode = t.modes[GAME_MODES[0].name];
+    const initialMap = MAPS_BY_MODE[initialMode][0].name;
+    setGameStateWithHistory(prev => ({
+      ...prev,
+      selectedMode: initialMode,
+      selectedMap: initialMap,
+      recommendations: calculateRecommendations('A', [], []) // 追加
+    }));
+  }
+  setShowModeModal(true);
+};
 
   const showScreen = (screenType: ScreenType) => {
     const newScreen: ScreenState = {
@@ -423,72 +425,72 @@ const PickPrediction: React.FC = () => {
   };
 
   const calculateRecommendations = (
-    currentTeam: Team,
-    opposingTeamChars: string[],
-    ownTeamChars: string[]
-  ): CharacterRecommendation[] => {
-    const recommendations: CharacterRecommendation[] = [];
-    const bannedCharacters = [...gameState.bansA, ...gameState.bansB];
-    
-    Object.values(CHARACTER_MAP).forEach(character => {
-      if (!opposingTeamChars.includes(character) && 
-          !ownTeamChars.includes(character) && 
-          !bannedCharacters.includes(character)) {
-        let totalScore = 0;
-        let mapBonus = 0;
+  currentTeam: Team,
+  opposingTeamChars: string[],
+  ownTeamChars: string[]
+): CharacterRecommendation[] => {
+  const recommendations: CharacterRecommendation[] = [];
+  const bannedCharacters = [...gameState.bansA, ...gameState.bansB];
+  
+  Object.values(CHARACTER_MAP).forEach(character => {
+    if (!opposingTeamChars.includes(character) && 
+        !ownTeamChars.includes(character) && 
+        !bannedCharacters.includes(character)) {
+      let totalScore = 0;
+      let mapBonus = 0;
+      
+      opposingTeamChars.forEach(opposingChar => {
+        const characterId = getCharacterId(character);
+        const opposingId = getCharacterId(opposingChar);
         
-        opposingTeamChars.forEach(opposingChar => {
-          const characterId = getCharacterId(character);
-          const opposingId = getCharacterId(opposingChar);
-          
-          if (characterId && opposingId && allCharacterData[characterId]) {
-            const score = allCharacterData[characterId].compatibilityScores[opposingChar] || 0;
-            totalScore += score;
-          }
-        });
-
-        let mapData;
-        switch (gameState.selectedMode) {
-          case t.modes.heist:
-            mapData = gameState.selectedMap && heistMaps[gameState.selectedMap];
-            break;
-          case t.modes.brawlBall:
-            mapData = gameState.selectedMap && brawlBallMaps[gameState.selectedMap];
-            break;
-          case t.modes.emeraldHunt:
-            mapData = gameState.selectedMap && emeraldHuntMaps[gameState.selectedMap];
-            break;
-          case t.modes.knockout:
-            mapData = gameState.selectedMap && knockoutMaps[gameState.selectedMap];
-            break;
-          case "デュエル":
-            mapData = gameState.selectedMap && duelMaps[gameState.selectedMap];
-            break;
+        if (characterId && opposingId && allCharacterData[characterId]) {
+          const score = allCharacterData[characterId].compatibilityScores[opposingChar] || 0;
+          totalScore += score;
         }
+      });
 
-        if (mapData) {
-          const characterBonus = mapData.recommendedBrawlers.find(
-            brawler => brawler.name === character
-          );
-          if (characterBonus) {
-            mapBonus = characterBonus.power;
-            totalScore += mapBonus;
-          }
-        }
-
-        recommendations.push({
-          character,
-          score: totalScore,
-          maxScore: opposingTeamChars.length * 10,
-          reason: mapBonus > 0 
-            ? `${getRecommendationReason(totalScore, opposingTeamChars.length)}` 
-            : getRecommendationReason(totalScore, opposingTeamChars.length)
-        });
+      let mapData;
+      switch (gameState.selectedMode) {
+        case t.modes.heist:
+          mapData = gameState.selectedMap && heistMaps[gameState.selectedMap];
+          break;
+        case t.modes.brawlBall:
+          mapData = gameState.selectedMap && brawlBallMaps[gameState.selectedMap];
+          break;
+        case t.modes.emeraldHunt:
+          mapData = gameState.selectedMap && emeraldHuntMaps[gameState.selectedMap];
+          break;
+        case t.modes.knockout:
+          mapData = gameState.selectedMap && knockoutMaps[gameState.selectedMap];
+          break;
+        case "デュエル":
+          mapData = gameState.selectedMap && duelMaps[gameState.selectedMap];
+          break;
       }
-    });
 
-    return recommendations.sort((a, b) => b.score - a.score).slice(0, 10);
-  };
+      if (mapData) {
+        const characterBonus = mapData.recommendedBrawlers.find(
+          brawler => brawler.name === character
+        );
+        if (characterBonus) {
+          mapBonus = characterBonus.power;
+          totalScore += mapBonus;
+        }
+      }
+
+      recommendations.push({
+        character,
+        score: totalScore,
+        maxScore: opposingTeamChars.length * 10,
+        reason: mapBonus > 0 
+          ? `${getRecommendationReason(totalScore, opposingTeamChars.length)}` 
+          : getRecommendationReason(totalScore, opposingTeamChars.length)
+      });
+    }
+  });
+
+  return recommendations.sort((a, b) => b.score - a.score).slice(0, 10);
+};
 
   const handleBanSelect = (character: string) => {
     if (!gameState.isBanPhaseEnabled) return;
@@ -523,93 +525,101 @@ const PickPrediction: React.FC = () => {
   };
 
   const handleCharacterSelect = (character: string) => {
-    const handlePickPhase = () => {
-      const { currentPhase, currentTeam, teamA, teamB } = gameState;
-      
-      if (currentTeam === 'A' && teamA.includes(character)) return;
-      if (currentTeam === 'B' && teamB.includes(character)) return;
-      
-      let newState = { ...gameState };
+  const handlePickPhase = () => {
+    const { currentPhase, currentTeam, teamA, teamB } = gameState;
+    
+    if (currentTeam === 'A' && teamA.includes(character)) return;
+    if (currentTeam === 'B' && teamB.includes(character)) return;
+    
+    let newState = { ...gameState };
 
-      switch (currentPhase) {
-        case 1:
-          if (currentTeam === 'A') {
-            newState = {
-              ...newState,
-              teamA: [character],
-              currentTeam: 'B',
-              currentPhase: 2,
-              recommendations: calculateRecommendations('B', [character], [])
-            };
-            showTurnAnnouncement('B', 2);
-          }
-          break;
-        
-        case 2:
-          if (currentTeam === 'B' && teamB.length < 2) {
-            const newTeamB = [...teamB, character];
-            newState = {
-              ...newState,
-              teamB: newTeamB,
-              recommendations: calculateRecommendations('B', teamA, newTeamB)
-            };
-            
-            if (newTeamB.length === 2) {
-              newState = {
-                ...newState,
-                currentTeam: 'A',
-                currentPhase: 3,
-                recommendations: calculateRecommendations('A', newTeamB, teamA)
-              };
-              showTurnAnnouncement('A', 3);
-            }
-          }
-          break;
-        
-        case 3:
-          if (currentTeam === 'A' && teamA.length < 3) {
-            const newTeamA = [...teamA, character];
-            newState = {
-              ...newState,
-              teamA: newTeamA,
-              recommendations: calculateRecommendations('A', teamB, newTeamA)
-            };
-            
-            if (newTeamA.length === 3) {
-              newState = {
-                ...newState,
-                currentTeam: 'B',
-                currentPhase: 4,
-                recommendations: calculateRecommendations('B', newTeamA, teamB)
-              };
-              showTurnAnnouncement('B', 4);
-            }
-          }
-          break;
-        
-        case 4:
-          if (currentTeam === 'B' && teamB.length < 3) {
-            const newTeamB = [...teamB, character];
-            newState = {
-              ...newState,
-              teamB: newTeamB,
-              recommendations: []
-            };
-          }
-          break;
-      }
-
-      setGameStateWithHistory(newState);
-    };
-
-    if (!gameState.isBanPhaseEnabled) {
-      handlePickPhase();
-    } else {
-      if (gameState.bansA.length === 3 && gameState.bansB.length === 3) {
-        handlePickPhase();
-      }
+    // Phase 1開始時にマップのおすすめキャラクターを表示
+    if (currentPhase === 1 && teamA.length === 0 && teamB.length === 0) {
+      newState = {
+        ...newState,
+        recommendations: calculateRecommendations('A', [], [])
+      };
     }
+
+    switch (currentPhase) {
+      case 1:
+        if (currentTeam === 'A') {
+          newState = {
+            ...newState,
+            teamA: [character],
+            currentTeam: 'B',
+            currentPhase: 2,
+            recommendations: calculateRecommendations('B', [character], [])
+          };
+          showTurnAnnouncement('B', 2);
+        }
+        break;
+      
+      case 2:
+        if (currentTeam === 'B' && teamB.length < 2) {
+          const newTeamB = [...teamB, character];
+          newState = {
+            ...newState,
+            teamB: newTeamB,
+            recommendations: calculateRecommendations('B', teamA, newTeamB)
+          };
+          
+          if (newTeamB.length === 2) {
+            newState = {
+              ...newState,
+              currentTeam: 'A',
+              currentPhase: 3,
+              recommendations: calculateRecommendations('A', newTeamB, teamA)
+            };
+            showTurnAnnouncement('A', 3);
+          }
+        }
+        break;
+      
+      case 3:
+        if (currentTeam === 'A' && teamA.length < 3) {
+          const newTeamA = [...teamA, character];
+          newState = {
+            ...newState,
+            teamA: newTeamA,
+            recommendations: calculateRecommendations('A', teamB, newTeamA)
+          };
+          
+          if (newTeamA.length === 3) {
+            newState = {
+              ...newState,
+              currentTeam: 'B',
+              currentPhase: 4,
+              recommendations: calculateRecommendations('B', newTeamA, teamB)
+            };
+            showTurnAnnouncement('B', 4);
+          }
+        }
+        break;
+      
+      case 4:
+        if (currentTeam === 'B' && teamB.length < 3) {
+          const newTeamB = [...teamB, character];
+          newState = {
+            ...newState,
+            teamB: newTeamB,
+            recommendations: []
+          };
+        }
+        break;
+    }
+
+    setGameStateWithHistory(newState);
   };
+
+  if (!gameState.isBanPhaseEnabled) {
+    handlePickPhase();
+  } else {
+    if (gameState.bansA.length === 3 && gameState.bansB.length === 3) {
+      handlePickPhase();
+    }
+  }
+};
 
   const renderModeAndMapModal = () => {
     return (
