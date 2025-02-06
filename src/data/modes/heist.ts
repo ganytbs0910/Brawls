@@ -6,6 +6,7 @@ export const heistMaps: Record<string, MapDetail> = {
     id: "he_safe_zone",
     name: "安全地帯",
     mode: "heist",
+    image: "require('../../assets/MapImages/Safe_Zone.png')",
     description: "金庫の右側の壁裏が強いため入られないように気をつけつつ、壁破壊キャラクターがいれば自陣の近くの2×2のブロックを破壊すると壁裏で敵に耐久されないためオススメ",
     recommendedBrawlers: [
       { name: "クロウ", reason: "", power: 5 },
@@ -40,6 +41,7 @@ export const heistMaps: Record<string, MapDetail> = {
     id: "he_parallel_plays",
     name: "パラレルワールド",
     mode: "heist",
+    image: "require('../../assets/MapImages/Parallel_Plays.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ストゥー", reason: "", power: 5 },
@@ -71,6 +73,7 @@ export const heistMaps: Record<string, MapDetail> = {
     id: "he_ring_of_fire",
     name: "炎のリング",
     mode: "heist",
+    image: "require('../../assets/MapImages/Ring_of_Fire.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
@@ -104,6 +107,7 @@ export const heistMaps: Record<string, MapDetail> = {
     id: "he_great_lake",
     name: "大いなる湖",
     mode: "heist",
+    image: "require('../../assets/MapImages/Great_Lake.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "コルト", reason: "", power: 5 },
@@ -134,6 +138,7 @@ export const heistMaps: Record<string, MapDetail> = {
     id: "he_gg_2",
     name: "GG 2.0",
     mode: "heist",
+    image: "require('../../assets/MapImages/GG_2.0.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "アンジェロ", reason: "", power: 5 },
@@ -160,6 +165,7 @@ export const heistMaps: Record<string, MapDetail> = {
     id: "he_dueling_beetles",
     name: "ビートルバトル",
     mode: "heist",
+    image: "require('../../assets/MapImages/Dueling_Beetles.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
@@ -191,6 +197,7 @@ export const heistMaps: Record<string, MapDetail> = {
     id: "he_hot_potato",
     name: "ホットポテト",
     mode: "heist",
+    image: "require('../../assets/MapImages/Hot_Potato.png')",
     description: "",
     recommendedBrawlers: [
       { name: "クロウ", reason: "", power: 5 },
@@ -225,6 +232,7 @@ export const heistMaps: Record<string, MapDetail> = {
     id: "he_kaboom_canyon",
     name: "どんぱち谷",
     mode: "heist",
+    image: "require('../../assets/MapImages/Kaboom_Canyon.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "クロウ", reason: "", power: 5 },
@@ -261,6 +269,7 @@ export const heistMaps: Record<string, MapDetail> = {
     id: "he_noisy_neighbors",
     name: "喧騒居住地",
     mode: "heist",
+    image: "require('../../assets/MapImages/Noisy_Neighbors.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ゲイル", reason: "", power: 5 },
@@ -281,6 +290,7 @@ export const heistMaps: Record<string, MapDetail> = {
     id: "he_open_business",
     name: "オープンビジネス",
     mode: "heist",
+    image: "require('../../assets/MapImages/Open_Business.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "バイロン", reason: "", power: 5 },
@@ -315,6 +325,7 @@ export const heistMaps: Record<string, MapDetail> = {
     id: "he_safer_zone",
     name: "安全地帯・改",
     mode: "heist",
+    image: "require('../../assets/MapImages/Safer_Zone.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "コルト", reason: "", power: 5 },
@@ -343,6 +354,7 @@ export const heistMaps: Record<string, MapDetail> = {
     id: "he_watersport",
     name: "ウォータースポーツ",
     mode: "heist",
+    image: "require('../../assets/MapImages/Watersport.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ジュジュ", reason: "", power: 5 },
@@ -366,6 +378,7 @@ export const heistMaps: Record<string, MapDetail> = {
     id: "he_bridge_to_far",
     name: "橋の彼方",
     mode: "heist",
+    image: "require('../../assets/MapImages/Bridge_to_Far.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "イヴ", reason: "", power: 5 },

@@ -5,6 +5,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     id: "eh_crystal_arcade",
     name: "クリスタルアーケード",
     mode: "emeraldHunt",
+    image: "require('../../assets/MapImages/Crystal_Arcade.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ペニー", reason: "", power: 5 },
@@ -29,6 +30,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     id: "eh_gem_fort",
     name: "エメラルドの要塞",
     mode: "emeraldHunt",
+    image: "require('../../assets/MapImages/Gem_Fort.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "R-T", reason: "", power: 5 },
@@ -54,6 +56,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     id: "eh_hard_rock_mine",
     name: "ごつごつ坑道",
     mode: "emeraldHunt",
+    image: "require('../../assets/MapImages/Hard_Rock_Mine.png')",
     description: "右サイドに敵が入られるとかなり戦況が厳しくなる。ミッドはやや右をケアしながら負けないようにするのが重要。",
     recommendedBrawlers: [
       { name: "バイロン", reason: "", power: 5 },
@@ -91,6 +94,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     id: "eh_minecart_madness",
     name: "トロッコの狂気",
     mode: "emeraldHunt",
+    image: "require('../../assets/MapImages/Minecart_Madness.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ケンジ", reason: "", power: 5 },
@@ -119,6 +123,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     id: "eh_open_space",
     name: "オープンスペース",
     mode: "emeraldHunt",
+    image: "require('../../assets/MapImages/Open_Space.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "アンジェロ", reason: "", power: 5 },
@@ -147,6 +152,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     id: "eh_rustic_arcade",
     name: "廃れたアーケード",
     mode: "emeraldHunt",
+    image: "require('../../assets/MapImages/Rustic_Arcade.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
@@ -179,6 +185,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     id: "eh_undermine",
     name: "アンダーマイン",
     mode: "emeraldHunt",
+    image: "require('../../assets/MapImages/Undermine.png')",
     description: "両サイドが落ちるとほぼ負けが決まるほど苦しくなるため、ミッドが初手からサイドに行くのが主流。",
     recommendedBrawlers: [
       { name: "ジーン", reason: "", power: 5 },
@@ -212,6 +219,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     id: "eh_last_stop",
     name: "ラストストップ",
     mode: "emeraldHunt",
+    image: "require('../../assets/MapImages/Last_Stop.png')",
     description: "ミッドのエイムがかなり重要である。左サイドが負けると苦しいため、ミッドの介入はやや左を重視するのがオススメ。",
     recommendedBrawlers: [
       { name: "バイロン", reason: "", power: 5 },
@@ -244,6 +252,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     id: "eh_deathcap_trap",
     name: "サボテンの罠",
     mode: "emeraldHunt",
+    image: "require('../../assets/MapImages/Deathcap_Trap.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ペニー", reason: "", power: 5 },
@@ -272,6 +281,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     id: "eh_double_swoosh",
     name: "ダブルレール",
     mode: "emeraldHunt",
+    image: "require('../../assets/MapImages/Double_Swoosh.png')",
     description: "右サイドがかなり不利なため前線を押されないようにし、左サイドは必ず死なないように立ち回る。",
     recommendedBrawlers: [
       { name: "ジーン", reason: "", power: 5 },
@@ -302,6 +312,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     id: "eh_forest_clearing",
     name: "森林伐採",
     mode: "emeraldHunt",
+    image: "require('../../assets/MapImages/Forest_Clearing.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
@@ -328,6 +339,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
     id: "eh_the_cooler_hard_rock",
     name: "クールロック",
     mode: "emeraldHunt",
+    image: "require('../../assets/MapImages/The_Cooler_Hard_Rock.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "リコ", reason: "", power: 5 },

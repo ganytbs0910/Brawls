@@ -5,6 +5,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_second_try",
     name: "セカンドチャンス",
     mode: "brawlBall",
+    image: "require('../../assets/MapImages/Pinball_Dreams.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "メロディー", reason: "", power: 5 },
@@ -33,6 +34,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_backyard_bowl",
     name: "鉄壁の守り",
     mode: "brawlBall",
+    image: "require('../../assets/MapImages/Pinball_Dreams.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
@@ -67,6 +69,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_pinball_dreams",
     name: "ピンボールドリーム",
     mode: "brawlBall",
+    image: "require('../../assets/MapImages/Pinball_Dreams.png')",
     description: "投げキャラクターがかなり強力であるため、対策しないと一方的に攻撃を喰らうため対策が必須。",
     recommendedBrawlers: [
       { name: "サージ", reason: "", power: 5 },
@@ -103,6 +106,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_pinhole_punt",
     name: "狭き門",
     mode: "brawlBall",
+    image: "require('../../assets/MapImages/Pinhole_Punt.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "サンディ", reason: "", power: 5 },
@@ -135,6 +139,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_center_stage",
     name: "中央コート",
     mode: "brawlBall",
+    image: "require('../../assets/MapImages/Center_Stage.png')",
     description: "一度草むらを占拠されると奪い返すのが困難であるため、できるだけ早く占拠することが重要。",
     recommendedBrawlers: [
       { name: "サージ", reason: "", power: 5 },
@@ -171,6 +176,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_beach_ball",
     name: "ビーチボール",
     mode: "brawlBall",
+    image: "require('../../assets/MapImages/Beach_Ball.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ジュジュ", reason: "", power: 5 },
@@ -206,6 +212,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_triple_dribble",
     name: "トリプル・ドリブル",
     mode: "brawlBall",
+    image: "require('../../assets/MapImages/Triple_Dribble.png')",
     description: "投げキャラクターがかなり強いため、対策をするか使用するかしないと試合がかなり苦しくなる。",
     recommendedBrawlers: [
       { name: "ストゥー", reason: "", power: 5 },
@@ -235,6 +242,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_sneaky_fields",
     name: "静かな広場",
     mode: "brawlBall",
+    image: "require('../../assets/MapImages/Sneaky_Fields.png')",
     description: "真ん中の草むらを占拠した側がかなり有利となるため、無理に敵を倒すのではなく草むらの占拠を考えて立ち回ると勝率が上がる。",
     recommendedBrawlers: [
       { name: "Max", reason: "", power: 5 },
@@ -265,6 +273,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_super_beach",
     name: "スーパービーチ",
     mode: "brawlBall",
+    image: "require('../../assets/MapImages/Super_Beach.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "サンディ", reason: "", power: 5 },
@@ -292,6 +301,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_sunny_soccer",
     name: "サニーサッカー",
     mode: "brawlBall",
+    image: "require('../../assets/MapImages/Sunny_Soccer.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "サンディ", reason: "", power: 5 },
@@ -324,6 +334,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_trickey",
     name: "トリッキー",
     mode: "brawlBall",
+    image: "require('../../assets/MapImages/Trickey_Stadium.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "サンディ", reason: "", power: 5 },
@@ -362,6 +373,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_penalty_kick",
     name: "ペナルティキック",
     mode: "brawlBall",
+    image: "require('../../assets/MapImages/Penalty_Kick.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "コーデリアス", reason: "", power: 5 },

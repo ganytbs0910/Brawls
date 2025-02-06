@@ -5,6 +5,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
     id: "ko_h_for",
     name: "白熱対戦",
     mode: "knockout",
+    image: "require('../../assets/MapImages/H_For.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
@@ -30,6 +31,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
     id: "ko_new_horizons",
     name: "新たなる地平",
     mode: "knockout",
+    image: "require('../../assets/MapImages/New_Horizons.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "グレイ", reason: "", power: 5 },
@@ -58,6 +60,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
     id: "ko_out_in_the_open",
     name: "オープンフィールド",
     mode: "knockout",
+    image: "require('../../assets/MapImages/Out_in_the_Open.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "R-T", reason: "", power: 5 },
@@ -96,6 +99,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
     id: "ko_overgrown_ruins",
     name: "生い茂る廃墟",
     mode: "knockout",
+    image: "require('../../assets/MapImages/Overgrown_Ruins.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
@@ -115,6 +119,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
     id: "ko_temple_of_vroom",
     name: "バキューン神殿",
     mode: "knockout",
+    image: "require('../../assets/MapImages/Temple_of_Vroom.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ジーン", reason: "", power: 5 },
@@ -137,6 +142,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
     id: "ko_tiny_islands",
     name: "極小列島",
     mode: "knockout",
+    image: "require('../../assets/MapImages/Tiny_Islands.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "アンジェロ", reason: "", power: 5 },
@@ -163,6 +169,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
     id: "ko_two_rivers",
     name: "双頭の川",
     mode: "knockout",
+    image: "require('../../assets/MapImages/Two_Rivers.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "アンジェロ", reason: "", power: 5 },
@@ -190,6 +197,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
     id: "ko_belles_rock",
     name: "ベルの岩",
     mode: "knockout",
+    image: "require('../../assets/MapImages/Belles_Rock.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "エリザベス", reason: "", power: 5 },
@@ -223,6 +231,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
     id: "ko_deep_forest",
     name: "密林の奥地",
     mode: "knockout",
+    image: "require('../../assets/MapImages/Deep_Forest.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ボウ", reason: "", power: 5 },
@@ -250,6 +259,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
     id: "ko_flaring_phoenix",
     name: "燃える不死鳥",
     mode: "knockout",
+    image: "require('../../assets/MapImages/Flaring_Phoenix.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "R-T", reason: "", power: 5 },
@@ -287,6 +297,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
     id: "ko_four_levels",
     name: "四段階層",
     mode: "knockout",
+    image: "require('../../assets/MapImages/Four_Levels.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ストゥー", reason: "", power: 5 },
@@ -316,6 +327,7 @@ export const knockoutMaps: Record<string, MapDetail> = {
     id: "ko_goldarm_gulch",
     name: "ゴールドアームの渓谷",
     mode: "knockout",
+    image: "require('../../assets/MapImages/Goldarm_Gulch.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "エリザベス", reason: "", power: 5 },

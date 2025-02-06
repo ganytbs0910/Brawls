@@ -5,6 +5,7 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     id: "bb5_great_waves",
     name: "大波",
     mode: "brawlBall5v5",
+    image: "require('../../assets/MapImages/Great_Waves.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ファング", reason: "", power: 5 },
@@ -24,6 +25,7 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     id: "bb5_icy_ice_park",
     name: "ガクブル公園",
     mode: "brawlBall5v5",
+    image: "require('../../assets/MapImages/Icy_Ice_Park.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "Mr.P", reason: "", power: 5 },
@@ -49,6 +51,7 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     id: "bb5_slippery_road",
     name: "ツルツルロード",
     mode: "brawlBall5v5",
+    image: "require('../../assets/MapImages/Slippery_Road.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "Mr.P", reason: "", power: 5 },
@@ -76,6 +79,7 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     id: "bb5_cool_shapes",
     name: "クールシェイプ",
     mode: "brawlBall5v5",
+    image: "require('../../assets/MapImages/Cool_Shapes.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ファング", reason: "", power: 5 },
@@ -95,6 +99,7 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     id: "bb5_suspenders",
     name: "サスペンダーズ",
     mode: "brawlBall5v5",
+    image: "require('../../assets/MapImages/Suspenders.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ファング", reason: "", power: 5 },
@@ -115,6 +120,7 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     id: "bb5_frosty_tracks",
     name: "フロスティトラック",
     mode: "brawlBall5v5",
+    image: "require('../../assets/MapImages/Frosty_Tracks.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "Mr.P", reason: "", power: 5 },
@@ -142,6 +148,7 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     id: "bb5_freezing_ripples",
     name: "凍てつく波紋",
     mode: "brawlBall5v5",
+    image: "require('../../assets/MapImages/Freezing_Ripples.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ファング", reason: "", power: 5 },
@@ -162,6 +169,7 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
     id: "bb5_riverbank_crossing",
     name: "合流地点",
     mode: "brawlBall5v5",
+    image: "require('../../assets/MapImages/Riverbank_Crossing.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "Mr.P", reason: "", power: 5 },

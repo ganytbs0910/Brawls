@@ -5,6 +5,7 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     id: "br_acid_lakes",
     name: "酸性湖",
     mode: "battleRoyale",
+    image: "require('../../assets/MapImages/Acid_Lakes.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "イヴ", reason: "", power: 5 },
@@ -25,6 +26,7 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     id: "br_feast_or_famine",
     name: "天国と地獄",
     mode: "battleRoyale",
+    image: "require('../../assets/MapImages/Feast_Or_Famine.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ダグ", reason: "", power: 5 },
@@ -46,6 +48,7 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     id: "br_flying_fantasies",
     name: "空飛ぶ絨毯",
     mode: "battleRoyale",
+    image: "require('../../assets/MapImages/Flying_Fantasies.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "アンジェロ", reason: "", power: 5 },
@@ -67,6 +70,7 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     id: "br_island_invasion",
     name: "囚われた島",
     mode: "battleRoyale",
+    image: "require('../../assets/MapImages/Island_Invasion.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "バズ", reason: "", power: 5 },
@@ -88,6 +92,7 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     id: "br_marksmans_paradise",
     name: "狙撃手たちの楽園",
     mode: "battleRoyale",
+    image: "require('../../assets/MapImages/Marksmans_Paradise.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
@@ -108,6 +113,7 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     id: "br_rockwall_brawl",
     name: "岩壁の決戦",
     mode: "battleRoyale",
+    image: "require('../../assets/MapImages/Rockwall_Brawl.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "コーデリアス", reason: "", power: 5 },
@@ -127,6 +133,7 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     id: "br_safety_center",
     name: "安全センター",
     mode: "battleRoyale",
+    image: "require('../../assets/MapImages/Safety_Center.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "サージ", reason: "", power: 5 },
@@ -146,6 +153,7 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     id: "br_skull_creek",
     name: "ガイコツ川",
     mode: "battleRoyale",
+    image: "require('../../assets/MapImages/Skull_Creek.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "サージ", reason: "", power: 5 },
@@ -166,6 +174,7 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     id: "br_cavern_churn",
     name: "激動の洞窟",
     mode: "battleRoyale",
+    image: "require('../../assets/MapImages/Cavern_Churn.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "シェリー", reason: "", power: 5 },
@@ -186,6 +195,7 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     id: "br_dark_passage",
     name: "暗い廊下",
     mode: "battleRoyale",
+    image: "require('../../assets/MapImages/Dark_Passage.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "アンジェロ", reason: "", power: 5 },
@@ -207,6 +217,7 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     id: "br_double_trouble",
     name: "ダブルトラブル",
     mode: "battleRoyale",
+    image: "require('../../assets/MapImages/Double_Trouble.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ストゥー", reason: "", power: 5 },
@@ -226,6 +237,7 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
     id: "br_dried_up_river",
     name: "枯れた川",
     mode: "battleRoyale",
+    image: "require('../../assets/MapImages/Dried_Up_River.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "シェイド", reason: "", power: 5 },
