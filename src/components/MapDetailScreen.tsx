@@ -8,15 +8,15 @@ import {
   TouchableOpacity,
   Dimensions
 } from 'react-native';
-import { getMapDetails } from '../data/mapDetails';
+import { getMapData } from '../data/mapData';
 import CharacterImage from './CharacterImage';
-import type { MapDetail } from '../types';
+import { MapData } from '../types/types';
 
 const { width } = Dimensions.get('window');
-const SCREEN_PADDING = 16;  // 画面の左右パディング
-const SECTION_PADDING = 12;  // セクションの内側パディング
-const CARD_MARGIN = 4;  // カード間のマージン
-const CARD_WIDTH = (width - (SCREEN_PADDING * 2) - (SECTION_PADDING * 2) - (CARD_MARGIN * 6)) / 4;  // 4列の場合の1カードの幅
+const SCREEN_PADDING = 16;
+const SECTION_PADDING = 12;
+const CARD_MARGIN = 4;
+const CARD_WIDTH = (width - (SCREEN_PADDING * 2) - (SECTION_PADDING * 2) - (CARD_MARGIN * 6)) / 4;
 
 interface MapDetailScreenProps {
   mapName: string;
@@ -26,6 +26,7 @@ interface MapDetailScreenProps {
   onClose: () => void;
   mapImage: any;
   onCharacterPress?: (characterName: string) => void;
+  onMapImagePress?: () => void;
 }
 
 const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
@@ -35,11 +36,12 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
   modeIcon,
   onClose,
   mapImage,
-  onCharacterPress
+  onCharacterPress,
+  onMapImagePress
 }) => {
-  const mapDetail = getMapDetails(mapName);
+  const mapData = getMapData(mapName);
 
-  const groupBrawlersByPower = (brawlers: MapDetail['recommendedBrawlers']) => {
+  const groupBrawlersByPower = (brawlers: MapData['recommendedBrawlers']) => {
     return {
       optimal: brawlers.filter(b => b.power >= 4),
       suitable: brawlers.filter(b => b.power >= 2 && b.power <= 3),
@@ -47,7 +49,7 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
     };
   };
 
-  if (!mapDetail) {
+  if (!mapData) {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -60,9 +62,9 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
     );
   }
 
-  const groupedBrawlers = groupBrawlersByPower(mapDetail.recommendedBrawlers);
+  const groupedBrawlers = groupBrawlersByPower(mapData.recommendedBrawlers);
 
-  const renderBrawlerSection = (title: string, brawlers: MapDetail['recommendedBrawlers'], backgroundColor: string) => (
+  const renderBrawlerSection = (title: string, brawlers: MapData['recommendedBrawlers'], backgroundColor: string) => (
     <View style={[styles.brawlerSection, { backgroundColor }]}>
       <Text style={styles.brawlerSectionTitle}>{title}</Text>
       <View style={styles.brawlerGrid}>
@@ -81,7 +83,9 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
               />
               <Text style={styles.brawlerName}>{brawler.name}</Text>
               <Text style={styles.powerIndicator}>{brawler.power}/5</Text>
-              <Text style={styles.brawlerReason}>{brawler.reason}</Text>
+              {brawler.reason && (
+                <Text style={styles.brawlerReason}>{brawler.reason}</Text>
+              )}
             </View>
           </TouchableOpacity>
         ))}
@@ -102,16 +106,22 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
       </View>
 
       <ScrollView style={styles.content}>
-        <Text style={styles.mapName}>{mapDetail.name}</Text>
+        <Text style={styles.mapName}>{mapData.name}</Text>
         
-        <Image 
-          source={mapImage} 
-          style={styles.mapImage}
-          resizeMode="contain"
-        />
+        <TouchableOpacity 
+          onPress={onMapImagePress}
+          activeOpacity={0.8}
+          style={styles.mapImageContainer}
+        >
+          <Image 
+            source={mapImage} 
+            style={styles.mapImage}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
         
         <Text style={styles.sectionTitle}>マップ説明</Text>
-        <Text style={styles.description}>{mapDetail.description}</Text>
+        <Text style={styles.description}>{mapData.description}</Text>
 
         <Text style={styles.sectionTitle}>おすすめキャラ</Text>
         
@@ -180,10 +190,15 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     color: '#333',
   },
+  mapImageContainer: {
+    width: '100%',
+    marginBottom: 16,
+    borderRadius: 8,
+    overflow: 'hidden',
+  },
   mapImage: {
     width: '100%',
     height: 200,
-    marginBottom: 16,
     borderRadius: 8,
   },
   sectionTitle: {
@@ -253,15 +268,6 @@ const styles = StyleSheet.create({
     color: '#666',
     textAlign: 'center',
     lineHeight: 14,
-  },
-  tipItem: {
-    marginBottom: 12,
-    paddingLeft: 8,
-  },
-  tipText: {
-    fontSize: 14,
-    color: '#666',
-    lineHeight: 20,
   },
   errorText: {
     fontSize: 16,

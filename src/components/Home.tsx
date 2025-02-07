@@ -17,6 +17,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { RootStackParamList } from '../App';
 import { DailyTip } from '../components/DailyTip';
+import MapDetailScreen from '../components/MapDetailScreen';
 import { RewardedAd, RewardedAdEventType } from 'react-native-google-mobile-ads';
 import { AD_CONFIG } from '../config/AdConfig';
 import { BannerAdComponent } from '../components/BannerAdComponent';
@@ -30,12 +31,11 @@ import AdMobService from '../services/AdMobService';
 import SettingsScreen from './SettingsScreen';
 import { MapDetail, GameMode, ScreenType, ScreenState } from '../types';
 import { getMapDetails } from '../data/mapDetails';
+import { initializeMapData, getMapData } from '../data/mapData';
 
 type RankingsScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-
-// 更新時刻の定義
 const UPDATE_HOURS = [5, 11, 17, 23];
 
 const useMapUpdateTimer = (updateHours: number[]) => {
@@ -48,9 +48,8 @@ const useMapUpdateTimer = (updateHours: number[]) => {
       const now = new Date(currentTime);
       let nextUpdate = new Date(now);
       nextUpdate.setDate(nextUpdate.getDate() + 1);
-      nextUpdate.setHours(5, 0, 0, 0);  // 次の日の5時をデフォルト
+      nextUpdate.setHours(5, 0, 0, 0);
     
-      // 今日の残りの更新時刻をチェック
       for (const hour of updateHours) {
         const updateTime = new Date(now);
         updateTime.setHours(hour, 0, 0, 0);
@@ -75,14 +74,12 @@ const useMapUpdateTimer = (updateHours: number[]) => {
         setCurrentTime(newTime);
         console.log('Update triggered at:', newTime);
         
-        // 次の更新をスケジュール（1秒の遅延を入れて重複を避ける）
         setTimeout(() => {
           scheduleNextUpdate();
         }, 1000);
       }, timeUntilUpdate);
     };
 
-    // 1分ごとの更新も維持
     const minuteUpdateId = setInterval(() => {
       setCurrentTime(new Date());
     }, 60000);
@@ -109,6 +106,7 @@ const Home: React.FC = () => {
   const [isRewardedAdReady, setIsRewardedAdReady] = useState(false);
   const [isAdFree, setIsAdFree] = useState(false);
   const [mapDetailProps, setMapDetailProps] = useState<MapDetail | null>(null);
+  const [isMapDataInitialized, setIsMapDataInitialized] = useState(false);
 
   const adService = useRef<AdMobService | null>(null);
 
@@ -123,6 +121,20 @@ const Home: React.FC = () => {
       keywords: ['game', 'mobile game'],
     })
   ).current;
+
+  useEffect(() => {
+    const initData = async () => {
+      try {
+        const data = await initializeMapData();
+        console.log('Initialized map data:', Object.keys(data));
+        setIsMapDataInitialized(true);
+      } catch (error) {
+        console.error('Failed to initialize map data:', error);
+      }
+    };
+    
+    initData();
+  }, []);
 
   useEffect(() => {
     const unsubscribeLoaded = rewarded.addAdEventListener(RewardedAdEventType.LOADED, () => {
@@ -170,6 +182,130 @@ const Home: React.FC = () => {
       subscription.remove();
     };
   }, []);
+  const renderScreen = (screen: ScreenState) => {
+    switch (screen.type) {
+      case 'settings':
+        return (
+          <Animated.View
+            style={[
+              styles.overlayScreen,
+              {
+                transform: [{ translateX: screen.translateX }],
+                zIndex: screen.zIndex,
+              },
+            ]}
+          >
+            <SettingsScreen
+              onClose={goBack}
+              isAdFree={isAdFree}
+              setIsAdFree={setIsAdFree}
+              isRewardedAdReady={isRewardedAdReady}
+              rewarded={rewarded}
+              adService={adService}
+            />
+          </Animated.View>
+        );
+      case 'mapDetail':
+        return (
+          <Animated.View
+            style={[
+              styles.overlayScreen,
+              {
+                transform: [{ translateX: screen.translateX }],
+                zIndex: screen.zIndex,
+              },
+            ]}
+          >
+            {mapDetailProps && (
+              <MapDetailScreen
+                mapName={mapDetailProps.mapName}
+                modeName={mapDetailProps.modeName}
+                modeColor={typeof mapDetailProps.modeColor === 'function' 
+                  ? mapDetailProps.modeColor() 
+                  : mapDetailProps.modeColor}
+                modeIcon={mapDetailProps.modeIcon}
+                onClose={goBack}
+                mapImage={mapDetailProps.mapImage}
+                onCharacterPress={handleCharacterPress}
+              />
+            )}
+          </Animated.View>
+        );
+      default:
+        return null;
+    }
+  };
+
+  const handleMapClick = (mode: any) => {
+    console.log('Clicked map:', mode.currentMap);
+
+    if (!isMapDataInitialized) {
+      console.warn('Map data is not initialized yet');
+      return;
+    }
+
+    const currentMapData = getMapData(mode.currentMap);
+    console.log('Current map data:', currentMapData);
+
+    const mapDetail = getMapDetails(mode.currentMap);
+    console.log('Map details:', mapDetail);
+    
+    if (mapDetail) {
+      console.log('Setting map detail props');
+      setMapDetailProps({
+        mapName: mode.currentMap,
+        modeName: mode.name,
+        modeColor: mode.color,
+        modeIcon: mode.icon,
+        mapImage: mapImages[mode.currentMap]
+      });
+      showScreen('mapDetail');
+    } else {
+      console.warn(`Map details not found for: ${mode.currentMap}`);
+      console.log('Current mode:', mode);
+      console.log('Available maps:', getMapData(mode.currentMap));
+    }
+  };
+
+  const handleCharacterPress = (characterName: string) => {
+    navigation.navigate('CharacterDetails', { characterName });
+  };
+
+  const showScreen = (screenType: ScreenType) => {
+    console.log('Showing screen:', screenType);
+    const newScreen: ScreenState = {
+      type: screenType,
+      translateX: new Animated.Value(SCREEN_WIDTH),
+      zIndex: screenStack.length
+    };
+
+    setScreenStack(prev => {
+      console.log('Previous screen stack:', prev);
+      const newStack = [...prev, newScreen];
+      console.log('New screen stack:', newStack);
+      return newStack;
+    });
+
+    Animated.timing(newScreen.translateX, {
+      toValue: 0,
+      duration: 300,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const goBack = () => {
+    if (screenStack.length <= 1) return;
+
+    const currentScreen = screenStack[screenStack.length - 1];
+
+    Animated.timing(currentScreen.translateX, {
+      toValue: SCREEN_WIDTH,
+      duration: 300,
+      useNativeDriver: true,
+    }).start(() => {
+      setScreenStack(prev => prev.slice(0, -1));
+    });
+  };
 
   const isSameDate = (date1: Date, date2: Date): boolean => {
     return (
@@ -201,13 +337,9 @@ const Home: React.FC = () => {
     const now = new Date();
     
     if (isCurrentDate(selectedDate)) {
-      // 現在の日付の場合は、時刻による更新を適用
       return getGameDataForDateTime(gameMode, currentTime, getModeUpdateTime(gameMode));
     } else {
-      // 選択された日付が今日より後の場合
       const daysDiff = Math.floor((selectedDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
-      
-      // 次の日のマップを取得するため、24時間を加算
       const nextDayOffset = daysDiff * 24 + 24;
       
       return getGameDataForDateTime(
@@ -217,57 +349,6 @@ const Home: React.FC = () => {
         nextDayOffset
       );
     }
-  };
-
-  const handleMapClick = (mode: any) => {
-    const mapDetail = getMapDetails(mode.currentMap);
-    
-    if (mapDetail) {
-      setMapDetailProps({
-        mapName: mode.currentMap,
-        modeName: mode.name,
-        modeColor: mode.color,
-        modeIcon: mode.icon,
-        mapImage: mapImages[mode.currentMap]
-      });
-      showScreen('mapDetail');
-    } else {
-      console.warn(`Map details not found for: ${mode.currentMap}`);
-    }
-  };
-
-  const handleCharacterPress = (characterName: string) => {
-    navigation.navigate('CharacterDetails', { characterName });
-  };
-
-  const showScreen = (screenType: ScreenType) => {
-    const newScreen: ScreenState = {
-      type: screenType,
-      translateX: new Animated.Value(SCREEN_WIDTH),
-      zIndex: screenStack.length
-    };
-
-    setScreenStack(prev => [...prev, newScreen]);
-
-    Animated.timing(newScreen.translateX, {
-      toValue: 0,
-      duration: 300,
-      useNativeDriver: true,
-    }).start();
-  };
-
-  const goBack = () => {
-    if (screenStack.length <= 1) return;
-
-    const currentScreen = screenStack[screenStack.length - 1];
-
-    Animated.timing(currentScreen.translateX, {
-      toValue: SCREEN_WIDTH,
-      duration: 300,
-      useNativeDriver: true,
-    }).start(() => {
-      setScreenStack(prev => prev.slice(0, -1));
-    });
   };
 
   const formatTimeUntilUpdate = (mode: any) => {
@@ -389,7 +470,7 @@ const Home: React.FC = () => {
       name: currentGameData.duel.mode?.name 
         ? currentGameData.duel.mode.name 
         : t.modes.duelRotating,
-        currentMap: currentGameData.duel.map,
+      currentMap: currentGameData.duel.map,
       updateTime: 23,
       color: () => {
         switch (currentGameData.duel.mode?.name) {
@@ -484,21 +565,10 @@ const Home: React.FC = () => {
         </ScrollView>
 
         {screenStack.map((screen, index) => (
-          index > 0 && (
-            <SettingsScreen
-              key={`${screen.type}-${screen.zIndex}`}
-              screen={screen}
-              onClose={goBack}
-              isAdFree={isAdFree}
-              setIsAdFree={setIsAdFree}
-              isRewardedAdReady={isRewardedAdReady}
-              rewarded={rewarded}
-              adService={adService}
-              mapDetailProps={mapDetailProps}
-              onCharacterPress={handleCharacterPress}
-            />
-          )
-        ))}
+  <React.Fragment key={`${screen.type}-${index}`}>
+    {index > 0 && renderScreen(screen)}
+  </React.Fragment>
+))}
       </View>
     </SafeAreaView>
   );
@@ -632,6 +702,14 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 80,
     borderRadius: 8,
+  },
+  overlayScreen: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: '#fff',
   }
 });
 

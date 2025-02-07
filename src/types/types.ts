@@ -110,3 +110,21 @@ interface MapDetailScreenProps {
   mapImage: any;
   onClose: () => void;
 }
+
+// マップデータの型定義
+export interface MapData {
+  name: string;        // 日本語名
+  nameEn: string;      // 英語名
+  nameKo: string;      // 韓国語名
+  gameMode: string;    // ゲームモード (Bounty, Gem Grab, etc.)
+  image: string;       // マップ画像のパス
+  description: string; // マップの説明
+  recommendedBrawlers: RecommendedBrawler[]; // 推奨ブローラーのリスト
+}
+
+// マップの推奨ブローラーの情報
+export interface RecommendedBrawler {
+  name: string;
+  reason: string;
+  power: number;  // 推奨度（1-5）
+}

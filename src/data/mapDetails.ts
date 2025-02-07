@@ -1,46 +1,39 @@
-// mapDetails.ts
+//mapDetails.ts
 import { MapDetail, GameMode } from '../types/types';
-import { battleRoyaleMaps } from './modes/battleRoyale';
-import { knockoutMaps } from './modes/knockout';
-import { heistMaps } from './modes/heist';
-import { brawlBallMaps } from './modes/brawlBall';
-import { brawlBall5v5Maps } from './modes/brawlBall5v5';
-import { duelMaps } from './modes/duel';
-import { emeraldHuntMaps } from './modes/emeraldHunt';
+import { getMapData, getAllMaps, getMapsByGameMode } from './mapData';
 
-export const mapDetails: Record<string, MapDetail> = {
-  ...battleRoyaleMaps,
-  ...knockoutMaps,
-  ...heistMaps,
-  ...brawlBallMaps,
-  ...brawlBall5v5Maps,
-  ...duelMaps,
-  ...emeraldHuntMaps,
-};
-
-// マップ情報を取得するユーティリティ関数
 export const getMapDetails = (mapName: string): MapDetail | undefined => {
-  return mapDetails[mapName];
+  const mapData = getMapData(mapName);
+  if (!mapData) return undefined;
+
+  return {
+    name: mapData.name,
+    mode: mapData.gameMode as GameMode,
+    description: mapData.description,
+    difficulty: 'normal',
+    recommendedBrawlers: mapData.recommendedBrawlers
+  };
 };
 
 export const getMapsByMode = (mode: GameMode): string[] => {
-  return Object.entries(mapDetails)
-    .filter(([_, detail]) => detail.mode === mode)
-    .map(([mapName]) => mapName);
+  const mapsForMode = getMapsByGameMode(mode);
+  return mapsForMode.map(map => map.name);
 };
 
 export const getMapsByDifficulty = (difficulty: MapDetail['difficulty']): string[] => {
-  return Object.entries(mapDetails)
-    .filter(([_, detail]) => detail.difficulty === difficulty)
-    .map(([mapName]) => mapName);
+  const allMaps = getAllMaps();
+  return allMaps
+    .filter(map => difficulty === 'normal')
+    .map(map => map.name);
 };
 
 export const getRecommendedMapsForBrawler = (brawlerName: string): string[] => {
-  return Object.entries(mapDetails)
-    .filter(([_, detail]) => 
-      detail.recommendedBrawlers.some(b => 
-        b.name === brawlerName && (b.power || 0) >= 4
+  const allMaps = getAllMaps();
+  return allMaps
+    .filter(map => 
+      map.recommendedBrawlers.some(b => 
+        b.name === brawlerName && b.power >= 4
       )
     )
-    .map(([mapName]) => mapName);
+    .map(map => map.name);
 };
