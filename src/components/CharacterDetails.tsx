@@ -7,6 +7,7 @@ import { getCharacterData } from '../data/characterData';
 import CharacterImage from './CharacterImage';
 import { getGearInfo, getGearTypeColor, getStarPowerIcon, getGadgetIcon, gearIcons } from '../data/iconMappings';
 import { allCharacterData } from '../data/characterCompatibility';
+import { useCharacterDetailsTranslation } from '../i18n/characterDetails';
 
 type CharacterDetailsRouteProp = RouteProp<RootStackParamList, 'CharacterDetails'>;
 type CharacterDetailsNavigationProp = StackNavigationProp<RootStackParamList, 'CharacterDetails'>;
@@ -20,41 +21,8 @@ type CompatibilityCategory = {
   backgroundColor: string;
 };
 
-const goodCompatibilityCategories: CompatibilityCategory[] = [
-  { 
-    title: '最高の相性',
-    minScore: 9,
-    maxScore: 10,
-    color: '#2E7D32',
-    backgroundColor: '#E8F5E9'
-  },
-  { 
-    title: '良い相性',
-    minScore: 7,
-    maxScore: 8.9,
-    color: '#1565C0',
-    backgroundColor: '#E3F2FD'
-  },
-];
-
-const badCompatibilityCategories: CompatibilityCategory[] = [
-  { 
-    title: '相性が悪い',
-    minScore: 0,
-    maxScore: 4.9,
-    color: '#C62828',
-    backgroundColor: '#FFEBEE'
-  },
-  { 
-    title: '普通の相性',
-    minScore: 5,
-    maxScore: 6.9,
-    color: '#F57F17',
-    backgroundColor: '#FFF8E1'
-  },
-];
-
 const CharacterDetails: React.FC = () => {
+  const { t } = useCharacterDetailsTranslation();
   const route = useRoute<CharacterDetailsRouteProp>();
   const navigation = useNavigation<CharacterDetailsNavigationProp>();
   const { characterName } = route.params;
@@ -70,6 +38,51 @@ const CharacterDetails: React.FC = () => {
     [characterName]
   );
 
+  const goodCompatibilityCategories: CompatibilityCategory[] = [
+    { 
+      title: t.compatibility.categories.bestMatch,
+      minScore: 9,
+      maxScore: 10,
+      color: '#2E7D32',
+      backgroundColor: '#E8F5E9'
+    },
+    { 
+      title: t.compatibility.categories.goodMatch,
+      minScore: 7,
+      maxScore: 8.9,
+      color: '#1565C0',
+      backgroundColor: '#E3F2FD'
+    },
+  ];
+
+  const badCompatibilityCategories: CompatibilityCategory[] = [
+    { 
+      title: t.compatibility.categories.badMatch,
+      minScore: 0,
+      maxScore: 4.9,
+      color: '#C62828',
+      backgroundColor: '#FFEBEE'
+    },
+    { 
+      title: t.compatibility.categories.normalMatch,
+      minScore: 5,
+      maxScore: 6.9,
+      color: '#F57F17',
+      backgroundColor: '#FFF8E1'
+    },
+  ];
+
+  const getRecommendationLabel = useCallback((level: number) => {
+    switch (level) {
+      case 5: return t.recommendation.highest;
+      case 4: return t.recommendation.recommended;
+      case 3: return t.recommendation.medium;
+      case 2: return t.recommendation.low;
+      case 1: return t.recommendation.optional;
+      default: return t.recommendation.unrated;
+    }
+  }, [t]);
+
   const getRecommendationColor = useCallback((level: number) => {
     switch (level) {
       case 5: return '#4CAF50';
@@ -78,17 +91,6 @@ const CharacterDetails: React.FC = () => {
       case 2: return '#FF9800';
       case 1: return '#F44336';
       default: return '#757575';
-    }
-  }, []);
-
-  const getRecommendationLabel = useCallback((level: number) => {
-    switch (level) {
-      case 5: return '最優先 (5/5)';
-      case 4: return 'おすすめ (4/5)';
-      case 3: return '優先度中 (3/5)';
-      case 2: return '優先度低 (2/5)';
-      case 1: return '後回しOK (1/5)';
-      default: return '未評価';
     }
   }, []);
 
@@ -137,7 +139,7 @@ const CharacterDetails: React.FC = () => {
         
         {power.recommendationReason && (
           <View style={styles.reasonContainer}>
-            <Text style={styles.reasonLabel}>おすすめの理由:</Text>
+            <Text style={styles.reasonLabel}>{t.powers.recommendationReason}:</Text>
             <Text style={styles.recommendationReason}>
               {power.recommendationReason}
             </Text>
@@ -145,7 +147,7 @@ const CharacterDetails: React.FC = () => {
         )}
       </View>
     );
-  }, [character?.name, getRecommendationColor, getRecommendationLabel]);
+  }, [character?.name, getRecommendationColor, getRecommendationLabel, t]);
 
   const renderGearSection = useCallback(() => {
     if (!character) return null;
@@ -163,10 +165,10 @@ const CharacterDetails: React.FC = () => {
     return (
       <View style={styles.infoCard}>
         <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>ギア</Text>
+          <Text style={styles.sectionTitle}>{t.gears.title}</Text>
           <View style={styles.legendContainer}>
             <View style={[styles.legendItem, { backgroundColor: '#4CAF50' }]} />
-            <Text style={styles.legendText}>おすすめ</Text>
+            <Text style={styles.legendText}>{t.gears.recommended}</Text>
           </View>
         </View>
         <View style={styles.gearGrid}>
@@ -231,9 +233,7 @@ const CharacterDetails: React.FC = () => {
                         styles.gearTypeText,
                         { color: getGearTypeColor(selectedGear.type) }
                       ]}>
-                        {selectedGear.type === 'superrare' ? 'スーパーレア' :
-                         selectedGear.type === 'epic' ? 'エピック' :
-                         selectedGear.type === 'mythic' ? 'ミシック' : 'プラス'}ギア
+                        {t.gears.types[selectedGear.type]}{t.gears.types.gear}
                       </Text>
                     </View>
                   </View>
@@ -252,11 +252,11 @@ const CharacterDetails: React.FC = () => {
         </Modal>
       </View>
     );
-  }, [character, selectedGear, isGearModalOpen]);
+  }, [character, selectedGear, isGearModalOpen, t]);
 
   const renderCharacterInfo = useCallback(() => {
     if (!character) {
-      return <Text>キャラクターが見つかりませんでした。</Text>;
+      return <Text>{t.errors.characterNotFound}</Text>;
     }
 
     return (
@@ -269,13 +269,13 @@ const CharacterDetails: React.FC = () => {
         <Text style={styles.name}>{character.name}</Text>
         
         <View style={styles.infoCard}>
-          <Text style={styles.sectionTitle}>基本情報</Text>
+          <Text style={styles.sectionTitle}>{t.basicInfo.title}</Text>
           <View style={styles.basicInfo}>
             <Text style={styles.infoLabel}>
-              役割: {character.class?.name}
+              {t.basicInfo.role}: {character.class?.name}
             </Text>
             <Text style={styles.infoLabel}>
-              レアリティ: {character.rarity?.name}
+              {t.basicInfo.rarity}: {character.rarity?.name}
             </Text>
           </View>
         </View>
@@ -283,10 +283,10 @@ const CharacterDetails: React.FC = () => {
         {character.starPowers && character.starPowers.length > 0 && (
           <View style={styles.infoCard}>
             <View style={styles.sectionHeader}>
-              <Text style={styles.sectionTitle}>スターパワー</Text>
+              <Text style={styles.sectionTitle}>{t.powers.starPower}</Text>
               <View style={styles.legendContainer}>
                 <View style={[styles.legendItem, { backgroundColor: '#4CAF50' }]} />
-                <Text style={styles.legendText}>おすすめ</Text>
+                <Text style={styles.legendText}>{t.powers.recommended}</Text>
               </View>
             </View>
             <View style={styles.powerGrid}>
@@ -300,10 +300,10 @@ const CharacterDetails: React.FC = () => {
         {character.gadgets && character.gadgets.length > 0 && (
           <View style={styles.infoCard}>
             <View style={styles.sectionHeader}>
-              <Text style={styles.sectionTitle}>ガジェット</Text>
+              <Text style={styles.sectionTitle}>{t.powers.gadget}</Text>
               <View style={styles.legendContainer}>
                 <View style={[styles.legendItem, { backgroundColor: '#4CAF50' }]} />
-                <Text style={styles.legendText}>おすすめ</Text>
+                <Text style={styles.legendText}>{t.powers.recommended}</Text>
               </View>
             </View>
             <View style={styles.powerGrid}>
@@ -317,7 +317,7 @@ const CharacterDetails: React.FC = () => {
         {renderGearSection()}
       </View>
     );
-  }, [character, characterName, renderPowerCard, renderGearSection]);
+  }, [character, characterName, renderPowerCard, renderGearSection, t]);
 
   const categorizedScores = useMemo(() => {
     if (!compatibilityData?.compatibilityScores) return {};
@@ -353,7 +353,7 @@ const CharacterDetails: React.FC = () => {
       color: string,
       backgroundColor: string 
     }>);
-  }, [compatibilityData, compatibilityView]);
+  }, [compatibilityData, compatibilityView, goodCompatibilityCategories, badCompatibilityCategories]);
 
   const renderCompatibilityContent = useCallback(() => {
     if (!compatibilityData) return null;
@@ -367,7 +367,7 @@ const CharacterDetails: React.FC = () => {
               onPress={() => setCompatibilityView('good')}
             >
               <Text style={[styles.toggleButtonText, compatibilityView === 'good' && styles.activeToggleButtonText]}>
-                得意
+                {t.compatibility.toggles.good}
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -375,7 +375,7 @@ const CharacterDetails: React.FC = () => {
               onPress={() => setCompatibilityView('bad')}
             >
               <Text style={[styles.toggleButtonText, compatibilityView === 'bad' && styles.activeToggleButtonText]}>
-                苦手
+                {t.compatibility.toggles.bad}
               </Text>
             </TouchableOpacity>
           </View>
@@ -384,9 +384,9 @@ const CharacterDetails: React.FC = () => {
         {Object.entries(categorizedScores)
           .sort(([categoryA], [categoryB]) => {
             if (compatibilityView === 'good') {
-              return categoryA === '最高の相性' ? -1 : 1;
+              return categoryA === t.compatibility.categories.bestMatch ? -1 : 1;
             } else {
-              return categoryA === '相性が悪い' ? -1 : 1;
+              return categoryA === t.compatibility.categories.badMatch ? -1 : 1;
             }
           })
           .map(([category, data]) => (
@@ -421,12 +421,12 @@ const CharacterDetails: React.FC = () => {
           ))}
       </View>
     );
-  }, [compatibilityData, compatibilityView, characterName, handleCharacterPress, categorizedScores]);
+  }, [compatibilityData, compatibilityView, characterName, handleCharacterPress, categorizedScores, t]);
 
   if (!character) {
     return (
       <View style={styles.container}>
-        <Text>キャラクターが見つかりませんでした。</Text>
+        <Text>{t.errors.characterNotFound}</Text>
       </View>
     );
   }
@@ -442,7 +442,7 @@ const CharacterDetails: React.FC = () => {
             styles.tabText,
             activeTab === 'info' && styles.activeTabText
           ]}>
-            キャラ情報
+            {t.tabs.info}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity 
@@ -453,7 +453,7 @@ const CharacterDetails: React.FC = () => {
             styles.tabText,
             activeTab === 'compatibility' && styles.activeTabText
           ]}>
-            相性表
+            {t.tabs.compatibility}
           </Text>
         </TouchableOpacity>
       </View>

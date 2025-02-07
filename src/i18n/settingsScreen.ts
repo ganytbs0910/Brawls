@@ -1,3 +1,4 @@
+//settingsScreen.ts
 export type SettingsScreenTranslation = {
   header: {
     settings: string;
