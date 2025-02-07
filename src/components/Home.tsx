@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { 
   View, 
   Text, 
@@ -22,6 +22,7 @@ import { RewardedAd, RewardedAdEventType } from 'react-native-google-mobile-ads'
 import { AD_CONFIG } from '../config/AdConfig';
 import { BannerAdComponent } from '../components/BannerAdComponent';
 import { useHomeTranslation } from '../i18n/home';
+import { useMapDetailTranslation } from '../i18n/mapDetail';
 import { 
   rotatingModes, 
   mapImages,
@@ -97,6 +98,7 @@ const useMapUpdateTimer = (updateHours: number[]) => {
 
 const Home: React.FC = () => {
   const { t } = useHomeTranslation();
+  const { currentLanguage } = useMapDetailTranslation();
   const currentTime = useMapUpdateTimer(UPDATE_HOURS);
   const navigation = useNavigation<RankingsScreenNavigationProp>();
   const [screenStack, setScreenStack] = useState<ScreenState[]>([
@@ -121,6 +123,20 @@ const Home: React.FC = () => {
       keywords: ['game', 'mobile game'],
     })
   ).current;
+
+  const getLocalizedMapName = useCallback((mapId: string) => {
+    const mapData = getMapData(mapId);
+    if (!mapData) return mapId;
+
+    switch (currentLanguage) {
+      case 'en':
+        return mapData.nameEn;
+      case 'ko':
+        return mapData.nameKo;
+      default:
+        return mapData.name;  // Japanese name
+    }
+  }, [currentLanguage]);
 
   useEffect(() => {
     const initData = async () => {
@@ -182,6 +198,7 @@ const Home: React.FC = () => {
       subscription.remove();
     };
   }, []);
+
   const renderScreen = (screen: ScreenState) => {
     switch (screen.type) {
       case 'settings':
@@ -401,7 +418,7 @@ const Home: React.FC = () => {
     duel: getGameDataForSelectedDate("duel")
   };
 
-  const modes = [
+  const modes = useMemo(() => [
     {
       name: t.modes.battleRoyale,
       currentMap: currentGameData.battleRoyale.map,
@@ -494,7 +511,7 @@ const Home: React.FC = () => {
       color: "#FFA500",
       icon: require('../../assets/GameModeIcons/knock_out_icon.png')
     }
-  ];
+  ], [currentGameData, t.modes]);
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -551,7 +568,9 @@ const Home: React.FC = () => {
                     onPress={() => handleMapClick(mode)}
                     activeOpacity={0.7}
                   >
-                    <Text style={styles.mapName}>{mode.currentMap}</Text>
+                    <Text style={styles.mapName}>
+                      {getLocalizedMapName(mode.currentMap)}
+                    </Text>
                     <Image 
                       source={mapImages[mode.currentMap]}
                       style={styles.mapImage}
@@ -565,10 +584,10 @@ const Home: React.FC = () => {
         </ScrollView>
 
         {screenStack.map((screen, index) => (
-  <React.Fragment key={`${screen.type}-${index}`}>
-    {index > 0 && renderScreen(screen)}
-  </React.Fragment>
-))}
+          <React.Fragment key={`${screen.type}-${index}`}>
+            {index > 0 && renderScreen(screen)}
+          </React.Fragment>
+        ))}
       </View>
     </SafeAreaView>
   );

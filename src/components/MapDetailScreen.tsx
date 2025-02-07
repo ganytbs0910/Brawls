@@ -11,6 +11,7 @@ import {
 import { getMapData } from '../data/mapData';
 import CharacterImage from './CharacterImage';
 import { MapData } from '../types/types';
+import { useMapDetailTranslation } from '../i18n/mapDetail';
 
 const { width } = Dimensions.get('window');
 const SCREEN_PADDING = 16;
@@ -39,6 +40,7 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
   onCharacterPress,
   onMapImagePress
 }) => {
+  const { t, currentLanguage } = useMapDetailTranslation();
   const mapData = getMapData(mapName);
 
   const groupBrawlersByPower = (brawlers: MapData['recommendedBrawlers']) => {
@@ -56,7 +58,7 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
           <TouchableOpacity onPress={onClose} style={styles.backButton}>
             <Text style={styles.backButtonText}>←</Text>
           </TouchableOpacity>
-          <Text style={styles.errorText}>マップ情報が見つかりませんでした</Text>
+          <Text style={styles.errorText}>{t.error.mapNotFound}</Text>
         </View>
       </View>
     );
@@ -81,10 +83,16 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
                 size={32}
                 style={styles.brawlerImage}
               />
-              <Text style={styles.brawlerName}>{brawler.name}</Text>
-              <Text style={styles.powerIndicator}>{brawler.power}/5</Text>
+              <Text style={styles.brawlerName}>
+                {brawler.name}
+              </Text>
+              <Text style={styles.powerIndicator}>
+                {t.brawler.powerRating.replace('{power}', brawler.power.toString())}
+              </Text>
               {brawler.reason && (
-                <Text style={styles.brawlerReason}>{brawler.reason}</Text>
+                <Text style={styles.brawlerReason}>
+                  {brawler.reason}
+                </Text>
               )}
             </View>
           </TouchableOpacity>
@@ -92,6 +100,17 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
       </View>
     </View>
   );
+
+  const getLocalizedMapName = () => {
+    switch (currentLanguage) {
+      case 'en':
+        return mapData.nameEn;
+      case 'ko':
+        return mapData.nameKo;
+      default:
+        return mapData.name;
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -106,7 +125,7 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
       </View>
 
       <ScrollView style={styles.content}>
-        <Text style={styles.mapName}>{mapData.name}</Text>
+        <Text style={styles.mapName}>{getLocalizedMapName()}</Text>
         
         <TouchableOpacity 
           onPress={onMapImagePress}
@@ -120,21 +139,21 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
           />
         </TouchableOpacity>
         
-        <Text style={styles.sectionTitle}>マップ説明</Text>
+        <Text style={styles.sectionTitle}>{t.sections.mapDescription}</Text>
         <Text style={styles.description}>{mapData.description}</Text>
 
-        <Text style={styles.sectionTitle}>おすすめキャラ</Text>
+        <Text style={styles.sectionTitle}>{t.sections.recommendedBrawlers}</Text>
         
         {groupedBrawlers.optimal.length > 0 && (
-          renderBrawlerSection('最適性 (4-5点)', groupedBrawlers.optimal, '#FFF0F0')
+          renderBrawlerSection(t.powerLevels.optimal, groupedBrawlers.optimal, '#FFF0F0')
         )}
         
         {groupedBrawlers.suitable.length > 0 && (
-          renderBrawlerSection('適正 (2-3点)', groupedBrawlers.suitable, '#F0F7FF')
+          renderBrawlerSection(t.powerLevels.suitable, groupedBrawlers.suitable, '#F0F7FF')
         )}
         
         {groupedBrawlers.usable.length > 0 && (
-          renderBrawlerSection('使える (1点)', groupedBrawlers.usable, '#F5F5F5')
+          renderBrawlerSection(t.powerLevels.usable, groupedBrawlers.usable, '#F5F5F5')
         )}
       </ScrollView>
     </View>

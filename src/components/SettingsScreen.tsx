@@ -38,6 +38,7 @@ import { useSettingsScreenTranslation } from '../i18n/settingsScreen';
 
 const AD_REMOVAL_SKU_IOS = 'com.brawlstatus.adremoval';
 const AD_REMOVAL_SKU_ANDROID = 'brawl_status_ad_removal';
+const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const PURCHASE_CONFIG = {
   ORIGINAL_PRICE: 400,
@@ -48,7 +49,7 @@ const PURCHASE_CONFIG = {
 } as const;
 
 interface SettingsScreenProps {
-  screen: ScreenState;
+  screen?: ScreenState;
   onClose: () => void;
   isAdFree: boolean;
   setIsAdFree: (value: boolean) => void;
@@ -58,8 +59,6 @@ interface SettingsScreenProps {
   mapDetailProps: MapDetail | null;
   onCharacterPress: (characterName: string) => void;
 }
-
-const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const AllTipsScreen: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const { t, currentLanguage } = useSettingsScreenTranslation();
@@ -143,7 +142,21 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   const { t, currentLanguage } = useSettingsScreenTranslation();
   const [loading, setLoading] = useState(false);
   const [isIAPAvailable, setIsIAPAvailable] = useState(false);
-  const [screenStack, setScreenStack] = useState<ScreenState[]>([screen]);
+  
+  // Initialize with default screen state if none provided
+  const initialScreen: ScreenState = {
+    type: 'settings',
+    translateX: new Animated.Value(0),
+    zIndex: 0
+  };
+  const [screenStack, setScreenStack] = useState<ScreenState[]>([screen || initialScreen]);
+
+  // Update stack when screen prop changes
+  useEffect(() => {
+    if (screen) {
+      setScreenStack([screen]);
+    }
+  }, [screen]);
 
   useEffect(() => {
     const init = async () => {
