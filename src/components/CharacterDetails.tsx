@@ -8,6 +8,7 @@ import CharacterImage from './CharacterImage';
 import { getGearInfo, getGearTypeColor, getStarPowerIcon, getGadgetIcon, gearIcons } from '../data/iconMappings';
 import { allCharacterData } from '../data/characterCompatibility';
 import { useCharacterDetailsTranslation } from '../i18n/characterDetails';
+import { useCharacterLocalization } from '../hooks/useCharacterLocalization';
 
 type CharacterDetailsRouteProp = RouteProp<RootStackParamList, 'CharacterDetails'>;
 type CharacterDetailsNavigationProp = StackNavigationProp<RootStackParamList, 'CharacterDetails'>;
@@ -23,6 +24,7 @@ type CompatibilityCategory = {
 
 const CharacterDetails: React.FC = () => {
   const { t } = useCharacterDetailsTranslation();
+  const { getLocalizedName } = useCharacterLocalization(); // 追加
   const route = useRoute<CharacterDetailsRouteProp>();
   const navigation = useNavigation<CharacterDetailsNavigationProp>();
   const { characterName } = route.params;
@@ -266,7 +268,7 @@ const CharacterDetails: React.FC = () => {
           size={160} 
           style={styles.characterImage} 
         />
-        <Text style={styles.name}>{character.name}</Text>
+        <Text style={styles.name}>{getLocalizedName(character.name)}</Text>
         
         <View style={styles.infoCard}>
           <Text style={styles.sectionTitle}>{t.basicInfo.title}</Text>
@@ -381,47 +383,39 @@ const CharacterDetails: React.FC = () => {
           </View>
         </View>
         
-        {Object.entries(categorizedScores)
-          .sort(([categoryA], [categoryB]) => {
-            if (compatibilityView === 'good') {
-              return categoryA === t.compatibility.categories.bestMatch ? -1 : 1;
-            } else {
-              return categoryA === t.compatibility.categories.badMatch ? -1 : 1;
-            }
-          })
-          .map(([category, data]) => (
-            <View key={category} style={[styles.categoryContainer, { backgroundColor: data.backgroundColor }]}>
-              <View style={styles.categoryHeader}>
-                <CharacterImage characterName={characterName} size={32} style={styles.categoryCharacterImage} />
-                <Text style={[styles.categoryTitle, { color: data.color }]}>
-                  {category}
-                </Text>
-              </View>
-              <View style={styles.characterGrid}>
-                {data.characters.map((char) => (
-                  <TouchableOpacity
-                    key={char.name}
-                    style={styles.characterCard}
-                    onPress={() => handleCharacterPress(char.name)}
-                    activeOpacity={0.7}
-                  >
-                    <View style={styles.characterInfo}>
-                      <CharacterImage characterName={char.name} size={32} />
-                      <Text style={styles.characterName} numberOfLines={1}>
-                        {char.name}
-                      </Text>
-                    </View>
-                    <Text style={[styles.characterScore, { color: data.color }]}>
-                      {Math.round(char.score)}/10
-                    </Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
+        {Object.entries(categorizedScores).map(([category, data]) => (
+          <View key={category} style={[styles.categoryContainer, { backgroundColor: data.backgroundColor }]}>
+            <View style={styles.categoryHeader}>
+              <CharacterImage characterName={characterName} size={32} style={styles.categoryCharacterImage} />
+              <Text style={[styles.categoryTitle, { color: data.color }]}>
+                {category}
+              </Text>
             </View>
-          ))}
+            <View style={styles.characterGrid}>
+              {data.characters.map((char) => (
+                <TouchableOpacity
+                  key={char.name}
+                  style={styles.characterCard}
+                  onPress={() => handleCharacterPress(char.name)}
+                  activeOpacity={0.7}
+                >
+                  <View style={styles.characterInfo}>
+                    <CharacterImage characterName={char.name} size={32} />
+                    <Text style={styles.characterName} numberOfLines={1}>
+                      {getLocalizedName(char.name)} {/* 変更 */}
+                    </Text>
+                  </View>
+                  <Text style={[styles.characterScore, { color: data.color }]}>
+                    {Math.round(char.score)}/10
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          </View>
+        ))}
       </View>
     );
-  }, [compatibilityData, compatibilityView, characterName, handleCharacterPress, categorizedScores, t]);
+  }, [compatibilityData, categorizedScores, handleCharacterPress, characterName, getLocalizedName]);
 
   if (!character) {
     return (

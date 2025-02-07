@@ -87,6 +87,95 @@ import { kitData } from './characters/kitData';
 import { dracoData } from './characters/dracoData';
 import { kenjiData } from './characters/kenjiData';
 
+export const CHARACTER_NAMES = {
+  shelly: { ja: "シェリー", en: "Shelly", ko: "쉘리" },
+  nita: { ja: "ニタ", en: "Nita", ko: "니타" },
+  colt: { ja: "コルト", en: "Colt", ko: "콜트" },
+  bull: { ja: "ブル", en: "Bull", ko: "불" },
+  brock: { ja: "ブロック", en: "Brock", ko: "브록" },
+  elPrimo: { ja: "エルプリモ", en: "El Primo", ko: "엘 프리모" },
+  barley: { ja: "バーリー", en: "Barley", ko: "발리" },
+  poco: { ja: "ポコ", en: "Poco", ko: "포코" },
+  rosa: { ja: "ローサ", en: "Rosa", ko: "로사" },
+  jessie: { ja: "ジェシー", en: "Jessie", ko: "제시" },
+  dynamike: { ja: "ダイナマイク", en: "Dynamike", ko: "다이나마이크" },
+  tick: { ja: "ティック", en: "Tick", ko: "틱" },
+  eightBit: { ja: "8ビット", en: "8-Bit", ko: "8-비트" },
+  rico: { ja: "リコ", en: "Rico", ko: "리코" },
+  darryl: { ja: "ダリル", en: "Darryl", ko: "대릴" },
+  penny: { ja: "ペニー", en: "Penny", ko: "페니" },
+  carl: { ja: "カール", en: "Carl", ko: "칼" },
+  jacky: { ja: "ジャッキー", en: "Jacky", ko: "재키" },
+  gus: { ja: "ガス", en: "Gus", ko: "거스" },
+  bo: { ja: "ボウ", en: "Bo", ko: "보" },
+  emz: { ja: "Emz", en: "EMZ", ko: "EMZ" },
+  stu: { ja: "ストゥー", en: "Stu", ko: "스투" },
+  piper: { ja: "エリザベス", en: "Piper", ko: "파이퍼" },
+  pam: { ja: "パム", en: "Pam", ko: "팸" },
+  frank: { ja: "フランケン", en: "Frank", ko: "프랭크" },
+  bibi: { ja: "ビビ", en: "Bibi", ko: "비비" },
+  bea: { ja: "ビー", en: "Bea", ko: "베아" },
+  nani: { ja: "ナーニ", en: "Nani", ko: "나니" },
+  edgar: { ja: "エドガー", en: "Edgar", ko: "에드가" },
+  griff: { ja: "グリフ", en: "Griff", ko: "그리프" },
+  grom: { ja: "グロム", en: "Grom", ko: "그롬" },
+  bonnie: { ja: "ボニー", en: "Bonnie", ko: "보니" },
+  gale: { ja: "ゲイル", en: "Gale", ko: "게일" },
+  colette: { ja: "コレット", en: "Colette", ko: "콜레트" },
+  belle: { ja: "ベル", en: "Belle", ko: "벨" },
+  ash: { ja: "アッシュ", en: "Ash", ko: "애쉬" },
+  lola: { ja: "ローラ", en: "Lola", ko: "롤라" },
+  sam: { ja: "サム", en: "Sam", ko: "샘" },
+  mandy: { ja: "マンディ", en: "Mandy", ko: "맨디" },
+  maisie: { ja: "メイジー", en: "Maisie", ko: "메이지" },
+  hank: { ja: "ハンク", en: "Hank", ko: "행크" },
+  pearl: { ja: "パール", en: "Pearl", ko: "펄" },
+  larryandLawrie: { ja: "ラリー&ローリー", en: "Larry & Lawrie", ko: "래리&로리" },
+  angelo: { ja: "アンジェロ", en: "Angelo", ko: "안젤로" },
+  berry: { ja: "ベリー", en: "Berry", ko: "베리" },
+  shade: { ja: "シェイド", en: "Shade", ko: "쉐이드" },
+  mortis: { ja: "モーティス", en: "Mortis", ko: "모티스" },
+  tara: { ja: "タラ", en: "Tara", ko: "타라" },
+  gene: { ja: "ジーン", en: "Gene", ko: "진" },
+  max: { ja: "MAX", en: "Max", ko: "맥스" },
+  mrp: { ja: "ミスターP", en: "Mr. P", ko: "Mr. P" },
+  sprout: { ja: "スプラウト", en: "Sprout", ko: "스프라우트" },
+  byron: { ja: "バイロン", en: "Byron", ko: "바이런" },
+  squeak: { ja: "スクウィーク", en: "Squeak", ko: "스퀴크" },
+  lou: { ja: "ルー", en: "Lou", ko: "루" },
+  ruffs: { ja: "ラフス", en: "Ruffs", ko: "러프스" },
+  buzz: { ja: "バズ", en: "Buzz", ko: "버즈" },
+  fang: { ja: "ファング", en: "Fang", ko: "팡" },
+  eve: { ja: "イヴ", en: "Eve", ko: "이브" },
+  janet: { ja: "ジャネット", en: "Janet", ko: "자넷" },
+  otis: { ja: "オーティス", en: "Otis", ko: "오티스" },
+  buster: { ja: "バスター", en: "Buster", ko: "버스터" },
+  gray: { ja: "グレイ", en: "Gray", ko: "그레이" },
+  rt: { ja: "R-T", en: "R-T", ko: "R-T" },
+  willow: { ja: "ウィロー", en: "Willow", ko: "윌로우" },
+  doug: { ja: "ダグ", en: "Doug", ko: "더그" },
+  chuck: { ja: "チャック", en: "Chuck", ko: "척" },
+  charlie: { ja: "チャーリー", en: "Charlie", ko: "찰리" },
+  mico: { ja: "ミコ", en: "Mico", ko: "미코" },
+  melodie: { ja: "メロディー", en: "Melodie", ko: "멜로디" },
+  lily: { ja: "リリー", en: "Lily", ko: "릴리" },
+  clancy: { ja: "クランシー", en: "Clancy", ko: "클랜시" },
+  moe: { ja: "モー", en: "Moe", ko: "모" },
+  juju: { ja: "ジュジュ", en: "Juju", ko: "주주" },
+  spike: { ja: "スパイク", en: "Spike", ko: "스파이크" },
+  crow: { ja: "クロウ", en: "Crow", ko: "크로우" },
+  leon: { ja: "レオン", en: "Leon", ko: "레온" },
+  sandy: { ja: "サンディ", en: "Sandy", ko: "샌디" },
+  amber: { ja: "アンバー", en: "Amber", ko: "앰버" },
+  meg: { ja: "メグ", en: "Meg", ko: "메그" },
+  surge: { ja: "サージ", en: "Surge", ko: "서지" },
+  chester: { ja: "チェスター", en: "Chester", ko: "체스터" },
+  cordelius: { ja: "コーデリアス", en: "Cordelius", ko: "코델리우스" },
+  kit: { ja: "キット", en: "Kit", ko: "키트" },
+  draco: { ja: "ドラコ", en: "Draco", ko: "드라코" },
+  kenji: { ja: "ケンジ", en: "Kenji", ko: "켄지" }
+} as const;
+
 export const CHARACTER_MAP: { [key: number]: string } = {
   1: "シェリー", 2: "ニタ", 3: "コルト", 4: "ブル", 5: "ブロック", 6: "エルプリモ", 7: "バーリー", 8: "ポコ",
   9: "ローサ", 10: "ジェシー", 11: "ダイナマイク", 12: "ティック", 13: "8ビット", 14: "リコ", 15: "ダリル",
@@ -138,6 +227,17 @@ export const allCharacterData: { [key: number]: CharacterCompatibility } = {
   70: melodieData, 71: lilyData, 72: clancyData, 73: moeData, 74: jujuData, 75: spikeData, 76: crowData,
   77: leonData, 78: sandyData, 79: amberData, 80: megData, 81: surgeData, 82: chesterData, 83: cordeliusData,
   84: kitData, 85: dracoData, 86: kenjiData
+};
+
+export const useCharacterLocalization = () => {
+  const { currentLanguage } = useSettingsScreenTranslation();
+  
+  const getLocalizedName = (characterName: string) => {
+    const englishKey = JAPANESE_TO_ENGLISH_MAP[characterName] || characterName.toLowerCase();
+    return CHARACTER_NAMES[englishKey]?.[currentLanguage] || characterName;
+  };
+
+  return { getLocalizedName, currentLanguage };
 };
 
 // 相性スコアを取得する関数

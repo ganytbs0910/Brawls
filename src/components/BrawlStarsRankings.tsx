@@ -3,6 +3,7 @@ import {
   ScrollView, 
   View, 
   Text, 
+
   StyleSheet, 
   TouchableOpacity, 
   ActivityIndicator,
@@ -14,8 +15,9 @@ import CharacterImage from './CharacterImage';
 import { 
   fetchAndProcessCharactersData, 
   getCharacterRankings,
-  getCharacterData
+  getCharacterData,
 } from '../data/characterData';
+import { useCharacterLocalization } from '../hooks/useCharacterLocalization'; // 変更
 import { RootStackParamList } from '../App';
 import { RankingItem } from '../types/types';
 import { getAllRoles, getRoleDisplayName, generateCustomRankings } from '../data/customRankings';
@@ -63,6 +65,7 @@ const BrawlStarsRankings: React.FC = () => {
   const [rankings, setRankings] = useState<RankingItem[]>([]);
   const [selectedRole, setSelectedRole] = useState('all');
   const [characters, setCharacters] = useState({});
+  const { getLocalizedName } = useCharacterLocalization(); // 追加
 
   useEffect(() => {
     const initializeData = async () => {
@@ -105,7 +108,7 @@ const BrawlStarsRankings: React.FC = () => {
           style={styles.searchButton}
         >
           <Image 
-            source={require('../../assets/AppIcon/search.png')}
+          source={require('../../assets/AppIcon/search.png')}
             style={styles.searchIcon}
           />
         </TouchableOpacity>
@@ -120,6 +123,8 @@ const BrawlStarsRankings: React.FC = () => {
         <ScrollView>
           {rankings.map((item, index) => {
             const characterData = getCharacterData(item.characterName);
+            const localizedName = getLocalizedName(item.characterName); // 変更
+            
             return (
               <View key={item.rank} style={styles.rankingItem}>
                 <View style={styles.rankContainer}>
@@ -140,7 +145,7 @@ const BrawlStarsRankings: React.FC = () => {
                   />
                   <View style={styles.textContainer}>
                     <Text style={styles.characterName}>
-                      {item.characterName}
+                      {localizedName} {/* 変更 */}
                     </Text>
                     <Text style={styles.description} numberOfLines={2}>
                       {item.description}
