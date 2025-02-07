@@ -6,7 +6,7 @@ export const brawlBallMaps: Record<string, MapDetail> = {
     id: "bb_second_try",
     name: "セカンドチャンス",
     mode: "brawlBall",
-    image: "require('../../assets/MapImages/Pinball_Dreams.png')",
+    image: "require('../../assets/MapImages/Second_Try.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "メロディー", reason: "", power: 5 },
@@ -26,16 +26,13 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       { name: "サム", reason: "", power: 2 },
       { name: "ファング", reason: "", power: 2 },
       { name: "チャーリー", reason: "", power: 2 }
-    ],
-    tips: [
-      "実装待ち"
     ]
   },
   "鉄壁の守り": {
     id: "bb_backyard_bowl",
     name: "鉄壁の守り",
     mode: "brawlBall",
-    image: "require('../../assets/MapImages/Pinball_Dreams.png')",
+    image: "require('../../assets/MapImages/Backyard_Bowl.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "ガス", reason: "", power: 5 },
@@ -61,10 +58,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       { name: "アンバー", reason: "", power: 2 },
       { name: "メロディー", reason: "", power: 2 },
     ],
-
-    tips: [
-      "実装待ち"
-    ]
   },
   "ピンボールドリーム": {
     id: "bb_pinball_dreams",
@@ -98,10 +91,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       { name: "ケンジ", reason: "", power: 3 },
       { name: "グリフ", reason: "", power: 3 },
     ],
-
-    tips: [
-      "実装待ち"
-    ]
   },
   "狭き門": {
     id: "bb_pinhole_punt",
@@ -131,9 +120,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       { name: "ラリー&ローリー", reason: "", power: 3 },
       { name: "ベリー", reason: "", power: 3 },
       { name: "イヴ", reason: "", power: 3 }
-    ],
-    tips: [
-      "実装待ち"
     ]
   },
   "中央コート": {
@@ -168,10 +154,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       { name: "チェスター", reason: "", power: 2 },
       { name: "コレット", reason: "", power: 2 },
     ],
-
-    tips: [
-      "実装待ち"
-    ]
   },
   "ビーチボール": {
     id: "bb_beach_ball",
@@ -204,10 +186,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       { name: "モー", reason: "", power: 3 },
       { name: "スクウィーク", reason: "", power: 2 }
     ],
-
-    tips: [
-      "実装待ち"
-    ]
   },
   "トリプル・ドリブル": {
     id: "bb_triple_dribble",
@@ -234,9 +212,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       { name: "フランケン", reason: "", power: 3 },
       { name: "ジャッキー", reason: "", power: 3 },
       { name: "オーティス", reason: "", power: 3 }
-    ],
-    tips: [
-      "実装待ち"
     ]
   },
   "静かな広場": {
@@ -265,10 +240,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       { name: "バズ", reason: "", power: 3 },
       { name: "サンディ", reason: "", power: 3 }
     ],
-
-    tips: [
-      "実装待ち"
-    ]
   },
   "スーパービーチ": {
     id: "bb_super_beach",
@@ -293,10 +264,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       { name: "バイロン", reason: "", power: 3 },
       { name: "オーティス", reason: "", power: 3 }
     ],
-
-    tips: [
-      "実装待ち"
-    ]
   },
   "サニーサッカー": {
     id: "bb_sunny_soccer",
@@ -326,16 +293,12 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       { name: "モーティス", reason: "", power: 3 },
       { name: "ボウ", reason: "", power: 3 }
     ],
-
-    tips: [
-      "実装待ち"
-    ]
   },
   "トリッキー": {
     id: "bb_trickey",
     name: "トリッキー",
     mode: "brawlBall",
-    image: "require('../../assets/MapImages/Trickey_Stadium.png')",
+    image: "require('../../assets/MapImages/Trickey.png')",
     description: "実装待ち",
     recommendedBrawlers: [
       { name: "サンディ", reason: "", power: 5 },
@@ -365,10 +328,6 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       { name: "エルプリモ", reason: "", power: 2 },
       { name: "ブル", reason: "", power: 1 },
     ],
-
-    tips: [
-      "実装待ち"
-    ]
   },
   "ペナルティキック": {
     id: "bb_penalty_kick",
@@ -395,9 +354,5 @@ export const brawlBallMaps: Record<string, MapDetail> = {
       { name: "ニタ", reason: "", power: 3 },
       { name: "メイジー", reason: "", power: 3 },
     ],
-
-    tips: [
-      "実装待ち"
-    ]
   }
 };

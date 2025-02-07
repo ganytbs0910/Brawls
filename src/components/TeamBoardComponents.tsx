@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet, Alert, Linking } from 'react-native';
 import { characters } from './CharacterSelector';
-import { getCurrentMode } from '../utils/gameData';
 
 interface HostInfo {
   wins3v3: number;

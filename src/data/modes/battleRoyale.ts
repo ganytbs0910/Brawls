@@ -3,7 +3,6 @@ import { MapDetail } from '../../types/type';
 
 export const battleRoyaleMaps: Record<string, MapDetail> = {
     "酸性湖": {
-    id: "br_acid_lakes",
     name: "酸性湖",
     mode: "battleRoyale",
     image: "require('../../assets/MapImages/Acid_Lakes.png')",
@@ -19,12 +18,8 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "シェイド", reason: "", power: 3 },
       { name: "ジャネット", reason: "", power: 3 },
     ],
-    tips: [
-      "実装待ち"
-    ]
   },
   "天国と地獄": {
-    id: "br_feast_or_famine",
     name: "天国と地獄",
     mode: "battleRoyale",
     image: "require('../../assets/MapImages/Feast_Or_Famine.png')",
@@ -41,12 +36,8 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "ルー", reason: "", power: 3 },
       { name: "リリー", reason: "", power: 2 },
     ],
-    tips: [
-      "実装待ち"
-    ]
   },
   "空飛ぶ絨毯": {
-    id: "br_flying_fantasies",
     name: "空飛ぶ絨毯",
     mode: "battleRoyale",
     image: "require('../../assets/MapImages/Flying_Fantasies.png')",
@@ -63,12 +54,8 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "リリー", reason: "", power: 3 },
       { name: "ジャネット", reason: "", power: 2 },
     ],
-    tips: [
-      "実装待ち"
-    ]
   },
   "囚われた島": {
-    id: "br_island_invasion",
     name: "囚われた島",
     mode: "battleRoyale",
     image: "require('../../assets/MapImages/Island_Invasion.png')",
@@ -85,12 +72,8 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "コーデリアス", reason: "", power: 3 },
       { name: "ゲイル", reason: "", power: 2 },
     ],
-    tips: [
-      "実装待ち"
-    ]
   },
   "狙撃手たちの楽園": {
-    id: "br_marksmans_paradise",
     name: "狙撃手たちの楽園",
     mode: "battleRoyale",
     image: "require('../../assets/MapImages/Marksmans_Paradise.png')",
@@ -106,12 +89,8 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "キット", reason: "", power: 3 },
       { name: "リリー", reason: "", power: 3 },
     ],
-    tips: [
-      "実装待ち"
-    ]
   },
   "岩壁の決戦": {
-    id: "br_rockwall_brawl",
     name: "岩壁の決戦",
     mode: "battleRoyale",
     image: "require('../../assets/MapImages/Rockwall_Brawl.png')",
@@ -126,12 +105,8 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "キット", reason: "", power: 4 },
       { name: "ダリル", reason: "", power: 3 },
     ],
-    tips: [
-      "実装待ち"
-    ]
   },
   "安全センター": {
-    id: "br_safety_center",
     name: "安全センター",
     mode: "battleRoyale",
     image: "require('../../assets/MapImages/Safety_Center.png')",
@@ -146,12 +121,8 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "リリー", reason: "", power: 5 },
       { name: "キット", reason: "", power: 4 },
     ],
-    tips: [
-      "実装待ち"
-    ]
   },
   "ガイコツ川": {
-    id: "br_skull_creek",
     name: "ガイコツ川",
     mode: "battleRoyale",
     image: "require('../../assets/MapImages/Skull_Creek.png')",
@@ -167,12 +138,8 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "R-T", reason: "", power: 2 },
       { name: "フランケン", reason: "", power: 2 },
     ],
-    tips: [
-      "実装待ち"
-    ]
   },
   "激動の洞窟": {
-    id: "br_cavern_churn",
     name: "激動の洞窟",
     mode: "battleRoyale",
     image: "require('../../assets/MapImages/Cavern_Churn.png')",
@@ -188,12 +155,8 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "タラ", reason: "", power: 4 },
       { name: "ウィロー", reason: "", power: 3 },
     ],
-    tips: [
-      "実装待ち"
-    ]
   },
   "暗い廊下": {
-    id: "br_dark_passage",
     name: "暗い廊下",
     mode: "battleRoyale",
     image: "require('../../assets/MapImages/Dark_Passage.png')",
@@ -210,12 +173,8 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "メイジー", reason: "", power: 2 },
       { name: "イヴ", reason: "", power: 2 },
     ],
-    tips: [
-      "実装待ち"
-    ]
   },
   "ダブルトラブル": {
-    id: "br_double_trouble",
     name: "ダブルトラブル",
     mode: "battleRoyale",
     image: "require('../../assets/MapImages/Double_Trouble.png')",
@@ -230,12 +189,8 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "サージ", reason: "", power: 4 },
       { name: "メイジー", reason: "", power: 3 },
     ],
-    tips: [
-      "実装待ち"
-    ]
   },
   "枯れた川": {
-    id: "br_dried_up_river",
     name: "枯れた川",
     mode: "battleRoyale",
     image: "require('../../assets/MapImages/Dried_Up_River.png')",
@@ -251,8 +206,5 @@ export const battleRoyaleMaps: Record<string, MapDetail> = {
       { name: "アンジェロ", reason: "", power: 2 },
       { name: "イヴ", reason: "", power: 2 },
     ],
-    tips: [
-      "実装待ち"
-    ]
   }
 };

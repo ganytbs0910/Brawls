@@ -126,13 +126,6 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
         {groupedBrawlers.usable.length > 0 && (
           renderBrawlerSection('使える (1点)', groupedBrawlers.usable, '#F5F5F5')
         )}
-
-        <Text style={styles.sectionTitle}>Tips</Text>
-        {mapDetail.tips.map((tip, index) => (
-          <View key={index} style={styles.tipItem}>
-            <Text style={styles.tipText}>• {tip}</Text>
-          </View>
-        ))}
       </ScrollView>
     </View>
   );

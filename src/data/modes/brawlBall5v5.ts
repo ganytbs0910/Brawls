@@ -18,9 +18,7 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
       { name: "メロディー", reason: "", power: 4 },
       { name: "メイジー", reason: "", power: 3 }
     ],
-    tips: [
-      "実装待ち"
-    ]
+
   },
   "ガクブル公園": {
     id: "bb5_icy_ice_park",
@@ -44,9 +42,7 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
       { name: "8ビット", reason: "", power: 4 }
     ],
 
-    tips: [
-      "実装待ち"
-    ]
+
   },
   "ツルツルロード": {
     id: "bb5_slippery_road",
@@ -72,9 +68,7 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
       { name: "ティック", reason: "", power: 4 }
     ],
 
-    tips: [
-      "実装待ち"
-    ]
+
   },
   "クールシェイプ": {
     id: "bb5_cool_shapes",
@@ -92,9 +86,7 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
       { name: "メロディー", reason: "", power: 4 },
       { name: "メイジー", reason: "", power: 3 }
     ],
-    tips: [
-      "実装待ち"
-    ]
+
   },
   "サスペンダーズ": {
     id: "bb5_suspenders",
@@ -113,9 +105,7 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
       { name: "メイジー", reason: "", power: 3 }
     ],
 
-    tips: [
-      "実装待ち"
-    ]
+
   },
   "フロスティトラック": {
     id: "bb5_frosty_tracks",
@@ -141,9 +131,7 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
       { name: "ティック", reason: "", power: 4 }
     ],
 
-    tips: [
-      "実装待ち"
-    ]
+
   },
   "凍てつく波紋": {
     id: "bb5_freezing_ripples",
@@ -190,8 +178,6 @@ export const brawlBall5v5Maps: Record<string, MapDetail> = {
       { name: "ティック", reason: "", power: 4 }
     ],
 
-    tips: [
-      "実装待ち"
-    ]
+
   }
 };
