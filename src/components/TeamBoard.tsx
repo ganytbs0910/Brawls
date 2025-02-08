@@ -416,64 +416,66 @@ const TeamBoard: React.FC = () => {
   };
 
   const createPost = async () => {
- // 入力検証
- if (!validateInputs()) return;
+  // 入力検証
+  if (!validateInputs()) return;
 
- // レートリミット確認
- const lastPostTime = await AsyncStorage.getItem('lastPostTime'); 
- if (lastPostTime) {
-   const timeSinceLastPost = Date.now() - Number(lastPostTime);
-   if (timeSinceLastPost < 60000) { // 1分の制限
-     Alert.alert('Error', t.errors.postTooFrequent);
-     return;
-   }
- }
+  // レートリミット確認
+  const lastPostTime = await AsyncStorage.getItem('lastPostTime'); 
+  if (lastPostTime) {
+    const timeSinceLastPost = Date.now() - Number(lastPostTime);
+    if (timeSinceLastPost < 60000) { // 1分の制限
+      Alert.alert('Error', t.errors.postTooFrequent);
+      return;
+    }
+  }
 
- try {
-   // 招待リンクのクリーニング
-   const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
-   const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
+  try {
+    // 招待リンクのクリーニング
+    const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
+    const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
 
-   // Supabaseにポストを作成
-   const { error } = await supabase
-     .from('team_posts')
-     .insert([{
-       selected_mode: selectedMode,
-       invite_link: cleanInviteLink,
-       description: description.trim(),
-       selected_character: selectedCharacter!.id,
-       character_trophies: Number(characterTrophies),
-       mid_characters: midCharacters.map(c => c.id),
-       side_characters: sideCharacters.map(c => c.id),
-       host_info: hostInfo
-     }]);
+    // Supabaseにポストを作成
+    const { error } = await supabase
+      .from('team_posts')
+      .insert([{
+        selected_mode: selectedMode,
+        invite_link: cleanInviteLink,
+        description: description.trim(),
+        selected_character: selectedCharacter!.id,
+        character_trophies: Number(characterTrophies),
+        mid_characters: midCharacters.map(c => c.id),
+        side_characters: sideCharacters.map(c => c.id),
+        host_info: hostInfo
+      }]);
 
-   if (error) throw error;
+    if (error) throw error;
 
-   // 最終投稿時刻を更新
-   await AsyncStorage.setItem('lastPostTime', Date.now().toString());
-   
-   // フォームをリセット
-   resetForm();
-   setModalVisible(false);
+    // 最終投稿時刻を更新
+    await AsyncStorage.setItem('lastPostTime', Date.now().toString());
+    
+    // フォームをリセット
+    resetForm();
+    setModalVisible(false);
 
-   // 非課金ユーザーのみ広告を表示
-   if (!isAdFree) {
-     try {
-       const adService = await AdMobService.initialize();
-       await adService.showInterstitial();
-     } catch (adError) {
-       console.error('Failed to show interstitial ad:', adError);
-       // 広告エラーは無視して続行
-     }
-   }
+    // 広告表示の処理をtry-catchで分離
+    try {
+      if (!isAdFree && AdMobService) {  // AdMobServiceの存在確認を追加
+        const adService = AdMobService.initialize();
+        if (adService && typeof adService.showInterstitial === 'function') {
+          await adService.showInterstitial();
+        }
+      }
+    } catch (adError) {
+      console.error('Ad display failed:', adError);
+      // 広告エラーは無視して続行
+    }
 
-   Alert.alert('Success', t.success.postCreated);
-   
- } catch (error) {
-   console.error('Error creating post:', error);
-   Alert.alert('Error', t.errors.postCreationFailed);
- }
+    Alert.alert('Success', t.success.postCreated);
+    
+  } catch (error) {
+    console.error('Error creating post:', error);
+    Alert.alert('Error', t.errors.postCreationFailed);
+  }
 };
 
   const resetForm = () => {
