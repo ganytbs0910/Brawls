@@ -17,6 +17,7 @@ interface CharacterSelectionProps {
     advantageTeam: Team | null;
     difference: number;
   };
+  getLocalizedName: (name: string) => string;  // 追加
 }
 
 interface CharacterRecommendation {
@@ -35,7 +36,8 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
   gameState,
   onBanSelect,
   onCharacterSelect,
-  calculateTeamAdvantage
+  calculateTeamAdvantage,
+  getLocalizedName  // 追加
 }) => {
   const { t, currentLanguage } = usePickPredictionTranslation();
   const ct = getCharacterSelectionTranslation(currentLanguage);
@@ -108,7 +110,9 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
           <View style={styles.characterInfo}>
             <Text style={styles.rankText}>{ct.recommendations.rank(index)}</Text>
             <CharacterImage characterName={rec.character} size={25} />
-            <Text style={styles.characterName}>{rec.character}</Text>
+            <Text style={styles.characterName}>
+              {getLocalizedName(rec.character)}  {/* ここを修正 */}
+            </Text>
           </View>
           <View style={styles.scoreInfo}>
             <Text style={styles.score}>{rec.score.toFixed(1)}pt</Text>
@@ -195,6 +199,9 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
               disabled={isDisabled}
             >
               <CharacterImage characterName={character} size={40} />
+              <Text style={styles.characterNameLabel}>
+                {getLocalizedName(character)}  {/* ここを修正 */}
+              </Text>
               {(isBannedByTeamA || isBannedByTeamB) && (
                 <View style={styles.banOverlay}>
                   <Text style={styles.banX}>×</Text>
@@ -298,6 +305,12 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#333',
   },
+  characterNameLabel: {  // 追加
+    fontSize: 10,
+    color: '#333',
+    marginTop: 2,
+    textAlign: 'center',
+  },
   score: {
     fontSize: 12,
     fontWeight: 'bold',
@@ -333,7 +346,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0f0f0',
     borderRadius: 5,
     width: 56,
-    height: 56,
+    height: 70,  // キャラクター名表示のため高さを調整
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 2,

@@ -1,3 +1,4 @@
+//useCharacterLocalization.ts
 import { useSettingsScreenTranslation } from '../i18n/settingsScreen';
 import { CHARACTER_NAMES, JAPANESE_TO_ENGLISH_MAP } from '../data/characterCompatibility';
 

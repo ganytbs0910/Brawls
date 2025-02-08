@@ -15,6 +15,7 @@ import { TeamSection } from './TeamSection';
 import { CharacterSelection } from './CharacterSelection';
 import MapDetailScreen from './MapDetailScreen';
 import { usePickPredictionTranslation, PickPredictionTranslation } from '../i18n/pickPrediction';
+import { useCharacterLocalization } from '../hooks/useCharacterLocalization';
 import {
   CHARACTER_MAP,
   allCharacterData,
@@ -92,47 +93,9 @@ const GAME_MODES: GameMode[] = [
   { name: "hotZone", color: "#cccccc", icon: require('../../assets/GameModeIcons/hot_zone_icon.png') },
 ];
 
-const createMapsByMode = (t: PickPredictionTranslation): MapsByMode => ({
-  [t.modes.emeraldHunt]: [
-    { name: "ごつごつ坑道", image: require('../../assets/MapImages/Hard_Rock_Mine.png') },
-    { name: "アンダーマイン", image: require('../../assets/MapImages/Undermine.png') },
-    { name: "ダブルレール", image: require('../../assets/MapImages/Double_Swoosh.png') },
-    { name: "ラストストップ", image: require('../../assets/MapImages/Last_Stop.png') },
-  ],
-  [t.modes.brawlBall]: [
-    { name: "トリプル・ドリブル", image: require('../../assets/MapImages/Triple_Dribble.png') },
-    { name: "静かな広場", image: require('../../assets/MapImages/Sneaky_Fields.png') },
-    { name: "中央コート", image: require('../../assets/MapImages/Center_Stage.png') },
-    { name: "ピンボールドリーム", image: require('../../assets/MapImages/Pinball_Dreams.png') },
-  ],
-  [t.modes.heist]: [
-    { name: "安全地帯", image: require('../../assets/MapImages/Safe_Zone.png') },
-    { name: "ホットポテト", image: require('../../assets/MapImages/Hot_Potato.png') },
-    { name: "どんぱち谷", image: require('../../assets/MapImages/Kaboom_Canyon.png') },
-    { name: "橋の彼方", image: require('../../assets/MapImages/Bridge_Too_Far.png') },
-  ],
-  [t.modes.knockout]: [
-    { name: "ベルの岩", image: require('../../assets/MapImages/Belles_Rock.png') },
-    { name: "燃える不死鳥", image: require('../../assets/MapImages/Flaring_Phoenix.png') },
-    { name: "オープンフィールド", image: require('../../assets/MapImages/Out_In_The_Open.png') },
-    { name: "ゴールドアームの渓谷", image: require('../../assets/MapImages/Goldarm_Gulch.png') },
-  ],
-  [t.modes.bounty]: [
-    { name: "流れ星", image: require('../../assets/MapImages/Shooting_Star.png') },
-    { name: "隠れ家", image: require('../../assets/MapImages/Hideout.png') },
-    { name: "ジグザグ草原", image: require('../../assets/MapImages/Snake_Prairie.png') },
-    { name: "グランドカナル", image: require('../../assets/MapImages/Canal_Grande.png') },
-  ],
-  [t.modes.hotZone]: [
-    { name: "炎のリング", image: require('../../assets/MapImages/Ring_Of_Fire.png') },
-    { name: "ビートルバトル", image: require('../../assets/MapImages/Dueling_Beetles.png') },
-    { name: "オープンビジネス", image: require('../../assets/MapImages/Open_Business.png') },
-    { name: "パラレルワールド", image: require('../../assets/MapImages/Parallel_Plays.png') },
-  ],
-});
-
 const PickPrediction: React.FC = () => {
   const { t } = usePickPredictionTranslation();
+  const { getLocalizedName, currentLanguage } = useCharacterLocalization();
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [currentHistoryIndex, setCurrentHistoryIndex] = useState<number>(0);
   const [gameState, setGameState] = useState<SelectionState>({
@@ -157,6 +120,46 @@ const PickPrediction: React.FC = () => {
     { type: 'home', translateX: new Animated.Value(0), zIndex: 0 }
   ]);
   const scaleAnim = useRef(new Animated.Value(0)).current;
+
+  const createMapsByMode = (t: PickPredictionTranslation): MapsByMode => ({
+    [t.modes.emeraldHunt]: [
+      { name: "ごつごつ坑道", image: require('../../assets/MapImages/Hard_Rock_Mine.png') },
+      { name: "アンダーマイン", image: require('../../assets/MapImages/Undermine.png') },
+      { name: "ダブルレール", image: require('../../assets/MapImages/Double_Swoosh.png') },
+      { name: "ラストストップ", image: require('../../assets/MapImages/Last_Stop.png') },
+    ],
+    [t.modes.brawlBall]: [
+      { name: "トリプル・ドリブル", image: require('../../assets/MapImages/Triple_Dribble.png') },
+      { name: "静かな広場", image: require('../../assets/MapImages/Sneaky_Fields.png') },
+      { name: "中央コート", image: require('../../assets/MapImages/Center_Stage.png') },
+      { name: "ピンボールドリーム", image: require('../../assets/MapImages/Pinball_Dreams.png') },
+    ],
+    [t.modes.heist]: [
+      { name: "安全地帯", image: require('../../assets/MapImages/Safe_Zone.png') },
+      { name: "ホットポテト", image: require('../../assets/MapImages/Hot_Potato.png') },
+      { name: "どんぱち谷", image: require('../../assets/MapImages/Kaboom_Canyon.png') },
+      { name: "橋の彼方", image: require('../../assets/MapImages/Bridge_Too_Far.png') },
+    ],
+    [t.modes.knockout]: [
+      { name: "ベルの岩", image: require('../../assets/MapImages/Belles_Rock.png') },
+      { name: "燃える不死鳥", image: require('../../assets/MapImages/Flaring_Phoenix.png') },
+      { name: "オープンフィールド", image: require('../../assets/MapImages/Out_In_The_Open.png') },
+      { name: "ゴールドアームの渓谷", image: require('../../assets/MapImages/Goldarm_Gulch.png') },
+    ],
+    [t.modes.bounty]: [
+      { name: "流れ星", image: require('../../assets/MapImages/Shooting_Star.png') },
+      { name: "隠れ家", image: require('../../assets/MapImages/Hideout.png') },
+      { name: "ジグザグ草原", image: require('../../assets/MapImages/Snake_Prairie.png') },
+      { name: "グランドカナル", image: require('../../assets/MapImages/Canal_Grande.png') },
+    ],
+    [t.modes.hotZone]: [
+      { name: "炎のリング", image: require('../../assets/MapImages/Ring_Of_Fire.png') },
+      { name: "ビートルバトル", image: require('../../assets/MapImages/Dueling_Beetles.png') },
+      { name: "オープンビジネス", image: require('../../assets/MapImages/Open_Business.png') },
+      { name: "パラレルワールド", image: require('../../assets/MapImages/Parallel_Plays.png') },
+    ],
+  });
+
   const MAPS_BY_MODE = createMapsByMode(t);
 
   const getMapsByMode = (selectedMode: string | undefined) => {
@@ -343,11 +346,11 @@ const PickPrediction: React.FC = () => {
 
     setScreenStack(prev => [...prev, newScreen]);
 
-    Animated.timing(newScreen.translateX, {
-      toValue: 0,
-      duration: 300,
-      useNativeDriver: true,
-    }).start();
+      Animated.timing(newScreen.translateX, {
+        toValue: 0,
+        duration: 300,
+        useNativeDriver: true,
+      }).start();
   };
 
   const goBack = () => {
@@ -697,17 +700,16 @@ const PickPrediction: React.FC = () => {
     );
   };
 
-  // PickPrediction コンポーネント内で、他の関数の近くに追加
-const handleModalClose = () => {
-  Animated.timing(scaleAnim, {
-    toValue: 0,
-    duration: 200,
-    useNativeDriver: true,
-  }).start(() => {
-    setShowTurnModal(false);
-    scaleAnim.setValue(0);
-  });
-};
+  const handleModalClose = () => {
+    Animated.timing(scaleAnim, {
+      toValue: 0,
+      duration: 200,
+      useNativeDriver: true,
+    }).start(() => {
+      setShowTurnModal(false);
+      scaleAnim.setValue(0);
+    });
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -765,6 +767,7 @@ const handleModalClose = () => {
               )}
             </TouchableOpacity>
           </View>
+
           <View style={styles.headerRight}>
             <TouchableOpacity 
               style={[styles.headerButton, { opacity: currentHistoryIndex > 0 ? 1 : 0.5 }]}
@@ -791,6 +794,7 @@ const handleModalClose = () => {
             team="A"
             onBanSelect={handleBanSelect}
             onCharacterSelect={handleCharacterSelect}
+            getLocalizedName={getLocalizedName}
           />
           <View style={styles.centerContent}>
             {gameState.selectedMap ? (
@@ -826,6 +830,7 @@ const handleModalClose = () => {
             team="B"
             onBanSelect={handleBanSelect}
             onCharacterSelect={handleCharacterSelect}
+            getLocalizedName={getLocalizedName}
           />
         </View>
       </View>
@@ -835,6 +840,7 @@ const handleModalClose = () => {
         onBanSelect={handleBanSelect}
         onCharacterSelect={handleCharacterSelect}
         calculateTeamAdvantage={calculateTeamAdvantage}
+        getLocalizedName={getLocalizedName}
       />
 
       <Modal
