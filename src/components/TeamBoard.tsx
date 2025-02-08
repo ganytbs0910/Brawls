@@ -1,4 +1,3 @@
-// src/components/TeamBoard.tsx
 import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
@@ -19,9 +18,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import CharacterSelector, { Character } from './CharacterSelector';
 import { PostCard } from './TeamBoardComponents';
 import { usePlayerData, validatePlayerTag } from '../hooks/useBrawlStarsApi';
-import { nameMap } from '../data/characterData';
 import { useTeamBoardTranslation } from '../i18n/teamBoard';
 import { TeamBoardTranslation } from '../i18n/teamBoard';
+import characterData from '../data/characterAPI.json';
 import AdMobService from '../services/AdMobService';
 import { createClient } from '@supabase/supabase-js';
 import 'react-native-url-polyfill/auto';
@@ -208,6 +207,42 @@ const TeamBoard: React.FC = () => {
     loadSearchHistory();
   }, []);
 
+  const getEnglishName = (japaneseName: string) => {
+    const characterInfo = characterData.list.find(
+      character => character.name.ja === japaneseName
+    );
+    return characterInfo?.name.en;
+  };
+
+  const handleCharacterSelect = async (character: Character | null) => {
+    if (!isPlayerVerified) return;
+    
+    setSelectedCharacter(character);
+    if (character && playerDataAPI.data?.playerInfo) {
+      // キャラクターの英語名を取得
+      const englishName = getEnglishName(character.name);
+      console.log('Looking for character:', englishName);
+
+      if (englishName) {
+        // APIデータから該当キャラクターを検索
+        const brawler = playerDataAPI.data.playerInfo.brawlers.find(
+          (b: any) => b.name.toLowerCase() === englishName.toLowerCase()
+        );
+        console.log('Found brawler data:', brawler);
+
+        if (brawler) {
+          setCharacterTrophies(brawler.trophies.toString());
+        } else {
+          console.log('Brawler not found in player data');
+          setCharacterTrophies('0');
+        }
+      } else {
+        console.log('Character name mapping not found for:', character.name);
+        setCharacterTrophies('0');
+      }
+    }
+  };
+
   const loadSearchHistory = async () => {
     try {
       const savedHistoryStr = await AsyncStorage.getItem('searchHistory');
@@ -331,26 +366,6 @@ const TeamBoard: React.FC = () => {
     }
   };
 
-  const handleCharacterSelect = async (character: Character | null) => {
-    if (!isPlayerVerified) return;
-    
-    setSelectedCharacter(character);
-    if (character && playerDataAPI.data?.playerInfo) {
-      const englishName = Object.entries(nameMap).find(
-        ([eng, jpn]) => jpn.toLowerCase() === character.name.toLowerCase()
-      )?.[0];
-
-      if (englishName) {
-        const brawler = playerDataAPI.data.playerInfo.brawlers.find(
-          (b: any) => b.name.toLowerCase() === englishName.toLowerCase()
-        );
-        if (brawler) {
-          setCharacterTrophies(brawler.trophies.toString());
-        }
-      }
-    }
-  };
-
   const handleRefresh = async () => {
     const currentTime = Date.now();
     if (currentTime - lastRefreshTime < REFRESH_COOLDOWN) {
@@ -416,67 +431,59 @@ const TeamBoard: React.FC = () => {
   };
 
   const createPost = async () => {
-  // 入力検証
-  if (!validateInputs()) return;
+    if (!validateInputs()) return;
 
-  // レートリミット確認
-  const lastPostTime = await AsyncStorage.getItem('lastPostTime'); 
-  if (lastPostTime) {
-    const timeSinceLastPost = Date.now() - Number(lastPostTime);
-    if (timeSinceLastPost < 60000) { // 1分の制限
-      Alert.alert('Error', t.errors.postTooFrequent);
-      return;
-    }
-  }
-
-  try {
-    // 招待リンクのクリーニング
-    const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
-    const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
-
-    // Supabaseにポストを作成
-    const { error } = await supabase
-      .from('team_posts')
-      .insert([{
-        selected_mode: selectedMode,
-        invite_link: cleanInviteLink,
-        description: description.trim(),
-        selected_character: selectedCharacter!.id,
-        character_trophies: Number(characterTrophies),
-        mid_characters: midCharacters.map(c => c.id),
-        side_characters: sideCharacters.map(c => c.id),
-        host_info: hostInfo
-      }]);
-
-    if (error) throw error;
-
-    // 最終投稿時刻を更新
-    await AsyncStorage.setItem('lastPostTime', Date.now().toString());
-    
-    // フォームをリセット
-    resetForm();
-    setModalVisible(false);
-
-    // 広告表示の処理をtry-catchで分離
-    try {
-      if (!isAdFree && AdMobService) {  // AdMobServiceの存在確認を追加
-        const adService = AdMobService.initialize();
-        if (adService && typeof adService.showInterstitial === 'function') {
-          await adService.showInterstitial();
-        }
+    const lastPostTime = await AsyncStorage.getItem('lastPostTime'); 
+    if (lastPostTime) {
+      const timeSinceLastPost = Date.now() - Number(lastPostTime);
+      if (timeSinceLastPost < 60000) {
+        Alert.alert('Error', t.errors.postTooFrequent);
+        return;
       }
-    } catch (adError) {
-      console.error('Ad display failed:', adError);
-      // 広告エラーは無視して続行
     }
 
-    Alert.alert('Success', t.success.postCreated);
-    
-  } catch (error) {
-    console.error('Error creating post:', error);
-    Alert.alert('Error', t.errors.postCreationFailed);
-  }
-};
+    try {
+      const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
+      const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
+
+      const { error } = await supabase
+        .from('team_posts')
+        .insert([{
+          selected_mode: selectedMode,
+          invite_link: cleanInviteLink,
+          description: description.trim(),
+          selected_character: selectedCharacter!.id,
+          character_trophies: Number(characterTrophies),
+          mid_characters: midCharacters.map(c => c.id),
+          side_characters: sideCharacters.map(c => c.id),
+          host_info: hostInfo
+        }]);
+
+      if (error) throw error;
+
+      await AsyncStorage.setItem('lastPostTime', Date.now().toString());
+      
+      resetForm();
+      setModalVisible(false);
+
+      try {
+        if (!isAdFree && AdMobService) {
+          const adService = AdMobService.initialize();
+          if (adService && typeof adService.showInterstitial === 'function') {
+            await adService.showInterstitial();
+          }
+        }
+      } catch (adError) {
+        console.error('Ad display failed:', adError);
+      }
+
+      Alert.alert('Success', t.success.postCreated);
+      
+    } catch (error) {
+      console.error('Error creating post:', error);
+      Alert.alert('Error', t.errors.postCreationFailed);
+    }
+  };
 
   const resetForm = () => {
     setSelectedMode('');
