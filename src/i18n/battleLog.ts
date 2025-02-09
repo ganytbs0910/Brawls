@@ -68,7 +68,7 @@ export const ja: BattleLogTranslation = {
     },
     mode: {
       friendly: 'フレンドバトル',
-      gemGrab: 'ジェムグラブ',
+      gemGrab: 'エメラルドハント',
       brawlBall: 'ブロストライカー',
       bounty: '賞金稼ぎ',
       heist: '強奪',

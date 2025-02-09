@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -6,14 +6,18 @@ import {
   ScrollView,
   Image,
   Dimensions,
-  ActivityIndicator
+  ActivityIndicator,
+  NativeModules,
+  Platform
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { 
   PlayerInfo as PlayerInfoType,
   RankingItem
 } from '../hooks/useBrawlStarsApi';
 import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages';
-import { usePlayerInfoTranslation } from '../i18n/playerInfo';
+import { usePlayerInfoTranslation, Language } from '../i18n/playerInfo';
+import { CHARACTER_NAMES, JAPANESE_TO_ENGLISH_MAP } from '../data/characterCompatibility';
 
 const { width } = Dimensions.get('window');
 const CARD_WIDTH = (width - 32) / 3;
@@ -53,12 +57,18 @@ const getPortraitSource = (brawlerName: string) => {
   }
 };
 
+const getLocalizedCharacterName = (characterName: string, currentLanguage: Language): string => {
+  const englishKey = JAPANESE_TO_ENGLISH_MAP[characterName] || characterName.toLowerCase();
+  const characterData = CHARACTER_NAMES[englishKey as keyof typeof CHARACTER_NAMES];
+  return characterData ? characterData[currentLanguage] : characterName;
+};
+
 export const PlayerInfo: React.FC<PlayerInfoProps> = ({ 
   info, 
   rankings,
   rankingsLoading
 }) => {
-  const { t } = usePlayerInfoTranslation();
+  const { t, currentLanguage } = usePlayerInfoTranslation();
   
   const validBrawlers = info.brawlers.filter(brawler => brawler.id !== 16000088);
   const currentTrophies = validBrawlers.reduce((sum, brawler) => sum + brawler.trophies, 0);
@@ -217,6 +227,7 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
             {row.map((brawler) => {
               const globalTopTrophies = rankings[brawler.id]?.[0]?.trophies;
               const portraitSource = getPortraitSource(brawler.name);
+              const localizedName = getLocalizedCharacterName(brawler.name, currentLanguage);
               
               return (
                 <View key={brawler.id} style={styles.brawlerCard}>
@@ -228,7 +239,9 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({
                         resizeMode="contain"
                       />
                     )}
-                    <Text style={styles.brawlerName} numberOfLines={1}>{brawler.name}</Text>
+                    <Text style={styles.brawlerName} numberOfLines={1}>
+                      {localizedName}
+                    </Text>
                   </View>
                   <View style={styles.brawlerDetails}>
                     <View style={styles.statContainer}>
