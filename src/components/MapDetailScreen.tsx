@@ -12,6 +12,7 @@ import { getMapData } from '../data/mapData';
 import CharacterImage from './CharacterImage';
 import { MapData } from '../types/types';
 import { useMapDetailTranslation } from '../i18n/mapDetail';
+import { useCharacterLocalization } from '../hooks/useCharacterLocalization';
 
 const { width } = Dimensions.get('window');
 const SCREEN_PADDING = 16;
@@ -41,6 +42,7 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
   onMapImagePress
 }) => {
   const { t, currentLanguage } = useMapDetailTranslation();
+  const { getLocalizedName } = useCharacterLocalization();
   const mapData = getMapData(mapName);
 
   const groupBrawlersByPower = (brawlers: MapData['recommendedBrawlers']) => {
@@ -84,7 +86,7 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
                 style={styles.brawlerImage}
               />
               <Text style={styles.brawlerName}>
-                {brawler.name}
+                {getLocalizedName(brawler.name)}
               </Text>
               <Text style={styles.powerIndicator}>
                 {t.brawler.powerRating.replace('{power}', brawler.power.toString())}

@@ -15,6 +15,7 @@ type CharacterDetailsNavigationProp = StackNavigationProp<RootStackParamList, 'C
 type CompatibilityView = 'good' | 'bad';
 
 type CompatibilityCategory = {
+  key: string;
   title: string;
   minScore: number;
   maxScore: number;
@@ -24,7 +25,7 @@ type CompatibilityCategory = {
 
 const CharacterDetails: React.FC = () => {
   const { t } = useCharacterDetailsTranslation();
-  const { getLocalizedName } = useCharacterLocalization(); // 追加
+  const { getLocalizedName } = useCharacterLocalization();
   const route = useRoute<CharacterDetailsRouteProp>();
   const navigation = useNavigation<CharacterDetailsNavigationProp>();
   const { characterName } = route.params;
@@ -39,40 +40,6 @@ const CharacterDetails: React.FC = () => {
     () => Object.values(allCharacterData).find(char => char.name === characterName),
     [characterName]
   );
-
-  const goodCompatibilityCategories: CompatibilityCategory[] = [
-    { 
-      title: t.compatibility.categories.bestMatch,
-      minScore: 9,
-      maxScore: 10,
-      color: '#2E7D32',
-      backgroundColor: '#E8F5E9'
-    },
-    { 
-      title: t.compatibility.categories.goodMatch,
-      minScore: 7,
-      maxScore: 8.9,
-      color: '#1565C0',
-      backgroundColor: '#E3F2FD'
-    },
-  ];
-
-  const badCompatibilityCategories: CompatibilityCategory[] = [
-    { 
-      title: t.compatibility.categories.badMatch,
-      minScore: 0,
-      maxScore: 4.9,
-      color: '#C62828',
-      backgroundColor: '#FFEBEE'
-    },
-    { 
-      title: t.compatibility.categories.normalMatch,
-      minScore: 5,
-      maxScore: 6.9,
-      color: '#F57F17',
-      backgroundColor: '#FFF8E1'
-    },
-  ];
 
   const getRecommendationLabel = useCallback((level: number) => {
     switch (level) {
@@ -269,18 +236,6 @@ const CharacterDetails: React.FC = () => {
           style={styles.characterImage} 
         />
         <Text style={styles.name}>{getLocalizedName(character.name)}</Text>
-        
-        <View style={styles.infoCard}>
-          <Text style={styles.sectionTitle}>{t.basicInfo.title}</Text>
-          <View style={styles.basicInfo}>
-            <Text style={styles.infoLabel}>
-              {t.basicInfo.role}: {character.class?.name}
-            </Text>
-            <Text style={styles.infoLabel}>
-              {t.basicInfo.rarity}: {character.rarity?.name}
-            </Text>
-          </View>
-        </View>
 
         {character.starPowers && character.starPowers.length > 0 && (
           <View style={styles.infoCard}>
@@ -321,44 +276,67 @@ const CharacterDetails: React.FC = () => {
     );
   }, [character, characterName, renderPowerCard, renderGearSection, t]);
 
-  const categorizedScores = useMemo(() => {
-    if (!compatibilityData?.compatibilityScores) return {};
-
-    const categories = compatibilityView === 'good' 
-      ? goodCompatibilityCategories 
-      : badCompatibilityCategories;
-
-    return Object.entries(compatibilityData.compatibilityScores).reduce((acc, [char, score]) => {
-      const category = categories.find(
-        cat => score >= cat.minScore && score <= cat.maxScore
-      );
-      
-      if (!category) return acc;
-
-      if (!acc[category.title]) {
-        acc[category.title] = {
-          characters: [],
-          color: category.color,
-          backgroundColor: category.backgroundColor,
-        };
-      }
-
-      acc[category.title].characters.push({ name: char, score });
-
-      acc[category.title].characters.sort((a, b) => {
-        return compatibilityView === 'good' ? b.score - a.score : a.score - b.score;
-      });
-
-      return acc;
-    }, {} as Record<string, { 
-      characters: Array<{ name: string; score: number }>,
-      color: string,
-      backgroundColor: string 
-    }>);
-  }, [compatibilityData, compatibilityView, goodCompatibilityCategories, badCompatibilityCategories]);
-
   const renderCompatibilityContent = useCallback(() => {
     if (!compatibilityData) return null;
+
+    // カテゴリーの順序を固定
+    const orderedCategories = compatibilityView === 'good' 
+      ? [
+          { 
+            key: 'bestMatch',
+            title: t.compatibility.categories.bestMatch,
+            minScore: 9,
+            maxScore: 10,
+            color: '#2E7D32',
+            backgroundColor: '#E8F5E9'
+          },
+          { 
+            key: 'goodMatch',
+            title: t.compatibility.categories.goodMatch,
+            minScore: 7,
+            maxScore: 8.9,
+            color: '#1565C0',
+            backgroundColor: '#E3F2FD'
+          }
+        ]
+      : [
+          { 
+            key: 'badMatch',
+            title: t.compatibility.categories.badMatch,
+            minScore: 0,
+            maxScore: 4.9,
+            color: '#C62828',
+            backgroundColor: '#FFEBEE'
+          },
+          { 
+            key: 'normalMatch',
+            title: t.compatibility.categories.normalMatch,
+            minScore: 5,
+            maxScore: 6.9,
+            color: '#F57F17',
+            backgroundColor: '#FFF8E1'
+          }
+        ];
+
+    // 各カテゴリーに該当するキャラクターを分類
+    const categorizedCharacters = orderedCategories.map(category => {
+      const characters = Object.entries(compatibilityData.compatibilityScores || {})
+        .filter(([_, score]) => score >= category.minScore && score <= category.maxScore)
+        .map(([name, score]) => ({ name, score }))
+        .sort((a, b) => {
+  // 良い相性の場合は高い順、悪い相性の場合は低い順にソート
+  if (compatibilityView === 'good') {
+    return b.score - a.score;  // 点数が高い順
+  } else {
+    return a.score - b.score;  // 点数が低い順
+  }
+});
+
+      return {
+        ...category,
+        characters
+      };
+    });
 
     return (
       <View style={styles.compatibilityContainer}>
@@ -383,39 +361,41 @@ const CharacterDetails: React.FC = () => {
           </View>
         </View>
         
-        {Object.entries(categorizedScores).map(([category, data]) => (
-          <View key={category} style={[styles.categoryContainer, { backgroundColor: data.backgroundColor }]}>
-            <View style={styles.categoryHeader}>
-              <CharacterImage characterName={characterName} size={32} style={styles.categoryCharacterImage} />
-              <Text style={[styles.categoryTitle, { color: data.color }]}>
-                {category}
-              </Text>
-            </View>
-            <View style={styles.characterGrid}>
-              {data.characters.map((char) => (
-                <TouchableOpacity
-                  key={char.name}
-                  style={styles.characterCard}
-                  onPress={() => handleCharacterPress(char.name)}
-                  activeOpacity={0.7}
-                >
-                  <View style={styles.characterInfo}>
-                    <CharacterImage characterName={char.name} size={32} />
-                    <Text style={styles.characterName} numberOfLines={1}>
-                      {getLocalizedName(char.name)} {/* 変更 */}
+        {categorizedCharacters.map(category => 
+          category.characters.length > 0 && (
+            <View key={category.key} style={[styles.categoryContainer, { backgroundColor: category.backgroundColor }]}>
+              <View style={styles.categoryHeader}>
+                <CharacterImage characterName={characterName} size={32} style={styles.categoryCharacterImage} />
+                <Text style={[styles.categoryTitle, { color: category.color }]}>
+                  {category.title}
+                </Text>
+              </View>
+              <View style={styles.characterGrid}>
+                {category.characters.map((char) => (
+                  <TouchableOpacity
+                    key={char.name}
+                    style={styles.characterCard}
+                    onPress={() => handleCharacterPress(char.name)}
+                    activeOpacity={0.7}
+                  >
+                    <View style={styles.characterInfo}>
+                      <CharacterImage characterName={char.name} size={32} />
+                      <Text style={styles.characterName} numberOfLines={1}>
+                        {getLocalizedName(char.name)}
+                      </Text>
+                    </View>
+                    <Text style={[styles.characterScore, { color: category.color }]}>
+                      {Math.round(char.score)}/10
                     </Text>
-                  </View>
-                  <Text style={[styles.characterScore, { color: data.color }]}>
-                    {Math.round(char.score)}/10
-                  </Text>
-                </TouchableOpacity>
-              ))}
+                  </TouchableOpacity>
+                ))}
+              </View>
             </View>
-          </View>
-        ))}
+          )
+        )}
       </View>
     );
-  }, [compatibilityData, categorizedScores, handleCharacterPress, characterName, getLocalizedName]);
+  }, [compatibilityData, compatibilityView, handleCharacterPress, characterName, getLocalizedName, t]);
 
   if (!character) {
     return (
@@ -702,15 +682,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-  },
-  basicInfo: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginBottom: 8,
-  },
-  infoLabel: {
-    fontSize: 14,
-    color: '#333',
   },
   sectionTitle: {
     fontSize: 16,

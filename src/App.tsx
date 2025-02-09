@@ -21,6 +21,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { AppOpenAd } from 'react-native-google-mobile-ads';
 import { AD_CONFIG } from './config/AdConfig';
+import { useAppTranslation } from './i18n/app';
 
 import BrawlStarsCompatibility from './components/BrawlStarsApp';
 import TeamBoard from './components/TeamBoard';
@@ -42,8 +43,8 @@ const SNAP_POINTS = {
 };
 
 const APP_VERSION = Platform.select({
-  ios: "1.27",
-  android: "2.17",
+  ios: "1.28",
+  android: "2.18",
 });
 
 interface UpdateInfo {
@@ -74,26 +75,22 @@ const appOpenAd = AppOpenAd.createForAdRequest(appOpenAdUnitId, {
   requestNonPersonalizedAdsOnly: true,
 });
 
-// サーバー時間を取得する関数
 const getServerTime = async (): Promise<number> => {
   const MAX_RETRIES = 3;
-  const RETRY_DELAY = 1000; // 1秒
+  const RETRY_DELAY = 1000;
   
-  // バックアップのタイムサーバーリスト
   const TIME_SERVERS = [
     'https://worldtimeapi.org/api/timezone/Asia/Tokyo',
     'https://timeapi.io/api/Time/current/zone?timeZone=Asia/Tokyo',
     'https://www.timeapi.io/api/Time/current/zone?timeZone=Asia/Tokyo'
   ];
 
-  // ローカル時間でフォールバックする関数
   const getFallbackTime = (): number => {
     const now = new Date();
     const jstDate = new Date(now.getTime() + (9 * 60 * 60 * 1000));
     return Math.floor(jstDate.getTime() / 1000);
   };
 
-  // リトライ処理を含むフェッチ関数
   const fetchWithRetry = async (url: string, retryCount: number = 0): Promise<number> => {
     try {
       const response = await fetch(url, {
@@ -110,7 +107,6 @@ const getServerTime = async (): Promise<number> => {
 
       const data = await response.json();
       
-      // APIによって異なるレスポンス形式に対応
       if (url.includes('worldtimeapi.org')) {
         return Math.floor(new Date(data.datetime).getTime() / 1000);
       } else if (url.includes('timeapi.io')) {
@@ -120,40 +116,31 @@ const getServerTime = async (): Promise<number> => {
       throw new Error('Unknown API format');
 
     } catch (error) {
-      console.warn(`Attempt ${retryCount + 1} failed for ${url}:`, error);
-
       if (retryCount < MAX_RETRIES) {
         await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
         return fetchWithRetry(url, retryCount + 1);
       }
-
       throw error;
     }
   };
 
-  // 各タイムサーバーを順番に試す
   for (const server of TIME_SERVERS) {
     try {
       return await fetchWithRetry(server);
     } catch (error) {
-      console.warn(`Failed to fetch time from ${server}:`, error);
-      continue; // 次のサーバーを試す
+      continue;
     }
   }
 
-  // すべてのサーバーが失敗した場合はローカル時間を使用
-  console.warn('All time servers failed, using local time as fallback');
   return getFallbackTime();
 };
 
-// 最後のリセット時刻を取得する関数（直前の0時）
 const getLastResetTime = (currentTimestamp: number): number => {
   const date = new Date(currentTimestamp * 1000);
   date.setHours(0, 0, 0, 0);
   return Math.floor(date.getTime() / 1000);
 };
 
-// iPad detection utility
 const isIpad = () => {
   const dim = Dimensions.get('window');
   return (
@@ -163,7 +150,6 @@ const isIpad = () => {
   );
 };
 
-// Split View Layout Component
 const SplitViewLayout = React.memo<{ 
   primary: React.ReactNode; 
   secondary: React.ReactNode; 
@@ -198,7 +184,6 @@ const SplitViewLayout = React.memo<{
   );
 });
 
-// Modified RankingsStack component
 const RankingsStack = ({ 
   isAdFree,
   onShowDetails 
@@ -243,7 +228,6 @@ const RankingsStack = ({
   );
 };
 
-// Modified HomeStack component
 const HomeStack = ({ 
   isAdFree,
   onShowDetails 
@@ -290,7 +274,6 @@ const HomeStack = ({
   );
 };
 
-// SlideOver Component
 const SlideOver = React.memo<{ children: React.ReactNode; onClose?: () => void }>(({
   children,
   onClose,
@@ -372,51 +355,44 @@ const SlideOver = React.memo<{ children: React.ReactNode; onClose?: () => void }
   );
 });
 
-// TabBar Component
 const TabBar = React.memo<{
   activeTab: string;
   onTabPress: (tab: string, index: number) => void;
   animatedValues: { [key: string]: Animated.Value };
   slideAnimation: Animated.Value;
-}>(({ activeTab, onTabPress, animatedValues, slideAnimation }) => {
+  t: any;
+}>(({ activeTab, onTabPress, animatedValues, slideAnimation, t }) => {
   const tabs = [
     {
       key: 'home',
-      label: 'ホーム',
+      label: t.tabs.home,
       icon: require('../assets/AppIcon/home.png'),
     },
     {
       key: 'single',
-      label: '分析',
+      label: t.tabs.analysis,
       icon: require('../assets/AppIcon/compatibility.png'),
     },
     {
       key: 'team',
-      label: 'チーム募集',
+      label: t.tabs.team,
       icon: require('../assets/AppIcon/analysis.png'),
     },
     {
       key: 'prediction',
-      label: 'ピック想定',
+      label: t.tabs.prediction,
       icon: require('../assets/AppIcon/prediction.png'),
     },
     {
       key: 'rankings',
-      label: 'ランキング',
+      label: t.tabs.rankings,
       icon: require('../assets/AppIcon/ranking.png'),
     },
     {
       key: 'news',
-      label: 'ニュース',
+      label: t.tabs.news,
       icon: require('../assets/AppIcon/loudspeaker_icon.png'),
     },
-    /*
-    {
-      key: 'gacha',
-      label: 'ガチャ',
-      icon: require('../assets/AppIcon/loudspeaker_icon.png'),
-    },
-    */
   ];
 
   return (
@@ -476,8 +452,8 @@ const TabBar = React.memo<{
   );
 });
 
-// Main App Component
 const App = () => {
+  const { t } = useAppTranslation();
   const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings' | 'prediction' | 'news' | 'gacha'>('home');
   const [isAdFree, setIsAdFree] = useState(false);
   const [shouldShowAd, setShouldShowAd] = useState(true);
@@ -507,7 +483,6 @@ const App = () => {
       const platform = Platform.OS;
       const updateInfo = platform === 'ios' ? content.ios : content.android;
       
-      // セマンティックバージョニング用の比較関数
       const compareVersions = (v1: string, v2: string): boolean => {
         const parts1 = v1.split('.').map(Number);
         const parts2 = v2.split('.').map(Number);
@@ -525,14 +500,14 @@ const App = () => {
 
       if (isUpdateRequired) {
         Alert.alert(
-          'アップデートが必要です',
+          t.alerts.update.title,
           updateInfo.message,
           [
             {
-              text: 'アップデート',
+              text: t.alerts.update.button,
               onPress: () => {
                 Linking.openURL(updateInfo.storeUrl).catch(err => {
-                  console.error('ストアを開けませんでした:', err);
+                  console.error('Failed to open store:', err);
                 });
               },
             },
@@ -541,20 +516,19 @@ const App = () => {
         );
       }
     } catch (error) {
-      console.error('バージョンチェックに失敗しました:', error);
+      console.error('Failed to check version:', error);
     }
   };
 
-  // ログインボーナスを付与する関数
   const giveLoginBonus = async () => {
     const newTickets = tickets + 1;
     setTickets(newTickets);
     await AsyncStorage.setItem('tickets', newTickets.toString());
     
     Alert.alert(
-      'ログインボーナス！',
-      'デイリーガチャチケット1枚をプレゼント！',
-      [{ text: 'OK' }]
+      t.alerts.loginBonus.title,
+      t.alerts.loginBonus.message,
+      [{ text: t.alerts.loginBonus.button }]
     );
   };
 
@@ -563,34 +537,26 @@ const App = () => {
       try {
         await checkVersion();
         
-        // 広告フリーステータスの確認
         const status = await AsyncStorage.getItem('adFreeStatus');
         const isAdFreeStatus = status === 'true';
         setIsAdFree(isAdFreeStatus);
 
-        // サーバー時間を取得
         const currentTimestamp = await getServerTime();
         const lastResetTime = getLastResetTime(currentTimestamp);
         const lastBonusTimestamp = await AsyncStorage.getItem('lastBonusTimestamp');
         const savedTickets = await AsyncStorage.getItem('tickets');
         
-        // 保存されているチケット数を復元
         setTickets(savedTickets ? parseInt(savedTickets) : 0);
 
         if (!lastBonusTimestamp) {
-          // 初回ログイン
           await AsyncStorage.setItem('lastBonusTimestamp', lastResetTime.toString());
-          //await giveLoginBonus();
         } else {
           const lastBonus = parseInt(lastBonusTimestamp);
-          // 最後のボーナス受け取り時から次の0時を超えているかチェック
           if (lastBonus < lastResetTime) {
             await AsyncStorage.setItem('lastBonusTimestamp', lastResetTime.toString());
-            //await giveLoginBonus();
           }
         }
 
-        // 広告の初期化と表示
         if (!isAdFreeStatus) {
           const randomValue = Math.random();
           if (randomValue <= 1) {
@@ -612,14 +578,12 @@ const App = () => {
       }
     };
 
-    // 初期化関数の呼び出し
     initializeApp();
 
-    // クリーンアップ関数
     return () => {
       appOpenAd.removeAllListeners();
     };
-  }, []); // 空の依存配列を指定して初期化を1回だけ実行
+  }, []);
 
   const useTicket = async () => {
     if (tickets > 0) {
@@ -726,16 +690,6 @@ const App = () => {
             onShowDetails={handleShowSecondaryContent}
           />
         );
-        /*
-      case 'gacha':
-        return (
-          <Gacha 
-            isAdFree={isAdFree}
-            onShowDetails={handleShowSecondaryContent}
-            tickets={tickets}
-            useTicket={useTicket}
-          />
-        */
       default:
         return null;
     }
@@ -753,6 +707,7 @@ const App = () => {
               onTabPress={handleTabPress}
               animatedValues={animatedValues}
               slideAnimation={slideAnimation}
+              t={t}
             />
           </View>
         }
@@ -794,11 +749,23 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   tabBar: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
     flexDirection: 'row',
     borderTopWidth: 0,
     borderTopColor: '#e0e0e0',
     backgroundColor: '#fff',
-    paddingBottom: Platform.OS === 'ios' ? 20 : 0,
+    paddingBottom: Platform.OS === 'ios' ? 8 : 0,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: -2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 5,
   },
   tab: {
     flex: 1,
@@ -808,6 +775,16 @@ const styles = StyleSheet.create({
   tabContent: {
     alignItems: 'center',
   },
+  tabIcon: {
+    width: 24,
+    height: 24,
+    marginBottom: 4,
+    tintColor: '#666',
+  },
+  tabText: {
+    fontSize: 12,
+    color: '#666',
+  },
   activeIndicator: {
     position: 'absolute',
     top: 0,
@@ -815,18 +792,8 @@ const styles = StyleSheet.create({
     height: 2,
     backgroundColor: '#65BBE9',
   },
-  tabIcon: {
-    width: 24,
-    height: 24,
-    marginBottom: 4,
-    tintColor: '#666',
-  },
   activeTabIcon: {
     tintColor: '#65BBE9',
-  },
-  tabText: {
-    fontSize: 12,
-    color: '#666',
   },
   activeTabText: {
     color: '#65BBE9',

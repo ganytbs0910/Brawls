@@ -2402,7 +2402,7 @@
             "ko": "일반 공격의 최대 사거리에서의 데미지가 20% 증가합니다"
           },
           "recommendation": {
-            "level": 3,
+            "level": 2,
             "reason": {
               "ja": "火力がさらに上昇しかなりダメージは出るが、もう一つのスタパが強すぎる。",
               "en": "Damage output increases significantly but the other star power is too strong.",
@@ -2467,11 +2467,11 @@
             "ko": "즉시 탄환 1발을 재장전하고 다음 일반 공격의 데미지를 강화합니다. 강화율은 대상이 잃은 HP의 30%입니다."
           },
           "recommendation": {
-            "level": 4,
+            "level": 3,
             "reason": {
-              "ja": "もう一つのガジェが強すぎて使用率が低いが効果自体は汎用性が高く悪くはない。",
-              "en": "Low usage due to other gadget being too strong, but effect itself is versatile and not bad.",
-              "ko": "다른 가젯이 너무 강력해서 사용률이 낮지만 효과 자체는 범용성이 높고 나쁘지 않습니다."
+              "ja": "もう一つのガジェが強すぎて使用率が低いが効果自体は汎用性が高く悪くはないはず。",
+              "en": "Usage rate is low due to the other gadget being too strong, but the effect itself is highly versatile and not bad.",
+              "ko": "다른 가젯이 너무 강해서 사용률이 낮지만, 효과 자체는 매우 다재다능하고 나쁘지 않습니다."
             }
           }
         }
@@ -2796,11 +2796,11 @@
             "ko": "집중력 게이지가 차 있는 동안 보호막을 발동하여 데미지를 40% 감소시킵니다."
           },
           "recommendation": {
-            "level": 4,
+            "level": 3,
             "reason": {
-              "ja": "シールドの軽減率が非常に高いため、近距離の撃ち合いなどでたまに使える。",
-              "en": "Can be useful in close-range fights due to high shield reduction rate.",
-              "ko": "보호막의 감소율이 매우 높아서 근거리 교전 등에서 가끔 사용할 수 있습니다."
+              "ja": "シールドの軽減率が非常に高いため、近距離の撃ち合いなどでごく稀に使える。",
+              "en": "Very high damage reduction rate for the shield, so it is rarely useful in close-range shootouts.",
+              "ko": "보호막의 감소율이 매우 높아서 근거리 격전에서 거의 사용되지 않습니다."
             }
           }
         }
@@ -9097,7 +9097,7 @@
             "ko": "맹독"
           },
           "description": {
-            "ja": "味方の状態異常を癒す効果を広範囲に発動し、状態異常攻撃を4秒間無効にする。",
+            "ja": "d濁が回った敵はパワーを奪われ、その間に与えるダメージが15％低減する。",
             "en": "Activates a wide-range effect that cures allies' status effects and nullifies status effect attacks for 4 seconds.",
             "ko": "아군의 상태이상을 치유하는 효과를 광범위하게 발동하고 상태이상 공격을 4초간 무효화합니다."
           },
