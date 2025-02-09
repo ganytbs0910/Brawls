@@ -335,7 +335,7 @@ const Home: React.FC = () => {
   const getModeUpdateTime = (gameMode: keyof GameMaps): number => {
     switch (gameMode) {
       case 'battleRoyale': return 5;
-      case 'emeraldHunt': return 11;
+      case 'gemGrab': return 11;
       case 'heist': return 23;
       case 'brawlBall': return 17;
       case 'brawlBall5v5': return 17;
@@ -405,7 +405,7 @@ const Home: React.FC = () => {
 
   const currentGameData = {
     battleRoyale: getGameDataForSelectedDate("battleRoyale"),
-    emeraldHunt: getGameDataForSelectedDate("emeraldHunt"),
+    gemGrab: getGameDataForSelectedDate("gemGrab"),
     heist: getGameDataForSelectedDate("heist"),
     brawlBall: getGameDataForSelectedDate("brawlBall"),
     brawlBall5v5: getGameDataForSelectedDate("brawlBall5v5"),
@@ -422,8 +422,8 @@ const Home: React.FC = () => {
       icon: require('../../assets/GameModeIcons/showdown_icon.png')
     },
     {
-      name: t.modes.emeraldHunt,
-      currentMap: currentGameData.emeraldHunt.map,
+      name: t.modes.gemGrab,
+      currentMap: currentGameData.gemGrab.map,
       updateTime: 11,
       color: "#DA70D6",
       icon: require('../../assets/GameModeIcons/gem_grab_icon.png')

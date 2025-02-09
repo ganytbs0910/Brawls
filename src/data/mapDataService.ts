@@ -1,6 +1,7 @@
 // mapDataService.ts
 import { MapData, GameMode, GameModeData } from '../types/types';
 import mapData from './mapAPI.json';
+import characterData from './characterAPI.json';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface LocalizedText {
@@ -17,12 +18,18 @@ interface BrawlifyMap {
   recommendedBrawlers: RecommendedBrawler[];
 }
 
+interface RecommendedBrawler {
+  name: string;
+  reason: string;
+  power: number;
+}
+
 // キャッシュとローディング状態の管理
 let mapsDataCache: Record<string, MapData> = {};
 let isInitialized = false;
 
 // 画像アセットの定義
-export const mapImages: Record<string, any> = {
+export const mapImages = {
   "天国と地獄": require('../../assets/MapImages/Feast_Or_Famine.png'),
   "空飛ぶ絨毯": require('../../assets/MapImages/Flying_Fantasies.png'),
   "囚われた島": require('../../assets/MapImages/Island_Invasion.png'),
@@ -109,22 +116,33 @@ export const mapImages: Record<string, any> = {
   "四重傷": require('../../assets/MapImages/Quad_Damage.png'),
   "言い訳厳禁": require('../../assets/MapImages/No_Excuses.png'),
   "見えざる大蛇": require('../../assets/MapImages/Shrouding_Serpent.png'),
+  "橋の彼方": require('../../assets/MapImages/Bridge_Too_Far.png'),
 };
 
 // ゲームモードのアイコン定義
 export const gameModeIcons = {
-  hotZone: require('../../assets/GameModeIcons/hot_zone_icon.png'),
-  heist: require('../../assets/GameModeIcons/heist_icon.png'),
-  bounty: require('../../assets/GameModeIcons/bounty_icon.png'),
-  wipeout: require('../../assets/GameModeIcons/wipeout_icon.png'),
+  gemGrab: require('../../assets/GameModeIcons/gem_grab_icon.png'),
   brawlBall: require('../../assets/GameModeIcons/brawl_ball_icon.png'),
+  heist: require('../../assets/GameModeIcons/heist_icon.png'),
+  knockout: require('../../assets/GameModeIcons/knock_out_icon.png'),
+  bounty: require('../../assets/GameModeIcons/bounty_icon.png'),
+  hotZone: require('../../assets/GameModeIcons/hot_zone_icon.png'),
+  wipeout: require('../../assets/GameModeIcons/wipeout_icon.png'),
   brawlBall5v5: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png'),
   wipeout5v5: require('../../assets/GameModeIcons/5v5wipeout_icon.png'),
   duels: require('../../assets/GameModeIcons/duels_icon.png'),
   showdown: require('../../assets/GameModeIcons/showdown_icon.png'),
-  gemGrab: require('../../assets/GameModeIcons/gem_grab_icon.png'),
-  knockout: require('../../assets/GameModeIcons/knock_out_icon.png'),
 };
+
+// ゲームモード設定
+export const GAME_MODES = [
+  { name: "gemGrab", color: "#DA70D6", icon: gameModeIcons.gemGrab },
+  { name: "brawlBall", color: "#cccccc", icon: gameModeIcons.brawlBall },
+  { name: "heist", color: "#cccccc", icon: gameModeIcons.heist },
+  { name: "knockout", color: "#FFA500", icon: gameModeIcons.knockout },
+  { name: "bounty", color: "#DA70D6", icon: gameModeIcons.bounty },
+  { name: "hotZone", color: "#cccccc", icon: gameModeIcons.hotZone },
+];
 
 // ローテーションモードの定義
 export const rotatingModes = {
@@ -149,6 +167,46 @@ export const rotatingModes = {
   }
 };
 
+// モード別の推奨マップ定義
+const RNAKED_MAPS = {
+  gemGrab: [
+    "ごつごつ坑道",
+    "アンダーマイン",
+    "ダブルレール",
+    "ラストストップ",
+  ],
+  brawlBall: [
+    "トリプル・ドリブル",
+    "静かな広場",
+    "中央コート",
+    "ピンボールドリーム",
+  ],
+  heist: [
+    "安全地帯",
+    "ホットポテト",
+    "どんぱち谷",
+    "橋の彼方",
+  ],
+  knockout: [
+    "ベルの岩",
+    "燃える不死鳥",
+    "オープンフィールド",
+    "ゴールドアームの渓谷",
+  ],
+  bounty: [
+    "流れ星",
+    "隠れ家",
+    "ジグザグ草原",
+    "グランドカナル",
+  ],
+  hotZone: [
+    "炎のリング",
+    "ビートルバトル",
+    "オープンビジネス",
+    "パラレルワールド",
+  ],
+};
+
 // マップリストの定義
 export const maps = {
   battleRoyale: [
@@ -161,7 +219,7 @@ export const maps = {
     "生い茂る廃墟", "バキューン神殿", "極小列島", "双頭の川", "ベルの岩", 
     "密林の奥地", "燃える不死鳥", "四段階層", 
   ],
-  emeraldHunt: [
+  gemGrab: [
     "エメラルドの要塞", "ごつごつ坑道", "ラストストップ", "トロッコの狂気", 
     "オープンスペース", "廃れたアーケード", "クールロック", "アンダーマイン", 
     "クリスタルアーケード", "サボテンの罠", "ダブルレール", "森林伐採", 
@@ -238,7 +296,6 @@ export const initializeMapData = async (): Promise<Record<string, MapData>> => {
     const processedData = await processMapsData(mapData.list);
     mapsDataCache = processedData;
     isInitialized = true;
-    console.log('Initialized maps:', Object.keys(mapsDataCache));
     return processedData;
   } catch (error) {
     console.error('Error initializing map data:', error);
@@ -273,6 +330,80 @@ export const getMapData = (mapId: string): MapData | undefined => {
     console.error('Error getting map data:', error);
     return undefined;
   }
+};
+
+// モード名のローカライズ
+const getLocalizedModeName = (mode: string, language: string): string => {
+  const modeTranslations: { [key: string]: { [key: string]: string } } = {
+    gemGrab: {
+      ja: "エメラルドハント",
+      en: "Gem Grab",
+      ko: "젬 그랩"
+    },
+    brawlBall: {
+      ja: "ブロストライカー",
+      en: "Brawl Ball",
+      ko: "브롤 볼"
+    },
+    heist: {
+      ja: "強奪",
+      en: "Heist",
+      ko: "하이스트"
+    },
+    knockout: {
+      ja: "ノックアウト",
+      en: "Knockout",
+      ko: "녹아웃"
+    },
+    bounty: {
+      ja: "賞金稼ぎ",
+      en: "Bounty",
+      ko: "바운티"
+    },
+    hotZone: {
+      ja: "ホットゾーン",
+      en: "Hot Zone",
+      ko: "핫 존"
+    }
+  };
+
+  return modeTranslations[mode]?.[language] || mode;
+};
+
+// マップ名のローカライズ
+const getLocalizedMapName = (mapName: string): { [key: string]: string } => {
+  const map = mapData.list.find(m => m.name.ja === mapName);
+  if (!map) return { ja: mapName, en: mapName, ko: mapName };
+  return map.name;
+};
+
+// モード別マップデータの作成
+export const createMapsByMode = async (): Promise<MapsByMode> => {
+  const currentLanguage = await getCurrentLanguage();
+  const mapsByMode: MapsByMode = {};
+
+  for (const [mode, maps] of Object.entries(RNAKED_MAPS)) {
+    const translatedMode = getLocalizedModeName(mode, currentLanguage);
+    mapsByMode[translatedMode] = maps.map(mapName => ({
+      name: getLocalizedMapName(mapName)[currentLanguage],
+      image: mapImages[mapName]
+    }));
+  }
+
+  return mapsByMode;
+};
+
+// マップ情報の取得
+export const getMapInfo = (modeName: string, mapName: string) => {
+  const mode = GAME_MODES.find(m => getLocalizedModeName(m.name, 'ja') === modeName);
+  if (!mode) return null;
+
+  return {
+    modeName,
+    modeColor: mode.color,
+    modeIcon: mode.icon,
+    mapImage: mapImages[mapName]
+  };
 };
 
 // ゲームデータの取得（日時指定）
@@ -353,3 +484,22 @@ export const getCurrentMode = (modeType: string, date: Date): GameMode | null =>
   const rotationIndex = daysDiff % modes.length;
   return modes[rotationIndex >= 0 ? rotationIndex : (modes.length + rotationIndex)];
 };
+
+// Interface exports
+export interface MapsByMode {
+  [key: string]: Array<{
+    name: string;
+    image: any;
+  }>;
+}
+
+export interface GameModeConfig {
+  name: string;
+  color: string;
+  icon: any;
+}
+
+export interface ModeMapData {
+  name: string;
+  image: any;
+}

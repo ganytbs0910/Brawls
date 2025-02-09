@@ -24,23 +24,9 @@ import {
 import { heistMaps } from '../data/modes/heist';
 import { brawlBallMaps } from '../data/modes/brawlBall';
 import { duelMaps } from '../data/modes/duel';
-import { emeraldHuntMaps } from '../data/modes/emeraldHunt';
+import { gemGrabMaps } from '../data/modes/gemGrab';
 import { knockoutMaps } from '../data/modes/knockout';
-
-interface GameMode {
-  name: keyof typeof pickPredictionTranslations.ja.modes;
-  color: string;
-  icon: any;
-}
-
-interface GameMap {
-  name: string;
-  image: any;
-}
-
-interface MapsByMode {
-  [key: string]: GameMap[];
-}
+import { createMapsByMode, MapsByMode, GAME_MODES } from '../data/mapDataService';
 
 export type Team = 'A' | 'B';
 export type GamePhase = 1 | 2 | 3 | 4;
@@ -84,20 +70,12 @@ export interface CharacterRecommendation {
   reason: string;
 }
 
-const GAME_MODES: GameMode[] = [
-  { name: "emeraldHunt", color: "#DA70D6", icon: require('../../assets/GameModeIcons/gem_grab_icon.png') },
-  { name: "brawlBall", color: "#cccccc", icon: require('../../assets/GameModeIcons/brawl_ball_icon.png') },
-  { name: "heist", color: "#cccccc", icon: require('../../assets/GameModeIcons/heist_icon.png') },
-  { name: "knockout", color: "#FFA500", icon: require('../../assets/GameModeIcons/knock_out_icon.png') },
-  { name: "bounty", color: "#DA70D6", icon: require('../../assets/GameModeIcons/bounty_icon.png') },
-  { name: "hotZone", color: "#cccccc", icon: require('../../assets/GameModeIcons/hot_zone_icon.png') },
-];
-
 const PickPrediction: React.FC = () => {
   const { t } = usePickPredictionTranslation();
   const { getLocalizedName, currentLanguage } = useCharacterLocalization();
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [currentHistoryIndex, setCurrentHistoryIndex] = useState<number>(0);
+  const [mapsByMode, setMapsByMode] = useState<MapsByMode>({});
   const [gameState, setGameState] = useState<SelectionState>({
     teamA: [],
     teamB: [],
@@ -121,50 +99,21 @@ const PickPrediction: React.FC = () => {
   ]);
   const scaleAnim = useRef(new Animated.Value(0)).current;
 
-  const createMapsByMode = (t: PickPredictionTranslation): MapsByMode => ({
-    [t.modes.emeraldHunt]: [
-      { name: "ごつごつ坑道", image: require('../../assets/MapImages/Hard_Rock_Mine.png') },
-      { name: "アンダーマイン", image: require('../../assets/MapImages/Undermine.png') },
-      { name: "ダブルレール", image: require('../../assets/MapImages/Double_Swoosh.png') },
-      { name: "ラストストップ", image: require('../../assets/MapImages/Last_Stop.png') },
-    ],
-    [t.modes.brawlBall]: [
-      { name: "トリプル・ドリブル", image: require('../../assets/MapImages/Triple_Dribble.png') },
-      { name: "静かな広場", image: require('../../assets/MapImages/Sneaky_Fields.png') },
-      { name: "中央コート", image: require('../../assets/MapImages/Center_Stage.png') },
-      { name: "ピンボールドリーム", image: require('../../assets/MapImages/Pinball_Dreams.png') },
-    ],
-    [t.modes.heist]: [
-      { name: "安全地帯", image: require('../../assets/MapImages/Safe_Zone.png') },
-      { name: "ホットポテト", image: require('../../assets/MapImages/Hot_Potato.png') },
-      { name: "どんぱち谷", image: require('../../assets/MapImages/Kaboom_Canyon.png') },
-      { name: "橋の彼方", image: require('../../assets/MapImages/Bridge_Too_Far.png') },
-    ],
-    [t.modes.knockout]: [
-      { name: "ベルの岩", image: require('../../assets/MapImages/Belles_Rock.png') },
-      { name: "燃える不死鳥", image: require('../../assets/MapImages/Flaring_Phoenix.png') },
-      { name: "オープンフィールド", image: require('../../assets/MapImages/Out_In_The_Open.png') },
-      { name: "ゴールドアームの渓谷", image: require('../../assets/MapImages/Goldarm_Gulch.png') },
-    ],
-    [t.modes.bounty]: [
-      { name: "流れ星", image: require('../../assets/MapImages/Shooting_Star.png') },
-      { name: "隠れ家", image: require('../../assets/MapImages/Hideout.png') },
-      { name: "ジグザグ草原", image: require('../../assets/MapImages/Snake_Prairie.png') },
-      { name: "グランドカナル", image: require('../../assets/MapImages/Canal_Grande.png') },
-    ],
-    [t.modes.hotZone]: [
-      { name: "炎のリング", image: require('../../assets/MapImages/Ring_Of_Fire.png') },
-      { name: "ビートルバトル", image: require('../../assets/MapImages/Dueling_Beetles.png') },
-      { name: "オープンビジネス", image: require('../../assets/MapImages/Open_Business.png') },
-      { name: "パラレルワールド", image: require('../../assets/MapImages/Parallel_Plays.png') },
-    ],
-  });
-
-  const MAPS_BY_MODE = createMapsByMode(t);
+  useEffect(() => {
+    const loadMapData = async () => {
+      try {
+        const maps = await createMapsByMode();
+        setMapsByMode(maps);
+      } catch (error) {
+        console.error('Error loading map data:', error);
+      }
+    };
+    loadMapData();
+  }, []);
 
   const getMapsByMode = (selectedMode: string | undefined) => {
     if (!selectedMode) return [];
-    return MAPS_BY_MODE[selectedMode] || [];
+    return mapsByMode[selectedMode] || [];
   };
 
   const addToHistory = (newState: SelectionState) => {
@@ -240,8 +189,8 @@ const PickPrediction: React.FC = () => {
       case t.modes.brawlBall:
         mapData = gameState.selectedMap && brawlBallMaps[gameState.selectedMap];
         break;
-      case t.modes.emeraldHunt:
-        mapData = gameState.selectedMap && emeraldHuntMaps[gameState.selectedMap];
+      case t.modes.gemGrab:
+        mapData = gameState.selectedMap && gemGrabMaps[gameState.selectedMap];
         break;
       case t.modes.knockout:
         mapData = gameState.selectedMap && knockoutMaps[gameState.selectedMap];
@@ -282,13 +231,13 @@ const PickPrediction: React.FC = () => {
     };
   };
 
-  const handleMapInfoPress = (mode: GameMode, mapName: string) => {
+  const handleMapInfoPress = (mode: any, mapName: string) => {
     const mapDetail = {
       mapName,
       modeName: t.modes[mode.name],
       modeColor: typeof mode.color === 'function' ? mode.color() : mode.color,
       modeIcon: mode.icon,
-      mapImage: MAPS_BY_MODE[t.modes[mode.name]]?.find(m => m.name === mapName)?.image
+      mapImage: getMapsByMode(t.modes[mode.name])?.find(m => m.name === mapName)?.image
     };
 
     setGameStateWithHistory(prev => ({
@@ -463,8 +412,8 @@ const PickPrediction: React.FC = () => {
           case t.modes.brawlBall:
             mapData = gameState.selectedMap && brawlBallMaps[gameState.selectedMap];
             break;
-          case t.modes.emeraldHunt:
-            mapData = gameState.selectedMap && emeraldHuntMaps[gameState.selectedMap];
+          case t.modes.gemGrab:
+            mapData = gameState.selectedMap && gemGrabMaps[gameState.selectedMap];
             break;
           case t.modes.knockout:
             mapData = gameState.selectedMap && knockoutMaps[gameState.selectedMap];
@@ -800,7 +749,7 @@ const PickPrediction: React.FC = () => {
             {gameState.selectedMap ? (
               <View style={styles.selectedMapContainer}>
                 <Image 
-                  source={MAPS_BY_MODE[gameState.selectedMode || ""]?.find(m => m.name === gameState.selectedMap)?.image}
+                  source={getMapsByMode(gameState.selectedMode)?.find(m => m.name === gameState.selectedMap)?.image}
                   style={styles.selectedMapImage}
                 />
                 <TouchableOpacity 

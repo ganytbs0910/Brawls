@@ -21,7 +21,7 @@ export type PickPredictionTranslation = {
     needsConsideration: string;
   };
   modes: {
-    emeraldHunt: string;
+    gemGrab: string;
     brawlBall: string;
     heist: string;
     knockout: string;
@@ -56,7 +56,7 @@ export const ja: PickPredictionTranslation = {
     needsConsideration: '要検討',
   },
   modes: {
-    emeraldHunt: 'エメラルドハント',
+    gemGrab: 'エメラルドハント',
     brawlBall: 'ブロストライカー',
     heist: '強奪',
     knockout: 'ノックアウト',
@@ -91,7 +91,7 @@ export const en: PickPredictionTranslation = {
     needsConsideration: 'Needs Consideration',
   },
   modes: {
-    emeraldHunt: 'Gem Grab',
+    gemGrab: 'Gem Grab',
     brawlBall: 'Brawl Ball',
     heist: 'Heist',
     knockout: 'Knockout',
@@ -126,7 +126,7 @@ export const ko: PickPredictionTranslation = {
     needsConsideration: '재고려 필요',
   },
   modes: {
-    emeraldHunt: '젬 그랩',
+    gemGrab: '젬 그랩',
     brawlBall: '브롤 볼',
     heist: '하이스트',
     knockout: '녹아웃',

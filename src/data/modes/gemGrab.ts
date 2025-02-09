@@ -1,11 +1,11 @@
-//emeraldHunt.ts
+//gemGrab.ts
 import { MapDetail } from '../../types';
 
-export const emeraldHuntMaps: Record<string, MapDetail> = {
+export const gemGrabMaps: Record<string, MapDetail> = {
     "クリスタルアーケード": {
     id: "eh_crystal_arcade",
     name: "クリスタルアーケード",
-    mode: "emeraldHunt",
+    mode: "gemGrab",
     image: "require('../../assets/MapImages/Crystal_Arcade.png')",
     description: "実装待ち",
     recommendedBrawlers: [
@@ -30,7 +30,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   "エメラルドの要塞": {
     id: "eh_gem_fort",
     name: "エメラルドの要塞",
-    mode: "emeraldHunt",
+    mode: "gemGrab",
     image: "require('../../assets/MapImages/Gem_Fort.png')",
     description: "実装待ち",
     recommendedBrawlers: [
@@ -56,7 +56,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   "ごつごつ坑道": {
     id: "eh_hard_rock_mine",
     name: "ごつごつ坑道",
-    mode: "emeraldHunt",
+    mode: "gemGrab",
     image: "require('../../assets/MapImages/Hard_Rock_Mine.png')",
     description: "右サイドに敵が入られるとかなり戦況が厳しくなる。ミッドはやや右をケアしながら負けないようにするのが重要。",
     recommendedBrawlers: [
@@ -94,7 +94,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   "トロッコの狂気": {
     id: "eh_minecart_madness",
     name: "トロッコの狂気",
-    mode: "emeraldHunt",
+    mode: "gemGrab",
     image: "require('../../assets/MapImages/Minecart_Madness.png')",
     description: "実装待ち",
     recommendedBrawlers: [
@@ -123,7 +123,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   "オープンスペース": {
     id: "eh_open_space",
     name: "オープンスペース",
-    mode: "emeraldHunt",
+    mode: "gemGrab",
     image: "require('../../assets/MapImages/Open_Space.png')",
     description: "実装待ち",
     recommendedBrawlers: [
@@ -152,7 +152,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   "廃れたアーケード": {
     id: "eh_rustic_arcade",
     name: "廃れたアーケード",
-    mode: "emeraldHunt",
+    mode: "gemGrab",
     image: "require('../../assets/MapImages/Rustic_Arcade.png')",
     description: "実装待ち",
     recommendedBrawlers: [
@@ -185,7 +185,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   "アンダーマイン": {
     id: "eh_undermine",
     name: "アンダーマイン",
-    mode: "emeraldHunt",
+    mode: "gemGrab",
     image: "require('../../assets/MapImages/Undermine.png')",
     description: "両サイドが落ちるとほぼ負けが決まるほど苦しくなるため、ミッドが初手からサイドに行くのが主流。",
     recommendedBrawlers: [
@@ -219,7 +219,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   "ラストストップ": {
     id: "eh_last_stop",
     name: "ラストストップ",
-    mode: "emeraldHunt",
+    mode: "gemGrab",
     image: "require('../../assets/MapImages/Last_Stop.png')",
     description: "ミッドのエイムがかなり重要である。左サイドが負けると苦しいため、ミッドの介入はやや左を重視するのがオススメ。",
     recommendedBrawlers: [
@@ -252,7 +252,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   "サボテンの罠": {
     id: "eh_deathcap_trap",
     name: "サボテンの罠",
-    mode: "emeraldHunt",
+    mode: "gemGrab",
     image: "require('../../assets/MapImages/Deathcap_Trap.png')",
     description: "実装待ち",
     recommendedBrawlers: [
@@ -281,7 +281,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   "ダブルレール": {
     id: "eh_double_swoosh",
     name: "ダブルレール",
-    mode: "emeraldHunt",
+    mode: "gemGrab",
     image: "require('../../assets/MapImages/Double_Swoosh.png')",
     description: "右サイドがかなり不利なため前線を押されないようにし、左サイドは必ず死なないように立ち回る。",
     recommendedBrawlers: [
@@ -312,7 +312,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   "森林伐採": {
     id: "eh_forest_clearing",
     name: "森林伐採",
-    mode: "emeraldHunt",
+    mode: "gemGrab",
     image: "require('../../assets/MapImages/Forest_Clearing.png')",
     description: "実装待ち",
     recommendedBrawlers: [
@@ -339,7 +339,7 @@ export const emeraldHuntMaps: Record<string, MapDetail> = {
   "クールロック": {
     id: "eh_the_cooler_hard_rock",
     name: "クールロック",
-    mode: "emeraldHunt",
+    mode: "gemGrab",
     image: "require('../../assets/MapImages/The_Cooler_Hard_Rock.png')",
     description: "実装待ち",
     recommendedBrawlers: [

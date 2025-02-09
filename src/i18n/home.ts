@@ -15,7 +15,7 @@ export type HomeTranslation = {
   };
   modes: {
     battleRoyale: string;
-    emeraldHunt: string;
+    gemGrab: string;
     heist: string;
     hotZone: string;
     brawlBall: string;
@@ -44,7 +44,7 @@ export const ja: HomeTranslation = {
   },
   modes: {
     battleRoyale: 'バトルロワイヤル',
-    emeraldHunt: 'エメラルドハント',
+    gemGrab: 'エメラルドハント',
     heist: '強奪',
     hotZone: 'ホットゾーン',
     brawlBall: 'ブロストライカー',
@@ -74,7 +74,7 @@ export const en: HomeTranslation = {
   },
   modes: {
     battleRoyale: 'Battle Royale',
-    emeraldHunt: 'Gem Grab',
+    gemGrab: 'Gem Grab',
     heist: 'Heist',
     hotZone: 'Hot Zone',
     brawlBall: 'Brawl Ball',
@@ -104,7 +104,7 @@ export const ko: HomeTranslation = {
   },
   modes: {
     battleRoyale: '배틀로얄',
-    emeraldHunt: '젬 그랩',
+    gemGrab: '젬 그랩',
     heist: '하이스트',
     hotZone: '핫 존',
     brawlBall: '브롤 볼',
