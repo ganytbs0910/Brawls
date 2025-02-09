@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   Dimensions
 } from 'react-native';
-import { getMapData } from '../data/mapData';
+import { getMapData } from '../data/mapDataService';
 import CharacterImage from './CharacterImage';
 import { MapData } from '../types/types';
 import { useMapDetailTranslation } from '../i18n/mapDetail';

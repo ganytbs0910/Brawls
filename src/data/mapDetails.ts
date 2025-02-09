@@ -1,6 +1,6 @@
 //mapDetails.ts
 import { MapDetail, GameMode } from '../types/types';
-import { getMapData, getAllMaps, getMapsByGameMode } from './mapData';
+import { getMapData, getAllMaps, getMapsByGameMode } from './mapDataService';
 
 export const getMapDetails = (mapName: string): MapDetail | undefined => {
   const mapData = getMapData(mapName);

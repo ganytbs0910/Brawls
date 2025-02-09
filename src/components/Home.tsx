@@ -23,16 +23,11 @@ import { AD_CONFIG } from '../config/AdConfig';
 import { BannerAdComponent } from '../components/BannerAdComponent';
 import { useHomeTranslation } from '../i18n/home';
 import { useMapDetailTranslation } from '../i18n/mapDetail';
-import { 
-  rotatingModes, 
-  mapImages,
-  getGameDataForDateTime
-} from '../utils/gameData';
 import AdMobService from '../services/AdMobService';
 import SettingsScreen from './SettingsScreen';
 import { MapDetail, GameMode, ScreenType, ScreenState } from '../types';
 import { getMapDetails } from '../data/mapDetails';
-import { initializeMapData, getMapData } from '../data/mapData';
+import { initializeMapData, getMapData, mapImages, getGameDataForDateTime } from '../data/mapDataService';
 
 type RankingsScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 

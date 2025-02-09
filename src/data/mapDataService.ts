@@ -1,48 +1,28 @@
-//gameData.ts
-export const rotatingModes: RotatingModes = {
-  heist: {
-    modes: [
-      {
-        name: "ホットゾーン",
-        icon: require('../../assets/GameModeIcons/hot_zone_icon.png')
-      },
-      {
-        name: "強奪",
-        icon: require('../../assets/GameModeIcons/heist_icon.png')
-      },
-    ]
-  },
-  brawlBall5v5: {
-    modes: [
-      {
-        name: "5vs5殲滅",
-        icon: require('../../assets/GameModeIcons/5v5wipeout_icon.png')
-      },
-      {
-        name: "5vs5ブロストライカー",
-        icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
-      },
-    ]
-  },
-  duel: {
-    modes: [
-      {
-        name: "殲滅",
-        icon: require('../../assets/GameModeIcons/wipeout_icon.png')
-      },
-      {
-        name: "賞金稼ぎ",
-        icon: require('../../assets/GameModeIcons/bounty_icon.png')
-      },
-      {
-        name: "デュエル",
-        icon: require('../../assets/GameModeIcons/duels_icon.png')
-      },
-    ]
-  }
-};
+// mapDataService.ts
+import { MapData, GameMode, GameModeData } from '../types/types';
+import mapData from './mapAPI.json';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const mapImages: MapImages = {
+interface LocalizedText {
+  ja: string;
+  en: string;
+  ko: string;
+}
+
+interface BrawlifyMap {
+  name: LocalizedText;
+  gameMode: string;
+  image: string;
+  description: string;
+  recommendedBrawlers: RecommendedBrawler[];
+}
+
+// キャッシュとローディング状態の管理
+let mapsDataCache: Record<string, MapData> = {};
+let isInitialized = false;
+
+// 画像アセットの定義
+export const mapImages: Record<string, any> = {
   "天国と地獄": require('../../assets/MapImages/Feast_Or_Famine.png'),
   "空飛ぶ絨毯": require('../../assets/MapImages/Flying_Fantasies.png'),
   "囚われた島": require('../../assets/MapImages/Island_Invasion.png'),
@@ -131,32 +111,173 @@ export const mapImages: MapImages = {
   "見えざる大蛇": require('../../assets/MapImages/Shrouding_Serpent.png'),
 };
 
-export const maps: GameMaps = {
+// ゲームモードのアイコン定義
+export const gameModeIcons = {
+  hotZone: require('../../assets/GameModeIcons/hot_zone_icon.png'),
+  heist: require('../../assets/GameModeIcons/heist_icon.png'),
+  bounty: require('../../assets/GameModeIcons/bounty_icon.png'),
+  wipeout: require('../../assets/GameModeIcons/wipeout_icon.png'),
+  brawlBall: require('../../assets/GameModeIcons/brawl_ball_icon.png'),
+  brawlBall5v5: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png'),
+  wipeout5v5: require('../../assets/GameModeIcons/5v5wipeout_icon.png'),
+  duels: require('../../assets/GameModeIcons/duels_icon.png'),
+  showdown: require('../../assets/GameModeIcons/showdown_icon.png'),
+  gemGrab: require('../../assets/GameModeIcons/gem_grab_icon.png'),
+  knockout: require('../../assets/GameModeIcons/knock_out_icon.png'),
+};
+
+// ローテーションモードの定義
+export const rotatingModes = {
+  heist: {
+    modes: [
+      { name: "ホットゾーン", icon: gameModeIcons.hotZone },
+      { name: "強奪", icon: gameModeIcons.heist },
+    ]
+  },
+  brawlBall5v5: {
+    modes: [
+      { name: "5vs5殲滅", icon: gameModeIcons.wipeout5v5 },
+      { name: "5vs5ブロストライカー", icon: gameModeIcons.brawlBall5v5 },
+    ]
+  },
+  duel: {
+    modes: [
+      { name: "殲滅", icon: gameModeIcons.wipeout },
+      { name: "賞金稼ぎ", icon: gameModeIcons.bounty },
+      { name: "デュエル", icon: gameModeIcons.duels },
+    ]
+  }
+};
+
+// マップリストの定義
+export const maps = {
   battleRoyale: [
-    "枯れた川", "天国と地獄", "空飛ぶ絨毯", "囚われた島", "狙撃手たちの楽園","岩壁の決戦", "安全センター", "ガイコツ川", "酸性湖", "激動の洞窟", "暗い廊下", "ダブルトラブル",
+    "枯れた川", "天国と地獄", "空飛ぶ絨毯", "囚われた島", "狙撃手たちの楽園",
+    "岩壁の決戦", "安全センター", "ガイコツ川", "酸性湖", "激動の洞窟", 
+    "暗い廊下", "ダブルトラブル",
   ],
   knockout: [
-    "ゴールドアームの渓谷", "白熱対戦", "新たなる地平", "オープンフィールド", "生い茂る廃墟", "バキューン神殿", "極小列島", "双頭の川", "ベルの岩", "密林の奥地", "燃える不死鳥", "四段階層", 
+    "ゴールドアームの渓谷", "白熱対戦", "新たなる地平", "オープンフィールド", 
+    "生い茂る廃墟", "バキューン神殿", "極小列島", "双頭の川", "ベルの岩", 
+    "密林の奥地", "燃える不死鳥", "四段階層", 
   ],
   emeraldHunt: [
-    "エメラルドの要塞" ,"ごつごつ坑道", "ラストストップ", "トロッコの狂気", "オープンスペース", "廃れたアーケード", "クールロック", "アンダーマイン", "クリスタルアーケード", "サボテンの罠", "ダブルレール", "森林伐採", 
+    "エメラルドの要塞", "ごつごつ坑道", "ラストストップ", "トロッコの狂気", 
+    "オープンスペース", "廃れたアーケード", "クールロック", "アンダーマイン", 
+    "クリスタルアーケード", "サボテンの罠", "ダブルレール", "森林伐採", 
   ],
   heist: [
-    "オープンビジネス", "安全地帯", "パラレルワールド", "安全地帯・改","炎のリング", "大いなる湖", "ウォータースポーツ", "GG 2.0", "ビートルバトル", "ホットポテト", "喧騒居住地", "どんぱち谷", 
+    "オープンビジネス", "安全地帯", "パラレルワールド", "安全地帯・改",
+    "炎のリング", "大いなる湖", "ウォータースポーツ", "GG 2.0", 
+    "ビートルバトル", "ホットポテト", "喧騒居住地", "どんぱち谷", 
   ],
   brawlBall5v5: [
-    "ツルツルロード", "大波", "ガクブル公園", "クールシェイプ", "フロスティトラック", "サスペンダーズ", "合流地点", "凍てつく波紋", 
+    "ツルツルロード", "大波", "ガクブル公園", "クールシェイプ", 
+    "フロスティトラック", "サスペンダーズ", "合流地点", "凍てつく波紋", 
   ],
   brawlBall: [
-    "狭き門", "セカンドチャンス", "静かな広場", "サニーサッカー", "スーパービーチ", "トリッキー", "トリプル・ドリブル", "鉄壁の守り", "ビーチボール", "中央コート", "ペナルティキック", "ピンボールドリーム", 
+    "狭き門", "セカンドチャンス", "静かな広場", "サニーサッカー", 
+    "スーパービーチ", "トリッキー", "トリプル・ドリブル", "鉄壁の守り", 
+    "ビーチボール", "中央コート", "ペナルティキック", "ピンボールドリーム", 
   ],
   duel: [
-    "レイヤーケーキ", "ミルフィーユ", "ガールズファイト", "四重傷", "言い訳厳禁", "見えざる大蛇", "暴徒のオアシス", "流れ星", "常勝街道", "スパイスプロダクション","ジグザグ草原", "禅の庭園", "大いなる入口", "グランドカナル", "猿の迷路", "果てしなき不運", "隠れ家", "不屈の精神", 
+    "レイヤーケーキ", "ミルフィーユ", "ガールズファイト", "四重傷", 
+    "言い訳厳禁", "見えざる大蛇", "暴徒のオアシス", "流れ星", "常勝街道",
+    "スパイスプロダクション", "ジグザグ草原", "禅の庭園", "大いなる入口", 
+    "グランドカナル", "猿の迷路", "果てしなき不運", "隠れ家", "不屈の精神", 
   ]
 };
 
+// 言語設定の取得
+const getCurrentLanguage = async (): Promise<'en' | 'ja' | 'ko'> => {
+  try {
+    const savedLanguage = await AsyncStorage.getItem('selectedLanguage');
+    return (savedLanguage as 'en' | 'ja' | 'ko') || 'en';
+  } catch (error) {
+    console.error('Error getting language:', error);
+    return 'en';
+  }
+};
+
+// マップデータの処理
+const processMapsData = async (maps: BrawlifyMap[]): Promise<Record<string, MapData>> => {
+  const processedData: Record<string, MapData> = {};
+  const currentLang = await getCurrentLanguage();
+
+  for (const map of maps) {
+    const mapName = map.name.ja;
+    
+    if (!mapName) {
+      console.warn('Missing map name for map:', map);
+      continue;
+    }
+    
+    processedData[mapName] = {
+      name: mapName,
+      nameEn: map.name.en,
+      nameKo: map.name.ko,
+      gameMode: map.gameMode,
+      image: mapImages[mapName] || null,
+      description: map.description,
+      recommendedBrawlers: map.recommendedBrawlers.map(brawler => ({
+        name: brawler.name,
+        reason: brawler.reason || '',
+        power: brawler.power
+      }))
+    };
+  }
+
+  return processedData;
+};
+
+// マップデータの初期化
+export const initializeMapData = async (): Promise<Record<string, MapData>> => {
+  if (isInitialized) return mapsDataCache;
+  
+  try {
+    const processedData = await processMapsData(mapData.list);
+    mapsDataCache = processedData;
+    isInitialized = true;
+    console.log('Initialized maps:', Object.keys(mapsDataCache));
+    return processedData;
+  } catch (error) {
+    console.error('Error initializing map data:', error);
+    throw error;
+  }
+};
+
+// 言語変更時のデータ更新
+export const refreshMapDataWithNewLanguage = async (): Promise<void> => {
+  try {
+    mapsDataCache = await processMapsData(mapData.list);
+  } catch (error) {
+    console.error('Error refreshing map data:', error);
+  }
+};
+
+// マップデータの取得
+export const getMapData = (mapId: string): MapData | undefined => {
+  if (!isInitialized) {
+    console.warn('Map data not initialized');
+    return undefined;
+  }
+
+  try {
+    const map = mapsDataCache[mapId];
+    if (map) return map;
+
+    return Object.values(mapsDataCache).find(
+      m => m.name === mapId || m.nameEn === mapId || m.nameKo === mapId
+    );
+  } catch (error) {
+    console.error('Error getting map data:', error);
+    return undefined;
+  }
+};
+
+// ゲームデータの取得（日時指定）
 export const getGameDataForDateTime = (
-  gameMode: keyof GameMaps, 
+  gameMode: keyof typeof maps,
   date: Date,
   updateHour: number,
   hoursOffset: number = 0
@@ -199,9 +320,23 @@ export const getGameDataForDateTime = (
   return { map, mode };
 };
 
-// 既存の関数は互換性のために残しておく
+// 補助関数群
+export const getAllMaps = (): MapData[] => Object.values(mapsDataCache);
+
+export const getMapsByGameMode = (gameMode: string): MapData[] => 
+  Object.values(mapsDataCache).filter(map => map.gameMode === gameMode);
+
+export const getMapsByDifficulty = (difficulty: string): MapData[] => 
+  Object.values(mapsDataCache).filter(map => difficulty === 'normal');
+
+export const getRecommendedMapsForBrawler = (brawlerName: string): MapData[] => 
+  Object.values(mapsDataCache).filter(map => 
+    map.recommendedBrawlers.some(b => b.name === brawlerName && b.power >= 4)
+  );
+
+// 既存の関数は互換性のために残す
 export const getMapForDateTime = (
-  gameMode: keyof GameMaps, 
+  gameMode: keyof typeof maps, 
   date: Date,
   updateHour: number,
   hoursOffset: number = 0
