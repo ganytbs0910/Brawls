@@ -11,19 +11,11 @@
       "image": "require('../../assets/BrawlerIcons/ollie_pin.png')",
       "class": {
         "id": 2,
-        "name": {
-          "ja": "タンク",
-          "en": "Tank",
-          "ko": "탱커"
-        }
+        "name": "Tank"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mystic",
-          "ko": "미스틱"
-        },
+        "name": "Mystic",
         "color": "#fe5e72"
       },
       "description": {
@@ -135,19 +127,11 @@
       "image": "require('../../assets/BrawlerIcons/meeple_pin.png')",
       "class": {
         "id": 5,
-        "name": {
-          "ja": "コントローラー",
-          "en": "Controller",
-          "ko": "컨트롤러"
-        }
+        "name": "Controller"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -260,19 +244,11 @@
       "image": "require('../../assets/BrawlerIcons/juju_pin.png')",
       "class": {
         "id": 4,
-        "name": {
-          "ja": "グレネーディア",
-          "en": "Grenadier",
-          "ko": "유탄병"
-        }
+        "name": "Grenadier"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mystic",
-          "ko": "미스틱"
-        },
+        "name": "Mystic",
         "color": "#fe5e72"
       },
       "description": {
@@ -385,19 +361,11 @@
       "image": "require('../../assets/BrawlerIcons/shade_pin.png')",
       "class": {
         "id": 6,
-        "name": {
-          "ja": "アサシン",
-          "en": "Assassin",
-          "ko": "암살자"
-        }
+        "name": "Assassin"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -508,19 +476,11 @@
       "image": "require('../../assets/BrawlerIcons/kenji_pin.png')",
       "class": {
         "id": 6,
-        "name": {
-          "ja": "アサシン",
-          "en": "Assassin",
-          "ko": "암살자"
-        }
+        "name": "Assassin"
       },
       "rarity": {
         "id": 6,
-        "name": {
-          "ja": "レジェンダリー",
-          "en": "Legendary",
-          "ko": "레전더리"
-        },
+        "name": "Legendary",
         "color": "#fff11e"
       },
       "description": {
@@ -632,19 +592,11 @@
       "image": "require('../../assets/BrawlerIcons/moe_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mystic",
-          "ko": "미스틱"
-        },
+        "name": "Mystic",
         "color": "#fe5e72"
       },
       "description": {
@@ -756,19 +708,11 @@
       "image": "require('../../assets/BrawlerIcons/clancy_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mystic",
-          "ko": "미스틱"
-        },
+        "name": "Mystic",
         "color": "#fe5e72"
       },
       "description": {
@@ -880,19 +824,11 @@
       "image": "require('../../assets/BrawlerIcons/berry_pin.png')",
       "class": {
         "id": 7,
-        "name": {
-          "ja": "サポート",
-          "en": "Support",
-          "ko": "서포터"
-        }
+        "name": "Support"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -1003,19 +939,11 @@
       "image": "require('../../assets/BrawlerIcons/lily_pin.png')",
       "class": {
         "id": 6,
-        "name": {
-          "ja": "アサシン",
-          "en": "Assassin",
-          "ko": "암살자"
-        }
+        "name": "Assassin"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mystic",
-          "ko": "미스틱"
-        },
+        "name": "Mystic",
         "color": "#fe5e72"
       },
       "description": {
@@ -1126,19 +1054,11 @@
       "image": "require('../../assets/BrawlerIcons/draco_pin.png')",
       "class": {
         "id": 2,
-        "name": {
-          "ja": "タンク",
-          "en": "Tank",
-          "ko": "탱커"
-        }
+        "name": "Tank"
       },
       "rarity": {
         "id": 6,
-        "name": {
-          "ja": "レジェンダリー",
-          "en": "Legendary",
-          "ko": "레전더리"
-        },
+        "name": "Legendary",
         "color": "#fff11e"
       },
       "description": {
@@ -1250,19 +1170,11 @@
       "image": "require('../../assets/BrawlerIcons/angelo_pin.png')",
       "class": {
         "id": 3,
-        "name": {
-          "ja": "スナイパー",
-          "en": "Sniper",
-          "ko": "스나이퍼"
-        }
+        "name": "Sniper"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -1374,19 +1286,11 @@
       "image": "require('../../assets/BrawlerIcons/melodie_pin.png')",
       "class": {
         "id": 6,
-        "name": {
-          "ja": "アサシン",
-          "en": "Assassin",
-          "ko": "암살자"
-        }
+        "name": "Assassin"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mystic",
-          "ko": "미스틱"
-        },
+        "name": "Mystic",
         "color": "#fe5e72"
       },
       "description": {
@@ -1499,19 +1403,11 @@
       "image": "require('../../assets/BrawlerIcons/larryandlawrie_pin.png')",
       "class": {
         "id": 4,
-        "name": {
-          "ja": "グレネーディア",
-          "en": "Grenadier",
-          "ko": "유탄병"
-        }
+        "name": "Grenadier"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -1623,19 +1519,11 @@
       "image": "require('../../assets/BrawlerIcons/kit_pin.png')",
       "class": {
         "id": 7,
-        "name": {
-          "ja": "サポート",
-          "en": "Support",
-          "ko": "서포터"
-        }
+        "name": "Support"
       },
       "rarity": {
         "id": 6,
-        "name": {
-          "ja": "レジェンダリー",
-          "en": "Legendary",
-          "ko": "레전더리"
-        },
+        "name": "Legendary",
         "color": "#fff11e"
       },
       "description": {
@@ -1747,19 +1635,11 @@
       "image": "require('../../assets/BrawlerIcons/mico_pin.png')",
       "class": {
         "id": 6,
-        "name": {
-          "ja": "アサシン",
-          "en": "Assassin",
-          "ko": "암살자"
-        }
+        "name": "Assassin"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mystic",
-          "ko": "미스틱"
-        },
+        "name": "Mystic",
         "color": "#fe5e72"
       },
       "description": {
@@ -1871,19 +1751,11 @@
       "image": "require('../../assets/BrawlerIcons/charlie_pin.png')",
       "class": {
         "id": 5,
-        "name": {
-          "ja": "コントローラー",
-          "en": "Controller",
-          "ko": "컨트롤러"
-        }
+        "name": "Controller"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mystic",
-          "ko": "미스틱"
-        },
+        "name": "Mystic",
         "color": "#fe5e72"
       },
       "description": {
@@ -1995,19 +1867,11 @@
       "image": "require('../../assets/BrawlerIcons/chuck_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mystic",
-          "ko": "미스틱"
-        },
+        "name": "Mystic",
         "color": "#fe5e72"
       },
       "description": {
@@ -2119,19 +1983,11 @@
       "image": "require('../../assets/BrawlerIcons/pearl_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -2244,19 +2100,11 @@
       "image": "require('../../assets/BrawlerIcons/doug_pin.png')",
       "class": {
         "id": 7,
-        "name": {
-          "ja": "サポート",
-          "en": "Support",
-          "ko": "서포터"
-        }
+        "name": "Support"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mystic",
-          "ko": "미스틱"
-        },
+        "name": "Mystic",
         "color": "#fe5e72"
       },
       "description": {
@@ -2368,19 +2216,11 @@
       "image": "require('../../assets/BrawlerIcons/cordelius_pin.png')",
       "class": {
         "id": 6,
-        "name": {
-          "ja": "アサシン",
-          "en": "Assassin",
-          "ko": "암살자"
-        }
+        "name": "Assassin"
       },
       "rarity": {
         "id": 6,
-        "name": {
-          "ja": "レジェンダリー",
-          "en": "Legendary",
-          "ko": "레전더리"
-        },
+        "name": "Legendary",
         "color": "#fff11e"
       },
       "description": {
@@ -2493,19 +2333,11 @@
       "image": "require('../../assets/BrawlerIcons/hank_pin.png')",
       "class": {
         "id": 2,
-        "name": {
-          "ja": "タンク",
-          "en": "Tank",
-          "ko": "탱커"
-        }
+        "name": "Tank"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -2617,19 +2449,11 @@
       "image": "require('../../assets/BrawlerIcons/maisie_pin.png')",
       "class": {
         "id": 3,
-        "name": {
-          "ja": "スナイパー",
-          "en": "Sniper",
-          "ko": "스나이퍼"
-        }
+        "name": "Sniper"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -2742,19 +2566,11 @@
       "image": "require('../../assets/BrawlerIcons/willow_pin.png')",
       "class": {
         "id": 5,
-        "name": {
-          "ja": "コントローラー",
-          "en": "Controller",
-          "ko": "컨트롤러"
-        }
+        "name": "Controller"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mystic",
-          "ko": "미스틱"
-        },
+        "name": "Mystic",
         "color": "#fe5e72"
       },
       "description": {
@@ -2866,19 +2682,11 @@
       "image": "require('../../assets/BrawlerIcons/r-t_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mystic",
-          "ko": "미스틱"
-        },
+        "name": "Mystic",
         "color": "#fe5e72"
       },
       "description": {
@@ -2990,19 +2798,11 @@
       "image": "require('../../assets/BrawlerIcons/mandy_pin.png')",
       "class": {
         "id": 3,
-        "name": {
-          "ja": "スナイパー",
-          "en": "Sniper",
-          "ko": "스나이퍼"
-        }
+        "name": "Sniper"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -3114,19 +2914,11 @@
       "image": "require('../../assets/BrawlerIcons/gray_pin.png')",
       "class": {
         "id": 7,
-        "name": {
-          "ja": "サポート",
-          "en": "Support",
-          "ko": "서포터"
-        }
+        "name": "Support"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mystic",
-          "ko": "미스틱"
-        },
+        "name": "Mystic",
         "color": "#fe5e72"
       },
       "description": {
@@ -3238,19 +3030,11 @@
       "image": "require('../../assets/BrawlerIcons/chester_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 6,
-        "name": {
-          "ja": "レジェンダリー",
-          "en": "Legendary",
-          "ko": "레전더리"
-        },
+        "name": "Legendary",
         "color": "#fff11e"
       },
       "description": {
@@ -3362,19 +3146,11 @@
       "image": "require('../../assets/BrawlerIcons/buster_pin.png')",
       "class": {
         "id": 2,
-        "name": {
-          "ja": "タンク",
-          "en": "Tank",
-          "ko": "탱커"
-        }
+        "name": "Tank"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mythic",
-          "ko": "신화급"
-        },
+        "name": "Mythic",
         "color": "#fe5e72"
       },
       "description": {
@@ -3485,19 +3261,11 @@
       "image": "require('../../assets/BrawlerIcons/gus_pin.png')",
       "class": {
         "id": 7,
-        "name": {
-          "ja": "サポート",
-          "en": "Support",
-          "ko": "서포트"
-        }
+        "name": "Support"
       },
       "rarity": {
         "id": 3,
-        "name": {
-          "ja": "スーパーレア",
-          "en": "Super Rare",
-          "ko": "슈퍼 레어"
-        },
+        "name": "Super Rare",
         "color": "#5ab3ff"
       },
       "description": {
@@ -3609,19 +3377,12 @@
       "image": "require('../../assets/BrawlerIcons/sam_pin.png')",
       "class": {
         "id": 6,
-        "name": {
-          "ja": "アサシン",
-          "en": "Assassin",
-          "ko": "암살자"
-        }
+        "name": "Assassin"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        }
+        "name": "Epic",
+        "color": "#ff5e5e"
       },
       "description": {
         "ja": "工場労働者から指名手配されているゴールドアームギャングのメンバーとなったサムは、ベルが最新の強盗でやり過ぎないよう常に見守っています！",
@@ -3731,19 +3492,11 @@
       "image": "require('../../assets/BrawlerIcons/otis_pin.png')",
       "class": {
         "id": 5,
-        "name": {
-          "ja": "コントローラー",
-          "en": "Controller",
-          "ko": "컨트롤러"
-        }
+        "name": "Controller"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mythic",
-          "ko": "미틱"
-        },
+        "name": "Mythic",
         "color": "#fe5e72"
       },
       "description": {
@@ -3855,19 +3608,12 @@
       "image": "require('../../assets/BrawlerIcons/bonnie_pin.png')",
       "class": {
         "id": 3,
-        "name": {
-          "ja": "スナイパー",
-          "en": "Sniper",
-          "ko": "스나이퍼"
-        }
+        "name": "Sniper"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        }
+        "name": "Epic",
+        "color": "#ff5e5e"
       },
       "description": {
         "ja": "ボニーは制御不能で完全に破壊的なエネルギーの塊です。彼女の夢は大砲から発射されて月まで行くことです！",
@@ -3978,19 +3724,11 @@
       "image": "require('../../assets/BrawlerIcons/janet_pin.png')",
       "class": {
         "id": 3,
-        "name": {
-          "ja": "スナイパー",
-          "en": "Sniper",
-          "ko": "스나이퍼"
-        }
+        "name": "Sniper"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mystic",
-          "ko": "미스틱"
-        }
+        "name": "Mystic",
       },
       "description": {
         "ja": "ジャネットは頂点に到達するためなら何でもします！おまけに、彼女のパフォーマンススキルは、妹のボニーがトラブルに巻き込まれた時の救助に役立ちます。",
@@ -4101,19 +3839,12 @@
       "image": "require('../../assets/BrawlerIcons/eve_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mystic",
-          "ko": "미스틱"
-        }
+        "name": "Mystic",
+        "color": "#fe5e72"
       },
       "description": {
         "ja": "イヴの人生の目的は大切な赤ちゃんたちを育て、守ることです！良い住処を見つけるためなら何でもします...できればラフスの毛皮の中に。",
@@ -4225,19 +3956,11 @@
       "image": "require('../../assets/BrawlerIcons/fang_pin.png')",
       "class": {
         "id": 6,
-        "name": {
-          "ja": "アサシン",
-          "en": "Assassin",
-          "ko": "어쌔신"
-        }
+        "name": "Assassin"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mystic",
-          "ko": "미스틱"
-        },
+        "name": "Mystic",
         "color": "#fe5e72"
       },
       "description": {
@@ -4349,19 +4072,11 @@
       "image": "require('../../assets/BrawlerIcons/lola_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -4474,19 +4189,11 @@
       "image": "require('../../assets/BrawlerIcons/meg_pin.png')",
       "class": {
         "id": 2,
-        "name": {
-          "ja": "タンク",
-          "en": "Tank",
-          "ko": "탱크"
-        }
+        "name": "Tank"
       },
       "rarity": {
         "id": 6,
-        "name": {
-          "ja": "レジェンダリー",
-          "en": "Legendary",
-          "ko": "레전더리"
-        },
+        "name": "Legendary",
         "color": "#fff11e"
       },
       "description": {
@@ -4598,19 +4305,11 @@
       "image": "require('../../assets/BrawlerIcons/ash_pin.png')",
       "class": {
         "id": 2,
-        "name": {
-          "ja": "タンク",
-          "en": "Tank",
-          "ko": "탱크"
-        }
+        "name": "Tank"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -4721,19 +4420,11 @@
       "image": "require('../../assets/BrawlerIcons/griff_pin.png')",
       "class": {
         "id": 5,
-        "name": {
-          "ja": "コントローラー",
-          "en": "Controller",
-          "ko": "컨트롤러"
-        }
+        "name": "Controller"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -4846,19 +4537,11 @@
       "image": "require('../../assets/BrawlerIcons/buzz_pin.png')",
       "class": {
         "id": 6,
-        "name": {
-          "ja": "アサシン",
-          "en": "Assassin",
-          "ko": "어쌔신"
-        }
+        "name": "Assassin"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mystic",
-          "ko": "미스틱"
-        },
+        "name": "Mystic",
         "color": "#fe5e72"
       },
       "description": {
@@ -4969,19 +4652,11 @@
       "image": "require('../../assets/BrawlerIcons/grom_pin.png')",
       "class": {
         "id": 4,
-        "name": {
-          "ja": "グレネーディア",
-          "en": "Grenadier",
-          "ko": "유탄병"
-        }
+        "name": "Grenadier"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -5093,19 +4768,11 @@
       "image": "require('../../assets/BrawlerIcons/squeak_pin.png')",
       "class": {
         "id": 5,
-        "name": {
-          "ja": "コントローラー",
-          "en": "Controller",
-          "ko": "컨트롤러"
-        }
+        "name": "Controller"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mythic",
-          "ko": "미시크"
-        },
+        "name": "Mythic",
         "color": "#fe5e72"
       },
       "description": {
@@ -5216,19 +4883,11 @@
       "image": "require('../../assets/BrawlerIcons/belle_pin.png')",
       "class": {
         "id": 3,
-        "name": {
-          "ja": "スナイパー",
-          "en": "Sniper",
-          "ko": "스나이퍼"
-        }
+        "name": "Sniper"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -5342,19 +5001,11 @@
       "image": "require('../../assets/BrawlerIcons/stu_pin.png')",
       "class": {
         "id": 6,
-        "name": {
-          "ja": "アサシン",
-          "en": "Assassin",
-          "ko": "암살자"
-        }
+        "name": "Assassin"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -5466,19 +5117,11 @@
       "image": "require('../../assets/BrawlerIcons/ruffs_pin.png')",
       "class": {
         "id": 7,
-        "name": {
-          "ja": "サポート",
-          "en": "Support",
-          "ko": "서포터"
-        }
+        "name": "Support"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mythic",
-          "ko": "미식"
-        },
+        "name": "Mythic",
         "color": "#fe5e72"
       },
       "description": {
@@ -5589,19 +5232,11 @@
       "image": "require('../../assets/BrawlerIcons/edgar_pin.png')",
       "class": {
         "id": 6,
-        "name": {
-          "ja": "アサシン",
-          "en": "Assassin",
-          "ko": "암살자"
-        }
+        "name": "Assassin"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -5713,19 +5348,11 @@
       "image": "require('../../assets/BrawlerIcons/byron_pin.png')",
       "class": {
         "id": 7,
-        "name": {
-          "ja": "サポート",
-          "en": "Support",
-          "ko": "서포터"
-        }
+        "name": "Support"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mythic",
-          "ko": "미식"
-        },
+        "name": "Mythic",
         "color": "#fe5e72"
       },
       "description": {
@@ -5837,19 +5464,11 @@
       "image": "require('../../assets/BrawlerIcons/lou_pin.png')",
       "class": {
         "id": 5,
-        "name": {
-          "ja": "コントローラー",
-          "en": "Controller",
-          "ko": "컨트롤러"
-        }
+        "name": "Controller"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mythic",
-          "ko": "미식"
-        },
+        "name": "Mythic",
         "color": "#fe5e72"
       },
       "description": {
@@ -5961,19 +5580,11 @@
       "image": "require('../../assets/BrawlerIcons/amber_pin.png')",
       "class": {
         "id": 5,
-        "name": {
-          "ja": "コントローラー",
-          "en": "Controller",
-          "ko": "컨트롤러"
-        }
+        "name": "Controller"
       },
       "rarity": {
         "id": 6,
-        "name": {
-          "ja": "レジェンダリー",
-          "en": "Legendary",
-          "ko": "레전더리"
-        },
+        "name": "Legendary",
         "color": "#fff11e"
       },
       "description": {
@@ -6086,19 +5697,11 @@
       "image": "require('../../assets/BrawlerIcons/colette_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -6210,19 +5813,11 @@
       "image": "require('../../assets/BrawlerIcons/surge_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 6,
-        "name": {
-          "ja": "レジェンダリー",
-          "en": "Legendary",
-          "ko": "레전더리"
-        },
+        "name": "Legendary",
         "color": "#fff11e"
       },
       "description": {
@@ -6334,19 +5929,11 @@
       "image": "require('../../assets/BrawlerIcons/sprout_pin.png')",
       "class": {
         "id": 4,
-        "name": {
-          "ja": "グレネーディア",
-          "en": "Thrower",
-          "ko": "투척가"
-        }
+        "name": "Thrower"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mythic",
-          "ko": "미식"
-        },
+        "name": "Mythic",
         "color": "#fe5e72"
       },
       "description": {
@@ -6459,19 +6046,11 @@
       "image": "require('../../assets/BrawlerIcons/nani_pin.png')",
       "class": {
         "id": 3,
-        "name": {
-          "ja": "スナイパー",
-          "en": "Sniper",
-          "ko": "스나이퍼"
-        }
+        "name": "Sniper"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -6583,19 +6162,11 @@
       "image": "require('../../assets/BrawlerIcons/gale_pin.png')",
       "class": {
         "id": 5,
-        "name": {
-          "ja": "コントローラー",
-          "en": "Controller",
-          "ko": "컨트롤러"
-        }
+        "name": "Controller"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -6707,19 +6278,11 @@
       "image": "require('../../assets/BrawlerIcons/jacky_pin.png')",
       "class": {
         "id": 2,
-        "name": {
-          "ja": "タンク",
-          "en": "Tank",
-          "ko": "탱크"
-        }
+        "name": "Tank"
       },
       "rarity": {
         "id": 3,
-        "name": {
-          "ja": "スーパーレア",
-          "en": "Super Rare",
-          "ko": "슈퍼레어"
-        },
+        "name": "Super Rare",
         "color": "#5ab3ff"
       },
       "description": {
@@ -6831,19 +6394,11 @@
       "image": "require('../../assets/BrawlerIcons/max_pin.png')",
       "class": {
         "id": 7,
-        "name": {
-          "ja": "サポート",
-          "en": "Support",
-          "ko": "서포터"
-        }
+        "name": "Support"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mythic",
-          "ko": "미식"
-        },
+        "name": "Mythic",
         "color": "#fe5e72"
       },
       "description": {
@@ -6956,19 +6511,11 @@
       "image": "require('../../assets/BrawlerIcons/mrp_pin.png')",
       "class": {
         "id": 5,
-        "name": {
-          "ja": "コントローラー",
-          "en": "Controller",
-          "ko": "컨트롤러"
-        }
+        "name": "Controller"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mythic",
-          "ko": "미식"
-        },
+        "name": "Mythic",
         "color": "#fe5e72"
       },
       "description": {
@@ -7081,19 +6628,11 @@
       "image": "require('../../assets/BrawlerIcons/emz_pin.png')",
       "class": {
         "id": 5,
-        "name": {
-          "ja": "コントローラー",
-          "en": "Controller",
-          "ko": "컨트롤러"
-        }
+        "name": "Controller"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -7205,19 +6744,11 @@
       "image": "require('../../assets/BrawlerIcons/bea_pin.png')",
       "class": {
         "id": 3,
-        "name": {
-          "ja": "スナイパー",
-          "en": "Sniper",
-          "ko": "스나이퍼"
-        }
+        "name": "Sniper"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -7330,19 +6861,11 @@
       "image": "require('../../assets/BrawlerIcons/sandy_pin.png')",
       "class": {
         "id": 5,
-        "name": {
-          "ja": "コントローラー",
-          "en": "Controller",
-          "ko": "컨트롤러"
-        }
+        "name": "Controller"
       },
       "rarity": {
         "id": 6,
-        "name": {
-          "ja": "レジェンダリー",
-          "en": "Legendary",
-          "ko": "레전더리"
-        },
+        "name": "Legendary",
         "color": "#fff11e"
       },
       "description": {
@@ -7454,19 +6977,11 @@
       "image": "require('../../assets/BrawlerIcons/8bit_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 3,
-        "name": {
-          "ja": "スーパーレア",
-          "en": "Super Rare",
-          "ko": "슈퍼레어"
-        },
+        "name": "Super Rare",
         "color": "#5ab3ff"
       },
       "description": {
@@ -7579,19 +7094,11 @@
       "image": "require('../../assets/BrawlerIcons/bibi_pin.png')",
       "class": {
         "id": 2,
-        "name": {
-          "ja": "タンク",
-          "en": "Tank",
-          "ko": "탱크"
-        }
+        "name": "Tank"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -7702,19 +7209,11 @@
       "image": "require('../../assets/BrawlerIcons/carl_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 3,
-        "name": {
-          "ja": "スーパーレア",
-          "en": "Super Rare",
-          "ko": "슈퍼레어"
-        },
+        "name": "Super Rare",
         "color": "#5ab3ff"
       },
       "description": {
@@ -7826,19 +7325,11 @@
       "image": "require('../../assets/BrawlerIcons/rosa_pin.png')",
       "class": {
         "id": 2,
-        "name": {
-          "ja": "タンク",
-          "en": "Tank",
-          "ko": "탱크"
-        }
+        "name": "Tank"
       },
       "rarity": {
         "id": 2,
-        "name": {
-          "ja": "レア",
-          "en": "Rare",
-          "ko": "레어"
-        },
+        "name": "Rare",
         "color": "#68fd58"
       },
       "description": {
@@ -7949,19 +7440,11 @@
       "image": "require('../../assets/BrawlerIcons/leon_pin.png')",
       "class": {
         "id": 6,
-        "name": {
-          "ja": "アサシン",
-          "en": "Assassin",
-          "ko": "어쌔신"
-        }
+        "name": "Assassin"
       },
       "rarity": {
         "id": 6,
-        "name": {
-          "ja": "レジェンダリー",
-          "en": "Legendary",
-          "ko": "레전더리"
-        },
+        "name": "Legendary",
         "color": "#fff11e"
       },
       "description": {
@@ -8073,19 +7556,11 @@
       "image": "require('../../assets/BrawlerIcons/tick_pin.png')",
       "class": {
         "id": 4,
-        "name": {
-          "ja": "グレネーディア",
-          "en": "Grenadier",
-          "ko": "그레네이더"
-        }
+        "name": "Grenadier"
       },
       "rarity": {
         "id": 3,
-        "name": {
-          "ja": "スーパーレア",
-          "en": "Super Rare",
-          "ko": "슈퍼 레어"
-        },
+        "name": "Super Rare",
         "color": "#5ab3ff"
       },
       "description": {
@@ -8196,19 +7671,11 @@
       "image": "require('../../assets/BrawlerIcons/gene_pin.png')",
       "class": {
         "id": 5,
-        "name": {
-          "ja": "コントローラー",
-          "en": "Controller",
-          "ko": "컨트롤러"
-        }
+        "name": "Controller"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mythic",
-          "ko": "미틱"
-        },
+        "name": "Mythic",
         "color": "#fe5e72"
       },
       "description": {
@@ -8321,19 +7788,11 @@
       "image": "require('../../assets/BrawlerIcons/frank_pin.png')",
       "class": {
         "id": 2,
-        "name": {
-          "ja": "タンク",
-          "en": "Tank",
-          "ko": "탱크"
-        }
+        "name": "Tank"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -8445,19 +7904,11 @@
       "image": "require('../../assets/BrawlerIcons/penny_pin.png')",
       "class": {
         "id": 4,
-        "name": {
-          "ja": "グレネーディア",
-          "en": "Grenadier",
-          "ko": "그레네이더"
-        }
+        "name": "Grenadier"
       },
       "rarity": {
         "id": 3,
-        "name": {
-          "ja": "スーパーレア",
-          "en": "Super Rare",
-          "ko": "슈퍼 레어"
-        },
+        "name": "Super Rare",
         "color": "#5ab3ff"
       },
       "description": {
@@ -8570,19 +8021,11 @@
       "image": "require('../../assets/BrawlerIcons/darryl_pin.png')",
       "class": {
         "id": 2,
-        "name": {
-          "ja": "タンク",
-          "en": "Tank",
-          "ko": "탱크"
-        }
+        "name": "Tank"
       },
       "rarity": {
         "id": 3,
-        "name": {
-          "ja": "スーパーレア",
-          "en": "Super Rare",
-          "ko": "슈퍼 레어"
-        },
+        "name": "Super Rare",
         "color": "#5ab3ff"
       },
       "description": {
@@ -8693,19 +8136,11 @@
       "image": "require('../../assets/BrawlerIcons/tara_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mythic",
-          "ko": "미틱"
-        },
+        "name": "Mythic",
         "color": "#fe5e72"
       },
       "description": {
@@ -8818,19 +8253,11 @@
       "image": "require('../../assets/BrawlerIcons/pam_pin.png')",
       "class": {
         "id": 7,
-        "name": {
-          "ja": "サポート",
-          "en": "Support",
-          "ko": "서포터"
-        }
+        "name": "Support"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -8942,19 +8369,11 @@
       "image": "require('../../assets/BrawlerIcons/piper_pin.png')",
       "class": {
         "id": 3,
-        "name": {
-          "ja": "スナイパー",
-          "en": "Sniper",
-          "ko": "스나이퍼"
-        }
+        "name": "Sniper"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -9067,19 +8486,11 @@
       "image": "require('../../assets/BrawlerIcons/bo_pin.png')",
       "class": {
         "id": 5,
-        "name": {
-          "ja": "コントローラー",
-          "en": "Controller",
-          "ko": "컨트롤러"
-        }
+        "name": "Controller"
       },
       "rarity": {
         "id": 4,
-        "name": {
-          "ja": "エピック",
-          "en": "Epic",
-          "ko": "에픽"
-        },
+        "name": "Epic",
         "color": "#d850ff"
       },
       "description": {
@@ -9192,19 +8603,11 @@
       "image": "require('../../assets/BrawlerIcons/poco_pin.png')",
       "class": {
         "id": 7,
-        "name": {
-          "ja": "サポート",
-          "en": "Support",
-          "ko": "서포터"
-        }
+        "name": "Support"
       },
       "rarity": {
         "id": 2,
-        "name": {
-          "ja": "レア",
-          "en": "Rare",
-          "ko": "레어"
-        },
+        "name": "Rare",
         "color": "#68fd58"
       },
       "description": {
@@ -9317,19 +8720,11 @@
       "image": "require('../../assets/BrawlerIcons/crow_pin.png')",
       "class": {
         "id": 6,
-        "name": {
-          "ja": "アサシン",
-          "en": "Assassin",
-          "ko": "어쌔신"
-        }
+        "name": "Assassin"
       },
       "rarity": {
         "id": 6,
-        "name": {
-          "ja": "レジェンダリー",
-          "en": "Legendary",
-          "ko": "레전더리"
-        },
+        "name": "Legendary",
         "color": "#fff11e"
       },
       "description": {
@@ -9442,19 +8837,11 @@
       "image": "require('../../assets/BrawlerIcons/mortis_pin.png')",
       "class": {
         "id": 6,
-        "name": {
-          "ja": "アサシン",
-          "en": "Assassin",
-          "ko": "어쌔신"
-        }
+        "name": "Assassin"
       },
       "rarity": {
         "id": 5,
-        "name": {
-          "ja": "ミシック",
-          "en": "Mythic",
-          "ko": "미틱"
-        },
+        "name": "Mythic",
         "color": "#fe5e72"
       },
       "description": {
@@ -9566,19 +8953,11 @@
       "image": "require('../../assets/BrawlerIcons/elprimo_pin.png')",
       "class": {
         "id": 2,
-        "name": {
-          "ja": "タンク",
-          "en": "Tank",
-          "ko": "탱크"
-        }
+        "name": "Tank"
       },
       "rarity": {
         "id": 2,
-        "name": {
-          "ja": "レア",
-          "en": "Rare",
-          "ko": "레어"
-        },
+        "name": "Rare",
         "color": "#68fd58"
       },
       "description": {
@@ -9690,19 +9069,11 @@
       "image": "require('../../assets/BrawlerIcons/dynamike_pin.png')",
       "class": {
         "id": 4,
-        "name": {
-          "ja": "アーティラリー",
-          "en": "Artillery",
-          "ko": "아틸러리"
-        }
+        "name": "Artillery"
       },
       "rarity": {
         "id": 3,
-        "name": {
-          "ja": "スーパーレア",
-          "en": "Super Rare",
-          "ko": "슈퍼 레어"
-        },
+        "name": "Super Rare",
         "color": "#5ab3ff"
       },
       "description": {
@@ -9814,19 +9185,11 @@
       "image": "require('../../assets/BrawlerIcons/nita_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 2,
-        "name": {
-          "ja": "レア",
-          "en": "Rare",
-          "ko": "레어"
-        },
+        "name": "Rare",
         "color": "#68fd58"
       },
       "description": {
@@ -9939,19 +9302,11 @@
       "image": "require('../../assets/BrawlerIcons/jessie_pin.png')",
       "class": {
         "id": 5,
-        "name": {
-          "ja": "コントローラー",
-          "en": "Controller",
-          "ko": "컨트롤러"
-        }
+        "name": "Controller"
       },
       "rarity": {
         "id": 3,
-        "name": {
-          "ja": "スーパーレア",
-          "en": "Super Rare",
-          "ko": "슈퍼 레어"
-        },
+        "name": "Super Rare",
         "color": "#5ab3ff"
       },
       "description": {
@@ -10064,19 +9419,11 @@
       "image": "require('../../assets/BrawlerIcons/barley_pin.png')",
       "class": {
         "id": 4,
-        "name": {
-          "ja": "アーティラリー",
-          "en": "Artillery",
-          "ko": "아틸러리"
-        }
+        "name": "Artillery"
       },
       "rarity": {
         "id": 2,
-        "name": {
-          "ja": "レア",
-          "en": "Rare",
-          "ko": "레어"
-        },
+        "name": "Rare",
         "color": "#68fd58"
       },
       "description": {
@@ -10189,19 +9536,11 @@
       "image": "require('../../assets/BrawlerIcons/spike_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 6,
-        "name": {
-          "ja": "レジェンダリー",
-          "en": "Legendary",
-          "ko": "레전더리"
-        },
+        "name": "Legendary",
         "color": "#fff11e"
       },
       "description": {
@@ -10314,19 +9653,11 @@
       "image": "require('../../assets/BrawlerIcons/rico_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 3,
-        "name": {
-          "ja": "スーパーレア",
-          "en": "Super Rare",
-          "ko": "슈퍼 레어"
-        },
+        "name": "Super Rare",
         "color": "#5ab3ff"
       },
       "description": {
@@ -10438,19 +9769,11 @@
       "image": "require('../../assets/BrawlerIcons/brock_pin.png')",
       "class": {
         "id": 3,
-        "name": {
-          "ja": "スナイパー",
-          "en": "Sniper",
-          "ko": "스나이퍼"
-        }
+        "name": "Sniper"
       },
       "rarity": {
         "id": 2,
-        "name": {
-          "ja": "レア",
-          "en": "Rare",
-          "ko": "레어"
-        },
+        "name": "Rare",
         "color": "#68fd58"
       },
       "description": {
@@ -10562,19 +9885,11 @@
       "image": "require('../../assets/BrawlerIcons/bull_pin.png')",
       "class": {
         "id": 2,
-        "name": {
-          "ja": "タンク",
-          "en": "Tank",
-          "ko": "탱커"
-        }
+        "name": "Tank"
       },
       "rarity": {
         "id": 2,
-        "name": {
-          "ja": "レア",
-          "en": "Rare",
-          "ko": "레어"
-        },
+        "name": "Rare",
         "color": "#68fd58"
       },
       "description": {
@@ -10686,19 +10001,11 @@
       "image": "require('../../assets/BrawlerIcons/colt_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 2,
-        "name": {
-          "ja": "レア",
-          "en": "Rare",
-          "ko": "레어"
-        },
+        "name": "Rare",
         "color": "#68fd58"
       },
       "description": {
@@ -10811,19 +10118,11 @@
       "image": "require('../../assets/BrawlerIcons/shelly_pin.png')",
       "class": {
         "id": 1,
-        "name": {
-          "ja": "アタッカー",
-          "en": "Attacker",
-          "ko": "어택커"
-        }
+        "name": "Attacker"
       },
       "rarity": {
         "id": 1,
-        "name": {
-          "ja": "コモン",
-          "en": "Common",
-          "ko": "일반"
-        },
+        "name": "Common",
         "color": "#b9eaff"
       },
       "description": {
