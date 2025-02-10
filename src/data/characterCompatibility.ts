@@ -173,7 +173,9 @@ export const CHARACTER_NAMES = {
   cordelius: { ja: "コーデリアス", en: "Cordelius", ko: "코델리우스" },
   kit: { ja: "キット", en: "Kit", ko: "키트" },
   draco: { ja: "ドラコ", en: "Draco", ko: "드라코" },
-  kenji: { ja: "ケンジ", en: "Kenji", ko: "켄지" }
+  kenji: { ja: "ケンジ", en: "Kenji", ko: "켄지" },
+  meeple: { ja: "ミープル", en: "Meeple", ko: "미플" },
+  ollie: { ja: "オーリー", en: "Ollie", ko: "올리" },
 } as const;
 
 export const CHARACTER_MAP: { [key: number]: string } = {
@@ -189,7 +191,7 @@ export const CHARACTER_MAP: { [key: number]: string } = {
   62: "バスター", 63: "グレイ", 64: "R-T", 65: "ウィロー", 66: "ダグ", 67: "チャック", 68: "チャーリー",
   69: "ミコ", 70: "メロディー", 71: "リリー", 72: "クランシー", 73: "モー", 74: "ジュジュ", 75: "スパイク",
   76: "クロウ", 77: "レオン", 78: "サンディ", 79: "アンバー", 80: "メグ", 81: "サージ", 82: "チェスター",
-  83: "コーデリアス", 84: "キット", 85: "ドラコ", 86: "ケンジ"
+  83: "コーデリアス", 84: "キット", 85: "ドラコ", 86: "ケンジ", 87: "ミープル", 88: "オーリー"
 };
 
 export const JAPANESE_TO_ENGLISH_MAP: { [key: string]: string } = {
@@ -210,7 +212,7 @@ export const JAPANESE_TO_ENGLISH_MAP: { [key: string]: string } = {
   "リリー": "lily", "クランシー": "clancy", "モー": "moe", "ジュジュ": "juju", "スパイク": "spike",
   "クロウ": "crow", "レオン": "leon", "サンディ": "sandy", "アンバー": "amber", "メグ": "meg",
   "サージ": "surge", "チェスター": "chester", "コーデリアス": "cordelius", "キット": "kit",
-  "ドラコ": "draco", "ケンジ": "kenji"
+  "ドラコ": "draco", "ケンジ": "kenji", "ミープル": "meeple", "オーリー": "ollie"
 };
 
 export const allCharacterData: { [key: number]: CharacterCompatibility } = {

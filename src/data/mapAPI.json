@@ -285,7 +285,22 @@
                     "power": 4
                 },
                 {
+                    "name": "アッシュ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ドラコ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
                     "name": "エリザベス",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "ジャネット",
                     "reason": "",
                     "power": 3
                 },
@@ -718,11 +733,6 @@
                     "power": 3
                 },
                 {
-                    "name": "ケンジ",
-                    "reason": "",
-                    "power": 2
-                },
-                {
                     "name": "リリー",
                     "reason": "",
                     "power": 2
@@ -953,11 +963,6 @@
                     "power": 5
                 },
                 {
-                    "name": "コルト",
-                    "reason": "",
-                    "power": 5
-                },
-                {
                     "name": "エリザベス",
                     "reason": "",
                     "power": 4
@@ -986,6 +991,11 @@
                     "name": "アンバー",
                     "reason": "",
                     "power": 4
+                },
+                {
+                    "name": "コルト",
+                    "reason": "",
+                    "power": 3
                 },
                 {
                     "name": "ペニー",
@@ -1034,6 +1044,11 @@
                 },
                 {
                     "name": "ビー",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "ジュジュ",
                     "reason": "",
                     "power": 2
                 },
@@ -1295,9 +1310,19 @@
                     "power": 5
                 },
                 {
-                    "name": "ダイナマイク",
+                    "name": "グレイ",
                     "reason": "",
                     "power": 5
+                },
+                {
+                    "name": "メイジー",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ダイナマイク",
+                    "reason": "",
+                    "power": 4
                 },
                 {
                     "name": "ウィロー",
@@ -2802,12 +2827,22 @@
                     "power": 4
                 },
                 {
+                    "name": "クロウ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
                     "name": "ペニー",
                     "reason": "",
                     "power": 4
                 },
                 {
                     "name": "ジェシー",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "パール",
                     "reason": "",
                     "power": 4
                 },
@@ -3210,6 +3245,11 @@
                 {
                     "name": "オーティス",
                     "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ジャネット",
+                    "reason": "",
                     "power": 4
                 },
                 {
@@ -3248,6 +3288,11 @@
                     "power": 4
                 },
                 {
+                    "name": "ラリー&ローリー",
+                    "reason": "",
+                    "power": 4
+                },
+                {
                     "name": "Max",
                     "reason": "",
                     "power": 3
@@ -3263,17 +3308,17 @@
                     "power": 3
                 },
                 {
+                    "name": "バーリー",
+                    "reason": "",
+                    "power": 3
+                },
+                {
                     "name": "タラ",
                     "reason": "",
                     "power": 3
                 },
                 {
                     "name": "メイジー",
-                    "reason": "",
-                    "power": 3
-                },
-                {
-                    "name": "ラリー&ローリー",
                     "reason": "",
                     "power": 3
                 },
@@ -3309,6 +3354,11 @@
                 },
                 {
                     "name": "コレット",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "ラフス",
                     "reason": "",
                     "power": 2
                 }
@@ -7861,12 +7911,17 @@
                     "power": 5
                 },
                 {
-                    "name": "Max",
+                    "name": "ルー",
                     "reason": "",
                     "power": 5
                 },
                 {
                     "name": "エリザベス",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "パール",
                     "reason": "",
                     "power": 4
                 },
@@ -7882,6 +7937,16 @@
                 },
                 {
                     "name": "ラフス",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ジャネット",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "Max",
                     "reason": "",
                     "power": 4
                 },
@@ -7937,6 +8002,11 @@
                 },
                 {
                     "name": "リコ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "ジュジュ",
                     "reason": "",
                     "power": 3
                 },

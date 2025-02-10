@@ -2,6 +2,255 @@
 {
   "list": [
     {
+      "id": 16000090,
+      "name": {
+        "ja": "オーリー",
+        "en": "Ollie",
+        "ko": "올리"
+      },
+      "image": "require('../../assets/BrawlerIcons/ollie_pin.png')",
+      "class": {
+        "id": 2,
+        "name": {
+          "ja": "タンク",
+          "en": "Tank",
+          "ko": "탱커"
+        }
+      },
+      "rarity": {
+        "id": 5,
+        "name": {
+          "ja": "ミシック",
+          "en": "Mystic",
+          "ko": "미스틱"
+        },
+        "color": "#fe5e72"
+      },
+      "description": {
+        "ja": "オーリーはスターパークをカスタマイズしたホバーボードで駆け巡り、レールを研磨してトラブルを引き起こします！オールドスクールヒップホップのファンであるオーリーは、どこへ行くにもお気に入りの曲を爆音で流します。彼の音楽は伝染病...文字通りです。ブローラーたちはそれを聞くと踊らずにはいられません。",
+        "en": "Ollie rides his customized hoverboard around Starr Park, grinding rails and causing trouble! A fan of old school hip hop, Ollie blasts his favorite tunes wherever he goes. His music is infectious... literally. Brawlers can't help but dance when they hear it.",
+        "ko": "올리는 스타파크를 커스텀한 호버보드로 돌아다니며 레일을 그리고 문제를 일으킵니다! 올드 스쿨 힙합의 팬인 올리는 어디를 가든지 좋아하는 음악을 큰 소리로 틀어놓습니다. 그의 음악은 전염병... 말 그대로입니다. 브롤러들은 그 음악을 듣자마자 춤을 추게 됩니다."
+      },
+      "starPowers": [
+        {
+          "id": 23000883,
+          "name": {
+            "ja": "ウォールライド",
+            "en": "Kick Push",
+            "ko": "킥 푸시"
+          },
+          "description": {
+            "ja": "壁の近くで移動速度が20%上昇する。",
+            "en": "While near walls Ollie kicks off his hoverboard and gains 20% extra movement speed.",
+            "ko": "벽 근처에서 올리는 호버보드를 밀어내고 이동 속도가 20% 증가합니다."
+          },
+          "recommendation": {
+            "level": 2,
+            "reason": {
+              "ja": "壁を壊されると価値が失われるため汎用性が非常に低い",
+              "en": "The versatility is very low because the value is lost when the wall is broken.",
+              "ko": "벽이 깨지면 가치가 상실되기 때문에 다재다능성이 매우 낮습니다."
+            }
+          }
+        },
+        {
+          "id": 23000884,
+          "name": {
+            "ja": "レネゲード",
+            "en": "Renegade",
+            "ko": "레네게이드"
+          },
+          "description": {
+            "ja": "必殺技で前方に移動した後、4000HPの消耗型のシールドを獲得する。シールドは4秒で消滅する。",
+            "en": "After dashing forward with his Super, Ollie gains a 4000 decaying shield over 4 seconds.",
+            "ko": "궁극기로 전방으로 대쉬한 후, 4초 동안 4000의 감소형 보호막을 얻습니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "ウルトの弱点を補うために必須で、シールドの体力もかなり高く汎用性が高い",
+              "en": "Essential to make up for the weakness of the ult, the shield's health is also quite high and versatile.",
+              "ko": "울트의 약점을 보완하기 위해 필수이며, 보호막의 체력도 상당히 높고 다재다능합니다."
+            }
+          }
+        }
+      ],
+      "gadgets": [
+        {
+          "id": 23000885,
+          "name": {
+            "ja": "コンボトリック",
+            "en": "Regulate",
+            "ko": "레귤레이트"
+          },
+          "description": {
+            "ja": "ジャンプしてキックフリップを決め、1.0秒間にわたり着地地点を全て挑発状態にする",
+            "en": "Ollie jumps and does a rad kickflip, hypnotizing all enemies where he lands for 1.0 seconds.",
+            "ko": "올리가 점프하여 멋진 킥플립을 하고, 착지 지점을 1.0초 동안 모두 유혹 상태로 만듭니다."
+          },
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "壁を越えて逃げや近距離が弱い敵を倒すやすくなるため非常に使いやすい",
+              "en": "It is very easy to use because it makes it easier to defeat enemies who are weak at close range or to escape over walls.",
+              "ko": "벽을 넘어 도망가거나 근거리에서 약한 적을 물리치기 쉽게 만들기 때문에 매우 사용하기 편리합니다."
+            }
+          }
+        },
+        {
+          "id": 23000886,
+          "name": {
+            "ja": "ゴン攻め",
+            "en": "All Eyez On Me",
+            "ko": "올 아이즈 온 미"
+          },
+          "description": {
+            "ja": "次の通常攻撃を受けた敵は、1.0秒間にわたって挑発状態になる",
+            "en": "Ollie's next attack will hypnotize any enemies hit for 1.0 seconds.",
+            "ko": "올리의 다음 공격은 명중한 모든 적을 1.0초 동안 유혹 상태로 만듭니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "必殺技で倒しきれなかった敵にさらに追い打ちを与えて倒すことができ、タンクに対しても少し戦えるようになる",
+              "en": "You can give a follow-up blow to enemies that you couldn't defeat with your super and defeat them, and you can also fight a little against tanks.",
+              "ko": "필살기로 물리치지 못한 적에게 추가 타격을 가해 물리치고, 탱크에 대해 조금 싸울 수 있습니다."
+            }
+          }
+        }
+      ],
+      "gears": [
+        1,
+        5,
+        6
+      ]
+    },
+    {
+      "id": 16000089,
+      "name": {
+        "ja": "ミープル",
+        "en": "Meeple",
+        "ko": "미플"
+      },
+      "image": "require('../../assets/BrawlerIcons/meeple_pin.png')",
+      "class": {
+        "id": 5,
+        "name": {
+          "ja": "コントローラー",
+          "en": "Controller",
+          "ko": "컨트롤러"
+        }
+      },
+      "rarity": {
+        "id": 4,
+        "name": {
+          "ja": "エピック",
+          "en": "Epic",
+          "ko": "에픽"
+        },
+        "color": "#d850ff"
+      },
+      "description": {
+        "ja": "Meeple は存在するすべてのボード ゲームのルールを知っています。そして、もしあなたがルールを破ったら...まあ、あなたがルールを破りたくないとだけ言っておきましょう。彼らは詐欺師やルールを守らない人を嫌います。ルールには例外が 1 つあります...ミープル自身です!",
+        "en": "Meeple knows the rules to every board game in existence and if you break them... Well let's just say you don't want to break them. They hate cheaters and those who don't follow the rules. There's one exception to the rules... Meeple themselves!",
+        "ko": "미플은 존재하는 모든 보드 게임의 규칙을 알고 있습니다. 그리고 만약 당신이 그 규칙을 어기면... 음, 그 규칙을 어기고 싶지 않다고만 말해 두겠습니다. 그들은 사기꾼과 규칙을 지키지 않는 사람들을 싫어합니다. 규칙에는 예외가 하나 있습니다... 바로 미플 자신입니다!"
+      },
+      "starPowers": [
+        {
+          "id": 23000848,
+          "name": {
+            "ja": "プリズンカード",
+            "en": "Do Not Pass Go",
+            "ko": "고고하지 마세요"
+          },
+          "description": {
+            "ja": "障害物を貫通した攻撃の与ダメージが600上昇する",
+            "en": "When you shoot through environment deal 600 more damage.",
+            "ko": "장애물을 관통한 공격의 피해량이 600 증가합니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "火力が上昇することで敵を倒しやすくなり、かなり使い勝手が良い",
+              "en": "It's easier to defeat enemies as the firepower increases, making it very easy to use.",
+              "ko": "화력이 증가하여 적을 쉽게 물리치기 때문에 매우 사용하기 편리합니다."
+            }
+          }
+        },
+        {
+          "id": 23000849,
+          "name": {
+            "ja": "法の曲解",
+            "en": "Rule Bending",
+            "ko": "규칙 굽히기"
+          },
+          "description": {
+            "ja": "必殺技が範囲内の味方のリロード速度を20%上昇させる。",
+            "en": "Critical success also increases allies reload speed within the area by 20%",
+            "ko": "필살기가 범위 내의 아군의 재장전 속도를 20% 증가시킵니다."
+          },
+          "recommendation": {
+            "level": 3,
+            "reason": {
+              "ja": "特殊な戦術や戦略を取る際に使えるが、使いどころが難しい",
+              "en": "It can be used when taking special tactics or strategies, but it is difficult to use.",
+              "ko": "특별한 전술이나 전략을 취할 때 사용할 수 있지만 사용하기 어렵습니다."
+            }
+          }
+        }
+      ],
+      "gadgets": [
+        {
+          "id": 23000877,
+          "name": {
+            "ja": "マンション・オブ・ミープル",
+            "en": "Mansions Of Meeple",
+            "ko": "미플의 저택"
+          },
+          "description": {
+            "ja": "次の通常攻撃の着弾地点にサイコロの塔を生成し、1000ダメージを与える。",
+            "en": "Meeple's next attack creates dice towers around the impact area and deals 1000 damage.",
+            "ko": "미플의 다음 공격은 충격 지역 주변에 주사위 탑을 생성하고 1000의 피해를 줍니다."
+          },
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "ノックアウトではかなり強力で、確定キルやウルトとの併用で高確率で敵を倒せるため強い",
+              "en": "It is quite powerful in knockout, and it is strong because it can defeat enemies with a high probability by combining with confirmed kills and ults.",
+              "ko": "노크아웃에서 상당히 강력하며, 확정 킬이나 궁극기와 결합하여 적을 높은 확률로 물리칠 수 있어 강합니다."
+            }
+          }
+        },
+        {
+          "id": 23000878,
+          "name": {
+            "ja": "キレ落ち",
+            "en": "Ragequit",
+            "ko": "레이지 퀴트"
+          },
+          "description": {
+            "ja": "怒りで頭に血が上り、近くの敵に突撃してスタン＋ノックバックさせる。自身のHPが少なくなるほどスタンの効果時間が延長される。",
+            "en": "Meeple lashes out in rage at nearby enemies, stunning them and knocking them back. Ragequit stuns for a longer period of time the fewer hitpoints Meeple has.",
+            "ko": "미플이 근처의 적에게 분노를 표출하여 그들을 기절시키고 넉백시킵니다. 미플의 체력이 적을수록 레이지 퀴트의 기절 시간이 더 길어집니다."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "タンクとアサシンに対してかなり強くなり、死ににくくなるためかなりオススメ",
+              "en": "It becomes quite strong against tanks and assassins, making it difficult to die, so it is highly recommended.",
+              "ko": "탱크와 암살자에 대해 상당히 강해져 죽기 어려워지므로 매우 추천합니다."
+            }
+          }
+        }
+      ],
+      "gears": [
+        1,
+        2,
+        4,
+        6
+      ]
+    },
+    {
       "id": 16000087,
       "name": {
         "ja": "ジュジュ",
@@ -27,9 +276,9 @@
         "color": "#fe5e72"
       },
       "description": {
-        "ja": "ジュジュは骨董品店を所有しており...",
-        "en": "Juju owns an antique shop...",
-        "ko": "주주는 골동품 가게를 소유하고 있으며..."
+        "ja": "ジュジュはオディティーズ ショップを所有し、どこへ行くにも彼女の「ペット」ヴードゥー人形グリグリ（グレゴリーと発音）が付いてきます。ジュジュは元素を操ることができますが、スターパークの多くの訪問者に人形を売るための才能あるおもちゃ職人でもあります。",
+        "en": "Juju owns the Oddities Shop and is followed everywhere by her \"pet\" voodoo doll, Gris-Gris (pronounced Gregory). Although she can control the elements, Juju is also a talented toymaker who makes dolls to sell to Starr Park's many visitors.",
+        "ko": "주주는 오디티 샵을 소유하고 있으며, 어디를 가든지 그녀의 \"애완동물\" 부두 인형 그리그리(그레고리로 발음)가 따라다닙니다. 주주는 원소를 조종할 수 있지만, 스타파크의 많은 방문객들에게 인형을 판매하는 능숙한 장난감 제작자이기도 합니다."
       },
       "starPowers": [
         {

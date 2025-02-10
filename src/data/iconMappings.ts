@@ -525,7 +525,15 @@ export const starPowerIcons: IconMapping = {
   "ケンジ": {
     1: require('../../assets/StarPowerIcon/kenji_starpower_01.png'),
     2: require('../../assets/StarPowerIcon/kenji_starpower_02.png')
-  }
+  },
+  "ミープル": {
+    1: require('../../assets/StarPowerIcon/meeple_starpower_01.png'),
+    2: require('../../assets/StarPowerIcon/meeple_starpower_02.png')
+  },
+  "オーリー": {
+    1: require('../../assets/StarPowerIcon/ollie_starpower_01.png'),
+    2: require('../../assets/StarPowerIcon/ollie_starpower_02.png')
+  },
 };
 
 export const gadgetIcons: IconMapping = {
@@ -872,7 +880,15 @@ export const gadgetIcons: IconMapping = {
   "ケンジ": {
     1: require('../../assets/GadgetIcon/kenji_gadget_01.png'),
     2: require('../../assets/GadgetIcon/kenji_gadget_02.png')
-  }
+  },
+  "ミープル": {
+    1: require('../../assets/GadgetIcon/meeple_gadget_01.png'),
+    2: require('../../assets/GadgetIcon/meeple_gadget_02.png')
+  },
+  "オーリー": {
+    1: require('../../assets/GadgetIcon/ollie_gadget_01.png'),
+    2: require('../../assets/GadgetIcon/ollie_gadget_02.png')
+  },
 };
 
 export const gearIcons: IconMapping = {
@@ -1599,5 +1615,21 @@ export const gearIcons: IconMapping = {
     4: gearData.superrareGears.shield,
     5: gearData.superrareGears.damage,
     6: gearData.superrareGears.gadget,
-  }
+  },
+  "ミープル": {
+    1: gearData.superrareGears.speed,
+    2: gearData.superrareGears.vision,
+    3: gearData.superrareGears.heal,
+    4: gearData.superrareGears.shield,
+    5: gearData.superrareGears.damage,
+    6: gearData.superrareGears.gadget,
+  },
+  "オーリー": {
+    1: gearData.superrareGears.speed,
+    2: gearData.superrareGears.vision,
+    3: gearData.superrareGears.heal,
+    4: gearData.superrareGears.shield,
+    5: gearData.superrareGears.damage,
+    6: gearData.superrareGears.gadget,
+  },
 };
