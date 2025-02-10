@@ -13,59 +13,40 @@ import {
   Image,
   Linking,
 } from 'react-native';
-import { initializeApp, getApps, getApp } from 'firebase/app';
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  query,
-  orderBy,
-  getDocs,
-  Timestamp,
-} from 'firebase/firestore';
+import { createClient } from '@supabase/supabase-js';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { newsTranslations, Language } from '../i18n/news';
+import 'react-native-url-polyfill/auto';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDCuES9P2UaLjQnYNVj0HhakM8o01TR5bQ",
-  authDomain: "brawlstatus-eebf8.firebaseapp.com",
-  projectId: "brawlstatus-eebf8",
-  storageBucket: "brawlstatus-eebf8.firebaseapp.com",
-  messagingSenderId: "799846073884",
-  appId: "1:799846073884:web:33dca774ee25a04a4bc1d9",
-  measurementId: "G-V7C3C0GKQK"
-};
+const supabase = createClient(
+  'https://llxmsbnqtdlqypnwapzz.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxseG1zYm5xdGRscXlwbndhcHp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc4MjA5MjEsImV4cCI6MjA1MzM5NjkyMX0.EkqepILQU0KgOTW1ZaXpe54ERpZbSRodf24r5022VKs'
+);
+
+const POST_LIMIT = 10;
+const CREATOR_PASSWORD = 'Y';
 
 interface NewsPost {
   id: string;
   title: string;
-  youtubeUrl: string;
+  youtube_url: string;
   description: string;
-  createdAt: Timestamp;
-  creatorName: string;
+  created_at: string;
+  creator_name: string;
 }
 
-let app;
-let db;
+const getTableName = (language: Language): string => {
+  return `youtube_posts_${language}`;
+};
 
-try {
-  if (!getApps().length) {
-    app = initializeApp(firebaseConfig);
-  } else {
-    app = getApp();
-  }
-  db = getFirestore(app);
-} catch (error) {
-  console.error('Firebase initialization error:', error);
-}
-const CREATOR_PASSWORD = 'Y';
-
-const YouTubeCard: React.FC<{ post: NewsPost }> = ({ post }) => {
+const YouTubeCard: React.FC<{ post: NewsPost; t: typeof newsTranslations['en'] }> = ({ post, t }) => {
   const getYouTubeVideoId = (url: string) => {
     const regex = /(?:\?v=|\/embed\/|\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/;
     const match = url.match(regex);
     return match ? match[1] : null;
   };
 
-  const videoId = getYouTubeVideoId(post.youtubeUrl);
+  const videoId = getYouTubeVideoId(post.youtube_url);
   
   const handlePress = async () => {
     if (videoId) {
@@ -73,7 +54,7 @@ const YouTubeCard: React.FC<{ post: NewsPost }> = ({ post }) => {
       try {
         await Linking.openURL(youtubeUrl);
       } catch (error) {
-        Alert.alert('エラー', 'URLを開けませんでした');
+        Alert.alert(t.error, t.fetchError);
       }
     }
   };
@@ -81,7 +62,7 @@ const YouTubeCard: React.FC<{ post: NewsPost }> = ({ post }) => {
   return (
     <View style={styles.card}>
       <Text style={styles.cardTitle}>{post.title}</Text>
-      <Text style={styles.creatorName}>投稿者: {post.creatorName}</Text>
+      <Text style={styles.creatorName}>{t.creator}: {post.creator_name}</Text>
       {videoId && (
         <TouchableOpacity onPress={handlePress}>
           <Image
@@ -100,7 +81,7 @@ const YouTubeCard: React.FC<{ post: NewsPost }> = ({ post }) => {
       )}
       <Text style={styles.description}>{post.description}</Text>
       <Text style={styles.timestamp}>
-        {post.createdAt.toDate().toLocaleString('ja-JP')}
+        {new Date(post.created_at).toLocaleString()}
       </Text>
     </View>
   );
@@ -116,37 +97,60 @@ const News: React.FC = () => {
   const [description, setDescription] = useState('');
   const [creatorName, setCreatorName] = useState('');
   const [isPasswordVerified, setIsPasswordVerified] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState<Language>('en');
+  const [t, setT] = useState(newsTranslations.en);
+
+  useEffect(() => {
+    const initLanguage = async () => {
+      try {
+        const savedLanguage = await AsyncStorage.getItem('selectedLanguage') as Language;
+        if (savedLanguage && savedLanguage in newsTranslations) {
+          setCurrentLanguage(savedLanguage);
+          setT(newsTranslations[savedLanguage]);
+        }
+      } catch (error) {
+        console.error('Failed to get language setting:', error);
+      }
+    };
+
+    initLanguage();
+  }, []);
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+
+    const tableName = getTableName(currentLanguage);
+    const channel = supabase
+      .channel(`${tableName}_changes`)
+      .on('postgres_changes', 
+        { event: '*', schema: 'public', table: tableName },
+        payload => {
+          if (payload.eventType === 'INSERT') {
+            setPosts(prev => [payload.new as NewsPost, ...prev].slice(0, POST_LIMIT));
+          }
+        }
+      )
+      .subscribe();
+
+    return () => {
+      channel.unsubscribe();
+    };
+  }, [currentLanguage]);
 
   const fetchPosts = async () => {
-    if (!db) {
-      console.error('Firestore is not initialized');
-      Alert.alert('エラー', 'データベース接続に失敗しました');
-      setLoading(false);
-      return;
-    }
-
     try {
-      const postsRef = collection(db, 'youtubePosts');
-      const q = query(postsRef, orderBy('createdAt', 'desc'));
-      const snapshot = await getDocs(q);
-      
-      if (snapshot.empty) {
-        setPosts([]);
-        console.log('No posts found');
-      } else {
-        const postData = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        })) as NewsPost[];
-        setPosts(postData);
-      }
+      const tableName = getTableName(currentLanguage);
+      const { data, error } = await supabase
+        .from(tableName)
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(POST_LIMIT);
+
+      if (error) throw error;
+      setPosts(data as NewsPost[]);
     } catch (error) {
       console.error('Error fetching posts:', error);
-      Alert.alert('エラー', 'データの取得に失敗しました');
+      Alert.alert(t.error, t.fetchError);
     } finally {
       setLoading(false);
     }
@@ -157,7 +161,7 @@ const News: React.FC = () => {
       setIsPasswordVerified(true);
       setPassword('');
     } else {
-      Alert.alert('エラー', 'パスワードが間違っています');
+      Alert.alert(t.error, t.passwordError);
     }
   };
 
@@ -167,47 +171,38 @@ const News: React.FC = () => {
   };
 
   const createPost = async () => {
-    if (!db) {
-      Alert.alert('エラー', 'データベース接続に失敗しました');
-      return;
-    }
-
     if (!title.trim()) {
-      Alert.alert('エラー', 'タイトルを入力してください');
+      Alert.alert(t.error, t.requiredField);
       return;
     }
     if (!validateYouTubeUrl(youtubeUrl)) {
-      Alert.alert('エラー', '有効なYouTubeのURLを入力してください');
+      Alert.alert(t.error, t.invalidYouTubeUrl);
       return;
     }
     if (!creatorName.trim()) {
-      Alert.alert('エラー', 'クリエイター名を入力してください');
+      Alert.alert(t.error, t.requiredField);
       return;
     }
 
     try {
-      const newPost = {
-        title: title.trim(),
-        youtubeUrl: youtubeUrl.trim(),
-        description: description.trim(),
-        creatorName: creatorName.trim(),
-        createdAt: Timestamp.now()
-      };
+      const tableName = getTableName(currentLanguage);
+      const { error } = await supabase
+        .from(tableName)
+        .insert([{
+          title: title.trim(),
+          youtube_url: youtubeUrl.trim(),
+          description: description.trim(),
+          creator_name: creatorName.trim()
+        }]);
 
-      const postsRef = collection(db, 'youtubePosts');
-      const docRef = await addDoc(postsRef, newPost);
+      if (error) throw error;
       
-      if (docRef.id) {
-        resetForm();
-        setModalVisible(false);
-        Alert.alert('成功', '投稿が作成されました');
-        await fetchPosts();
-      } else {
-        throw new Error('Document ID not received');
-      }
+      resetForm();
+      setModalVisible(false);
+      Alert.alert(t.success, t.postCreated);
     } catch (error) {
       console.error('Error creating post:', error);
-      Alert.alert('エラー', '投稿の作成に失敗しました。もう一度お試しください。');
+      Alert.alert(t.error, t.createError);
     }
   };
 
@@ -230,18 +225,18 @@ const News: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>YouTube News</Text>
+        <Text style={styles.title}>{t.title}</Text>
         <TouchableOpacity
           style={styles.createButton}
           onPress={() => setModalVisible(true)}
         >
-          <Text style={styles.createButtonText}>投稿する</Text>
+          <Text style={styles.createButtonText}>{t.post}</Text>
         </TouchableOpacity>
       </View>
 
       <ScrollView style={styles.content}>
         {posts.map((post) => (
-          <YouTubeCard key={post.id} post={post} />
+          <YouTubeCard key={post.id} post={post} t={t} />
         ))}
       </ScrollView>
 
@@ -267,7 +262,7 @@ const News: React.FC = () => {
             </TouchableOpacity>
             {!isPasswordVerified ? (
               <View style={styles.authContainer}>
-                <Text style={styles.modalTitle}>クリエイター認証</Text>
+                <Text style={styles.modalTitle}>{t.creatorAuth}</Text>
                 <View style={styles.authInputContainer}>
                   <Image
                     source={require('../../assets/AppIcon/magnifyingglass_icon.png')}
@@ -277,7 +272,7 @@ const News: React.FC = () => {
                     style={styles.authInput}
                     value={password}
                     onChangeText={setPassword}
-                    placeholder="パスワードを入力"
+                    placeholder={t.enterPassword}
                     secureTextEntry
                     placeholderTextColor="#999"
                   />
@@ -286,42 +281,42 @@ const News: React.FC = () => {
                   style={styles.authButton}
                   onPress={verifyPassword}
                 >
-                  <Text style={styles.authButtonText}>認証する</Text>
+                  <Text style={styles.authButtonText}>{t.authenticate}</Text>
                 </TouchableOpacity>
               </View>
             ) : (
               <ScrollView>
-                <Text style={styles.modalTitle}>新規投稿</Text>
-                <Text style={styles.inputLabel}>タイトル</Text>
+                <Text style={styles.modalTitle}>{t.newPost}</Text>
+                <Text style={styles.inputLabel}>{t.videoTitle}</Text>
                 <TextInput
                   style={styles.input}
                   value={title}
                   onChangeText={setTitle}
-                  placeholder="動画のタイトル"
+                  placeholder={t.videoTitle}
                 />
 
-                <Text style={styles.inputLabel}>クリエイター名</Text>
+                <Text style={styles.inputLabel}>{t.creatorName}</Text>
                 <TextInput
                   style={styles.input}
                   value={creatorName}
                   onChangeText={setCreatorName}
-                  placeholder="あなたの名前"
+                  placeholder={t.creatorName}
                 />
 
-                <Text style={styles.inputLabel}>YouTube URL</Text>
+                <Text style={styles.inputLabel}>{t.youtubeUrl}</Text>
                 <TextInput
                   style={styles.input}
                   value={youtubeUrl}
                   onChangeText={setYoutubeUrl}
-                  placeholder="YouTubeの動画URL"
+                  placeholder={t.youtubeUrl}
                 />
 
-                <Text style={styles.inputLabel}>説明 (任意)</Text>
+                <Text style={styles.inputLabel}>{t.description}</Text>
                 <TextInput
                   style={[styles.input, styles.multilineInput]}
                   value={description}
                   onChangeText={setDescription}
-                  placeholder="動画の説明"
+                  placeholder={t.description}
                   multiline
                   numberOfLines={4}
                 />
@@ -334,13 +329,13 @@ const News: React.FC = () => {
                       resetForm();
                     }}
                   >
-                    <Text style={styles.cancelButtonText}>キャンセル</Text>
+                    <Text style={styles.cancelButtonText}>{t.cancel}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={[styles.modalButton, styles.submitButton]}
                     onPress={createPost}
                   >
-                    <Text style={styles.submitButtonText}>投稿</Text>
+                    <Text style={styles.submitButtonText}>{t.submit}</Text>
                   </TouchableOpacity>
                 </View>
               </ScrollView>
