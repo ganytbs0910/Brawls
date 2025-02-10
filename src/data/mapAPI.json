@@ -9,7 +9,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -20,7 +20,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -31,7 +31,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -42,7 +42,7 @@
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Snake_Prairie.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ボウ",
@@ -119,7 +119,7 @@
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Shooting_Star.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "エリザベス",
@@ -226,7 +226,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -237,7 +237,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Hard_Rock_Mine.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "バイロン",
@@ -374,7 +374,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Crystal_Arcade.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ペニー",
@@ -446,7 +446,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Deathcap_Trap.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ペニー",
@@ -543,7 +543,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Gem_Fort.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "R-T",
@@ -620,7 +620,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Undermine.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ジーン",
@@ -737,7 +737,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -748,7 +748,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "../../assets/MapImages/Skull_Creek.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "サージ",
@@ -805,7 +805,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -816,7 +816,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "../../assets/MapImages/Rockwall_Brawl.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "コーデリアス",
@@ -868,7 +868,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "../../assets/MapImages/Feast_Or_Famine.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ダグ",
@@ -930,7 +930,7 @@
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Kaboom_Canyon.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "クロウ",
@@ -1062,7 +1062,7 @@
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Safe_Zone.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "クロウ",
@@ -1184,7 +1184,7 @@
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Hideout.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ペニー",
@@ -1251,7 +1251,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -1262,7 +1262,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Triple_Dribble.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ストゥー",
@@ -1364,7 +1364,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Pinhole_Punt.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "サンディ",
@@ -1481,7 +1481,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -1492,7 +1492,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "../../assets/MapImages/Acid_Lakes.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "イヴ",
@@ -1549,7 +1549,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "../../assets/MapImages/Cavern_Churn.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "シェリー",
@@ -1606,7 +1606,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -1617,7 +1617,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -1628,7 +1628,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -1639,7 +1639,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "../../assets/MapImages/Double_Trouble.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ストゥー",
@@ -1691,7 +1691,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "../../assets/MapImages/Island_Invasion.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "バズ",
@@ -1753,7 +1753,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -1764,7 +1764,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -1775,7 +1775,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -1786,7 +1786,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Sneaky_Fields.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "Max",
@@ -1888,7 +1888,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Super_Beach.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "サンディ",
@@ -1975,7 +1975,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -1986,7 +1986,7 @@
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Hot_Potato.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "クロウ",
@@ -2113,7 +2113,7 @@
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Canal_Grande.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ジュジュ",
@@ -2225,7 +2225,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2236,7 +2236,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2247,7 +2247,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2258,7 +2258,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2269,7 +2269,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2280,7 +2280,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2291,7 +2291,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2302,7 +2302,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2313,7 +2313,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2324,7 +2324,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2335,7 +2335,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2346,7 +2346,7 @@
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Bridge_Too_Far.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "イヴ",
@@ -2423,7 +2423,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2434,7 +2434,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2445,7 +2445,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2456,7 +2456,7 @@
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Layer_Cake.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ジュジュ",
@@ -2548,7 +2548,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2559,7 +2559,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2570,7 +2570,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2581,7 +2581,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2592,7 +2592,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2603,7 +2603,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2614,7 +2614,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "../../assets/MapImages/Dark_Passage.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "アンジェロ",
@@ -2676,7 +2676,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2687,7 +2687,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2698,7 +2698,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2709,7 +2709,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2720,7 +2720,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2731,7 +2731,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2742,7 +2742,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2753,7 +2753,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2764,7 +2764,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Double_Swoosh.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ジーン",
@@ -2871,7 +2871,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2882,7 +2882,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -2893,7 +2893,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Pinball_Dreams.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "サージ",
@@ -3025,7 +3025,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Minecart_Madness.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ケンジ",
@@ -3117,7 +3117,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "../../assets/MapImages/Flying_Fantasies.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "アンジェロ",
@@ -3179,7 +3179,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3190,7 +3190,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Center_Stage.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "サージ",
@@ -3322,7 +3322,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3333,7 +3333,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3344,7 +3344,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3355,7 +3355,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3366,7 +3366,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3377,7 +3377,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3388,7 +3388,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Beach_Ball.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ジュジュ",
@@ -3515,7 +3515,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Sunny_Soccer.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "サンディ",
@@ -3627,7 +3627,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3638,7 +3638,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3649,7 +3649,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3660,7 +3660,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3671,7 +3671,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3682,7 +3682,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3693,7 +3693,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3704,7 +3704,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3715,7 +3715,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3726,7 +3726,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3737,7 +3737,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3748,7 +3748,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3759,7 +3759,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3770,7 +3770,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3781,7 +3781,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3792,7 +3792,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3803,7 +3803,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3814,7 +3814,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3825,7 +3825,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3836,7 +3836,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3847,7 +3847,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3858,7 +3858,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3869,7 +3869,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3880,7 +3880,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3891,7 +3891,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3902,7 +3902,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3913,7 +3913,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3924,7 +3924,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3935,7 +3935,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3946,7 +3946,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3957,7 +3957,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3968,7 +3968,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3979,7 +3979,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -3990,7 +3990,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4001,7 +4001,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "../../assets/MapImages/Safety_Center.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "サージ",
@@ -4053,7 +4053,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4064,7 +4064,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4075,7 +4075,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4086,7 +4086,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4097,7 +4097,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4108,7 +4108,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Penalty_Kick.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "コーデリアス",
@@ -4205,7 +4205,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4216,7 +4216,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4227,7 +4227,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4238,7 +4238,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4249,7 +4249,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4260,7 +4260,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4271,7 +4271,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4282,7 +4282,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4293,7 +4293,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4304,7 +4304,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4315,7 +4315,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4326,7 +4326,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4337,7 +4337,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4348,7 +4348,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4359,7 +4359,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4370,7 +4370,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4381,7 +4381,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4392,7 +4392,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4403,7 +4403,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4414,7 +4414,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4425,7 +4425,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4436,7 +4436,7 @@
             },
             "gameMode": "Super City Rampage",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4447,7 +4447,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4458,7 +4458,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4469,7 +4469,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4480,7 +4480,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4491,7 +4491,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4502,7 +4502,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4513,7 +4513,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4524,7 +4524,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4535,7 +4535,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4546,7 +4546,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4557,7 +4557,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4568,7 +4568,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4579,7 +4579,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Open_Business.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "バイロン",
@@ -4701,7 +4701,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Parallel_Plays.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ストゥー",
@@ -4808,7 +4808,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4819,7 +4819,7 @@
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/No_Excuses.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "エリザベス",
@@ -4886,7 +4886,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4897,7 +4897,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4908,7 +4908,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4919,7 +4919,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -4930,7 +4930,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Ring_Of_Fire.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ガス",
@@ -5047,7 +5047,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5058,7 +5058,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5069,7 +5069,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5080,7 +5080,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5091,7 +5091,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Dueling_Beetles.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ガス",
@@ -5198,7 +5198,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5209,7 +5209,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5220,7 +5220,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5231,7 +5231,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5242,7 +5242,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5253,7 +5253,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5264,7 +5264,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5275,7 +5275,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5286,7 +5286,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Rustic_Arcade.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ガス",
@@ -5398,7 +5398,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5409,7 +5409,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5420,7 +5420,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5431,7 +5431,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5442,7 +5442,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5453,7 +5453,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5464,7 +5464,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5475,7 +5475,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5486,7 +5486,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5497,7 +5497,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5508,7 +5508,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5519,7 +5519,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5530,7 +5530,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5541,7 +5541,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5552,7 +5552,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5563,7 +5563,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5574,7 +5574,7 @@
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Goldarm_Gulch.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "エリザベス",
@@ -5706,7 +5706,7 @@
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Belles_Rock.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "エリザベス",
@@ -5823,7 +5823,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5834,7 +5834,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5845,7 +5845,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5856,7 +5856,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5867,7 +5867,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5878,7 +5878,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5889,7 +5889,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5900,7 +5900,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5911,7 +5911,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5922,7 +5922,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5933,7 +5933,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5944,7 +5944,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5955,7 +5955,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5966,7 +5966,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5977,7 +5977,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5988,7 +5988,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -5999,7 +5999,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6010,7 +6010,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6021,7 +6021,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6032,7 +6032,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6043,7 +6043,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6054,7 +6054,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6065,7 +6065,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6076,7 +6076,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6087,7 +6087,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6098,7 +6098,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6109,7 +6109,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "../../assets/MapImages/Dried_Up_River.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "シェイド",
@@ -6166,7 +6166,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6177,7 +6177,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6188,7 +6188,7 @@
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Flaring_Phoenix.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "R-T",
@@ -6325,7 +6325,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6336,7 +6336,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6347,7 +6347,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6358,7 +6358,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6369,7 +6369,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6380,7 +6380,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6391,7 +6391,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6402,7 +6402,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6413,7 +6413,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6424,7 +6424,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6435,7 +6435,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6446,7 +6446,7 @@
             },
             "gameMode": "Duels",
             "image": "../../assets/MapImages/Shrouding_Serpent.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "シェリー",
@@ -6508,7 +6508,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6519,7 +6519,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6530,7 +6530,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6541,7 +6541,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6552,7 +6552,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6563,7 +6563,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6574,7 +6574,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6585,7 +6585,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6596,7 +6596,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6607,7 +6607,7 @@
             },
             "gameMode": "Wipeout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6618,7 +6618,7 @@
             },
             "gameMode": "Wipeout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6629,7 +6629,7 @@
             },
             "gameMode": "Wipeout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6640,7 +6640,7 @@
             },
             "gameMode": "Wipeout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6651,7 +6651,7 @@
             },
             "gameMode": "Wipeout",
             "image": "../../assets/MapImages/Slayers_Paradise.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6662,7 +6662,7 @@
             },
             "gameMode": "Wipeout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6673,7 +6673,7 @@
             },
             "gameMode": "Wipeout",
             "image": "../../assets/MapImages/Quad_Damage.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "エリザベス",
@@ -6745,7 +6745,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6756,7 +6756,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Open_Space.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "アンジェロ",
@@ -6848,7 +6848,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6859,7 +6859,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6870,7 +6870,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6881,7 +6881,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6892,7 +6892,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6903,7 +6903,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6914,7 +6914,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6925,7 +6925,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6936,7 +6936,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6947,7 +6947,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6958,7 +6958,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6969,7 +6969,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6980,7 +6980,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -6991,7 +6991,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7002,7 +7002,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7013,7 +7013,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7024,7 +7024,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7035,7 +7035,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7046,7 +7046,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7057,7 +7057,7 @@
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Out_In_The_Open.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "R-T",
@@ -7199,7 +7199,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7210,7 +7210,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7221,7 +7221,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7232,7 +7232,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7243,7 +7243,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7254,7 +7254,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7265,7 +7265,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7276,7 +7276,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7287,7 +7287,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7298,7 +7298,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7309,7 +7309,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7320,7 +7320,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7331,7 +7331,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7342,7 +7342,7 @@
             },
             "gameMode": "Duels",
             "image": "../../assets/MapImages/Petticoat_Duel.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ジュジュ",
@@ -7399,7 +7399,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7410,7 +7410,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7421,7 +7421,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7432,7 +7432,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7443,7 +7443,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7454,7 +7454,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7465,7 +7465,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7476,7 +7476,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7487,7 +7487,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7498,7 +7498,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7509,7 +7509,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7520,7 +7520,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7531,7 +7531,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7542,7 +7542,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7553,7 +7553,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7564,7 +7564,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7575,7 +7575,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7586,7 +7586,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7597,7 +7597,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7608,7 +7608,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7619,7 +7619,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7630,7 +7630,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7641,7 +7641,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7652,7 +7652,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7663,7 +7663,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7674,7 +7674,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7685,7 +7685,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7696,7 +7696,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7707,7 +7707,7 @@
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Infinite_Doom.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "アンバー",
@@ -7764,7 +7764,7 @@
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Slayers_Paradise.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ジュジュ",
@@ -7821,7 +7821,7 @@
             },
             "gameMode": "Wipeout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7832,7 +7832,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -7843,7 +7843,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Last_Stop.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "バイロン",
@@ -7960,7 +7960,7 @@
             },
             "gameMode": "Brawl Ball 5v5",
             "image": "../../assets/MapImages/Freezing_Ripples.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ファング",
@@ -8007,12 +8007,12 @@
         {
             "name": {
                 "ja": "大波",
-                "en": "Great Waves",
+                "en": "Great waves",
                 "ko": "큰 파도"
             },
             "gameMode": "Brawl Ball 5v5",
             "image": "../../assets/MapImages/Great_Waves.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ファング",
@@ -8059,12 +8059,12 @@
         {
             "name": {
                 "ja": "クールシェイプ",
-                "en": "Cool Shapes",
+                "en": "Cool shapes",
                 "ko": "멋진 모양"
             },
             "gameMode": "Brawl Ball 5v5",
             "image": "../../assets/MapImages/Cool_Shapes.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ファング",
@@ -8116,7 +8116,7 @@
             },
             "gameMode": "Gem Grab 5v5",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8127,7 +8127,7 @@
             },
             "gameMode": "Gem Grab 5v5",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8138,7 +8138,7 @@
             },
             "gameMode": "Gem Grab 5v5",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8149,7 +8149,7 @@
             },
             "gameMode": "Gem Grab 5v5",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8160,7 +8160,7 @@
             },
             "gameMode": "Wipeout 5v5",
             "image": "../../assets/MapImages/Slippery_Road.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "Mr.P",
@@ -8247,7 +8247,7 @@
             },
             "gameMode": "Wipeout 5v5",
             "image": "../../assets/MapImages/Icy_Ice_Park.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "Mr.P",
@@ -8324,7 +8324,7 @@
             },
             "gameMode": "Wipeout 5v5",
             "image": "../../assets/MapImages/Frosty_Tracks.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "Mr.P",
@@ -8411,7 +8411,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8422,7 +8422,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8433,7 +8433,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8444,7 +8444,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8455,7 +8455,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8466,7 +8466,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8477,7 +8477,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8488,7 +8488,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8499,7 +8499,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8510,7 +8510,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8521,7 +8521,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8532,7 +8532,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8543,7 +8543,7 @@
             },
             "gameMode": "Wipeout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8554,7 +8554,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8565,7 +8565,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8576,7 +8576,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8587,7 +8587,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8598,7 +8598,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8609,7 +8609,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8620,7 +8620,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8631,7 +8631,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8642,7 +8642,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8653,7 +8653,7 @@
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/layer_bake.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ジュジュ",
@@ -8720,7 +8720,7 @@
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/The_Great_Open.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "エリザベス",
@@ -8787,7 +8787,7 @@
             },
             "gameMode": "Knockout 5v5",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8798,7 +8798,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "../../assets/MapImages/Marksmans_Paradise.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ガス",
@@ -8855,7 +8855,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8866,7 +8866,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -8877,7 +8877,7 @@
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/New_Horizons.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "グレイ",
@@ -8969,7 +8969,7 @@
             },
             "gameMode": "Brawl Ball 5v5",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ファング",
@@ -9021,7 +9021,7 @@
             },
             "gameMode": "Gem Grab 5v5",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9032,7 +9032,7 @@
             },
             "gameMode": "Knockout 5v5",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9043,7 +9043,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9054,7 +9054,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9065,7 +9065,7 @@
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Four_Levels.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ストゥー",
@@ -9162,7 +9162,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9173,7 +9173,7 @@
             },
             "gameMode": "Knockout 5v5",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9184,7 +9184,7 @@
             },
             "gameMode": "Wipeout 5v5",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9195,7 +9195,7 @@
             },
             "gameMode": "Wipeout 5v5",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9206,7 +9206,7 @@
             },
             "gameMode": "Wipeout 5v5",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9217,7 +9217,7 @@
             },
             "gameMode": "Knockout 5v5",
             "image": "../../assets/MapImages/Riverbank_Crossing.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "Mr.P",
@@ -9304,7 +9304,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9315,7 +9315,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9326,7 +9326,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9337,7 +9337,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9348,7 +9348,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9359,7 +9359,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9370,7 +9370,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9381,7 +9381,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9392,7 +9392,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9403,7 +9403,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9414,7 +9414,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9425,7 +9425,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9436,7 +9436,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9447,7 +9447,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9458,7 +9458,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9469,7 +9469,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "../../assets/MapImages/final_four.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9480,7 +9480,7 @@
             },
             "gameMode": "Wipeout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9491,7 +9491,7 @@
             },
             "gameMode": "Wipeout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9502,7 +9502,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9513,7 +9513,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/backyard_bowl.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ガス",
@@ -9635,7 +9635,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9646,7 +9646,7 @@
             },
             "gameMode": "Wipeout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9657,7 +9657,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9668,7 +9668,7 @@
             },
             "gameMode": "Bounty",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9679,7 +9679,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9690,7 +9690,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9701,7 +9701,7 @@
             },
             "gameMode": "BattleRoyale",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9712,7 +9712,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9723,7 +9723,7 @@
             },
             "gameMode": "Knockout Limbo",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9734,7 +9734,7 @@
             },
             "gameMode": "Duels",
             "image": "../../assets/MapImages/zen_garden.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ジュジュ",
@@ -9781,7 +9781,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9792,7 +9792,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9803,7 +9803,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9814,7 +9814,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9825,7 +9825,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9836,7 +9836,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9847,7 +9847,7 @@
             },
             "gameMode": "Duels",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9858,7 +9858,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9869,7 +9869,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9880,7 +9880,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9891,7 +9891,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9902,7 +9902,7 @@
             },
             "gameMode": "Knockout",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9913,7 +9913,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9924,7 +9924,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9935,7 +9935,7 @@
             },
             "gameMode": "Heist",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9946,7 +9946,7 @@
             },
             "gameMode": "Brawl Hockey",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9957,7 +9957,7 @@
             },
             "gameMode": "Brawl Hockey",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9968,7 +9968,7 @@
             },
             "gameMode": "Brawl Hockey",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9979,7 +9979,7 @@
             },
             "gameMode": "Brawl Hockey",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -9990,7 +9990,7 @@
             },
             "gameMode": "Brawl Hockey",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -10001,7 +10001,7 @@
             },
             "gameMode": "Brawl Hockey",
             "image": "",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": []
         },
         {
@@ -10012,7 +10012,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Watersport.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ジュジュ",
@@ -10079,7 +10079,7 @@
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Noisy_Neighbors.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ゲイル",
@@ -10131,7 +10131,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Forest_Clearing.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ガス",
@@ -10218,7 +10218,7 @@
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/The_Cooler_Hard_Rock.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "リコ",
@@ -10290,7 +10290,7 @@
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/H_for.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ガス",
@@ -10367,7 +10367,7 @@
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Two_Rivers.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "アンジェロ",
@@ -10454,7 +10454,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Second_Try.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "メロディー",
@@ -10551,7 +10551,7 @@
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Trickey.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "サンディ",
@@ -10693,7 +10693,7 @@
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Safe(r)_Zone.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "コルト",
@@ -10785,7 +10785,7 @@
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/The_Great_Lake.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "コルト",
@@ -10887,7 +10887,7 @@
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Deep_Forest.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ボウ",
@@ -10974,7 +10974,7 @@
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Tiny_Islands.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "アンジェロ",
@@ -11056,7 +11056,7 @@
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Temple_Of_Vroom.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ジーン",
@@ -11123,7 +11123,7 @@
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Overgrown_Ruins.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ガス",
@@ -11170,7 +11170,7 @@
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Gg_2.0.png",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "アンジェロ",
@@ -11252,7 +11252,7 @@
             },
             "gameMode": "duel",
             "image": "require('../../assets/MapImages/No_Surrender.png')",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "キット",
@@ -11294,7 +11294,7 @@
             },
             "gameMode": "duel",
             "image": "require('../../assets/MapImages/Warriors_Way.png')",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ペニー",
@@ -11346,7 +11346,7 @@
             },
             "gameMode": "duel",
             "image": "require('../../assets/MapImages/Monkey_Maze.png')",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "ジュジュ",
@@ -11393,7 +11393,7 @@
             },
             "gameMode": "duel",
             "image": "require('../../assets/MapImages/Spice_Production.png')",
-            "description": "実装待ち",
+            "description": "",
             "recommendedBrawlers": [
                 {
                     "name": "キット",

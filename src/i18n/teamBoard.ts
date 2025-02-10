@@ -55,7 +55,7 @@ export type TeamBoardTranslation = {
 
 // 日本語翻訳
 export const ja: TeamBoardTranslation = {
-  boardTitle: '募集掲示板',
+  boardTitle: 'チーム募集',
   refresh: '更新',
   create: '募集する',
   cancel: 'キャンセル',
@@ -108,7 +108,7 @@ export const ja: TeamBoardTranslation = {
 
 // 英語翻訳
 export const en: TeamBoardTranslation = {
-  boardTitle: 'Team Recruitment Board',
+  boardTitle: 'Team Recruitment',
   refresh: 'Refresh',
   create: 'Create Post',
   cancel: 'Cancel',
@@ -161,7 +161,7 @@ export const en: TeamBoardTranslation = {
 
 // 韓国語翻訳
 export const ko: TeamBoardTranslation = {
-  boardTitle: '팀 모집 게시판',
+  boardTitle: '팀 모집',
   refresh: '새로고침',
   create: '모집하기',
   cancel: '취소',
