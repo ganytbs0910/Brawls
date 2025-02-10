@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -9,7 +9,7 @@ import {
 import type { BattleLogItem } from '../hooks/useBrawlStarsApi';
 import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages';
 import { useBattleLogTranslation } from '../i18n/battleLog';
-import { getMapData } from '../data/mapDataService';
+import { getMapData, initializeMapData } from '../data/mapDataService';
 
 // ゲームモードのアイコン定義
 const GAME_MODE_ICONS: { [key: string]: any } = {
@@ -50,25 +50,35 @@ interface BattleLogProps {
   battleLog: BattleLogItem[];
 }
 
-// マップ名のローカライズ処理を改善
-const getLocalizedBattleMapName = (mapName: string | undefined, currentLanguage: string): string => {
+// マップ名のローカライズ処理
+const getLocalizedBattleMapName = async (mapName: string | undefined, currentLanguage: string): Promise<string> => {
   if (!mapName) return '';
   
   try {
+    await initializeMapData();
+    
     const mapData = getMapData(mapName);
+
     if (!mapData) {
       console.warn(`No map data found for: ${mapName}`);
+      // 英語名から日本語名への変換を試みる
+      const alternativeMap = Object.values(mapsDataCache).find(
+        m => m.nameEn.toLowerCase() === mapName.toLowerCase()
+      );
+      if (alternativeMap) {
+        console.log('Found alternative map:', alternativeMap);
+        return alternativeMap.name;  // 日本語名を返す
+      }
       return mapName;
     }
 
-    // Home コンポーネントと同じロジックを使用
     switch (currentLanguage) {
       case 'en':
         return mapData.nameEn || mapName;
       case 'ko':
         return mapData.nameKo || mapName;
       default:
-        return mapData.name || mapName;  // Japanese name as default
+        return mapData.name || mapName;
     }
   } catch (error) {
     console.error(`Error getting localized map name for ${mapName}:`, error);
@@ -269,17 +279,59 @@ const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog })
     </View>
   );
 };
+const getModeName = (mode: string, t: BattleLogTranslation): string => {
+  const normalizedMode = normalizeModeName(mode);
+  
+  // t.battle.mode から対応する翻訳を取得
+  if (t.battle.mode.hasOwnProperty(normalizedMode)) {
+    return t.battle.mode[normalizedMode as keyof typeof t.battle.mode];
+  }
+
+  // マッピングにない場合はそのまま返す
+  return mode;
+};
 
 // メインのバトルログコンポーネント
 export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
   const [showAllBattles, setShowAllBattles] = useState(false);
+  const [isMapDataReady, setIsMapDataReady] = useState(false);
+  const [localizedMapNames, setLocalizedMapNames] = useState<Record<string, string>>({});
   const { t, currentLanguage } = useBattleLogTranslation();
 
-  if (!battleLog || !Array.isArray(battleLog)) {
-    return null;
-  }
+  // マップデータの初期化
+  useEffect(() => {
+    const initData = async () => {
+      try {
+        await initializeMapData();
+        setIsMapDataReady(true);
+      } catch (error) {
+        console.error('Failed to initialize map data:', error);
+      }
+    };
+    
+    initData();
+  }, []);
 
-  // プレイヤー情報の表示
+  // マップ名の変換
+  useEffect(() => {
+    const localizeMapNames = async () => {
+      if (!isMapDataReady || !battleLog) return;
+
+      const newLocalizedNames: Record<string, string> = {};
+      for (const battle of battleLog) {
+        if (battle.event?.map) {
+          newLocalizedNames[battle.event.map] = await getLocalizedBattleMapName(
+            battle.event.map,
+            currentLanguage
+          );
+        }
+      }
+      setLocalizedMapNames(newLocalizedNames);
+    };
+
+    localizeMapNames();
+  }, [battleLog, currentLanguage, isMapDataReady]);
+
   const renderPlayer = (player: any, battle: BattleLogItem, isTeamMode: boolean = true) => {
     const portraitSource = getPortraitSource(player.brawler.name);
     const isStarPlayer = battle.battle.starPlayer?.tag === player.tag;
@@ -348,7 +400,6 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     );
   };
 
-  // ソロショーダウンの表示
   const renderSoloShowdown = (battle: BattleLogItem) => {
     const players = battle.battle.players;
     if (!players || !Array.isArray(players)) return null;
@@ -360,7 +411,6 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     );
   };
 
-  // デュオショーダウンの表示
   const renderDuoShowdown = (battle: BattleLogItem) => {
     if (!battle?.battle?.teams || !Array.isArray(battle.battle.teams)) return null;
 
@@ -393,7 +443,6 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     );
   };
 
-  // バトル詳細の表示
   const renderBattleItem = (battle: BattleLogItem) => {
     const isSoloMode = battle.battle.mode === 'soloShowdown';
     const isDuoMode = battle.battle.mode === 'duoShowdown';
@@ -410,13 +459,7 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     const isSoloRanked = battle.battle.type === 'soloRanked';
     const isFriendly = battle.battle.type === 'friendly';
 
-    const getModeName = (mode: string) => {
-      const normalizedMode = normalizeModeName(mode);
-      return t.battle.mode[normalizedMode as keyof typeof t.battle.mode] || mode;
-    };
-
-    // マップ名のローカライズ処理を改善
-    const mapName = battle.event?.map ? getLocalizedBattleMapName(battle.event.map, currentLanguage) : '';
+    const mapName = battle.event?.map ? localizedMapNames[battle.event.map] || battle.event.map : '';
 
     return (
       <View 
@@ -439,7 +482,7 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
                 />
               )}
               <Text style={styles.battleMode}>
-                {isFriendly ? t.battle.mode.friendly : getModeName(battle.battle.mode)}
+                {isFriendly ? t.battle.mode.friendly : getModeName(battle.battle.mode, t)}
                 {mapName ? `${t.battle.mapPrefix}${mapName}` : ''}
               </Text>
             </View>
@@ -473,7 +516,22 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     );
   };
 
-  // 有効なバトルデータのフィルタリング
+  if (!isMapDataReady) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.loadingText}>{t.details.loading}</Text>
+      </View>
+    );
+  }
+
+  if (!battleLog || battleLog.length === 0) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.noDataText}>{t.details.noData}</Text>
+      </View>
+    );
+  }
+
   const validBattles = battleLog.filter(battle => {
     if (battle?.battle?.mode === 'soloShowdown') {
       return battle?.battle?.players && Array.isArray(battle.battle.players);
@@ -491,14 +549,6 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     : validBattles.slice(0, INITIAL_DISPLAY_COUNT);
 
   const remainingBattlesCount = validBattles.length - INITIAL_DISPLAY_COUNT;
-
-  if (validBattles.length === 0) {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.noDataText}>{t.details.noData}</Text>
-      </View>
-    );
-  }
 
   return (
     <View style={styles.container}>

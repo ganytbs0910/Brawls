@@ -137,7 +137,6 @@ const Home: React.FC = () => {
     const initData = async () => {
       try {
         const data = await initializeMapData();
-        console.log('Initialized map data:', Object.keys(data));
         setIsMapDataInitialized(true);
       } catch (error) {
         console.error('Failed to initialize map data:', error);

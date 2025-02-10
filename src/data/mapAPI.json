@@ -863,7 +863,7 @@
         {
             "name": {
                 "ja": "天国と地獄",
-                "en": "Feast Or Famine",
+                "en": "Feast or Famine",
                 "ko": "피스트 오어 패민"
             },
             "gameMode": "BattleRoyale",
@@ -4925,7 +4925,7 @@
         {
             "name": {
                 "ja": "炎のリング",
-                "en": "Ring Of Fire",
+                "en": "Ring of Fire",
                 "ko": "링 오브 파이어"
             },
             "gameMode": "Hot Zone",
@@ -5701,7 +5701,7 @@
         {
             "name": {
                 "ja": "ベルの岩",
-                "en": "Belles Rock",
+                "en": "Belle's Rock",
                 "ko": "벨스 록"
             },
             "gameMode": "Knockout",
@@ -7052,7 +7052,7 @@
         {
             "name": {
                 "ja": "オープンフィールド",
-                "en": "Out In The Open",
+                "en": "Out in the Open",
                 "ko": "넓은 공간에서"
             },
             "gameMode": "Knockout",
@@ -10285,11 +10285,11 @@
         {
             "name": {
                 "ja": "白熱対戦",
-                "en": "H For...",
+                "en": "H for...",
                 "ko": "H는..."
             },
             "gameMode": "Knockout",
-            "image": "../../assets/MapImages/H_For....png",
+            "image": "../../assets/MapImages/H_for.png",
             "description": "実装待ち",
             "recommendedBrawlers": [
                 {
