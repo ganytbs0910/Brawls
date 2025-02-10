@@ -9,6 +9,7 @@ import {
 import type { BattleLogItem } from '../hooks/useBrawlStarsApi';
 import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages';
 import { useBattleLogTranslation } from '../i18n/battleLog';
+import { getMapData } from '../data/mapDataService';
 
 // ゲームモードのアイコン定義
 const GAME_MODE_ICONS: { [key: string]: any } = {
@@ -48,6 +49,32 @@ const STAR_PLAYER_COLOR = '#FFD700';
 interface BattleLogProps {
   battleLog: BattleLogItem[];
 }
+
+// マップ名のローカライズ処理を改善
+const getLocalizedBattleMapName = (mapName: string | undefined, currentLanguage: string): string => {
+  if (!mapName) return '';
+  
+  try {
+    const mapData = getMapData(mapName);
+    if (!mapData) {
+      console.warn(`No map data found for: ${mapName}`);
+      return mapName;
+    }
+
+    // Home コンポーネントと同じロジックを使用
+    switch (currentLanguage) {
+      case 'en':
+        return mapData.nameEn || mapName;
+      case 'ko':
+        return mapData.nameKo || mapName;
+      default:
+        return mapData.name || mapName;  // Japanese name as default
+    }
+  } catch (error) {
+    console.error(`Error getting localized map name for ${mapName}:`, error);
+    return mapName;
+  }
+};
 
 // トロフィー数に応じたランクアイコンを取得
 const getRankIcon = (trophies: number) => {
@@ -246,7 +273,7 @@ const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog })
 // メインのバトルログコンポーネント
 export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
   const [showAllBattles, setShowAllBattles] = useState(false);
-  const { t } = useBattleLogTranslation();
+  const { t, currentLanguage } = useBattleLogTranslation();
 
   if (!battleLog || !Array.isArray(battleLog)) {
     return null;
@@ -387,7 +414,10 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
       const normalizedMode = normalizeModeName(mode);
       return t.battle.mode[normalizedMode as keyof typeof t.battle.mode] || mode;
     };
-    
+
+    // マップ名のローカライズ処理を改善
+    const mapName = battle.event?.map ? getLocalizedBattleMapName(battle.event.map, currentLanguage) : '';
+
     return (
       <View 
         style={[
@@ -410,7 +440,7 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
               )}
               <Text style={styles.battleMode}>
                 {isFriendly ? t.battle.mode.friendly : getModeName(battle.battle.mode)}
-                {battle.event?.map ? `${t.battle.mapPrefix}${battle.event.map}` : ''}
+                {mapName ? `${t.battle.mapPrefix}${mapName}` : ''}
               </Text>
             </View>
             <Text style={styles.battleTime}>
