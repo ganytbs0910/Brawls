@@ -24,7 +24,7 @@ type CompatibilityCategory = {
 };
 
 const CharacterDetails: React.FC = () => {
-  const { t } = useCharacterDetailsTranslation();
+  const { t, currentLanguage } = useCharacterDetailsTranslation();
   const { getLocalizedName } = useCharacterLocalization();
   const route = useRoute<CharacterDetailsRouteProp>();
   const navigation = useNavigation<CharacterDetailsNavigationProp>();
@@ -126,7 +126,8 @@ const CharacterDetails: React.FC = () => {
     if (!characterGears) return null;
 
     const handleGearClick = (gearId: number) => {
-      const gearInfo = getGearInfo(character.name, gearId);
+      // currentLanguageを使用してギア情報を取得
+      const gearInfo = getGearInfo(character.name, gearId, currentLanguage);
       setSelectedGear(gearInfo);
       setIsGearModalOpen(true);
     };
@@ -221,7 +222,7 @@ const CharacterDetails: React.FC = () => {
         </Modal>
       </View>
     );
-  }, [character, selectedGear, isGearModalOpen, t]);
+  }, [character, selectedGear, isGearModalOpen, currentLanguage, t]); 
 
   const renderCharacterInfo = useCallback(() => {
     if (!character) {

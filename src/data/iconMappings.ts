@@ -1,5 +1,3 @@
-//iconMappings
-
 interface IconMapping {
   [key: string]: {
     [key: number]: any;
@@ -14,150 +12,323 @@ interface GearInfo {
   type: 'superrare' | 'epic' | 'mythic' | 'plus';
 }
 
+interface GearData {
+  id: number;
+  name: {
+    ja: string;
+    en: string;
+    ko: string;
+  };
+  icon: any;
+  description: {
+    ja: string;
+    en: string;
+    ko: string;
+  };
+  type: 'superrare' | 'epic' | 'mythic' | 'plus';
+}
+
 const gearData = {
   superrareGears: {
     speed: {
       id: 1,
-      name: "スピードギア",
+      name: {
+        ja: "スピードギア",
+        en: "Speed Gear",
+        ko: "스피드 기어"
+      },
       icon: require('../../assets/GearIcon/gear_superrare_speed.png'),
-      description: "やぶの中を移動する際のスピードが15%上昇する。",
+      description: {
+        ja: "やぶの中を移動する際のスピードが15%上昇する。",
+        en: "Increases movement speed in bushes by 15%.",
+        ko: "수풀 속에서 이동 속도가 15% 증가합니다."
+      },
       type: "superrare"
     },
     vision: {
       id: 2,
-      name: "ビジョンギア",
+      name: {
+        ja: "ビジョンギア",
+        en: "Vision Gear",
+        ko: "비전 기어"
+      },
       icon: require('../../assets/GearIcon/gear_superrare_vision.png'),
-      description: "敵にダメージを与えると、その敵の姿が2秒間見えるようになる。",
+      description: {
+        ja: "敵にダメージを与えると、その敵の姿が2秒間見えるようになる。",
+        en: "When you deal damage to an enemy, you can see them for 2 seconds.",
+        ko: "적에게 데미지를 주면 해당 적을 2초 동안 볼 수 있습니다."
+      },
       type: "superrare"
     },
     heal: {
       id: 3,
-      name: "ヒールギア",
+      name: {
+        ja: "ヒールギア",
+        en: "Heal Gear",
+        ko: "힐 기어"
+      },
       icon: require('../../assets/GearIcon/gear_superrare_heal.png'),
-      description: "HPを50%効率的に回復する。",
+      description: {
+        ja: "HPを50%効率的に回復する。",
+        en: "Heal HP 50% more efficiently.",
+        ko: "HP를 50% 더 효율적으로 회복합니다."
+      },
       type: "superrare"
     },
     shield: {
       id: 4,
-      name: "シールドギア",
+      name: {
+        ja: "シールドギア",
+        en: "Shield Gear",
+        ko: "실드 기어"
+      },
       icon: require('../../assets/GearIcon/gear_superrare_shield.png'),
-      description: "消費型のシールドとして最大HPを900増強する。キャラクターのHPが満タンになると、10秒後にシールドが全回復する。",
+      description: {
+        ja: "消費型のシールドとして最大HPを900増強する。キャラクターのHPが満タンになると、10秒後にシールドが全回復する。",
+        en: "Increases maximum HP by 900 as a consumable shield. When character's HP is full, shield fully recovers after 10 seconds.",
+        ko: "소모성 실드로 최대 HP를 900 증가시킵니다. 캐릭터의 HP가 최대가 되면 10초 후에 실드가 완전히 회복됩니다."
+      },
       type: "superrare"
     },
     damage: {
       id: 5,
-      name: "ダメージギア",
+      name: {
+        ja: "ダメージギア",
+        en: "Damage Gear",
+        ko: "데미지 기어"
+      },
       icon: require('../../assets/GearIcon/gear_superrare_damage.png'),
-      description: "HPが50％未満になると敵に与えるダメージが15%増加する。",
+      description: {
+        ja: "HPが50％未満になると敵に与えるダメージが15%増加する。",
+        en: "When HP falls below 50%, damage dealt increases by 15%.",
+        ko: "HP가 50% 미만일 때 적에게 주는 데미지가 15% 증가합니다."
+      },
       type: "superrare"
     },
     gadget: {
       id: 6,
-      name: "ガジェット強化ギア",
+      name: {
+        ja: "ガジェット強化ギア",
+        en: "Gadget Boost Gear",
+        ko: "가젯 강화 기어"
+      },
       icon: require('../../assets/GearIcon/gear_plus_gadgets.png'),
-      description: "バトル中にガジェットを使える回数が1回増える。",
+      description: {
+        ja: "バトル中にガジェットを使える回数が1回増える。",
+        en: "Increases the number of times you can use gadgets in battle by 1.",
+        ko: "배틀 중 가젯을 사용할 수 있는 횟수가 1회 증가합니다."
+      },
       type: "plus"
     }
   },
   epicGears: {
     pet: {
       id: 7,
-      name: "ペット強化ギア",
+      name: {
+        ja: "ペット強化ギア",
+        en: "Pet Boost Gear",
+        ko: "펫 강화 기어"
+      },
       icon: require('../../assets/GearIcon/gear_epic_pet.png'),
-      description: "ペットのパワーが25%増加する。",
+      description: {
+        ja: "ペットのパワーが25%増加する。",
+        en: "Increases pet power by 25%.",
+        ko: "펫의 파워가 25% 증가합니다."
+      },
       type: "epic"
     },
     reload: {
       id: 7,
-      name: "リロード強化ギア",
+      name: {
+        ja: "リロード強化ギア",
+        en: "Reload Boost Gear",
+        ko: "리로드 강화 기어"
+      },
       icon: require('../../assets/GearIcon/gear_epic_reload.png'),
-      description: "リロード速度が15%上昇する。",
+      description: {
+        ja: "リロード速度が15%上昇する。",
+        en: "Increases reload speed by 15%.",
+        ko: "리로드 속도가 15% 증가합니다."
+      },
       type: "epic"
     },
     super: {
       id: 7,
-      name: "スーパー強化ギア",
+      name: {
+        ja: "スーパー強化ギア",
+        en: "Super Boost Gear",
+        ko: "슈퍼 강화 기어"
+      },
       icon: require('../../assets/GearIcon/gear_epic_super.png'),
-      description: "必殺技のチャージ速度が10%上昇する。",
+      description: {
+        ja: "必殺技のチャージ速度が10%上昇する。",
+        en: "Increases Super charge rate by 10%.",
+        ko: "궁극기 차지 속도가 10% 증가합니다."
+      },
       type: "epic"
     }
   },
   mythicGears: {
     tick: {
       id: 7,
-      name: "ティック専用ギア",
+      name: {
+        ja: "ティック専用ギア",
+        en: "Tick's Gear",
+        ko: "틱 전용 기어"
+      },
       icon: require('../../assets/GearIcon/gear_mythic_tick.png'),
-      description: "ティックの頭に1000HPを追加で付与する。",
+      description: {
+        ja: "ティックの頭に1000HPを追加で付与する。",
+        en: "Adds 1000 HP to Tick's head.",
+        ko: "틱의 머리에 1000HP를 추가로 부여합니다."
+      },
       type: "mythic"
     },
     pam: {
       id: 7,
-      name: "パム専用ギア",
+      name: {
+        ja: "パム専用ギア",
+        en: "Pam's Gear",
+        ko: "팸 전용 기어"
+      },
       icon: require('../../assets/GearIcon/gear_mythic_pam.png'),
-      description: "タレットによる回復量が20%上昇する。",
+      description: {
+        ja: "タレットによる回復量が20%上昇する。",
+        en: "Increases healing from turret by 20%.",
+        ko: "터렛의 회복량이 20% 증가합니다."
+      },
       type: "mythic"
     },
     mortis: {
       id: 7,
-      name: "モーティス専用ギア",
+      name: {
+        ja: "モーティス専用ギア",
+        en: "Mortis' Gear",
+        ko: "모티스 전용 기어"
+      },
       icon: require('../../assets/GearIcon/gear_mythic_mortis.png'),
-      description: "コウモリのスピードが50%増加する。",
+      description: {
+        ja: "コウモリのスピードが50%増加する。",
+        en: "Increases bat speed by 50%.",
+        ko: "박쥐의 속도가 50% 증가합니다."
+      },
       type: "mythic"
     },
     gene: {
       id: 7,
-      name: "ジーン専用ギア",
+      name: {
+        ja: "ジーン専用ギア",
+        en: "Gene's Gear",
+        ko: "진 전용 기어"
+      },
       icon: require('../../assets/GearIcon/gear_mythic_gene.png'),
-      description: "ジーンの魔法の手の射程が伸びる。",
+      description: {
+        ja: "ジーンの魔法の手の射程が伸びる。",
+        en: "Increases the range of Gene's Magic Hand.",
+        ko: "진의 마법의 손 사거리가 증가합니다."
+      },
       type: "mythic"
     },
     eve: {
       id: 8,
-      name: "イヴ専用ギア",
+      name: {
+        ja: "イヴ専用ギア",
+        en: "Eve's Gear",
+        ko: "이브 전용 기어"
+      },
       icon: require('../../assets/GearIcon/gear_mythic_eve.png'),
-      description: "必殺技で生まれるベビーが1匹増加する。",
+      description: {
+        ja: "必殺技で生まれるベビーが1匹増加する。",
+        en: "Spawns one additional baby with Super.",
+        ko: "궁극기로 태어나는 아기가 1마리 증가합니다."
+      },
       type: "mythic"
     },
     spike: {
       id: 7,
-      name: "スパイク専用ギア",
+      name: {
+        ja: "スパイク専用ギア",
+        en: "Spike's Gear",
+        ko: "스파이크 전용 기어"
+      },
       icon: require('../../assets/GearIcon/gear_mythic_spike.png'),
-      description: "必殺技のスローダウン効果が30％向上する。",
+      description: {
+        ja: "必殺技のスローダウン効果が30％向上する。",
+        en: "Increases Super's slow effect by 30%.",
+        ko: "궁극기의 슬로우 효과가 30% 증가합니다."
+      },
       type: "mythic"
     },
     crow: {
       id: 7,
-      name: "クロウ専用ギア",
+      name: {
+        ja: "クロウ専用ギア",
+        en: "Crow's Gear",
+        ko: "크로우 전용 기어"
+      },
       icon: require('../../assets/GearIcon/gear_mythic_crow.png'),
-      description: "クロウの毒のダメージが30%増加する。",
+      description: {
+        ja: "クロウの毒のダメージが30%増加する。",
+        en: "Increases Crow's poison damage by 30%.",
+        ko: "크로우의 독 데미지가 30% 증가합니다."
+      },
       type: "mythic"
     },
     leon: {
       id: 7,
-      name: "レオン専用ギア",
+      name: {
+        ja: "レオン専用ギア",
+        en: "Leon's Gear",
+        ko: "레온 전용 기어"
+      },
       icon: require('../../assets/GearIcon/gear_mythic_leon.png'),
-      description: "必殺技の効果時間を2秒延長する。",
+      description: {
+        ja: "必殺技の効果時間を2秒延長する。",
+        en: "Extends Super duration by 2 seconds.",
+        ko: "궁극기 지속 시간이 2초 연장됩니다."
+      },
       type: "mythic"
     },
     sandy: {
       id: 7,
-      name: "サンディ専用ギア",
+      name: {
+        ja: "サンディ専用ギア",
+        en: "Sandy's Gear",
+        ko: "샌디 전용 기어"
+      },
       icon: require('../../assets/GearIcon/gear_mythic_sandy.png'),
-      description: "砂嵐内にいる敵のダメージ量を20%減少させる。",
+      description: {
+        ja: "砂嵐内にいる敵のダメージ量を20%減少させる。",
+        en: "Reduces damage dealt by enemies in sandstorm by 20%.",
+        ko: "모래폭풍 안에 있는 적의 데미지량이 20% 감소합니다."
+      },
       type: "mythic"
     },
     amber: {
       id: 8,
-      name: "アンバー専用ギア",
+      name: {
+        ja: "アンバー専用ギア",
+        en: "Amber's Gear",
+        ko: "앰버 전용 기어"
+      },
       icon: require('../../assets/GearIcon/gear_mythic_amber.png'),
-      description: "燃料で敵の動きが10%スローダウンする。",
+      description: {
+        ja: "燃料で敵の動きが10%スローダウンする。",
+        en: "Slows enemy movement by 10% with oil.",
+        ko: "기름으로 적의 이동 속도가 10% 감소합니다."
+      },
       type: "mythic"
     }
   }
 };
 
-export const getGearInfo = (characterName: string, index: number): GearInfo => {
-  return gearIcons[characterName]?.[index] || gearData.superrareGears.speed;
+export const getGearInfo = (characterName: string, index: number, language: Language = 'ja'): GearInfo => {
+  const gear = gearIcons[characterName]?.[index] || gearData.superrareGears.speed;
+  return {
+    ...gear,
+    name: gear.name[language],
+    description: gear.description[language]
+  };
 };
 
 export const getGearTypeColor = (type: GearInfo['type']): string => {
