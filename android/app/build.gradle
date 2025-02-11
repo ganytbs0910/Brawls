@@ -28,8 +28,8 @@ android {
         applicationId "com.gan.brawlstatus"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 18
-        versionName "2.18"
+        versionCode 19
+        versionName "2.19"
         missingDimensionStrategy 'store', 'play'
     }
 

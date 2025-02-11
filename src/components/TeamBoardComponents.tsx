@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet, Alert, Linking } from 'react-native';
 import { characters } from './CharacterSelector';
+import { useTeamBoardComponentsTranslation } from '../i18n/teamBoardComponents';
 
 interface HostInfo {
   wins3v3: number;
@@ -21,20 +22,20 @@ interface TeamPost {
   host_info: HostInfo;
 }
 
-const timeAgo = (dateString: string) => {
+const timeAgo = (dateString: string, t: any, currentLanguage: string) => {
   const date = new Date(dateString);
   const now = new Date();
   const diffInMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60));
   
   if (diffInMinutes < 1) {
-    return 'たった今';
+    return t.postCard.time.justNow;
   } else if (diffInMinutes < 60) {
-    return `${diffInMinutes}分前`;
+    return `${diffInMinutes}${t.postCard.time.minutesAgo}`;
   } else if (diffInMinutes < 24 * 60) {
     const hours = Math.floor(diffInMinutes / 60);
-    return `${hours}時間前`;
+    return `${hours}${t.postCard.time.hoursAgo}`;
   } else {
-    return date.toLocaleDateString('ja-JP', {
+    return date.toLocaleDateString(currentLanguage, {
       month: 'numeric',
       day: 'numeric',
       hour: '2-digit',
@@ -43,20 +44,20 @@ const timeAgo = (dateString: string) => {
   }
 };
 
-const handleOpenLink = async (url: string) => {
+const handleOpenLink = async (url: string, t: any) => {
   try {
     const canOpen = await Linking.canOpenURL(url);
     if (canOpen) {
       Alert.alert(
-        'チーム参加の確認',
-        'チームリンクに参加しますか？',
+        t.postCard.joinTeam.title,
+        t.postCard.joinTeam.message,
         [
           {
-            text: 'キャンセル',
+            text: t.postCard.joinTeam.cancel,
             style: 'cancel'
           },
           {
-            text: '参加する',
+            text: t.postCard.joinTeam.join,
             onPress: async () => {
               await Linking.openURL(url);
             }
@@ -65,77 +66,78 @@ const handleOpenLink = async (url: string) => {
         { cancelable: true }
       );
     } else {
-      Alert.alert('エラー', 'このリンクを開けません');
+      Alert.alert('Error', t.postCard.errors.cannotOpen);
     }
   } catch (error) {
     console.error('Error opening link:', error);
-    Alert.alert('エラー', 'リンクを開く際にエラーが発生しました');
+    Alert.alert('Error', t.postCard.errors.openError);
   }
 };
 
 const getCurrentModes = () => {
-  const currentDate = new Date();
   const modes = [
-      {
-        name: "ガチバトル",
-        color: "#99ff66",
-        icon: require('../../assets/GameModeIcons/rank_front.png')
-      },
-      {
-        name: "デュオバトルロワイヤル",
-        color: "#99ff66",
-        icon: require('../../assets/GameModeIcons/duo_showdown_icon.png')
-      },
-      {
-        name: "エメラルドハント",
-        color: "#DA70D6",
-        icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
-      },
-      {
-        name: "ブロストライカー",
-        color: "#cccccc",
-        icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
-      },
-      {
-        name: "強奪",
-        color: "#cccccc",
-        icon: require('../../assets/GameModeIcons/heist_icon.png')
-      },
-      {
-        name: "ノックアウト",
-        color: "#FFA500",
-        icon: require('../../assets/GameModeIcons/knock_out_icon.png')
-      },
-      {
-        name: "賞金稼ぎ",
-        color: "#DA70D6",
-        icon: require('../../assets/GameModeIcons/bounty_icon.png')
-      },
-      {
-        name: "殲滅",
-        color: "#DA70D6",
-        icon: require('../../assets/GameModeIcons/wipeout_icon.png')
-      },
-      {
-        name: "ホットゾーン",
-        color: "#cccccc",
-        icon: require('../../assets/GameModeIcons/hot_zone_icon.png')
-      },
-      {
-        name: "5vs5ブロストライカー",
-        color: "#FFA500",
-        icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
-      },
-      {
-        name: "5vs5殲滅",
-        color: "#FFA500",
-        icon: require('../../assets/GameModeIcons/5v5wipeout_icon.png')
-      },
-    ];
+    {
+      name: "ガチバトル",
+      color: "#99ff66",
+      icon: require('../../assets/GameModeIcons/rank_front.png')
+    },
+    {
+      name: "デュオバトルロワイヤル",
+      color: "#99ff66",
+      icon: require('../../assets/GameModeIcons/duo_showdown_icon.png')
+    },
+    {
+      name: "エメラルドハント",
+      color: "#DA70D6",
+      icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
+    },
+    {
+      name: "ブロストライカー",
+      color: "#cccccc",
+      icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
+    },
+    {
+      name: "強奪",
+      color: "#cccccc",
+      icon: require('../../assets/GameModeIcons/heist_icon.png')
+    },
+    {
+      name: "ノックアウト",
+      color: "#FFA500",
+      icon: require('../../assets/GameModeIcons/knock_out_icon.png')
+    },
+    {
+      name: "賞金稼ぎ",
+      color: "#DA70D6",
+      icon: require('../../assets/GameModeIcons/bounty_icon.png')
+    },
+    {
+      name: "殲滅",
+      color: "#DA70D6",
+      icon: require('../../assets/GameModeIcons/wipeout_icon.png')
+    },
+    {
+      name: "ホットゾーン",
+      color: "#cccccc",
+      icon: require('../../assets/GameModeIcons/hot_zone_icon.png')
+    },
+    {
+      name: "5vs5ブロストライカー",
+      color: "#FFA500",
+      icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
+    },
+    {
+      name: "5vs5殲滅",
+      color: "#FFA500",
+      icon: require('../../assets/GameModeIcons/5v5wipeout_icon.png')
+    },
+  ];
   return modes;
 };
 
 export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
+  const { t, currentLanguage } = useTeamBoardComponentsTranslation();
+  
   const modes = getCurrentModes();
   const mode = modes.find(m => m.name === post.selected_mode) || {
     name: post.selected_mode,
@@ -146,7 +148,7 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
   return (
     <TouchableOpacity
       style={styles.postCard}
-      onPress={() => handleOpenLink(post.invite_link)}
+      onPress={() => handleOpenLink(post.invite_link, t)}
     >
       <View style={[
         styles.postHeader,
@@ -160,7 +162,9 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
             />
             <Text style={styles.modeName}>{post.selected_mode}</Text>
           </View>
-          <Text style={styles.timestamp}>{timeAgo(post.created_at)}</Text>
+          <Text style={styles.timestamp}>
+            {timeAgo(post.created_at, t, currentLanguage)}
+          </Text>
         </View>
       </View>
 
@@ -169,7 +173,9 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
           <View style={styles.recruitSection}>
             <View style={styles.recruitRow}>
               <View style={styles.recruitColumn}>
-                <Text style={styles.sectionTitle}>ミッド募集</Text>
+                <Text style={styles.sectionTitle}>
+                  {t.postCard.recruiting.mid}
+                </Text>
                 <View style={styles.characterList}>
                   {post.mid_characters.map(charId => (
                     <Image 
@@ -182,7 +188,9 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
               </View>
               
               <View style={styles.recruitColumn}>
-                <Text style={styles.sectionTitle}>サイド募集</Text>
+                <Text style={styles.sectionTitle}>
+                  {t.postCard.recruiting.side}
+                </Text>
                 <View style={styles.characterList}>
                   {post.side_characters.map(charId => (
                     <Image 
@@ -197,28 +205,30 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
           </View>
 
           <View style={styles.hostInfoSection}>
-            <Text style={styles.sectionTitle}>ホスト情報</Text>
+            <Text style={styles.sectionTitle}>
+              {t.postCard.hostInfo.title}
+            </Text>
             <View style={styles.hostStats}>
               <View style={styles.hostStatRow}>
                 <Image 
                   source={require('../../assets/OtherIcon/trophy_Icon.png')}
                   style={styles.tinyTrophyIcon}
                 />
-                <Text>総合トロ: {post.host_info.totalTrophies}</Text>
+                <Text>{t.postCard.hostInfo.totalTrophies}: {post.host_info.totalTrophies}</Text>
               </View>
               <View style={styles.hostStatRow}>
                 <Image 
                   source={require('../../assets/GameModeIcons/gem_grab_icon.png')}
                   style={styles.tinyTrophyIcon}
                 />
-                <Text>3vs3勝利数: {post.host_info.wins3v3}</Text>
+                <Text>{t.postCard.hostInfo.wins3v3}: {post.host_info.wins3v3}</Text>
               </View>
               <View style={styles.hostStatRow}>
                 <Image 
                   source={require('../../assets/GameModeIcons/duo_showdown_icon.png')}
                   style={styles.tinyTrophyIcon}
                 />
-                <Text>デュオ勝利数: {post.host_info.winsDuo}</Text>
+                <Text>{t.postCard.hostInfo.winsDuo}: {post.host_info.winsDuo}</Text>
               </View>
             </View>
             <View style={styles.hostStatRow}>
@@ -226,7 +236,7 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
                 source={characters.find(c => c.id === post.selected_character)?.icon}
                 style={styles.smallCharIcon}
               />
-              <Text>使用キャラ: </Text>
+              <Text>{t.postCard.hostInfo.useChar}: </Text>
               <Text>{post.character_trophies}</Text>
             </View>
           </View>
@@ -234,7 +244,9 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
 
         {post.description && (
           <View style={styles.descriptionSection}>
-            <Text style={styles.sectionTitle}>ひとこと</Text>
+            <Text style={styles.sectionTitle}>
+              {t.postCard.comment.title}
+            </Text>
             <Text style={styles.description}>{post.description}</Text>
           </View>
         )}
@@ -693,3 +705,5 @@ export const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+
+export default PostCard;

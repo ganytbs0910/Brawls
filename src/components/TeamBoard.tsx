@@ -529,60 +529,60 @@ const TeamBoard: React.FC = () => {
 
   // 投稿の作成
   const createPost = async () => {
-    if (!validateInputs()) return;
+  if (!validateInputs()) return;
 
-    try {
-      const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
-      const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
+  try {
+    const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
+    const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
 
-      // テーブル名を現在の言語から取得
-      const tableName = getTableName(currentLanguage);
-      console.log('Creating post in table:', tableName);
+    // テーブル名を現在の言語から取得
+    const tableName = getTableName(currentLanguage);
+    console.log('Creating post in table:', tableName);
 
-      const postData = {
-        selected_mode: selectedMode,
-        invite_link: cleanInviteLink,
-        description: description.trim(),
-        selected_character: selectedCharacter!.id,
-        character_trophies: Number(characterTrophies),
-        mid_characters: midCharacters.map(c => c.id),
-        side_characters: sideCharacters.map(c => c.id),
-        host_info: hostInfo
-      };
+    const postData = {
+      selected_mode: selectedMode,
+      invite_link: cleanInviteLink,
+      description: description.trim(),
+      selected_character: selectedCharacter!.id,
+      character_trophies: Number(characterTrophies),
+      mid_characters: midCharacters.map(c => c.id),
+      side_characters: sideCharacters.map(c => c.id),
+      host_info: hostInfo
+    };
 
-      const { error } = await supabase
-        .from(tableName)
-        .insert([postData]);
+    const { error } = await supabase
+      .from(tableName)
+      .insert([postData]);
 
-      if (error) {
-        console.error('Supabase insert error:', error);
-        throw error;
-      }
-
-      // 投稿成功時の処理
-      await AsyncStorage.setItem('lastPostTime', Date.now().toString());
-      resetForm();
-      setModalVisible(false);
-
-      // 広告表示の試行
-      try {
-        if (AdMobService) {
-          const adService = AdMobService.initialize();
-          if (adService && typeof adService.showInterstitial === 'function') {
-            await adService.showInterstitial();
-          }
-        }
-      } catch (adError) {
-        console.error('Ad display failed:', adError);
-      }
-
-      Alert.alert('Success', t.success.postCreated);
-      
-    } catch (error) {
-      console.error('Error creating post:', error);
-      Alert.alert('Error', t.errors.postCreationFailed);
+    if (error) {
+      console.error('Supabase insert error:', error);
+      throw error;
     }
-  };
+
+    // 投稿成功時の処理
+    await AsyncStorage.setItem('lastPostTime', Date.now().toString());
+    resetForm();
+    setModalVisible(false);
+
+    // ここの広告表示処理を修正
+    try {
+      if (AdMobService) {
+        const adService = AdMobService.initialize();
+        if (adService && typeof adService.showInterstitial === 'function') {
+          await adService.showInterstitial();
+        }
+      }
+    } catch (adError) {
+      console.error('Ad display failed:', adError);
+    }
+
+    Alert.alert('Success', t.success.postCreated);
+    
+  } catch (error) {
+    console.error('Error creating post:', error);
+    Alert.alert('Error', t.errors.postCreationFailed);
+  }
+};
 
   // フォームのリセット
   const resetForm = () => {
@@ -854,16 +854,22 @@ const TeamBoard: React.FC = () => {
             <Text style={styles.refreshButtonText}>{t.refresh}</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.createButton}
-            onPress={async () => {
-              const canPost = await checkPostCooldown();
-              if (canPost) {
-                setModalVisible(true);
-              }
-            }}
-          >
-            <Text style={styles.createButtonText}>{t.create}</Text>
-          </TouchableOpacity>
+  style={styles.createButton}
+  onPress={async () => {
+    const canPost = await checkPostCooldown();
+    if (canPost) {
+      // 広告の事前ロードを追加
+      const adFreeStatus = await AsyncStorage.getItem('adFreeStatus');
+      if (adFreeStatus !== 'true' && AdMobService) {
+        const adService = await AdMobService.initialize();
+        await adService.loadInterstitial();
+      }
+      setModalVisible(true);
+    }
+  }}
+>
+  <Text style={styles.createButtonText}>{t.create}</Text>
+</TouchableOpacity>
         </View>
       </View>
 

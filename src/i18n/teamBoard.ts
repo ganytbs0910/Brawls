@@ -120,7 +120,7 @@ export const ja: TeamBoardTranslation = {
 export const en: TeamBoardTranslation = {
   boardTitle: 'Team Recruitment',
   refresh: 'Refresh',
-  create: 'Create Post',
+  create: 'Create',
   cancel: 'Cancel',
   submit: 'Submit',
   playerTag: 'Your Player Tag',
