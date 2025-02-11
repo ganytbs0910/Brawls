@@ -34,6 +34,11 @@ export type TeamBoardTranslation = {
     refreshCooldown: string;
     refreshFailed: string;
     postCreationFailed: string;
+    postLimitTitle: string;
+    postLimitPrefix: string;
+    postLimitSuffix: string;
+    minutes: string;
+    seconds: string;
   };
   success: {
     postCreated: string;
@@ -75,6 +80,11 @@ export const ja: TeamBoardTranslation = {
   comment: 'コメント (任意)',
   commentPlaceholder: '募集に関する詳細や要望を入力',
   errors: {
+    postLimitTitle: '投稿制限',
+    postLimitPrefix: '次の投稿まであと',
+    postLimitSuffix: 'お待ちください',
+    minutes: '分',
+    seconds: '秒',
     selectMode: 'モードを選択してください',
     playerInfo: 'プレイヤー情報を取得してください',
     selectCharacter: 'キャラクターを選択してください',
@@ -128,6 +138,11 @@ export const en: TeamBoardTranslation = {
   comment: 'Comment (Optional)',
   commentPlaceholder: 'Enter details or requirements',
   errors: {
+    postLimitTitle: 'Post Limit',
+    postLimitPrefix: 'Please wait ',
+    postLimitSuffix: ' before posting again',
+    minutes: ' minutes',
+    seconds: ' seconds',
     selectMode: 'Please select a mode',
     playerInfo: 'Please get player information',
     selectCharacter: 'Please select a character',
@@ -181,6 +196,11 @@ export const ko: TeamBoardTranslation = {
   comment: '코멘트 (선택사항)',
   commentPlaceholder: '세부사항이나 요구사항을 입력하세요',
   errors: {
+    postLimitTitle: '게시 제한',
+    postLimitPrefix: '다음 게시까지 ',
+    postLimitSuffix: ' 기다려주세요',
+    minutes: '분',
+    seconds: '초',
     selectMode: '모드를 선택해주세요',
     playerInfo: '플레이어 정보를 가져와주세요',
     selectCharacter: '캐릭터를 선택해주세요',

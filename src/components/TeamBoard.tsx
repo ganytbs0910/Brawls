@@ -91,6 +91,38 @@ const TeamBoard: React.FC = () => {
 
   const REFRESH_COOLDOWN = 3000;
 
+  // 投稿制限をチェックする関数
+  const checkPostCooldown = async () => {
+    const lastPostTime = await AsyncStorage.getItem('lastPostTime');
+    if (lastPostTime) {
+      const timeSinceLastPost = Date.now() - Number(lastPostTime);
+      if (timeSinceLastPost < 180000) { // 3分 = 180000ミリ秒
+        const remainingTime = Math.ceil((180000 - timeSinceLastPost) / 1000);
+        const minutes = Math.floor(remainingTime / 60);
+        const seconds = remainingTime % 60;
+        
+        let timeMessage = '';
+        if (minutes > 0) {
+          timeMessage += `${minutes}${t.errors.minutes}`;
+        }
+        if (seconds > 0) {
+          if (minutes > 0) {
+            timeMessage += ' ';
+          }
+          timeMessage += `${seconds}${t.errors.seconds}`;
+        }
+        
+        Alert.alert(
+          t.errors.postLimitTitle,
+          `${t.errors.postLimitPrefix}${timeMessage}${t.errors.postLimitSuffix}`,
+          [{ text: 'OK', style: 'default' }]
+        );
+        return false;
+      }
+    }
+    return true;
+  };
+
   // 言語に基づいてテーブル名を取得
   const getTableName = (lang: string) => `team_posts_${lang}`;
 
@@ -499,16 +531,6 @@ const TeamBoard: React.FC = () => {
   const createPost = async () => {
     if (!validateInputs()) return;
 
-    // 投稿の頻度制限をチェック
-    const lastPostTime = await AsyncStorage.getItem('lastPostTime'); 
-    if (lastPostTime) {
-      const timeSinceLastPost = Date.now() - Number(lastPostTime);
-      if (timeSinceLastPost < 60000) {
-        Alert.alert('Error', t.errors.postTooFrequent);
-        return;
-      }
-    }
-
     try {
       const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
       const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
@@ -833,7 +855,12 @@ const TeamBoard: React.FC = () => {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.createButton}
-            onPress={() => setModalVisible(true)}
+            onPress={async () => {
+              const canPost = await checkPostCooldown();
+              if (canPost) {
+                setModalVisible(true);
+              }
+            }}
           >
             <Text style={styles.createButtonText}>{t.create}</Text>
           </TouchableOpacity>
