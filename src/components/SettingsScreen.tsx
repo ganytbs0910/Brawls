@@ -167,19 +167,18 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   }, []);
 
   useEffect(() => {
-    const initAdService = async () => {
-      try {
-        if (!adService.current) {
-          adService.current = new AdMobService();
-          await adService.current.initialize();
-        }
-      } catch (error) {
-        console.error('Failed to initialize AdMobService:', error);
+  const initAdService = async () => {
+    try {
+      if (!adService.current) {
+        adService.current = await AdMobService.initialize();
       }
-    };
-    
-    initAdService();
-  }, []);
+    } catch (error) {
+      console.error('Failed to initialize AdMobService:', error);
+    }
+  };
+  
+  initAdService();
+}, []);
 
   const handleShare = async () => {
     try {

@@ -20,7 +20,6 @@ import { DailyTip } from '../components/DailyTip';
 import MapDetailScreen from '../components/MapDetailScreen';
 import { RewardedAd, RewardedAdEventType } from 'react-native-google-mobile-ads';
 import { AD_CONFIG } from '../config/AdConfig';
-import { BannerAdComponent } from '../components/BannerAdComponent';
 import { useHomeTranslation } from '../i18n/home';
 import { useMapDetailTranslation } from '../i18n/mapDetail';
 import AdMobService from '../services/AdMobService';

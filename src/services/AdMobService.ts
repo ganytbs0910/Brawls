@@ -1,9 +1,6 @@
 import mobileAds, {
   InterstitialAd,
   AdEventType,
-  BannerAd,
-  BannerAdSize,
-  TestIds,
 } from 'react-native-google-mobile-ads';
 import { Platform } from 'react-native';
 import { AD_CONFIG } from '../config/AdConfig';
