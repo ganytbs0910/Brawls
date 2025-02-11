@@ -536,6 +536,14 @@ const App = () => {
     const initializeApp = async () => {
       try {
         await checkVersion();
+
+        // 言語の初期化処理を追加
+    const savedLanguage = await AsyncStorage.getItem('selectedLanguage');
+    if (!savedLanguage) {
+      // 初回起動時のみ実行
+      const deviceLang = getDeviceLanguage();
+      await AsyncStorage.setItem('selectedLanguage', deviceLang);
+    }
         
         const status = await AsyncStorage.getItem('adFreeStatus');
         const isAdFreeStatus = status === 'true';

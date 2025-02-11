@@ -12,22 +12,45 @@ const SUPPORTED_LANGUAGES = {
 
 // デバイスのデフォルト言語を取得する関数
 const getDeviceLanguage = (): Language => {
-  let deviceLanguage = 'en';
-  
-  if (Platform.OS === 'ios') {
-    deviceLanguage = NativeModules.SettingsManager.settings.AppleLocale ||
-                    NativeModules.SettingsManager.settings.AppleLanguages[0];
-  } else {
-    deviceLanguage = NativeModules.I18nManager.localeIdentifier;
+  try {
+    // Platform.selectを使用してプラットフォーム固有の言語取得ロジックを実装
+    const deviceLanguage = Platform.select({
+      ios: () => {
+        // iOSの場合
+        const locale = 
+          NativeModules.SettingsManager?.settings?.AppleLocale ||
+          NativeModules.SettingsManager?.settings?.AppleLanguages?.[0];
+        return locale?.split('_')[0] || 'en';
+      },
+      android: () => {
+        // Androidの場合
+        const locale = NativeModules.I18nManager?.localeIdentifier;
+        return locale?.split('-')[0] || 'en';
+      },
+      default: () => 'en'
+    })();
+
+    console.log('Raw device language:', deviceLanguage); // デバッグ用
+
+    // 言語コードを正規化
+    const normalizedLanguage = deviceLanguage.toLowerCase().trim();
+
+    // サポートされている言語かどうかを確認
+    if (Object.keys(SUPPORTED_LANGUAGES).includes(normalizedLanguage)) {
+      console.log('Using device language:', normalizedLanguage);
+      return normalizedLanguage as Language;
+    }
+
+    console.log('Falling back to English');
+    return 'en';
+  } catch (error) {
+    console.error('Error getting device language:', error);
+    // エラーの詳細をログ出力
+    if (error instanceof Error) {
+      console.error('Error details:', error.message);
+    }
+    return 'en';
   }
-
-  // 言語コードを抽出 (例: "ja_JP" → "ja")
-  const languageCode = deviceLanguage.split('_')[0];
-
-  // サポートされている言語かチェック、なければ英語を返す
-  return Object.keys(SUPPORTED_LANGUAGES).includes(languageCode) 
-    ? languageCode as Language 
-    : 'en';
 };
 
 interface LanguageSelectorProps {
@@ -35,38 +58,55 @@ interface LanguageSelectorProps {
 }
 
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ onClose }) => {
-  const [currentLanguage, setCurrentLanguage] = useState<Language>('en');
+  const [currentLanguage, setCurrentLanguage] = useState<Language | null>(null);
+  const [isInitialized, setIsInitialized] = useState(false);  // 初期化フラグを追加
 
   useEffect(() => {
-    // 初期言語の設定
-    const initLanguage = async () => {
-      try {
-        const savedLanguage = await AsyncStorage.getItem('selectedLanguage');
-        if (savedLanguage && Object.keys(SUPPORTED_LANGUAGES).includes(savedLanguage)) {
-          setCurrentLanguage(savedLanguage as Language);
-        } else {
-          const deviceLang = getDeviceLanguage();
-          setCurrentLanguage(deviceLang);
-          await AsyncStorage.setItem('selectedLanguage', deviceLang);
-        }
-      } catch (error) {
-        console.error('Failed to initialize language:', error);
-        setCurrentLanguage('en');
+  const initLanguage = async () => {
+    try {
+      const savedLanguage = await AsyncStorage.getItem('selectedLanguage');
+      if (savedLanguage && Object.keys(SUPPORTED_LANGUAGES).includes(savedLanguage)) {
+        setCurrentLanguage(savedLanguage as Language);
       }
-    };
+    } catch (error) {
+      console.error('Failed to initialize language:', error);
+      const deviceLang = getDeviceLanguage();
+      setCurrentLanguage(deviceLang);
+    } finally {
+      setIsInitialized(true);
+    }
+  };
 
-    initLanguage();
-  }, []);
+  initLanguage();
+}, []);
+
+  if (!isInitialized) {
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.title}>Loading...</Text>
+          <TouchableOpacity onPress={onClose} style={styles.backButton}>
+            <Text style={styles.backButtonText}>←</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  }
 
   const handleLanguageSelect = async (language: Language) => {
-  try {
-    await AsyncStorage.setItem('selectedLanguage', language);
-    setCurrentLanguage(language);
-    // refreshCharacterDataWithNewLanguage の呼び出しを削除
-  } catch (error) {
-    console.error('Failed to save language:', error);
-  }
-};
+    if (language === currentLanguage) {
+      return; // 同じ言語を選択した場合は何もしない
+    }
+
+    try {
+      await AsyncStorage.setItem('selectedLanguage', language);
+      setCurrentLanguage(language);
+      // 選択後すぐには閉じない
+      // 必要に応じて確認ダイアログを表示するなど
+    } catch (error) {
+      console.error('Failed to save language:', error);
+    }
+  };
 
   return (
     <View style={styles.container}>
