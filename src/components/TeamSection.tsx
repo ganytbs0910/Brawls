@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { TeamSectionProps } from './PickPrediction';
 import CharacterImage from './CharacterImage';
+import { useTeamSectionTranslation } from '../i18n/teamSection';
 
 export const TeamSection: React.FC<TeamSectionProps> = ({
   gameState,
@@ -9,6 +10,8 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
   onBanSelect,
   onCharacterSelect
 }) => {
+  const { t } = useTeamSectionTranslation();
+
   const renderSlot = (type: 'ban' | 'team', index: number) => {
     const characters = type === 'ban' 
       ? (team === 'A' ? gameState.bansA : gameState.bansB)
@@ -40,7 +43,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
             )}
           </View>
         ) : (
-          <Text style={styles.emptySlot}>未選択</Text>
+          <Text style={styles.emptySlot}>{t.emptySlot}</Text>
         )}
       </View>
     );
@@ -52,7 +55,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
     return (
       <View style={styles.section}>
         {type === 'ban' && (
-          <Text style={styles.sectionTitle}>BAN</Text>
+          <Text style={styles.sectionTitle}>{t.ban}</Text>
         )}
         <View style={styles.slotsContainer}>
           {[...Array(count)].map((_, index) => renderSlot(type, index))}
@@ -73,7 +76,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
         gameState.currentTeam === team && 
           (team === 'A' ? styles.activeTeamTitleA : styles.activeTeamTitleB)
       ]}>
-        チーム{team}
+        {t.teamLabel}{team}
       </Text>
       {gameState.isBanPhaseEnabled && renderSection('ban')}
       {renderSection('team')}

@@ -1,16 +1,16 @@
-//customRankings.ts
 import { CharacterData, RankingItem } from '../types/types';
+import { useCharacterRolesTranslation } from '../i18n/characterRoles';
 
 interface CustomRankingConfig {
   [role: string]: {
     characters: string[];
-    displayName: string;
+    key: keyof CharacterRolesTranslation['roles']; // 翻訳キーを追加
   };
 }
 
 const roleSpecificRankings: CustomRankingConfig = {
   all: {
-    displayName: "すべて",
+    key: 'all',
     characters: [
       'ストゥー',　'メロディー', 'ジュジュ', 'ガス', 'ベリー', 'ルー', 'フランケン', 'ペニー', 'サージ', 'R-T', 'リコ', 'エリザベス', 'Max', 
       'サンディ', 'ダリル', 'グレイ', 'バスター', 'イヴ', 'ラリー&ローリー', 'ドラコ', 'ケンジ', 'アンジェロ', 'コレット', 'ベル', 'バイロン', 
@@ -23,61 +23,48 @@ const roleSpecificRankings: CustomRankingConfig = {
     ]
   },
   tank: {
-    displayName: "タンク",
+    key: 'tank',
     characters: [
-      'ブル', 'エルプリモ', 'ローサ', 'ダリル', 'ジャッキー', 
-      'フランケン', 'ビビ', 'アッシュ', 'ハンク', 'バスター', 'メグ', 'ドラコ', 'オーリー'
+      'ブル', 'エルプリモ', 'ローサ', 'ダリル', 'ジャッキー', 　'フランケン', 'ビビ', 'アッシュ', 
+      'ハンク', 'バスター', 'オーリー', 'メグ', 'ドラコ',
     ]
   },
   assassin: {
-    displayName: "アサシン",
+    key: 'assassin',
     characters: [
-      'ストゥー', 'エドガー', 'サム', 'シェイド', 'モーティス',
-      'バズ', 'ファング', 'ミコ', 'メロディー', 'リリー',
-      'クロウ', 'レオン', 'コーデリアス', 'ケンジ', 
+      'ストゥー', 'エドガー', 'サム', 'シェイド', 'モーティス','バズ', 'ファング', 'ミコ', 'メロディー', 
+      'リリー', 'クロウ', 'レオン', 'コーデリアス', 'ケンジ', 
     ]
   },
   support: {
-    displayName: "サポート",
+    key: 'support',
     characters: [
-      'ポコ', 'ガス', 'パム', 'ベリー', 'Max',
-      'バイロン', 'ラフス', 'グレイ', 'ダグ', 'キット'
+      'ポコ', 'ガス', 'パム', 'ベリー', 'Max', 'バイロン', 'ラフス', 'グレイ', 'ダグ', 'キット'
     ]
   },
   controller: {
-    displayName: "コントローラー",
+    key: 'controller',
     characters: [
-      'ジェシー', 'ペニー', 'ボウ', 'Emz', 'グリフ',
-      'ゲイル', 'ジーン', 'ミスターP', 'スクウィーク',
-      'ルー', 'オーティス', 'ウィロー', 'チャック',
-      'チャーリー', 'サンディ', 'アンバー', 'ミープル'
-    ]
-  },
-  fighter: {
-    displayName: "ファイター",
-    characters: [
-      'サージ', 'シェイド', 'モーティス', 'エドガー',
-      'バイロン', 'ファング', 'ビビ', 'ガス', 'クロウ'
+      'ジェシー', 'ペニー', 'ボウ', 'Emz', 'グリフ', 'ゲイル',  'ミープル', 'ジーン', 'ミスターP', 'スクウィーク',
+      'ルー', 'オーティス', 'ウィロー', 'チャック', 'チャーリー', 'サンディ', 'アンバー'
     ]
   },
   attacker: { 
-    displayName: "アタッカー",
+    key: 'attacker',
     characters: [
-      'シェリー', 'ニタ', 'コルト', '8ビット', 'リコ',
-      'カール', 'コレット', 'ローラ', 'パール', 'タラ',
-      'イヴ', 'R-T', 'クランシー', 'モー', 'スパイク',
-      'サージ', 'チェスター'
+      'シェリー', 'ニタ', 'コルト', '8ビット', 'リコ', 'カール', 'コレット', 'ローラ', 'パール', 'タラ',
+      'イヴ', 'R-T', 'クランシー', 'モー', 'スパイク', 'サージ', 'チェスター'
     ]
   },
   sniper: {
-    displayName: "スナイパー",
+    key: 'sniper',
     characters: [
       'ブロック', 'エリザベス', 'ビー', 'ナーニ', 'ボニー',
       'ベル', 'マンディ', 'メイジー', 'アンジェロ', 'ジャネット',
     ]
   },
   grenadier: {
-    displayName: "グレネーディア",
+    key: 'grenadier',
     characters: [
       'バーリー', 'ダイナマイク', 'ティック', 'グロム',
       'ラリー&ローリー', 'スプラウト', 'ジュジュ',
@@ -116,14 +103,19 @@ export const generateCustomRankings = (
     });
 };
 
+// getRoleDisplayName関数を更新
 export const getRoleDisplayName = (role: string): string => {
-  return roleSpecificRankings[role]?.displayName || role;
+  const { t } = useCharacterRolesTranslation();
+  const roleConfig = roleSpecificRankings[role];
+  if (!roleConfig) return role;
+  return t.roles[roleConfig.key];
 };
 
 export const getAllRoles = (): string[] => {
   return Object.keys(roleSpecificRankings);
 };
 
+// 検証関数は変更なし
 export const validateRankings = (): void => {
   const allCharacters = new Set(roleSpecificRankings.all.characters);
   

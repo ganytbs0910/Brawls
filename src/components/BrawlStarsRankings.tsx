@@ -1,10 +1,8 @@
-//BrawlStarsRankings.tsx
 import React, { useState, useEffect } from 'react';
 import { 
   ScrollView, 
   View, 
   Text, 
-
   StyleSheet, 
   TouchableOpacity, 
   ActivityIndicator,
@@ -18,10 +16,11 @@ import {
   getCharacterRankings,
   getCharacterData,
 } from '../data/characterData';
-import { useCharacterLocalization } from '../hooks/useCharacterLocalization'; // 変更
+import { useCharacterLocalization } from '../hooks/useCharacterLocalization';
 import { RootStackParamList } from '../App';
 import { RankingItem } from '../types/types';
 import { getAllRoles, getRoleDisplayName, generateCustomRankings } from '../data/customRankings';
+import { useRankingsTranslation } from '../i18n/rankings';
 
 type RankingsScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Rankings'>;
 
@@ -66,7 +65,8 @@ const BrawlStarsRankings: React.FC = () => {
   const [rankings, setRankings] = useState<RankingItem[]>([]);
   const [selectedRole, setSelectedRole] = useState('all');
   const [characters, setCharacters] = useState({});
-  const { getLocalizedName } = useCharacterLocalization(); // 追加
+  const { getLocalizedName } = useCharacterLocalization();
+  const { t } = useRankingsTranslation();
 
   useEffect(() => {
     const initializeData = async () => {
@@ -97,6 +97,7 @@ const BrawlStarsRankings: React.FC = () => {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#2196F3" />
+        <Text style={styles.loadingText}>{t.loading}</Text>
       </View>
     );
   }
@@ -104,12 +105,12 @@ const BrawlStarsRankings: React.FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>キャラクターランキング</Text>
+        <Text style={styles.title}>{t.title}</Text>
         <TouchableOpacity 
           style={styles.searchButton}
         >
           <Image 
-          source={require('../../assets/AppIcon/search.png')}
+            source={require('../../assets/AppIcon/search.png')}
             style={styles.searchIcon}
           />
         </TouchableOpacity>
@@ -124,13 +125,13 @@ const BrawlStarsRankings: React.FC = () => {
         <ScrollView>
           {rankings.map((item, index) => {
             const characterData = getCharacterData(item.characterName);
-            const localizedName = getLocalizedName(item.characterName); // 変更
+            const localizedName = getLocalizedName(item.characterName);
             
             return (
               <View key={item.rank} style={styles.rankingItem}>
                 <View style={styles.rankContainer}>
                   <Text style={styles.rankNumber} numberOfLines={1}>
-                    {index + 1}位
+                    {index + 1}{t.rankLabel}
                   </Text>
                 </View>
                 <TouchableOpacity 
@@ -146,7 +147,7 @@ const BrawlStarsRankings: React.FC = () => {
                   />
                   <View style={styles.textContainer}>
                     <Text style={styles.characterName}>
-                      {localizedName} {/* 変更 */}
+                      {localizedName}
                     </Text>
                     <Text style={styles.description} numberOfLines={2}>
                       {item.description}
@@ -172,6 +173,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
+  },
+  loadingText: {
+    marginTop: 12,
+    fontSize: 16,
+    color: '#666',
   },
   header: {
     height: 60,
