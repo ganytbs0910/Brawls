@@ -12,7 +12,8 @@ import {
   KeyboardAvoidingView,
   Platform,
   Image,
-  StyleSheet
+  StyleSheet,
+  useWindowDimensions
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import CharacterSelector, { Character } from './CharacterSelector';
@@ -59,6 +60,9 @@ interface GameMode {
 }
 
 const TeamBoard: React.FC = () => {
+  const { width } = useWindowDimensions();
+  const isIPad = Platform.OS === 'ios' && Platform.isPad;
+
   // カスタムフックと refs の設定
   const { t, currentLanguage } = useTeamBoardTranslation();
   const scrollViewRef = useRef<ScrollView>(null);
@@ -240,7 +244,6 @@ const TeamBoard: React.FC = () => {
 
     const setupRealtimeSubscription = async () => {
       try {
-        // 既存のチャンネルがあれば解除
         if (currentChannel) {
           await currentChannel.unsubscribe();
         }
@@ -248,7 +251,6 @@ const TeamBoard: React.FC = () => {
         const tableName = getTableName(currentLanguage);
         console.log('Setting up realtime subscription for table:', tableName);
 
-        // 新しいチャンネルを設定
         currentChannel = supabase
           .channel(`team_posts_${currentLanguage}_changes`)
           .on('postgres_changes', 
@@ -274,7 +276,6 @@ const TeamBoard: React.FC = () => {
     fetchPosts();
     setupRealtimeSubscription();
 
-    // クリーンアップ関数
     return () => {
       isSubscribed = false;
       if (currentChannel) {
@@ -391,7 +392,7 @@ const TeamBoard: React.FC = () => {
           const isVerified = await verifyPlayerTag(validatedTag);
           if (validatedTag === playerTag) {
             setIsPlayerVerified(isVerified);
-          }
+            }
         }
       }
     } catch (error) {
@@ -489,7 +490,6 @@ const TeamBoard: React.FC = () => {
       console.error('Refresh failed:', error);
       Alert.alert('Error', t.errors.refreshFailed);
     } finally {
-      // 少し遅延を入れてUXを改善
       setTimeout(() => setIsRefreshing(false), 500);
     }
   };
@@ -529,60 +529,57 @@ const TeamBoard: React.FC = () => {
 
   // 投稿の作成
   const createPost = async () => {
-  if (!validateInputs()) return;
+    if (!validateInputs()) return;
 
-  try {
-    const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
-    const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
-
-    // テーブル名を現在の言語から取得
-    const tableName = getTableName(currentLanguage);
-    console.log('Creating post in table:', tableName);
-
-    const postData = {
-      selected_mode: selectedMode,
-      invite_link: cleanInviteLink,
-      description: description.trim(),
-      selected_character: selectedCharacter!.id,
-      character_trophies: Number(characterTrophies),
-      mid_characters: midCharacters.map(c => c.id),
-      side_characters: sideCharacters.map(c => c.id),
-      host_info: hostInfo
-    };
-
-    const { error } = await supabase
-      .from(tableName)
-      .insert([postData]);
-
-    if (error) {
-      console.error('Supabase insert error:', error);
-      throw error;
-    }
-
-    // 投稿成功時の処理
-    await AsyncStorage.setItem('lastPostTime', Date.now().toString());
-    resetForm();
-    setModalVisible(false);
-
-    // ここの広告表示処理を修正
     try {
-      if (AdMobService) {
-        const adService = AdMobService.initialize();
-        if (adService && typeof adService.showInterstitial === 'function') {
-          await adService.showInterstitial();
-        }
-      }
-    } catch (adError) {
-      console.error('Ad display failed:', adError);
-    }
+      const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
+      const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
 
-    Alert.alert('Success', t.success.postCreated);
-    
-  } catch (error) {
-    console.error('Error creating post:', error);
-    Alert.alert('Error', t.errors.postCreationFailed);
-  }
-};
+      const tableName = getTableName(currentLanguage);
+      console.log('Creating post in table:', tableName);
+
+      const postData = {
+        selected_mode: selectedMode,
+        invite_link: cleanInviteLink,
+        description: description.trim(),
+        selected_character: selectedCharacter!.id,
+        character_trophies: Number(characterTrophies),
+        mid_characters: midCharacters.map(c => c.id),
+        side_characters: sideCharacters.map(c => c.id),
+        host_info: hostInfo
+      };
+
+      const { error } = await supabase
+        .from(tableName)
+        .insert([postData]);
+
+      if (error) {
+        console.error('Supabase insert error:', error);
+        throw error;
+      }
+
+      await AsyncStorage.setItem('lastPostTime', Date.now().toString());
+      resetForm();
+      setModalVisible(false);
+
+      try {
+        if (AdMobService) {
+          const adService = AdMobService.initialize();
+          if (adService && typeof adService.showInterstitial === 'function') {
+            await adService.showInterstitial();
+          }
+        }
+      } catch (adError) {
+        console.error('Ad display failed:', adError);
+      }
+
+      Alert.alert('Success', t.success.postCreated);
+      
+    } catch (error) {
+      console.error('Error creating post:', error);
+      Alert.alert('Error', t.errors.postCreationFailed);
+    }
+  };
 
   // フォームのリセット
   const resetForm = () => {
@@ -837,81 +834,102 @@ const TeamBoard: React.FC = () => {
     </View>
   );
 
+  const containerStyle = {
+    ...styles.container,
+    ...(isIPad && {
+      maxWidth: Math.min(width, 800),
+      alignSelf: 'center',
+      width: '100%'
+    })
+  };
+
   // メインレンダリング
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>{t.boardTitle}</Text>
-        <View style={styles.headerButtons}>
-          <TouchableOpacity
-            style={[
-              styles.refreshButton,
-              isRefreshing && styles.refreshButtonDisabled
-            ]}
-            onPress={handleRefresh}
-            disabled={isRefreshing}
-          >
-            <Text style={styles.refreshButtonText}>{t.refresh}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-  style={styles.createButton}
-  onPress={async () => {
-    const canPost = await checkPostCooldown();
-    if (canPost) {
-      // 広告の事前ロードを追加
-      const adFreeStatus = await AsyncStorage.getItem('adFreeStatus');
-      if (adFreeStatus !== 'true' && AdMobService) {
-        const adService = await AdMobService.initialize();
-        await adService.loadInterstitial();
-      }
-      setModalVisible(true);
-    }
-  }}
->
-  <Text style={styles.createButtonText}>{t.create}</Text>
-</TouchableOpacity>
+    <SafeAreaView style={styles.safeArea}>
+      <View style={containerStyle}>
+        <View style={styles.header}>
+          <Text style={styles.title}>{t.boardTitle}</Text>
+          <View style={styles.headerButtons}>
+            <TouchableOpacity
+              style={[
+                styles.refreshButton,
+                isRefreshing && styles.refreshButtonDisabled
+              ]}
+              onPress={handleRefresh}
+              disabled={isRefreshing}
+            >
+              <Text style={styles.refreshButtonText}>{t.refresh}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.createButton}
+              onPress={async () => {
+                const canPost = await checkPostCooldown();
+                if (canPost) {
+                  const adFreeStatus = await AsyncStorage.getItem('adFreeStatus');
+                  if (adFreeStatus !== 'true' && AdMobService) {
+                    const adService = await AdMobService.initialize();
+                    await adService.loadInterstitial();
+                  }
+                  setModalVisible(true);
+                }
+              }}
+            >
+              <Text style={styles.createButtonText}>{t.create}</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
 
-      {renderModeFilter()}
+        {renderModeFilter()}
 
-      <View style={styles.content}>
-        {loading ? (
-          <View style={styles.loadingContainer}>
-            <ActivityIndicator size="large" color="#21A0DB" />
-          </View>
-        ) : (
-          <ScrollView>
-            {posts.map((post) => (
-              <PostCard key={post.id} post={post} />
-            ))}
-          </ScrollView>
-        )}
-      </View>
+        <View style={styles.content}>
+          {loading ? (
+            <View style={styles.loadingContainer}>
+              <ActivityIndicator size="large" color="#21A0DB" />
+            </View>
+          ) : (
+            <ScrollView>
+              {posts.map((post) => (
+                <PostCard key={post.id} post={post} />
+              ))}
+            </ScrollView>
+          )}
+        </View>
 
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(false);
-          resetForm();
-        }}
-      >
-        <KeyboardAvoidingView
-          behavior={Platform.OS === "ios" ? "padding" : "height"}
-          style={styles.modalOverlay}
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            setModalVisible(false);
+            resetForm();
+          }}
         >
-          <View style={styles.modalView}>
-            {renderPostForm()}
-          </View>
-        </KeyboardAvoidingView>
-      </Modal>
+          <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            style={styles.modalOverlay}
+          >
+            <View style={[
+              styles.modalView,
+              isIPad && {
+                maxWidth: 600,
+                width: '90%',
+                alignSelf: 'center'
+              }
+            ]}>
+              {renderPostForm()}
+            </View>
+          </KeyboardAvoidingView>
+        </Modal>
+      </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -972,8 +990,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalView: {
-    width: '90%',
-    maxHeight: '90%',
     backgroundColor: 'white',
     borderRadius: 20,
     padding: 20,
@@ -985,6 +1001,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+    width: '90%',
+    maxHeight: '90%',
   },
   filterContainer: {
     backgroundColor: '#fff',
@@ -1174,5 +1192,5 @@ const styles = StyleSheet.create({
     padding: 16,
   }
 });
-
 export default TeamBoard;
+
