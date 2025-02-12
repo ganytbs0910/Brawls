@@ -41,9 +41,6 @@ export type SettingsScreenTranslation = {
     showError: string;
     rewardError: string;
   };
-  sale: {
-    label: string;
-  };
 };
 
 export const ja: SettingsScreenTranslation = {
@@ -66,7 +63,7 @@ export const ja: SettingsScreenTranslation = {
   },
   purchase: {
     title: '広告削除の購入',
-    message: 'リリース記念セール中！\n通常{originalPrice}→{salePrice}で広告を完全に削除します。\n購入を続けますか？',
+    message: '¥500で広告を完全に削除します。\n購入を続けますか？',
     cancel: 'キャンセル',
     confirm: '購入する',
     complete: '広告の削除が完了しました！',
@@ -87,9 +84,6 @@ export const ja: SettingsScreenTranslation = {
   ads: {
     showError: '広告の表示に失敗しました。',
     rewardError: 'リワード広告の表示に失敗しました。',
-  },
-  sale: {
-    label: 'リリース記念セール',
   },
 };
 
@@ -113,7 +107,7 @@ export const en: SettingsScreenTranslation = {
   },
   purchase: {
     title: 'Remove Ads',
-    message: 'Release Sale!\nRemove all ads for {salePrice} instead of {originalPrice}.\nWould you like to continue?',
+    message: 'Remove ads completely for $4.99.\nWould you like to continue?',
     cancel: 'Cancel',
     confirm: 'Purchase',
     complete: 'Ads have been successfully removed!',
@@ -134,9 +128,6 @@ export const en: SettingsScreenTranslation = {
   ads: {
     showError: 'Failed to display ad.',
     rewardError: 'Failed to display reward ad.',
-  },
-  sale: {
-    label: 'Release Sale',
   },
 };
 
@@ -160,7 +151,7 @@ export const ko: SettingsScreenTranslation = {
   },
   purchase: {
     title: '광고 제거',
-    message: '출시 기념 세일!\n일반가 {originalPrice}→{salePrice}로 모든 광고를 제거합니다.\n구매를 계속하시겠습니까?',
+    message: '₩5,000으로 광고를 완전히 제거합니다.\n계속 진행하시겠습니까?',
     cancel: '취소',
     confirm: '구매',
     complete: '광고가 성공적으로 제거되었습니다!',
@@ -181,9 +172,6 @@ export const ko: SettingsScreenTranslation = {
   ads: {
     showError: '광고 표시에 실패했습니다.',
     rewardError: '리워드 광고 표시에 실패했습니다.',
-  },
-  sale: {
-    label: '출시 기념 세일',
   },
 };
 

@@ -41,10 +41,8 @@ const AD_REMOVAL_SKU_ANDROID = 'brawl_status_ad_removal';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const PURCHASE_CONFIG = {
-  ORIGINAL_PRICE: 400,
-  SALE_PRICE: 200,
-  ORIGINAL_PRICE_DISPLAY: '¥400',
-  SALE_PRICE_DISPLAY: '¥200',
+  PRICE: 500,
+  PRICE_DISPLAY: '¥500',
   PRODUCT_NAME: '広告削除パック',
 } as const;
 
@@ -463,16 +461,12 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
             {loading && ' (処理中...)'}
           </Text>
           {!isAdFree && !loading && (
-            <View style={styles.priceContainer}>
-              <Text style={styles.originalPrice}>
-                {PURCHASE_CONFIG.ORIGINAL_PRICE_DISPLAY}
-              </Text>
-              <Text style={styles.salePrice}>
-                {PURCHASE_CONFIG.SALE_PRICE_DISPLAY}
-              </Text>
-              <Text style={styles.saleLabel}>{t.sale.label}</Text>
-            </View>
-          )}
+  <View style={styles.priceContainer}>
+    <Text style={styles.price}>
+      {PURCHASE_CONFIG.PRICE_DISPLAY}
+    </Text>
+  </View>
+)}
         </View>
       </TouchableOpacity>
     );
@@ -636,26 +630,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 4,
   },
-  originalPrice: {
-    fontSize: 14,
-    color: '#999',
-    textDecorationLine: 'line-through',
-    marginRight: 8,
-  },
-  salePrice: {
+  price: {
     fontSize: 16,
-    color: '#FF4444',
+    color: '#333',
     fontWeight: 'bold',
-    marginRight: 8,
-  },
-  saleLabel: {
-    fontSize: 12,
-    color: '#FF4444',
-    borderWidth: 1,
-    borderColor: '#FF4444',
-    borderRadius: 4,
-    paddingHorizontal: 4,
-    paddingVertical: 2,
   }
 });
 

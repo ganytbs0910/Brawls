@@ -32,8 +32,8 @@ const AD_REMOVAL_SKU = Platform.select({
 });
 
 const PURCHASE_CONFIG = {
-  PRICE: 200,
-  PRICE_DISPLAY: '¥200',
+  PRICE: 500,
+  PRICE_DISPLAY: '¥500',
   PRODUCT_NAME: '広告削除パック',
 } as const;
 
