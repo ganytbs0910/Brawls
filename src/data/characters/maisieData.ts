@@ -88,7 +88,9 @@ export const maisieData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 1,
     "アンバー": 7,
-    "サンディ": 8
+    "サンディ": 8,
+    "ミープル": 4,
+    "オーリー": 10
   },
   "explanation": {}
 }

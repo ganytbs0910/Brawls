@@ -88,7 +88,9 @@ export const ricoData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 7,
     "アンバー": 3,
-    "サンディ": 4
+    "サンディ": 4,
+    "ミープル": 6,
+    "オーリー": 10
   },
   "explanation": {}
 }

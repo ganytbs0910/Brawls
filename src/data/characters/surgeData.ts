@@ -88,7 +88,9 @@ export const surgeData: CharacterCompatibility = {
     "チャック": 10,
     "チャーリー": 3,
     "アンバー": 6,
-    "サンディ": 8
+    "サンディ": 8,
+    "ミープル": 4,
+    "オーリー": 10
   },
   "explanation": {}
 }

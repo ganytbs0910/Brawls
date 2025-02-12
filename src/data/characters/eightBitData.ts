@@ -88,7 +88,9 @@ export const eightBitData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 4,
     "アンバー": 4,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 5,
+    "オーリー": 9
   },
   "explanation": {}
 }

@@ -88,7 +88,9 @@ export const brockData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 6,
     "アンバー": 6,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 4,
+    "オーリー": 9
   },
   "explanation": {}
 }

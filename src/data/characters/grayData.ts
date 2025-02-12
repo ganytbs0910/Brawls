@@ -88,7 +88,9 @@ export const grayData: CharacterCompatibility = {
     "チャック": 7,
     "チャーリー": 4,
     "アンバー": 7,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 3,
+    "オーリー": 1
   },
   "explanation": {}
 }

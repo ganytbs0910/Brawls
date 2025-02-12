@@ -88,7 +88,9 @@ export const shellyData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 0,
     "アンバー": 1,
-    "サンディ": 4
+    "サンディ": 4,
+    "ミープル": 4,
+    "オーリー": 10
   },
   "explanation": {}
 }

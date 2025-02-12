@@ -88,7 +88,9 @@ export const bibiData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 2,
     "アンバー": 4,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 1,
+    "オーリー": 10
   },
   "explanation": {}
 }

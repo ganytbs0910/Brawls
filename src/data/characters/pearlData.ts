@@ -54,7 +54,7 @@ export const pearlData: CharacterCompatibility = {
     "コルト": 4,
     "8ビット": 4,
     "リコ": 4,
-    "カール": 5,
+    "カール": 8,
     "コレット": 3,
     "ローラ": 3,
     "タラ": 5,
@@ -69,7 +69,7 @@ export const pearlData: CharacterCompatibility = {
     "ガス": 3,
     "パム": 6,
     "ベリー": 5,
-    "MAX": 7,
+    "MAX": 8,
     "バイロン": 0,
     "ラフス": 6,
     "グレイ": 6,
@@ -88,7 +88,9 @@ export const pearlData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 6,
     "アンバー": 2,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 8,
+    "オーリー": 7
   },
   "explanation": {}
 }

@@ -88,7 +88,9 @@ export const moeData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 8,
     "アンバー": 4,
-    "サンディ": 8
+    "サンディ": 8,
+    "ミープル": 2,
+    "オーリー": 8
   },
   "explanation": {}
 }

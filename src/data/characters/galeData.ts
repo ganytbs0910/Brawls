@@ -88,7 +88,9 @@ export const galeData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 6,
     "アンバー": 4,
-    "サンディ": 3
+    "サンディ": 3,
+    "ミープル": 4,
+    "オーリー": 9
   },
   "explanation": {}
 }

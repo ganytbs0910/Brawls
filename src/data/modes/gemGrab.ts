@@ -160,7 +160,7 @@ export const gemGrabMaps: Record<string, MapDetail> = {
       { name: "バイロン", reason: "", power: 5 },
       { name: "エリザベス", reason: "", power: 5 },
       { name: "ペニー", reason: "", power: 5 },
-      { name: "イブ", reason: "", power: 5 },
+      { name: "イヴ", reason: "", power: 5 },
       { name: "アンジェロ", reason: "", power: 5 },
       { name: "8ビット", reason: "", power: 4 },
       { name: "アンバー", reason: "", power: 4 },

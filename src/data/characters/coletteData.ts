@@ -88,7 +88,9 @@ export const coletteData: CharacterCompatibility = {
     "チャック": 9,
     "チャーリー": 2,
     "アンバー": 4,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 4,
+    "オーリー": 10
   },
   "explanation": {}
 }

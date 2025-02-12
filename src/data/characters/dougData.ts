@@ -88,7 +88,9 @@ export const dougData: CharacterCompatibility = {
     "チャック": 7,
     "チャーリー": 1,
     "アンバー": 2,
-    "サンディ": 1
+    "サンディ": 1,
+    "ミープル": 1,
+    "オーリー": 4
   },
   "explanation": {}
 }

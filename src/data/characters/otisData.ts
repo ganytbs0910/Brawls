@@ -88,7 +88,9 @@ export const otisData: CharacterCompatibility = {
     "チャック": 9,
     "チャーリー": 6,
     "アンバー": 3,
-    "サンディ": 4
+    "サンディ": 4,
+    "ミープル": 6,
+    "オーリー": 10
   },
   "explanation": {}
 }

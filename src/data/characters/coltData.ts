@@ -88,7 +88,9 @@ export const coltData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 8,
     "アンバー": 7,
-    "サンディ": 8
+    "サンディ": 8,
+    "ミープル": 5,
+    "オーリー": 8
   },
   "explanation": {}
 }

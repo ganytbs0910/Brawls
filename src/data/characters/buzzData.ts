@@ -88,7 +88,9 @@ export const buzzData: CharacterCompatibility = {
     "チャック": 9,
     "チャーリー": 6,
     "アンバー": 6,
-    "サンディ": 2
+    "サンディ": 2,
+    "ミープル": 1,
+    "オーリー": 4
   },
   "explanation": {}
 }

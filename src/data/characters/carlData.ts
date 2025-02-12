@@ -56,7 +56,7 @@ export const carlData: CharacterCompatibility = {
     "リコ": 3,
     "コレット": 4,
     "ローラ": 7,
-    "パール": 5,
+    "パール": 2,
     "タラ": 9,
     "イヴ": 10,
     "R-T": 5,
@@ -88,7 +88,9 @@ export const carlData: CharacterCompatibility = {
     "チャック": 7,
     "チャーリー": 9,
     "アンバー": 4,
-    "サンディ": 3
+    "サンディ": 3,
+    "ミープル": 0,
+    "オーリー": 5
   },
   "explanation": {}
 }

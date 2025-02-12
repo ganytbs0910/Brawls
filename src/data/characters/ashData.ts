@@ -17,7 +17,7 @@ export const ashData: CharacterCompatibility = {
     "バズ": 3,
     "ダグ": 4,
     "メグ": 4,
-    "ドラコ": 3,
+    "ドラコ": 8,
     "バーリー": 3,
     "ダイナマイク": 4,
     "ティック": 8,
@@ -88,7 +88,9 @@ export const ashData: CharacterCompatibility = {
     "チャック": 7,
     "チャーリー": 3,
     "アンバー": 3,
-    "サンディ": 10
+    "サンディ": 10,
+    "ミープル": 3,
+    "オーリー": 10
   },
   "explanation": {}
 }

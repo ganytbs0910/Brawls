@@ -88,7 +88,9 @@ export const clancyData: CharacterCompatibility = {
     "チャック": 10,
     "チャーリー": 0,
     "アンバー": 4,
-    "サンディ": 4
+    "サンディ": 4,
+    "ミープル": 3,
+    "オーリー": 10
   },
   "explanation": {}
 }

@@ -88,7 +88,9 @@ export const rtData: CharacterCompatibility = {
     "チャック": 10,
     "チャーリー": 6,
     "アンバー": 4,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 7,
+    "オーリー": 10
   },
   "explanation": {}
 }

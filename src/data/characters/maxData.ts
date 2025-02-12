@@ -57,7 +57,7 @@ export const maxData: CharacterCompatibility = {
     "カール": 5,
     "コレット": 6,
     "ローラ": 0,
-    "パール": 3,
+    "パール": 2,
     "タラ": 4,
     "イヴ": 5,
     "R-T": 4,
@@ -88,7 +88,9 @@ export const maxData: CharacterCompatibility = {
     "チャック": 7,
     "チャーリー": 5,
     "アンバー": 2,
-    "サンディ": 6
+    "サンディ": 6,
+    "ミープル": 4,
+    "オーリー": 7
   },
   "explanation": {}
 }

@@ -88,7 +88,9 @@ export const taraData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 10,
     "アンバー": 1,
-    "サンディ": 0
+    "サンディ": 0,
+    "ミープル": 10,
+    "オーリー": 1
   },
   "explanation": {}
 }

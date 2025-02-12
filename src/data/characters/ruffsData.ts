@@ -88,7 +88,9 @@ export const ruffsData: CharacterCompatibility = {
     "チャック": 7,
     "チャーリー": 5,
     "アンバー": 2,
-    "サンディ": 3
+    "サンディ": 3,
+    "ミープル": 8,
+    "オーリー": 3
   },
   "explanation": {}
 }

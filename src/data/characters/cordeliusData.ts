@@ -88,7 +88,9 @@ export const cordeliusData: CharacterCompatibility = {
     "チャック": 10,
     "チャーリー": 4,
     "アンバー": 6,
-    "サンディ": 5
+    "サンディ": 5,
+    "ミープル": 5,
+    "オーリー": 9
   },
   "explanation": {}
 }

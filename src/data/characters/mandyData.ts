@@ -88,7 +88,9 @@ export const mandyData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 7,
     "アンバー": 7,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 7,
+    "オーリー": 9
   },
   "explanation": {}
 }

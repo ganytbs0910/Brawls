@@ -88,7 +88,9 @@ export const edgarData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 6,
     "アンバー": 7,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 7,
+    "オーリー": 1
   },
   "explanation": {}
 }

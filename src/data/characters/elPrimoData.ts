@@ -88,7 +88,9 @@ export const elPrimoData: CharacterCompatibility = {
     "チャック": 9,
     "チャーリー": 6,
     "アンバー": 2,
-    "サンディ": 2
+    "サンディ": 2,
+    "ミープル": 3,
+    "オーリー": 10
   },
   "explanation": {}
 }

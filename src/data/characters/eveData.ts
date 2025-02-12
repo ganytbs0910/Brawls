@@ -88,7 +88,9 @@ export const eveData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 6,
     "アンバー": 1,
-    "サンディ": 6
+    "サンディ": 6,
+    "ミープル": 9,
+    "オーリー": 8
   },
   "explanation": {}
 }

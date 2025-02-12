@@ -88,7 +88,9 @@ export const belleData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 5,
     "アンバー": 8,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 8,
+    "オーリー": 9
   },
   "explanation": {}
 }

@@ -88,7 +88,9 @@ export const bullData: CharacterCompatibility = {
     "チャック": 9,
     "チャーリー": 3,
     "アンバー": 2,
-    "サンディ": 1
+    "サンディ": 1,
+    "ミープル": 3,
+    "オーリー": 10
   },
   "explanation": {}
 }

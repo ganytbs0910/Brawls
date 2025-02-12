@@ -88,7 +88,9 @@ export const emzData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 7,
     "アンバー": 1,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 4,
+    "オーリー": 7
   },
   "explanation": {}
 }

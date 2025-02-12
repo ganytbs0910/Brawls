@@ -32,7 +32,7 @@ export const chuckData: CharacterCompatibility = {
     "シェイド": 3,
     "モーティス": 4,
     "ファング": 0,
-    "ミコ": 4,
+    "ミコ": 6,
     "リリー": 3,
     "メロディー": 3,
     "クロウ": 1,
@@ -88,7 +88,9 @@ export const chuckData: CharacterCompatibility = {
     "オーティス": 1,
     "チャーリー": 5,
     "アンバー": 3,
-    "サンディ": 2
+    "サンディ": 2,
+    "ミープル": 3,
+    "オーリー": 0
   },
   "explanation": {}
 }

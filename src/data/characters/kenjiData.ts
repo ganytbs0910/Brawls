@@ -88,7 +88,9 @@ export const kenjiData: CharacterCompatibility = {
     "チャック": 6,
     "チャーリー": 2,
     "アンバー": 4,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 6,
+    "オーリー": 9
   },
   "explanation": {}
 }

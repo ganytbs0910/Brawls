@@ -88,7 +88,9 @@ export const janetData: CharacterCompatibility = {
     "チャック": 6,
     "チャーリー": 10,
     "アンバー": 3,
-    "サンディ": 3
+    "サンディ": 3,
+    "ミープル": 6,
+    "オーリー": 8
   },
   "explanation": {}
 }

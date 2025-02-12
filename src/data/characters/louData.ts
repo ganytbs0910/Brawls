@@ -88,7 +88,9 @@ export const louData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 3,
     "アンバー": 3,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 6,
+    "オーリー": 10
   },
   "explanation": {}
 }

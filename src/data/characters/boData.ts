@@ -88,7 +88,9 @@ export const boData: CharacterCompatibility = {
     "チャック": 7,
     "チャーリー": 6,
     "アンバー": 3,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 4,
+    "オーリー": 4
   },
   "explanation": {}
 }

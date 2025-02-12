@@ -88,7 +88,9 @@ export const samData: CharacterCompatibility = {
     "チャック": 7,
     "チャーリー": 6,
     "アンバー": 3,
-    "サンディ": 4
+    "サンディ": 4,
+    "ミープル": 3,
+    "オーリー": 10
   },
   "explanation": {}
 }

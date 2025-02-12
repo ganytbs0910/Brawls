@@ -88,7 +88,9 @@ export const crowData: CharacterCompatibility = {
     "チャック": 9,
     "チャーリー": 3,
     "アンバー": 1,
-    "サンディ": 8
+    "サンディ": 8,
+    "ミープル": 3,
+    "オーリー": 7
   },
   "explanation": {}
 }

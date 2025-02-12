@@ -88,7 +88,9 @@ export const mortisData: CharacterCompatibility = {
     "チャック": 6,
     "チャーリー": 7,
     "アンバー": 3,
-    "サンディ": 8
+    "サンディ": 8,
+    "ミープル": 6,
+    "オーリー": 6
   },
   "explanation": {}
 }

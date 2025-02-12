@@ -88,7 +88,9 @@ export const frankData: CharacterCompatibility = {
     "チャック": 7,
     "チャーリー": 7,
     "アンバー": 5,
-    "サンディ": 8
+    "サンディ": 8,
+    "ミープル": 3,
+    "オーリー": 10
   },
   "explanation": {}
 }

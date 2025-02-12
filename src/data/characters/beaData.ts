@@ -88,7 +88,9 @@ export const beaData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 2,
     "アンバー": 8,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 8,
+    "オーリー": 10
   },
   "explanation": {}
 }

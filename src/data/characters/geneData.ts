@@ -88,7 +88,9 @@ export const geneData: CharacterCompatibility = {
     "チャック": 5,
     "チャーリー": 2,
     "アンバー": 3,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 7,
+    "オーリー": 8
   },
   "explanation": {}
 }

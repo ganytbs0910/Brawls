@@ -88,7 +88,9 @@ export const amberData: CharacterCompatibility = {
     "オーティス": 7,
     "チャック": 7,
     "チャーリー": 8,
-    "サンディ": 5
+    "サンディ": 5,
+    "ミープル": 6,
+    "オーリー": 8
   },
   "explanation": {}
 }

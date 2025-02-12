@@ -88,7 +88,9 @@ export const stuData: CharacterCompatibility = {
     "チャック": 5,
     "チャーリー": 0,
     "アンバー": 6,
-    "サンディ": 2
+    "サンディ": 2,
+    "ミープル": 6,
+    "オーリー": 3
   },
   "explanation": {}
 }

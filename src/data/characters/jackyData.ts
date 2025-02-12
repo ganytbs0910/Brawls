@@ -88,7 +88,9 @@ export const jackyData: CharacterCompatibility = {
     "チャック": 7,
     "チャーリー": 7,
     "アンバー": 3,
-    "サンディ": 2
+    "サンディ": 2,
+    "ミープル": 1,
+    "オーリー": 10
   },
   "explanation": {}
 }

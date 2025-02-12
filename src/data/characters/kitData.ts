@@ -88,7 +88,9 @@ export const kitData: CharacterCompatibility = {
     "チャック": 7,
     "チャーリー": 6,
     "アンバー": 3,
-    "サンディ": 3
+    "サンディ": 3,
+    "ミープル": 5,
+    "オーリー": 0
   },
   "explanation": {}
 }

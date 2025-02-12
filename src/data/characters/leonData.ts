@@ -88,7 +88,9 @@ export const leonData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 0,
     "アンバー": 5,
-    "サンディ": 4
+    "サンディ": 4,
+    "ミープル": 3,
+    "オーリー": 7
   },
   "explanation": {}
 }

@@ -88,7 +88,9 @@ export const lilyData: CharacterCompatibility = {
     "チャック": 7,
     "チャーリー": 6,
     "アンバー": 3,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 8,
+    "オーリー": 0
   },
   "explanation": {}
 }

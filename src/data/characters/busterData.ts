@@ -88,7 +88,9 @@ export const busterData: CharacterCompatibility = {
     "チャック": 7,
     "チャーリー": 7,
     "アンバー": 6,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 3,
+    "オーリー": 10
   },
   "explanation": {}
 }

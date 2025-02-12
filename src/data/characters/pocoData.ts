@@ -88,7 +88,9 @@ export const pocoData: CharacterCompatibility = {
     "チャック": 6,
     "チャーリー": 6,
     "アンバー": 7,
-    "サンディ": 6
+    "サンディ": 6,
+    "ミープル": 2,
+    "オーリー": 0
   },
   "explanation": {}
 }

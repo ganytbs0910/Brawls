@@ -88,7 +88,9 @@ export const tickData: CharacterCompatibility = {
     "チャック": 6,
     "チャーリー": 7,
     "アンバー": 6,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 6,
+    "オーリー": 6
   },
   "explanation": {}
 }

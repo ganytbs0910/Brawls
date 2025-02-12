@@ -11,7 +11,7 @@ export const dracoData: CharacterCompatibility = {
     "ジャッキー": 7,
     "フランケン": 0,
     "ビビ": 8,
-    "アッシュ": 7,
+    "アッシュ": 2,
     "サム": 8,
     "ハンク": 7,
     "バスター": 6,
@@ -88,7 +88,9 @@ export const dracoData: CharacterCompatibility = {
     "チャック": 8,
     "チャーリー": 6,
     "アンバー": 3,
-    "サンディ": 5
+    "サンディ": 5,
+    "ミープル": 1,
+    "オーリー": 10
   },
   "explanation": {}
 }

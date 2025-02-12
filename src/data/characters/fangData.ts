@@ -88,7 +88,9 @@ export const fangData: CharacterCompatibility = {
     "チャック": 10,
     "チャーリー": 0,
     "アンバー": 2,
-    "サンディ": 8
+    "サンディ": 8,
+    "ミープル": 5,
+    "オーリー": 2
   },
   "explanation": {}
 }

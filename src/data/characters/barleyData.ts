@@ -88,7 +88,9 @@ export const barleyData: CharacterCompatibility = {
     "チャック": 7,
     "チャーリー": 10,
     "アンバー": 7,
-    "サンディ": 8
+    "サンディ": 8,
+    "ミープル": 6,
+    "オーリー": 6
   },
   "explanation": {}
 }

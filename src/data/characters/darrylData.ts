@@ -88,7 +88,9 @@ export const darrylData: CharacterCompatibility = {
     "チャック": 9,
     "チャーリー": 3,
     "アンバー": 3,
-    "サンディ": 7
+    "サンディ": 7,
+    "ミープル": 3,
+    "オーリー": 10
   },
   "explanation": {}
 }

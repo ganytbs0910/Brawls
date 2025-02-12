@@ -88,7 +88,9 @@ export const nitaData: CharacterCompatibility = {
     "チャック": 9,
     "チャーリー": 9,
     "アンバー": 4,
-    "サンディ": 10
+    "サンディ": 10,
+    "ミープル": 4,
+    "オーリー": 10
   },
   "explanation": {}
 }
