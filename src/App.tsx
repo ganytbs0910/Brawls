@@ -424,7 +424,6 @@ const App = () => {
   const { t } = useAppTranslation();
   const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings' | 'prediction' | 'news' | 'gacha'>('home');
   const [isAdFree, setIsAdFree] = useState(false);
-  const [shouldShowAd, setShouldShowAd] = useState(true);
   const [isSlideOverVisible, setIsSlideOverVisible] = useState(false);
   const [previousTab, setPreviousTab] = useState<typeof activeTab>('home');
   const [isSecondaryContentVisible, setIsSecondaryContentVisible] = useState(false);
@@ -663,35 +662,39 @@ const handleTabPress = (tabKey: typeof activeTab, index: number) => {
   };
 
   return (
-  <SafeAreaView style={styles.container}>
-    <View style={styles.content}>
-      {renderContent()}
-      {!isAdFree && shouldShowAd && <BannerAdComponent />}
-      <TabBar
-        activeTab={activeTab}
-        onTabPress={handleTabPress}
-        animatedValues={animatedValues}
-        slideAnimation={slideAnimation}
-        t={t}
-      />
-    </View>
-    {isSlideOverVisible && (
-      <SlideOver onClose={handleSlideOverClose}>
-        <TeamBoard 
-          isAdFree={isAdFree}
-          isCompact={true}
-          onShowDetails={handleShowSecondaryContent}
+    <SafeAreaView style={styles.container}>
+      <View style={styles.content}>
+        {renderContent()}
+        {!isAdFree && <BannerAdComponent />}
+        <TabBar
+          activeTab={activeTab}
+          onTabPress={handleTabPress}
+          animatedValues={animatedValues}
+          slideAnimation={slideAnimation}
+          t={t}
         />
-      </SlideOver>
-    )}
-  </SafeAreaView>
-);
+      </View>
+      {isSlideOverVisible && (
+        <SlideOver onClose={handleSlideOverClose}>
+          <TeamBoard 
+            isAdFree={isAdFree}
+            isCompact={true}
+            onShowDetails={handleShowSecondaryContent}
+          />
+        </SlideOver>
+      )}
+    </SafeAreaView>
+  );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  content: {
+    flex: 1,
+     paddingBottom: Platform.OS === 'ios' ? 105 : 98, // タブバー + バナー広告の高さを考慮して調整
   },
   splitContainer: {
     flex: 1,
@@ -705,9 +708,6 @@ const styles = StyleSheet.create({
     borderLeftColor: '#e0e0e0',
     backgroundColor: '#fff',
   },
-  content: {
-    flex: 1,
-  },
   tabBar: {
     position: 'absolute',
     bottom: 0,
@@ -717,7 +717,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 0,
     borderTopColor: '#e0e0e0',
     backgroundColor: '#fff',
-    paddingBottom: Platform.OS === 'ios' ? 8 : 0,
+    height: Platform.OS === 'ios' ? 55 : 48, // タブバーの高さを明示的に設定
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -726,6 +726,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 2,
     elevation: 5,
+    zIndex: 1, // バナー広告より上に表示
   },
   tab: {
     flex: 1,
