@@ -141,45 +141,12 @@ const getLastResetTime = (currentTimestamp: number): number => {
   return Math.floor(date.getTime() / 1000);
 };
 
-const isIpad = () => {
-  const dim = Dimensions.get('window');
-  return (
-    Platform.OS === 'ios' &&
-    Platform.isPad ||
-    (dim.height >= 768 && dim.width >= 768)
-  );
-};
-
 const SplitViewLayout = React.memo<{ 
   primary: React.ReactNode; 
-  secondary: React.ReactNode; 
-  isSecondaryVisible: boolean;
-}>(({ primary, secondary, isSecondaryVisible }) => {
-  const [dimensions, setDimensions] = useState<ScaledSize>(() => Dimensions.get('window'));
-
-  useEffect(() => {
-    const subscription = Dimensions.addEventListener('change', ({ window }) => {
-      setDimensions(window);
-    });
-
-    return () => subscription?.remove();
-  }, []);
-
-  if (!isIpad()) {
-    return <View style={styles.container}>{primary}</View>;
-  }
-
-  const isLandscape = dimensions.width > dimensions.height;
-  const splitWidth = isLandscape ? dimensions.width * 0.4 : dimensions.width * 0.3;
-
+}>(({ primary }) => {
   return (
-    <View style={styles.splitContainer}>
-      <View style={[styles.primaryContent, { flex: 1 }]}>{primary}</View>
-      {isSecondaryVisible && (
-        <View style={[styles.secondaryContent, { width: splitWidth }]}>
-          {secondary}
-        </View>
-      )}
+    <View style={styles.container}>
+      {primary}
     </View>
   );
 });
@@ -608,73 +575,64 @@ const App = () => {
     setIsSecondaryContentVisible(true);
   };
 
-  const handleTabPress = (tabKey: typeof activeTab, index: number) => {
-    const animations = Object.keys(animatedValues).map((key) =>
-      Animated.timing(animatedValues[key], {
-        toValue: key === tabKey ? 1 : 0,
-        duration: 200,
-        useNativeDriver: true,
-      })
-    );
+  // handleTabPressを修正：
+const handleTabPress = (tabKey: typeof activeTab, index: number) => {
+  const animations = Object.keys(animatedValues).map((key) =>
+    Animated.timing(animatedValues[key], {
+      toValue: key === tabKey ? 1 : 0,
+      duration: 200,
+      useNativeDriver: true,
+    })
+  );
 
-    Animated.parallel([
-      ...animations,
-      Animated.spring(slideAnimation, {
-        toValue: index * TAB_WIDTH,
-        tension: 68,
-        friction: 12,
-        useNativeDriver: true,
-      }),
-    ]).start();
+  Animated.parallel([
+    ...animations,
+    Animated.spring(slideAnimation, {
+      toValue: index * TAB_WIDTH,
+      tension: 68,
+      friction: 12,
+      useNativeDriver: true,
+    }),
+  ]).start();
 
-    setActiveTab(tabKey);
+  setActiveTab(tabKey);
 
-    if (tabKey === 'team') {
-      if (!isIpad()) {
-        setIsSlideOverVisible(true);
-      } else {
-        handleShowSecondaryContent(
-          <TeamBoard 
-            isAdFree={isAdFree} 
-            isCompact={true}
-            onShowDetails={handleShowSecondaryContent}
-          />
-        );
-      }
-    } else {
-      setIsSlideOverVisible(false);
-      setIsSecondaryContentVisible(false);
-    }
-  };
+  // チーム画面の場合はスライドオーバーを表示（iPadでも同じ動作）
+  if (tabKey === 'team') {
+    setIsSlideOverVisible(true);
+  } else {
+    setIsSlideOverVisible(false);
+  }
+};
 
   const handleSlideOverClose = () => {
     setIsSlideOverVisible(false);
   };
 
   const renderContent = () => {
-    switch (activeTab) {
-      case 'home':
-        return (
-          <HomeStack 
-            isAdFree={isAdFree} 
-            onShowDetails={handleShowSecondaryContent}
-          />
-        );
-      case 'single':
-        return (
-          <BrawlStarsCompatibility 
-            isAdFree={isAdFree}
-            onShowDetails={handleShowSecondaryContent}
-          />
-        );
-      case 'team':
-        return (
-          <TeamBoard 
-            isAdFree={isAdFree}
-            isCompact={isIpad() || isSlideOverVisible}
-            onShowDetails={handleShowSecondaryContent}
-          />
-        );
+  switch (activeTab) {
+    case 'home':
+      return (
+        <HomeStack 
+          isAdFree={isAdFree} 
+          onShowDetails={handleShowSecondaryContent}
+        />
+      );
+    case 'single':
+      return (
+        <BrawlStarsCompatibility 
+          isAdFree={isAdFree}
+          onShowDetails={handleShowSecondaryContent}
+        />
+      );
+    case 'team':
+  return (
+    <TeamBoard 
+      isAdFree={isAdFree}
+      isCompact={isSlideOverVisible}
+      onShowDetails={handleShowSecondaryContent}
+    />
+  );
       case 'prediction':
         return (
           <PickPrediction 
@@ -704,36 +662,29 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <SplitViewLayout
-        primary={
-          <View style={styles.content}>
-            {renderContent()}
-            {!isAdFree && shouldShowAd && <BannerAdComponent />}
-            <TabBar
-              activeTab={activeTab}
-              onTabPress={handleTabPress}
-              animatedValues={animatedValues}
-              slideAnimation={slideAnimation}
-              t={t}
-            />
-          </View>
-        }
-        secondary={secondaryContent}
-        isSecondaryVisible={isSecondaryContentVisible}
+  <SafeAreaView style={styles.container}>
+    <View style={styles.content}>
+      {renderContent()}
+      {!isAdFree && shouldShowAd && <BannerAdComponent />}
+      <TabBar
+        activeTab={activeTab}
+        onTabPress={handleTabPress}
+        animatedValues={animatedValues}
+        slideAnimation={slideAnimation}
+        t={t}
       />
-      
-      {!isIpad() && isSlideOverVisible && (
-        <SlideOver onClose={handleSlideOverClose}>
-          <TeamBoard 
-            isAdFree={isAdFree}
-            isCompact={true}
-            onShowDetails={handleShowSecondaryContent}
-          />
-        </SlideOver>
-      )}
-    </SafeAreaView>
-  );
+    </View>
+    {isSlideOverVisible && (
+      <SlideOver onClose={handleSlideOverClose}>
+        <TeamBoard 
+          isAdFree={isAdFree}
+          isCompact={true}
+          onShowDetails={handleShowSecondaryContent}
+        />
+      </SlideOver>
+    )}
+  </SafeAreaView>
+);
 };
 
 const styles = StyleSheet.create({
@@ -837,6 +788,27 @@ const styles = StyleSheet.create({
   slideOverContent: {
     flex: 1,
     padding: 20,
+  },
+  splitContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: '#fff'
+  },
+  primaryContent: {
+    flex: 1,
+  },
+  secondaryContent: {
+    // borderLeftWidthをコンポーネント内で動的に設定するため、ここでは削除
+    backgroundColor: '#fff',
+    // シャドウを追加してセパレーションを明確に
+    shadowColor: '#000',
+    shadowOffset: {
+      width: -1,
+      height: 0,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 3,
   },
 });
 
