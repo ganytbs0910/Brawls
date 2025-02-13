@@ -201,7 +201,6 @@ export const initializeCharacterData = async (): Promise<Record<string, Characte
   await updateCharacterTypes(brawlers);
   
   charactersDataCache = processedData;
-  console.log('Initialized characters:', Object.keys(charactersDataCache));
   return processedData;
 };
 
