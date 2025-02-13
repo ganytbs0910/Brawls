@@ -1,57 +1,8 @@
+// src/components/LanguageSelector.tsx
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Platform, NativeModules } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-type Language = 'en' | 'ja' | 'ko';
-
-const SUPPORTED_LANGUAGES = {
-  ja: '日本語',
-  en: 'English',
-  ko: '한국어',
-} as const;
-
-// デバイスのデフォルト言語を取得する関数
-const getDeviceLanguage = (): Language => {
-  try {
-    // Platform.selectを使用してプラットフォーム固有の言語取得ロジックを実装
-    const deviceLanguage = Platform.select({
-      ios: () => {
-        // iOSの場合
-        const locale = 
-          NativeModules.SettingsManager?.settings?.AppleLocale ||
-          NativeModules.SettingsManager?.settings?.AppleLanguages?.[0];
-        return locale?.split('_')[0] || 'en';
-      },
-      android: () => {
-        // Androidの場合
-        const locale = NativeModules.I18nManager?.localeIdentifier;
-        return locale?.split('-')[0] || 'en';
-      },
-      default: () => 'en'
-    })();
-
-    console.log('Raw device language:', deviceLanguage); // デバッグ用
-
-    // 言語コードを正規化
-    const normalizedLanguage = deviceLanguage.toLowerCase().trim();
-
-    // サポートされている言語かどうかを確認
-    if (Object.keys(SUPPORTED_LANGUAGES).includes(normalizedLanguage)) {
-      console.log('Using device language:', normalizedLanguage);
-      return normalizedLanguage as Language;
-    }
-
-    console.log('Falling back to English');
-    return 'en';
-  } catch (error) {
-    console.error('Error getting device language:', error);
-    // エラーの詳細をログ出力
-    if (error instanceof Error) {
-      console.error('Error details:', error.message);
-    }
-    return 'en';
-  }
-};
+import { Language, SUPPORTED_LANGUAGES, getDeviceLanguage } from '../utils/languageUtils';
 
 interface LanguageSelectorProps {
   onClose: () => void;
@@ -59,26 +10,26 @@ interface LanguageSelectorProps {
 
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ onClose }) => {
   const [currentLanguage, setCurrentLanguage] = useState<Language | null>(null);
-  const [isInitialized, setIsInitialized] = useState(false);  // 初期化フラグを追加
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-  const initLanguage = async () => {
-    try {
-      const savedLanguage = await AsyncStorage.getItem('selectedLanguage');
-      if (savedLanguage && Object.keys(SUPPORTED_LANGUAGES).includes(savedLanguage)) {
-        setCurrentLanguage(savedLanguage as Language);
+    const initLanguage = async () => {
+      try {
+        const savedLanguage = await AsyncStorage.getItem('selectedLanguage');
+        if (savedLanguage && Object.keys(SUPPORTED_LANGUAGES).includes(savedLanguage)) {
+          setCurrentLanguage(savedLanguage as Language);
+        }
+      } catch (error) {
+        console.error('Failed to initialize language:', error);
+        const deviceLang = getDeviceLanguage();
+        setCurrentLanguage(deviceLang);
+      } finally {
+        setIsInitialized(true);
       }
-    } catch (error) {
-      console.error('Failed to initialize language:', error);
-      const deviceLang = getDeviceLanguage();
-      setCurrentLanguage(deviceLang);
-    } finally {
-      setIsInitialized(true);
-    }
-  };
+    };
 
-  initLanguage();
-}, []);
+    initLanguage();
+  }, []);
 
   if (!isInitialized) {
     return (
