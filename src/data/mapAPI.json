@@ -62,17 +62,17 @@
                 {
                     "name": "ジャネット",
                     "reason": "",
-                    "power": 4
+                    "power": 5
                 },
                 {
-                    "name": "グロム",
+                    "name": "ブル",
                     "reason": "",
-                    "power": 4
+                    "power": 5
                 },
                 {
                     "name": "シェリー",
                     "reason": "",
-                    "power": 4
+                    "power": 5
                 },
                 {
                     "name": "R-T",
@@ -85,19 +85,29 @@
                     "power": 3
                 },
                 {
-                    "name": "コルト",
+                    "name": "ジャッキー",
                     "reason": "",
                     "power": 3
+                },
+                {
+                    "name": "ローサ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "グロム",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "コルト",
+                    "reason": "",
+                    "power": 2
                 },
                 {
                     "name": "クロウ",
                     "reason": "",
                     "power": 2
-                },
-                {
-                    "name": "エルプリモ",
-                    "reason": "",
-                    "power": 1
                 },
                 {
                     "name": "ブロック",
@@ -197,6 +207,11 @@
                     "power": 3
                 },
                 {
+                    "name": "パール",
+                    "reason": "",
+                    "power": 3
+                },
+                {
                     "name": "ペニー",
                     "reason": "",
                     "power": 3
@@ -208,6 +223,11 @@
                 },
                 {
                     "name": "ボニー",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "メロディー",
                     "reason": "",
                     "power": 3
                 },
@@ -295,6 +315,11 @@
                     "power": 4
                 },
                 {
+                    "name": "メロディー",
+                    "reason": "",
+                    "power": 4
+                },
+                {
                     "name": "エリザベス",
                     "reason": "",
                     "power": 3
@@ -376,6 +401,26 @@
                 },
                 {
                     "name": "ローサ",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "パール",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "イヴ",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "スクウィーク",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "メイジー",
                     "reason": "",
                     "power": 2
                 }
@@ -663,7 +708,17 @@
                     "power": 5
                 },
                 {
+                    "name": "アンバー",
+                    "reason": "",
+                    "power": 5
+                },
+                {
                     "name": "バイロン",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "バスター",
                     "reason": "",
                     "power": 5
                 },
@@ -678,17 +733,22 @@
                     "power": 4
                 },
                 {
-                    "name": "バスター",
-                    "reason": "",
-                    "power": 4
-                },
-                {
                     "name": "ストゥー",
                     "reason": "",
                     "power": 4
                 },
                 {
+                    "name": "ドラコ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
                     "name": "エリザベス",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "アッシュ",
                     "reason": "",
                     "power": 4
                 },
@@ -699,6 +759,16 @@
                 },
                 {
                     "name": "サンディ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "ジャネット",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "スクウィーク",
                     "reason": "",
                     "power": 3
                 },
@@ -734,6 +804,16 @@
                 },
                 {
                     "name": "リリー",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "ローラ",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "ルー",
                     "reason": "",
                     "power": 2
                 }
@@ -963,17 +1043,17 @@
                     "power": 5
                 },
                 {
+                    "name": "アンジェロ",
+                    "reason": "",
+                    "power": 5
+                },
+                {
                     "name": "エリザベス",
                     "reason": "",
                     "power": 4
                 },
                 {
                     "name": "イヴ",
-                    "reason": "",
-                    "power": 4
-                },
-                {
-                    "name": "アンジェロ",
                     "reason": "",
                     "power": 4
                 },
@@ -993,6 +1073,11 @@
                     "power": 4
                 },
                 {
+                    "name": "ブロック",
+                    "reason": "",
+                    "power": 4
+                },
+                {
                     "name": "コルト",
                     "reason": "",
                     "power": 3
@@ -1004,11 +1089,6 @@
                 },
                 {
                     "name": "ナーニ",
-                    "reason": "",
-                    "power": 3
-                },
-                {
-                    "name": "ブロック",
                     "reason": "",
                     "power": 3
                 },
@@ -1100,11 +1180,6 @@
                     "power": 5
                 },
                 {
-                    "name": "コルト",
-                    "reason": "",
-                    "power": 5
-                },
-                {
                     "name": "イヴ",
                     "reason": "",
                     "power": 5
@@ -1133,6 +1208,11 @@
                     "name": "アンバー",
                     "reason": "",
                     "power": 4
+                },
+                {
+                    "name": "コルト",
+                    "reason": "",
+                    "power": 3
                 },
                 {
                     "name": "ミコ",
@@ -1180,12 +1260,32 @@
                     "power": 3
                 },
                 {
+                    "name": "ジュジュ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "カール",
+                    "reason": "",
+                    "power": 3
+                },
+                {
                     "name": "ボニー",
                     "reason": "",
                     "power": 2
                 },
                 {
                     "name": "ビー",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "Max",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "ジェシー",
                     "reason": "",
                     "power": 2
                 }
@@ -1222,6 +1322,11 @@
                     "power": 5
                 },
                 {
+                    "name": "R-T",
+                    "reason": "",
+                    "power": 5
+                },
+                {
                     "name": "ラリー&ローリー",
                     "reason": "",
                     "power": 5
@@ -1242,6 +1347,11 @@
                     "power": 4
                 },
                 {
+                    "name": "ティック",
+                    "reason": "",
+                    "power": 4
+                },
+                {
                     "name": "ストゥー",
                     "reason": "",
                     "power": 4
@@ -1249,10 +1359,20 @@
                 {
                     "name": "ベル",
                     "reason": "",
-                    "power": 3
+                    "power": 4
                 },
                 {
                     "name": "ジーン",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "アンジェロ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "パール",
                     "reason": "",
                     "power": 3
                 }
@@ -1320,7 +1440,7 @@
                     "power": 4
                 },
                 {
-                    "name": "ダイナマイク",
+                    "name": "ルー",
                     "reason": "",
                     "power": 4
                 },
@@ -1375,9 +1495,34 @@
                     "power": 3
                 },
                 {
+                    "name": "グリフ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
                     "name": "オーティス",
                     "reason": "",
                     "power": 3
+                },
+                {
+                    "name": "ベリー",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "ダイナマイク",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "スクウィーク",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "Emz",
+                    "reason": "",
+                    "power": 2
                 }
             ]
         },
@@ -1831,7 +1976,7 @@
                 {
                     "name": "オーティス",
                     "reason": "",
-                    "power": 4
+                    "power": 5
                 },
                 {
                     "name": "バスター",
@@ -1869,9 +2014,19 @@
                     "power": 4
                 },
                 {
+                    "name": "ルー",
+                    "reason": "",
+                    "power": 4
+                },
+                {
                     "name": "ケンジ",
                     "reason": "",
                     "power": 4
+                },
+                {
+                    "name": "メイジー",
+                    "reason": "",
+                    "power": 3
                 },
                 {
                     "name": "ストゥー",
@@ -1899,9 +2054,39 @@
                     "power": 3
                 },
                 {
+                    "name": "グリフ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "アッシュ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
                     "name": "サンディ",
                     "reason": "",
                     "power": 3
+                },
+                {
+                    "name": "ベリー",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "ローサ",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "スパイク",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "フランケン",
+                    "reason": "",
+                    "power": 2
                 }
             ]
         },
@@ -2114,12 +2299,17 @@
                     "power": 3
                 },
                 {
-                    "name": "クランシー",
+                    "name": "ペニー",
                     "reason": "",
                     "power": 2
                 },
                 {
-                    "name": "ペニー",
+                    "name": "ジェシー",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "ニタ",
                     "reason": "",
                     "power": 2
                 },
@@ -2168,7 +2358,7 @@
                 {
                     "name": "バーリー",
                     "reason": "",
-                    "power": 5
+                    "power": 4
                 },
                 {
                     "name": "サージ",
@@ -2236,7 +2426,27 @@
                     "power": 3
                 },
                 {
+                    "name": "シェイド",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "ベリー",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "パール",
+                    "reason": "",
+                    "power": 3
+                },
+                {
                     "name": "リリー",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "リコ",
                     "reason": "",
                     "power": 2
                 }
@@ -2800,6 +3010,71 @@
                     "name": "ブロック",
                     "reason": "",
                     "power": 5
+                },
+                {
+                    "name": "アンジェロ",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "イヴ",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ベル",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "8ビット",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "メロディー",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "チャック",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ジュジュ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ローラ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "コレット",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "グロム",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "バイロン",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "エリザベス",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "アンバー",
+                    "reason": "",
+                    "power": 4
                 }
             ]
         },
@@ -2836,15 +3111,20 @@
                 {
                     "name": "オーティス",
                     "reason": "",
-                    "power": 4
+                    "power": 5
                 },
                 {
-                    "name": "パール",
+                    "name": "バスター",
                     "reason": "",
                     "power": 4
                 },
                 {
-                    "name": "バスター",
+                    "name": "ジャネット",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ストゥー",
                     "reason": "",
                     "power": 4
                 },
@@ -2854,12 +3134,22 @@
                     "power": 4
                 },
                 {
+                    "name": "ミープル",
+                    "reason": "",
+                    "power": 4
+                },
+                {
                     "name": "ペニー",
                     "reason": "",
                     "power": 4
                 },
                 {
-                    "name": "ジェシー",
+                    "name": "ルー",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ジュジュ",
                     "reason": "",
                     "power": 4
                 },
@@ -2874,17 +3164,17 @@
                     "power": 3
                 },
                 {
+                    "name": "ボウ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
                     "name": "バイロン",
                     "reason": "",
                     "power": 3
                 },
                 {
                     "name": "ガス",
-                    "reason": "",
-                    "power": 3
-                },
-                {
-                    "name": "ストゥー",
                     "reason": "",
                     "power": 3
                 },
@@ -2915,6 +3205,21 @@
                 },
                 {
                     "name": "ゲイル",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "レオン",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "スパイク",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "ジェシー",
                     "reason": "",
                     "power": 2
                 }
@@ -2983,17 +3288,17 @@
                     "power": 5
                 },
                 {
+                    "name": "グレイ",
+                    "reason": "",
+                    "power": 5
+                },
+                {
                     "name": "バイロン",
                     "reason": "",
                     "power": 4
                 },
                 {
                     "name": "ガス",
-                    "reason": "",
-                    "power": 4
-                },
-                {
-                    "name": "ダイナマイク",
                     "reason": "",
                     "power": 4
                 },
@@ -3018,17 +3323,17 @@
                     "power": 4
                 },
                 {
+                    "name": "メイジー",
+                    "reason": "",
+                    "power": 4
+                },
+                {
                     "name": "バスター",
                     "reason": "",
                     "power": 4
                 },
                 {
                     "name": "フランケン",
-                    "reason": "",
-                    "power": 4
-                },
-                {
-                    "name": "ジャッキー",
                     "reason": "",
                     "power": 4
                 },
@@ -3071,6 +3376,21 @@
                     "name": "グリフ",
                     "reason": "",
                     "power": 3
+                },
+                {
+                    "name": "シェイド",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "フランケン",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "ダイナマイク",
+                    "reason": "",
+                    "power": 2
                 }
             ]
         },
@@ -3330,7 +3650,7 @@
                     "power": 3
                 },
                 {
-                    "name": "バーリー",
+                    "name": "ドラコ",
                     "reason": "",
                     "power": 3
                 },
@@ -3371,6 +3691,11 @@
                 },
                 {
                     "name": "チェスター",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "バーリー",
                     "reason": "",
                     "power": 2
                 },
@@ -4669,6 +4994,11 @@
                     "power": 5
                 },
                 {
+                    "name": "ルー",
+                    "reason": "",
+                    "power": 5
+                },
+                {
                     "name": "サージ",
                     "reason": "",
                     "power": 5
@@ -4729,6 +5059,21 @@
                     "power": 3
                 },
                 {
+                    "name": "バスター",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "ドラコ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "Max",
+                    "reason": "",
+                    "power": 3
+                },
+                {
                     "name": "ジェシー",
                     "reason": "",
                     "power": 3
@@ -4759,9 +5104,29 @@
                     "power": 3
                 },
                 {
+                    "name": "ハンク",
+                    "reason": "",
+                    "power": 3
+                },
+                {
                     "name": "キット",
                     "reason": "",
                     "power": 3
+                },
+                {
+                    "name": "グリフ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "ジャッキー",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "ゲイル",
+                    "reason": "",
+                    "power": 2
                 }
             ]
         },
@@ -4796,6 +5161,11 @@
                     "power": 5
                 },
                 {
+                    "name": "ケンジ",
+                    "reason": "",
+                    "power": 5
+                },
+                {
                     "name": "バーリー",
                     "reason": "",
                     "power": 5
@@ -4816,17 +5186,7 @@
                     "power": 4
                 },
                 {
-                    "name": "ガス",
-                    "reason": "",
-                    "power": 4
-                },
-                {
                     "name": "メロディー",
-                    "reason": "",
-                    "power": 4
-                },
-                {
-                    "name": "ケンジ",
                     "reason": "",
                     "power": 4
                 },
@@ -4856,7 +5216,17 @@
                     "power": 3
                 },
                 {
+                    "name": "ドラコ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
                     "name": "ゲイル",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "ルー",
                     "reason": "",
                     "power": 3
                 },
@@ -4864,6 +5234,16 @@
                     "name": "ジャッキー",
                     "reason": "",
                     "power": 3
+                },
+                {
+                    "name": "ペニー",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "スクウィーク",
+                    "reason": "",
+                    "power": 2
                 },
                 {
                     "name": "アンバー",
@@ -5020,11 +5400,6 @@
                     "power": 5
                 },
                 {
-                    "name": "リコ",
-                    "reason": "",
-                    "power": 5
-                },
-                {
                     "name": "ジュジュ",
                     "reason": "",
                     "power": 5
@@ -5038,6 +5413,16 @@
                     "name": "ストゥー",
                     "reason": "",
                     "power": 5
+                },
+                {
+                    "name": "リコ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ベリー",
+                    "reason": "",
+                    "power": 4
                 },
                 {
                     "name": "サージ",
@@ -5075,6 +5460,11 @@
                     "power": 3
                 },
                 {
+                    "name": "ポコ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
                     "name": "タラ",
                     "reason": "",
                     "power": 3
@@ -5095,12 +5485,37 @@
                     "power": 3
                 },
                 {
+                    "name": "グリフ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
                     "name": "クロウ",
                     "reason": "",
                     "power": 2
                 },
                 {
+                    "name": "カール",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "オーティス",
+                    "reason": "",
+                    "power": 2
+                },
+                {
                     "name": "ベル",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "ダリル",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "チャック",
                     "reason": "",
                     "power": 2
                 },
@@ -5166,7 +5581,7 @@
             "description": "",
             "recommendedBrawlers": [
                 {
-                    "name": "ガス",
+                    "name": "メロディー",
                     "reason": "",
                     "power": 5
                 },
@@ -5186,6 +5601,11 @@
                     "power": 5
                 },
                 {
+                    "name": "ルー",
+                    "reason": "",
+                    "power": 5
+                },
+                {
                     "name": "ジュジュ",
                     "reason": "",
                     "power": 5
@@ -5201,7 +5621,7 @@
                     "power": 5
                 },
                 {
-                    "name": "サージ",
+                    "name": "ガス",
                     "reason": "",
                     "power": 4
                 },
@@ -5231,17 +5651,12 @@
                     "power": 3
                 },
                 {
-                    "name": "ルー",
-                    "reason": "",
-                    "power": 3
-                },
-                {
                     "name": "グレイ",
                     "reason": "",
                     "power": 3
                 },
                 {
-                    "name": "メロディー",
+                    "name": "ドラコ",
                     "reason": "",
                     "power": 3
                 },
@@ -5257,6 +5672,26 @@
                 },
                 {
                     "name": "ビー",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "オーティス",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "ボウ",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "ジェシー",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "サージ",
                     "reason": "",
                     "power": 2
                 }
@@ -5694,17 +6129,17 @@
                     "power": 5
                 },
                 {
+                    "name": "アンジェロ",
+                    "reason": "",
+                    "power": 5
+                },
+                {
                     "name": "ベル",
                     "reason": "",
                     "power": 4
                 },
                 {
                     "name": "マンディ",
-                    "reason": "",
-                    "power": 4
-                },
-                {
-                    "name": "アンジェロ",
                     "reason": "",
                     "power": 4
                 },
@@ -5831,6 +6266,11 @@
                     "power": 5
                 },
                 {
+                    "name": "ジュジュ",
+                    "reason": "",
+                    "power": 5
+                },
+                {
                     "name": "アンジェロ",
                     "reason": "",
                     "power": 4
@@ -5841,17 +6281,17 @@
                     "power": 4
                 },
                 {
-                    "name": "ジュジュ",
-                    "reason": "",
-                    "power": 4
-                },
-                {
                     "name": "バーリー",
                     "reason": "",
                     "power": 3
                 },
                 {
                     "name": "ラリー&ローリー",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "リコ",
                     "reason": "",
                     "power": 3
                 },
@@ -5877,6 +6317,11 @@
                 },
                 {
                     "name": "ペニー",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "ブロック",
                     "reason": "",
                     "power": 3
                 },
@@ -6328,22 +6773,22 @@
                     "power": 4
                 },
                 {
+                    "name": "グレイ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
                     "name": "ブロック",
                     "reason": "",
                     "power": 3
                 },
                 {
-                    "name": "ケンジ",
+                    "name": "ティック",
                     "reason": "",
                     "power": 3
                 },
                 {
                     "name": "ベリー",
-                    "reason": "",
-                    "power": 3
-                },
-                {
-                    "name": "グレイ",
                     "reason": "",
                     "power": 3
                 },
@@ -7162,6 +7607,16 @@
                     "power": 5
                 },
                 {
+                    "name": "パール",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ジーン",
+                    "reason": "",
+                    "power": 5
+                },
+                {
                     "name": "マンディ",
                     "reason": "",
                     "power": 4
@@ -7178,16 +7633,6 @@
                 },
                 {
                     "name": "エリザベス",
-                    "reason": "",
-                    "power": 4
-                },
-                {
-                    "name": "ジーン",
-                    "reason": "",
-                    "power": 4
-                },
-                {
-                    "name": "パール",
                     "reason": "",
                     "power": 4
                 },
@@ -7233,6 +7678,11 @@
                 },
                 {
                     "name": "レオン",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "グレイ",
                     "reason": "",
                     "power": 2
                 },
@@ -7938,7 +8388,17 @@
                     "power": 5
                 },
                 {
+                    "name": "ドラコ",
+                    "reason": "",
+                    "power": 5
+                },
+                {
                     "name": "エリザベス",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "メロディー",
                     "reason": "",
                     "power": 4
                 },
@@ -7993,6 +8453,11 @@
                     "power": 4
                 },
                 {
+                    "name": "パール",
+                    "reason": "",
+                    "power": 4
+                },
+                {
                     "name": "ケンジ",
                     "reason": "",
                     "power": 4
@@ -8013,11 +8478,6 @@
                     "power": 3
                 },
                 {
-                    "name": "パール",
-                    "reason": "",
-                    "power": 3
-                },
-                {
                     "name": "ダリル",
                     "reason": "",
                     "power": 3
@@ -8029,6 +8489,11 @@
                 },
                 {
                     "name": "ジュジュ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "アッシュ",
                     "reason": "",
                     "power": 3
                 },

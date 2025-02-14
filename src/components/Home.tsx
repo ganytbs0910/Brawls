@@ -621,6 +621,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   modeContainer: {
+    flex: 1,
     padding: 8,
   },
   dateHeader: {
@@ -655,6 +656,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
+    paddingBottom: 16, // Add padding at the bottom
   },
   modeCard: {
     width: '48%',
@@ -702,6 +704,7 @@ const styles = StyleSheet.create({
     padding: 8,
     backgroundColor: '#f8f8f8',
     borderRadius: 8,
+    flex: 1, // Add flex: 1 to ensure proper spacing
   },
   mapName: {
     fontSize: 14,
@@ -713,6 +716,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 80,
     borderRadius: 8,
+    marginBottom: 8, // Add margin at the bottom
   },
   overlayScreen: {
     position: 'absolute',
