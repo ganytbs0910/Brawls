@@ -31,6 +31,7 @@ const supabase = createClient(
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxseG1zYm5xdGRscXlwbndhcHp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc4MjA5MjEsImV4cCI6MjA1MzM5NjkyMX0.EkqepILQU0KgOTW1ZaXpe54ERpZbSRodf24r5022VKs'
 );
 
+
 const POST_LIMIT = 50;
 
 interface HostInfo {
@@ -59,7 +60,13 @@ interface GameMode {
   icon: any;
 }
 
-const TeamBoard: React.FC = () => {
+interface TeamBoardProps {
+  isAdFree: boolean;
+  isCompact?: boolean;
+  onShowDetails?: (content: React.ReactNode) => void;
+}
+
+  const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetails }) => {
   const { width } = useWindowDimensions();
   const isIPad = Platform.OS === 'ios' && Platform.isPad;
 
@@ -494,92 +501,111 @@ const TeamBoard: React.FC = () => {
     }
   };
 
-  // 招待リンクの検証
-  const validateInviteLink = (link: string): boolean => {
-    const baseUrl = 'https://link.brawlstars.com/invite/gameroom';
-    const urlMatch = link.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
-    if (!urlMatch) return false;
-    return urlMatch[1].startsWith(baseUrl);
-  };
+  // 招待リンクの検証関数
+const validateInviteLink = (link: string): boolean => {
+  const baseUrl = 'https://link.brawlstars.com/invite/gameroom';
+  const urlMatch = link.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
+  if (!urlMatch) return false;
+  return urlMatch[1].startsWith(baseUrl);
+};
 
   // 入力の検証
   const validateInputs = () => {
-    if (!selectedMode) {
-      Alert.alert('Error', t.errors.selectMode);
-      return false;
-    }
+  if (!selectedMode) {
+    Alert.alert('Error', t.errors.selectMode);
+    return false;
+  }
 
-    if (!isPlayerVerified) {
-      Alert.alert('Error', t.errors.playerInfo);
-      return false;
-    }
+  if (!isPlayerVerified) {
+    Alert.alert('Error', t.errors.playerInfo);
+    return false;
+  }
 
-    if (!selectedCharacter) {
-      Alert.alert('Error', t.errors.selectCharacter);
-      return false;
-    }
+  if (!selectedCharacter) {
+    Alert.alert('Error', t.errors.selectCharacter);
+    return false;
+  }
 
-    if (!inviteLink || !validateInviteLink(inviteLink)) {
-      Alert.alert('Error', t.errors.invalidLink);
-      return false;
-    }
+  if (!inviteLink || !validateInviteLink(inviteLink)) {
+    Alert.alert('Error', t.errors.invalidLink);
+    return false;
+  }
 
-    return true;
-  };
+  // 文字数制限のチェック
+  if (description.length > 100) {
+    Alert.alert('Error', t.errors.descriptionTooLong);
+    return false;
+  }
 
-  // 投稿の作成
+  if (inviteLink.length > 125) {
+    Alert.alert('Error', t.errors.linkTooLong);
+    return false;
+  }
+
+  return true;
+};
+
   const createPost = async () => {
-    if (!validateInputs()) return;
+  if (!validateInputs()) return;
 
-    try {
-      const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
-      const cleanInviteLink = urlMatch ? urlMatch[1] : inviteLink;
-
-      const tableName = getTableName(currentLanguage);
-      console.log('Creating post in table:', tableName);
-
-      const postData = {
-        selected_mode: selectedMode,
-        invite_link: cleanInviteLink,
-        description: description.trim(),
-        selected_character: selectedCharacter!.id,
-        character_trophies: Number(characterTrophies),
-        mid_characters: midCharacters.map(c => c.id),
-        side_characters: sideCharacters.map(c => c.id),
-        host_info: hostInfo
-      };
-
-      const { error } = await supabase
-        .from(tableName)
-        .insert([postData]);
-
-      if (error) {
-        console.error('Supabase insert error:', error);
-        throw error;
-      }
-
-      await AsyncStorage.setItem('lastPostTime', Date.now().toString());
-      resetForm();
-      setModalVisible(false);
-
-      try {
-        if (AdMobService) {
-          const adService = AdMobService.initialize();
-          if (adService && typeof adService.showInterstitial === 'function') {
-            await adService.showInterstitial();
-          }
-        }
-      } catch (adError) {
-        console.error('Ad display failed:', adError);
-      }
-
-      Alert.alert('Success', t.success.postCreated);
-      
-    } catch (error) {
-      console.error('Error creating post:', error);
-      Alert.alert('Error', t.errors.postCreationFailed);
+  try {
+    // 招待リンクの検証と整形
+    const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
+    if (!urlMatch) {
+      Alert.alert('Error', t.errors.invalidLink);
+      return;
     }
-  };
+    const cleanInviteLink = urlMatch[1];
+
+    // テーブル名の取得
+    const tableName = getTableName(currentLanguage);
+    console.log('Creating post in table:', tableName);
+
+    // 投稿データの準備
+    const postData = {
+      selected_mode: selectedMode,
+      invite_link: cleanInviteLink,
+      description: description.trim(),
+      selected_character: selectedCharacter!.id,
+      character_trophies: Number(characterTrophies),
+      mid_characters: midCharacters.map(c => c.id),
+      side_characters: sideCharacters.map(c => c.id),
+      host_info: hostInfo
+    };
+
+    // Supabaseに投稿
+    const { error } = await supabase
+      .from(tableName)
+      .insert([postData]);
+
+    if (error) throw error;
+
+    // 課金状態をチェック
+    const adFreeStatus = await AsyncStorage.getItem('adFreeStatus');
+    const isAdFree = adFreeStatus === 'true';
+
+    // 非課金ユーザーの場合のみ広告を表示
+    if (!isAdFree) {
+      try {
+        const adService = await AdMobService.initialize();
+        await adService.loadInterstitial();
+        await adService.showInterstitial();
+      } catch (adError) {
+        console.error('Ad error:', adError);
+      }
+    }
+
+    // 成功後の処理
+    await AsyncStorage.setItem('lastPostTime', Date.now().toString());
+    resetForm();
+    setModalVisible(false);
+    Alert.alert('Success', t.success.postCreated);
+
+  } catch (error) {
+    console.error('Error creating post:', error);
+    Alert.alert('Error', t.errors.postCreationFailed);
+  }
+};
 
   // フォームのリセット
   const resetForm = () => {
@@ -861,21 +887,18 @@ const TeamBoard: React.FC = () => {
               <Text style={styles.refreshButtonText}>{t.refresh}</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={styles.createButton}
-              onPress={async () => {
-                const canPost = await checkPostCooldown();
-                if (canPost) {
-                  const adFreeStatus = await AsyncStorage.getItem('adFreeStatus');
-                  if (adFreeStatus !== 'true' && AdMobService) {
-                    const adService = await AdMobService.initialize();
-                    await adService.loadInterstitial();
-                  }
-                  setModalVisible(true);
-                }
-              }}
-            >
-              <Text style={styles.createButtonText}>{t.create}</Text>
-            </TouchableOpacity>
+  style={styles.createButton}
+  onPress={async () => {
+    const canPost = await checkPostCooldown();
+    if (canPost) {
+      // 単純にモーダルを表示するだけに変更
+      // 広告のプリロードは createPost 内で行う
+      setModalVisible(true);
+    }
+  }}
+>
+  <Text style={styles.createButtonText}>{t.create}</Text>
+</TouchableOpacity>
           </View>
         </View>
 

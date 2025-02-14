@@ -43,11 +43,20 @@ class AdMobService {
 
   private initInterstitial() {
     try {
-      this.interstitial = InterstitialAd.createForAdRequest(this.interstitialAdUnitId, {
-        requestNonPersonalizedAdsOnly: true,
-      });
+      // 新しいインスタンスを作成する前に、古いインスタンスのイベントリスナーを解除
+      if (this.interstitial) {
+        this.interstitial.removeAllListeners();
+      }
+      
+      this.interstitial = InterstitialAd.createForAdRequest(
+        this.interstitialAdUnitId,
+        {
+          requestNonPersonalizedAdsOnly: true,
+        }
+      );
     } catch (error) {
       console.error('Interstitial initialization error:', error);
+      this.interstitial = null;
     }
   }
 
@@ -57,15 +66,24 @@ class AdMobService {
     try {
       this.isLoading = true;
       const loadPromise = new Promise<boolean>((resolve) => {
-        this.interstitial?.addAdEventListener(AdEventType.LOADED, () => {
-          this.isLoading = false;
-          resolve(true);
-        });
+        const unsubscribeLoad = this.interstitial?.addAdEventListener(
+          AdEventType.LOADED,
+          () => {
+            this.isLoading = false;
+            unsubscribeLoad();
+            resolve(true);
+          }
+        );
         
-        this.interstitial?.addAdEventListener(AdEventType.ERROR, () => {
-          this.isLoading = false;
-          resolve(false);
-        });
+        const unsubscribeError = this.interstitial?.addAdEventListener(
+          AdEventType.ERROR,
+          (error) => {
+            console.error('Ad loading error:', error);
+            this.isLoading = false;
+            unsubscribeError();
+            resolve(false);
+          }
+        );
       });
 
       this.interstitial.load();
@@ -86,13 +104,33 @@ class AdMobService {
         if (!loaded) return false;
       }
 
-      return new Promise((resolve) => {
-        this.interstitial?.addAdEventListener(AdEventType.CLOSED, () => {
+      return new Promise<boolean>((resolve) => {
+        const unsubscribeClosed = this.interstitial?.addAdEventListener(
+          AdEventType.CLOSED,
+          () => {
+            unsubscribeClosed();
+            this.initInterstitial();
+            resolve(true);
+          }
+        );
+
+        const unsubscribeError = this.interstitial?.addAdEventListener(
+          AdEventType.ERROR,
+          (error) => {
+            console.error('Ad showing error:', error);
+            unsubscribeError();
+            this.initInterstitial();
+            resolve(false);
+          }
+        );
+
+        this.interstitial?.show().catch((error) => {
+          console.error('Show interstitial error:', error);
+          if (unsubscribeClosed) unsubscribeClosed();
+          if (unsubscribeError) unsubscribeError();
           this.initInterstitial();
-          resolve(true);
+          resolve(false);
         });
-        
-        this.interstitial?.show();
       });
     } catch (error) {
       console.error('Show interstitial error:', error);
