@@ -18,7 +18,7 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import CharacterSelector, { Character } from './CharacterSelector';
 import { PostCard } from './TeamBoardComponents';
-import { usePlayerData, validatePlayerTag } from '../hooks/useBrawlStarsApi';
+import { usePlayerData, validatePlayerTag, useBrawlersData } from '../hooks/useBrawlStarsApi';
 import { useTeamBoardTranslation } from '../i18n/teamBoard';
 import { TeamBoardTranslation } from '../i18n/teamBoard';
 import characterData from '../data/characterAPI.json';
@@ -74,7 +74,15 @@ interface TeamBoardProps {
   const { t, currentLanguage } = useTeamBoardTranslation();
   const scrollViewRef = useRef<ScrollView>(null);
   const inviteLinkInputRef = useRef<TextInput>(null);
+  console.log('TeamBoard rendering');
   const playerDataAPI = usePlayerData();
+  console.log('playerDataAPI initialized:', {
+    exists: !!playerDataAPI,
+    hasData: !!playerDataAPI?.data,
+    hasError: !!playerDataAPI?.error,
+    loading: playerDataAPI?.loading
+  });
+  const brawlersData = useBrawlersData();  // 追加
 
   // state の設定
   const [modalVisible, setModalVisible] = useState(false);
@@ -211,6 +219,22 @@ interface TeamBoardProps {
   };
 
   // 投稿の取得とリアルタイム更新の設定
+  useEffect(() => {
+  const initializeData = async () => {
+    try {
+      // 初期化中はローディング表示
+      setLoading(true);
+      await brawlersData.fetchBrawlers();
+    } catch (error) {
+      console.error('Error initializing brawlers data:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  initializeData();
+}, []);  // コンポーネントマウント時に1回だけ実行
+
   useEffect(() => {
     let isSubscribed = true;
     let currentChannel: RealtimeChannel | null = null;
@@ -407,51 +431,93 @@ interface TeamBoardProps {
     }
   };
 
-  // プレイヤータグの検証処理
   const handlePlayerTagVerify = async () => {
-    if (!playerTag.trim()) {
-      Alert.alert('Error', t.errors.enterTag);
+  console.log('=== Start tag verification ===');
+  console.log('Input playerTag:', playerTag);
+
+  if (!playerTag.trim()) {
+    console.log('Error: Empty tag');
+    Alert.alert('Error', t.errors.enterTag);
+    return;
+  }
+
+  setIsLoadingPlayerData(true);
+  
+  try {
+    const cleanTag = playerTag.replace('#', '');
+    const validatedTag = validatePlayerTag(cleanTag);
+    console.log('Cleaned tag:', cleanTag);
+    console.log('Validated tag:', validatedTag);
+    
+    if (!validatedTag) {
+      console.log('Error: Invalid tag format');
+      Alert.alert('Error', t.errors.invalidTag);
+      setIsPlayerVerified(false);
       return;
     }
 
-    setIsLoadingPlayerData(true);
+    const verificationStartTag = validatedTag;
+    console.log('Attempting to fetch player data for tag:', verificationStartTag);
     
-    try {
-      const cleanTag = playerTag.replace('#', '');
-      const validatedTag = validatePlayerTag(cleanTag);
-      
-      if (!validatedTag) {
-        Alert.alert('Error', t.errors.invalidTag);
-        setIsPlayerVerified(false);
-        return;
-      }
+    console.log('playerDataAPI state:', {
+      loading: playerDataAPI.loading,
+      error: playerDataAPI.error,
+      hasData: !!playerDataAPI.data
+    });
 
-      const verificationStartTag = validatedTag;
-      const verificationResult = await verifyPlayerTag(validatedTag);
-      
-      if (verificationStartTag !== playerTag) {
-        console.log('Tag changed after verification');
-        return;
-      }
+    const playerResult = await playerDataAPI.fetchPlayerData(validatedTag);
+    console.log('Player data result:', playerResult);
+    
+    // 大文字小文字を無視して比較
+    if (verificationStartTag.toUpperCase() !== playerTag.toUpperCase()) {
+      console.log('Tag changed during verification');
+      console.log('Original tag:', verificationStartTag);
+      console.log('Current tag:', playerTag);
+      return;
+    }
 
-      if (verificationResult) {
-        setIsPlayerVerified(true);
-        const newHistory = [validatedTag, ...searchHistory.filter(tag => tag !== validatedTag)].slice(0, 3);
-        setSearchHistory(newHistory);
-        await AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory));
-        await AsyncStorage.setItem('brawlStarsPlayerTag', validatedTag);
-      } else {
-        Alert.alert('Error', t.errors.fetchFailed);
-        setIsPlayerVerified(false);
-      }
-    } catch (error) {
-      console.error('Error fetching player data:', error);
+    if (playerResult && playerResult.playerInfo) {
+      console.log('Verification successful');
+      console.log('Player info:', {
+        wins3v3: playerResult.playerInfo['3vs3Victories'],
+        winsDuo: playerResult.playerInfo.duoVictories,
+        totalTrophies: playerResult.playerInfo.trophies
+      });
+
+      setIsPlayerVerified(true);
+      setHostInfo({
+        wins3v3: playerResult.playerInfo['3vs3Victories'] || 0,
+        winsDuo: playerResult.playerInfo.duoVictories || 0,
+        totalTrophies: playerResult.playerInfo.trophies || 0
+      });
+      
+      const newHistory = [
+        validatedTag,
+        ...searchHistory.filter(tag => tag.toUpperCase() !== validatedTag.toUpperCase())
+      ].slice(0, 3);
+      
+      setSearchHistory(newHistory);
+      await AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory));
+      await AsyncStorage.setItem('brawlStarsPlayerTag', validatedTag);
+    } else {
+      console.log('Error: Player data fetch failed');
+      console.log('playerResult:', playerResult);
       Alert.alert('Error', t.errors.fetchFailed);
       setIsPlayerVerified(false);
-    } finally {
-      setIsLoadingPlayerData(false);
     }
-  };
+  } catch (error) {
+    console.error('Error details:', {
+      message: error.message,
+      stack: error.stack,
+      error
+    });
+    Alert.alert('Error', t.errors.fetchFailed);
+    setIsPlayerVerified(false);
+  } finally {
+    setIsLoadingPlayerData(false);
+    console.log('=== End tag verification ===');
+  }
+};
 
   // 検索履歴からのタグ選択
   const handleHistorySelect = (tag: string) => {
