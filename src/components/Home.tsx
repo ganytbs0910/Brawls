@@ -258,7 +258,6 @@ const Home: React.FC = () => {
     console.log('Current map data:', currentMapData);
 
     const mapDetail = getMapDetails(mode.currentMap);
-    console.log('Map details:', mapDetail);
     
     if (mapDetail) {
       console.log('Setting map detail props');

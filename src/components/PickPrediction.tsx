@@ -14,19 +14,14 @@ import {
 import { TeamSection } from './TeamSection';
 import { CharacterSelection } from './CharacterSelection';
 import MapDetailScreen from './MapDetailScreen';
-import { usePickPredictionTranslation, PickPredictionTranslation } from '../i18n/pickPrediction';
+import { usePickPredictionTranslation } from '../i18n/pickPrediction';
 import { useCharacterLocalization } from '../hooks/useCharacterLocalization';
 import {
   CHARACTER_MAP,
   allCharacterData,
   getCharacterId
 } from '../data/characterCompatibility';
-import { heistMaps } from '../data/modes/heist';
-import { brawlBallMaps } from '../data/modes/brawlBall';
-import { duelMaps } from '../data/modes/duel';
-import { gemGrabMaps } from '../data/modes/gemGrab';
-import { knockoutMaps } from '../data/modes/knockout';
-import { createMapsByMode, MapsByMode, GAME_MODES } from '../data/mapDataService';
+import { createMapsByMode, MapsByMode, GAME_MODES, getMapData } from '../data/mapDataService';
 
 export type Team = 'A' | 'B';
 export type GamePhase = 1 | 2 | 3 | 4;
@@ -46,6 +41,7 @@ export interface SelectionState {
   currentPhase: GamePhase;
   currentTeam: Team;
   recommendations: CharacterRecommendation[];
+  mapRecommendations: CharacterRecommendation[];
   isBanPhaseEnabled: boolean;
   selectedMode?: string;
   selectedMap?: string;
@@ -57,6 +53,7 @@ export interface SelectionState {
     mapImage: any;
   } | null;
 }
+
 
 interface HistoryEntry {
   state: SelectionState;
@@ -84,6 +81,7 @@ const PickPrediction: React.FC = () => {
     currentPhase: 1,
     currentTeam: 'A',
     recommendations: [],
+    mapRecommendations: [],
     isBanPhaseEnabled: true,
     selectedMode: undefined,
     selectedMap: undefined,
@@ -153,83 +151,51 @@ const PickPrediction: React.FC = () => {
   };
 
   const calculateTeamAdvantage = (teamAChars: string[], teamBChars: string[]): {
-    teamAScore: number;
-    teamBScore: number;
-    advantageTeam: Team | null;
-    difference: number;
-  } => {
-    let teamAScore = 0;
-    let teamBScore = 0;
+  teamAScore: number;
+  teamBScore: number;
+  advantageTeam: Team | null;
+  difference: number;
+} => {
+  let teamAScore = 0;
+  let teamBScore = 0;
 
-    teamAChars.forEach(aChar => {
-      teamBChars.forEach(bChar => {
-        const aId = getCharacterId(aChar);
-        if (aId && allCharacterData[aId]) {
-          const score = allCharacterData[aId].compatibilityScores[bChar] || 0;
-          teamAScore += score;
-        }
-      });
-    });
-
+  // 基本的なスコア計算
+  teamAChars.forEach(aChar => {
     teamBChars.forEach(bChar => {
-      teamAChars.forEach(aChar => {
-        const bId = getCharacterId(bChar);
-        if (bId && allCharacterData[bId]) {
-          const score = allCharacterData[bId].compatibilityScores[aChar] || 0;
-          teamBScore += score;
-        }
-      });
+      const aId = getCharacterId(aChar);
+      if (aId && allCharacterData[aId]) {
+        const score = allCharacterData[aId].compatibilityScores[bChar] || 0;
+        teamAScore += score;
+      }
     });
+  });
 
-    let mapData;
-    switch (gameState.selectedMode) {
-      case t.modes.heist:
-        mapData = gameState.selectedMap && heistMaps[gameState.selectedMap];
-        break;
-      case t.modes.brawlBall:
-        mapData = gameState.selectedMap && brawlBallMaps[gameState.selectedMap];
-        break;
-      case t.modes.gemGrab:
-        mapData = gameState.selectedMap && gemGrabMaps[gameState.selectedMap];
-        break;
-      case t.modes.knockout:
-        mapData = gameState.selectedMap && knockoutMaps[gameState.selectedMap];
-        break;
-      case "デュエル":
-        mapData = gameState.selectedMap && duelMaps[gameState.selectedMap];
-        break;
-    }
+  teamBChars.forEach(bChar => {
+    teamAChars.forEach(aChar => {
+      const bId = getCharacterId(bChar);
+      if (bId && allCharacterData[bId]) {
+        const score = allCharacterData[bId].compatibilityScores[aChar] || 0;
+        teamBScore += score;
+      }
+    });
+  });
 
-    if (mapData) {
-      teamAChars.forEach(char => {
-        const bonus = mapData.recommendedBrawlers.find(b => b.name === char);
-        if (bonus) {
-          teamAScore += bonus.power;
-        }
-      });
+  // マップデータに関連する部分を削除
 
-      teamBChars.forEach(char => {
-        const bonus = mapData.recommendedBrawlers.find(b => b.name === char);
-        if (bonus) {
-          teamBScore += bonus.power;
-        }
-      });
-    }
+  const difference = Math.abs(teamAScore - teamBScore);
+  let advantageTeam: Team | null = null;
+  
+  if (difference > 1) {
+    advantageTeam = teamAScore > teamBScore ? 'A' : 'B';
+  }
 
-    const difference = Math.abs(teamAScore - teamBScore);
-    let advantageTeam: Team | null = null;
-    
-    if (difference > 1) {
-      advantageTeam = teamAScore > teamBScore ? 'A' : 'B';
-    }
-
-    return {
-      teamAScore,
-      teamBScore,
-      advantageTeam,
-      difference
-    };
+  return {
+    teamAScore,
+    teamBScore,
+    advantageTeam,
+    difference
   };
+};
 
   const handleMapInfoPress = (mode: any, mapName: string) => {
     const mapDetail = {
@@ -262,7 +228,8 @@ const PickPrediction: React.FC = () => {
       setGameStateWithHistory(prev => ({
         ...prev,
         selectedMap: mapName,
-        recommendations: calculateRecommendations('A', [], [])
+        recommendations: calculateRecommendations('A', [], []),
+        mapRecommendations: getMapBasedRecommendations(mapName)
       }));
       setShowModeModal(false);
     }
@@ -325,6 +292,7 @@ const PickPrediction: React.FC = () => {
       currentPhase: 1,
       currentTeam: 'A',
       recommendations: [],
+      mapRecommendations: getMapBasedRecommendations(gameState.selectedMap),
       isBanPhaseEnabled: gameState.isBanPhaseEnabled,
       selectedMode: gameState.selectedMode,
       selectedMap: gameState.selectedMap,
@@ -379,6 +347,23 @@ const PickPrediction: React.FC = () => {
     return t.recommendations.needsConsideration;
   };
 
+   const getMapBasedRecommendations = (mapName: string | undefined): CharacterRecommendation[] => {
+    if (!mapName) return [];
+    
+    const mapData = getMapData(mapName);
+    if (!mapData || !mapData.recommendedBrawlers) return [];
+
+    return mapData.recommendedBrawlers
+      .filter(brawler => brawler.power >= 4) // 強力なおすすめのみを含める
+      .map(brawler => ({
+        character: brawler.name,
+        score: brawler.power,
+        maxScore: 5,
+        reason: `${mapName}でおすすめ`
+      }))
+      .sort((a, b) => b.score - a.score);
+  };
+
   const calculateRecommendations = (
     currentTeam: Team,
     opposingTeamChars: string[],
@@ -387,12 +372,26 @@ const PickPrediction: React.FC = () => {
     const recommendations: CharacterRecommendation[] = [];
     const bannedCharacters = [...gameState.bansA, ...gameState.bansB];
     
+    // まずマップベースのおすすめを取得
+    const mapRecs = getMapBasedRecommendations(gameState.selectedMap);
+    const mapRecCharacters = new Set(mapRecs.map(rec => rec.character));
+    
+    // バンされていないマップおすすめを追加
+    mapRecs.forEach(mapRec => {
+      if (!bannedCharacters.includes(mapRec.character) && 
+          !opposingTeamChars.includes(mapRec.character) && 
+          !ownTeamChars.includes(mapRec.character)) {
+        recommendations.push(mapRec);
+      }
+    });
+
+    // 相性ベースのおすすめを追加
     Object.values(CHARACTER_MAP).forEach(character => {
-      if (!opposingTeamChars.includes(character) && 
+      if (!mapRecCharacters.has(character) && // マップおすすめに含まれていない場合のみ
+          !opposingTeamChars.includes(character) && 
           !ownTeamChars.includes(character) && 
           !bannedCharacters.includes(character)) {
         let totalScore = 0;
-        let mapBonus = 0;
         
         opposingTeamChars.forEach(opposingChar => {
           const characterId = getCharacterId(character);
@@ -404,43 +403,14 @@ const PickPrediction: React.FC = () => {
           }
         });
 
-        let mapData;
-        switch (gameState.selectedMode) {
-          case t.modes.heist:
-            mapData = gameState.selectedMap && heistMaps[gameState.selectedMap];
-            break;
-          case t.modes.brawlBall:
-            mapData = gameState.selectedMap && brawlBallMaps[gameState.selectedMap];
-            break;
-          case t.modes.gemGrab:
-            mapData = gameState.selectedMap && gemGrabMaps[gameState.selectedMap];
-            break;
-          case t.modes.knockout:
-            mapData = gameState.selectedMap && knockoutMaps[gameState.selectedMap];
-            break;
-          case "デュエル":
-            mapData = gameState.selectedMap && duelMaps[gameState.selectedMap];
-            break;
+        if (totalScore > 0 || opposingTeamChars.length === 0) {
+          recommendations.push({
+            character,
+            score: totalScore,
+            maxScore: opposingTeamChars.length * 10,
+            reason: getRecommendationReason(totalScore, opposingTeamChars.length)
+          });
         }
-
-        if (mapData) {
-          const characterBonus = mapData.recommendedBrawlers.find(
-            brawler => brawler.name === character
-          );
-          if (characterBonus) {
-            mapBonus = characterBonus.power;
-            totalScore += mapBonus;
-          }
-        }
-
-        recommendations.push({
-          character,
-          score: totalScore,
-          maxScore: opposingTeamChars.length * 10,
-          reason: mapBonus > 0 
-            ? `${getRecommendationReason(totalScore, opposingTeamChars.length)}` 
-            : getRecommendationReason(totalScore, opposingTeamChars.length)
-        });
       }
     });
 
