@@ -64,7 +64,6 @@ export interface CharacterRecommendation {
   character: string;
   score: number;
   maxScore: number;
-  reason: string;
 }
 
 const PickPrediction: React.FC = () => {
@@ -223,17 +222,23 @@ const PickPrediction: React.FC = () => {
   };
 
   const handleMapSelect = (mapName: string) => {
-    const maps = getMapsByMode(gameState.selectedMode);
-    if (maps.length > 0) {
-      setGameStateWithHistory(prev => ({
-        ...prev,
-        selectedMap: mapName,
-        recommendations: calculateRecommendations('A', [], []),
-        mapRecommendations: getMapBasedRecommendations(mapName)
-      }));
-      setShowModeModal(false);
-    }
-  };
+  const maps = getMapsByMode(gameState.selectedMode);
+  if (maps.length > 0) {
+    // まず新しいマップのおすすめを取得
+    const newMapRecommendations = getMapBasedRecommendations(mapName);
+    
+    // calculateRecommendationsに新しいマップ名を渡す
+    const newRecommendations = calculateRecommendations('A', [], [], mapName);  // mapName パラメータを追加
+    
+    setGameStateWithHistory(prev => ({
+      ...prev,
+      selectedMap: mapName,
+      recommendations: newMapRecommendations,  // マップベースのおすすめを直接使用
+      mapRecommendations: newMapRecommendations
+    }));
+    setShowModeModal(false);
+  }
+};
 
   const handleModeButtonPress = () => {
     if (!gameState.selectedMode) {
@@ -348,74 +353,73 @@ const PickPrediction: React.FC = () => {
   };
 
    const getMapBasedRecommendations = (mapName: string | undefined): CharacterRecommendation[] => {
-    if (!mapName) return [];
-    
-    const mapData = getMapData(mapName);
-    if (!mapData || !mapData.recommendedBrawlers) return [];
+  if (!mapName) return [];
+  
+  const mapData = getMapData(mapName);
+  if (!mapData || !mapData.recommendedBrawlers) return [];
 
-    return mapData.recommendedBrawlers
-      .filter(brawler => brawler.power >= 4) // 強力なおすすめのみを含める
-      .map(brawler => ({
-        character: brawler.name,
-        score: brawler.power,
-        maxScore: 5,
-        reason: `${mapName}でおすすめ`
-      }))
-      .sort((a, b) => b.score - a.score);
-  };
+  return mapData.recommendedBrawlers
+    .filter(brawler => brawler.power >= 4)
+    .map(brawler => ({
+      character: brawler.name,
+      score: brawler.power,
+      maxScore: 5
+    }))
+    .sort((a, b) => b.score - a.score);
+};
 
   const calculateRecommendations = (
-    currentTeam: Team,
-    opposingTeamChars: string[],
-    ownTeamChars: string[]
-  ): CharacterRecommendation[] => {
-    const recommendations: CharacterRecommendation[] = [];
-    const bannedCharacters = [...gameState.bansA, ...gameState.bansB];
-    
-    // まずマップベースのおすすめを取得
-    const mapRecs = getMapBasedRecommendations(gameState.selectedMap);
-    const mapRecCharacters = new Set(mapRecs.map(rec => rec.character));
-    
-    // バンされていないマップおすすめを追加
-    mapRecs.forEach(mapRec => {
-      if (!bannedCharacters.includes(mapRec.character) && 
-          !opposingTeamChars.includes(mapRec.character) && 
-          !ownTeamChars.includes(mapRec.character)) {
-        recommendations.push(mapRec);
-      }
-    });
+  currentTeam: Team,
+  opposingTeamChars: string[],
+  ownTeamChars: string[],
+  selectedMap?: string
+): CharacterRecommendation[] => {
+  const recommendations: CharacterRecommendation[] = [];
+  const bannedCharacters = [...gameState.bansA, ...gameState.bansB];
+  
+  // マップベースのおすすめを取得
+  const mapRecs = getMapBasedRecommendations(selectedMap || gameState.selectedMap);
+  const mapRecCharacters = new Set(mapRecs.map(rec => rec.character));
+  
+  // バンされていないマップおすすめを追加
+  mapRecs.forEach(mapRec => {
+    if (!bannedCharacters.includes(mapRec.character) && 
+        !opposingTeamChars.includes(mapRec.character) && 
+        !ownTeamChars.includes(mapRec.character)) {
+      recommendations.push(mapRec);
+    }
+  });
 
-    // 相性ベースのおすすめを追加
-    Object.values(CHARACTER_MAP).forEach(character => {
-      if (!mapRecCharacters.has(character) && // マップおすすめに含まれていない場合のみ
-          !opposingTeamChars.includes(character) && 
-          !ownTeamChars.includes(character) && 
-          !bannedCharacters.includes(character)) {
-        let totalScore = 0;
+  // 相性ベースのおすすめを追加
+  Object.values(CHARACTER_MAP).forEach(character => {
+    if (!mapRecCharacters.has(character) && 
+        !opposingTeamChars.includes(character) && 
+        !ownTeamChars.includes(character) && 
+        !bannedCharacters.includes(character)) {
+      let totalScore = 0;
+      
+      opposingTeamChars.forEach(opposingChar => {
+        const characterId = getCharacterId(character);
+        const opposingId = getCharacterId(opposingChar);
         
-        opposingTeamChars.forEach(opposingChar => {
-          const characterId = getCharacterId(character);
-          const opposingId = getCharacterId(opposingChar);
-          
-          if (characterId && opposingId && allCharacterData[characterId]) {
-            const score = allCharacterData[characterId].compatibilityScores[opposingChar] || 0;
-            totalScore += score;
-          }
-        });
-
-        if (totalScore > 0 || opposingTeamChars.length === 0) {
-          recommendations.push({
-            character,
-            score: totalScore,
-            maxScore: opposingTeamChars.length * 10,
-            reason: getRecommendationReason(totalScore, opposingTeamChars.length)
-          });
+        if (characterId && opposingId && allCharacterData[characterId]) {
+          const score = allCharacterData[characterId].compatibilityScores[opposingChar] || 0;
+          totalScore += score;
         }
-      }
-    });
+      });
 
-    return recommendations.sort((a, b) => b.score - a.score).slice(0, 10);
-  };
+      if (totalScore > 0 || opposingTeamChars.length === 0) {
+        recommendations.push({
+          character,
+          score: totalScore,
+          maxScore: opposingTeamChars.length * 10
+        });
+      }
+    }
+  });
+
+  return recommendations.sort((a, b) => b.score - a.score).slice(0, 10);
+};
 
   const handleBanSelect = (character: string) => {
     if (!gameState.isBanPhaseEnabled) return;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
 import { CHARACTER_MAP } from '../data/characterCompatibility';
 import CharacterImage from './CharacterImage';
@@ -49,6 +49,11 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
     if (score >= 54) return '#FFC107';
     return '#F44336';
   };
+  useEffect(() => {
+  console.log('CharacterSelection received new gameState with map:', gameState.selectedMap);
+  console.log('CharacterSelection recommendations:', gameState.recommendations);
+  console.log('CharacterSelection mapRecommendations:', gameState.mapRecommendations);
+}, [gameState.selectedMap, gameState.recommendations, gameState.mapRecommendations]);
 
   const renderAdvantageMessage = () => {
     if (gameState.teamA.length === 3 && gameState.teamB.length === 3) {
@@ -287,6 +292,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 2,
   },
+
   scoreInfo: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -296,14 +302,15 @@ const styles = StyleSheet.create({
   rankText: {
     fontSize: 12,
     fontWeight: 'bold',
-    marginRight: 8,
-    width: 20,
+    minWidth: 25,  // 幅を固定
+    textAlign: 'center',  // 中央揃え
     color: '#666',
   },
-  characterName: {
+   characterName: {
     marginLeft: 8,
     fontSize: 12,
     color: '#333',
+    flex: 1,  // 残りのスペースを使用
   },
   characterNameLabel: {  // 追加
     fontSize: 10,
