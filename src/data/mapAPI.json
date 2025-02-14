@@ -1271,7 +1271,7 @@
         },
         {
             "name": {
-                "ja": "トリプル・ドリブル",
+                "ja": "トリプルドリブル",
                 "en": "Triple Dribble",
                 "ko": "트리플 드리블"
             },
@@ -2780,6 +2780,28 @@
             "image": "",
             "description": "",
             "recommendedBrawlers": []
+        },
+        {
+            "name": {
+                "ja": "橋の彼方",
+                "en": "Bridge_Too_Far",
+                "ko": "브릿지 투 파"
+            },
+            "gameMode": "heist",
+            "image": "../../assets/MapImages/Bridge_Too_Far.png",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "コルト",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ブロック",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
         },
         {
             "name": {
