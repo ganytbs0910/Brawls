@@ -227,6 +227,11 @@
                     "power": 3
                 },
                 {
+                    "name": "ミープル",
+                    "reason": "",
+                    "power": 3
+                },
+                {
                     "name": "メロディー",
                     "reason": "",
                     "power": 3
@@ -3185,6 +3190,11 @@
                 },
                 {
                     "name": "ダリル",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "バスター",
                     "reason": "",
                     "power": 3
                 },
@@ -6165,6 +6175,11 @@
                 },
                 {
                     "name": "ケンジ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "パール",
                     "reason": "",
                     "power": 3
                 },
