@@ -56,45 +56,35 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
 }, [gameState.selectedMap, gameState.recommendations, gameState.mapRecommendations]);
 
   const renderAdvantageMessage = () => {
-    if (gameState.teamA.length === 3 && gameState.teamB.length === 3) {
-      const advantage = calculateTeamAdvantage(gameState.teamA, gameState.teamB);
-      
-      const maxPossibleScore = 100;
-      const normalizedDiff = (advantage.teamBScore - advantage.teamAScore) / maxPossibleScore;
-      
-      const amplifier = 2.0;
-      const baseWinRate = 50;
-      const maxEffect = 45;
-      
-      const winningPercentage = Math.round(
-        baseWinRate + (maxEffect * Math.tanh(amplifier * normalizedDiff))
-      );
-      
-      return (
-        <View style={styles.advantageContainer}>
-          <Text style={styles.advantageTitle}>{ct.advantage.title}</Text>
-          <View style={styles.scoreComparisonContainer}>
-            <Text style={styles.teamScore}>
-              {ct.advantage.teamScore('A')}{advantage.teamAScore.toFixed(1)}pt
-            </Text>
-            <Text style={styles.teamScore}>
-              {ct.advantage.teamScore('B')}{advantage.teamBScore.toFixed(1)}pt
-            </Text>
-          </View>
-          <Text style={[
-            styles.advantageText,
-            { 
-              color: advantage.teamBScore > advantage.teamAScore ? '#007AFF' : '#FF3B30'
-            }
-          ]}>
-            {ct.advantage.winningProbability(advantage.teamBScore > advantage.teamAScore ? 'B' : 'A')}
-            {winningPercentage}%
+  if (gameState.teamA.length === 3 && gameState.teamB.length === 3) {
+    const advantage = calculateTeamAdvantage(gameState.teamA, gameState.teamB);
+    const winningTeam = advantage.teamAScore > advantage.teamBScore ? 'A' : 'B';
+    
+    return (
+      <View style={styles.advantageContainer}>
+        <Text style={styles.advantageTitle}>{ct.advantage.title}</Text>
+        <View style={styles.scoreComparisonContainer}>
+          <Text style={styles.teamScore}>
+            {ct.advantage.teamScore('A')}{advantage.teamAScore.toFixed(1)}pt
+          </Text>
+          <Text style={styles.teamScore}>
+            {ct.advantage.teamScore('B')}{advantage.teamBScore.toFixed(1)}pt
           </Text>
         </View>
-      );
-    }
-    return null;
-  };
+        <Text style={[
+          styles.advantageText,
+          { 
+            color: winningTeam === 'B' ? '#007AFF' : '#FF3B30'
+          }
+        ]}>
+          {ct.advantage.winningProbability(winningTeam)}
+          {advantage.winRate}%
+        </Text>
+      </View>
+    );
+  }
+  return null;
+};
 
   const renderRecommendation = (rec: CharacterRecommendation, index: number) => {
     const isSelectable = !gameState.teamA.includes(rec.character) && 

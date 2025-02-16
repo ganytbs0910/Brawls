@@ -154,11 +154,12 @@ const PickPrediction: React.FC = () => {
   teamBScore: number;
   advantageTeam: Team | null;
   difference: number;
+  winRate: number;
 } => {
   let teamAScore = 0;
   let teamBScore = 0;
 
-  // 基本的なスコア計算
+  // 基本的なスコア計算（変更なし）
   teamAChars.forEach(aChar => {
     teamBChars.forEach(bChar => {
       const aId = getCharacterId(aChar);
@@ -179,8 +180,6 @@ const PickPrediction: React.FC = () => {
     });
   });
 
-  // マップデータに関連する部分を削除
-
   const difference = Math.abs(teamAScore - teamBScore);
   let advantageTeam: Team | null = null;
   
@@ -188,11 +187,26 @@ const PickPrediction: React.FC = () => {
     advantageTeam = teamAScore > teamBScore ? 'A' : 'B';
   }
 
+  // スコアを正規化して勝率を計算
+  const totalScore = teamAScore + teamBScore;
+  const advantageScore = Math.max(teamAScore, teamBScore);
+  const baseWinRate = 50;
+  
+  // 勝率を計算（50.1%〜95%の範囲に収める）
+  let winRate = baseWinRate;
+  if (totalScore > 0) {
+    const maxDeviation = 44.9; // この値を変更（85%→95%にするため）
+    const scoreRatio = advantageScore / totalScore;
+    // 勝率を計算（必ず有利なチームが50.1%以上になるように）
+    winRate = Math.min(95, Math.max(50.1, baseWinRate + (maxDeviation * (2 * scoreRatio - 1))));
+  }
+
   return {
     teamAScore,
     teamBScore,
     advantageTeam,
-    difference
+    difference,
+    winRate: Math.round(winRate)
   };
 };
 
