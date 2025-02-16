@@ -222,26 +222,25 @@ const PickPrediction: React.FC = () => {
   };
 
   const handleMapSelect = (mapName: string) => {
-  const maps = getMapsByMode(gameState.selectedMode);
-  if (maps.length > 0) {
-    // マップベースのおすすめを取得
-    const mapRecs = getMapBasedRecommendations(mapName);
-    
-    // バンされたキャラクターをフィルタリング
-    const filteredMapRecs = mapRecs.filter(rec => 
-      !gameState.bansA.includes(rec.character) && 
-      !gameState.bansB.includes(rec.character)
-    );
-    
-    setGameStateWithHistory(prev => ({
-      ...prev,
-      selectedMap: mapName,
-      recommendations: filteredMapRecs,
-      mapRecommendations: filteredMapRecs
-    }));
-    setShowModeModal(false);
-  }
-};
+    const maps = getMapsByMode(gameState.selectedMode);
+    if (maps.length > 0) {
+      // まず新しいマップのおすすめを取得
+      const bannedCharacters = [...gameState.bansA, ...gameState.bansB];
+      const mapRecs = getMapBasedRecommendations(mapName)
+        .filter(rec => !bannedCharacters.includes(rec.character));  // バンされたキャラクターを除外
+      
+      // calculateRecommendationsに新しいマップ名を渡す
+      const newRecommendations = calculateRecommendations('A', [], [], mapName);
+      
+      setGameStateWithHistory(prev => ({
+        ...prev,
+        selectedMap: mapName,
+        recommendations: mapRecs,  // マップベースのおすすめを直接使用
+        mapRecommendations: mapRecs
+      }));
+      setShowModeModal(false);
+    }
+  };
 
   const handleModeButtonPress = () => {
     if (!gameState.selectedMode) {
@@ -445,37 +444,67 @@ const PickPrediction: React.FC = () => {
   return recommendations.sort((a, b) => b.score - a.score).slice(0, 10);
 };
 
-  const handleBanSelect = (character: string) => {
-  if (!gameState.isBanPhaseEnabled) return;
-  
-  let newState = { ...gameState };
-  
-  if (gameState.bansA.length < 3 && gameState.currentTeam === 'A') {
-    const newBansA = [...gameState.bansA, character];
-    newState = {
-      ...newState,
-      bansA: newBansA,
-      currentTeam: newBansA.length === 3 ? 'B' : 'A'
-    };
+ const handleBanSelect = (character: string) => {
+    if (!gameState.isBanPhaseEnabled) return;
     
-    if (newBansA.length === 3) {
-      showTurnAnnouncement('B', 0, true);
-    }
-  } else if (gameState.bansB.length < 3 && gameState.currentTeam === 'B') {
-    const newBansB = [...gameState.bansB, character];
-    newState = {
-      ...newState,
-      bansB: newBansB,
-      currentTeam: newBansB.length === 3 ? 'A' : 'B'
-    };
+    let newState = { ...gameState };
     
-    if (newBansB.length === 3) {
-      showTurnAnnouncement('A', 1, false);
+    if (gameState.bansA.length < 3 && gameState.currentTeam === 'A') {
+      const newBansA = [...gameState.bansA, character];
+      newState = {
+        ...newState,
+        bansA: newBansA,
+        currentTeam: newBansA.length === 3 ? 'B' : 'A'
+      };
+      
+      if (newBansA.length === 3 && gameState.bansB.length === 3) {
+        // 両チームのbanが完了した時点で推奨リストを更新
+        const mapRecs = getMapBasedRecommendations(gameState.selectedMap)
+          .filter(rec => 
+            !newBansA.includes(rec.character) && 
+            !gameState.bansB.includes(rec.character)
+          );
+        
+        newState = {
+          ...newState,
+          recommendations: mapRecs,
+          mapRecommendations: mapRecs
+        };
+      }
+      
+      if (newBansA.length === 3) {
+        showTurnAnnouncement('B', 0, true);
+      }
+    } else if (gameState.bansB.length < 3 && gameState.currentTeam === 'B') {
+      const newBansB = [...gameState.bansB, character];
+      newState = {
+        ...newState,
+        bansB: newBansB,
+        currentTeam: newBansB.length === 3 ? 'A' : 'B'
+      };
+      
+      if (gameState.bansA.length === 3 && newBansB.length === 3) {
+        // 両チームのbanが完了した時点で推奨リストを更新
+        const mapRecs = getMapBasedRecommendations(gameState.selectedMap)
+          .filter(rec => 
+            !gameState.bansA.includes(rec.character) && 
+            !newBansB.includes(rec.character)
+          );
+        
+        newState = {
+          ...newState,
+          recommendations: mapRecs,
+          mapRecommendations: mapRecs
+        };
+      }
+      
+      if (newBansB.length === 3) {
+        showTurnAnnouncement('A', 1, false);
+      }
     }
-  }
-  
-  setGameStateWithHistory(newState);
-};
+    
+    setGameStateWithHistory(newState);
+  };
 
   const handleCharacterSelect = (character: string) => {
     // バンされたキャラクターのチェック
@@ -501,10 +530,16 @@ const PickPrediction: React.FC = () => {
       
       let newState = { ...gameState };
 
+      // phase 1の初期状態での処理を修正
       if (currentPhase === 1 && teamA.length === 0 && teamB.length === 0) {
+        // マップベースの推奨を取得し、バンされたキャラクターを除外
+        const bannedCharacters = [...gameState.bansA, ...gameState.bansB];
+        const mapRecs = getMapBasedRecommendations(gameState.selectedMap)
+          .filter(rec => !bannedCharacters.includes(rec.character));
+
         newState = {
           ...newState,
-          recommendations: calculateRecommendations('A', [], [], gameState.selectedMap)
+          recommendations: mapRecs
         };
       }
 
