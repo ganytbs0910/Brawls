@@ -224,17 +224,20 @@ const PickPrediction: React.FC = () => {
   const handleMapSelect = (mapName: string) => {
   const maps = getMapsByMode(gameState.selectedMode);
   if (maps.length > 0) {
-    // まず新しいマップのおすすめを取得
-    const newMapRecommendations = getMapBasedRecommendations(mapName);
+    // マップベースのおすすめを取得
+    const mapRecs = getMapBasedRecommendations(mapName);
     
-    // calculateRecommendationsに新しいマップ名を渡す
-    const newRecommendations = calculateRecommendations('A', [], [], mapName);  // mapName パラメータを追加
+    // バンされたキャラクターをフィルタリング
+    const filteredMapRecs = mapRecs.filter(rec => 
+      !gameState.bansA.includes(rec.character) && 
+      !gameState.bansB.includes(rec.character)
+    );
     
     setGameStateWithHistory(prev => ({
       ...prev,
       selectedMap: mapName,
-      recommendations: newMapRecommendations,  // マップベースのおすすめを直接使用
-      mapRecommendations: newMapRecommendations
+      recommendations: filteredMapRecs,
+      mapRecommendations: filteredMapRecs
     }));
     setShowModeModal(false);
   }
@@ -475,110 +478,123 @@ const PickPrediction: React.FC = () => {
 };
 
   const handleCharacterSelect = (character: string) => {
-  const handlePickPhase = () => {
-    const { currentPhase, currentTeam, teamA, teamB } = gameState;
-    
-    if (currentTeam === 'A' && teamA.includes(character)) return;
-    if (currentTeam === 'B' && teamB.includes(character)) return;
-    
-    let newState = { ...gameState };
+    // バンされたキャラクターのチェック
+    // 同じキャラクターのバンは許可する特別ケース
+    const isAlreadyBanned = gameState.bansA.includes(character) || gameState.bansB.includes(character);
+    const isValidDoubleban = isAlreadyBanned && (
+      // Team Aのバン中で、Team Bが既にバン済みの場合
+      (gameState.currentTeam === 'A' && gameState.bansB.includes(character) && !gameState.bansA.includes(character)) ||
+      // Team Bのバン中で、Team Aが既にバン済みの場合
+      (gameState.currentTeam === 'B' && gameState.bansA.includes(character) && !gameState.bansB.includes(character))
+    );
 
-    if (currentPhase === 1 && teamA.length === 0 && teamB.length === 0) {
-      newState = {
-        ...newState,
-        recommendations: calculateRecommendations('A', [], [], gameState.selectedMap)
-      };
+    // バンされていて、かつダブルバンケースでもない場合は選択不可
+    if (isAlreadyBanned && !isValidDoubleban) {
+      return;
     }
 
-    switch (currentPhase) {
-      case 1:
-        if (currentTeam === 'A') {
-          newState = {
-            ...newState,
-            teamA: [character],
-            currentTeam: 'B',
-            currentPhase: 2,
-            recommendations: calculateRecommendations('B', [character], [], gameState.selectedMap)
-          };
-          showTurnAnnouncement('B', 2);
-        }
-        break;
+    const handlePickPhase = () => {
+      const { currentPhase, currentTeam, teamA, teamB } = gameState;
       
-      case 2:
-        if (currentTeam === 'B' && teamB.length < 2) {
-          const newTeamB = [...teamB, character];
-          newState = {
-            ...newState,
-            teamB: newTeamB,
-            recommendations: calculateRecommendations('B', teamA, newTeamB, gameState.selectedMap)
-          };
-          
-          if (newTeamB.length === 2) {
+      if (currentTeam === 'A' && teamA.includes(character)) return;
+      if (currentTeam === 'B' && teamB.includes(character)) return;
+      
+      let newState = { ...gameState };
+
+      if (currentPhase === 1 && teamA.length === 0 && teamB.length === 0) {
+        newState = {
+          ...newState,
+          recommendations: calculateRecommendations('A', [], [], gameState.selectedMap)
+        };
+      }
+
+      switch (currentPhase) {
+        case 1:
+          if (currentTeam === 'A') {
             newState = {
               ...newState,
-              currentTeam: 'A',
-              currentPhase: 3,
-              recommendations: calculateRecommendations('A', newTeamB, teamA, gameState.selectedMap)
-            };
-            showTurnAnnouncement('A', 3);
-          }
-        }
-        break;
-      
-      case 3:
-        if (currentTeam === 'A' && teamA.length < 3) {
-          const newTeamA = [...teamA, character];
-          newState = {
-            ...newState,
-            teamA: newTeamA,
-            recommendations: calculateRecommendations('A', teamB, newTeamA, gameState.selectedMap)
-          };
-          
-          if (newTeamA.length === 3) {
-            newState = {
-              ...newState,
+              teamA: [character],
               currentTeam: 'B',
-              currentPhase: 4,
-              recommendations: calculateRecommendations('B', newTeamA, teamB, gameState.selectedMap)
+              currentPhase: 2,
+              recommendations: calculateRecommendations('B', [character], [], gameState.selectedMap)
             };
-            showTurnAnnouncement('B', 4);
+            showTurnAnnouncement('B', 2);
           }
-        }
-        break;
-      
-      case 4:
-        if (currentTeam === 'B' && teamB.length < 3) {
-          const newTeamB = [...teamB, character];
-          newState = {
-            ...newState,
-            teamB: newTeamB,
-            recommendations: calculateRecommendations('B', teamA, newTeamB, gameState.selectedMap)
-          };
-          
-          // ゲーム終了時の処理をここに追加できます
-          if (newTeamB.length === 3) {
+          break;
+        
+        case 2:
+          if (currentTeam === 'B' && teamB.length < 2) {
+            const newTeamB = [...teamB, character];
             newState = {
               ...newState,
-              recommendations: [] // 全選択が終わったので推奨をクリア
+              teamB: newTeamB,
+              recommendations: calculateRecommendations('B', teamA, newTeamB, gameState.selectedMap)
             };
-            // ここでゲーム終了のアナウンスなどを追加できます
+            
+            if (newTeamB.length === 2) {
+              newState = {
+                ...newState,
+                currentTeam: 'A',
+                currentPhase: 3,
+                recommendations: calculateRecommendations('A', newTeamB, teamA, gameState.selectedMap)
+              };
+              showTurnAnnouncement('A', 3);
+            }
           }
-        }
-        break;
+          break;
+        
+        case 3:
+          if (currentTeam === 'A' && teamA.length < 3) {
+            const newTeamA = [...teamA, character];
+            newState = {
+              ...newState,
+              teamA: newTeamA,
+              recommendations: calculateRecommendations('A', teamB, newTeamA, gameState.selectedMap)
+            };
+            
+            if (newTeamA.length === 3) {
+              newState = {
+                ...newState,
+                currentTeam: 'B',
+                currentPhase: 4,
+                recommendations: calculateRecommendations('B', newTeamA, teamB, gameState.selectedMap)
+              };
+              showTurnAnnouncement('B', 4);
+            }
+          }
+          break;
+        
+        case 4:
+          if (currentTeam === 'B' && teamB.length < 3) {
+            const newTeamB = [...teamB, character];
+            newState = {
+              ...newState,
+              teamB: newTeamB,
+              recommendations: calculateRecommendations('B', teamA, newTeamB, gameState.selectedMap)
+            };
+            
+            if (newTeamB.length === 3) {
+              newState = {
+                ...newState,
+                recommendations: [] // 全選択が終わったので推奨をクリア
+              };
+            }
+          }
+          break;
+      }
+
+      setGameStateWithHistory(newState);
+    };
+
+    // バンフェーズが有効かつ完了していない場合は、バン選択として処理
+    if (gameState.isBanPhaseEnabled && 
+        (gameState.bansA.length < 3 || gameState.bansB.length < 3)) {
+      handleBanSelect(character);
+    } else {
+      handlePickPhase();
     }
-
-    setGameStateWithHistory(newState);
   };
-
-  // バンフェーズが有効かつ完了していない場合は、バン選択として処理
-  if (gameState.isBanPhaseEnabled && 
-      (gameState.bansA.length < 3 || gameState.bansB.length < 3)) {
-    handleBanSelect(character);
-  } else {
-    handlePickPhase();
-  }
-};
-
+  
   const renderModeAndMapModal = () => {
     return (
       <Modal
