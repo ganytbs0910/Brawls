@@ -195,9 +195,13 @@ const PickPrediction: React.FC = () => {
   // 勝率を計算（50.1%〜95%の範囲に収める）
   let winRate = baseWinRate;
   if (totalScore > 0) {
-    const maxDeviation = 44.9; // この値を変更（85%→95%にするため）
-    const scoreRatio = advantageScore / totalScore;
-    // 勝率を計算（必ず有利なチームが50.1%以上になるように）
+    const maxDeviation = 44.9;
+    // スコア比率の計算を調整
+    const rawRatio = advantageScore / totalScore;
+    const enhancedRatio = Math.pow(rawRatio, 0.5); // 0.5の指数でより急激に上昇
+    const multiplier = 1.2; // 全体的な倍率を上げる
+    const scoreRatio = Math.min(1, (enhancedRatio * multiplier + rawRatio) / 2); // 元の比率と強調された比率の加重平均
+    
     winRate = Math.min(95, Math.max(50.1, baseWinRate + (maxDeviation * (2 * scoreRatio - 1))));
   }
 
