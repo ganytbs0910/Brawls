@@ -1,3 +1,4 @@
+// App.tsx
 import React, { useState, useRef, useEffect } from 'react';
 import {
   Vibration,
@@ -23,6 +24,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { AppOpenAd } from 'react-native-google-mobile-ads';
 import { AD_CONFIG } from './config/AdConfig';
 import { useAppTranslation } from './i18n/app';
+import { LanguageSelector } from './components/LanguageSelector';
 
 import BrawlStarsCompatibility from './components/BrawlStarsApp';
 import TeamBoard from './components/TeamBoard';
@@ -429,6 +431,7 @@ const App = () => {
   const [isSecondaryContentVisible, setIsSecondaryContentVisible] = useState(false);
   const [secondaryContent, setSecondaryContent] = useState<React.ReactNode>(null);
   const [tickets, setTickets] = useState(0);
+  const [isLanguageSelectorVisible, setIsLanguageSelectorVisible] = useState(false);
   const slideAnimation = useRef(new Animated.Value(0)).current;
 
   const animatedValues = useRef({
@@ -449,7 +452,6 @@ const App = () => {
       
       const platform = Platform.OS;
       const updateInfo = platform === 'ios' ? content.ios : content.android;
-      
       const compareVersions = (v1: string, v2: string): boolean => {
         const parts1 = v1.split('.').map(Number);
         const parts2 = v2.split('.').map(Number);
@@ -504,13 +506,14 @@ const App = () => {
       try {
         await checkVersion();
 
-        // 言語の初期化処理を追加
-    const savedLanguage = await AsyncStorage.getItem('selectedLanguage');
-    if (!savedLanguage) {
-      // 初回起動時のみ実行
-      const deviceLang = getDeviceLanguage();
-      await AsyncStorage.setItem('selectedLanguage', deviceLang);
-    }
+        // 初回起動チェック（言語設定の有無で判断）
+        const savedLanguage = await AsyncStorage.getItem('selectedLanguage');
+        if (!savedLanguage) {
+          // 初回起動時は言語設定画面を表示
+          setIsLanguageSelectorVisible(true);
+          const deviceLang = getDeviceLanguage();
+          await AsyncStorage.setItem('selectedLanguage', deviceLang);
+        }
         
         const status = await AsyncStorage.getItem('adFreeStatus');
         const isAdFreeStatus = status === 'true';
@@ -575,64 +578,62 @@ const App = () => {
     setIsSecondaryContentVisible(true);
   };
 
-  // handleTabPressを修正：
-const handleTabPress = (tabKey: typeof activeTab, index: number) => {
-  const animations = Object.keys(animatedValues).map((key) =>
-    Animated.timing(animatedValues[key], {
-      toValue: key === tabKey ? 1 : 0,
-      duration: 200,
-      useNativeDriver: true,
-    })
-  );
+  const handleTabPress = (tabKey: typeof activeTab, index: number) => {
+    const animations = Object.keys(animatedValues).map((key) =>
+      Animated.timing(animatedValues[key], {
+        toValue: key === tabKey ? 1 : 0,
+        duration: 200,
+        useNativeDriver: true,
+      })
+    );
 
-  Animated.parallel([
-    ...animations,
-    Animated.spring(slideAnimation, {
-      toValue: index * TAB_WIDTH,
-      tension: 68,
-      friction: 12,
-      useNativeDriver: true,
-    }),
-  ]).start();
+    Animated.parallel([
+      ...animations,
+      Animated.spring(slideAnimation, {
+        toValue: index * TAB_WIDTH,
+        tension: 68,
+        friction: 12,
+        useNativeDriver: true,
+      }),
+    ]).start();
 
-  setActiveTab(tabKey);
+    setActiveTab(tabKey);
 
-  // チーム画面の場合はスライドオーバーを表示（iPadでも同じ動作）
-  if (tabKey === 'team') {
-    setIsSlideOverVisible(true);
-  } else {
-    setIsSlideOverVisible(false);
-  }
-};
+    if (tabKey === 'team') {
+      setIsSlideOverVisible(true);
+    } else {
+      setIsSlideOverVisible(false);
+    }
+  };
 
   const handleSlideOverClose = () => {
     setIsSlideOverVisible(false);
   };
 
   const renderContent = () => {
-  switch (activeTab) {
-    case 'home':
-      return (
-        <HomeStack 
-          isAdFree={isAdFree} 
-          onShowDetails={handleShowSecondaryContent}
-        />
-      );
-    case 'single':
-      return (
-        <BrawlStarsCompatibility 
-          isAdFree={isAdFree}
-          onShowDetails={handleShowSecondaryContent}
-        />
-      );
-    case 'team':
-  return (
-    <TeamBoard 
-      isAdFree={isAdFree}
-      isCompact={isSlideOverVisible}
-      onShowDetails={handleShowSecondaryContent}
-    />
-  );
+    switch (activeTab) {
+      case 'home':
+        return (
+          <HomeStack 
+            isAdFree={isAdFree} 
+            onShowDetails={handleShowSecondaryContent}
+          />
+        );
+      case 'single':
+        return (
+          <BrawlStarsCompatibility 
+            isAdFree={isAdFree}
+            onShowDetails={handleShowSecondaryContent}
+          />
+        );
+      case 'team':
+        return (
+          <TeamBoard 
+            isAdFree={isAdFree}
+            isCompact={isSlideOverVisible}
+            onShowDetails={handleShowSecondaryContent}
+          />
+        );
       case 'prediction':
         return (
           <PickPrediction 
@@ -683,6 +684,11 @@ const handleTabPress = (tabKey: typeof activeTab, index: number) => {
           />
         </SlideOver>
       )}
+      {isLanguageSelectorVisible && (
+        <LanguageSelector 
+          onClose={() => setIsLanguageSelectorVisible(false)}
+        />
+      )}
     </SafeAreaView>
   );
 };
@@ -694,7 +700,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-     paddingBottom: Platform.OS === 'ios' ? 105 : 98, // タブバー + バナー広告の高さを考慮して調整
+    paddingBottom: Platform.OS === 'ios' ? 105 : 98,
   },
   splitContainer: {
     flex: 1,
@@ -717,7 +723,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 0,
     borderTopColor: '#e0e0e0',
     backgroundColor: '#fff',
-    height: Platform.OS === 'ios' ? 55 : 48, // タブバーの高さを明示的に設定
+    height: Platform.OS === 'ios' ? 55 : 48,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -726,7 +732,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 2,
     elevation: 5,
-    zIndex: 1, // バナー広告より上に表示
+    zIndex: 1,
   },
   tab: {
     flex: 1,
@@ -790,27 +796,6 @@ const styles = StyleSheet.create({
   slideOverContent: {
     flex: 1,
     padding: 20,
-  },
-  splitContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#fff'
-  },
-  primaryContent: {
-    flex: 1,
-  },
-  secondaryContent: {
-    // borderLeftWidthをコンポーネント内で動的に設定するため、ここでは削除
-    backgroundColor: '#fff',
-    // シャドウを追加してセパレーションを明確に
-    shadowColor: '#000',
-    shadowOffset: {
-      width: -1,
-      height: 0,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 3,
   },
 });
 

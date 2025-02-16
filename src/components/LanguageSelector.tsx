@@ -1,6 +1,13 @@
-// src/components/LanguageSelector.tsx
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Platform } from 'react-native';
+import { 
+  View, 
+  Text, 
+  TouchableOpacity, 
+  StyleSheet, 
+  Platform,
+  SafeAreaView,
+  StatusBar 
+} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Language, SUPPORTED_LANGUAGES, getDeviceLanguage } from '../utils/languageUtils';
 
@@ -31,76 +38,90 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ onClose }) =
     initLanguage();
   }, []);
 
-  if (!isInitialized) {
-    return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.title}>Loading...</Text>
-          <TouchableOpacity onPress={onClose} style={styles.backButton}>
-            <Text style={styles.backButtonText}>←</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    );
-  }
-
   const handleLanguageSelect = async (language: Language) => {
     if (language === currentLanguage) {
-      return; // 同じ言語を選択した場合は何もしない
+      onClose();
+      return;
     }
 
     try {
       await AsyncStorage.setItem('selectedLanguage', language);
       setCurrentLanguage(language);
-      // 選択後すぐには閉じない
-      // 必要に応じて確認ダイアログを表示するなど
     } catch (error) {
       console.error('Failed to save language:', error);
     }
   };
 
+  if (!isInitialized) {
+    return (
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.headerBackground}>
+          <View style={styles.header}>
+            <Text style={styles.title}>Loading...</Text>
+          </View>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>言語設定</Text>
-        <TouchableOpacity onPress={onClose} style={styles.backButton}>
-          <Text style={styles.backButtonText}>←</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.languageList}>
-        {Object.entries(SUPPORTED_LANGUAGES).map(([code, name]) => (
-          <TouchableOpacity
-            key={code}
-            style={[
-              styles.languageItem,
-              currentLanguage === code && styles.selectedLanguageItem
-            ]}
-            onPress={() => handleLanguageSelect(code as Language)}
-          >
-            <Text style={[
-              styles.languageText,
-              currentLanguage === code && styles.selectedLanguageText
-            ]}>
-              {name}
-            </Text>
-            {currentLanguage === code && (
-              <Text style={styles.checkmark}>✓</Text>
-            )}
-          </TouchableOpacity>
-        ))}
-      </View>
+    <View style={styles.modalContainer}>
+      <StatusBar barStyle="light-content" backgroundColor="#21A0DB" />
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.headerBackground}>
+          <View style={styles.header}>
+            <Text style={styles.title}>言語設定</Text>
+            <TouchableOpacity onPress={onClose} style={styles.backButton}>
+              <Text style={styles.backButtonText}>←</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.languageList}>
+          {Object.entries(SUPPORTED_LANGUAGES).map(([code, name]) => (
+            <TouchableOpacity
+              key={code}
+              style={[
+                styles.languageItem,
+                currentLanguage === code && styles.selectedLanguageItem
+              ]}
+              onPress={() => handleLanguageSelect(code as Language)}
+            >
+              <Text style={[
+                styles.languageText,
+                currentLanguage === code && styles.selectedLanguageText
+              ]}>
+                {name}
+              </Text>
+              {currentLanguage === code && (
+                <Text style={styles.checkmark}>✓</Text>
+              )}
+            </TouchableOpacity>
+          ))}
+        </View>
+      </SafeAreaView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  modalContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: '#fff',
+    zIndex: 2000,
+  },
+  safeArea: {
     flex: 1,
     backgroundColor: '#fff',
   },
+  headerBackground: {
+    backgroundColor: '#21A0DB',
+  },
   header: {
     height: 60,
-    backgroundColor: '#21A0DB',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

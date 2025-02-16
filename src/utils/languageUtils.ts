@@ -34,15 +34,15 @@ export const getDeviceLanguage = (): Language => {
           NativeModules.SettingsManager?.settings?.AppleLocale ||
           NativeModules.SettingsManager?.settings?.AppleLanguages?.[0];
         console.log('iOS raw locale:', locale);
-        return locale?.split('_')[0] || 'ja'; // デフォルトを'ja'に変更
+        return locale?.split('_')[0] || 'en'; 
       },
       android: () => {
         const locale = NativeModules.I18nManager?.localeIdentifier || 
                       NativeModules.I18nManager?.locale;
         console.log('Android raw locale:', locale);
-        return locale?.split(/[-_]/)[0] || 'ja'; // デフォルトを'ja'に変更
+        return locale?.split(/[-_]/)[0] || 'en'; 
       },
-      default: () => 'ja' // デフォルトを'ja'に変更
+      default: () => 'en' 
     })();
 
     console.log('Raw device language:', deviceLanguage);
@@ -56,12 +56,12 @@ export const getDeviceLanguage = (): Language => {
     }
 
     console.log('Falling back to Japanese, language not supported:', normalizedLanguage);
-    return 'ja'; // サポート外言語の場合のフォールバックを'ja'に変更
+    return 'en'; 
   } catch (error) {
     console.error('Error getting device language:', error);
     if (error instanceof Error) {
       console.error('Error details:', error.message);
     }
-    return 'ja'; // エラー時のフォールバックも'ja'に変更
+    return 'en';
   }
 };
