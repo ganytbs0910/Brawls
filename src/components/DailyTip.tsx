@@ -235,7 +235,85 @@ export const DAILY_TIPS: Tip[] = [
       en: "The higher your trophy count, the more mastery rewards you can receive",
       ko: "마스터리는 트로피가 높을수록 받을 수 있는 양이 증가합니다"
     }
-  }
+  },
+  {
+    id: 18,
+    title: {
+      ja: "フランケンのハイチャウルトは真下で回避できる",
+      en: "Frank's High-Charged Ultimate Can Be Dodged Directly Below",
+      ko: "프랑켄의 하이차지 궁극기는 바로 아래로 피할 수 있습니다"
+    },
+    content: {
+      ja: "フランケンのハイチャウルトは方向が決まっており、真下が一番避けやすい",
+      en: "Frank's high-charged ultimate has a fixed direction, and directly below is the easiest to dodge",
+      ko: "프랑켄의 하이차지 궁극기는 방향이 정해져 있으며, 바로 아래가 가장 피하기 쉽습니다"
+    }
+  },
+  {
+    id: 19,
+    title: {
+      ja: "ダリルのウルトのチャージ速度",
+      en: "Darryl's Ultimate Charge Speed",
+      ko: "대릴의 궁극기 충전 속도"
+    },
+    content: {
+      ja: "ダリルのウルトは何もしないと30秒で自動で溜まる",
+      en: "Darryl's ultimate charges automatically in 30 seconds if you do nothing",
+      ko: "대릴의 궁극기는 아무것도 하지 않으면 30초 후에 자동으로 충전됩니다"
+    }
+  },
+  {
+    id: 20,
+    title: {
+      ja: "アッシュの怒りゲージ",
+      en: "Ash's Rage Gauge",
+      ko: "애쉬의 분노 게이지"
+    },
+    content: {
+      ja: "アッシュは自分が無敵状態だと怒りゲージは溜まらない",
+      en: "Ash's rage gauge does not fill up when he is invincible",
+      ko: "애쉬는 자신이 무적 상태일 때 분노 게이지가 차지 않습니다"
+    }
+  },
+  {
+    id: 21,
+    title: {
+      ja: "スプラウトのウルトの隠れ場所",
+      en: "Sprout's Ultimate Hiding Spot",
+      ko: "스프라우트의 궁극기 숨을 수 있는 장소"
+    },
+    content: {
+      ja: "スプラウトのウルトは壁の中に隠れることができる",
+      en: "Sprout's ultimate can hide inside walls",
+      ko: "스프라우트의 궁극기는 벽 안에 숨을 수 있습니다"
+    }
+  },
+  {
+    id: 22,
+    title: {
+      ja: "スプラウトのウルトのダメージ",
+      en: "Sprout's Ultimate Damage",
+      ko: "스프라우트의 궁극기 데미지"
+    },
+    content: {
+      ja: "スプラウトのウルトは最大射程で発射すると最大で5600ダメージを与える",
+      en: "Sprout's ultimate can deal up to 5,600 damage when fired at maximum range",
+      ko: "스프라우트의 궁극기는 최대 사거리에서 발사하면 최대 5600의 데미지를 줄 수 있습니다"
+    }
+  },
+  {
+    id: 23,
+    title: {
+      ja: "ストゥーの必殺技の向き",
+      en: "Stu's Ultimate",
+      ko: "스투의 궁극기"
+    },
+    content: {
+      ja: "ストゥーの必殺技はオートエイムで向いている方向に放たれるためエイムする必要がない",
+      en: "Stu's ultimate is fired in the direction you are aiming with auto-aim, so you don't need to aim",
+      ko: "스투의 궁극기는 자동 조준으로 조준하고 있는 방향으로 발사되므로 조준할 필요가 없습니다"
+    }
+  },
 ];
 
 export const DailyTip: React.FC = () => {
