@@ -623,6 +623,21 @@ const validateInviteLink = (link: string): boolean => {
     }
     const cleanInviteLink = urlMatch[1];
 
+    // 広告の準備を先に行う
+    let adService;
+    const adFreeStatus = await AsyncStorage.getItem('adFreeStatus');
+    const isAdFree = adFreeStatus === 'true';
+
+    if (!isAdFree) {
+      try {
+        adService = await AdMobService.initialize();
+        // この時点で広告をプリロード
+        await adService.loadInterstitial();
+      } catch (adError) {
+        console.error('Ad preparation error:', adError);
+      }
+    }
+
     // テーブル名の取得
     const tableName = getTableName(currentLanguage);
     console.log('Creating post in table:', tableName);
@@ -646,26 +661,42 @@ const validateInviteLink = (link: string): boolean => {
 
     if (error) throw error;
 
-    // 課金状態をチェック
-    const adFreeStatus = await AsyncStorage.getItem('adFreeStatus');
-    const isAdFree = adFreeStatus === 'true';
-
-    // 非課金ユーザーの場合のみ広告を表示
-    if (!isAdFree) {
-      try {
-        const adService = await AdMobService.initialize();
-        await adService.loadInterstitial();
-        await adService.showInterstitial();
-      } catch (adError) {
-        console.error('Ad error:', adError);
-      }
-    }
-
-    // 成功後の処理
+    // クールダウン時間を記録
     await AsyncStorage.setItem('lastPostTime', Date.now().toString());
+    
+    // フォームをリセット
     resetForm();
-    setModalVisible(false);
-    Alert.alert('Success', t.success.postCreated);
+
+    // モーダルを閉じる前に広告表示の準備
+    if (!isAdFree && adService) {
+      const showAd = async () => {
+        try {
+          // モーダルが完全に閉じるのを待つ
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          
+          // 広告を表示
+          await adService.showInterstitial();
+          
+          // 広告表示完了後、少し待ってからSuccess通知
+          await new Promise(resolve => setTimeout(resolve, 500));
+          Alert.alert('Success', t.success.postCreated);
+        } catch (adError) {
+          console.error('Ad showing error:', adError);
+          // 広告表示に失敗した場合は直接Success通知
+          Alert.alert('Success', t.success.postCreated);
+        }
+      };
+
+      // モーダルを閉じてから広告表示処理を開始
+      setModalVisible(false);
+      showAd();
+    } else {
+      // 広告なしの場合
+      setModalVisible(false);
+      setTimeout(() => {
+        Alert.alert('Success', t.success.postCreated);
+      }, 500);
+    }
 
   } catch (error) {
     console.error('Error creating post:', error);

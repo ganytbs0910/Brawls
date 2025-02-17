@@ -46,8 +46,8 @@ const SNAP_POINTS = {
 };
 
 const APP_VERSION = Platform.select({
-  ios: "1.32",
-  android: "2.23",
+  ios: "1.34",
+  android: "2.25",
 });
 
 interface UpdateInfo {

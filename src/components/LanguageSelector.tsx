@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Language, SUPPORTED_LANGUAGES, getDeviceLanguage } from '../utils/languageUtils';
+import { settingsScreenTranslations } from '../i18n/settingsScreen';
 
 interface LanguageSelectorProps {
   onClose: () => void;
@@ -52,6 +53,12 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ onClose }) =
     }
   };
 
+  // 現在の言語に応じてタイトルテキストを取得
+  const getTitleText = () => {
+    if (!currentLanguage) return '';
+    return settingsScreenTranslations[currentLanguage].menuItems.language;
+  };
+
   if (!isInitialized) {
     return (
       <SafeAreaView style={styles.safeArea}>
@@ -70,7 +77,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ onClose }) =
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.headerBackground}>
           <View style={styles.header}>
-            <Text style={styles.title}>言語設定</Text>
+            <Text style={styles.title}>{getTitleText()}</Text>
             <TouchableOpacity onPress={onClose} style={styles.backButton}>
               <Text style={styles.backButtonText}>←</Text>
             </TouchableOpacity>

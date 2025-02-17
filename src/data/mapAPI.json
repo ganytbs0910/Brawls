@@ -100,6 +100,11 @@
                     "power": 3
                 },
                 {
+                    "name": "グリフ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
                     "name": "コルト",
                     "reason": "",
                     "power": 2
@@ -238,6 +243,11 @@
                 },
                 {
                     "name": "グロム",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "キット",
                     "reason": "",
                     "power": 3
                 }
@@ -1210,11 +1220,6 @@
                     "power": 4
                 },
                 {
-                    "name": "アンバー",
-                    "reason": "",
-                    "power": 4
-                },
-                {
                     "name": "コルト",
                     "reason": "",
                     "power": 3
@@ -1231,6 +1236,11 @@
                 },
                 {
                     "name": "リコ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "アンバー",
                     "reason": "",
                     "power": 3
                 },
@@ -2004,11 +2014,6 @@
                     "power": 4
                 },
                 {
-                    "name": "フランケン",
-                    "reason": "",
-                    "power": 4
-                },
-                {
                     "name": "ビビ",
                     "reason": "",
                     "power": 4
@@ -2039,7 +2044,7 @@
                     "power": 3
                 },
                 {
-                    "name": "シェリー",
+                    "name": "フランケン",
                     "reason": "",
                     "power": 3
                 },
@@ -2089,10 +2094,10 @@
                     "power": 2
                 },
                 {
-                    "name": "フランケン",
+                    "name": "シェリー",
                     "reason": "",
                     "power": 2
-                }
+                },
             ]
         },
         {
@@ -2314,11 +2319,6 @@
                     "power": 2
                 },
                 {
-                    "name": "ニタ",
-                    "reason": "",
-                    "power": 2
-                },
-                {
                     "name": "ローラ",
                     "reason": "",
                     "power": 2
@@ -2386,11 +2386,6 @@
                     "power": 4
                 },
                 {
-                    "name": "ダイナマイク",
-                    "reason": "",
-                    "power": 4
-                },
-                {
                     "name": "スクウィーク",
                     "reason": "",
                     "power": 4
@@ -2402,11 +2397,6 @@
                 },
                 {
                     "name": "ダリル",
-                    "reason": "",
-                    "power": 4
-                },
-                {
-                    "name": "リコ",
                     "reason": "",
                     "power": 4
                 },
@@ -2431,6 +2421,11 @@
                     "power": 3
                 },
                 {
+                    "name": "キット",
+                    "reason": "",
+                    "power": 3
+                },
+                {
                     "name": "シェイド",
                     "reason": "",
                     "power": 3
@@ -2446,14 +2441,14 @@
                     "power": 3
                 },
                 {
-                    "name": "リリー",
-                    "reason": "",
-                    "power": 2
-                },
-                {
                     "name": "リコ",
                     "reason": "",
-                    "power": 2
+                    "power": 3
+                },
+                {
+                    "name": "ダイナマイク",
+                    "reason": "",
+                    "power": 3
                 }
             ]
         },
@@ -3194,11 +3189,6 @@
                     "power": 3
                 },
                 {
-                    "name": "バスター",
-                    "reason": "",
-                    "power": 3
-                },
-                {
                     "name": "モーティス",
                     "reason": "",
                     "power": 3
@@ -3344,11 +3334,6 @@
                 },
                 {
                     "name": "バスター",
-                    "reason": "",
-                    "power": 4
-                },
-                {
-                    "name": "フランケン",
                     "reason": "",
                     "power": 4
                 },
@@ -3595,7 +3580,7 @@
                     "power": 5
                 },
                 {
-                    "name": "ニタ",
+                    "name": "ラリー&ローリー",
                     "reason": "",
                     "power": 5
                 },
@@ -3625,6 +3610,11 @@
                     "power": 4
                 },
                 {
+                    "name": "ニタ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
                     "name": "フランケン",
                     "reason": "",
                     "power": 4
@@ -3641,11 +3631,6 @@
                 },
                 {
                     "name": "バスター",
-                    "reason": "",
-                    "power": 4
-                },
-                {
-                    "name": "ラリー&ローリー",
                     "reason": "",
                     "power": 4
                 },
@@ -5049,11 +5034,6 @@
                     "power": 4
                 },
                 {
-                    "name": "ダイナマイク",
-                    "reason": "",
-                    "power": 4
-                },
-                {
                     "name": "サンディ",
                     "reason": "",
                     "power": 4
@@ -5094,7 +5074,17 @@
                     "power": 3
                 },
                 {
+                    "name": "アッシュ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
                     "name": "メロディー",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "ダイナマイク",
                     "reason": "",
                     "power": 3
                 },
@@ -5135,6 +5125,11 @@
                 },
                 {
                     "name": "ジャッキー",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "ペニー",
                     "reason": "",
                     "power": 2
                 },
@@ -5490,11 +5485,6 @@
                     "power": 3
                 },
                 {
-                    "name": "ベリー",
-                    "reason": "",
-                    "power": 3
-                },
-                {
                     "name": "ジェシー",
                     "reason": "",
                     "power": 3
@@ -5506,11 +5496,6 @@
                 },
                 {
                     "name": "クロウ",
-                    "reason": "",
-                    "power": 2
-                },
-                {
-                    "name": "カール",
                     "reason": "",
                     "power": 2
                 },
@@ -5646,11 +5631,6 @@
                     "power": 4
                 },
                 {
-                    "name": "ジェシー",
-                    "reason": "",
-                    "power": 4
-                },
-                {
                     "name": "フランケン",
                     "reason": "",
                     "power": 4
@@ -5702,6 +5682,11 @@
                 },
                 {
                     "name": "ジェシー",
+                    "reason": "",
+                    "power": 2
+                },
+                {
+                    "name": "グリフ",
                     "reason": "",
                     "power": 2
                 },
@@ -6262,11 +6247,6 @@
                 },
                 {
                     "name": "ジーン",
-                    "reason": "",
-                    "power": 5
-                },
-                {
-                    "name": "リコ",
                     "reason": "",
                     "power": 5
                 },
