@@ -2,6 +2,26 @@ export type CharacterDetailsTranslation = {
   tabs: {
     info: string;
     compatibility: string;
+    maps: string;  // 追加
+  };
+  maps: {
+    recommendedTitle: string;
+    powerLevel: string;
+    noRecommendedMaps: string;
+    modes: {
+      gemGrab: string;
+      brawlBall: string;
+      heist: string;
+      knockout: string;
+      bounty: string;
+      hotZone: string;
+      wipeout: string;
+      brawlBall5v5: string;
+      wipeout5v5: string;
+      duels: string;
+      showdown: string;
+      rankFront: string;
+    };
   };
   basicInfo: {
     title: string;
@@ -54,6 +74,26 @@ export const ja: CharacterDetailsTranslation = {
   tabs: {
     info: 'キャラ情報',
     compatibility: '相性表',
+    maps: '推奨マップ',  // 追加
+  },
+   maps: {
+    recommendedTitle: "推奨マップ",
+    powerLevel: "パワーレベル",
+    noRecommendedMaps: "このキャラクターに推奨されるマップはありません",
+    modes: {
+      gemGrab: "エメラルドハント",
+      brawlBall: "ブロストライカー",
+      heist: "強奪",
+      knockout: "ノックアウト",
+      bounty: "賞金稼ぎ",
+      hotZone: "ホットゾーン",
+      wipeout: "殲滅",
+      brawlBall5v5: "5vs5ブロストライカー",
+      wipeout5v5: "5vs5殲滅",
+      duels: "デュエル",
+      showdown: "バトルロイヤル",
+      rankFront: "ガチバトル"
+    }
   },
   basicInfo: {
     title: '基本情報',
@@ -106,6 +146,26 @@ export const en: CharacterDetailsTranslation = {
   tabs: {
     info: 'Info',
     compatibility: 'Compatibility',
+    maps: 'Maps',  // 追加
+  },
+  maps: {
+    recommendedTitle: "Recommended Maps",
+    powerLevel: "Power Level",
+    noRecommendedMaps: "No recommended maps for this character.",
+    modes: {
+      gemGrab: "Gem Grab",
+      brawlBall: "Brawl Ball",
+      heist: "Heist",
+      knockout: "Knockout",
+      bounty: "Bounty",
+      hotZone: "Hot Zone",
+      wipeout: "Wipeout",
+      brawlBall5v5: "5v5 Brawl Ball",
+      wipeout5v5: "5v5 Wipeout",
+      duels: "Duels",
+      showdown: "Showdown",
+      rankFront: "Rank Front"
+    }
   },
   basicInfo: {
     title: 'Basic Info',
@@ -158,6 +218,26 @@ export const ko: CharacterDetailsTranslation = {
   tabs: {
     info: '정보',
     compatibility: '상성표',
+    maps: '추천 맵',  // 追加
+  },
+   maps: {
+    recommendedTitle: "추천 맵",
+    powerLevel: "파워 레벨",
+    noRecommendedMaps: "이 캐릭터에 대한 추천 맵이 없습니다.",
+    modes: {
+      gemGrab: "젬 그랩",
+      brawlBall: "브롤 볼",
+      heist: "하이스트",
+      knockout: "녹아웃",
+      bounty: "바운티",
+      hotZone: "핫 존",
+      wipeout: "와이프아웃",
+      brawlBall5v5: "5대5 브롤 볼",
+      wipeout5v5: "5대5 와이프아웃",
+      duels: "듀얼",
+      showdown: "쇼다운",
+      rankFront: "랭크 프론트"
+    }
   },
   basicInfo: {
     title: '기본 정보',

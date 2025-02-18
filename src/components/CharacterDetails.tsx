@@ -8,6 +8,7 @@ import CharacterImage from './CharacterImage';
 import { getGearInfo, getGearTypeColor, getStarPowerIcon, getGadgetIcon, gearIcons } from '../data/iconMappings';
 import { allCharacterData } from '../data/characterCompatibility';
 import { useCharacterDetailsTranslation } from '../i18n/characterDetails';
+import RecommendedMaps from './RecommendedMaps';
 import { useCharacterLocalization } from '../hooks/useCharacterLocalization';
 
 type CharacterDetailsRouteProp = RouteProp<RootStackParamList, 'CharacterDetails'>;
@@ -30,7 +31,7 @@ const CharacterDetails: React.FC = () => {
   const navigation = useNavigation<CharacterDetailsNavigationProp>();
   const { characterName } = route.params;
 
-  const [activeTab, setActiveTab] = useState<'info' | 'compatibility'>('info');
+  const [activeTab, setActiveTab] = useState<'info' | 'compatibility' | 'maps'>('info');
   const [compatibilityView, setCompatibilityView] = useState<CompatibilityView>('good');
   const [selectedGear, setSelectedGear] = useState<any | null>(null);
   const [isGearModalOpen, setIsGearModalOpen] = useState(false);
@@ -126,7 +127,6 @@ const CharacterDetails: React.FC = () => {
     if (!characterGears) return null;
 
     const handleGearClick = (gearId: number) => {
-      // currentLanguageを使用してギア情報を取得
       const gearInfo = getGearInfo(character.name, gearId, currentLanguage);
       setSelectedGear(gearInfo);
       setIsGearModalOpen(true);
@@ -222,7 +222,7 @@ const CharacterDetails: React.FC = () => {
         </Modal>
       </View>
     );
-  }, [character, selectedGear, isGearModalOpen, currentLanguage, t]); 
+  }, [character, selectedGear, isGearModalOpen, currentLanguage, t]);
 
   const renderCharacterInfo = useCallback(() => {
     if (!character) {
@@ -275,12 +275,11 @@ const CharacterDetails: React.FC = () => {
         {renderGearSection()}
       </View>
     );
-  }, [character, characterName, renderPowerCard, renderGearSection, t]);
+  }, [character, characterName, renderPowerCard, renderGearSection, getLocalizedName, t]);
 
   const renderCompatibilityContent = useCallback(() => {
     if (!compatibilityData) return null;
 
-    // カテゴリーの順序を固定
     const orderedCategories = compatibilityView === 'good' 
       ? [
           { 
@@ -319,19 +318,17 @@ const CharacterDetails: React.FC = () => {
           }
         ];
 
-    // 各カテゴリーに該当するキャラクターを分類
     const categorizedCharacters = orderedCategories.map(category => {
       const characters = Object.entries(compatibilityData.compatibilityScores || {})
         .filter(([_, score]) => score >= category.minScore && score <= category.maxScore)
         .map(([name, score]) => ({ name, score }))
         .sort((a, b) => {
-  // 良い相性の場合は高い順、悪い相性の場合は低い順にソート
-  if (compatibilityView === 'good') {
-    return b.score - a.score;  // 点数が高い順
-  } else {
-    return a.score - b.score;  // 点数が低い順
-  }
-});
+          if (compatibilityView === 'good') {
+            return b.score - a.score;
+          } else {
+            return a.score - b.score;
+          }
+        });
 
       return {
         ...category,
@@ -413,10 +410,7 @@ const CharacterDetails: React.FC = () => {
           style={[styles.tab, activeTab === 'info' && styles.activeTab]}
           onPress={() => setActiveTab('info')}
         >
-          <Text style={[
-            styles.tabText,
-            activeTab === 'info' && styles.activeTabText
-          ]}>
+          <Text style={[styles.tabText, activeTab === 'info' && styles.activeTabText]}>
             {t.tabs.info}
           </Text>
         </TouchableOpacity>
@@ -424,19 +418,24 @@ const CharacterDetails: React.FC = () => {
           style={[styles.tab, activeTab === 'compatibility' && styles.activeTab]}
           onPress={() => setActiveTab('compatibility')}
         >
-          <Text style={[
-            styles.tabText,
-            activeTab === 'compatibility' && styles.activeTabText
-          ]}>
+          <Text style={[styles.tabText, activeTab === 'compatibility' && styles.activeTabText]}>
             {t.tabs.compatibility}
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style={[styles.tab, activeTab === 'maps' && styles.activeTab]}
+          onPress={() => setActiveTab('maps')}
+        >
+          <Text style={[styles.tabText, activeTab === 'maps' && styles.activeTabText]}>
+            {t.tabs.maps}
           </Text>
         </TouchableOpacity>
       </View>
 
       <ScrollView style={styles.scrollContainer}>
-        {activeTab === 'info'
-          ? renderCharacterInfo()
-          : renderCompatibilityContent()}
+        {activeTab === 'info' && renderCharacterInfo()}
+        {activeTab === 'compatibility' && renderCompatibilityContent()}
+        {activeTab === 'maps' && <RecommendedMaps characterName={character.name} />}
       </ScrollView>
     </View>
   );
@@ -624,6 +623,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 12,
     alignItems: 'center',
+    paddingHorizontal: 8,
   },
   activeTab: {
     borderBottomWidth: 2,

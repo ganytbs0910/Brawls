@@ -851,7 +851,7 @@
                 "en": "Skull Creek",
                 "ko": "스컬 크릭"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "../../assets/MapImages/Skull_Creek.png",
             "description": "",
             "recommendedBrawlers": [
@@ -908,7 +908,7 @@
                 "en": "Scorched Stone",
                 "ko": "스코치드 스톤"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -919,7 +919,7 @@
                 "en": "Rockwall Brawl",
                 "ko": "록월 브롤"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "../../assets/MapImages/Rockwall_Brawl.png",
             "description": "",
             "recommendedBrawlers": [
@@ -971,7 +971,7 @@
                 "en": "Feast or Famine",
                 "ko": "피스트 오어 패민"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "../../assets/MapImages/Feast_Or_Famine.png",
             "description": "",
             "recommendedBrawlers": [
@@ -1675,7 +1675,7 @@
                 "en": "Acid Lakes",
                 "ko": "애시드 레이크스"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "../../assets/MapImages/Acid_Lakes.png",
             "description": "",
             "recommendedBrawlers": [
@@ -1732,7 +1732,7 @@
                 "en": "Cavern Churn",
                 "ko": "캐번 처른"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "../../assets/MapImages/Cavern_Churn.png",
             "description": "",
             "recommendedBrawlers": [
@@ -1822,7 +1822,7 @@
                 "en": "Double Trouble",
                 "ko": "더블 트러블"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "../../assets/MapImages/Double_Trouble.png",
             "description": "",
             "recommendedBrawlers": [
@@ -1874,7 +1874,7 @@
                 "en": "Island Invasion",
                 "ko": "아일랜드 인베이전"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "../../assets/MapImages/Island_Invasion.png",
             "description": "",
             "recommendedBrawlers": [
@@ -2458,7 +2458,7 @@
                 "en": "Hot Maze",
                 "ko": "핫 메이즈"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -2814,7 +2814,7 @@
                 "en": "Dune Drift",
                 "ko": "듄 드리프트"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -2825,7 +2825,7 @@
                 "en": "Stormy Plains",
                 "ko": "스토미 플레인즈"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -2847,7 +2847,7 @@
                 "en": "Dark Passage",
                 "ko": "다크 패시지"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "../../assets/MapImages/Dark_Passage.png",
             "description": "",
             "recommendedBrawlers": [
@@ -2909,7 +2909,7 @@
                 "en": "Ghost Point",
                 "ko": "고스트 포인트"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -2920,7 +2920,7 @@
                 "en": "Erratic Blocks",
                 "ko": "에라틱 블록스"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -2931,7 +2931,7 @@
                 "en": "River Rush",
                 "ko": "리버 러시"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -2942,7 +2942,7 @@
                 "en": "Eye Of The Storm",
                 "ko": "아이 오브 더 스톰"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -3492,7 +3492,7 @@
                 "en": "Flying Fantasies",
                 "ko": "플라잉 판타지"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "../../assets/MapImages/Flying_Fantasies.png",
             "description": "",
             "recommendedBrawlers": [
@@ -3554,7 +3554,7 @@
                 "en": "Royal Runway",
                 "ko": "로열 런웨이"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -3728,7 +3728,7 @@
                 "en": "Superstar",
                 "ko": "슈퍼스타"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4099,7 +4099,7 @@
                 "en": "Deserted Vertex",
                 "ko": "데저티드 버텍스"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4110,7 +4110,7 @@
                 "en": "Outrageous Outback",
                 "ko": "아웃레이저스 아웃백"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4121,7 +4121,7 @@
                 "en": "Barren Badlands",
                 "ko": "배런 배들랜즈"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4209,7 +4209,7 @@
                 "en": "Critical Crossing",
                 "ko": "크리티컬 크로싱"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4220,7 +4220,7 @@
                 "en": "Forsaken Falls",
                 "ko": "포세이큰 폴스"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4352,7 +4352,7 @@
                 "en": "Point Of View",
                 "ko": "포인트 오브 뷰"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4363,7 +4363,7 @@
                 "en": "Circular Canyon",
                 "ko": "서큘러 캐니언"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4374,7 +4374,7 @@
                 "en": "Rocky Blocks",
                 "ko": "록키 블록스"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4385,7 +4385,7 @@
                 "en": "Stocky Stockades",
                 "ko": "스토키 스토케이즈"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4396,7 +4396,7 @@
                 "en": "Safety Center",
                 "ko": "세이프티 센터"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "../../assets/MapImages/Safety_Center.png",
             "description": "",
             "recommendedBrawlers": [
@@ -4448,7 +4448,7 @@
                 "en": "Core Crumble",
                 "ko": "코어 크럼블"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4459,7 +4459,7 @@
                 "en": "Treasure Hunt",
                 "ko": "트레저 헌트"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4470,7 +4470,7 @@
                 "en": "Two Thousand Lakes",
                 "ko": "투 사우전드 레이크스"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4781,7 +4781,7 @@
                 "en": "Thousand Lakes",
                 "ko": "사우전드 레이크스"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4847,7 +4847,7 @@
                 "en": "Nruhc Nrevac",
                 "ko": "느루흐크 느레바크"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4858,7 +4858,7 @@
                 "en": "Riverside Ring",
                 "ko": "리버사이드 링"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4869,7 +4869,7 @@
                 "en": "Shadow Spirits",
                 "ko": "섀도우 스피리츠"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4880,7 +4880,7 @@
                 "en": "Eggshell",
                 "ko": "에그쉘"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4891,7 +4891,7 @@
                 "en": "Will Of The Wisp",
                 "ko": "윌 오브 더 위스프"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4902,7 +4902,7 @@
                 "en": "Victor Valley",
                 "ko": "빅터 밸리"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4913,7 +4913,7 @@
                 "en": "Grassy Gorge",
                 "ko": "그래시 고지"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -4924,7 +4924,7 @@
                 "en": "Clash Colosseum",
                 "ko": "클래시 콜로세움"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -5996,7 +5996,7 @@
                 "en": "The Galaxy",
                 "ko": "더 갤럭시"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -6354,7 +6354,7 @@
                 "en": "Dark Fantasies",
                 "ko": "다크 판타지"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -6365,7 +6365,7 @@
                 "en": "Risky Cliffs",
                 "ko": "리스키 클리프스"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -6376,7 +6376,7 @@
                 "en": "Ignition",
                 "ko": "이그니션"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -6387,7 +6387,7 @@
                 "en": "Mystic Touch",
                 "ko": "미스틱 터치"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -6398,7 +6398,7 @@
                 "en": "Trap Map",
                 "ko": "트랩 맵"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -6629,7 +6629,7 @@
                 "en": "Dried Up River",
                 "ko": "마른 강"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "../../assets/MapImages/Dried_Up_River.png",
             "description": "",
             "recommendedBrawlers": [
@@ -6686,7 +6686,7 @@
                 "en": "Canyon Rivers",
                 "ko": "협곡 강"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -7265,7 +7265,7 @@
                 "en": "Training Island",
                 "ko": "훈련 섬"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -7445,7 +7445,7 @@
                 "en": "The Mortuary",
                 "ko": "영안실"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -7812,7 +7812,7 @@
                 "en": "Boxed In",
                 "ko": "갇힘"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -7823,7 +7823,7 @@
                 "en": "Zoomed Out",
                 "ko": "줌아웃"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -8034,7 +8034,7 @@
                 "en": "Lush Poles",
                 "ko": "무성한 극지"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -8100,7 +8100,7 @@
                 "en": "Hard Limits",
                 "ko": "강한 제한"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -9081,7 +9081,7 @@
                 "en": "Vicious Vortex",
                 "ko": "사나운 소용돌이"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -9092,7 +9092,7 @@
                 "en": "Descending Dimensions",
                 "ko": "하강하는 차원"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -9358,7 +9358,7 @@
                 "en": "Marksmans Paradise",
                 "ko": "마크스맨 파라다이스"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "../../assets/MapImages/Marksmans_Paradise.png",
             "description": "",
             "recommendedBrawlers": [
@@ -9426,7 +9426,7 @@
                 "en": "Desert Tendrils",
                 "ko": "사막의 덩굴"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -9603,7 +9603,7 @@
                 "en": "Fiftyfive",
                 "ko": "피프티파이브"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -10018,7 +10018,7 @@
                 "en": "Leaping Frogs",
                 "ko": "뛰어오르는 개구리"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -10029,7 +10029,7 @@
                 "en": "Final Four",
                 "ko": "파이널 포"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "../../assets/MapImages/final_four.png",
             "description": "",
             "recommendedBrawlers": []
@@ -10261,7 +10261,7 @@
                 "en": "Sunset Vista",
                 "ko": "선셋 비스타"
             },
-            "gameMode": "BattleRoyale",
+            "gameMode": "Showdown",
             "image": "",
             "description": "",
             "recommendedBrawlers": []
@@ -11812,7 +11812,7 @@
                 "en": "No_Surrender",
                 "ko": "불굴의 정신"
             },
-            "gameMode": "duel",
+            "gameMode": "Duels",
             "image": "require('../../assets/MapImages/No_Surrender.png')",
             "description": "",
             "recommendedBrawlers": [
@@ -11854,7 +11854,7 @@
                 "en": "Warriors_Way",
                 "ko": "전승의 길"
             },
-            "gameMode": "duel",
+            "gameMode": "Duels",
             "image": "require('../../assets/MapImages/Warriors_Way.png')",
             "description": "",
             "recommendedBrawlers": [
@@ -11906,7 +11906,7 @@
                 "en": "Monkey Maze",
                 "ko": "원숭이 미로"
             },
-            "gameMode": "duel",
+            "gameMode": "Duels",
             "image": "require('../../assets/MapImages/Monkey_Maze.png')",
             "description": "",
             "recommendedBrawlers": [
@@ -11953,7 +11953,7 @@
                 "en": "Spice Production",
                 "ko": "스파이스 프로덕션"
             },
-            "gameMode": "duel",
+            "gameMode": "Duels",
             "image": "require('../../assets/MapImages/Spice_Production.png')",
             "description": "",
             "recommendedBrawlers": [
