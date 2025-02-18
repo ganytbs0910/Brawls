@@ -71,6 +71,7 @@ interface TeamBoardProps {
   const isIPad = Platform.OS === 'ios' && Platform.isPad;
 
   // カスタムフックと refs の設定
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { t, currentLanguage } = useTeamBoardTranslation();
   const scrollViewRef = useRef<ScrollView>(null);
   const inviteLinkInputRef = useRef<TextInput>(null);
@@ -612,97 +613,104 @@ const validateInviteLink = (link: string): boolean => {
 };
 
   const createPost = async () => {
-  if (!validateInputs()) return;
-
-  try {
-    // 招待リンクの検証と整形
-    const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
-    if (!urlMatch) {
-      Alert.alert('Error', t.errors.invalidLink);
-      return;
-    }
-    const cleanInviteLink = urlMatch[1];
-
-    // 広告の準備を先に行う
-    let adService;
-    const adFreeStatus = await AsyncStorage.getItem('adFreeStatus');
-    const isAdFree = adFreeStatus === 'true';
-
-    if (!isAdFree) {
-      try {
-        adService = await AdMobService.initialize();
-        // この時点で広告をプリロード
-        await adService.loadInterstitial();
-      } catch (adError) {
-        console.error('Ad preparation error:', adError);
-      }
-    }
-
-    // テーブル名の取得
-    const tableName = getTableName(currentLanguage);
-    console.log('Creating post in table:', tableName);
-
-    // 投稿データの準備
-    const postData = {
-      selected_mode: selectedMode,
-      invite_link: cleanInviteLink,
-      description: description.trim(),
-      selected_character: selectedCharacter!.id,
-      character_trophies: Number(characterTrophies),
-      mid_characters: midCharacters.map(c => c.id),
-      side_characters: sideCharacters.map(c => c.id),
-      host_info: hostInfo
-    };
-
-    // Supabaseに投稿
-    const { error } = await supabase
-      .from(tableName)
-      .insert([postData]);
-
-    if (error) throw error;
-
-    // クールダウン時間を記録
-    await AsyncStorage.setItem('lastPostTime', Date.now().toString());
+    if (isSubmitting) return; // 既に実行中なら処理を中断
     
-    // フォームをリセット
-    resetForm();
+    if (!validateInputs()) return;
 
-    // モーダルを閉じる前に広告表示の準備
-    if (!isAdFree && adService) {
-      const showAd = async () => {
+    try {
+      setIsSubmitting(true); // 処理開始時にフラグを立てる
+
+      // 招待リンクの検証と整形
+      const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
+      if (!urlMatch) {
+        Alert.alert('Error', t.errors.invalidLink);
+        return;
+      }
+      const cleanInviteLink = urlMatch[1];
+
+      // 広告の準備を先に行う
+      let adService;
+      const adFreeStatus = await AsyncStorage.getItem('adFreeStatus');
+      const isAdFree = adFreeStatus === 'true';
+
+      if (!isAdFree) {
         try {
-          // モーダルが完全に閉じるのを待つ
-          await new Promise(resolve => setTimeout(resolve, 1000));
-          
-          // 広告を表示
-          await adService.showInterstitial();
-          
-          // 広告表示完了後、少し待ってからSuccess通知
-          await new Promise(resolve => setTimeout(resolve, 500));
-          Alert.alert('Success', t.success.postCreated);
+          adService = await AdMobService.initialize();
+          await adService.loadInterstitial();
         } catch (adError) {
-          console.error('Ad showing error:', adError);
-          // 広告表示に失敗した場合は直接Success通知
-          Alert.alert('Success', t.success.postCreated);
+          console.error('Ad preparation error:', adError);
         }
+      }
+
+      // テーブル名の取得
+      const tableName = getTableName(currentLanguage);
+      console.log('Creating post in table:', tableName);
+
+      // 投稿データの準備
+      const postData = {
+        selected_mode: selectedMode,
+        invite_link: cleanInviteLink,
+        description: description.trim(),
+        selected_character: selectedCharacter!.id,
+        character_trophies: Number(characterTrophies),
+        mid_characters: midCharacters.map(c => c.id),
+        side_characters: sideCharacters.map(c => c.id),
+        host_info: hostInfo
       };
 
-      // モーダルを閉じてから広告表示処理を開始
-      setModalVisible(false);
-      showAd();
-    } else {
-      // 広告なしの場合
-      setModalVisible(false);
-      setTimeout(() => {
-        Alert.alert('Success', t.success.postCreated);
-      }, 500);
-    }
+      // Supabaseに投稿
+      const { error } = await supabase
+        .from(tableName)
+        .insert([postData]);
 
-  } catch (error) {
-    console.error('Error creating post:', error);
-    Alert.alert('Error', t.errors.postCreationFailed);
-  }
-};
+      if (error) throw error;
+
+      // クールダウン時間を記録
+      await AsyncStorage.setItem('lastPostTime', Date.now().toString());
+      
+      // フォームをリセット
+      resetForm();
+
+      // モーダルを閉じる前に広告表示の準備
+      if (!isAdFree && adService) {
+        const showAd = async () => {
+          try {
+            // モーダルが完全に閉じるのを待つ
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            // 広告を表示
+            await adService.showInterstitial();
+            
+            // 広告表示完了後、少し待ってからSuccess通知
+            await new Promise(resolve => setTimeout(resolve, 500));
+            Alert.alert('Success', t.success.postCreated);
+          } catch (adError) {
+            console.error('Ad showing error:', adError);
+            // 広告表示に失敗した場合は直接Success通知
+            Alert.alert('Success', t.success.postCreated);
+          } finally {
+            setIsSubmitting(false); // 全ての処理が完了したらフラグを解除
+          }
+        };
+
+        // モーダルを閉じてから広告表示処理を開始
+        setModalVisible(false);
+        showAd();
+      } else {
+        // 広告なしの場合
+        setModalVisible(false);
+        setTimeout(() => {
+          Alert.alert('Success', t.success.postCreated);
+          setIsSubmitting(false); // 処理完了後にフラグを解除
+        }, 500);
+      }
+
+    } catch (error) {
+      console.error('Error creating post:', error);
+      Alert.alert('Error', t.errors.postCreationFailed);
+      setIsSubmitting(false); // エラー時もフラグを解除
+    }
+  };
 
   // フォームのリセット
   const resetForm = () => {
@@ -891,28 +899,33 @@ const validateInviteLink = (link: string): boolean => {
         )}
 
         <View style={styles.modalButtons}>
-          <TouchableOpacity
-            style={[styles.modalButton, styles.cancelButton]}
-            onPress={() => {
-              setIsPlayerVerified(false);
-              setModalVisible(false);
-              resetForm();
-            }}
-          >
-            <Text style={styles.cancelButtonText}>{t.cancel}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[
-              styles.modalButton, 
-              styles.submitButton,
-              !isPlayerVerified && styles.submitButtonDisabled
-            ]}
-            onPress={createPost}
-            disabled={!isPlayerVerified}
-          >
-            <Text style={styles.submitButtonText}>{t.submit}</Text>
-          </TouchableOpacity>
-        </View>
+      <TouchableOpacity
+        style={[styles.modalButton, styles.cancelButton]}
+        onPress={() => {
+          setIsPlayerVerified(false);
+          setModalVisible(false);
+          resetForm();
+        }}
+        disabled={isSubmitting} // 投稿処理中は無効化
+      >
+        <Text style={styles.cancelButtonText}>{t.cancel}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={[
+          styles.modalButton, 
+          styles.submitButton,
+          (!isPlayerVerified || isSubmitting) && styles.submitButtonDisabled
+        ]}
+        onPress={createPost}
+        disabled={!isPlayerVerified || isSubmitting} // 投稿処理中は無効化
+      >
+        {isSubmitting ? (
+          <ActivityIndicator size="small" color="#fff" />
+        ) : (
+          <Text style={styles.submitButtonText}>{t.submit}</Text>
+        )}
+      </TouchableOpacity>
+    </View>
       </View>
     </ScrollView>
   );
