@@ -218,7 +218,7 @@ export const ko: TeamBoardTranslation = {
     postCreated: '게시물이 생성되었습니다'
   },
   modes: {
-    ranked: '랭크 배틀',
+    ranked: '경쟁전',
     duoShowdown: '듀오 쇼다운',
     gemGrab: '젬 그랩',
     brawlBall: '브롤 볼',
