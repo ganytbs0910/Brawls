@@ -378,6 +378,18 @@ const PickPrediction: React.FC = () => {
     setShowTurnModal(true);
   };
 
+  const handleTeamSwap = () => {
+  setGameStateWithHistory(prev => ({
+    ...prev,
+    teamA: [...prev.teamB],
+    teamB: [...prev.teamA],
+    bansA: [...prev.bansB],
+    bansB: [...prev.bansA],
+    // チームの入れ替え時に現在のターンも反転
+    currentTeam: prev.currentTeam === 'A' ? 'B' : 'A'
+  }));
+};
+
   const getRecommendationReason = (score: number, opposingTeamSize: number): string => {
     const maxPossibleScore = opposingTeamSize * 10;
     const scorePercentage = (score / maxPossibleScore) * 100;
@@ -463,181 +475,185 @@ const PickPrediction: React.FC = () => {
 };
 
  const handleBanSelect = (character: string) => {
-    if (!gameState.isBanPhaseEnabled) return;
+  if (!gameState.isBanPhaseEnabled) return;
+  
+  let newState = { ...gameState };
+  
+  if (gameState.bansA.length < 3 && gameState.currentTeam === 'A') {
+    const newBansA = [...gameState.bansA, character];
+    // バンリストを更新
+    newState = {
+      ...newState,
+      bansA: newBansA,
+      currentTeam: newBansA.length === 3 ? 'B' : 'A'
+    };
     
-    let newState = { ...gameState };
+    // 毎回のバン選択後に推奨リストを更新
+    const mapRecs = getMapBasedRecommendations(gameState.selectedMap)
+      .filter(rec => 
+        !newBansA.includes(rec.character) && 
+        !gameState.bansB.includes(rec.character)
+      );
     
-    if (gameState.bansA.length < 3 && gameState.currentTeam === 'A') {
-      const newBansA = [...gameState.bansA, character];
-      newState = {
-        ...newState,
-        bansA: newBansA,
-        currentTeam: newBansA.length === 3 ? 'B' : 'A'
-      };
-      
-      if (newBansA.length === 3 && gameState.bansB.length === 3) {
-        // 両チームのbanが完了した時点で推奨リストを更新
-        const mapRecs = getMapBasedRecommendations(gameState.selectedMap)
-          .filter(rec => 
-            !newBansA.includes(rec.character) && 
-            !gameState.bansB.includes(rec.character)
-          );
-        
-        newState = {
-          ...newState,
-          recommendations: mapRecs,
-          mapRecommendations: mapRecs
-        };
-      }
-      
-      if (newBansA.length === 3) {
-        showTurnAnnouncement('B', 0, true);
-      }
-    } else if (gameState.bansB.length < 3 && gameState.currentTeam === 'B') {
-      const newBansB = [...gameState.bansB, character];
-      newState = {
-        ...newState,
-        bansB: newBansB,
-        currentTeam: newBansB.length === 3 ? 'A' : 'B'
-      };
-      
-      if (gameState.bansA.length === 3 && newBansB.length === 3) {
-        // 両チームのbanが完了した時点で推奨リストを更新
-        const mapRecs = getMapBasedRecommendations(gameState.selectedMap)
-          .filter(rec => 
-            !gameState.bansA.includes(rec.character) && 
-            !newBansB.includes(rec.character)
-          );
-        
-        newState = {
-          ...newState,
-          recommendations: mapRecs,
-          mapRecommendations: mapRecs
-        };
-      }
-      
-      if (newBansB.length === 3) {
-        showTurnAnnouncement('A', 1, false);
-      }
+    newState = {
+      ...newState,
+      recommendations: mapRecs,
+      mapRecommendations: mapRecs
+    };
+    
+    if (newBansA.length === 3) {
+      showTurnAnnouncement('B', 0, true);
     }
+  } else if (gameState.bansB.length < 3 && gameState.currentTeam === 'B') {
+    const newBansB = [...gameState.bansB, character];
+    // バンリストを更新
+    newState = {
+      ...newState,
+      bansB: newBansB,
+      currentTeam: newBansB.length === 3 ? 'A' : 'B'
+    };
     
-    setGameStateWithHistory(newState);
-  };
+    // 毎回のバン選択後に推奨リストを更新
+    const mapRecs = getMapBasedRecommendations(gameState.selectedMap)
+      .filter(rec => 
+        !gameState.bansA.includes(rec.character) && 
+        !newBansB.includes(rec.character)
+      );
+    
+    newState = {
+      ...newState,
+      recommendations: mapRecs,
+      mapRecommendations: mapRecs
+    };
+    
+    if (newBansB.length === 3) {
+      showTurnAnnouncement('A', 1, false);
+    }
+  }
+  
+  setGameStateWithHistory(newState);
+};
 
   const handleCharacterSelect = (character: string) => {
-    // バンされたキャラクターのチェック
-    // 同じキャラクターのバンは許可する特別ケース
-    const isAlreadyBanned = gameState.bansA.includes(character) || gameState.bansB.includes(character);
-    const isValidDoubleban = isAlreadyBanned && (
-      // Team Aのバン中で、Team Bが既にバン済みの場合
-      (gameState.currentTeam === 'A' && gameState.bansB.includes(character) && !gameState.bansA.includes(character)) ||
-      // Team Bのバン中で、Team Aが既にバン済みの場合
-      (gameState.currentTeam === 'B' && gameState.bansA.includes(character) && !gameState.bansB.includes(character))
-    );
+  // バンされたキャラクターのチェック
+  // 同じキャラクターのバンは許可する特別ケース
+  const isAlreadyBanned = gameState.bansA.includes(character) || gameState.bansB.includes(character);
+  const isValidDoubleban = isAlreadyBanned && (
+    // Team Aのバン中で、Team Bが既にバン済みの場合
+    (gameState.currentTeam === 'A' && gameState.bansB.includes(character) && !gameState.bansA.includes(character)) ||
+    // Team Bのバン中で、Team Aが既にバン済みの場合
+    (gameState.currentTeam === 'B' && gameState.bansA.includes(character) && !gameState.bansB.includes(character))
+  );
 
-    // バンされていて、かつダブルバンケースでもない場合は選択不可
-    if (isAlreadyBanned && !isValidDoubleban) {
-      return;
+  // バンされていて、かつダブルバンケースでもない場合は選択不可
+  if (isAlreadyBanned && !isValidDoubleban) {
+    return;
+  }
+
+  const handlePickPhase = () => {
+    const { currentPhase, currentTeam, teamA, teamB, bansA, bansB } = gameState;
+    
+    // バンされたキャラクターのチェック
+    if (bansA.includes(character) || bansB.includes(character)) {
+      return; // バンされたキャラクターは選択できない
+    }
+    
+    // 既存のチーム内での重複チェック
+    if (currentTeam === 'A' && teamA.includes(character)) return;
+    if (currentTeam === 'B' && teamB.includes(character)) return;
+    
+    let newState = { ...gameState };
+
+    // phase 1の初期状態での処理
+    if (currentPhase === 1 && teamA.length === 0 && teamB.length === 0) {
+      // マップベースの推奨を取得し、バンされたキャラクターを除外
+      const bannedCharacters = [...gameState.bansA, ...gameState.bansB];
+      const mapRecs = getMapBasedRecommendations(gameState.selectedMap)
+        .filter(rec => !bannedCharacters.includes(rec.character));
+
+      newState = {
+        ...newState,
+        recommendations: mapRecs
+      };
     }
 
-    const handlePickPhase = () => {
-      const { currentPhase, currentTeam, teamA, teamB } = gameState;
-      
-      if (currentTeam === 'A' && teamA.includes(character)) return;
-      if (currentTeam === 'B' && teamB.includes(character)) return;
-      
-      let newState = { ...gameState };
-
-      // phase 1の初期状態での処理を修正
-      if (currentPhase === 1 && teamA.length === 0 && teamB.length === 0) {
-        // マップベースの推奨を取得し、バンされたキャラクターを除外
-        const bannedCharacters = [...gameState.bansA, ...gameState.bansB];
-        const mapRecs = getMapBasedRecommendations(gameState.selectedMap)
-          .filter(rec => !bannedCharacters.includes(rec.character));
-
+  switch (currentPhase) {
+    case 1:
+      if (currentTeam === 'A') {
         newState = {
           ...newState,
-          recommendations: mapRecs
+          teamA: [character],
+          currentTeam: 'B',
+          currentPhase: 2,
+          recommendations: calculateRecommendations('B', [character], [], gameState.selectedMap)
         };
+        showTurnAnnouncement('B', 2);
       }
-
-      switch (currentPhase) {
-        case 1:
-          if (currentTeam === 'A') {
-            newState = {
-              ...newState,
-              teamA: [character],
-              currentTeam: 'B',
-              currentPhase: 2,
-              recommendations: calculateRecommendations('B', [character], [], gameState.selectedMap)
-            };
-            showTurnAnnouncement('B', 2);
-          }
-          break;
+      break;
+    
+    case 2:
+      if (currentTeam === 'B' && teamB.length < 2) {
+        const newTeamB = [...teamB, character];
+        newState = {
+          ...newState,
+          teamB: newTeamB,
+          recommendations: calculateRecommendations('B', teamA, newTeamB, gameState.selectedMap)
+        };
         
-        case 2:
-          if (currentTeam === 'B' && teamB.length < 2) {
-            const newTeamB = [...teamB, character];
-            newState = {
-              ...newState,
-              teamB: newTeamB,
-              recommendations: calculateRecommendations('B', teamA, newTeamB, gameState.selectedMap)
-            };
-            
-            if (newTeamB.length === 2) {
-              newState = {
-                ...newState,
-                currentTeam: 'A',
-                currentPhase: 3,
-                recommendations: calculateRecommendations('A', newTeamB, teamA, gameState.selectedMap)
-              };
-              showTurnAnnouncement('A', 3);
-            }
-          }
-          break;
-        
-        case 3:
-          if (currentTeam === 'A' && teamA.length < 3) {
-            const newTeamA = [...teamA, character];
-            newState = {
-              ...newState,
-              teamA: newTeamA,
-              recommendations: calculateRecommendations('A', teamB, newTeamA, gameState.selectedMap)
-            };
-            
-            if (newTeamA.length === 3) {
-              newState = {
-                ...newState,
-                currentTeam: 'B',
-                currentPhase: 4,
-                recommendations: calculateRecommendations('B', newTeamA, teamB, gameState.selectedMap)
-              };
-              showTurnAnnouncement('B', 4);
-            }
-          }
-          break;
-        
-        case 4:
-          if (currentTeam === 'B' && teamB.length < 3) {
-            const newTeamB = [...teamB, character];
-            newState = {
-              ...newState,
-              teamB: newTeamB,
-              recommendations: calculateRecommendations('B', teamA, newTeamB, gameState.selectedMap)
-            };
-            
-            if (newTeamB.length === 3) {
-              newState = {
-                ...newState,
-                recommendations: [] // 全選択が終わったので推奨をクリア
-              };
-            }
-          }
-          break;
+        if (newTeamB.length === 2) {
+          newState = {
+            ...newState,
+            currentTeam: 'A',
+            currentPhase: 3,
+            recommendations: calculateRecommendations('A', newTeamB, teamA, gameState.selectedMap)
+          };
+          showTurnAnnouncement('A', 3);
+        }
       }
+      break;
+    
+    case 3:
+      if (currentTeam === 'A' && teamA.length < 3) {
+        const newTeamA = [...teamA, character];
+        newState = {
+          ...newState,
+          teamA: newTeamA,
+          recommendations: calculateRecommendations('A', teamB, newTeamA, gameState.selectedMap)
+        };
+        
+        if (newTeamA.length === 3) {
+          newState = {
+            ...newState,
+            currentTeam: 'B',
+            currentPhase: 4,
+            recommendations: calculateRecommendations('B', newTeamA, teamB, gameState.selectedMap)
+          };
+          showTurnAnnouncement('B', 4);
+        }
+      }
+      break;
+    
+    case 4:
+      if (currentTeam === 'B' && teamB.length < 3) {
+        const newTeamB = [...teamB, character];
+        newState = {
+          ...newState,
+          teamB: newTeamB,
+          recommendations: calculateRecommendations('B', teamA, newTeamB, gameState.selectedMap)
+        };
+        
+        if (newTeamB.length === 3) {
+          newState = {
+            ...newState,
+            recommendations: [] // 全選択が終わったので推奨をクリア
+          };
+        }
+      }
+      break;
+  }
 
-      setGameStateWithHistory(newState);
-    };
+  setGameStateWithHistory(newState);
+};
 
     // バンフェーズが有効かつ完了していない場合は、バン選択として処理
     if (gameState.isBanPhaseEnabled && 
@@ -791,23 +807,40 @@ const PickPrediction: React.FC = () => {
           </View>
 
           <View style={styles.headerRight}>
-            <TouchableOpacity 
-              style={[styles.headerButton, { opacity: currentHistoryIndex > 0 ? 1 : 0.5 }]}
-              onPress={handleUndo}
-              disabled={currentHistoryIndex === 0}
-            >
-              <Image 
-                source={require('../../assets/OtherIcon/undo.png')}
-                style={styles.undoButtonImage}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity 
-              style={styles.resetButton}
-              onPress={resetGame}
-            >
-              <Text style={styles.resetButtonText}>{t.header.reset}</Text>
-            </TouchableOpacity>
-          </View>
+  <TouchableOpacity 
+    style={[
+      styles.headerButton,
+      {
+        opacity: (gameState.teamA.length > 0 || gameState.teamB.length > 0 || 
+                 gameState.bansA.length > 0 || gameState.bansB.length > 0) ? 1 : 0.5
+      }
+    ]}
+    onPress={handleTeamSwap}
+    disabled={!(gameState.teamA.length > 0 || gameState.teamB.length > 0 || 
+                gameState.bansA.length > 0 || gameState.bansB.length > 0)}
+  >
+    <Image 
+      source={require('../../assets/OtherIcon/undo.png')}
+      style={[styles.headerButtonImage, { transform: [{ rotate: '90deg' }] }]}
+    />
+  </TouchableOpacity>
+  <TouchableOpacity 
+    style={[styles.headerButton, { opacity: currentHistoryIndex > 0 ? 1 : 0.5 }]}
+    onPress={handleUndo}
+    disabled={currentHistoryIndex === 0}
+  >
+    <Image 
+      source={require('../../assets/OtherIcon/undo.png')}
+      style={styles.headerButtonImage}
+    />
+  </TouchableOpacity>
+  <TouchableOpacity 
+    style={styles.resetButton}
+    onPress={resetGame}
+  >
+    <Text style={styles.resetButtonText}>{t.header.reset}</Text>
+  </TouchableOpacity>
+</View>
         </View>
 
         <View style={styles.teamsContainer}>
@@ -1212,6 +1245,20 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: 'rgba(255, 255, 255, 0.8)',
     marginTop: 8,
+  },
+  headerButton: {
+  padding: 8,
+  marginRight: 8,
+  backgroundColor: 'rgba(255, 255, 255, 0.2)',
+  borderRadius: 8,
+  justifyContent: 'center',
+  alignItems: 'center',
+  },
+  headerButtonImage: {
+    width: 20,
+    height: 20,
+    resizeMode: 'contain',
+    tintColor: '#fff'
   },
 });
 

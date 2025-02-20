@@ -87,20 +87,29 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
 };
 
   const renderRecommendation = (rec: CharacterRecommendation, index: number) => {
-    const isSelectable = !gameState.teamA.includes(rec.character) && 
-                        !gameState.teamB.includes(rec.character);
+  // バンされているかどうかのチェックを追加
+  const isBanned = gameState.bansA.includes(rec.character) || 
+                  gameState.bansB.includes(rec.character);
+  const isSelectable = !gameState.teamA.includes(rec.character) && 
+                      !gameState.teamB.includes(rec.character) &&
+                      !isBanned; // バンチェックを追加
 
-    return (
-      <TouchableOpacity
-        key={index}
-        style={[
-          styles.recommendationRow,
-          isSelectable && styles.selectableRecommendation,
-          !isSelectable && styles.disabledRecommendation
-        ]}
-        onPress={() => isSelectable && onCharacterSelect(rec.character)}
-        disabled={!isSelectable}
-      >
+  // バンされているキャラクターは表示しない
+  if (isBanned) {
+    return null;
+  }
+
+  return (
+    <TouchableOpacity
+      key={index}
+      style={[
+        styles.recommendationRow,
+        isSelectable && styles.selectableRecommendation,
+        !isSelectable && styles.disabledRecommendation
+      ]}
+      onPress={() => isSelectable && onCharacterSelect(rec.character)}
+      disabled={!isSelectable}
+    >
         <View style={styles.recommendationContent}>
           <View style={styles.characterInfo}>
             <Text style={styles.rankText}>{ct.recommendations.rank(index)}</Text>
@@ -166,9 +175,7 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
           const isBannedByTeamB = gameState.bansB.includes(character);
           const isSelected = gameState.teamA.includes(character) || gameState.teamB.includes(character);
           
-          const isDisabled = isSelected || (
-            !gameState.isBanPhaseEnabled && (isBannedByTeamA || isBannedByTeamB)
-          );
+          const isDisabled = isSelected || isBannedByTeamA || isBannedByTeamB;
           
           return (
             <TouchableOpacity
