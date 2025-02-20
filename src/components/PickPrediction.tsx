@@ -42,7 +42,7 @@ export interface SelectionState {
   currentTeam: Team;
   recommendations: CharacterRecommendation[];
   mapRecommendations: CharacterRecommendation[];
-  isBanPhaseEnabled: boolean;
+  isBanPhaseEnabled: true;
   selectedMode?: string;
   selectedMap?: string;
   mapDetailProps?: {
@@ -755,58 +755,6 @@ const PickPrediction: React.FC = () => {
         {renderModeAndMapModal()}
         <View style={styles.header}>
           <View style={styles.headerLeft}>
-            <TouchableOpacity
-              style={styles.banToggleContainer}
-              onPress={() => {
-                setGameStateWithHistory(prev => {
-                  const newState = {
-                    ...prev,
-                    isBanPhaseEnabled: !prev.isBanPhaseEnabled,
-                    bansA: [],
-                    bansB: [],
-                    teamA: [],
-                    teamB: [],
-                    currentPhase: 1,
-                    currentTeam: 'A',
-                    recommendations: [],
-                  };
-                  
-                  if (!newState.isBanPhaseEnabled) {
-                    showTurnAnnouncement('A', 1, false);
-                  } else {
-                    showTurnAnnouncement('A', 0, true);
-                  }
-                  
-                  return newState;
-                });
-              }}
-            >
-              <View style={[
-                styles.banToggleBox,
-                gameState.isBanPhaseEnabled && styles.banToggleBoxChecked
-              ]}>
-                {gameState.isBanPhaseEnabled && <Text style={styles.banToggleCheck}>✓</Text>}
-              </View>
-              <Text style={styles.banToggleText}>{t.header.banToggle}</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.headerCenter}>
-            <TouchableOpacity 
-              style={styles.modeSelectButton}
-              onPress={handleModeButtonPress}
-            >
-              <Text style={styles.modeSelectText}>
-                {gameState.selectedMode ? gameState.selectedMode : t.header.selectMode}
-              </Text>
-              {gameState.selectedMap && (
-                <Text style={styles.selectedMapText}>
-                  {gameState.selectedMap}
-                </Text>
-              )}
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.headerRight}>
   <TouchableOpacity 
     style={[
       styles.headerButton,
@@ -820,7 +768,7 @@ const PickPrediction: React.FC = () => {
                 gameState.bansA.length > 0 || gameState.bansB.length > 0)}
   >
     <Image 
-      source={require('../../assets/OtherIcon/undo.png')}
+      source={require('../../assets/OtherIcon/reload_Icon.png')}
       style={[styles.headerButtonImage, { transform: [{ rotate: '90deg' }] }]}
     />
   </TouchableOpacity>
@@ -834,6 +782,23 @@ const PickPrediction: React.FC = () => {
       style={styles.headerButtonImage}
     />
   </TouchableOpacity>
+</View>
+<View style={styles.headerCenter}>
+  <TouchableOpacity 
+    style={styles.modeSelectButton}
+    onPress={handleModeButtonPress}
+  >
+    <Text style={styles.modeSelectText}>
+      {gameState.selectedMode ? gameState.selectedMode : t.header.selectMode}
+    </Text>
+    {gameState.selectedMap && (
+      <Text style={styles.selectedMapText}>
+        {gameState.selectedMap}
+      </Text>
+    )}
+  </TouchableOpacity>
+</View>
+<View style={styles.headerRight}>
   <TouchableOpacity 
     style={styles.resetButton}
     onPress={resetGame}
@@ -980,11 +945,13 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   headerLeft: {
-    position: 'absolute',
-    left: 10,
-    top: '50%',
-    transform: [{ translateY: -15 }],
-  },
+  position: 'absolute',
+  left: 10,
+  top: '50%',
+  transform: [{ translateY: -15 }],
+  flexDirection: 'row',  // この行を追加
+  alignItems: 'center',  // この行を追加
+},
   headerCenter: {
     alignItems: 'center',
   },
