@@ -89,6 +89,94 @@ const translations: Record<string, AppTranslations> = {
         button: '확인'
       }
     }
+  },
+  es: {
+    tabs: {
+      home: 'Inicio',
+      analysis: 'Análisis',
+      team: 'Equipo',
+      prediction: 'Predicción',
+      rankings: 'Clasificación',
+      news: 'Noticias',
+      gacha: 'Gacha'
+    },
+    alerts: {
+      update: {
+        title: 'Actualización Necesaria',
+        button: 'Actualizar'
+      },
+      loginBonus: {
+        title: '¡Bono de Inicio de Sesión!',
+        message: '¡Has recibido 1 Ticket de Gacha Diario!',
+        button: 'Aceptar'
+      }
+    }
+  },
+  ar: {
+    tabs: {
+      home: 'الرئيسية',
+      analysis: 'التحليل',
+      team: 'الفريق',
+      prediction: 'التوقع',
+      rankings: 'التصنيفات',
+      news: 'الأخبار',
+      gacha: 'غاتشا'
+    },
+    alerts: {
+      update: {
+        title: 'تحديث مطلوب',
+        button: 'تحديث'
+      },
+      loginBonus: {
+        title: 'مكافأة تسجيل الدخول!',
+        message: 'لقد استلمت تذكرة غاتشا يومية واحدة!',
+        button: 'موافق'
+      }
+    }
+  },
+  fr: {
+    tabs: {
+      home: 'Accueil',
+      analysis: 'Analyse',
+      team: 'Équipe',
+      prediction: 'Prédiction',
+      rankings: 'Classements',
+      news: 'Actualités',
+      gacha: 'Gacha'
+    },
+    alerts: {
+      update: {
+        title: 'Mise à jour requise',
+        button: 'Mettre à jour'
+      },
+      loginBonus: {
+        title: 'Bonus de connexion !',
+        message: 'Vous avez reçu 1 Ticket Gacha Quotidien !',
+        button: 'OK'
+      }
+    }
+  },
+  'zh-tw': {
+    tabs: {
+      home: '首頁',
+      analysis: '分析',
+      team: '組隊',
+      prediction: '選角預測',
+      rankings: '排行榜',
+      news: '新聞',
+      gacha: '轉蛋'
+    },
+    alerts: {
+      update: {
+        title: '需要更新',
+        button: '更新'
+      },
+      loginBonus: {
+        title: '登入獎勵！',
+        message: '獲得1張每日轉蛋券！',
+        button: '確定'
+      }
+    }
   }
 };
 

@@ -96,10 +96,114 @@ export const ko: BrawlStarsAppTranslation = {
   },
 };
 
+export const es: BrawlStarsAppTranslation = {
+  header: {
+    title: 'Análisis de Jugador',
+  },
+  search: {
+    playerTag: 'Etiqueta de Jugador',
+    placeholder: '#XXXXXXXXX',
+    button: {
+      default: 'Buscar',
+      loading: 'Cargando...',
+    },
+    history: {
+      title: 'Historial de Búsqueda',
+    },
+  },
+  sections: {
+    playerInfo: 'Información del Jugador',
+    recentBattles: 'Batallas Recientes',
+  },
+  loading: {
+    text: 'Obteniendo datos...',
+  },
+};
+
+// アラビア語翻訳
+export const ar: BrawlStarsAppTranslation = {
+  header: {
+    title: 'تحليل اللاعب',
+  },
+  search: {
+    playerTag: 'رمز اللاعب',
+    placeholder: '#XXXXXXXXX',
+    button: {
+      default: 'بحث',
+      loading: 'جارٍ التحميل...',
+    },
+    history: {
+      title: 'سجل البحث',
+    },
+  },
+  sections: {
+    playerInfo: 'معلومات اللاعب',
+    recentBattles: 'المعارك الأخيرة',
+  },
+  loading: {
+    text: 'جارٍ جلب البيانات...',
+  },
+};
+
+// フランス語翻訳
+export const fr: BrawlStarsAppTranslation = {
+  header: {
+    title: 'Analyse du Joueur',
+  },
+  search: {
+    playerTag: 'Tag du Joueur',
+    placeholder: '#XXXXXXXXX',
+    button: {
+      default: 'Rechercher',
+      loading: 'Chargement...',
+    },
+    history: {
+      title: 'Historique de Recherche',
+    },
+  },
+  sections: {
+    playerInfo: 'Informations du Joueur',
+    recentBattles: 'Batailles Récentes',
+  },
+  loading: {
+    text: 'Récupération des données...',
+  },
+};
+
+// 台湾語（繁体中文）翻訳
+export const zhTw: BrawlStarsAppTranslation = {
+  header: {
+    title: '玩家分析',
+  },
+  search: {
+    playerTag: '玩家標籤',
+    placeholder: '#XXXXXXXXX',
+    button: {
+      default: '搜尋',
+      loading: '載入中...',
+    },
+    history: {
+      title: '搜尋記錄',
+    },
+  },
+  sections: {
+    playerInfo: '玩家資訊',
+    recentBattles: '最近對戰',
+  },
+  loading: {
+    text: '正在獲取資料...',
+  },
+};
+
+// 翻訳オブジェクトを更新
 export const brawlStarsAppTranslations = {
   ja,
   en,
   ko,
+  es,
+  ar,
+  fr,
+  'zh-tw': zhTw,
 } as const;
 
 export type Language = keyof typeof brawlStarsAppTranslations;

@@ -1,15 +1,17 @@
-// src/utils/languageUtils.ts
 import { Platform, NativeModules } from 'react-native';
 
-export type Language = 'en' | 'ja' | 'ko';
+export type Language = 'en' | 'ja' | 'ko' | 'es' | 'ar' | 'fr' | 'zh-tw';
 
 export const SUPPORTED_LANGUAGES = {
   ja: '日本語',
   en: 'English',
   ko: '한국어',
+  es: 'Español',
+  ar: 'العربية',
+  fr: 'Français',
+  'zh-tw': '繁體中文',
 } as const;
 
-// src/utils/languageUtils.ts
 export const getDeviceLanguage = (): Language => {
   try {
     // iOS の場合のデバッグ情報
@@ -34,19 +36,30 @@ export const getDeviceLanguage = (): Language => {
           NativeModules.SettingsManager?.settings?.AppleLocale ||
           NativeModules.SettingsManager?.settings?.AppleLanguages?.[0];
         console.log('iOS raw locale:', locale);
-        return locale?.split('_')[0] || 'en'; 
+        
+        // 台湾語の場合の特別処理
+        if (locale?.toLowerCase().includes('zh-tw') || 
+            locale?.toLowerCase().includes('zh-hant')) {
+          return 'zh-tw';
+        }
+        return locale?.split('_')[0] || 'en';
       },
       android: () => {
-        const locale = NativeModules.I18nManager?.localeIdentifier || 
+        const locale = NativeModules.I18nManager?.localeIdentifier ||
                       NativeModules.I18nManager?.locale;
         console.log('Android raw locale:', locale);
-        return locale?.split(/[-_]/)[0] || 'en'; 
+        
+        // 台湾語の場合の特別処理
+        if (locale?.toLowerCase().includes('zh-tw') || 
+            locale?.toLowerCase().includes('zh-hant')) {
+          return 'zh-tw';
+        }
+        return locale?.split(/[-_]/)[0] || 'en';
       },
-      default: () => 'en' 
+      default: () => 'en'
     })();
 
     console.log('Raw device language:', deviceLanguage);
-
     const normalizedLanguage = deviceLanguage.toLowerCase().trim();
     console.log('Normalized language:', normalizedLanguage);
 
@@ -55,8 +68,8 @@ export const getDeviceLanguage = (): Language => {
       return normalizedLanguage as Language;
     }
 
-    console.log('Falling back to Japanese, language not supported:', normalizedLanguage);
-    return 'en'; 
+    console.log('Falling back to English, language not supported:', normalizedLanguage);
+    return 'en';
   } catch (error) {
     console.error('Error getting device language:', error);
     if (error instanceof Error) {

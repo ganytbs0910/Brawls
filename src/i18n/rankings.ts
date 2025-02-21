@@ -28,11 +28,43 @@ export const ko: RankingsTranslation = {
   loading: "로딩 중..."
 };
 
+// アラビア語翻訳
+export const ar: RankingsTranslation = {
+  title: "تصنيف الشخصيات",
+  rankLabel: "",  // アラビア語では順位の後ろに何もつけない
+  loading: "جاري التحميل..."
+};
+
+// フランス語翻訳
+export const fr: RankingsTranslation = {
+  title: "Classement des Personnages",
+  rankLabel: "e",  // フランス語では1er, 2e, 3eのように表記
+  loading: "Chargement..."
+};
+
+// スペイン語翻訳
+export const es: RankingsTranslation = {
+  title: "Clasificación de Personajes",
+  rankLabel: "º",  // スペイン語では1º, 2º, 3ºのように表記
+  loading: "Cargando..."
+};
+
+// 台湾語（繁体中文）翻訳
+export const zhTw: RankingsTranslation = {
+  title: "角色排名",
+  rankLabel: "名",  // 台湾語では順位の後ろに「名」をつける
+  loading: "載入中..."
+};
+
 // 翻訳オブジェクトをまとめたもの
 export const rankingsTranslations = {
   ja,
   en,
-  ko
+  ko,
+  ar,
+  fr,
+  es,
+  zhTw
 } as const;
 
 // 言語タイプの定義

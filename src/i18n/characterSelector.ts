@@ -52,11 +52,66 @@ export const ko: CharacterSelectorTranslation = {
   }
 };
 
+// アラビア語翻訳
+export const ar: CharacterSelectorTranslation = {
+  modalTitle: 'اختيار الشخصية',
+  selectCharacter: 'اختر الشخصية',
+  maxSelectionsInfo: '(الحد الأقصى {count})',
+  cancel: 'إلغاء',
+  confirm: 'تأكيد',
+  errors: {
+    required: 'اختيار الشخصية مطلوب',
+    maxSelection: 'يمكنك اختيار حتى {count} شخصيات'
+  }
+};
+
+// フランス語翻訳
+export const fr: CharacterSelectorTranslation = {
+  modalTitle: 'Sélection du Personnage',
+  selectCharacter: 'Sélectionner un Personnage',
+  maxSelectionsInfo: '(Maximum {count})',
+  cancel: 'Annuler',
+  confirm: 'Confirmer',
+  errors: {
+    required: 'La sélection du personnage est requise',
+    maxSelection: 'Vous pouvez sélectionner jusqu\'à {count} personnages'
+  }
+};
+
+// スペイン語翻訳
+export const es: CharacterSelectorTranslation = {
+  modalTitle: 'Seleccionar Personaje',
+  selectCharacter: 'Seleccionar Personaje',
+  maxSelectionsInfo: '(Máximo {count})',
+  cancel: 'Cancelar',
+  confirm: 'Confirmar',
+  errors: {
+    required: 'La selección de personaje es obligatoria',
+    maxSelection: 'Puedes seleccionar hasta {count} personajes'
+  }
+};
+
+export const zhTw: CharacterSelectorTranslation = {
+  modalTitle: '選擇角色',
+  selectCharacter: '選擇角色',
+  maxSelectionsInfo: '(最多{count}個)',
+  cancel: '取消',
+  confirm: '確認',
+  errors: {
+    required: '必須選擇角色',
+    maxSelection: '最多只能選擇{count}個角色'
+  }
+};
+
 // 翻訳オブジェクトをまとめたもの
 export const characterSelectorTranslations = {
   ja,
   en,
-  ko
+  ko,
+  ar,
+  fr,
+  es,
+  zhTw // 台湾語を追加
 } as const;
 
 // 言語タイプの定義

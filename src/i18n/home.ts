@@ -117,11 +117,133 @@ export const ko: HomeTranslation = {
   },
 };
 
+export const es: HomeTranslation = {
+  header: {
+    title: 'Mapas de Brawl Stars',
+  },
+  dateSelector: {
+    today: 'Hoy',
+    yesterday: 'Ayer',
+    tomorrow: 'Mañana',
+    monthDay: (month: number, day: number) => `${day}/${month}`,
+  },
+  updateTime: {
+    timeUntilUpdate: (hours: number, minutes: number) => 
+      `${hours}h ${minutes}m hasta la actualización`,
+  },
+  modes: {
+    battleRoyale: 'Battle Royale',
+    gemGrab: 'Atrapagemas',
+    heist: 'Atraco',
+    hotZone: 'Zona Candente',
+    brawlBall: 'Brawl Ball',
+    brawlBall5v5: 'Brawl Ball 5v5',
+    bounty: 'Recompensa',
+    knockout: 'Knockout',
+    annihilation: 'Aniquilación',
+    duel: 'Duelo',
+    duelRotating: 'Duelo & Aniquilación & Recompensa',
+  },
+};
+
+// アラビア語翻訳
+export const ar: HomeTranslation = {
+  header: {
+    title: 'خرائط براول ستارز',
+  },
+  dateSelector: {
+    today: 'اليوم',
+    yesterday: 'أمس',
+    tomorrow: 'غداً',
+    monthDay: (month: number, day: number) => `${day}/${month}`,
+  },
+  updateTime: {
+    timeUntilUpdate: (hours: number, minutes: number) => 
+      `${hours} ساعة ${minutes} دقيقة حتى التحديث`,
+  },
+  modes: {
+    battleRoyale: 'باتل رويال',
+    gemGrab: 'جمع الجواهر',
+    heist: 'السطو',
+    hotZone: 'المنطقة الساخنة',
+    brawlBall: 'كرة براول',
+    brawlBall5v5: 'كرة براول 5 ضد 5',
+    bounty: 'المكافأة',
+    knockout: 'الإقصاء',
+    annihilation: 'الإبادة',
+    duel: 'المبارزة',
+    duelRotating: 'مبارزة وإبادة ومكافأة',
+  },
+};
+
+// フランス語翻訳
+export const fr: HomeTranslation = {
+  header: {
+    title: 'Cartes Brawl Stars',
+  },
+  dateSelector: {
+    today: 'Aujourd\'hui',
+    yesterday: 'Hier',
+    tomorrow: 'Demain',
+    monthDay: (month: number, day: number) => `${day}/${month}`,
+  },
+  updateTime: {
+    timeUntilUpdate: (hours: number, minutes: number) => 
+      `${hours}h ${minutes}m avant la mise à jour`,
+  },
+  modes: {
+    battleRoyale: 'Battle Royale',
+    gemGrab: 'Chasse aux Gemmes',
+    heist: 'Braquage',
+    hotZone: 'Zone Chaude',
+    brawlBall: 'Foot Brawl',
+    brawlBall5v5: 'Foot Brawl 5v5',
+    bounty: 'Prime',
+    knockout: 'Knockout',
+    annihilation: 'Annihilation',
+    duel: 'Duel',
+    duelRotating: 'Duel & Annihilation & Prime',
+  },
+};
+
+export const zhTw: HomeTranslation = {
+  header: {
+    title: '荒野亂鬥地圖資訊',
+  },
+  dateSelector: {
+    today: '今天',
+    yesterday: '昨天',
+    tomorrow: '明天',
+    monthDay: (month: number, day: number) => `${month}月${day}日`,
+  },
+  updateTime: {
+    timeUntilUpdate: (hours: number, minutes: number) => 
+      `距離更新還有 ${hours}小時${minutes}分鐘`,
+  },
+  modes: {
+    battleRoyale: '大逃殺',
+    gemGrab: '寶石爭奪',
+    heist: '金庫搶奪',
+    hotZone: '熱區爭奪',
+    brawlBall: '荒野足球',
+    brawlBall5v5: '5對5荒野足球',
+    bounty: '賞金獵人',
+    knockout: '淘汰賽',
+    annihilation: '殲滅戰',
+    duel: '決鬥',
+    duelRotating: '決鬥 & 殲滅戰 & 賞金獵人',
+  },
+};
+
 // 翻訳オブジェクトをまとめたもの
 export const homeTranslations = {
   ja,
   en,
   ko,
+  es,
+  ar,
+  fr,
+  zhTw // 台湾語を追加
 } as const;
 
 // 言語タイプの定義

@@ -639,7 +639,7 @@
             "ko": "드릴러의 이동 속도가 증가합니다."
           },
           "recommendation": {
-            "level": 5,
+            "level": 1,
             "reason": {
               "ja": "使わないでください。",
               "en": "Don't use this.",

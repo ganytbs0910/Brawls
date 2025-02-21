@@ -286,10 +286,306 @@ export const ko: CharacterDetailsTranslation = {
   },
 };
 
+export const es: CharacterDetailsTranslation = {
+  tabs: {
+    info: 'Información',
+    compatibility: 'Compatibilidad',
+    maps: 'Mapas',
+  },
+  maps: {
+    recommendedTitle: "Mapas Recomendados",
+    powerLevel: "Nivel de Poder",
+    noRecommendedMaps: "No hay mapas recomendados para este personaje.",
+    modes: {
+      gemGrab: "Atrapagemas",
+      brawlBall: "Brawl Ball",
+      heist: "Atraco",
+      knockout: "Knockout",
+      bounty: "Recompensa",
+      hotZone: "Zona Candente",
+      wipeout: "Aniquilación",
+      brawlBall5v5: "Brawl Ball 5v5",
+      wipeout5v5: "Aniquilación 5v5",
+      duels: "Duelos",
+      showdown: "Showdown",
+      rankFront: "Frente de Rango"
+    }
+  },
+  basicInfo: {
+    title: 'Información Básica',
+    role: 'Rol',
+    rarity: 'Rareza',
+  },
+  powers: {
+    starPower: 'Poder Estelar',
+    gadget: 'Gadget',
+    recommended: 'Recomendado',
+    recommendationReason: 'Razón',
+  },
+  recommendation: {
+    highest: 'Prioritario (5/5)',
+    recommended: 'Recomendado (4/5)',
+    medium: 'Medio (3/5)',
+    low: 'Bajo (2/5)',
+    optional: 'Opcional (1/5)',
+    unrated: 'Sin Calificar',
+  },
+  gears: {
+    title: 'Engranajes',
+    recommended: 'Recomendado',
+    types: {
+      superrare: 'Superraro',
+      epic: 'Épico',
+      mythic: 'Mítico',
+      plus: 'Plus',
+      gear: 'Engranaje',
+    },
+  },
+  compatibility: {
+    toggles: {
+      good: 'Bueno',
+      bad: 'Malo',
+    },
+    categories: {
+      bestMatch: 'Mejor Combinación',
+      goodMatch: 'Buena Combinación',
+      badMatch: 'Mala Combinación',
+      normalMatch: 'Combinación Normal',
+    },
+  },
+  errors: {
+    characterNotFound: 'Personaje no encontrado.',
+  },
+};
+
+// アラビア語翻訳
+export const ar: CharacterDetailsTranslation = {
+  tabs: {
+    info: 'معلومات',
+    compatibility: 'التوافق',
+    maps: 'الخرائط',
+  },
+  maps: {
+    recommendedTitle: "الخرائط الموصى بها",
+    powerLevel: "مستوى القوة",
+    noRecommendedMaps: "لا توجد خرائط موصى بها لهذه الشخصية.",
+    modes: {
+      gemGrab: "جمع الجواهر",
+      brawlBall: "كرة براول",
+      heist: "السطو",
+      knockout: "الإقصاء",
+      bounty: "المكافأة",
+      hotZone: "المنطقة الساخنة",
+      wipeout: "الإبادة",
+      brawlBall5v5: "كرة براول 5 ضد 5",
+      wipeout5v5: "الإبادة 5 ضد 5",
+      duels: "المبارزة",
+      showdown: "المواجهة",
+      rankFront: "جبهة الرتبة"
+    }
+  },
+  basicInfo: {
+    title: 'المعلومات الأساسية',
+    role: 'الدور',
+    rarity: 'الندرة',
+  },
+  powers: {
+    starPower: 'قوة النجمة',
+    gadget: 'الأداة',
+    recommended: 'موصى به',
+    recommendationReason: 'السبب',
+  },
+  recommendation: {
+    highest: 'أولوية قصوى (5/5)',
+    recommended: 'موصى به (4/5)',
+    medium: 'متوسط (3/5)',
+    low: 'منخفض (2/5)',
+    optional: 'اختياري (1/5)',
+    unrated: 'غير مصنف',
+  },
+  gears: {
+    title: 'التروس',
+    recommended: 'موصى به',
+    types: {
+      superrare: 'نادر جداً',
+      epic: 'ملحمي',
+      mythic: 'أسطوري',
+      plus: 'بلس',
+      gear: 'الترس',
+    },
+  },
+  compatibility: {
+    toggles: {
+      good: 'جيد',
+      bad: 'سيء',
+    },
+    categories: {
+      bestMatch: 'أفضل توافق',
+      goodMatch: 'توافق جيد',
+      badMatch: 'توافق سيء',
+      normalMatch: 'توافق عادي',
+    },
+  },
+  errors: {
+    characterNotFound: 'الشخصية غير موجودة.',
+  },
+};
+
+// フランス語翻訳
+export const fr: CharacterDetailsTranslation = {
+  tabs: {
+    info: 'Infos',
+    compatibility: 'Compatibilité',
+    maps: 'Cartes',
+  },
+  maps: {
+    recommendedTitle: "Cartes Recommandées",
+    powerLevel: "Niveau de Puissance",
+    noRecommendedMaps: "Aucune carte recommandée pour ce personnage.",
+    modes: {
+      gemGrab: "Chasse aux Gemmes",
+      brawlBall: "Foot Brawl",
+      heist: "Braquage",
+      knockout: "Knockout",
+      bounty: "Prime",
+      hotZone: "Zone Chaude",
+      wipeout: "Annihilation",
+      brawlBall5v5: "Foot Brawl 5v5",
+      wipeout5v5: "Annihilation 5v5",
+      duels: "Duels",
+      showdown: "Showdown",
+      rankFront: "Front de Rang"
+    }
+  },
+  basicInfo: {
+    title: 'Informations de Base',
+    role: 'Rôle',
+    rarity: 'Rareté',
+  },
+  powers: {
+    starPower: 'Pouvoir Stellaire',
+    gadget: 'Gadget',
+    recommended: 'Recommandé',
+    recommendationReason: 'Raison',
+  },
+  recommendation: {
+    highest: 'Prioritaire (5/5)',
+    recommended: 'Recommandé (4/5)',
+    medium: 'Moyen (3/5)',
+    low: 'Faible (2/5)',
+    optional: 'Optionnel (1/5)',
+    unrated: 'Non Évalué',
+  },
+  gears: {
+    title: 'Équipements',
+    recommended: 'Recommandé',
+    types: {
+      superrare: 'Super Rare',
+      epic: 'Épique',
+      mythic: 'Mythique',
+      plus: 'Plus',
+      gear: 'Équipement',
+    },
+  },
+  compatibility: {
+    toggles: {
+      good: 'Bon',
+      bad: 'Mauvais',
+    },
+    categories: {
+      bestMatch: 'Meilleure Compatibilité',
+      goodMatch: 'Bonne Compatibilité',
+      badMatch: 'Mauvaise Compatibilité',
+      normalMatch: 'Compatibilité Normale',
+    },
+  },
+  errors: {
+    characterNotFound: 'Personnage non trouvé.',
+  },
+};
+
+// 台湾語（繁体中文）翻訳を追加
+export const zhTw: CharacterDetailsTranslation = {
+  tabs: {
+    info: '資訊',
+    compatibility: '相性表',
+    maps: '推薦地圖',
+  },
+  maps: {
+    recommendedTitle: "推薦地圖",
+    powerLevel: "能力等級",
+    noRecommendedMaps: "此角色沒有推薦地圖",
+    modes: {
+      gemGrab: "寶石爭奪",
+      brawlBall: "鬥球",
+      heist: "搶險",
+      knockout: "淘汰賽",
+      bounty: "賞金獵人",
+      hotZone: "熱區",
+      wipeout: "殲滅戰",
+      brawlBall5v5: "5對5鬥球",
+      wipeout5v5: "5對5殲滅戰",
+      duels: "決鬥",
+      showdown: "生存模式",
+      rankFront: "排位戰線"
+    }
+  },
+  basicInfo: {
+    title: '基本資訊',
+    role: '角色定位',
+    rarity: '稀有度',
+  },
+  powers: {
+    starPower: '星力',
+    gadget: '道具',
+    recommended: '推薦',
+    recommendationReason: '推薦原因',
+  },
+  recommendation: {
+    highest: '最優先 (5/5)',
+    recommended: '推薦 (4/5)',
+    medium: '中等 (3/5)',
+    low: '低優先 (2/5)',
+    optional: '可選 (1/5)',
+    unrated: '未評分',
+  },
+  gears: {
+    title: '裝備',
+    recommended: '推薦',
+    types: {
+      superrare: '超級稀有',
+      epic: '史詩',
+      mythic: '神話',
+      plus: '強化',
+      gear: '裝備',
+    },
+  },
+  compatibility: {
+    toggles: {
+      good: '優勢',
+      bad: '劣勢',
+    },
+    categories: {
+      bestMatch: '最佳相性',
+      goodMatch: '良好相性',
+      badMatch: '不良相性',
+      normalMatch: '一般相性',
+    },
+  },
+  errors: {
+    characterNotFound: '找不到該角色',
+  },
+};
+
+// characterDetailsTranslations オブジェクトに台湾語を追加
 export const characterDetailsTranslations = {
   ja,
   en,
   ko,
+  es,
+  ar,
+  fr,
+  zhTw, // 台湾語を追加
 } as const;
 
 export type Language = keyof typeof characterDetailsTranslations;

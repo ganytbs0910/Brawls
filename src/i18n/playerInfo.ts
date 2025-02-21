@@ -77,10 +77,94 @@ export const ko: PlayerInfoTranslation = {
   }
 };
 
+// アラビア語翻訳
+export const ar: PlayerInfoTranslation = {
+  labels: {
+    name: 'الاسم',
+    tag: 'العلامة',
+    highestTrophies: 'أعلى الكؤوس',
+    currentTrophies: 'الكؤوس الحالية',
+    level: 'المستوى',
+    threeVsThree: '3vs3',
+    solo: 'فردي',
+    duo: 'ثنائي',
+    wins: 'انتصارات',
+    characterList: 'الشخصيات',
+    current: 'الحالي',
+    highest: 'الأعلى',
+    worldTop: 'الأفضل عالمياً',
+    loadingRankings: 'جاري تحميل التصنيفات...'
+  }
+};
+
+// フランス語翻訳
+export const fr: PlayerInfoTranslation = {
+  labels: {
+    name: 'Nom',
+    tag: 'Tag',
+    highestTrophies: 'Trophées Maximum',
+    currentTrophies: 'Trophées Actuels',
+    level: 'Niveau',
+    threeVsThree: '3vs3',
+    solo: 'Solo',
+    duo: 'Duo',
+    wins: 'victoires',
+    characterList: 'Personnages',
+    current: 'Actuel',
+    highest: 'Maximum',
+    worldTop: 'Top Mondial',
+    loadingRankings: 'Chargement des classements...'
+  }
+};
+
+// スペイン語翻訳
+export const es: PlayerInfoTranslation = {
+  labels: {
+    name: 'Nombre',
+    tag: 'Etiqueta',
+    highestTrophies: 'Trofeos Máximos',
+    currentTrophies: 'Trofeos Actuales',
+    level: 'Nivel',
+    threeVsThree: '3vs3',
+    solo: 'Individual',
+    duo: 'Dúo',
+    wins: 'victorias',
+    characterList: 'Personajes',
+    current: 'Actual',
+    highest: 'Máximo',
+    worldTop: 'Top Mundial',
+    loadingRankings: 'Cargando clasificaciones...'
+  }
+};
+
+export const zhTw: PlayerInfoTranslation = {
+  labels: {
+    name: '名稱',
+    tag: '標籤',
+    highestTrophies: '最高獎盃',
+    currentTrophies: '目前獎盃',
+    level: '等級',
+    threeVsThree: '3對3',
+    solo: '單人',
+    duo: '雙人',
+    wins: '勝',
+    characterList: '角色列表',
+    current: '目前',
+    highest: '最高',
+    worldTop: '世界排名',
+    loadingRankings: '載入排名中...'
+  }
+};
+
+// 翻訳オブジェクトをまとめたもの
 export const playerInfoTranslations = {
   ja,
   en,
   ko,
+  ar,
+  fr,
+  es,
+  zhTw // 台湾語を追加
 } as const;
 
 export type Language = keyof typeof playerInfoTranslations;

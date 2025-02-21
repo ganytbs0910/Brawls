@@ -56,11 +56,70 @@ export const ko: CharacterRolesTranslation = {
   }
 };
 
+// アラビア語翻訳
+export const ar: CharacterRolesTranslation = {
+  roles: {
+    all: "الكل",
+    tank: "دبابة",
+    assassin: "قاتل",
+    support: "دعم",
+    controller: "متحكم",
+    attacker: "مهاجم",
+    sniper: "قناص",
+    grenadier: "قاذف قنابل"
+  }
+};
+
+// フランス語翻訳
+export const fr: CharacterRolesTranslation = {
+  roles: {
+    all: "Tous",
+    tank: "Tank",
+    assassin: "Assassin",
+    support: "Support",
+    controller: "Contrôleur",
+    attacker: "Attaquant",
+    sniper: "Tireur d'élite",
+    grenadier: "Grenadier"
+  }
+};
+
+// スペイン語翻訳
+export const es: CharacterRolesTranslation = {
+  roles: {
+    all: "Todos",
+    tank: "Tanque",
+    assassin: "Asesino",
+    support: "Apoyo",
+    controller: "Controlador",
+    attacker: "Atacante",
+    sniper: "Francotirador",
+    grenadier: "Granadero"
+  }
+};
+
+export const zhTw: CharacterRolesTranslation = {
+  roles: {
+    all: "全部",
+    tank: "坦克",
+    assassin: "刺客",
+    support: "輔助",
+    controller: "控制者",
+    attacker: "攻擊手",
+    sniper: "狙擊手",
+    grenadier: "榴彈兵"
+  }
+};
+
 // 翻訳オブジェクトをまとめたもの
 export const characterRolesTranslations = {
   ja,
   en,
-  ko
+  ko,
+  ar,
+  fr,
+  es,
+  zhTw // 台湾語を追加
 } as const;
 
 // 言語タイプの定義

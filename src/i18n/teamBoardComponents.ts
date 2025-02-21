@@ -142,11 +142,151 @@ export const ko: TeamBoardComponentsTranslation = {
   }
 };
 
-// 翻訳オブジェクトをまとめたもの
+export const ar: TeamBoardComponentsTranslation = {
+  postCard: {
+    time: {
+      justNow: 'الآن',
+      minutesAgo: 'د',
+      hoursAgo: 'س'
+    },
+    recruiting: {
+      mid: 'توظيف وسط',
+      side: 'توظيف جانبي'
+    },
+    hostInfo: {
+      title: 'معلومات المضيف',
+      totalTrophies: 'مجموع الكؤوس',
+      wins3v3: 'انتصارات 3 ضد 3',
+      winsDuo: 'انتصارات ثنائية',
+      useChar: 'يستخدم'
+    },
+    comment: {
+      title: 'تعليق'
+    },
+    joinTeam: {
+      title: 'انضمام للفريق',
+      message: 'هل تريد الانضمام إلى هذا الفريق؟',
+      cancel: 'إلغاء',
+      join: 'انضمام'
+    },
+    errors: {
+      cannotOpen: 'لا يمكن فتح هذا الرابط',
+      openError: 'حدث خطأ أثناء فتح الرابط'
+    }
+  }
+};
+
+export const fr: TeamBoardComponentsTranslation = {
+  postCard: {
+    time: {
+      justNow: 'À l\'instant',
+      minutesAgo: 'min',
+      hoursAgo: 'h'
+    },
+    recruiting: {
+      mid: 'Recrutement Mid',
+      side: 'Recrutement Side'
+    },
+    hostInfo: {
+      title: 'Info de l\'hôte',
+      totalTrophies: 'Trophées totaux',
+      wins3v3: 'Victoires 3v3',
+      winsDuo: 'Victoires Duo',
+      useChar: 'Utilise'
+    },
+    comment: {
+      title: 'Commentaire'
+    },
+    joinTeam: {
+      title: 'Rejoindre l\'équipe',
+      message: 'Voulez-vous rejoindre cette équipe ?',
+      cancel: 'Annuler',
+      join: 'Rejoindre'
+    },
+    errors: {
+      cannotOpen: 'Impossible d\'ouvrir ce lien',
+      openError: 'Erreur lors de l\'ouverture du lien'
+    }
+  }
+};
+
+export const es: TeamBoardComponentsTranslation = {
+  postCard: {
+    time: {
+      justNow: 'Ahora mismo',
+      minutesAgo: 'min',
+      hoursAgo: 'h'
+    },
+    recruiting: {
+      mid: 'Reclutando Mid',
+      side: 'Reclutando Side'
+    },
+    hostInfo: {
+      title: 'Info del anfitrión',
+      totalTrophies: 'Trofeos totales',
+      wins3v3: 'Victorias 3v3',
+      winsDuo: 'Victorias Dúo',
+      useChar: 'Usando'
+    },
+    comment: {
+      title: 'Comentario'
+    },
+    joinTeam: {
+      title: 'Unirse al equipo',
+      message: '¿Quieres unirte a este equipo?',
+      cancel: 'Cancelar',
+      join: 'Unirse'
+    },
+    errors: {
+      cannotOpen: 'No se puede abrir este enlace',
+      openError: 'Error al abrir el enlace'
+    }
+  }
+};
+
+export const zhTw: TeamBoardComponentsTranslation = {
+  postCard: {
+    time: {
+      justNow: '剛剛',
+      minutesAgo: '分鐘前',
+      hoursAgo: '小時前'
+    },
+    recruiting: {
+      mid: '徵求中路',
+      side: '徵求邊路'
+    },
+    hostInfo: {
+      title: '主持人資訊',
+      totalTrophies: '總獎盃數',
+      wins3v3: '3對3勝場',
+      winsDuo: '雙人勝場',
+      useChar: '使用角色'
+    },
+    comment: {
+      title: '備註'
+    },
+    joinTeam: {
+      title: '加入隊伍',
+      message: '要加入這個隊伍嗎？',
+      cancel: '取消',
+      join: '加入'
+    },
+    errors: {
+      cannotOpen: '無法開啟此連結',
+      openError: '開啟連結時發生錯誤'
+    }
+  }
+};
+
+// Update translations object
 export const teamBoardComponentsTranslations = {
   ja,
   en,
-  ko
+  ko,
+  ar,
+  fr,
+  es,
+  zhTw
 } as const;
 
 // 言語タイプの定義

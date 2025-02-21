@@ -175,10 +175,191 @@ export const ko: SettingsScreenTranslation = {
   },
 };
 
+export const es: SettingsScreenTranslation = {
+  header: {
+    settings: 'Ajustes',
+    privacy: 'Política de Privacidad',
+    terms: 'Términos de Servicio',
+    allTips: 'Todos los Consejos',
+  },
+  menuItems: {
+    language: 'Configuración de Idioma',
+    share: 'Compartir con Amigos',
+    removeAds: 'Eliminar Anuncios',
+    adsRemoved: 'Anuncios Eliminados',
+    rateApp: 'Calificar App',
+    privacy: 'Política de Privacidad',
+    terms: 'Términos de Servicio',
+    allTips: 'Todos los Consejos',
+    punishmentGame: 'Juego de Castigo',
+  },
+  purchase: {
+    title: 'Eliminar Anuncios',
+    message: 'Eliminar anuncios completamente por €4.99.\n¿Desea continuar?',
+    cancel: 'Cancelar',
+    confirm: 'Comprar',
+    complete: '¡Los anuncios se han eliminado exitosamente!',
+    errors: {
+      failed: 'La compra falló.',
+      alreadyOwned: 'Ya comprado. Intente restaurar su compra.',
+      notPrepared: 'Error al conectar con la tienda. Inténtelo más tarde.',
+      notAvailable: 'Este artículo no está disponible actualmente.',
+      default: 'Ocurrió un error durante la compra. ({code})',
+      storeConnect: 'No se puede conectar con App Store',
+    },
+    restore: {
+      success: '¡Compra de eliminación de anuncios restaurada!',
+      notFound: 'No se encontraron compras restaurables.',
+      error: 'Error al restaurar la compra.',
+    },
+  },
+  ads: {
+    showError: 'Error al mostrar el anuncio.',
+    rewardError: 'Error al mostrar el anuncio de recompensa.',
+  },
+};
+
+export const ar: SettingsScreenTranslation = {
+  header: {
+    settings: 'الإعدادات',
+    privacy: 'سياسة الخصوصية',
+    terms: 'شروط الخدمة',
+    allTips: 'جميع النصائح',
+  },
+  menuItems: {
+    language: 'إعدادات اللغة',
+    share: 'مشاركة مع الأصدقاء',
+    removeAds: 'إزالة الإعلانات',
+    adsRemoved: 'تم إزالة الإعلانات',
+    rateApp: 'تقييم التطبيق',
+    privacy: 'سياسة الخصوصية',
+    terms: 'شروط الخدمة',
+    allTips: 'جميع النصائح',
+    punishmentGame: 'لعبة العقاب',
+  },
+  purchase: {
+    title: 'إزالة الإعلانات',
+    message: 'إزالة الإعلانات بالكامل مقابل 19.99 ريال.\nهل تريد المتابعة؟',
+    cancel: 'إلغاء',
+    confirm: 'شراء',
+    complete: 'تم إزالة الإعلانات بنجاح!',
+    errors: {
+      failed: 'فشلت عملية الشراء.',
+      alreadyOwned: 'تم الشراء مسبقاً. يرجى محاولة استعادة مشترياتك.',
+      notPrepared: 'فشل الاتصال بالمتجر. يرجى المحاولة لاحقاً.',
+      notAvailable: 'هذا العنصر غير متوفر حالياً.',
+      default: 'حدث خطأ أثناء الشراء. ({code})',
+      storeConnect: 'لا يمكن الاتصال بمتجر التطبيقات',
+    },
+    restore: {
+      success: 'تمت استعادة شراء إزالة الإعلانات!',
+      notFound: 'لم يتم العثور على مشتريات قابلة للاستعادة.',
+      error: 'فشل في استعادة المشتريات.',
+    },
+  },
+  ads: {
+    showError: 'فشل في عرض الإعلان.',
+    rewardError: 'فشل في عرض إعلان المكافأة.',
+  },
+};
+
+export const fr: SettingsScreenTranslation = {
+  header: {
+    settings: 'Paramètres',
+    privacy: 'Politique de Confidentialité',
+    terms: 'Conditions d\'Utilisation',
+    allTips: 'Tous les Conseils',
+  },
+  menuItems: {
+    language: 'Paramètres de Langue',
+    share: 'Partager avec des Amis',
+    removeAds: 'Supprimer les Publicités',
+    adsRemoved: 'Publicités Supprimées',
+    rateApp: 'Évaluer l\'Application',
+    privacy: 'Politique de Confidentialité',
+    terms: 'Conditions d\'Utilisation',
+    allTips: 'Tous les Conseils',
+    punishmentGame: 'Jeu de Gage',
+  },
+  purchase: {
+    title: 'Supprimer les Publicités',
+    message: 'Supprimer toutes les publicités pour 4,99 €.\nSouhaitez-vous continuer ?',
+    cancel: 'Annuler',
+    confirm: 'Acheter',
+    complete: 'Les publicités ont été supprimées avec succès !',
+    errors: {
+      failed: 'L\'achat a échoué.',
+      alreadyOwned: 'Déjà acheté. Veuillez essayer de restaurer votre achat.',
+      notPrepared: 'Échec de la connexion à la boutique. Veuillez réessayer plus tard.',
+      notAvailable: 'Cet article n\'est pas disponible actuellement.',
+      default: 'Une erreur s\'est produite lors de l\'achat. ({code})',
+      storeConnect: 'Impossible de se connecter à l\'App Store',
+    },
+    restore: {
+      success: 'Achat de suppression des publicités restauré !',
+      notFound: 'Aucun achat restaurable trouvé.',
+      error: 'Échec de la restauration de l\'achat.',
+    },
+  },
+  ads: {
+    showError: 'Échec de l\'affichage de la publicité.',
+    rewardError: 'Échec de l\'affichage de la publicité à récompense.',
+  },
+};
+
+export const zhTw: SettingsScreenTranslation = {
+  header: {
+    settings: '設定',
+    privacy: '隱私權政策',
+    terms: '使用條款',
+    allTips: '所有提示',
+  },
+  menuItems: {
+    language: '語言設定',
+    share: '分享給好友',
+    removeAds: '移除廣告',
+    adsRemoved: '已移除廣告',
+    rateApp: '為應用評分',
+    privacy: '隱私權政策',
+    terms: '使用條款',
+    allTips: '所有提示',
+    punishmentGame: '懲罰遊戲',
+  },
+  purchase: {
+    title: '移除廣告',
+    message: '需支付 NT$150 以完全移除廣告。\n是否要繼續？',
+    cancel: '取消',
+    confirm: '購買',
+    complete: '已成功移除廣告！',
+    errors: {
+      failed: '購買失敗。',
+      alreadyOwned: '已經購買過。請嘗試恢復購買。',
+      notPrepared: '無法連接到商店。請稍後再試。',
+      notAvailable: '目前無法購買此項目。',
+      default: '購買過程中發生錯誤。({code})',
+      storeConnect: '無法連接到 App Store',
+    },
+    restore: {
+      success: '已恢復移除廣告的購買！',
+      notFound: '找不到可恢復的購買項目。',
+      error: '恢復購買失敗。',
+    },
+  },
+  ads: {
+    showError: '顯示廣告失敗。',
+    rewardError: '顯示獎勵廣告失敗。',
+  },
+};
+
+// Update translations object
 export const settingsScreenTranslations = {
   ja,
   en,
   ko,
+  es,
+  ar,
+  fr,
+  'zh-tw': zhTw,
 } as const;
 
 export type Language = keyof typeof settingsScreenTranslations;

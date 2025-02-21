@@ -61,13 +61,9 @@ const useMapUpdateTimer = (updateHours: number[]) => {
       const nextUpdate = getNextUpdateTime(now);
       const timeUntilUpdate = nextUpdate.getTime() - now.getTime();
 
-      console.log('Next update scheduled for:', nextUpdate);
-      console.log('Time until update:', timeUntilUpdate, 'ms');
-
       timeoutId = setTimeout(() => {
         const newTime = new Date();
         setCurrentTime(newTime);
-        console.log('Update triggered at:', newTime);
         
         setTimeout(() => {
           scheduleNextUpdate();
@@ -247,20 +243,15 @@ const Home: React.FC = () => {
   };
 
   const handleMapClick = (mode: any) => {
-    console.log('Clicked map:', mode.currentMap);
-
     if (!isMapDataInitialized) {
       console.warn('Map data is not initialized yet');
       return;
     }
 
     const currentMapData = getMapData(mode.currentMap);
-    console.log('Current map data:', currentMapData);
-
     const mapDetail = getMapDetails(mode.currentMap);
     
     if (mapDetail) {
-      console.log('Setting map detail props');
       setMapDetailProps({
         mapName: mode.currentMap,
         modeName: mode.name,
@@ -281,7 +272,6 @@ const Home: React.FC = () => {
   };
 
   const showScreen = (screenType: ScreenType) => {
-    console.log('Showing screen:', screenType);
     const newScreen: ScreenState = {
       type: screenType,
       translateX: new Animated.Value(SCREEN_WIDTH),
@@ -289,9 +279,7 @@ const Home: React.FC = () => {
     };
 
     setScreenStack(prev => {
-      console.log('Previous screen stack:', prev);
       const newStack = [...prev, newScreen];
-      console.log('New screen stack:', newStack);
       return newStack;
     });
 

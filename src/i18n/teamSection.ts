@@ -28,11 +28,39 @@ export const ko: TeamSectionTranslation = {
   emptySlot: '미선택',
 };
 
-// 翻訳オブジェクトをまとめたもの
+export const ar: TeamSectionTranslation = {
+  teamLabel: 'الفريق',
+  ban: 'حظر',
+  emptySlot: 'فارغ',
+};
+
+export const fr: TeamSectionTranslation = {
+  teamLabel: 'Équipe',
+  ban: 'BAN',
+  emptySlot: 'Vide',
+};
+
+export const es: TeamSectionTranslation = {
+  teamLabel: 'Equipo',
+  ban: 'BAN',
+  emptySlot: 'Vacío',
+};
+
+export const zhTw: TeamSectionTranslation = {
+  teamLabel: '隊伍',
+  ban: '禁用',
+  emptySlot: '未選擇',
+};
+
+// Update translations object
 export const teamSectionTranslations = {
   ja,
   en,
-  ko
+  ko,
+  ar,
+  fr,
+  es,
+  zhTw
 } as const;
 
 // 言語タイプの定義

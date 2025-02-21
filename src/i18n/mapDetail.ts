@@ -1,4 +1,3 @@
-// i18n/mapDetail.ts
 import { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -74,10 +73,90 @@ export const ko: MapDetailTranslation = {
   },
 };
 
+// アラビア語翻訳
+export const ar: MapDetailTranslation = {
+  error: {
+    mapNotFound: 'لم يتم العثور على معلومات الخريطة',
+  },
+  sections: {
+    mapDescription: 'وصف الخريطة',
+    recommendedBrawlers: 'الشخصيات الموصى بها',
+  },
+  powerLevels: {
+    optimal: 'مثالي (4-5 نقاط)',
+    suitable: 'مناسب (2-3 نقاط)',
+    usable: 'قابل للاستخدام (نقطة واحدة)',
+  },
+  brawler: {
+    powerRating: '{power}/5',
+  },
+};
+
+// フランス語翻訳
+export const fr: MapDetailTranslation = {
+  error: {
+    mapNotFound: 'Information de carte non trouvée',
+  },
+  sections: {
+    mapDescription: 'Description de la Carte',
+    recommendedBrawlers: 'Personnages Recommandés',
+  },
+  powerLevels: {
+    optimal: 'Optimal (4-5 points)',
+    suitable: 'Convenable (2-3 points)',
+    usable: 'Utilisable (1 point)',
+  },
+  brawler: {
+    powerRating: '{power}/5',
+  },
+};
+
+// スペイン語翻訳
+export const es: MapDetailTranslation = {
+  error: {
+    mapNotFound: 'Información del mapa no encontrada',
+  },
+  sections: {
+    mapDescription: 'Descripción del Mapa',
+    recommendedBrawlers: 'Personajes Recomendados',
+  },
+  powerLevels: {
+    optimal: 'Óptimo (4-5 puntos)',
+    suitable: 'Adecuado (2-3 puntos)',
+    usable: 'Utilizable (1 punto)',
+  },
+  brawler: {
+    powerRating: '{power}/5',
+  },
+};
+
+export const zhTw: MapDetailTranslation = {
+  error: {
+    mapNotFound: '找不到地圖資訊',
+  },
+  sections: {
+    mapDescription: '地圖說明',
+    recommendedBrawlers: '推薦角色',
+  },
+  powerLevels: {
+    optimal: '最佳 (4-5分)',
+    suitable: '適合 (2-3分)',
+    usable: '可用 (1分)',
+  },
+  brawler: {
+    powerRating: '{power}/5',
+  },
+};
+
+// 翻訳オブジェクトをまとめたもの
 export const mapDetailTranslations = {
   ja,
   en,
   ko,
+  ar,
+  fr,
+  es,
+  zhTw // 台湾語を追加
 } as const;
 
 export type Language = keyof typeof mapDetailTranslations;

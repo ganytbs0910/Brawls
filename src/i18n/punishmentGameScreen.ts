@@ -202,11 +202,249 @@ export const ko: PunishmentGameTranslation = {
   }
 };
 
+export const ar: PunishmentGameTranslation = {
+  title: 'تحدي برول ستارز',
+  selectDifficulty: 'اختر مستوى الصعوبة',
+  difficulties: {
+    easy: 'سهل',
+    normal: 'عادي',
+    hard: 'صعب',
+    extreme: 'قاسي'
+  },
+  gameModes: {
+    duoShowdown: 'ثنائي شوداون',
+    gemGrab: 'جمع الجواهر',
+    brawlball: 'كرة برول',
+    knockout: 'ضربة قاضية'
+  },
+  challenges: {
+    easy: [
+      "استخدم قوة النجمة الأضعف",
+      "استخدم الأداة الأضعف",
+      "ممنوع التحرك لأول 15 ثانية",
+      "العب مع لاعبين عشوائيين"
+    ],
+    normal: [
+      "ممنوع استخدام الأدوات",
+      "ممنوع استخدام السوبر",
+      "ممنوع استخدام الشحن الفائق",
+      "استخدم البطل صاحب أعلى كؤوس",
+      "ابدأ بعد موت واحد",
+      "استخدم قوة النجمة والأداة والمعدات الأضعف"
+    ],
+    hard: [
+      "ممنوع الشفاء لك ولفريقك",
+      "عكس أزرار الحركة والهجوم",
+      "استخدم البطل صاحب أعلى كؤوس",
+      "مسموح 5 هجمات فقط",
+      "يجب الفوز 3 مرات متتالية",
+      "ابدأ بعد موتين",
+      "العب بيد واحدة",
+      "كل الفريق يجب أن يستخدم شخصيات قاذفة"
+    ],
+    extreme: [
+      "العب مع عكس التحكم العامودي",
+      "ممنوع الهجوم",
+      "ممنوع السوبر والأدوات والشحن الفائق للفريق كامل",
+      "يجب الفوز 5 مرات متتالية",
+      "اشتري 170 جوهرة إذا خسرت",
+      "لا يمكنك رؤية نصف الشاشة اليمين"
+    ]
+  },
+  controls: {
+    stop: 'توقف',
+    spinning: 'يدور...',
+    spinAgain: 'أدر مرة أخرى!',
+    spin: 'أدر القرعة',
+    backToDifficulty: 'العودة إلى اختيار الصعوبة'
+  }
+};
+
+export const fr: PunishmentGameTranslation = {
+  title: 'Défi Brawl Stars',
+  selectDifficulty: 'Sélectionner la difficulté',
+  difficulties: {
+    easy: 'Facile',
+    normal: 'Normal',
+    hard: 'Difficile',
+    extreme: 'Extrême'
+  },
+  gameModes: {
+    duoShowdown: 'Combat en duo',
+    gemGrab: 'Capture de gemmes',
+    brawlball: 'Brawl Ball',
+    knockout: 'K.O.'
+  },
+  challenges: {
+    easy: [
+      "Utiliser le pouvoir étoilé le plus faible",
+      "Utiliser le gadget le plus faible",
+      "Pas de mouvement pendant 15 secondes",
+      "Jouer avec des joueurs aléatoires"
+    ],
+    normal: [
+      "Pas de gadgets",
+      "Pas de Super",
+      "Pas d'Hypercharge",
+      "Utiliser le brawler avec le plus de trophées",
+      "Commencer après une mort",
+      "Utiliser le pouvoir étoilé, gadget et équipement les plus faibles"
+    ],
+    hard: [
+      "Pas de soin pour vous et vos coéquipiers",
+      "Inverser les contrôles de mouvement et d'attaque",
+      "Utiliser le brawler avec le plus de trophées",
+      "Seulement 5 attaques autorisées",
+      "Gagner 3 parties d'affilée",
+      "Commencer après deux morts",
+      "Jouer avec une seule main",
+      "Toute l'équipe doit utiliser des lanceurs"
+    ],
+    extreme: [
+      "Jouer avec les contrôles verticaux inversés",
+      "Interdiction d'attaquer",
+      "Pas de Super, gadget et Hypercharge pour toute l'équipe",
+      "Gagner 5 parties d'affilée",
+      "Acheter 170 Émeraudes si vous perdez",
+      "Ne pas voir la moitié droite de l'écran"
+    ]
+  },
+  controls: {
+    stop: 'STOP',
+    spinning: 'En rotation...',
+    spinAgain: 'Relancer!',
+    spin: 'Lancer la roulette',
+    backToDifficulty: 'Retour à la difficulté'
+  }
+};
+
+export const es: PunishmentGameTranslation = {
+  title: 'Desafío Brawl Stars',
+  selectDifficulty: 'Seleccionar dificultad',
+  difficulties: {
+    easy: 'Fácil',
+    normal: 'Normal',
+    hard: 'Difícil',
+    extreme: 'Extremo'
+  },
+  gameModes: {
+    duoShowdown: 'Supervivencia por parejas',
+    gemGrab: 'Atrapagemas',
+    brawlball: 'Brawl Ball',
+    knockout: 'Nocaut'
+  },
+  challenges: {
+    easy: [
+      "Usar el poder estelar más débil",
+      "Usar el gadget más débil",
+      "Sin movimiento durante 15 segundos",
+      "Jugar con aleatorios"
+    ],
+    normal: [
+      "Sin gadgets",
+      "Sin Super",
+      "Sin Hipercarga",
+      "Usar el brawler con más trofeos",
+      "Empezar después de una muerte",
+      "Usar el poder estelar, gadget y equipamiento más débiles"
+    ],
+    hard: [
+      "Sin curación para ti y tus compañeros",
+      "Controles de movimiento y ataque invertidos",
+      "Usar el brawler con más trofeos",
+      "Solo 5 ataques permitidos",
+      "Ganar 3 partidas seguidas",
+      "Empezar después de dos muertes",
+      "Jugar con una sola mano",
+      "Todo el equipo debe usar lanzadores"
+    ],
+    extreme: [
+      "Jugar con controles verticales invertidos",
+      "Prohibido atacar",
+      "Sin Super, gadget e Hipercarga para todo el equipo",
+      "Ganar 5 partidas seguidas",
+      "Comprar 170 Esmeraldas si pierdes",
+      "No ver la mitad derecha de la pantalla"
+    ]
+  },
+  controls: {
+    stop: 'PARAR',
+    spinning: 'Girando...',
+    spinAgain: '¡Girar otra vez!',
+    spin: 'Girar ruleta',
+    backToDifficulty: 'Volver a dificultad'
+  }
+};
+
+export const zhTw: PunishmentGameTranslation = {
+  title: '荒野亂鬥挑戰',
+  selectDifficulty: '選擇難度',
+  difficulties: {
+    easy: '簡單',
+    normal: '普通',
+    hard: '困難',
+    extreme: '極限'
+  },
+  gameModes: {
+    duoShowdown: '雙人生存',
+    gemGrab: '寶石爭奪',
+    brawlball: '荒野足球',
+    knockout: '淘汰賽'
+  },
+  challenges: {
+    easy: [
+      "使用較弱的星力",
+      "使用較弱的道具",
+      "開局15秒內不能移動",
+      "與隨機玩家配對"
+    ],
+    normal: [
+      "禁止使用道具",
+      "禁止使用必殺技",
+      "禁止使用超級充能",
+      "必須使用最高獎盃的角色",
+      "死亡一次後才能開始",
+      "使用最弱的星力、道具和裝備"
+    ],
+    hard: [
+      "禁止你和隊友回血",
+      "移動和攻擊按鈕反轉",
+      "必須使用最高獎盃的角色",
+      "只能攻擊5次",
+      "必須連勝3場",
+      "死亡兩次後才能開始",
+      "單手操作",
+      "全隊必須使用投擲型角色"
+    ],
+    extreme: [
+      "上下反轉操作",
+      "禁止攻擊",
+      "全隊禁止使用必殺技、道具和超級充能",
+      "必須連勝5場",
+      "輸了要購買170寶石",
+      "看不到螢幕右半部"
+    ]
+  },
+  controls: {
+    stop: '停止',
+    spinning: '旋轉中...',
+    spinAgain: '再轉一次！',
+    spin: '轉動輪盤',
+    backToDifficulty: '返回難度選擇'
+  }
+};
+
+// 翻訳オブジェクトをまとめたもの
 export const punishmentGameTranslations = {
   ja,
   en,
   ko,
+  ar,
+  fr,
+  es,
+  zhTw // 台湾語を追加
 } as const;
+
 
 export type Language = keyof typeof punishmentGameTranslations;
 

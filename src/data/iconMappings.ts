@@ -1479,7 +1479,7 @@ export const gearIcons: IconMapping = {
     6: gearData.superrareGears.gadget,
     7: gearData.mythicGears.gene,
   },
-  "MAX": {
+  "Max": {
     1: gearData.superrareGears.speed,
     2: gearData.superrareGears.vision,
     3: gearData.superrareGears.heal,

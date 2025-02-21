@@ -241,69 +241,122 @@ interface TeamBoardProps {
     let currentChannel: RealtimeChannel | null = null;
 
     const fetchPosts = async () => {
-      if (!isSubscribed) return;
+  if (!isSubscribed) return;
 
-      setLoading(true);
-      try {
-        let query = supabase
-          .from(getTableName(currentLanguage))
-          .select('*')
-          .order('created_at', { ascending: false })
-          .limit(POST_LIMIT);
-        
-        if (selectedModeFilter) {
-          query = query.eq('selected_mode', selectedModeFilter);
-        }
+  setLoading(true);
+  try {
+    // 現在の言語でまず試す
+    let query = supabase
+      .from(getTableName(currentLanguage))
+      .select('*')
+      .order('created_at', { ascending: false })
+      .limit(POST_LIMIT);
+    
+    if (selectedModeFilter) {
+      query = query.eq('selected_mode', selectedModeFilter);
+    }
 
-        const { data, error } = await query;
+    const { data: languageData, error: languageError } = await query;
 
-        if (error) {
-          console.error('Error fetching posts:', error);
-          throw error;
-        }
-
-        if (isSubscribed) {
-          setPosts(data as TeamPost[]);
-        }
-      } catch (error) {
-        console.error('Error in fetchPosts:', error);
-      } finally {
-        if (isSubscribed) {
-          setLoading(false);
-        }
+    // 現在の言語のデータが空または存在しない場合、英語をフォールバックとして使用
+    if ((!languageData || languageData.length === 0) && currentLanguage !== 'en') {
+      console.log('No posts found in current language, falling back to English');
+      
+      query = supabase
+        .from(getTableName('en'))
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(POST_LIMIT);
+      
+      if (selectedModeFilter) {
+        query = query.eq('selected_mode', selectedModeFilter);
       }
-    };
+
+      const { data: englishData, error: englishError } = await query;
+
+      if (englishError) {
+        console.error('Error fetching English posts:', englishError);
+        throw englishError;
+      }
+
+      if (isSubscribed) {
+        setPosts(englishData as TeamPost[]);
+      }
+    } else {
+      if (languageError) {
+        console.error('Error fetching language posts:', languageError);
+        throw languageError;
+      }
+
+      if (isSubscribed) {
+        setPosts(languageData as TeamPost[]);
+      }
+    }
+  } catch (error) {
+    console.error('Error in fetchPosts:', error);
+  } finally {
+    if (isSubscribed) {
+      setLoading(false);
+    }
+  }
+};
 
     const setupRealtimeSubscription = async () => {
-      try {
-        if (currentChannel) {
-          await currentChannel.unsubscribe();
+  try {
+    if (currentChannel) {
+      await currentChannel.unsubscribe();
+    }
+
+    const primaryTableName = getTableName(currentLanguage);
+    const fallbackTableName = getTableName('en');
+
+    // 現在の言語のチャンネル
+    currentChannel = supabase
+      .channel(`team_posts_${currentLanguage}_changes`)
+      .on('postgres_changes', 
+        { 
+          event: '*', 
+          schema: 'public', 
+          table: primaryTableName 
+        },
+        payload => {
+          if (!isSubscribed) return;
+          
+          if (payload.eventType === 'INSERT') {
+            setPosts(prev => [payload.new as TeamPost, ...prev].slice(0, POST_LIMIT));
+          }
         }
+      );
 
-        const tableName = getTableName(currentLanguage);
-        console.log('Setting up realtime subscription for table:', tableName);
-
-        currentChannel = supabase
-          .channel(`team_posts_${currentLanguage}_changes`)
-          .on('postgres_changes', 
-            { 
-              event: '*', 
-              schema: 'public', 
-              table: tableName 
-            },
-            payload => {
-              if (!isSubscribed) return;
-              
-              if (payload.eventType === 'INSERT') {
-                setPosts(prev => [payload.new as TeamPost, ...prev].slice(0, POST_LIMIT));
+    // 現在の言語が英語でない場合、英語のチャンネルも監視
+    if (currentLanguage !== 'en') {
+      currentChannel = currentChannel.on('postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: fallbackTableName
+        },
+        payload => {
+          if (!isSubscribed) return;
+          
+          if (payload.eventType === 'INSERT') {
+            // 現在の投稿が空の場合のみ英語の投稿を表示
+            setPosts(prev => {
+              if (prev.length === 0) {
+                return [payload.new as TeamPost, ...prev].slice(0, POST_LIMIT);
               }
-            }
-          )
-          .subscribe();
-      } catch (error) {
-        console.error('Error in setupRealtimeSubscription:', error);
-      }
-    };
+              return prev;
+            });
+          }
+        }
+      );
+    }
+
+    await currentChannel.subscribe();
+  } catch (error) {
+    console.error('Error in setupRealtimeSubscription:', error);
+  }
+};
 
     fetchPosts();
     setupRealtimeSubscription();

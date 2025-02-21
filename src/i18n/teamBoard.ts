@@ -232,11 +232,243 @@ export const ko: TeamBoardTranslation = {
   },
 };
 
-// 翻訳オブジェクトをまとめたもの
+export const ar: TeamBoardTranslation = {
+  boardTitle: 'تكوين الفريق',
+  refresh: 'تحديث',
+  create: 'إنشاء',
+  cancel: 'إلغاء',
+  submit: 'إرسال',
+  playerTag: 'علامة اللاعب الخاصة بك',
+  tagDescription: '* سيتم ملء معلومات المضيف من هذه العلامة.',
+  tagPlaceholder: '#XXXXXXXXX',
+  verify: 'تحقق',
+  change: 'تغيير',
+  searchHistory: 'سجل البحث',
+  modeSelection: 'اختر الوضع',
+  useCharacter: 'شخصيتك',
+  midCharacters: 'شخصيات الوسط (الحد الأقصى 3)',
+  sideCharacters: 'شخصيات الجانب (الحد الأقصى 3)',
+  inviteLink: 'رابط الدعوة',
+  inviteLinkPlaceholder: 'الصق رابط الدعوة هنا',
+  comment: 'تعليق (اختياري)',
+  commentPlaceholder: 'أدخل التفاصيل أو المتطلبات',
+  errors: {
+    postLimitTitle: 'حد النشر',
+    postLimitPrefix: 'يرجى الانتظار ',
+    postLimitSuffix: ' قبل النشر مرة أخرى',
+    minutes: ' دقائق',
+    seconds: ' ثوان',
+    selectMode: 'يرجى اختيار الوضع',
+    playerInfo: 'يرجى الحصول على معلومات اللاعب',
+    selectCharacter: 'يرجى اختيار شخصية',
+    invalidLink: 'يرجى إدخال رابط دعوة صالح',
+    enterTag: 'يرجى إدخال علامة اللاعب',
+    invalidTag: 'علامة اللاعب غير صالحة',
+    fetchFailed: 'فشل في جلب بيانات اللاعب',
+    maxMidChars: 'يمكنك اختيار حتى 3 شخصيات وسط',
+    maxSideChars: 'يمكنك اختيار حتى 3 شخصيات جانبية',
+    refreshCooldown: 'سيكون التحديث متاحًا خلال 3 ثوان',
+    refreshFailed: 'فشل التحديث',
+    postCreationFailed: 'فشل إنشاء المنشور'
+  },
+  success: {
+    postCreated: 'تم إنشاء المنشور بنجاح'
+  },
+  modes: {
+    ranked: 'معركة مصنفة',
+    duoShowdown: 'مواجهة ثنائية',
+    gemGrab: 'جمع الجواهر',
+    brawlBall: 'كرة براول',
+    heist: 'السطو',
+    knockout: 'ضربة قاضية',
+    bounty: 'المكافأة',
+    wipeout: 'الإبادة',
+    hotZone: 'المنطقة الساخنة',
+    brawlBall5v5: 'كرة براول 5 ضد 5',
+    wipeout5v5: 'إبادة 5 ضد 5'
+  }
+};
+
+export const fr: TeamBoardTranslation = {
+  boardTitle: 'Recrutement d\'équipe',
+  refresh: 'Actualiser',
+  create: 'Créer',
+  cancel: 'Annuler',
+  submit: 'Envoyer',
+  playerTag: 'Votre Tag de Joueur',
+  tagDescription: '* Les informations de l\'hôte seront remplies à partir de ce tag.',
+  tagPlaceholder: '#XXXXXXXXX',
+  verify: 'Vérifier',
+  change: 'Modifier',
+  searchHistory: 'Historique de recherche',
+  modeSelection: 'Sélectionner le mode',
+  useCharacter: 'Votre personnage',
+  midCharacters: 'Personnages Mid (Max 3)',
+  sideCharacters: 'Personnages Side (Max 3)',
+  inviteLink: 'Lien d\'invitation',
+  inviteLinkPlaceholder: 'Collez le lien d\'invitation ici',
+  comment: 'Commentaire (Optionnel)',
+  commentPlaceholder: 'Entrez les détails ou les exigences',
+  errors: {
+    postLimitTitle: 'Limite de publication',
+    postLimitPrefix: 'Veuillez attendre ',
+    postLimitSuffix: ' avant de publier à nouveau',
+    minutes: ' minutes',
+    seconds: ' secondes',
+    selectMode: 'Veuillez sélectionner un mode',
+    playerInfo: 'Veuillez obtenir les informations du joueur',
+    selectCharacter: 'Veuillez sélectionner un personnage',
+    invalidLink: 'Veuillez entrer un lien d\'invitation valide',
+    enterTag: 'Veuillez entrer un tag de joueur',
+    invalidTag: 'Tag de joueur invalide',
+    fetchFailed: 'Échec de la récupération des données du joueur',
+    maxMidChars: 'Vous pouvez sélectionner jusqu\'à 3 personnages mid',
+    maxSideChars: 'Vous pouvez sélectionner jusqu\'à 3 personnages side',
+    refreshCooldown: 'L\'actualisation sera disponible dans 3 secondes',
+    refreshFailed: 'Échec de l\'actualisation',
+    postCreationFailed: 'Échec de la création du post'
+  },
+  success: {
+    postCreated: 'Post créé avec succès'
+  },
+  modes: {
+    ranked: 'Combat classé',
+    duoShowdown: 'Combat en duo',
+    gemGrab: 'Capture de gemmes',
+    brawlBall: 'Brawl Ball',
+    heist: 'Braquage',
+    knockout: 'K.O.',
+    bounty: 'Prime',
+    wipeout: 'Élimination',
+    hotZone: 'Zone chaude',
+    brawlBall5v5: 'Brawl Ball 5v5',
+    wipeout5v5: 'Élimination 5v5'
+  }
+};
+
+export const es: TeamBoardTranslation = {
+  boardTitle: 'Reclutamiento de equipo',
+  refresh: 'Actualizar',
+  create: 'Crear',
+  cancel: 'Cancelar',
+  submit: 'Enviar',
+  playerTag: 'Tu Tag de Jugador',
+  tagDescription: '* La información del anfitrión se completará con este tag.',
+  tagPlaceholder: '#XXXXXXXXX',
+  verify: 'Verificar',
+  change: 'Cambiar',
+  searchHistory: 'Historial de búsqueda',
+  modeSelection: 'Seleccionar modo',
+  useCharacter: 'Tu personaje',
+  midCharacters: 'Personajes Mid (Máx 3)',
+  sideCharacters: 'Personajes Side (Máx 3)',
+  inviteLink: 'Enlace de invitación',
+  inviteLinkPlaceholder: 'Pega el enlace de invitación aquí',
+  comment: 'Comentario (Opcional)',
+  commentPlaceholder: 'Ingresa detalles o requisitos',
+  errors: {
+    postLimitTitle: 'Límite de publicación',
+    postLimitPrefix: 'Por favor espera ',
+    postLimitSuffix: ' antes de publicar de nuevo',
+    minutes: ' minutos',
+    seconds: ' segundos',
+    selectMode: 'Por favor selecciona un modo',
+    playerInfo: 'Por favor obtén la información del jugador',
+    selectCharacter: 'Por favor selecciona un personaje',
+    invalidLink: 'Por favor ingresa un enlace de invitación válido',
+    enterTag: 'Por favor ingresa un tag de jugador',
+    invalidTag: 'Tag de jugador inválido',
+    fetchFailed: 'Error al obtener datos del jugador',
+    maxMidChars: 'Puedes seleccionar hasta 3 personajes mid',
+    maxSideChars: 'Puedes seleccionar hasta 3 personajes side',
+    refreshCooldown: 'La actualización estará disponible en 3 segundos',
+    refreshFailed: 'Error al actualizar',
+    postCreationFailed: 'Error al crear la publicación'
+  },
+  success: {
+    postCreated: 'Publicación creada exitosamente'
+  },
+  modes: {
+    ranked: 'Batalla clasificatoria',
+    duoShowdown: 'Supervivencia por parejas',
+    gemGrab: 'Atrapagemas',
+    brawlBall: 'Brawl Ball',
+    heist: 'Atraco',
+    knockout: 'Nocaut',
+    bounty: 'Recompensa',
+    wipeout: 'Eliminación',
+    hotZone: 'Zona candente',
+    brawlBall5v5: 'Brawl Ball 5v5',
+    wipeout5v5: 'Eliminación 5v5'
+  }
+};
+
+export const zhTw: TeamBoardTranslation = {
+  boardTitle: '組隊招募',
+  refresh: '重新整理',
+  create: '發布招募',
+  cancel: '取消',
+  submit: '送出',
+  playerTag: '你的玩家標籤',
+  tagDescription: '* 將從此標籤填入主持人資訊。',
+  tagPlaceholder: '#XXXXXXXXX',
+  verify: '驗證',
+  change: '變更',
+  searchHistory: '搜尋紀錄',
+  modeSelection: '選擇模式',
+  useCharacter: '使用角色',
+  midCharacters: '中路角色 (最多3個)',
+  sideCharacters: '邊路角色 (最多3個)',
+  inviteLink: '邀請連結',
+  inviteLinkPlaceholder: '在此貼上邀請連結',
+  comment: '備註 (選填)',
+  commentPlaceholder: '輸入詳細資訊或要求',
+  errors: {
+    postLimitTitle: '發文限制',
+    postLimitPrefix: '請等待',
+    postLimitSuffix: '後再次發布',
+    minutes: '分鐘',
+    seconds: '秒',
+    selectMode: '請選擇模式',
+    playerInfo: '請取得玩家資訊',
+    selectCharacter: '請選擇角色',
+    invalidLink: '請輸入有效的邀請連結',
+    enterTag: '請輸入玩家標籤',
+    invalidTag: '無效的玩家標籤',
+    fetchFailed: '取得玩家資料失敗',
+    maxMidChars: '中路角色最多只能選擇3個',
+    maxSideChars: '邊路角色最多只能選擇3個',
+    refreshCooldown: '3秒後才能重新整理',
+    refreshFailed: '重新整理失敗',
+    postCreationFailed: '發布貼文失敗'
+  },
+  success: {
+    postCreated: '貼文發布成功'
+  },
+  modes: {
+    ranked: '排位賽',
+    duoShowdown: '雙人生存',
+    gemGrab: '寶石搶奪',
+    brawlBall: '荒野足球',
+    heist: '金庫保衛',
+    knockout: '淘汰賽',
+    bounty: '賞金賽',
+    wipeout: '殲滅戰',
+    hotZone: '熱區爭奪',
+    brawlBall5v5: '5對5荒野足球',
+    wipeout5v5: '5對5殲滅戰'
+  }
+};
+
+// Update translations object
 export const teamBoardTranslations = {
   ja,
   en,
-  ko
+  ko,
+  ar,
+  fr,
+  es,
+  zhTw
 } as const;
 
 // 言語タイプの定義
