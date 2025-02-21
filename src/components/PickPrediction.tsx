@@ -20,7 +20,7 @@ import { ScreenState } from './types';
 const PickPrediction: React.FC = () => {
   const {
     gameState,
-    history,  // ここにhistoryを追加
+    history,
     showTurnModal,
     showModeModal,
     turnMessage,
@@ -40,9 +40,10 @@ const PickPrediction: React.FC = () => {
     handleMapInfoPress,
     setGameStateWithHistory,
     t
-} = usePickPrediction();
+  } = usePickPrediction();
 
   const scaleAnim = useRef(new Animated.Value(0)).current;
+  const [isTeamsSwapped, setIsTeamsSwapped] = useState(false);
   const [screenStack, setScreenStack] = useState<ScreenState[]>([
     { type: 'home', translateX: new Animated.Value(0), zIndex: 0 }
   ]);
@@ -70,14 +71,38 @@ const PickPrediction: React.FC = () => {
   }, [showTurnModal]);
 
   const handleTeamSwap = () => {
-    setGameStateWithHistory(prev => ({
-      ...prev,
-      teamA: [...prev.teamB],
-      teamB: [...prev.teamA],
-      bansA: [...prev.bansB],
-      bansB: [...prev.bansA],
-      currentTeam: prev.currentTeam === 'A' ? 'B' : 'A'
-    }));
+    setIsTeamsSwapped(prev => !prev);
+    setShowTurnModal(true);
+  };
+
+  // Helper function to get the visually correct team data
+  const getVisualTeamData = (team: 'A' | 'B') => {
+    if (isTeamsSwapped) {
+      return {
+        team: team === 'A' ? 'B' : 'A',
+        teamData: team === 'A' ? gameState.teamB : gameState.teamA,
+        bans: team === 'A' ? gameState.bansB : gameState.bansA,
+        isCurrentTurn: gameState.currentTeam === (team === 'A' ? 'B' : 'A')
+      };
+    }
+    return {
+      team,
+      teamData: team === 'A' ? gameState.teamA : gameState.teamB,
+      bans: team === 'A' ? gameState.bansA : gameState.bansB,
+      isCurrentTurn: gameState.currentTeam === team
+    };
+  };
+
+  // Wrapper for character selection handler
+  const handleVisualCharacterSelect = (character: string, team: 'A' | 'B') => {
+    const actualTeam = isTeamsSwapped ? (team === 'A' ? 'B' : 'A') : team;
+    handleCharacterSelect(character, actualTeam);
+  };
+
+  // Wrapper for ban selection handler
+  const handleVisualBanSelect = (character: string, team: 'A' | 'B') => {
+    const actualTeam = isTeamsSwapped ? (team === 'A' ? 'B' : 'A') : team;
+    handleBanSelect(character, actualTeam);
   };
 
   const showScreen = (screenType: ScreenType) => {
@@ -258,9 +283,9 @@ const PickPrediction: React.FC = () => {
         <View style={styles.teamsContainer}>
           <TeamSection
             gameState={gameState}
-            team="A"
-            onBanSelect={handleBanSelect}
-            onCharacterSelect={handleCharacterSelect}
+            {...getVisualTeamData('A')}
+            onBanSelect={handleVisualBanSelect}
+            onCharacterSelect={handleVisualCharacterSelect}
             getLocalizedName={getLocalizedName}
           />
           <View style={styles.centerContent}>
@@ -295,9 +320,9 @@ const PickPrediction: React.FC = () => {
           </View>
           <TeamSection
             gameState={gameState}
-            team="B"
-            onBanSelect={handleBanSelect}
-            onCharacterSelect={handleCharacterSelect}
+            {...getVisualTeamData('B')}
+            onBanSelect={handleVisualBanSelect}
+            onCharacterSelect={handleVisualCharacterSelect}
             getLocalizedName={getLocalizedName}
           />
         </View>
@@ -305,10 +330,11 @@ const PickPrediction: React.FC = () => {
 
       <CharacterSelection
         gameState={gameState}
-        onBanSelect={handleBanSelect}
-        onCharacterSelect={handleCharacterSelect}
+        onBanSelect={handleVisualBanSelect}
+        onCharacterSelect={handleVisualCharacterSelect}
         calculateTeamAdvantage={calculateTeamAdvantage}
         getLocalizedName={getLocalizedName}
+        isTeamsSwapped={isTeamsSwapped}
       />
 
       <Modal
@@ -633,7 +659,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: 'rgba(255, 255, 255, 0.8)',
     marginTop: 8,
-  },
+  }
 });
 
 export default PickPrediction;
