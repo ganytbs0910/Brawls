@@ -225,10 +225,10 @@ export const ko: TeamBoardTranslation = {
     heist: '하이스트',
     knockout: '녹아웃',
     bounty: '바운티',
-    wipeout: '와이프아웃',
+    wipeout: '클린 아웃',
     hotZone: '핫 존',
     brawlBall5v5: '5대5 브롤 볼',
-    wipeout5v5: '5대5 와이프아웃'
+    wipeout5v5: '5대5 클린 아웃'
   },
 };
 

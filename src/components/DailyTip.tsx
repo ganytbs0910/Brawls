@@ -278,32 +278,6 @@ export const DAILY_TIPS: Tip[] = [
   {
     id: 21,
     title: {
-      ja: "スプラウトのウルトの隠れ場所",
-      en: "Sprout's Ultimate Hiding Spot",
-      ko: "스프라우트의 궁극기 숨을 수 있는 장소"
-    },
-    content: {
-      ja: "スプラウトのウルトは壁の中に隠れることができる",
-      en: "Sprout's ultimate can hide inside walls",
-      ko: "스프라우트의 궁극기는 벽 안에 숨을 수 있습니다"
-    }
-  },
-  {
-    id: 22,
-    title: {
-      ja: "スプラウトのウルトのダメージ",
-      en: "Sprout's Ultimate Damage",
-      ko: "스프라우트의 궁극기 데미지"
-    },
-    content: {
-      ja: "スプラウトのウルトは最大射程で発射すると最大で5600ダメージを与える",
-      en: "Sprout's ultimate can deal up to 5,600 damage when fired at maximum range",
-      ko: "스프라우트의 궁극기는 최대 사거리에서 발사하면 최대 5600의 데미지를 줄 수 있습니다"
-    }
-  },
-  {
-    id: 23,
-    title: {
       ja: "ストゥーの必殺技の向き",
       en: "Stu's Ultimate",
       ko: "스투의 궁극기"

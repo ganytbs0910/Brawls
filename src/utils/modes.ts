@@ -40,7 +40,7 @@ const modeNameMapping = {
   },
   "殲滅": {
     en: "Wipeout",
-    ko: "섬멸전",
+    ko: "클린 아웃",
     icon: require('../../assets/GameModeIcons/wipeout_icon.png')
   },
   "ホットゾーン": {
@@ -55,7 +55,7 @@ const modeNameMapping = {
   },
   "5vs5殲滅": {
     en: "5v5 Wipeout",
-    ko: "5대5 섬멸전",
+    ko: "5대5 클린 아웃",
     icon: require('../../assets/GameModeIcons/5v5wipeout_icon.png')
   }
 };
