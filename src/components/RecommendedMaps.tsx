@@ -4,7 +4,6 @@ import { useCharacterDetailsTranslation } from '../i18n/characterDetails';
 import { useCharacterLocalization } from '../hooks/useCharacterLocalization';
 import { getMapData, getMapInfo, initializeMapData } from '../data/mapDataService';
 import { CHARACTER_NAMES, JAPANESE_TO_ENGLISH_MAP } from '../data/characterCompatibility';
-import type { MapData } from '../types/types';
 
 const gameModeIcons = {
   gemGrab: require('../../assets/GameModeIcons/gem_grab_icon.png'),
@@ -23,8 +22,8 @@ const gameModeIcons = {
   rankFront: require('../../assets/GameModeIcons/rank_front.png'),
 };
 
-const normalizeGameMode = (mode: string): string => {
-  const modeMap: { [key: string]: string } = {
+const normalizeGameMode = (mode) => {
+  const modeMap = {
     'エメラルドハント': 'gemgrab',
     'ブロストライカー': 'brawlball',
     '強奪': 'heist',
@@ -43,14 +42,13 @@ const normalizeGameMode = (mode: string): string => {
     'ガチバトル': 'rankfront'
   };
 
-  const normalizedMode = mode.trim();
-  return modeMap[normalizedMode] || normalizedMode.toLowerCase().replace(/\s+/g, '');
+  return modeMap[mode.trim()] || mode.toLowerCase().replace(/\s+/g, '');
 };
 
 const RecommendedMaps = ({ characterName }) => {
-  const { t } = useCharacterDetailsTranslation();
+  const { t, currentLanguage } = useCharacterDetailsTranslation();
   const { getLocalizedName } = useCharacterLocalization();
-  const [groupedMaps, setGroupedMaps] = useState<{ [key: string]: any[] }>({});
+  const [groupedMaps, setGroupedMaps] = useState({});
 
   const japaneseCharacterName = CHARACTER_NAMES[JAPANESE_TO_ENGLISH_MAP[characterName] || characterName.toLowerCase()]?.ja || characterName;
 
@@ -97,8 +95,8 @@ const RecommendedMaps = ({ characterName }) => {
     },
     'knockout5v5': {
       color: "#4169E1",
-      label: t.maps?.modes.brawlBall5v5 || "5vs5ノックアウト",
-      icon: gameModeIcons.brawlBall5v5
+      label: t.maps?.modes.knockout5v5 || "5vs5ノックアウト",
+      icon: gameModeIcons.knockout5v5
     },
     'wipeout5v5': {
       color: "#8A2BE2",
@@ -127,7 +125,7 @@ const RecommendedMaps = ({ characterName }) => {
       try {
         const initializedData = await initializeMapData();
         if (!initializedData) {
-          console.log('Failed to initialize map data');
+          console.warn('Failed to initialize map data');
           return;
         }
 
@@ -135,18 +133,14 @@ const RecommendedMaps = ({ characterName }) => {
         
         const filteredMaps = allMaps
           .filter(map => {
-            const hasRecommendation = map?.recommendedBrawlers?.some(
+            return map?.recommendedBrawlers?.some(
               brawler => brawler.name === japaneseCharacterName && brawler.power >= 4
             );
-            return hasRecommendation;
           })
           .map(map => {
             if (!map) return null;
 
             const normalizedGameMode = normalizeGameMode(map.gameMode);
-            console.log('Original game mode:', map.gameMode);
-            console.log('Normalized game mode:', normalizedGameMode);
-            
             const mode = modeInfo[normalizedGameMode] || { 
               color: "#cccccc", 
               label: map.gameMode,
@@ -157,8 +151,13 @@ const RecommendedMaps = ({ characterName }) => {
               b => b.name === japaneseCharacterName
             );
 
+            // Get localized map name based on current language
+            const localizedMapName = currentLanguage === 'en' ? map.nameEn : 
+                                   currentLanguage === 'ko' ? map.nameKo : 
+                                   map.name;
+
             return {
-              name: map.name,
+              name: localizedMapName,
               mode: mode.label,
               gameMode: normalizedGameMode,
               power: recommendedBrawler?.power || 0,
@@ -184,18 +183,12 @@ const RecommendedMaps = ({ characterName }) => {
     };
 
     loadMaps();
-  }, [japaneseCharacterName, t.maps?.modes]);
-
-  const translations = {
-    recommendedTitle: t.maps?.recommendedTitle || "推奨マップ",
-    powerLevel: t.maps?.powerLevel || "パワーレベル",
-    noRecommendedMaps: t.maps?.noRecommendedMaps || "このキャラクターに推奨されるマップはありません"
-  };
+  }, [japaneseCharacterName, currentLanguage, t.maps?.modes]);
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>{translations.recommendedTitle}</Text>
+        <Text style={styles.title}>{t.maps?.recommendedTitle || "推奨マップ"}</Text>
       </View>
       
       {Object.entries(groupedMaps).map(([mode, maps]) => (
@@ -230,7 +223,7 @@ const RecommendedMaps = ({ characterName }) => {
                 
                 <View style={styles.powerLevelContainer}>
                   <Text style={styles.powerLevelLabel}>
-                    {translations.powerLevel}:
+                    {t.maps?.powerLevel || "パワーレベル"}:
                   </Text>
                   <Text style={[styles.powerLevelValue, { color: map.modeColor }]}>
                     {map.power}/5
@@ -245,7 +238,7 @@ const RecommendedMaps = ({ characterName }) => {
       {Object.keys(groupedMaps).length === 0 && (
         <View style={styles.emptyState}>
           <Text style={styles.emptyStateText}>
-            {translations.noRecommendedMaps}
+            {t.maps?.noRecommendedMaps || "このキャラクターに推奨されるマップはありません"}
           </Text>
         </View>
       )}

@@ -167,7 +167,6 @@ export const rotatingModes = {
   }
 };
 
-// モード別の推奨マップ定義
 const RNAKED_MAPS = {
   gemGrab: [
     "ごつごつ坑道",

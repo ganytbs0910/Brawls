@@ -74,7 +74,7 @@ export const ja: CharacterDetailsTranslation = {
   tabs: {
     info: 'キャラ情報',
     compatibility: '相性表',
-    maps: '推奨マップ',  // 追加
+    maps: '推奨マップ',
   },
    maps: {
     recommendedTitle: "推奨マップ",
@@ -146,7 +146,7 @@ export const en: CharacterDetailsTranslation = {
   tabs: {
     info: 'Info',
     compatibility: 'Compatibility',
-    maps: 'Maps',  // 追加
+    maps: 'Maps', 
   },
   maps: {
     recommendedTitle: "Recommended Maps",
