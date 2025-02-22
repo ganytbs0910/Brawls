@@ -179,40 +179,22 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
 }, []);
 
   const handleShare = async () => {
-    try {
-      const appStoreUrl = 'https://apps.apple.com/jp/app/brawl-status/id6738936691';
-      const shareMessage = {
-        ja: `ブロスタのマップ情報をチェックできるアプリ「Brawl Status」\n\nApp Storeからダウンロード：\n${appStoreUrl}`,
-        en: `Check Brawl Stars map information with "Brawl Status"\n\nDownload from App Store:\n${appStoreUrl}`,
-        ko: `브롤스타즈 맵 정보를 확인할 수 있는 앱 "Brawl Status"\n\nApp Store에서 다운로드：\n${appStoreUrl}`,
-        
-      };
-      
-      const shareTitle = {
-        ja: 'Brawl Status - ブロスタ攻略アプリ',
-        en: 'Brawl Status - Brawl Stars Guide',
-        ko: 'Brawl Status - 브롤스타즈 가이드'
-      };
-      
-      const dialogTitle = {
-        ja: 'Brawl Statusを共有',
-        en: 'Share Brawl Status',
-        ko: 'Brawl Status 공유'
-      };
-
-      await Share.share({
-        message: shareMessage[currentLanguage],
-        url: appStoreUrl,
-        title: shareTitle[currentLanguage]
-      }, {
-        dialogTitle: dialogTitle[currentLanguage],
-        subject: shareTitle[currentLanguage],
-        tintColor: '#21A0DB'
-      });
-    } catch (error) {
-      console.error('Share error:', error);
-    }
-  };
+  try {
+    const appStoreUrl = 'https://apps.apple.com/jp/app/brawl-status/id6738936691';
+    
+    await Share.share({
+      message: t.share.message.replace('{appStoreUrl}', appStoreUrl),
+      url: appStoreUrl,
+      title: t.share.title
+    }, {
+      dialogTitle: t.share.dialogTitle,
+      subject: t.share.title,
+      tintColor: '#21A0DB'
+    });
+  } catch (error) {
+    console.error('Share error:', error);
+  }
+};
 
   const handlePurchaseAdRemoval = async () => {
     if (loading || isAdFree || !isIAPAvailable) return;

@@ -1,4 +1,3 @@
-//settingsScreen.ts
 export type SettingsScreenTranslation = {
   header: {
     settings: string;
@@ -40,6 +39,11 @@ export type SettingsScreenTranslation = {
   ads: {
     showError: string;
     rewardError: string;
+  };
+  share: {
+    message: string;
+    title: string;
+    dialogTitle: string;
   };
 };
 
@@ -85,6 +89,11 @@ export const ja: SettingsScreenTranslation = {
     showError: '広告の表示に失敗しました。',
     rewardError: 'リワード広告の表示に失敗しました。',
   },
+  share: {
+    message: 'ブロスタのマップ情報をチェックできるアプリ「Brawl Status」\n\nApp Storeからダウンロード：\n{appStoreUrl}',
+    title: 'Brawl Status - ブロスタ攻略アプリ',
+    dialogTitle: 'Brawl Statusを共有',
+  },
 };
 
 export const en: SettingsScreenTranslation = {
@@ -128,6 +137,11 @@ export const en: SettingsScreenTranslation = {
   ads: {
     showError: 'Failed to display ad.',
     rewardError: 'Failed to display reward ad.',
+  },
+  share: {
+    message: 'Check Brawl Stars map information with "Brawl Status"\n\nDownload from App Store:\n{appStoreUrl}',
+    title: 'Brawl Status - Brawl Stars Guide',
+    dialogTitle: 'Share Brawl Status',
   },
 };
 
@@ -173,6 +187,11 @@ export const ko: SettingsScreenTranslation = {
     showError: '광고 표시에 실패했습니다.',
     rewardError: '리워드 광고 표시에 실패했습니다.',
   },
+  share: {
+    message: '브롤스타즈 맵 정보를 확인할 수 있는 앱 "Brawl Status"\n\nApp Store에서 다운로드：\n{appStoreUrl}',
+    title: 'Brawl Status - 브롤스타즈 가이드',
+    dialogTitle: 'Brawl Status 공유',
+  },
 };
 
 export const es: SettingsScreenTranslation = {
@@ -216,6 +235,11 @@ export const es: SettingsScreenTranslation = {
   ads: {
     showError: 'Error al mostrar el anuncio.',
     rewardError: 'Error al mostrar el anuncio de recompensa.',
+  },
+  share: {
+    message: 'Verifica la información de mapas de Brawl Stars con "Brawl Status"\n\nDescarga desde App Store:\n{appStoreUrl}',
+    title: 'Brawl Status - Guía de Brawl Stars',
+    dialogTitle: 'Compartir Brawl Status',
   },
 };
 
@@ -261,6 +285,11 @@ export const ar: SettingsScreenTranslation = {
     showError: 'فشل في عرض الإعلان.',
     rewardError: 'فشل في عرض إعلان المكافأة.',
   },
+  share: {
+    message: 'تحقق من معلومات خرائط Brawl Stars مع "Brawl Status"\n\nقم بالتحميل من App Store:\n{appStoreUrl}',
+    title: 'Brawl Status - دليل Brawl Stars',
+    dialogTitle: 'مشاركة Brawl Status',
+  },
 };
 
 export const fr: SettingsScreenTranslation = {
@@ -304,6 +333,11 @@ export const fr: SettingsScreenTranslation = {
   ads: {
     showError: 'Échec de l\'affichage de la publicité.',
     rewardError: 'Échec de l\'affichage de la publicité à récompense.',
+  },
+  share: {
+    message: 'Consultez les informations des cartes Brawl Stars avec "Brawl Status"\n\nTéléchargez sur l\'App Store :\n{appStoreUrl}',
+    title: 'Brawl Status - Guide Brawl Stars',
+    dialogTitle: 'Partager Brawl Status',
   },
 };
 
@@ -349,9 +383,14 @@ export const zhTw: SettingsScreenTranslation = {
     showError: '顯示廣告失敗。',
     rewardError: '顯示獎勵廣告失敗。',
   },
+  share: {
+    message: '查看 Brawl Stars 地圖資訊的應用程式 "Brawl Status"\n\n從 App Store 下載：\n{appStoreUrl}',
+    title: 'Brawl Status - Brawl Stars 攻略指南',
+    dialogTitle: '分享 Brawl Status',
+  },
 };
 
-// Update translations object
+// 翻訳オブジェクトの更新
 export const settingsScreenTranslations = {
   ja,
   en,
