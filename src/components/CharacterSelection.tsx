@@ -17,7 +17,7 @@ interface CharacterSelectionProps {
     advantageTeam: Team | null;
     difference: number;
   };
-  getLocalizedName: (name: string) => string;  // 追加
+  getLocalizedName: (name: string) => string;
 }
 
 interface CharacterRecommendation {
@@ -37,7 +37,7 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
   onBanSelect,
   onCharacterSelect,
   calculateTeamAdvantage,
-  getLocalizedName  // 追加
+  getLocalizedName
 }) => {
   const { t, currentLanguage } = usePickPredictionTranslation();
   const ct = getCharacterSelectionTranslation(currentLanguage);
@@ -49,73 +49,72 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
     if (score >= 54) return '#FFC107';
     return '#F44336';
   };
+
   useEffect(() => {
-  console.log('CharacterSelection received new gameState with map:', gameState.selectedMap);
-  console.log('CharacterSelection recommendations:', gameState.recommendations);
-  console.log('CharacterSelection mapRecommendations:', gameState.mapRecommendations);
-}, [gameState.selectedMap, gameState.recommendations, gameState.mapRecommendations]);
+    console.log('CharacterSelection received new gameState with map:', gameState.selectedMap);
+    console.log('CharacterSelection recommendations:', gameState.recommendations);
+    console.log('CharacterSelection mapRecommendations:', gameState.mapRecommendations);
+  }, [gameState.selectedMap, gameState.recommendations, gameState.mapRecommendations]);
 
   const renderAdvantageMessage = () => {
-  if (gameState.teamA.length === 3 && gameState.teamB.length === 3) {
-    const advantage = calculateTeamAdvantage(gameState.teamA, gameState.teamB);
-    const winningTeam = advantage.teamAScore > advantage.teamBScore ? 'A' : 'B';
-    
-    return (
-      <View style={styles.advantageContainer}>
-        <Text style={styles.advantageTitle}>{ct.advantage.title}</Text>
-        <View style={styles.scoreComparisonContainer}>
-          <Text style={styles.teamScore}>
-            {ct.advantage.teamScore('A')}{advantage.teamAScore.toFixed(1)}pt
-          </Text>
-          <Text style={styles.teamScore}>
-            {ct.advantage.teamScore('B')}{advantage.teamBScore.toFixed(1)}pt
+    if (gameState.teamA.length === 3 && gameState.teamB.length === 3) {
+      const advantage = calculateTeamAdvantage(gameState.teamA, gameState.teamB);
+      const winningTeam = advantage.teamAScore > advantage.teamBScore ? 'A' : 'B';
+      
+      return (
+        <View style={styles.advantageContainer}>
+          <Text style={styles.advantageTitle}>{ct.advantage.title}</Text>
+          <View style={styles.scoreComparisonContainer}>
+            <Text style={styles.teamScore}>
+              {ct.advantage.teamScore('A')}{advantage.teamAScore.toFixed(1)}pt
+            </Text>
+            <Text style={styles.teamScore}>
+              {ct.advantage.teamScore('B')}{advantage.teamBScore.toFixed(1)}pt
+            </Text>
+          </View>
+          <Text style={[
+            styles.advantageText,
+            { 
+              color: winningTeam === 'B' ? '#007AFF' : '#FF3B30'
+            }
+          ]}>
+            {ct.advantage.winningProbability(winningTeam)}
+            {advantage.winRate}%
           </Text>
         </View>
-        <Text style={[
-          styles.advantageText,
-          { 
-            color: winningTeam === 'B' ? '#007AFF' : '#FF3B30'
-          }
-        ]}>
-          {ct.advantage.winningProbability(winningTeam)}
-          {advantage.winRate}%
-        </Text>
-      </View>
-    );
-  }
-  return null;
-};
+      );
+    }
+    return null;
+  };
 
   const renderRecommendation = (rec: CharacterRecommendation, index: number) => {
-  // バンされているかどうかのチェックを追加
-  const isBanned = gameState.bansA.includes(rec.character) || 
-                  gameState.bansB.includes(rec.character);
-  const isSelectable = !gameState.teamA.includes(rec.character) && 
-                      !gameState.teamB.includes(rec.character) &&
-                      !isBanned; // バンチェックを追加
+    const isSelected = gameState.teamA.includes(rec.character) || 
+                      gameState.teamB.includes(rec.character);
+    
+    // 現在のチームのバン状態のみをチェック
+    const isBannedByCurrentTeam = gameState.currentTeam === 'A' ? 
+      gameState.bansA.includes(rec.character) : 
+      gameState.bansB.includes(rec.character);
 
-  // バンされているキャラクターは表示しない
-  if (isBanned) {
-    return null;
-  }
+    const isSelectable = !isSelected && !isBannedByCurrentTeam;
 
-  return (
-    <TouchableOpacity
-      key={index}
-      style={[
-        styles.recommendationRow,
-        isSelectable && styles.selectableRecommendation,
-        !isSelectable && styles.disabledRecommendation
-      ]}
-      onPress={() => isSelectable && onCharacterSelect(rec.character)}
-      disabled={!isSelectable}
-    >
+    return (
+      <TouchableOpacity
+        key={index}
+        style={[
+          styles.recommendationRow,
+          isSelectable && styles.selectableRecommendation,
+          !isSelectable && styles.disabledRecommendation
+        ]}
+        onPress={() => isSelectable && onCharacterSelect(rec.character)}
+        disabled={!isSelectable}
+      >
         <View style={styles.recommendationContent}>
           <View style={styles.characterInfo}>
             <Text style={styles.rankText}>{ct.recommendations.rank(index)}</Text>
             <CharacterImage characterName={rec.character} size={25} />
             <Text style={styles.characterName}>
-              {getLocalizedName(rec.character)}  {/* ここを修正 */}
+              {getLocalizedName(rec.character)}
             </Text>
           </View>
           <View style={styles.scoreInfo}>
@@ -175,14 +174,18 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
           const isBannedByTeamB = gameState.bansB.includes(character);
           const isSelected = gameState.teamA.includes(character) || gameState.teamB.includes(character);
           
-          const isDisabled = isSelected || isBannedByTeamA || isBannedByTeamB;
+          // 現在のチームのバン状態のみを考慮
+          const isDisabled = isSelected || 
+                           (gameState.currentTeam === 'A' && isBannedByTeamA) ||
+                           (gameState.currentTeam === 'B' && isBannedByTeamB);
           
           return (
             <TouchableOpacity
               key={character}
               style={[
                 styles.characterButton,
-                (isBannedByTeamA || isBannedByTeamB) && styles.bannedCharacterButton,
+                ((isBannedByTeamA && gameState.currentTeam === 'A') || 
+                 (isBannedByTeamB && gameState.currentTeam === 'B')) && styles.bannedCharacterButton,
                 isSelected && styles.selectedCharacterButton,
                 gameState.recommendations.slice(0, 10).some(rec => rec.character === character) && {
                   borderColor: '#00BCD4'
@@ -193,8 +196,14 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
                   (gameState.bansA.length < 3 && gameState.currentTeam === 'A') ||
                   (gameState.bansB.length < 3 && gameState.currentTeam === 'B')
                 )) {
-                  onBanSelect(character);
-                } else if (!isSelected) {
+                  // 自チームのバン数制限内であればバン可能
+                  const currentTeamBans = gameState.currentTeam === 'A' ? gameState.bansA : gameState.bansB;
+                  if (!currentTeamBans.includes(character)) {
+                    onBanSelect(character);
+                  }
+                } else if (!isSelected && 
+                          !((gameState.currentTeam === 'A' && isBannedByTeamA) || 
+                            (gameState.currentTeam === 'B' && isBannedByTeamB))) {
                   onCharacterSelect(character);
                 }
               }}
@@ -202,7 +211,7 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
             >
               <CharacterImage characterName={character} size={40} />
               <Text style={styles.characterNameLabel}>
-                {getLocalizedName(character)}  {/* ここを修正 */}
+                {getLocalizedName(character)}
               </Text>
               {(isBannedByTeamA || isBannedByTeamB) && (
                 <View style={styles.banOverlay}>
@@ -289,7 +298,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 2,
   },
-
   scoreInfo: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -299,17 +307,17 @@ const styles = StyleSheet.create({
   rankText: {
     fontSize: 12,
     fontWeight: 'bold',
-    minWidth: 25,  // 幅を固定
-    textAlign: 'center',  // 中央揃え
+    minWidth: 25,
+    textAlign: 'center',
     color: '#666',
   },
-   characterName: {
+  characterName: {
     marginLeft: 8,
     fontSize: 12,
     color: '#333',
-    flex: 1,  // 残りのスペースを使用
+    flex: 1,
   },
-  characterNameLabel: {  // 追加
+  characterNameLabel: {
     fontSize: 10,
     color: '#333',
     marginTop: 2,
@@ -350,7 +358,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0f0f0',
     borderRadius: 5,
     width: 56,
-    height: 70,  // キャラクター名表示のため高さを調整
+    height: 70,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 2,

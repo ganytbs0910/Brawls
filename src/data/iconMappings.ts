@@ -18,12 +18,20 @@ interface GearData {
     ja: string;
     en: string;
     ko: string;
+    es: string;
+    ar: string;
+    fr: string;
+    "zh-tw": string;
   };
   icon: any;
   description: {
     ja: string;
     en: string;
     ko: string;
+    es: string;
+    ar: string;
+    fr: string;
+    "zh-tw": string;
   };
   type: 'superrare' | 'epic' | 'mythic' | 'plus';
 }
@@ -35,13 +43,21 @@ const gearData = {
       name: {
         ja: "スピードギア",
         en: "Speed Gear",
-        ko: "스피드 기어"
+        ko: "스피드 기어",
+        es: "Engranaje de Velocidad",
+        ar: "ترس السرعة",
+        fr: "Engrenage de Vitesse",
+        "zh-tw": "速度齒輪"
       },
       icon: require('../../assets/GearIcon/gear_superrare_speed.png'),
       description: {
         ja: "やぶの中を移動する際のスピードが15%上昇する。",
         en: "Increases movement speed in bushes by 15%.",
-        ko: "수풀 속에서 이동 속도가 15% 증가합니다."
+        ko: "수풀 속에서 이동 속도가 15% 증가합니다.",
+        es: "Aumenta la velocidad de movimiento en arbustos en un 15%.",
+        ar: "يزيد من سرعة الحركة في الأدغال بنسبة 15٪.",
+        fr: "Augmente la vitesse de déplacement dans les buissons de 15%.",
+        "zh-tw": "在草叢中移動速度提升15%。"
       },
       type: "superrare"
     },
@@ -50,13 +66,21 @@ const gearData = {
       name: {
         ja: "ビジョンギア",
         en: "Vision Gear",
-        ko: "비전 기어"
+        ko: "비전 기어",
+        es: "Engranaje de Visión",
+        ar: "ترس الرؤية",
+        fr: "Engrenage de Vision",
+        "zh-tw": "視野齒輪"
       },
       icon: require('../../assets/GearIcon/gear_superrare_vision.png'),
       description: {
         ja: "敵にダメージを与えると、その敵の姿が2秒間見えるようになる。",
         en: "When you deal damage to an enemy, you can see them for 2 seconds.",
-        ko: "적에게 데미지를 주면 해당 적을 2초 동안 볼 수 있습니다."
+        ko: "적에게 데미지를 주면 해당 적을 2초 동안 볼 수 있습니다.",
+        es: "Cuando infliges daño a un enemigo, puedes verlo durante 2 segundos.",
+        ar: "عند إلحاق الضرر بعدو، يمكنك رؤيته لمدة ثانيتين.",
+        fr: "Lorsque vous infligez des dégâts à un ennemi, vous pouvez le voir pendant 2 secondes.",
+        "zh-tw": "對敵人造成傷害時，可以看見該敵人2秒。"
       },
       type: "superrare"
     },
@@ -65,13 +89,21 @@ const gearData = {
       name: {
         ja: "ヒールギア",
         en: "Heal Gear",
-        ko: "힐 기어"
+        ko: "힐 기어",
+        es: "Engranaje de Curación",
+        ar: "ترس الشفاء",
+        fr: "Engrenage de Soin",
+        "zh-tw": "治療齒輪"
       },
       icon: require('../../assets/GearIcon/gear_superrare_heal.png'),
       description: {
         ja: "HPを50%効率的に回復する。",
         en: "Heal HP 50% more efficiently.",
-        ko: "HP를 50% 더 효율적으로 회복합니다."
+        ko: "HP를 50% 더 효율적으로 회복합니다.",
+        es: "Cura PS un 50% más eficientemente.",
+        ar: "يشفي نقاط الصحة بكفاءة أعلى بنسبة 50٪.",
+        fr: "Soigne les PV 50% plus efficacement.",
+        "zh-tw": "生命值恢復效率提升50%。"
       },
       type: "superrare"
     },
@@ -80,13 +112,21 @@ const gearData = {
       name: {
         ja: "シールドギア",
         en: "Shield Gear",
-        ko: "실드 기어"
+        ko: "실드 기어",
+        es: "Engranaje de Escudo",
+        ar: "ترس الدرع",
+        fr: "Engrenage de Bouclier",
+        "zh-tw": "護盾齒輪"
       },
       icon: require('../../assets/GearIcon/gear_superrare_shield.png'),
       description: {
         ja: "消費型のシールドとして最大HPを900増強する。キャラクターのHPが満タンになると、10秒後にシールドが全回復する。",
         en: "Increases maximum HP by 900 as a consumable shield. When character's HP is full, shield fully recovers after 10 seconds.",
-        ko: "소모성 실드로 최대 HP를 900 증가시킵니다. 캐릭터의 HP가 최대가 되면 10초 후에 실드가 완전히 회복됩니다."
+        ko: "소모성 실드로 최대 HP를 900 증가시킵니다. 캐릭터의 HP가 최대가 되면 10초 후에 실드가 완전히 회복됩니다.",
+        es: "Aumenta los PS máximos en 900 como escudo consumible. Cuando los PS del personaje están llenos, el escudo se recupera por completo después de 10 segundos.",
+        ar: "يزيد الحد الأقصى لنقاط الصحة بمقدار 900 كدرع قابل للاستهلاك. عندما تكون نقاط صحة الشخصية كاملة، يتم استعادة الدرع بالكامل بعد 10 ثوانٍ.",
+        fr: "Augmente les PV maximum de 900 sous forme de bouclier consommable. Lorsque les PV du personnage sont pleins, le bouclier se régénère complètement après 10 secondes.",
+        "zh-tw": "增加900點最大生命值作為消耗性護盾。角色生命值滿時，護盾在10秒後完全恢復。"
       },
       type: "superrare"
     },
@@ -95,13 +135,21 @@ const gearData = {
       name: {
         ja: "ダメージギア",
         en: "Damage Gear",
-        ko: "데미지 기어"
+        ko: "데미지 기어",
+        es: "Engranaje de Daño",
+        ar: "ترس الضرر",
+        fr: "Engrenage de Dégâts",
+        "zh-tw": "傷害齒輪"
       },
       icon: require('../../assets/GearIcon/gear_superrare_damage.png'),
       description: {
         ja: "HPが50％未満になると敵に与えるダメージが15%増加する。",
         en: "When HP falls below 50%, damage dealt increases by 15%.",
-        ko: "HP가 50% 미만일 때 적에게 주는 데미지가 15% 증가합니다."
+        ko: "HP가 50% 미만일 때 적에게 주는 데미지가 15% 증가합니다.",
+        es: "Cuando los PS caen por debajo del 50%, el daño infligido aumenta un 15%.",
+        ar: "عندما تنخفض نقاط الصحة عن 50٪، يزداد الضرر الذي تلحقه بنسبة 15٪.",
+        fr: "Lorsque les PV tombent en dessous de 50%, les dégâts infligés augmentent de 15%.",
+        "zh-tw": "生命值低於50%時，造成的傷害提升15%。"
       },
       type: "superrare"
     },
@@ -110,13 +158,21 @@ const gearData = {
       name: {
         ja: "ガジェット強化ギア",
         en: "Gadget Boost Gear",
-        ko: "가젯 강화 기어"
+        ko: "가젯 강화 기어",
+        es: "Engranaje de Mejora de Gadget",
+        ar: "ترس تعزيز الأداة",
+        fr: "Engrenage d'Amélioration de Gadget",
+        "zh-tw": "道具強化齒輪"
       },
       icon: require('../../assets/GearIcon/gear_plus_gadgets.png'),
       description: {
         ja: "バトル中にガジェットを使える回数が1回増える。",
         en: "Increases the number of times you can use gadgets in battle by 1.",
-        ko: "배틀 중 가젯을 사용할 수 있는 횟수가 1회 증가합니다."
+        ko: "배틀 중 가젯을 사용할 수 있는 횟수가 1회 증가합니다.",
+        es: "Aumenta en 1 el número de veces que puedes usar gadgets en batalla.",
+        ar: "يزيد عدد مرات استخدام الأدوات في المعركة بمقدار مرة واحدة.",
+        fr: "Augmente d'une fois le nombre d'utilisations des gadgets en combat.",
+        "zh-tw": "戰鬥中可使用道具的次數增加1次。"
       },
       type: "plus"
     }
@@ -127,13 +183,21 @@ const gearData = {
       name: {
         ja: "ペット強化ギア",
         en: "Pet Boost Gear",
-        ko: "펫 강화 기어"
+        ko: "펫 강화 기어",
+        es: "Engranaje de Mejora de Mascota",
+        ar: "ترس تعزيز الحيوان الأليف",
+        fr: "Engrenage d'Amélioration d'Animal",
+        "zh-tw": "寵物強化齒輪"
       },
       icon: require('../../assets/GearIcon/gear_epic_pet.png'),
       description: {
         ja: "ペットのパワーが25%増加する。",
         en: "Increases pet power by 25%.",
-        ko: "펫의 파워가 25% 증가합니다."
+        ko: "펫의 파워가 25% 증가합니다.",
+        es: "Aumenta el poder de la mascota en un 25%.",
+        ar: "يزيد قوة الحيوان الأليف بنسبة 25٪.",
+        fr: "Augmente la puissance de l'animal de 25%.",
+        "zh-tw": "寵物能力提升25%。"
       },
       type: "epic"
     },
@@ -142,13 +206,21 @@ const gearData = {
       name: {
         ja: "リロード強化ギア",
         en: "Reload Boost Gear",
-        ko: "리로드 강화 기어"
+        ko: "리로드 강화 기어",
+        es: "Engranaje de Mejora de Recarga",
+        ar: "ترس تعزيز إعادة التحميل",
+        fr: "Engrenage d'Amélioration de Rechargement",
+        "zh-tw": "裝填強化齒輪"
       },
       icon: require('../../assets/GearIcon/gear_epic_reload.png'),
       description: {
         ja: "リロード速度が15%上昇する。",
         en: "Increases reload speed by 15%.",
-        ko: "리로드 속도가 15% 증가합니다."
+        ko: "리로드 속도가 15% 증가합니다.",
+        es: "Aumenta la velocidad de recarga en un 15%.",
+        ar: "يزيد سرعة إعادة التحميل بنسبة 15٪.",
+        fr: "Augmente la vitesse de rechargement de 15%.",
+        "zh-tw": "裝填速度提升15%。"
       },
       type: "epic"
     },
@@ -157,13 +229,21 @@ const gearData = {
       name: {
         ja: "スーパー強化ギア",
         en: "Super Boost Gear",
-        ko: "슈퍼 강화 기어"
+        ko: "슈퍼 강화 기어",
+        es: "Engranaje de Mejora de Super",
+        ar: "ترس تعزيز السوبر",
+        fr: "Engrenage d'Amélioration de Super",
+        "zh-tw": "超級強化齒輪"
       },
       icon: require('../../assets/GearIcon/gear_epic_super.png'),
       description: {
         ja: "必殺技のチャージ速度が10%上昇する。",
         en: "Increases Super charge rate by 10%.",
-        ko: "궁극기 차지 속도가 10% 증가합니다."
+        ko: "궁극기 차지 속도가 10% 증가합니다.",
+        es: "Aumenta la velocidad de carga del Super en un 10%.",
+        ar: "يزيد معدل شحن السوبر بنسبة 10٪.",
+        fr: "Augmente la vitesse de charge du Super de 10%.",
+        "zh-tw": "超級技能充能速度提升10%。"
       },
       type: "epic"
     }
@@ -174,13 +254,21 @@ const gearData = {
       name: {
         ja: "ティック専用ギア",
         en: "Tick's Gear",
-        ko: "틱 전용 기어"
+        ko: "틱 전용 기어",
+        es: "Engranaje de Tick",
+        ar: "ترس تيك",
+        fr: "Engrenage de Tick",
+        "zh-tw": "滴答專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_tick.png'),
       description: {
         ja: "ティックの頭に1000HPを追加で付与する。",
         en: "Adds 1000 HP to Tick's head.",
-        ko: "틱의 머리에 1000HP를 추가로 부여합니다."
+        ko: "틱의 머리에 1000HP를 추가로 부여합니다.",
+        es: "Añade 1000 PS a la cabeza de Tick.",
+        ar: "يضيف 1000 نقطة صحة لرأس تيك.",
+        fr: "Ajoute 1000 PV à la tête de Tick.",
+        "zh-tw": "為滴答的頭增加1000生命值。"
       },
       type: "mythic"
     },
@@ -189,13 +277,21 @@ const gearData = {
       name: {
         ja: "パム専用ギア",
         en: "Pam's Gear",
-        ko: "팸 전용 기어"
+        ko: "팸 전용 기어",
+        es: "Engranaje de Pam",
+        ar: "ترس بام",
+        fr: "Engrenage de Pam",
+        "zh-tw": "帕姆專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_pam.png'),
       description: {
         ja: "タレットによる回復量が20%上昇する。",
         en: "Increases healing from turret by 20%.",
-        ko: "터렛의 회복량이 20% 증가합니다."
+        ko: "터렛의 회복량이 20% 증가합니다.",
+        es: "Aumenta la curación de la torreta en un 20%.",
+        ar: "يزيد الشفاء من البرج بنسبة 20٪.",
+        fr: "Augmente les soins de la tourelle de 20%.",
+        "zh-tw": "砲塔的治療量提升20%。"
       },
       type: "mythic"
     },
@@ -204,13 +300,21 @@ const gearData = {
       name: {
         ja: "モーティス専用ギア",
         en: "Mortis' Gear",
-        ko: "모티스 전용 기어"
+        ko: "모티스 전용 기어",
+        es: "Engranaje de Mortis",
+        ar: "ترس مورتيس",
+        fr: "Engrenage de Mortis",
+        "zh-tw": "莫提斯專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_mortis.png'),
       description: {
         ja: "コウモリのスピードが50%増加する。",
         en: "Increases bat speed by 50%.",
-        ko: "박쥐의 속도가 50% 증가합니다."
+        ko: "박쥐의 속도가 50% 증가합니다.",
+        es: "Aumenta la velocidad del murciélago en un 50%.",
+        ar: "يزيد سرعة الخفاش بنسبة 50٪.",
+        fr: "Augmente la vitesse des chauves-souris de 50%.",
+        "zh-tw": "蝙蝠速度提升50%。"
       },
       type: "mythic"
     },
@@ -219,13 +323,21 @@ const gearData = {
       name: {
         ja: "ジーン専用ギア",
         en: "Gene's Gear",
-        ko: "진 전용 기어"
+        ko: "진 전용 기어",
+        es: "Engranaje de Gene",
+        ar: "ترس جين",
+        fr: "Engrenage de Gene",
+        "zh-tw": "吉恩專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_gene.png'),
       description: {
         ja: "ジーンの魔法の手の射程が伸びる。",
         en: "Increases the range of Gene's Magic Hand.",
-        ko: "진의 마법의 손 사거리가 증가합니다."
+        ko: "진의 마법의 손 사거리가 증가합니다.",
+        es: "Aumenta el alcance de la Mano Mágica de Gene.",
+        ar: "يزيد مدى يد جين السحرية.",
+        fr: "Augmente la portée de la Main Magique de Gene.",
+        "zh-tw": "增加吉恩魔法之手的射程。"
       },
       type: "mythic"
     },
@@ -234,13 +346,21 @@ const gearData = {
       name: {
         ja: "イヴ専用ギア",
         en: "Eve's Gear",
-        ko: "이브 전용 기어"
+        ko: "이브 전용 기어",
+        es: "Engranaje de Eve",
+        ar: "ترس إيف",
+        fr: "Engrenage d'Eve",
+        "zh-tw": "伊芙專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_eve.png'),
       description: {
         ja: "必殺技で生まれるベビーが1匹増加する。",
         en: "Spawns one additional baby with Super.",
-        ko: "궁극기로 태어나는 아기가 1마리 증가합니다."
+        ko: "궁극기로 태어나는 아기가 1마리 증가합니다.",
+        es: "Genera un bebé adicional con el Super.",
+        ar: "يولد طفلاً إضافياً مع السوبر.",
+        fr: "Fait apparaître un bébé supplémentaire avec le Super.",
+        "zh-tw": "超級技能多生成一隻寶寶。"
       },
       type: "mythic"
     },
@@ -249,13 +369,21 @@ const gearData = {
       name: {
         ja: "スパイク専用ギア",
         en: "Spike's Gear",
-        ko: "스파이크 전용 기어"
+        ko: "스파이크 전용 기어",
+        es: "Engranaje de Spike",
+        ar: "ترس سبايك",
+        fr: "Engrenage de Spike",
+        "zh-tw": "仙人掌專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_spike.png'),
       description: {
         ja: "必殺技のスローダウン効果が30％向上する。",
         en: "Increases Super's slow effect by 30%.",
-        ko: "궁극기의 슬로우 효과가 30% 증가합니다."
+        ko: "궁극기의 슬로우 효과가 30% 증가합니다.",
+        es: "Aumenta el efecto de ralentización del Super en un 30%.",
+        ar: "يزيد تأثير إبطاء السوبر بنسبة 30٪.",
+        fr: "Augmente l'effet de ralentissement du Super de 30%.",
+        "zh-tw": "超級技能的減速效果提升30%。"
       },
       type: "mythic"
     },
@@ -264,13 +392,21 @@ const gearData = {
       name: {
         ja: "クロウ専用ギア",
         en: "Crow's Gear",
-        ko: "크로우 전용 기어"
+        ko: "크로우 전용 기어",
+        es: "Engranaje de Crow",
+        ar: "ترس كرو",
+        fr: "Engrenage de Crow",
+        "zh-tw": "烏鴉專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_crow.png'),
       description: {
         ja: "クロウの毒のダメージが30%増加する。",
         en: "Increases Crow's poison damage by 30%.",
-        ko: "크로우의 독 데미지가 30% 증가합니다."
+        ko: "크로우의 독 데미지가 30% 증가합니다.",
+        es: "Aumenta el daño por veneno de Crow en un 30%.",
+        ar: "يزيد ضرر سم كرو بنسبة 30٪.",
+        fr: "Augmente les dégâts du poison de Crow de 30%.",
+        "zh-tw": "烏鴉的毒素傷害提升30%。"
       },
       type: "mythic"
     },
@@ -279,13 +415,21 @@ const gearData = {
       name: {
         ja: "レオン専用ギア",
         en: "Leon's Gear",
-        ko: "레온 전용 기어"
+        ko: "레온 전용 기어",
+        es: "Engranaje de Leon",
+        ar: "ترس ليون",
+        fr: "Engrenage de Léon",
+        "zh-tw": "里昂專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_leon.png'),
       description: {
         ja: "必殺技の効果時間を2秒延長する。",
         en: "Extends Super duration by 2 seconds.",
-        ko: "궁극기 지속 시간이 2초 연장됩니다."
+        ko: "궁극기 지속 시간이 2초 연장됩니다.",
+        es: "Extiende la duración del Super por 2 segundos.",
+        ar: "يمدد مدة السوبر لثانيتين.",
+        fr: "Prolonge la durée du Super de 2 secondes.",
+        "zh-tw": "超級技能持續時間延長2秒。"
       },
       type: "mythic"
     },
@@ -294,13 +438,21 @@ const gearData = {
       name: {
         ja: "サンディ専用ギア",
         en: "Sandy's Gear",
-        ko: "샌디 전용 기어"
+        ko: "샌디 전용 기어",
+        es: "Engranaje de Sandy",
+        ar: "ترس ساندي",
+        fr: "Engrenage de Sandy",
+        "zh-tw": "桑迪專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_sandy.png'),
       description: {
         ja: "砂嵐内にいる敵のダメージ量を20%減少させる。",
         en: "Reduces damage dealt by enemies in sandstorm by 20%.",
-        ko: "모래폭풍 안에 있는 적의 데미지량이 20% 감소합니다."
+        ko: "모래폭풍 안에 있는 적의 데미지량이 20% 감소합니다.",
+        es: "Reduce el daño causado por enemigos en la tormenta de arena en un 20%.",
+        ar: "يقلل الضرر الذي يسببه الأعداء في العاصفة الرملية بنسبة 20٪.",
+        fr: "Réduit les dégâts infligés par les ennemis dans la tempête de sable de 20%.",
+        "zh-tw": "降低沙暴中敵人造成的傷害20%。"
       },
       type: "mythic"
     },
@@ -309,13 +461,21 @@ const gearData = {
       name: {
         ja: "アンバー専用ギア",
         en: "Amber's Gear",
-        ko: "앰버 전용 기어"
+        ko: "앰버 전용 기어",
+        es: "Engranaje de Amber",
+        ar: "ترس آمبر",
+        fr: "Engrenage d'Amber",
+        "zh-tw": "安珀專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_amber.png'),
       description: {
         ja: "燃料で敵の動きが10%スローダウンする。",
         en: "Slows enemy movement by 10% with oil.",
-        ko: "기름으로 적의 이동 속도가 10% 감소합니다."
+        ko: "기름으로 적의 이동 속도가 10% 감소합니다.",
+        es: "Ralentiza el movimiento del enemigo un 10% con aceite.",
+        ar: "يبطئ حركة العدو بنسبة 10٪ بالزيت.",
+        fr: "Ralentit les mouvements ennemis de 10% avec l'huile.",
+        "zh-tw": "用油減緩敵人移動速度10%。"
       },
       type: "mythic"
     }

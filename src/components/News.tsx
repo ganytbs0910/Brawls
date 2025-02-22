@@ -35,8 +35,27 @@ interface NewsPost {
   creator_name: string;
 }
 
-const getTableName = (language: Language): string => {
-  return `youtube_posts_${language}`;
+const getTableName = async (language: Language): Promise<string> => {
+  // サポートされている言語のテーブル名を生成
+  const tableName = `youtube_posts_${language}`;
+  
+  try {
+    // テーブルが存在するか確認
+    const { error } = await supabase
+      .from(tableName)
+      .select('id')
+      .limit(1);
+    
+    // エラーがない場合はそのテーブルを使用
+    if (!error) {
+      return tableName;
+    }
+  } catch (error) {
+    console.error(`Error checking table ${tableName}:`, error);
+  }
+  
+  // テーブルが存在しない場合は英語テーブルを返す
+  return 'youtube_posts_en';
 };
 
 const YouTubeCard: React.FC<{ post: NewsPost; t: typeof newsTranslations['en'] }> = ({ post, t }) => {
@@ -99,14 +118,18 @@ const News: React.FC = () => {
   const [isPasswordVerified, setIsPasswordVerified] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState<Language>('en');
   const [t, setT] = useState(newsTranslations.en);
+  const [actualLanguage, setActualLanguage] = useState<Language>('en');
 
   useEffect(() => {
     const initLanguage = async () => {
       try {
         const savedLanguage = await AsyncStorage.getItem('selectedLanguage') as Language;
-        if (savedLanguage && savedLanguage in newsTranslations) {
+        if (savedLanguage) {
           setCurrentLanguage(savedLanguage);
-          setT(newsTranslations[savedLanguage]);
+          // 翻訳とテーブル言語を設定
+          setT(newsTranslations[savedLanguage] || newsTranslations.en);
+          const supportedLanguages = ['ja', 'en', 'ko', 'ar', 'fr', 'es'];
+          setActualLanguage(supportedLanguages.includes(savedLanguage) ? savedLanguage : 'en');
         }
       } catch (error) {
         console.error('Failed to get language setting:', error);
@@ -117,9 +140,10 @@ const News: React.FC = () => {
   }, []);
 
   useEffect(() => {
+  const setupSubscription = async () => {
     fetchPosts();
 
-    const tableName = getTableName(currentLanguage);
+    const tableName = await getTableName(actualLanguage);
     const channel = supabase
       .channel(`${tableName}_changes`)
       .on('postgres_changes', 
@@ -135,26 +159,29 @@ const News: React.FC = () => {
     return () => {
       channel.unsubscribe();
     };
-  }, [currentLanguage]);
+  };
+
+  setupSubscription();
+}, [actualLanguage]);
 
   const fetchPosts = async () => {
-    try {
-      const tableName = getTableName(currentLanguage);
-      const { data, error } = await supabase
-        .from(tableName)
-        .select('*')
-        .order('created_at', { ascending: false })
-        .limit(POST_LIMIT);
+  try {
+    const tableName = await getTableName(actualLanguage);
+    const { data, error } = await supabase
+      .from(tableName)
+      .select('*')
+      .order('created_at', { ascending: false })
+      .limit(POST_LIMIT);
 
-      if (error) throw error;
-      setPosts(data as NewsPost[]);
-    } catch (error) {
-      console.error('Error fetching posts:', error);
-      Alert.alert(t.error, t.fetchError);
-    } finally {
-      setLoading(false);
-    }
-  };
+    if (error) throw error;
+    setPosts(data as NewsPost[]);
+  } catch (error) {
+    console.error('Error fetching posts:', error);
+    Alert.alert(t.error, t.fetchError);
+  } finally {
+    setLoading(false);
+  }
+};
 
   const verifyPassword = () => {
     if (password === CREATOR_PASSWORD) {
@@ -185,7 +212,7 @@ const News: React.FC = () => {
     }
 
     try {
-      const tableName = getTableName(currentLanguage);
+      const tableName = getTableName(actualLanguage);
       const { error } = await supabase
         .from(tableName)
         .insert([{

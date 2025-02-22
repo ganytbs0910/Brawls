@@ -88,94 +88,798 @@ import { dracoData } from './characters/dracoData';
 import { kenjiData } from './characters/kenjiData';
 
 export const CHARACTER_NAMES = {
-  shelly: { ja: "シェリー", en: "Shelly", ko: "쉘리" },
-  nita: { ja: "ニタ", en: "Nita", ko: "니타" },
-  colt: { ja: "コルト", en: "Colt", ko: "콜트" },
-  bull: { ja: "ブル", en: "Bull", ko: "불" },
-  brock: { ja: "ブロック", en: "Brock", ko: "브록" },
-  elPrimo: { ja: "エルプリモ", en: "El Primo", ko: "엘 프리모" },
-  barley: { ja: "バーリー", en: "Barley", ko: "발리" },
-  poco: { ja: "ポコ", en: "Poco", ko: "포코" },
-  rosa: { ja: "ローサ", en: "Rosa", ko: "로사" },
-  jessie: { ja: "ジェシー", en: "Jessie", ko: "제시" },
-  dynamike: { ja: "ダイナマイク", en: "Dynamike", ko: "다이나마이크" },
-  tick: { ja: "ティック", en: "Tick", ko: "틱" },
-  eightBit: { ja: "8ビット", en: "8-Bit", ko: "8-비트" },
-  rico: { ja: "リコ", en: "Rico", ko: "리코" },
-  darryl: { ja: "ダリル", en: "Darryl", ko: "대릴" },
-  penny: { ja: "ペニー", en: "Penny", ko: "페니" },
-  carl: { ja: "カール", en: "Carl", ko: "칼" },
-  jacky: { ja: "ジャッキー", en: "Jacky", ko: "재키" },
-  gus: { ja: "ガス", en: "Gus", ko: "거스" },
-  bo: { ja: "ボウ", en: "Bo", ko: "보" },
-  emz: { ja: "Emz", en: "EMZ", ko: "EMZ" },
-  stu: { ja: "ストゥー", en: "Stu", ko: "스투" },
-  piper: { ja: "エリザベス", en: "Piper", ko: "파이퍼" },
-  pam: { ja: "パム", en: "Pam", ko: "팸" },
-  frank: { ja: "フランケン", en: "Frank", ko: "프랭크" },
-  bibi: { ja: "ビビ", en: "Bibi", ko: "비비" },
-  bea: { ja: "ビー", en: "Bea", ko: "베아" },
-  nani: { ja: "ナーニ", en: "Nani", ko: "나니" },
-  edgar: { ja: "エドガー", en: "Edgar", ko: "에드가" },
-  griff: { ja: "グリフ", en: "Griff", ko: "그리프" },
-  grom: { ja: "グロム", en: "Grom", ko: "그롬" },
-  bonnie: { ja: "ボニー", en: "Bonnie", ko: "보니" },
-  gale: { ja: "ゲイル", en: "Gale", ko: "게일" },
-  colette: { ja: "コレット", en: "Colette", ko: "콜레트" },
-  belle: { ja: "ベル", en: "Belle", ko: "벨" },
-  ash: { ja: "アッシュ", en: "Ash", ko: "애쉬" },
-  lola: { ja: "ローラ", en: "Lola", ko: "롤라" },
-  sam: { ja: "サム", en: "Sam", ko: "샘" },
-  mandy: { ja: "マンディ", en: "Mandy", ko: "맨디" },
-  maisie: { ja: "メイジー", en: "Maisie", ko: "메이지" },
-  hank: { ja: "ハンク", en: "Hank", ko: "행크" },
-  pearl: { ja: "パール", en: "Pearl", ko: "펄" },
-  larryandLawrie: { ja: "ラリー&ローリー", en: "Larry & Lawrie", ko: "래리&로리" },
-  angelo: { ja: "アンジェロ", en: "Angelo", ko: "안젤로" },
-  berry: { ja: "ベリー", en: "Berry", ko: "베리" },
-  shade: { ja: "シェイド", en: "Shade", ko: "쉐이드" },
-  mortis: { ja: "モーティス", en: "Mortis", ko: "모티스" },
-  tara: { ja: "タラ", en: "Tara", ko: "타라" },
-  gene: { ja: "ジーン", en: "Gene", ko: "진" },
-  max: { ja: "MAX", en: "Max", ko: "맥스" },
-  mrp: { ja: "ミスターP", en: "Mr. P", ko: "Mr. P" },
-  sprout: { ja: "スプラウト", en: "Sprout", ko: "스프라우트" },
-  byron: { ja: "バイロン", en: "Byron", ko: "바이런" },
-  squeak: { ja: "スクウィーク", en: "Squeak", ko: "스퀴크" },
-  lou: { ja: "ルー", en: "Lou", ko: "루" },
-  ruffs: { ja: "ラフス", en: "Ruffs", ko: "러프스" },
-  buzz: { ja: "バズ", en: "Buzz", ko: "버즈" },
-  fang: { ja: "ファング", en: "Fang", ko: "팡" },
-  eve: { ja: "イヴ", en: "Eve", ko: "이브" },
-  janet: { ja: "ジャネット", en: "Janet", ko: "자넷" },
-  otis: { ja: "オーティス", en: "Otis", ko: "오티스" },
-  buster: { ja: "バスター", en: "Buster", ko: "버스터" },
-  gray: { ja: "グレイ", en: "Gray", ko: "그레이" },
-  rt: { ja: "R-T", en: "R-T", ko: "R-T" },
-  willow: { ja: "ウィロー", en: "Willow", ko: "윌로우" },
-  doug: { ja: "ダグ", en: "Doug", ko: "더그" },
-  chuck: { ja: "チャック", en: "Chuck", ko: "척" },
-  charlie: { ja: "チャーリー", en: "Charlie", ko: "찰리" },
-  mico: { ja: "ミコ", en: "Mico", ko: "미코" },
-  melodie: { ja: "メロディー", en: "Melodie", ko: "멜로디" },
-  lily: { ja: "リリー", en: "Lily", ko: "릴리" },
-  clancy: { ja: "クランシー", en: "Clancy", ko: "클랜시" },
-  moe: { ja: "モー", en: "Moe", ko: "모" },
-  juju: { ja: "ジュジュ", en: "Juju", ko: "주주" },
-  spike: { ja: "スパイク", en: "Spike", ko: "스파이크" },
-  crow: { ja: "クロウ", en: "Crow", ko: "크로우" },
-  leon: { ja: "レオン", en: "Leon", ko: "레온" },
-  sandy: { ja: "サンディ", en: "Sandy", ko: "샌디" },
-  amber: { ja: "アンバー", en: "Amber", ko: "앰버" },
-  meg: { ja: "メグ", en: "Meg", ko: "메그" },
-  surge: { ja: "サージ", en: "Surge", ko: "서지" },
-  chester: { ja: "チェスター", en: "Chester", ko: "체스터" },
-  cordelius: { ja: "コーデリアス", en: "Cordelius", ko: "코델리우스" },
-  kit: { ja: "キット", en: "Kit", ko: "키트" },
-  draco: { ja: "ドラコ", en: "Draco", ko: "드라코" },
-  kenji: { ja: "ケンジ", en: "Kenji", ko: "켄지" },
-  meeple: { ja: "ミープル", en: "Meeple", ko: "미플" },
-  ollie: { ja: "オーリー", en: "Ollie", ko: "올리" },
+  shelly: { 
+    ja: "シェリー", 
+    en: "Shelly", 
+    ko: "쉘리",
+    es: "Shelly",
+    ar: "شيلي",
+    fr: "Shelly",
+    "zh-tw": "雪莉"
+  },
+  nita: { 
+    ja: "ニタ", 
+    en: "Nita", 
+    ko: "니타",
+    es: "Nita",
+    ar: "نيتا",
+    fr: "Nita",
+    "zh-tw": "妮塔"
+  },
+  colt: { 
+    ja: "コルト", 
+    en: "Colt", 
+    ko: "콜트",
+    es: "Colt",
+    ar: "كولت",
+    fr: "Colt",
+    "zh-tw": "科爾特"
+  },
+  bull: { 
+    ja: "ブル", 
+    en: "Bull", 
+    ko: "불",
+    es: "Bull",
+    ar: "بول",
+    fr: "Bull",
+    "zh-tw": "布魯"
+  },
+  brock: { 
+    ja: "ブロック", 
+    en: "Brock", 
+    ko: "브록",
+    es: "Brock",
+    ar: "بروك",
+    fr: "Brock",
+    "zh-tw": "布洛克"
+  },
+  elPrimo: { 
+    ja: "エルプリモ", 
+    en: "El Primo", 
+    ko: "엘 프리모",
+    es: "El Primo",
+    ar: "إل بريمو",
+    fr: "El Primo",
+    "zh-tw": "普里莫"
+  },
+  barley: { 
+    ja: "バーリー", 
+    en: "Barley", 
+    ko: "발리",
+    es: "Barley",
+    ar: "بارلي",
+    fr: "Barley",
+    "zh-tw": "巴利"
+  },
+  poco: { 
+    ja: "ポコ", 
+    en: "Poco", 
+    ko: "포코",
+    es: "Poco",
+    ar: "بوكو",
+    fr: "Poco",
+    "zh-tw": "波克"
+  },
+  rosa: { 
+    ja: "ローサ", 
+    en: "Rosa", 
+    ko: "로사",
+    es: "Rosa",
+    ar: "روزا",
+    fr: "Rosa",
+    "zh-tw": "蘿莎"
+  },
+  jessie: { 
+    ja: "ジェシー", 
+    en: "Jessie", 
+    ko: "제시",
+    es: "Jessie",
+    ar: "جيسي",
+    fr: "Jessie",
+    "zh-tw": "潔西"
+  },
+  dynamike: { 
+    ja: "ダイナマイク", 
+    en: "Dynamike", 
+    ko: "다이나마이크",
+    es: "Dinamike",
+    ar: "دينامايك",
+    fr: "Dynamike",
+    "zh-tw": "炸彈老爹"
+  },
+  tick: { 
+    ja: "ティック", 
+    en: "Tick", 
+    ko: "틱",
+    es: "Tick",
+    ar: "تيك",
+    fr: "Tick",
+    "zh-tw": "滴答"
+  },
+  eightBit: { 
+    ja: "8ビット", 
+    en: "8-Bit", 
+    ko: "8-비트",
+    es: "8-Bit",
+    ar: "8-بت",
+    fr: "8-Bit",
+    "zh-tw": "8位元"
+  },
+  rico: { 
+    ja: "リコ", 
+    en: "Rico", 
+    ko: "리코",
+    es: "Rico",
+    ar: "ريكو",
+    fr: "Rico",
+    "zh-tw": "瑞克"
+  },
+  darryl: { 
+    ja: "ダリル", 
+    en: "Darryl", 
+    ko: "대릴",
+    es: "Darryl",
+    ar: "داريل",
+    fr: "Darryl",
+    "zh-tw": "達利爾"
+  },
+  penny: { 
+    ja: "ペニー", 
+    en: "Penny", 
+    ko: "페니",
+    es: "Penny",
+    ar: "بيني",
+    fr: "Penny",
+    "zh-tw": "潘妮"
+  },
+  carl: { 
+    ja: "カール", 
+    en: "Carl", 
+    ko: "칼",
+    es: "Carl",
+    ar: "كارل",
+    fr: "Carl",
+    "zh-tw": "卡爾"
+  },
+  jacky: { 
+    ja: "ジャッキー", 
+    en: "Jacky", 
+    ko: "재키",
+    es: "Jacky",
+    ar: "جاكي",
+    fr: "Jacky",
+    "zh-tw": "傑基"
+  },
+  gus: { 
+    ja: "ガス", 
+    en: "Gus", 
+    ko: "거스",
+    es: "Gus",
+    ar: "غاس",
+    fr: "Gus",
+    "zh-tw": "格斯"
+  },
+  bo: { 
+    ja: "ボウ", 
+    en: "Bo", 
+    ko: "보",
+    es: "Bo",
+    ar: "بو",
+    fr: "Bo",
+    "zh-tw": "博"
+  },
+  emz: { 
+    ja: "Emz", 
+    en: "EMZ", 
+    ko: "EMZ",
+    es: "EMZ",
+    ar: "إي إم زي",
+    fr: "EMZ",
+    "zh-tw": "EMZ"
+  },
+  stu: { 
+    ja: "ストゥー", 
+    en: "Stu", 
+    ko: "스투",
+    es: "Stu",
+    ar: "ستو",
+    fr: "Stu",
+    "zh-tw": "斯圖"
+  },
+  piper: { 
+    ja: "エリザベス", 
+    en: "Piper", 
+    ko: "파이퍼",
+    es: "Piper",
+    ar: "بايبر",
+    fr: "Piper",
+    "zh-tw": "派佩"
+  },
+  pam: { 
+    ja: "パム", 
+    en: "Pam", 
+    ko: "팸",
+    es: "Pam",
+    ar: "بام",
+    fr: "Pam",
+    "zh-tw": "帕姆"
+  },
+  frank: { 
+    ja: "フランケン", 
+    en: "Frank", 
+    ko: "프랭크",
+    es: "Frank",
+    ar: "فرانك",
+    fr: "Frank",
+    "zh-tw": "法蘭克"
+  },
+  bibi: { 
+    ja: "ビビ", 
+    en: "Bibi", 
+    ko: "비비",
+    es: "Bibi",
+    ar: "بيبي",
+    fr: "Bibi",
+    "zh-tw": "碧碧"
+  },
+  bea: { 
+    ja: "ビー", 
+    en: "Bea", 
+    ko: "베아",
+    es: "Bea",
+    ar: "بيا",
+    fr: "Bea",
+    "zh-tw": "蜜蜂"
+  },
+  nani: { 
+    ja: "ナーニ", 
+    en: "Nani", 
+    ko: "나니",
+    es: "Nani",
+    ar: "ناني",
+    fr: "Nani",
+    "zh-tw": "娜妮"
+  },
+  edgar: { 
+    ja: "エドガー", 
+    en: "Edgar", 
+    ko: "에드가",
+    es: "Edgar",
+    ar: "إدغار",
+    fr: "Edgar",
+    "zh-tw": "艾德加"
+  },
+  griff: { 
+    ja: "グリフ", 
+    en: "Griff", 
+    ko: "그리프",
+    es: "Griff",
+    ar: "غريف",
+    fr: "Griff",
+    "zh-tw": "格里夫"
+  },
+  grom: { 
+    ja: "グロム", 
+    en: "Grom", 
+    ko: "그롬",
+    es: "Grom",
+    ar: "غروم",
+    fr: "Grom",
+    "zh-tw": "格羅姆"
+  },
+  bonnie: { 
+    ja: "ボニー", 
+    en: "Bonnie", 
+    ko: "보니",
+    es: "Bonnie",
+    ar: "بوني",
+    fr: "Bonnie",
+    "zh-tw": "邦妮"
+  },
+  gale: { 
+    ja: "ゲイル", 
+    en: "Gale", 
+    ko: "게일",
+    es: "Gale",
+    ar: "غيل",
+    fr: "Gale",
+    "zh-tw": "蓋爾"
+  },
+  colette: { 
+    ja: "コレット", 
+    en: "Colette", 
+    ko: "콜레트",
+    es: "Colette",
+    ar: "كوليت",
+    fr: "Colette",
+    "zh-tw": "柯萊特"
+  },
+  belle: { 
+    ja: "ベル", 
+    en: "Belle", 
+    ko: "벨",
+    es: "Belle",
+    ar: "بيل",
+    fr: "Belle",
+    "zh-tw": "貝兒"
+  },
+  ash: { 
+    ja: "アッシュ", 
+    en: "Ash", 
+    ko: "애쉬",
+    es: "Ash",
+    ar: "آش",
+    fr: "Ash",
+    "zh-tw": "艾許"
+  },
+  lola: { 
+    ja: "ローラ", 
+    en: "Lola", 
+    ko: "롤라",
+    es: "Lola",
+    ar: "لولا",
+    fr: "Lola",
+    "zh-tw": "蘿拉"
+  },
+  sam: { 
+    ja: "サム", 
+    en: "Sam", 
+    ko: "샘",
+    es: "Sam",
+    ar: "سام",
+    fr: "Sam",
+    "zh-tw": "山姆"
+  },
+  mandy: { 
+    ja: "マンディ", 
+    en: "Mandy", 
+    ko: "맨디",
+    es: "Mandy",
+    ar: "ماندي",
+    fr: "Mandy",
+    "zh-tw": "曼蒂"
+  },
+  maisie: { 
+    ja: "メイジー", 
+    en: "Maisie", 
+    ko: "메이지",
+    es: "Maisie",
+    ar: "ميزي",
+    fr: "Maisie",
+    "zh-tw": "梅西"
+  },
+  hank: { 
+    ja: "ハンク", 
+    en: "Hank", 
+    ko: "행크",
+    es: "Hank",
+    ar: "هانك",
+    fr: "Hank",
+    "zh-tw": "漢克"
+  },
+  pearl: { 
+    ja: "パール", 
+    en: "Pearl", 
+    ko: "펄",
+    es: "Pearl",
+    ar: "بيرل",
+    fr: "Pearl",
+    "zh-tw": "珍珠"
+  },
+  larryandLawrie: { 
+    ja: "ラリー&ローリー", 
+    en: "Larry & Lawrie", 
+    ko: "래리&로리",
+    es: "Larry y Lawrie",
+    ar: "لاري ولوري",
+    fr: "Larry et Lawrie",
+    "zh-tw": "拉里和勞裡"
+  },
+  angelo: { 
+    ja: "アンジェロ", 
+    en: "Angelo", 
+    ko: "안젤로",
+    es: "Angelo",
+    ar: "أنجيلو",
+    fr: "Angelo",
+    "zh-tw": "安傑洛"
+  },
+  berry: { 
+    ja: "ベリー", 
+    en: "Berry", 
+    ko: "베리",
+    es: "Berry",
+    ar: "بيري",
+    fr: "Berry",
+    "zh-tw": "貝莉"
+  },
+  shade: { 
+    ja: "シェイド", 
+    en: "Shade", 
+    ko: "쉐이드",
+    es: "Shade",
+    ar: "شيد",
+    fr: "Shade",
+    "zh-tw": "暗影"
+  },
+  mortis: { 
+    ja: "モーティス", 
+    en: "Mortis", 
+    ko: "모티스",
+    es: "Mortis",
+    ar: "مورتيس",
+    fr: "Mortis",
+    "zh-tw": "莫提斯"
+  },
+  tara: { 
+    ja: "タラ", 
+    en: "Tara", 
+    ko: "타라",
+    es: "Tara",
+    ar: "تارا",
+    fr: "Tara",
+    "zh-tw": "塔拉"
+  },
+  gene: { 
+    ja: "ジーン", 
+    en: "Gene", 
+    ko: "진",
+    es: "Gene",
+    ar: "جين",
+    fr: "Gene",
+    "zh-tw": "吉恩"
+  },
+  max: { 
+    ja: "MAX", 
+    en: "Max", 
+    ko: "맥스",
+    es: "Max",
+    ar: "ماكس",
+    fr: "Max",
+    "zh-tw": "馬克斯"
+  },
+  mrp: { 
+    ja: "ミスターP", 
+    en: "Mr. P", 
+    ko: "Mr. P",
+    es: "Sr. P",
+    ar: "السيد بي",
+    fr: "M. P",
+    "zh-tw": "P先生"
+  },
+  sprout: { 
+    ja: "スプラウト", 
+    en: "Sprout", 
+    ko: "스프라우트",
+    es: "Sprout",
+    ar: "سبراوت",
+    fr: "Sprout",
+    "zh-tw": "芽芽"
+  },
+  byron: { 
+    ja: "バイロン", 
+    en: "Byron", 
+    ko: "바이런",
+    es: "Byron",
+    ar: "بايرون",
+    fr: "Byron",
+    "zh-tw": "拜倫"
+  },
+  squeak: { 
+    ja: "スクウィーク", 
+    en: "Squeak", 
+    ko: "스퀴크",
+    es: "Squeak",
+    ar: "سكويك",
+    fr: "Squeak",
+    "zh-tw": "吱吱"
+  },
+  lou: { 
+    ja: "ルー", 
+    en: "Lou", 
+    ko: "루",
+    es: "Lou",
+    ar: "لو",
+    fr: "Lou",
+    "zh-tw": "樓"
+  },
+  ruffs: { 
+    ja: "ラフス", 
+    en: "Ruffs", 
+    ko: "러프스",
+    es: "Ruffs",
+    ar: "رافس",
+    fr: "Ruffs",
+    "zh-tw": "拉夫斯"
+  },
+  buzz: { 
+    ja: "バズ", 
+    en: "Buzz", 
+    ko: "버즈",
+    es: "Buzz",
+    ar: "باز",
+    fr: "Buzz",
+    "zh-tw": "巴茲"
+  },
+  fang: { 
+    ja: "ファング", 
+    en: "Fang", 
+    ko: "팡",
+    es: "Fang",
+    ar: "فانغ",
+    fr: "Fang",
+    "zh-tw": "方"
+  },
+  eve: { 
+    ja: "イヴ", 
+    en: "Eve", 
+    ko: "이브",
+    es: "Eve",
+    ar: "إيف",
+    fr: "Eve",
+    "zh-tw": "伊芙"
+  },
+  janet: { 
+    ja: "ジャネット", 
+    en: "Janet", 
+    ko: "자넷",
+    es: "Janet",
+    ar: "جانيت",
+    fr: "Janet",
+    "zh-tw": "珍妮特"
+  },
+  otis: { 
+    ja: "オーティス", 
+    en: "Otis", 
+    ko: "오티스",
+    es: "Otis",
+    ar: "أوتيس",
+    fr: "Otis",
+    "zh-tw": "奧蒂斯"
+  },
+  buster: { 
+    ja: "バスター", 
+    en: "Buster", 
+    ko: "버스터",
+    es: "Buster",
+    ar: "باستر",
+    fr: "Buster",
+    "zh-tw": "巴斯特"
+  },
+  gray: { 
+    ja: "グレイ", 
+    en: "Gray", 
+    ko: "그레이",
+    es: "Gray",
+    ar: "غراي",
+    fr: "Gray",
+    "zh-tw": "格雷"
+  },
+  rt: { 
+    ja: "R-T", 
+    en: "R-T", 
+    ko: "R-T",
+    es: "R-T",
+    ar: "آر-تي",
+    fr: "R-T",
+    "zh-tw": "R-T"
+  },
+  willow: { 
+    ja: "ウィロー", 
+    en: "Willow", 
+    ko: "윌로우",
+    es: "Willow",
+    ar: "ويلو",
+    fr: "Willow",
+    "zh-tw": "威洛"
+  },
+  doug: { 
+    ja: "ダグ", 
+    en: "Doug", 
+    ko: "더그",
+    es: "Doug",
+    ar: "دوغ",
+    fr: "Doug",
+    "zh-tw": "道格"
+  },
+  chuck: { 
+    ja: "チャック", 
+    en: "Chuck", 
+    ko: "척",
+    es: "Chuck",
+    ar: "تشاك",
+    fr: "Chuck",
+    "zh-tw": "查克"
+  },
+  charlie: { 
+    ja: "チャーリー", 
+    en: "Charlie", 
+    ko: "찰리",
+    es: "Charlie",
+    ar: "تشارلي",
+    fr: "Charlie",
+    "zh-tw": "查理"
+  },
+  mico: { 
+    ja: "ミコ", 
+    en: "Mico", 
+    ko: "미코",
+    es: "Mico",
+    ar: "ميكو",
+    fr: "Mico",
+    "zh-tw": "米可"
+  },
+  melodie: { 
+    ja: "メロディー", 
+    en: "Melodie", 
+    ko: "멜로디",
+    es: "Melodie",
+    ar: "ميلودي",
+    fr: "Mélodie",
+    "zh-tw": "美樂蒂"
+  },
+  lily: { 
+    ja: "リリー", 
+    en: "Lily", 
+    ko: "릴리",
+    es: "Lily",
+    ar: "ليلي",
+    fr: "Lily",
+    "zh-tw": "莉莉"
+  },
+  clancy: { 
+    ja: "クランシー", 
+    en: "Clancy", 
+    ko: "클랜시",
+    es: "Clancy",
+    ar: "كلانسي",
+    fr: "Clancy",
+    "zh-tw": "克蘭西"
+  },
+  moe: { 
+    ja: "モー", 
+    en: "Moe", 
+    ko: "모",
+    es: "Moe",
+    ar: "مو",
+    fr: "Moe",
+    "zh-tw": "莫"
+  },
+  juju: { 
+    ja: "ジュジュ", 
+    en: "Juju", 
+    ko: "주주",
+    es: "Juju",
+    ar: "جوجو",
+    fr: "Juju",
+    "zh-tw": "朱朱"
+  },
+  spike: { 
+    ja: "スパイク", 
+    en: "Spike", 
+    ko: "스파이크",
+    es: "Spike",
+    ar: "سبايك",
+    fr: "Spike",
+    "zh-tw": "仙人掌"
+  },
+  crow: { 
+    ja: "クロウ", 
+    en: "Crow", 
+    ko: "크로우",
+    es: "Crow",
+    ar: "كرو",
+    fr: "Crow",
+    "zh-tw": "烏鴉"
+  },
+  leon: { 
+    ja: "レオン", 
+    en: "Leon", 
+    ko: "레온",
+    es: "Leon",
+    ar: "ليون",
+    fr: "Léon",
+    "zh-tw": "里昂"
+  },
+  sandy: { 
+    ja: "サンディ", 
+    en: "Sandy", 
+    ko: "샌디",
+    es: "Sandy",
+    ar: "ساندي",
+    fr: "Sandy",
+    "zh-tw": "桑迪"
+  },
+  amber: { 
+    ja: "アンバー", 
+    en: "Amber", 
+    ko: "앰버",
+    es: "Amber",
+    ar: "آمبر",
+    fr: "Amber",
+    "zh-tw": "安珀"
+  },
+  meg: { 
+    ja: "メグ", 
+    en: "Meg", 
+    ko: "메그",
+    es: "Meg",
+    ar: "ميغ",
+    fr: "Meg",
+    "zh-tw": "梅格"
+  },
+  surge: { 
+    ja: "サージ", 
+    en: "Surge", 
+    ko: "서지",
+    es: "Surge",
+    ar: "سيرج",
+    fr: "Surge",
+    "zh-tw": "衝浪"
+  },
+  chester: { 
+    ja: "チェスター", 
+    en: "Chester", 
+    ko: "체스터",
+    es: "Chester",
+    ar: "تشيستر",
+    fr: "Chester",
+    "zh-tw": "切斯特"
+  },
+  cordelius: { 
+    ja: "コーデリアス", 
+    en: "Cordelius", 
+    ko: "코델리우스",
+    es: "Cordelius",
+    ar: "كورديليوس",
+    fr: "Cordelius",
+    "zh-tw": "科德利厄斯"
+  },
+  kit: { 
+    ja: "キット", 
+    en: "Kit", 
+    ko: "키트",
+    es: "Kit",
+    ar: "كيت",
+    fr: "Kit",
+    "zh-tw": "基特"
+  },
+  draco: { 
+    ja: "ドラコ", 
+    en: "Draco", 
+    ko: "드라코",
+    es: "Draco",
+    ar: "دراكو",
+    fr: "Draco",
+    "zh-tw": "德拉科"
+  },
+  kenji: { 
+    ja: "ケンジ", 
+    en: "Kenji", 
+    ko: "켄지",
+    es: "Kenji",
+    ar: "كنجي",
+    fr: "Kenji",
+    "zh-tw": "健二"
+  },
+  meeple: { 
+    ja: "ミープル", 
+    en: "Meeple", 
+    ko: "미플",
+    es: "Meeple",
+    ar: "ميبل",
+    fr: "Meeple",
+    "zh-tw": "米普"
+  },
+  ollie: { 
+    ja: "オーリー", 
+    en: "Ollie", 
+    ko: "올리",
+    es: "Ollie",
+    ar: "أولي",
+    fr: "Ollie",
+    "zh-tw": "奧利"
+  }
 } as const;
 
 export const CHARACTER_MAP: { [key: number]: string } = {

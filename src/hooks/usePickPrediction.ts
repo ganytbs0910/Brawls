@@ -95,59 +95,73 @@ export const usePickPrediction = () => {
   };
 
   const calculateTeamAdvantage = (teamAChars: string[], teamBChars: string[]) => {
-    let teamAScore = 0;
-    let teamBScore = 0;
+  // チームスコアの計算
+  let teamAScore = 0;
+  let teamBScore = 0;
 
-    teamAChars.forEach(aChar => {
-      teamBChars.forEach(bChar => {
-        const aId = getCharacterId(aChar);
-        if (aId && allCharacterData[aId]) {
-          const score = allCharacterData[aId].compatibilityScores[bChar] || 0;
-          teamAScore += score;
-        }
-      });
-    });
-
+  teamAChars.forEach(aChar => {
     teamBChars.forEach(bChar => {
-      teamAChars.forEach(aChar => {
-        const bId = getCharacterId(bChar);
-        if (bId && allCharacterData[bId]) {
-          const score = allCharacterData[bId].compatibilityScores[aChar] || 0;
-          teamBScore += score;
-        }
-      });
+      const aId = getCharacterId(aChar);
+      if (aId && allCharacterData[aId]) {
+        const score = allCharacterData[aId].compatibilityScores[bChar] || 0;
+        teamAScore += score;
+      }
     });
+  });
 
-    const difference = Math.abs(teamAScore - teamBScore);
-    let advantageTeam: Team | null = null;
+  teamBChars.forEach(bChar => {
+    teamAChars.forEach(aChar => {
+      const bId = getCharacterId(bChar);
+      if (bId && allCharacterData[bId]) {
+        const score = allCharacterData[bId].compatibilityScores[aChar] || 0;
+        teamBScore += score;
+      }
+    });
+  });
+
+  const difference = Math.abs(teamAScore - teamBScore);
+  let advantageTeam: Team | null = null;
+  
+  if (difference > 1) {
+    advantageTeam = teamAScore > teamBScore ? 'A' : 'B';
+  }
+
+  // 勝率計算の修正
+  const baseWinRate = 50; // ベース勝率は50%
+  let winRate = baseWinRate;
+  const totalScore = teamAScore + teamBScore; // totalScore の宣言を前に移動
+
+  if (teamAScore === teamBScore) {
+    // スコアが同じ場合は50%
+    winRate = baseWinRate;
+  } else if (totalScore > 0) {
+    const scoreDiff = Math.abs(teamAScore - teamBScore);
+    const maxDeviation = 50; // 最大偏差を50%に設定（0%〜100%の範囲）
     
-    if (difference > 1) {
-      advantageTeam = teamAScore > teamBScore ? 'A' : 'B';
+    // スコア差の比率を計算（0〜1の範囲）
+    const diffRatio = scoreDiff / totalScore;
+    
+    // 比率を調整（極端な値を抑制）
+    const adjustedRatio = Math.pow(diffRatio, 0.7); // 0.7乗で緩やかなカーブに
+
+    if (teamAScore > teamBScore) {
+      winRate = baseWinRate + (maxDeviation * adjustedRatio);
+    } else {
+      winRate = baseWinRate - (maxDeviation * adjustedRatio);
     }
 
-    const totalScore = teamAScore + teamBScore;
-    const advantageScore = Math.max(teamAScore, teamBScore);
-    const baseWinRate = 50;
-    
-    let winRate = baseWinRate;
-    if (totalScore > 0) {
-      const maxDeviation = 44.9;
-      const rawRatio = advantageScore / totalScore;
-      const enhancedRatio = Math.pow(rawRatio, 0.5);
-      const multiplier = 1.2;
-      const scoreRatio = Math.min(1, (enhancedRatio * multiplier + rawRatio) / 2);
-      
-      winRate = Math.min(95, Math.max(50.1, baseWinRate + (maxDeviation * (2 * scoreRatio - 1))));
-    }
+    // 0%〜100%の範囲に収める
+    winRate = Math.max(0, Math.min(100, winRate));
+  }
 
-    return {
-      teamAScore,
-      teamBScore,
-      advantageTeam,
-      difference,
-      winRate: Math.round(winRate)
-    };
+  return {
+    teamAScore,
+    teamBScore,
+    advantageTeam,
+    difference,
+    winRate: Math.round(winRate)
   };
+};
 
   const getMapBasedRecommendations = (mapName: string | undefined): CharacterRecommendation[] => {
     if (!mapName) return [];

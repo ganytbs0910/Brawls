@@ -6,7 +6,11 @@
       "name": {
         "ja": "オーリー",
         "en": "Ollie",
-        "ko": "올리"
+        "ko": "올리",
+        "es": "Ollie",
+        "ar": "أولي",
+        "fr": "Ollie",
+        "zh-tw": "奧利"
       },
       "image": "require('../../assets/BrawlerIcons/ollie_pin.png')",
       "class": {
@@ -21,7 +25,11 @@
       "description": {
         "ja": "オーリーはスターパークをカスタマイズしたホバーボードで駆け巡り、レールを研磨してトラブルを引き起こします！オールドスクールヒップホップのファンであるオーリーは、どこへ行くにもお気に入りの曲を爆音で流します。彼の音楽は伝染病...文字通りです。ブローラーたちはそれを聞くと踊らずにはいられません。",
         "en": "Ollie rides his customized hoverboard around Starr Park, grinding rails and causing trouble! A fan of old school hip hop, Ollie blasts his favorite tunes wherever he goes. His music is infectious... literally. Brawlers can't help but dance when they hear it.",
-        "ko": "올리는 스타파크를 커스텀한 호버보드로 돌아다니며 레일을 그리고 문제를 일으킵니다! 올드 스쿨 힙합의 팬인 올리는 어디를 가든지 좋아하는 음악을 큰 소리로 틀어놓습니다. 그의 음악은 전염병... 말 그대로입니다. 브롤러들은 그 음악을 듣자마자 춤을 추게 됩니다."
+        "ko": "올리는 스타파크를 커스텀한 호버보드로 돌아다니며 레일을 그리고 문제를 일으킵니다! 올드 스쿨 힙합의 팬인 올리는 어디를 가든지 좋아하는 음악을 큰 소리로 틀어놓습니다. 그의 음악은 전염병... 말 그대로입니다. 브롤러들은 그 음악을 듣자마자 춤을 추게 됩니다.",
+        "es": "¡Ollie recorre Starr Park en su patineta voladora personalizada, deslizándose por las barandas y causando problemas! Fanático del hip hop de la vieja escuela, Ollie pone a todo volumen sus canciones favoritas dondequiera que vaya. Su música es contagiosa... literalmente. Los luchadores no pueden evitar bailar cuando la escuchan.",
+        "ar": "أولي يتجول في ستار بارك على لوح التزلج الخاص به المخصص، يطحن القضبان ويسبب المشاكل! معجب بالهيب هوب القديم، يقوم أولي بتشغيل أغانيه المفضلة بصوت عالٍ أينما ذهب. موسيقاه معدية... حرفيًا. لا يمكن للمقاتلين تجنب الرقص عند سماعها.",
+        "fr": "Ollie parcourt Starr Park sur sa planche volante personnalisée, glissant sur les rampes et causant des problèmes ! Fan de hip-hop old school, Ollie diffuse ses morceaux préférés à plein volume partout où il va. Sa musique est contagieuse... littéralement. Les combattants ne peuvent s'empêcher de danser quand ils l'entendent.",
+        "zh-tw": "奧利騎著他的定制滑板在斯塔爾公園四處遊蕩，滑著欄杆並引起麻煩！奧利是老派嘻哈的粉絲，無論走到哪裡，他都會放著自己喜歡的音樂。他的音樂是傳染病...真的。當戰鬥者聽到時，他們無法停止跳舞。"
       },
       "starPowers": [
         {
@@ -29,19 +37,31 @@
           "name": {
             "ja": "ウォールライド",
             "en": "Kick Push",
-            "ko": "킥 푸시"
+            "ko": "킥 푸시",
+            "es": "Patada y Empuje",
+            "ar": "ركلة ودفع",
+            "fr": "Coup de pied et Poussée",
+            "zh-tw": "踢推"
           },
           "description": {
             "ja": "壁の近くで移動速度が20%上昇する。",
             "en": "While near walls Ollie kicks off his hoverboard and gains 20% extra movement speed.",
-            "ko": "벽 근처에서 올리는 호버보드를 밀어내고 이동 속도가 20% 증가합니다."
+            "ko": "벽 근처에서 올리는 호버보드를 밀어내고 이동 속도가 20% 증가합니다.",
+            "es": "Cerca de las paredes, Ollie se impulsa con su patineta voladora y obtiene un 20% de velocidad de movimiento adicional.",
+            "ar": "أثناء الاقتراب من الجدران، يقوم أولي بركل لوح التزلج الخاص به ويحصل على 20% من سرعة الحركة الإضافية.",
+            "fr": "Près des murs, Ollie donne un coup de pied à sa planche volante et gagne 20% de vitesse de déplacement supplémentaire.",
+            "zh-tw": "靠近牆壁時，奧利踢開他的滑板，並獲得20%的額外移動速度。"
           },
           "recommendation": {
             "level": 2,
             "reason": {
               "ja": "壁を壊されると価値が失われるため汎用性が非常に低い",
               "en": "The versatility is very low because the value is lost when the wall is broken.",
-              "ko": "벽이 깨지면 가치가 상실되기 때문에 다재다능성이 매우 낮습니다."
+              "ko": "벽이 깨지면 가치가 상실되기 때문에 다재다능성이 매우 낮습니다.",
+              "es": "La versatilidad es muy baja porque el valor se pierde cuando se rompe la pared.",
+              "ar": "القابلية للتعديل منخفضة جدًا لأن القيمة تفقد عند كسر الجدار.",
+              "fr": "La polyvalence est très faible car la valeur est perdue lorsque le mur est brisé.",
+              "zh-tw": "當牆壁被打破時，價值就會消失，因此多功能性非常低。"
             }
           }
         },
@@ -50,19 +70,31 @@
           "name": {
             "ja": "レネゲード",
             "en": "Renegade",
-            "ko": "레네게이드"
+            "ko": "레네게이드",
+            "es": "Renegado",
+            "ar": "متمرد",
+            "fr": "Renégat",
+            "zh-tw": "叛徒"
           },
           "description": {
             "ja": "必殺技で前方に移動した後、4000HPの消耗型のシールドを獲得する。シールドは4秒で消滅する。",
             "en": "After dashing forward with his Super, Ollie gains a 4000 decaying shield over 4 seconds.",
-            "ko": "궁극기로 전방으로 대쉬한 후, 4초 동안 4000의 감소형 보호막을 얻습니다."
+            "ko": "궁극기로 전방으로 대쉬한 후, 4초 동안 4000의 감소형 보호막을 얻습니다.",
+            "es": "Después de avanzar con su Súper, Ollie obtiene un escudo de 4000 puntos que se desvanece en 4 segundos.",
+            "ar": "بعد الاندفاع إلى الأمام بقوته الخارقة، يحصل أولي على درع يتلاشى بقيمة 4000 نقطة على مدى 4 ثوانٍ.",
+            "fr": "Après avoir foncé vers l'avant avec son Super, Ollie gagne un bouclier décroissant de 4000 points sur 4 secondes.",
+            "zh-tw": "使用超級技能向前衝刺後，奧利在4秒內獲得4000點的衰減護盾。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "ウルトの弱点を補うために必須で、シールドの体力もかなり高く汎用性が高い",
               "en": "Essential to make up for the weakness of the ult, the shield's health is also quite high and versatile.",
-              "ko": "울트의 약점을 보완하기 위해 필수이며, 보호막의 체력도 상당히 높고 다재다능합니다."
+              "ko": "울트의 약점을 보완하기 위해 필수이며, 보호막의 체력도 상당히 높고 다재다능합니다.",
+              "es": "Esencial para compensar la debilidad del súper, la salud del escudo también es bastante alta y versátil.",
+              "ar": "ضروري لتعويض ضعف القوة الخارقة، وصحة الدرع أيضًا مرتفعة بشكل كبير ومتعدد الاستخدامات.",
+              "fr": "Essentiel pour compenser la faiblesse du super, la santé du bouclier est également assez élevée et polyvalente.",
+              "zh-tw": "必要來彌補超級技能的弱點，護盾的生命值也相當高，並且多功能。"
             }
           }
         }
@@ -73,19 +105,31 @@
           "name": {
             "ja": "コンボトリック",
             "en": "Regulate",
-            "ko": "레귤레이트"
+            "ko": "레귤레이트",
+            "es": "Regulador",
+            "ar": "تنظيم",
+            "fr": "Réguler",
+            "zh-tw": "調節"
           },
           "description": {
             "ja": "ジャンプしてキックフリップを決め、1.0秒間にわたり着地地点を全て挑発状態にする",
             "en": "Ollie jumps and does a rad kickflip, hypnotizing all enemies where he lands for 1.0 seconds.",
-            "ko": "올리가 점프하여 멋진 킥플립을 하고, 착지 지점을 1.0초 동안 모두 유혹 상태로 만듭니다."
+            "ko": "올리가 점프하여 멋진 킥플립을 하고, 착지 지점을 1.0초 동안 모두 유혹 상태로 만듭니다.",
+            "es": "Ollie salta y hace un increíble kickflip, hipnotizando a todos los enemigos donde aterriza durante 1.0 segundos.",
+            "ar": "أولي يقفز ويقوم بحركة الكيك فليب الرائعة، يسحر جميع الأعداء حيث يهبط لمدة 1.0 ثانية.",
+            "fr": "Ollie saute et fait un kickflip rad, hypnotisant tous les ennemis où il atterrit pendant 1.0 seconde.",
+            "zh-tw": "奧利跳躍並做出一個很酷的踢腳翻轉，使他降落的地方的所有敵人在1.0秒內被催眠。"
           },
           "recommendation": {
             "level": 4,
             "reason": {
               "ja": "壁を越えて逃げや近距離が弱い敵を倒すやすくなるため非常に使いやすい",
               "en": "It is very easy to use because it makes it easier to defeat enemies who are weak at close range or to escape over walls.",
-              "ko": "벽을 넘어 도망가거나 근거리에서 약한 적을 물리치기 쉽게 만들기 때문에 매우 사용하기 편리합니다."
+              "ko": "벽을 넘어 도망가거나 근거리에서 약한 적을 물리치기 쉽게 만들기 때문에 매우 사용하기 편리합니다.",
+              "es": "Es muy fácil de usar porque facilita la derrota de enemigos débiles a corta distancia o escapar por encima de las paredes.",
+              "ar": "من السهل جدًا استخدامه لأنه يجعل من السهل هزيمة الأعداء الذين يكونون ضعفاء عند مدى قريب أو الهروب فوق الجدران.",
+              "fr": "Il est très facile à utiliser car il facilite la défaite des ennemis faibles à courte portée ou l'évasion par-dessus les murs.",
+              "zh-tw": "非常容易使用，因為它使得更容易擊敗近距離虛弱的敵人或逃脫過牆。"
             }
           }
         },
@@ -94,19 +138,31 @@
           "name": {
             "ja": "ゴン攻め",
             "en": "All Eyez On Me",
-            "ko": "올 아이즈 온 미"
+            "ko": "올 아이즈 온 미",
+            "es": "Todos los Ojos en Mí",
+            "ar": "كل الأعين علي",
+            "fr": "Tous les Yeux sur Moi",
+            "zh-tw": "所有人的目光都在我身上"
           },
           "description": {
             "ja": "次の通常攻撃を受けた敵は、1.0秒間にわたって挑発状態になる",
             "en": "Ollie's next attack will hypnotize any enemies hit for 1.0 seconds.",
-            "ko": "올리의 다음 공격은 명중한 모든 적을 1.0초 동안 유혹 상태로 만듭니다."
+            "ko": "올리의 다음 공격은 명중한 모든 적을 1.0초 동안 유혹 상태로 만듭니다.",
+            "es": "El siguiente ataque de Ollie hipnotizará a cualquier enemigo golpeado durante 1.0 segundos.",
+            "ar": "سيجعل الهجوم التالي لأولي أي أعداء يصطدمون بهم ينغمسون لمدة 1.0 ثانية.",
+            "fr": "La prochaine attaque d'Ollie hypnotisera tous les ennemis touchés pendant 1.0 seconde.",
+            "zh-tw": "奧利的下一次攻擊將使任何被擊中的敵人在1.0秒內被催眠。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "必殺技で倒しきれなかった敵にさらに追い打ちを与えて倒すことができ、タンクに対しても少し戦えるようになる",
               "en": "You can give a follow-up blow to enemies that you couldn't defeat with your super and defeat them, and you can also fight a little against tanks.",
-              "ko": "필살기로 물리치지 못한 적에게 추가 타격을 가해 물리치고, 탱크에 대해 조금 싸울 수 있습니다."
+              "ko": "필살기로 물리치지 못한 적에게 추가 타격을 가해 물리치고, 탱크에 대해 조금 싸울 수 있습니다.",
+              "es": "Puedes dar un golpe de seguimiento a los enemigos que no pudiste derrotar con tu súper y derrotarlos, y también puedes luchar un poco contra los tanques.",
+              "ar": "يمكنك توجيه ضربة تابعة للأعداء الذين لم تتمكن من هزيمتهم بقوتك الخارقة وهزيمتهم، ويمكنك أيضًا القتال قليلاً ضد الدبابات.",
+              "fr": "Vous pouvez donner un coup de suivi aux ennemis que vous n'avez pas pu vaincre avec votre super et les vaincre, et vous pouvez également combattre un peu contre les tanks.",
+              "zh-tw": "您可以對您的超級技能無法擊敗的敵人進行後續打擊，並擊敗他們，並且您也可以對抗坦克。"
             }
           }
         }
@@ -122,7 +178,11 @@
       "name": {
         "ja": "ミープル",
         "en": "Meeple",
-        "ko": "미플"
+        "ko": "미플",
+        "es": "Meeple",
+        "ar": "ميبل",
+        "fr": "Meeple",
+        "zh-tw": "米普"
       },
       "image": "require('../../assets/BrawlerIcons/meeple_pin.png')",
       "class": {
@@ -137,7 +197,11 @@
       "description": {
         "ja": "Meeple は存在するすべてのボード ゲームのルールを知っています。そして、もしあなたがルールを破ったら...まあ、あなたがルールを破りたくないとだけ言っておきましょう。彼らは詐欺師やルールを守らない人を嫌います。ルールには例外が 1 つあります...ミープル自身です!",
         "en": "Meeple knows the rules to every board game in existence and if you break them... Well let's just say you don't want to break them. They hate cheaters and those who don't follow the rules. There's one exception to the rules... Meeple themselves!",
-        "ko": "미플은 존재하는 모든 보드 게임의 규칙을 알고 있습니다. 그리고 만약 당신이 그 규칙을 어기면... 음, 그 규칙을 어기고 싶지 않다고만 말해 두겠습니다. 그들은 사기꾼과 규칙을 지키지 않는 사람들을 싫어합니다. 규칙에는 예외가 하나 있습니다... 바로 미플 자신입니다!"
+        "ko": "미플은 존재하는 모든 보드 게임의 규칙을 알고 있습니다. 그리고 만약 당신이 그 규칙을 어기면... 음, 그 규칙을 어기고 싶지 않다고만 말해 두겠습니다. 그들은 사기꾼과 규칙을 지키지 않는 사람들을 싫어합니다. 규칙에는 예외가 하나 있습니다... 바로 미플 자신입니다!",
+        "es": "Meeple conoce las reglas de todos los juegos de mesa que existen y si las rompes... Bueno, digamos que no quieres romperlas. Odian a los tramposos y a aquellos que no siguen las reglas. ¡Hay una excepción a las reglas... Meeple ellos mismos!",
+        "ar": "ميبل يعرف قواعد كل لعبة لوحية موجودة وإذا كسرتها... حسنًا دعنا نقول فقط أنك لا تريد كسرها. يكرهون المحتالين وأولئك الذين لا يتبعون القواعد. هنا استثناء واحد للقواعد... ميبل نفسهم!",
+        "fr": "Meeple connaît les règles de tous les jeux de société existants et si vous les enfreignez... Eh bien, disons simplement que vous ne voulez pas les enfreindre. Ils détestent les tricheurs et ceux qui ne suivent pas les règles. Il y a une exception à la règle... Meeple eux-mêmes!",
+        "zh-tw": "米普知道每個現存的桌遊的規則，如果你違反了它們... 好吧，我們只能說你不想違反它們。他們討厭作弊者和不遵守規則的人。規則有一個例外... 就是米普自己！"
       },
       "starPowers": [
         {
@@ -145,19 +209,31 @@
           "name": {
             "ja": "プリズンカード",
             "en": "Do Not Pass Go",
-            "ko": "고고하지 마세요"
+            "ko": "고고하지 마세요",
+            "es": "No Pases por la Cárcel",
+            "ar": "لا تمر بالذهاب",
+            "fr": "Ne Passez Pas par la Case Départ",
+            "zh-tw": "不要經過去"
           },
           "description": {
             "ja": "障害物を貫通した攻撃の与ダメージが600上昇する",
             "en": "When you shoot through environment deal 600 more damage.",
-            "ko": "장애물을 관통한 공격의 피해량이 600 증가합니다."
+            "ko": "장애물을 관통한 공격의 피해량이 600 증가합니다.",
+            "es": "Cuando disparas a través del entorno, infliges 600 puntos de daño adicionales.",
+            "ar": "عندما تطلق النار من خلال البيئة، تتسبب في 600 نقطة ضرر إضافية.",
+            "fr": "Lorsque vous tirez à travers l'environnement, infligez 600 points de dégâts supplémentaires.",
+            "zh-tw": "當您穿過環境射擊時，造成600點額外傷害。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "火力が上昇することで敵を倒しやすくなり、かなり使い勝手が良い",
               "en": "It's easier to defeat enemies as the firepower increases, making it very easy to use.",
-              "ko": "화력이 증가하여 적을 쉽게 물리치기 때문에 매우 사용하기 편리합니다."
+              "ko": "화력이 증가하여 적을 쉽게 물리치기 때문에 매우 사용하기 편리합니다.",
+              "es": "Es más fácil derrotar a los enemigos a medida que aumenta la potencia de fuego, lo que lo hace muy fácil de usar.",
+              "ar": "من السهل هزيمة الأعداء مع زيادة القوة النارية، مما يجعله سهل الاستخدام للغاية.",
+              "fr": "Il est plus facile de vaincre les ennemis à mesure que la puissance de feu augmente, ce qui le rend très facile à utiliser.",
+              "zh-tw": "隨著火力的增加，更容易擊敗敵人，使其非常易於使用。"
             }
           }
         },
@@ -166,19 +242,31 @@
           "name": {
             "ja": "法の曲解",
             "en": "Rule Bending",
-            "ko": "규칙 굽히기"
+            "ko": "규칙 굽히기",
+            "es": "Doblador de Reglas",
+            "ar": "انحناء القواعد",
+            "fr": "Courbe des Règles",
+            "zh-tw": "彎曲規則"
           },
           "description": {
             "ja": "必殺技が範囲内の味方のリロード速度を20%上昇させる。",
             "en": "Critical success also increases allies reload speed within the area by 20%",
-            "ko": "필살기가 범위 내의 아군의 재장전 속도를 20% 증가시킵니다."
+            "ko": "필살기가 범위 내의 아군의 재장전 속도를 20% 증가시킵니다.",
+            "es": "El éxito crítico también aumenta la velocidad de recarga de los aliados dentro del área en un 20%",
+            "ar": "النجاح الحاسم يزيد أيضًا سرعة إعادة تحميل الحلفاء داخل المنطقة بنسبة 20٪",
+            "fr": "Le succès critique augmente également la vitesse de rechargement des alliés dans la zone de 20%",
+            "zh-tw": "關鍵成功也會使範圍內的盟友重新裝填速度提高20%"
           },
           "recommendation": {
             "level": 3,
             "reason": {
               "ja": "特殊な戦術や戦略を取る際に使えるが、使いどころが難しい",
               "en": "It can be used when taking special tactics or strategies, but it is difficult to use.",
-              "ko": "특별한 전술이나 전략을 취할 때 사용할 수 있지만 사용하기 어렵습니다."
+              "ko": "특별한 전술이나 전략을 취할 때 사용할 수 있지만 사용하기 어렵습니다.",
+              "es": "Se puede utilizar al tomar tácticas o estrategias especiales, pero es difícil de usar.",
+              "ar": "يمكن استخدامه عند اتخاذ تكتيكات أو استراتيجيات خاصة، ولكن من الصعب استخدامه.",
+              "fr": "Il peut être utilisé lors de l'adoption de tactiques ou de stratégies spéciales, mais il est difficile à utiliser.",
+              "zh-tw": "在採取特殊戰術或策略時可以使用，但很難使用。"
             }
           }
         }
@@ -189,19 +277,31 @@
           "name": {
             "ja": "マンション・オブ・ミープル",
             "en": "Mansions Of Meeple",
-            "ko": "미플의 저택"
+            "ko": "미플의 저택",
+            "es": "Mansión de Meeple",
+            "ar": "قصور ميبل",
+            "fr": "Manoirs de Meeple",
+            "zh-tw": "米普的豪宅"
           },
           "description": {
             "ja": "次の通常攻撃の着弾地点にサイコロの塔を生成し、1000ダメージを与える。",
             "en": "Meeple's next attack creates dice towers around the impact area and deals 1000 damage.",
-            "ko": "미플의 다음 공격은 충격 지역 주변에 주사위 탑을 생성하고 1000의 피해를 줍니다."
+            "ko": "미플의 다음 공격은 충격 지역 주변에 주사위 탑을 생성하고 1000의 피해를 줍니다.",
+            "es": "El siguiente ataque de Meeple crea torres de dados alrededor del área de impacto y causa 1000 puntos de daño.",
+            "ar": "الهجوم التالي لميبل يخلق أبراج نرد حول منطقة الصدمة ويتسبب في 1000 ضرر.",
+            "fr": "Génère une tour de dés au point d'impact de votre prochaine attaque normale, infligeant 1 000 dégâts.",
+            "zh-tw": "米普的下一次攻擊在撞擊區域周圍創建骰子塔，造成1000點傷害。"
           },
           "recommendation": {
             "level": 4,
             "reason": {
               "ja": "ノックアウトではかなり強力で、確定キルやウルトとの併用で高確率で敵を倒せるため強い",
               "en": "It is quite powerful in knockout, and it is strong because it can defeat enemies with a high probability by combining with confirmed kills and ults.",
-              "ko": "노크아웃에서 상당히 강력하며, 확정 킬이나 궁극기와 결합하여 적을 높은 확률로 물리칠 수 있어 강합니다."
+              "ko": "노크아웃에서 상당히 강력하며, 확정 킬이나 궁극기와 결합하여 적을 높은 확률로 물리칠 수 있어 강합니다.",
+              "es": "Es bastante poderoso en el knockout, y es fuerte porque puede derrotar a los enemigos con una alta probabilidad al combinarlo con asesinatos confirmados y ults.",
+              "ar": "إنه قوي إلى حد ما في الضربة القاضية، وهو قوي لأنه يمكنه هزيمة الأعداء بإحتمالية عالية عن طريق الجمع بين القتل المؤكد والألت.",
+              "fr": "Il est assez puissant dans le knockout, et il est fort car il peut vaincre les ennemis avec une forte probabilité en combinant les kills confirm et les ults.",
+              "zh-tw": "在淘汰賽中非常強大，因為它可以與確定擊殺和終極技能結合，高概率擊敗敵人，所以很強。"
             }
           }
         },
@@ -210,19 +310,31 @@
           "name": {
             "ja": "キレ落ち",
             "en": "Ragequit",
-            "ko": "레이지 퀴트"
+            "ko": "레이지 퀴트",
+            "es": "Abandono",
+            "ar": "الغضب",
+            "fr": "Ragequit",
+            "zh-tw": "憤怒退出"
           },
           "description": {
             "ja": "怒りで頭に血が上り、近くの敵に突撃してスタン＋ノックバックさせる。自身のHPが少なくなるほどスタンの効果時間が延長される。",
             "en": "Meeple lashes out in rage at nearby enemies, stunning them and knocking them back. Ragequit stuns for a longer period of time the fewer hitpoints Meeple has.",
-            "ko": "미플이 근처의 적에게 분노를 표출하여 그들을 기절시키고 넉백시킵니다. 미플의 체력이 적을수록 레이지 퀴트의 기절 시간이 더 길어집니다."
+            "ko": "미플이 근처의 적에게 분노를 표출하여 그들을 기절시키고 넉백시킵니다. 미플의 체력이 적을수록 레이지 퀴트의 기절 시간이 더 길어집니다.",
+            "es": "Meeple se desata en cólera contra los enemigos cercanos, aturdiéndolos y empujándolos hacia atrás. Ragequit aturde durante un período de tiempo más largo cuanto menos puntos de vida tenga Meeple.",
+            "ar": "ينفجر ميبل بغضب على الأعداء القريبين، مما يجعلهم يصابون ب  الصدمة ويطرحهم للخلف. يصد Ragequit لفترة أطول كلما كانت نقاط الضرب القليلة لدى ميبل.",
+            "fr": "Meeple se déchaîne de rage contre les ennemis proches, les étourdissant et les repoussant. Ragequit étourdit pendant une période plus longue moins Meeple a de points de vie.",
+            "zh-tw": "米普對附近的敵人發怒，使他們暈眩並向後擊退。 Ragequit在米普的生命值越少時，暈眩時間就越長。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "タンクとアサシンに対してかなり強くなり、死ににくくなるためかなりオススメ",
               "en": "It becomes quite strong against tanks and assassins, making it difficult to die, so it is highly recommended.",
-              "ko": "탱크와 암살자에 대해 상당히 강해져 죽기 어려워지므로 매우 추천합니다."
+              "ko": "탱크와 암살자에 대해 상당히 강해져 죽기 어려워지므로 매우 추천합니다.",
+              "es": "Se vuelve bastante fuerte contra tanques y asesinos, lo que hace que sea difícil morir, por lo que es muy recomendable.",
+              "ar": "يصبح قويًا إلى حد كبير ضد الدبابات والقتلة، مما يجعل من الصعب الموت، لذلك يُوصى به بشدة.",
+              "fr": "Il devient assez fort contre les tanks et les assassins, ce qui rend difficile de mourir, il est donc fortement recommandé.",
+              "zh-tw": "對坦克和刺客變得相當強大，使得很難死，因此強烈推薦。"
             }
           }
         }
@@ -239,7 +351,11 @@
       "name": {
         "ja": "ジュジュ",
         "en": "Juju",
-        "ko": "주주"
+        "ko": "주주",
+        "es": "Juju",
+        "ar": "جوجو",
+        "fr": "Juju",
+        "zh-tw": "朱朱"
       },
       "image": "require('../../assets/BrawlerIcons/juju_pin.png')",
       "class": {
@@ -254,7 +370,11 @@
       "description": {
         "ja": "ジュジュはオディティーズ ショップを所有し、どこへ行くにも彼女の「ペット」ヴードゥー人形グリグリ（グレゴリーと発音）が付いてきます。ジュジュは元素を操ることができますが、スターパークの多くの訪問者に人形を売るための才能あるおもちゃ職人でもあります。",
         "en": "Juju owns the Oddities Shop and is followed everywhere by her \"pet\" voodoo doll, Gris-Gris (pronounced Gregory). Although she can control the elements, Juju is also a talented toymaker who makes dolls to sell to Starr Park's many visitors.",
-        "ko": "주주는 오디티 샵을 소유하고 있으며, 어디를 가든지 그녀의 \"애완동물\" 부두 인형 그리그리(그레고리로 발음)가 따라다닙니다. 주주는 원소를 조종할 수 있지만, 스타파크의 많은 방문객들에게 인형을 판매하는 능숙한 장난감 제작자이기도 합니다."
+        "ko": "주주는 오디티 샵을 소유하고 있으며, 어디를 가든지 그녀의 \"애완동물\" 부두 인형 그리그리(그레고리로 발음)가 따라다닙니다. 주주는 원소를 조종할 수 있지만, 스타파크의 많은 방문객들에게 인형을 판매하는 능숙한 장난감 제작자이기도 합니다.",
+        "es": "Juju es dueña de la Tienda de Rarezas y es seguida a todas partes por su \"mascota\" muñeco vudú, Gris-Gris (pronunciado Gregory). Aunque puede controlar los elementos, Juju también es una talentosa fabricante de juguetes que hace muñecos para vender a los muchos visitantes de Starr Park.",
+        "ar": "جوجو تمتلك متجر الغرائب وتتبعها في كل مكان دمية الفودو \"حيوانها الأليف\"، جريس-جريس (ينطق جريجوري). على الرغم من أنها يمكنها التحكم في العناصر، إلا أن جوجو أيضًا صانعة ألعاب موهوبة تصنع الدمى لبيعها ل زوار ستار بارك الكثيرين.",
+        "fr": "Juju possède le magasin des Curiosités et est suivie partout par sa \"mascotte\" poupée vaudou, Gris-Gris (prononcé Gregory). Bien qu'elle puisse contrôler les éléments, Juju est également une talentueuse fabricante de jouets qui fabrique des poupées à vendre à de nombreux visiteurs de Starr Park.",
+        "zh-tw": "朱朱擁有奇異商店，並且她的“寵物”巫毒娃娃格里斯-格里斯（發音為格雷戈里）總是跟在她身邊。雖然她可以控制元素，但朱朱也是一位有才華的玩具製造商，她製作娃娃出售給斯塔爾公園的許多遊客。"
       },
       "starPowers": [
         {
@@ -262,19 +382,31 @@
           "name": {
             "ja": "グリグリシールド",
             "en": "Gris-Gris Shield",
-            "ko": "부두 방패"
+            "ko": "부두 방패",
+            "es": "Escudo Gris-Gris",
+            "ar": "درع جريس-جريس",
+            "fr": "Bouclier Gris-Gris",
+            "zh-tw": "格里斯-格里斯盾牌"
           },
           "description": {
             "ja": "召喚したグリグリにシールドが付与される。",
             "en": "Summoned Gris-Gris gains a shield.",
-            "ko": "소환된 부두 인형에 방패가 부여됩니다."
+            "ko": "소환된 부두 인형에 방패가 부여됩니다.",
+            "es": "El Gris-Gris invocado obtiene un escudo.",
+            "ar": "يحصل Gris-Gris المستدعى على درع.",
+            "fr": "Le Gris-Gris invoqué gagne un bouclier.",
+            "zh-tw": "召喚的格里斯-格里斯獲得盾牌。"
           },
           "recommendation": {
             "level": 3,
             "reason": {
               "ja": "強力な必殺技のグリグリの耐久力が増すことで前線の押し上げをしやすくなる。",
               "en": "Increases durability of powerful super ability Gris-Gris making it easier to push forward.",
-              "ko": "강력한 필살기 부두 인형의 내구력이 증가하여 전선을 쉽게 밀어올릴 수 있습니다."
+              "ko": "강력한 필살기 부두 인형의 내구력이 증가하여 전선을 쉽게 밀어올릴 수 있습니다.",
+              "es": "Aumenta la durabilidad de la poderosa habilidad súper Gris-Gris, lo que facilita avanzar.",
+              "ar": "يزيد من قوة الصمود لقدرة القوية الخارقة Gris-Gris مما يجعل من السهل دفعها للأمام.",
+              "fr": "Augmente la durabilité de la puissante capacité super Gris-Gris, facilitant ainsi la progression.",
+              "zh-tw": "增加強大的超級能力格里斯-格里斯的耐久性，使推進變得更容易。"
             }
           }
         },
@@ -283,19 +415,31 @@
           "name": {
             "ja": "スローニードル",
             "en": "Slow Needle",
-            "ko": "느린 바늘"
+            "ko": "느린 바늘",
+            "es": "Aguja Lenta",
+            "ar": "إبرة بطيئة",
+            "fr": "Aiguille Lente",
+            "zh-tw": "慢針"
           },
           "description": {
             "ja": "グリグリの攻撃が1.0秒にわたって敵をスローダウンにさせるようになる。",
             "en": "Gris-Gris's attack slows down enemies for 1.0 seconds.",
-            "ko": "부두 인형의 공격이 1.0초 동안 적을 감속시킵니다."
+            "ko": "부두 인형의 공격이 1.0초 동안 적을 감속시킵니다.",
+            "es": "El ataque de Gris-Gris ralentiza a los enemigos durante 1.0 segundos.",
+            "ar": "يبطئ هجوم Gris-Gris الأعداء لمدة 1.0 ثانية.",
+            "fr": "Les attaques de Grigri ralentissent désormais les ennemis pendant,1.0 seconde.",
+            "zh-tw": "格里斯-格里斯的攻擊使敵人減速1.0秒。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "1発当てると2発目以降の命中率が上昇し、超強力なタンクメタになる",
               "en": "The hit rate increases after the first hit, making it a super powerful tank meta.",
-              "ko": "1발을 맞추면 2발째 이후의 명중률이 상승하여 초강력한 탱크 메타가 됩니다."
+              "ko": "1발을 맞추면 2발째 이후의 명중률이 상승하여 초강력한 탱크 메타가 됩니다.",
+              "es": "La tasa de aciertos aumenta después del primer golpe, convirtiéndolo en un súper poderoso tanque meta.",
+              "ar": "تزيد نسبة الضربات بعد الضربة الأولى، مما يجعلها قوية جدًا في الدبابات.",
+              "fr": "Le taux de coups augmente après le premier coup, ce qui en fait un méta-tank super puissant.",
+              "zh-tw": "第一擊後，命中率增加，使其成為超強大的坦克元。"
             }
           }
         }
@@ -306,19 +450,31 @@
           "name": {
             "ja": "ブードゥーチャイル",
             "en": "Voodoo Doll",
-            "ko": "부두 인형"
+            "ko": "부두 인형",
+            "es": "Muñeco Vudú",
+            "ar": "دمية الفودو",
+            "fr": "Poupée Vaudou",
+            "zh-tw": "巫毒娃娃"
           },
           "description": {
             "ja": "次の通常攻撃に3種類の効果が全て付与される。",
             "en": "The next normal attack is imbued with all three effects.",
-            "ko": "다음 일반 공격에 세 가지 효과가 모두 부여됩니다."
+            "ko": "다음 일반 공격에 세 가지 효과가 모두 부여됩니다.",
+            "es": "El siguiente ataque normal se impregna de los tres efectos.",
+            "ar": "يتم تحييد الهجوم العادي التالي بجميع الآثار الثلاثة.",
+            "fr": "La prochaine attaque normale est imprégnée des trois effets.",
+            "zh-tw": "下一次普通攻擊將擁有所有三種效果。"
           },
           "recommendation": {
             "level": 3,
             "reason": {
               "ja": "草むらがない状況では良いが、そもそもそのマップでは使用しない。",
               "en": "Good when there are no bushes, but not used on that map in the first place.",
-              "ko": "풀이 없는 상황에서 좋지만, 그 맵에서는 사용하지 않습니다."
+              "ko": "풀이 없는 상황에서 좋지만, 그 맵에서는 사용하지 않습니다.",
+              "es": "Bueno cuando no hay arbustos, pero no se usa en ese mapa en primer lugar.",
+              "ar": "جيد عندما لا تكون هناك أشجار، ولكن لا يتم استخدامه على ذلك الخريطة في المقام الأول.",
+              "fr": "Bon quand il n'y a pas de buissons, mais pas utilisé sur cette carte en premier lieu.",
+              "zh-tw": "當沒有灌木叢時很好，但首先不會在該地圖上使用。"
             }
           }
         },
@@ -327,19 +483,31 @@
           "name": {
             "ja": "エレメンタリスト",
             "en": "Elementalist",
-            "ko": "엘리멘탈리스트"
+            "ko": "엘리멘탈리스트",
+            "es": "Elementalista",
+            "ar": "عنصري",
+            "fr": "Élémentaliste",
+            "zh-tw": "元素使"
           },
           "description": {
             "ja": "現在いる地形に応じて一時的な特殊効果を得る。地面:被ダメージ減少 草:透明化 水上:移動速度が上昇",
             "en": "Gain a temporary special effect based on the terrain you are on. Ground: Damage reduction Bushes: Invisibility Water: Movement speed increase",
-            "ko": "현재 있는 지형에 따라 일시적인 특수 효과를 얻습니다. 땅: 피해 감소 풀: 투명화 수상: 이동 속도 증가"
+            "ko": "현재 있는 지형에 따라 일시적인 특수 효과를 얻습니다. 땅: 피해 감소 풀: 투명화 수상: 이동 속도 증가",
+            "es": "Obtén un efecto especial temporal basado en el terreno en el que te encuentras. Suelo: Reducción de daño Arbustos: Invisibilidad Agua: Aumento de la velocidad de movimiento",
+            "ar": "احصل على تأثير خاص مؤقت استنادًا إلى التضاريس التي توجد عليها. الأرض: تقليل الضرر الأشجار: الخفاء الماء: زيادة سرعة الحركة",
+            "fr": "Obtenez un effet spécial temporaire basé sur le terrain sur lequel vous vous trouvez. Sol: Réduction des dégâts Buissons: Invisibilité Eau: Augmentation de la vitesse de déplacement",
+            "zh-tw": "根據您所在的地形獲得一個臨時特殊效果。地面：傷害減少 灌木叢：隱形 水：移動速度增加"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "透明化が超強力で最強と言えるほどの性能",
               "en": "Invisibility is extremely powerful and can be said to be the strongest performance",
-              "ko": "투명화가 매우 강력하여 최강의 성능이라고 할 수 있습니다"
+              "ko": "투명화가 매우 강력하여 최강의 성능이라고 할 수 있습니다",
+              "es": "La invisibilidad es extremadamente poderosa y se puede decir que es el rendimiento más fuerte",
+              "ar": "الخفاء قوي للغاية ويمكن القول أنه الأداء الأقوى",
+              "fr": "L'invisibilité est extrêmement puissante et peut être considérée comme la performance la plus forte",
+              "zh-tw": "隱形非常強大，可以說是最強的性能"
             }
           }
         }
@@ -356,7 +524,11 @@
       "name": {
         "ja": "シェイド",
         "en": "Shade",
-        "ko": "쉐이드"
+        "ko": "쉐이드",
+        "es": "Shade",
+        "ar": "ظل",
+        "fr": "Shade",
+        "zh-tw": "陰影"
       },
       "image": "require('../../assets/BrawlerIcons/shade_pin.png')",
       "class": {
@@ -371,7 +543,11 @@
       "description": {
         "ja": "このクールなサングラスを持つ謎の衣服の束については、あまり知られていません。ガスによって発見され、シェイドと名付けられ、現在は2人の不気味なブローラーがゴーストステーションで一緒に出没しています。",
         "en": "Not much is known about this mysterious bundle of clothes with cool sunglasses. Discovered by Gus and named Shade, now these two spooky brawlers haunt Ghost Station together.",
-        "ko": "멋진 선글라스를 쓴 이 신비로운 옷뭉치에 대해서는 알려진 바가 많지 않습니다. 가스가 발견하고 쉐이드라고 이름 붙였으며, 현재는 이 두 으스스한 브롤러가 고스트 스테이션에서 함께 출몰하고 있습니다."
+        "ko": "멋진 선글라스를 쓴 이 신비로운 옷뭉치에 대해서는 알려진 바가 많지 않습니다. 가스가 발견하고 쉐이드라고 이름 붙였으며, 현재는 이 두 으스스한 브롤러가 고스트 스테이션에서 함께 출몰하고 있습니다.",
+        "es": "No se sabe mucho sobre este misterioso montón de ropa con gafas de sol geniales. Descubierto por Gus y llamado Shade, ahora estos dos espeluznantes luchadores acechan juntos en Ghost Station.",
+        "ar": "لا يعرف الكثير عن هذه الحزمة الغامضة من الملابس مع نظارات شمسية رائعة. اكتشفها غوس وأطلق عليها اسم Shade، الآن هؤلاء القتلة المرعبين يطاردون معًا في محطة الأشباح.",
+        "fr": "On sait peu de choses sur ce mystérieux tas de vêtements avec des lunettes de soleil cool. Découvert par Gus et nommé Shade, ces deux combattants effrayants hantent maintenant Ghost Station ensemble.",
+        "zh-tw": "關於這個帶著酷炫太陽眼鏡的神秘衣服堆，人們知之甚少。由Gus發現並命名為Shade，現在這兩個令人毛骨悚然的格鬥者一起在幽靈車站出沒。"
       },
       "starPowers": [
         {
@@ -379,19 +555,31 @@
           "name": {
             "ja": "ポルターヘイスト",
             "en": "Spooky Speedster",
-            "ko": "유령 스피드스터"
+            "ko": "유령 스피드스터",
+            "es": "Velocista Espeluznante",
+            "ar": "سبيدستر مخيف",
+            "fr": "Speedster Spooky",
+            "zh-tw": "幽靈速度賽車手"
           },
           "description": {
             "ja": "シェイドのメイン攻撃の中心部で敵に命中すると、短時間の移動速度上昇を得ます。",
             "en": "When Shade hits an enemy with the center of his main attack, he gains a brief speed boost.",
-            "ko": "쉐이드의 메인 공격 중심부로 적을 명중시키면 짧은 시간 동안 이동 속도가 증가합니다."
+            "ko": "쉐이드의 메인 공격 중심부로 적을 명중시키면 짧은 시간 동안 이동 속도가 증가합니다.",
+            "es": "Cuando Shade golpea a un enemigo con el centro de su ataque principal, obtiene un breve impulso de velocidad.",
+            "ar": "عندما يضرب Shade عدوًا بمركز هجومه الرئيسي، يحصل على زيادة سرعة قصيرة.",
+            "fr": "Lorsque Shade touche un ennemi avec le centre de son attaque principale, il gagne une brève accélération.",
+            "zh-tw": "當Shade用他的主要攻擊中心擊中敵人時，他將獲得短暫的速度提升。"
           },
           "recommendation": {
             "level": 1,
             "reason": {
               "ja": "使わないでください。",
               "en": "Don't use this.",
-              "ko": "사용하지 마세요."
+              "ko": "사용하지 마세요.",
+              "es": "No uses esto.",
+              "ar": "لا تستخدم هذا.",
+              "fr": "Ne l'utilisez pas.",
+              "zh-tw": "不要使用這個。"
             }
           }
         },
@@ -400,19 +588,31 @@
           "name": {
             "ja": "スペクトルアーマー",
             "en": "Hardened Hoodie",
-            "ko": "강화된 후드"
+            "ko": "강화된 후드",
+            "es": "Sudadera Reforzada",
+            "ar": "هودي مقوى",
+            "fr": "Sweat à capuche renforcé",
+            "zh-tw": "加固連帽衫"
           },
           "description": {
             "ja": "霊体化フォーム中、シェイドは30%のダメージ軽減を得ます。",
             "en": "While in ghost form, Shade receives 30% damage reduction.",
-            "ko": "영체화 상태에서 쉐이드는 30%의 데미지 감소를 얻습니다."
+            "ko": "영체화 상태에서 쉐이드는 30%의 데미지 감소를 얻습니다.",
+            "es": "Mientras está en forma de fantasma, Shade recibe una reducción de daño del 30%.",
+            "ar": "أثناء الانتقال إلى الشكل الغائب، يتلقى Shade تقليلًا بنسبة 30% من الضرر.",
+            "fr": "Pendant la forme fantôme, Shade reçoit une réduction des dégâts de 30%.",
+            "zh-tw": "在幽靈形態下，Shade將獲得30%的傷害減免。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "弱点の脆さをカバーする超優秀スタパ",
               "en": "An excellent star power that covers the weakness of fragility",
-              "ko": "취약점인 脆弱性을 보완하는 매우 우수한 스타파워"
+              "ko": "취약점인 脆弱性을 보완하는 매우 우수한 스타파워",
+              "es": "Una excelente habilidad estelar que cubre la debilidad de la fragilidad",
+              "ar": "قوة نجمية ممتازة تغطي ضعف الهشاشة",
+              "fr": "Un excellent pouvoir d'étoile qui couvre la faiblesse de la fragilité",
+              "zh-tw": "一個優秀的星級技能，可以彌補脆弱性的弱點"
             }
           }
         }
@@ -423,19 +623,31 @@
           "name": {
             "ja": "ロングアーム",
             "en": "Long Arms",
-            "ko": "긴 팔"
+            "ko": "긴 팔",
+            "es": "Brazos Largos",
+            "ar": "أذرع طويلة",
+            "fr": "Bras longs",
+            "zh-tw": "長臂"
           },
           "description": {
             "ja": "次のメイン攻撃の射程が50%延長されます。",
             "en": "The range of the next main attack is extended by 50%.",
-            "ko": "다음 메인 공격의 사거리가 50% 증가합니다."
+            "ko": "다음 메인 공격의 사거리가 50% 증가합니다.",
+            "es": "El alcance del siguiente ataque principal se extiende un 50%.",
+            "ar": "يتم تمديد مدى الهجوم الرئيسي التالي بنسبة 50%.",
+            "fr": "La portée de votre prochaine attaque principale sera étendue de 50%.",
+            "zh-tw": "下一次主要攻擊的範圍將增加50%。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "ウルトを着実に貯めるための良いガジェ",
               "en": "A good gadget for consistently charging your super",
-              "ko": "궁극기를 착실히 모으기 위한 좋은 가젯"
+              "ko": "궁극기를 착실히 모으기 위한 좋은 가젯",
+              "es": "Un buen gadget para cargar consistentemente tu súper",
+              "ar": "جهاز جيد لشحن السوبر بشكل مستمر",
+              "fr": "Un bon gadget pour charger régulièrement votre super",
+              "zh-tw": "一個用於穩定充電超級的好小工具"
             }
           }
         },
@@ -444,19 +656,31 @@
           "name": {
             "ja": "ジャンプスケア",
             "en": "Jump Scare",
-            "ko": "점프 스케어"
+            "ko": "점프 스케어",
+            "es": "Susto al Saltar",
+            "ar": "القفز المفاجئ",
+            "fr": "Sursaut de saut",
+            "zh-tw": "跳躍驚嚇"
           },
           "description": {
             "ja": "シェイドは近くの敵を驚かせ、x秒間減速させます。",
             "en": "Shade startles nearby enemies and slows them down for x seconds.",
-            "ko": "쉐이드가 근처의 적을 놀라게 하고 x초 동안 감속시킵니다."
+            "ko": "쉐이드가 근처의 적을 놀라게 하고 x초 동안 감속시킵니다.",
+            "es": "Shade asusta a los enemigos cercanos y los ralentiza durante x segundos.",
+            "ar": "يفاجئ Shade الأعداء القريبين ويبطئهم لمدة x ثانية.",
+            "fr": "Shade surprend les ennemis à proximité et les ralentit pendant x secondes.",
+            "zh-tw": "Shade嚇到附近的敵人並使其減速x秒。"
           },
           "recommendation": {
             "level": 2,
             "reason": {
               "ja": "別にいらねぇ。",
               "en": "Not really needed.",
-              "ko": "굳이 필요 없음."
+              "ko": "굳이 필요 없음.",
+              "es": "No es realmente necesario.",
+              "ar": "لا يحتاج حقًا.",
+              "fr": "Pas vraiment nécessaire.",
+              "zh-tw": "不是真的需要。"
             }
           }
         }
@@ -471,7 +695,11 @@
       "name": {
         "ja": "ケンジ",
         "en": "Kenji",
-        "ko": "켄지"
+        "ko": "켄지",
+        "es": "Kenji",
+        "ar": "كينجي",
+        "fr": "Kenji",
+        "zh-tw": "健二"
       },
       "image": "require('../../assets/BrawlerIcons/kenji_pin.png')",
       "class": {
@@ -486,7 +714,11 @@
       "description": {
         "ja": "この腕利きの寿司職人は、スターパークでレストランを経営する充実した生活を送っていますが、過去について何か隠しているような感じがします...でも、寿司があまりにも美味しいので、誰も気にしていません！",
         "en": "This skilled sushi chef lives a fulfilling life running a restaurant in Starr Park, but seems to be hiding something about his past... but his sushi is so delicious that no one minds!",
-        "ko": "이 능숙한 스시 셰프는 스타파크에서 레스토랑을 운영하며 충실한 삶을 살고 있지만, 과거에 대해 뭔가 숨기고 있는 것 같습니다... 하지만 스시가 너무 맛있어서 아무도 신경 쓰지 않습니다!"
+        "ko": "이 능숙한 스시 셰프는 스타파크에서 레스토랑을 운영하며 충실한 삶을 살고 있지만, 과거에 대해 뭔가 숨기고 있는 것 같습니다... 하지만 스시가 너무 맛있어서 아무도 신경 쓰지 않습니다!",
+        "es": "Este hábil chef de sushi vive una vida plena dirigiendo un restaurante en Starr Park, pero parece estar ocultando algo sobre su pasado... ¡pero su sushi es tan delicioso que a nadie le importa!",
+        "ar": "يعيش طاهي السوشي الماهر هذا حياة مليئة بإدارة مطعم في ستار بارك، لكنه يبدو أنه يخفي شيئًا عن ماضيه... لكن السوشي الخاص به لذيذ جدًا لدرجة أن لا أحد يهتم!",
+        "fr": "Ce chef sushi talentueux mène une vie épanouie en gérant un restaurant à Starr Park, mais semble cacher quelque chose sur son passé... mais ses sushis sont tellement délicieux que personne ne s'en soucie !",
+        "zh-tw": "這位技藝精湛的壽司廚師在斯塔爾公園經營著一家餐廳，過著充實的生活，但似乎在隱藏著關於他過去的某些事情...不過他的壽司太美味了，所以沒人在意！"
       },
       "starPowers": [
         {
@@ -494,19 +726,31 @@
           "name": {
             "ja": "名刀「たちわりおろし」",
             "en": "Studied the Blade",
-            "ko": "검술의 달인"
+            "ko": "검술의 달인",
+            "es": "Maestro de la Hoja",
+            "ar": "دراسة النصل",
+            "fr": "Maître de la Lame",
+            "zh-tw": "劍術精通"
           },
           "description": {
             "ja": "必殺技の射程距離が30%延長されます",
             "en": "Super attack range is increased by 30%",
-            "ko": "궁극기의 사거리가 30% 증가합니다"
+            "ko": "궁극기의 사거리가 30% 증가합니다",
+            "es": "El alcance del ataque súper aumenta un 30%",
+            "ar": "يزداد مدى الهجوم الخارق بنسبة 30%",
+            "fr": "La portée de l'attaque super est augmentée de 30%",
+            "zh-tw": "超級攻擊範圍增加30%"
           },
           "recommendation": {
             "level": 1,
             "reason": {
               "ja": "別にいらない。",
               "en": "Not really needed.",
-              "ko": "굳이 필요하지 않습니다."
+              "ko": "굳이 필요하지 않습니다.",
+              "es": "No es realmente necesario.",
+              "ar": "ليست ضرورية حقًا.",
+              "fr": "Pas vraiment nécessaire.",
+              "zh-tw": "並不是真的需要。"
             }
           }
         },
@@ -515,19 +759,31 @@
           "name": {
             "ja": "にぎりの宿敵",
             "en": "Nigiri Nemesis",
-            "ko": "니기리의 숙적"
+            "ko": "니기리의 숙적",
+            "es": "Némesis del Nigiri",
+            "ar": "خصم النيجيري",
+            "fr": "Némésis du Nigiri",
+            "zh-tw": "握壽司之敵"
           },
           "description": {
             "ja": "5秒間ダメージを受けなかった後、次の敵の攻撃から60%のダメージ軽減を得ます。",
             "en": "After not taking damage for 5 seconds, gain 60% damage reduction from the next enemy attack.",
-            "ko": "5초 동안 데미지를 받지 않은 후, 다음 적의 공격으로부터 60%의 데미지 감소를 얻습니다."
+            "ko": "5초 동안 데미지를 받지 않은 후, 다음 적의 공격으로부터 60%의 데미지 감소를 얻습니다.",
+            "es": "Después de no recibir daño durante 5 segundos, obtiene una reducción del 60% del daño del próximo ataque enemigo.",
+            "ar": "بعد عدم تلقي ضرر لمدة 5 ثوانٍ، احصل على تخفيض 60% من الضرر من الهجوم العدو التالي.",
+            "fr": "Après ne pas avoir subi de dégâts pendant 5 secondes, obtient une réduction de 60% des dégâts de la prochaine attaque ennemie.",
+            "zh-tw": "在5秒內未受到傷害後，獲得60%的下一次敵人攻擊傷害減免。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "このダメージ軽減がこいつの凶悪さと言っても過言ではない",
               "en": "This damage reduction is what makes him truly formidable",
-              "ko": "이 데미지 감소가 그의 강력함을 만드는 핵심이라고 해도 과언이 아닙니다"
+              "ko": "이 데미지 감소가 그의 강력함을 만드는 핵심이라고 해도 과언이 아닙니다",
+              "es": "Esta reducción de daño es lo que lo hace verdaderamente formidable",
+              "ar": "هذا التخفيض في الضرر هو ما يجعله مخيفًا حقًا",
+              "fr": "Cette réduction des dégâts est ce qui le rend vraiment redoutable",
+              "zh-tw": "這個傷害減免使他真正令人生畏"
             }
           }
         }
@@ -538,19 +794,31 @@
           "name": {
             "ja": "攻法「出汁走り」",
             "en": "Dashi Dash",
-            "ko": "다시 대시"
+            "ko": "다시 대시",
+            "es": "Carrera Dashi",
+            "ar": "اندفاع داشي",
+            "fr": "Dash Dashi",
+            "zh-tw": "高湯衝刺"
           },
           "description": {
             "ja": "３秒にわたり、通常攻撃が突撃のみになる。",
             "en": "For 3 seconds, normal attacks become dash attacks only.",
-            "ko": "3초 동안 일반 공격이 돌진 공격으로만 변경됩니다."
+            "ko": "3초 동안 일반 공격이 돌진 공격으로만 변경됩니다.",
+            "es": "Durante 3 segundos, los ataques normales se convierten únicamente en ataques de carrera.",
+            "ar": "لمدة 3 ثوانٍ، تتحول الهجمات العادية إلى هجمات اندفاعية فقط.",
+            "fr": "Pendant 3 secondes, les attaques normales deviennent uniquement des attaques en charge.",
+            "zh-tw": "在3秒內，普通攻擊只變為衝刺攻擊。"
           },
           "recommendation": {
             "level": 1,
             "reason": {
               "ja": "いらねぇ",
               "en": "Not needed",
-              "ko": "필요 없음"
+              "ko": "필요 없음",
+              "es": "No necesario",
+              "ar": "غير مطلوب",
+              "fr": "Pas nécessaire",
+              "zh-tw": "不需要"
             }
           }
         },
@@ -559,19 +827,31 @@
           "name": {
             "ja": "療法「活き造り」",
             "en": "Hosomaki Healing",
-            "ko": "호소마키 힐링"
+            "ko": "호소마키 힐링",
+            "es": "Curación Hosomaki",
+            "ar": "شفاء هوسوماكي",
+            "fr": "Guérison Hosomaki",
+            "zh-tw": "細卷治療"
           },
           "description": {
             "ja": "過去3秒間に受けたダメージの50%を即座に回復します。",
             "en": "Instantly heal 50% of damage taken in the past 3 seconds.",
-            "ko": "지난 3초 동안 받은 데미지의 50%를 즉시 회복합니다."
+            "ko": "지난 3초 동안 받은 데미지의 50%를 즉시 회복합니다.",
+            "es": "Cura instantáneamente el 50% del daño recibido en los últimos 3 segundos.",
+            "ar": "يشفي فورًا 50% من الضرر المتلقى في الـ 3 ثوانٍ الماضية.",
+            "fr": "Soigne instantanément 50% des dégâts subis au cours des 3 dernières secondes.",
+            "zh-tw": "立即治療過去3秒內受到傷害的50%。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "回復しすぎです。",
               "en": "Heals too much.",
-              "ko": "회복량이 너무 많습니다."
+              "ko": "회복량이 너무 많습니다.",
+              "es": "Cura demasiado.",
+              "ar": "يشفي كثيرًا جدًا.",
+              "fr": "Soigne trop.",
+              "zh-tw": "治療太多了。"
             }
           }
         }
@@ -587,7 +867,11 @@
       "name": {
         "ja": "モー",
         "en": "Moe",
-        "ko": "모"
+        "ko": "모",
+        "es": "Moe",
+        "ar": "مو",
+        "fr": "Moe",
+        "zh-tw": "莫"
       },
       "image": "require('../../assets/BrawlerIcons/moe_pin.png')",
       "class": {
@@ -602,7 +886,11 @@
       "description": {
         "ja": "モーは目の見えないネズミで、グロムによってスターパークの下水道で発見され、すぐに引き取られました！現在はスターパークのメンテナンスチームの一員として、特別な掘削機ドリラーを使って下水道トンネルを移動しています...そして、アッシュの嘆きの種となっているように、公園中で少々の破壊活動も行っています。",
         "en": "Moe is a blind mouse discovered by Grom in Starr Park's sewers and was quickly taken in! Now as part of Starr Park's maintenance team, he uses his special drilling machine Driller to move through sewer tunnels... and, much to Ash's dismay, does a bit of demolition work around the park.",
-        "ko": "모는 그롬이 스타파크의 하수구에서 발견한 눈먼 쥐로, 곧바로 맡아주었습니다! 현재는 스타파크 유지보수팀의 일원으로서 특별한 굴착기 드릴러를 사용하여 하수구 터널을 이동하고 있습니다... 그리고 애쉬의 한탄거리가 되고 있듯이, 공원 곳곳에서 약간의 파괴 활동도 하고 있습니다."
+        "ko": "모는 그롬이 스타파크의 하수구에서 발견한 눈먼 쥐로, 곧바로 맡아주었습니다! 현재는 스타파크 유지보수팀의 일원으로서 특별한 굴착기 드릴러를 사용하여 하수구 터널을 이동하고 있습니다... 그리고 애쉬의 한탄거리가 되고 있듯이, 공원 곳곳에서 약간의 파괴 활동도 하고 있습니다.",
+        "es": "¡Moe es un ratón ciego descubierto por Grom en las alcantarillas de Starr Park y fue rápidamente acogido! Ahora, como parte del equipo de mantenimiento de Starr Park, usa su máquina perforadora especial Driller para moverse por los túneles de alcantarillado... y, para disgusto de Ash, hace algunos trabajos de demolición por el parque.",
+        "ar": "مو هو فأر أعمى اكتشفه غروم في مجاري ستار بارك وتم تبنيه بسرعة! الآن كجزء من فريق الصيانة في ستار بارك، يستخدم آلة الحفر الخاصة به دريلر للتنقل عبر أنفاق المجاري... وإلى استياء آش، يقوم ببعض أعمال الهدم في أنحاء الحديقة.",
+        "fr": "Moe est une souris aveugle découverte par Grom dans les égouts de Starr Park et a été rapidement recueillie ! Maintenant membre de l'équipe de maintenance de Starr Park, il utilise sa foreuse spéciale Driller pour se déplacer dans les tunnels d'égouts... et, au grand désespoir d'Ash, fait quelques travaux de démolition dans le parc.",
+        "zh-tw": "莫是一隻被格羅姆在斯塔爾公園下水道發現的盲鼠，很快就被收養了！現在作為斯塔爾公園維修團隊的一員，他使用特製的鑽機德里拉在下水道隧道中移動...而且，讓艾許感到頭疼的是，他還在公園各處進行一些拆除工作。"
       },
       "starPowers": [
         {
@@ -610,19 +898,31 @@
           "name": {
             "ja": "石切り",
             "en": "Skipping Stones",
-            "ko": "돌 튀기기"
+            "ko": "돌 튀기기",
+            "es": "Piedras Saltarinas",
+            "ar": "تخطي الأحجار",
+            "fr": "Ricochet de Pierres",
+            "zh-tw": "跳石"
           },
           "description": {
             "ja": "モーの基本攻撃がもう1回跳ねるようになります。攻撃の射程は変わりません。",
             "en": "Moe's basic attack bounces one more time. Attack range remains unchanged.",
-            "ko": "모의 기본 공격이 한 번 더 튀깁니다. 공격 사거리는 변하지 않습니다."
+            "ko": "모의 기본 공격이 한 번 더 튀깁니다. 공격 사거리는 변하지 않습니다.",
+            "es": "El ataque básico de Moe rebota una vez más. El alcance del ataque permanece sin cambios.",
+            "ar": "يرتد الهجوم الأساسي لمو مرة إضافية. يبقى مدى الهجوم دون تغيير.",
+            "fr": "L'attaque de base de Moe rebondit une fois de plus. La portée d'attaque reste inchangée.",
+            "zh-tw": "莫的基本攻擊多彈跳一次。攻擊範圍保持不變。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "ウルトの回転率と火力の総上げで絶対に使用するべきスターパワー",
               "en": "Must-use star power for super charge rate and overall damage increase",
-              "ko": "궁극기 충전률과 화력 상승으로 반드시 사용해야 하는 스타파워"
+              "ko": "궁극기 충전률과 화력 상승으로 반드시 사용해야 하는 스타파워",
+              "es": "Poder estelar imprescindible para la velocidad de carga del súper y el aumento general del daño",
+              "ar": "قوة نجمية يجب استخدامها لمعدل شحن القدرة الخارقة وزيادة الضرر الإجمالي",
+              "fr": "Pouvoir stellaire indispensable pour le taux de charge du super et l'augmentation globale des dégâts",
+              "zh-tw": "必須使用的星力，可提高超級技能充能速率和整體傷害"
             }
           }
         },
@@ -631,19 +931,31 @@
           "name": {
             "ja": "マイナーズ・ハイ",
             "en": "Speeding Ticket",
-            "ko": "광부의 흥분"
+            "ko": "광부의 흥분",
+            "es": "Multa por Velocidad",
+            "ar": "تذكرة السرعة",
+            "fr": "Excès de Vitesse",
+            "zh-tw": "礦工亢奮"
           },
           "description": {
             "ja": "ドリラーの移動速度が上昇します。",
             "en": "Driller's movement speed increases.",
-            "ko": "드릴러의 이동 속도가 증가합니다."
+            "ko": "드릴러의 이동 속도가 증가합니다.",
+            "es": "Aumenta la velocidad de movimiento de Driller.",
+            "ar": "تزداد سرعة حركة دريلر.",
+            "fr": "La vitesse de déplacement de Driller augmente.",
+            "zh-tw": "德里拉的移動速度提升。"
           },
           "recommendation": {
             "level": 1,
             "reason": {
               "ja": "使わないでください。",
               "en": "Don't use this.",
-              "ko": "사용하지 마세요."
+              "ko": "사용하지 마세요.",
+              "es": "No uses esto.",
+              "ar": "لا تستخدم هذا.",
+              "fr": "Ne pas utiliser.",
+              "zh-tw": "不要使用這個。"
             }
           }
         }
@@ -654,19 +966,31 @@
           "name": {
             "ja": "ここ掘れチューチュー",
             "en": "Dodgy Digging",
-            "ko": "여기 파자 찍찍"
+            "ko": "여기 파자 찍찍",
+            "es": "Excavación Sospechosa",
+            "ar": "حفر مراوغ",
+            "fr": "Fouille Douteuse",
+            "zh-tw": "可疑挖掘"
           },
           "description": {
             "ja": "モーは「借りてきた」物を掘り出し、ウルトのチャージ率を5秒間にわたって50%上昇させる。",
             "en": "Moe digs up 'borrowed' items, increasing super charge rate by 50% for 5 seconds.",
-            "ko": "모는 '빌려온' 물건을 파내어 5초 동안 궁극기 충전률을 50% 증가시킵니다."
+            "ko": "모는 '빌려온' 물건을 파내어 5초 동안 궁극기 충전률을 50% 증가시킵니다.",
+            "es": "Moe desentierra objetos 'prestados', aumentando la velocidad de carga del súper en un 50% durante 5 segundos.",
+            "ar": "يحفر مو الأغراض 'المستعارة'، مما يزيد معدل شحن القدرة الخارقة بنسبة 50% لمدة 5 ثوانٍ.",
+            "fr": "Moe déterre des objets 'empruntés', augmentant le taux de charge du super de 50% pendant 5 secondes.",
+            "zh-tw": "莫挖出「借來的」物品，使超級技能充能速率提升50%，持續5秒。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "ウルトが最強なのでそのチャージ率上昇が非常に強力。",
               "en": "Very powerful as super is strongest, so charge rate increase is extremely effective.",
-              "ko": "궁극기가 최강이라 충전률 증가가 매우 강력합니다."
+              "ko": "궁극기가 최강이라 충전률 증가가 매우 강력합니다.",
+              "es": "Muy poderoso ya que el súper es lo más fuerte, por lo que el aumento de la velocidad de carga es extremadamente efectivo.",
+              "ar": "قوي جداً لأن القدرة الخارقة هي الأقوى، لذا فإن زيادة معدل الشحن فعالة للغاية.",
+              "fr": "Très puissant car le super est le plus fort, donc l'augmentation du taux de charge est extrêmement efficace.",
+              "zh-tw": "非常強大，因為超級技能最強，所以充能速率提升極其有效。"
             }
           }
         },
@@ -675,19 +999,31 @@
           "name": {
             "ja": "ラットレース",
             "en": "Rat Race",
-            "ko": "쥐의 경주"
+            "ko": "쥐의 경주",
+            "es": "Carrera de Ratas",
+            "ar": "سباق الفئران",
+            "fr": "Course de Rats",
+            "zh-tw": "老鼠賽跑"
           },
           "description": {
             "ja": "モーはドリラーで短距離をダッシュし、その過程で壁を破壊しブローラーをノックバックさせます。",
             "en": "Moe dashes a short distance with Driller, destroying walls and knocking back brawlers in the process.",
-            "ko": "모는 드릴러로 짧은 거리를 대시하며, 그 과정에서 벽을 파괴하고 브롤러들을 넉백시킵니다."
+            "ko": "모는 드릴러로 짧은 거리를 대시하며, 그 과정에서 벽을 파괴하고 브롤러들을 넉백시킵니다.",
+            "es": "Moe se precipita una corta distancia con Driller, destruyendo paredes y empujando hacia atrás a los brawlers en el proceso.",
+            "ar": "يندفع مو لمسافة قصيرة مع دريلر، مدمراً الجدران ودافعاً المقاتلين للخلف في هذه العملية.",
+            "fr": "Moe fonce sur une courte distance avec Driller, détruisant les murs et repoussant les brawlers au passage.",
+            "zh-tw": "莫用德里拉短距離衝刺，在過程中摧毀牆壁並擊退鬥士。"
           },
           "recommendation": {
             "level": 4,
             "reason": {
               "ja": "壁破壊が味方にいない状況で割と使用される。",
               "en": "Fairly used when there's no wall-breaking ally.",
-              "ko": "벽 파괴가 가능한 아군이 없을 때 꽤 사용됩니다."
+              "ko": "벽 파괴가 가능한 아군이 없을 때 꽤 사용됩니다.",
+              "es": "Bastante utilizado cuando no hay un aliado que rompa paredes.",
+              "ar": "يستخدم بشكل معقول عندما لا يوجد حليف لتحطيم الجدران.",
+              "fr": "Assez utilisé quand il n'y a pas d'allié qui peut détruire les murs.",
+              "zh-tw": "當沒有破壞牆壁的隊友時相當常用。"
             }
           }
         }
@@ -703,7 +1039,11 @@
       "name": {
         "ja": "クランシー",
         "en": "Clancy",
-        "ko": "클랜시"
+        "ko": "클랜시",
+        "es": "Clancy",
+        "ar": "كلانسي",
+        "fr": "Clancy",
+        "zh-tw": "克蘭西"
       },
       "image": "require('../../assets/BrawlerIcons/clancy_pin.png')",
       "class": {
@@ -718,7 +1058,11 @@
       "description": {
         "ja": "クランシーには後戻りはありません（ハンクに命令されない限り）。偽の甲殻類の生活を完全に受け入れ、仲間のためなら何でもします。",
         "en": "There's no going back for Clancy (unless Hank orders it). He's fully embraced his life as a faux crustacean and will do anything for his crew.",
-        "ko": "클랜시에게는 돌아갈 길이 없습니다(행크가 명령하지 않는 한). 가짜 갑각류의 삶을 완전히 받아들이고, 동료를 위해서라면 무엇이든 합니다."
+        "ko": "클랜시에게는 돌아갈 길이 없습니다(행크가 명령하지 않는 한). 가짜 갑각류의 삶을 완전히 받아들이고, 동료를 위해서라면 무엇이든 합니다.",
+        "es": "No hay vuelta atrás para Clancy (a menos que Hank lo ordene). Ha aceptado completamente su vida como crustáceo falso y hará cualquier cosa por su tripulación.",
+        "ar": "لا عودة لكلانسي (إلا إذا أمر هانك بذلك). لقد تقبل حياته كقشري مزيف تماماً وسيفعل أي شيء لطاقمه.",
+        "fr": "Pas de retour en arrière pour Clancy (sauf si Hank l'ordonne). Il a pleinement embrassé sa vie de crustacé factice et fera tout pour son équipage.",
+        "zh-tw": "克蘭西已無法回頭（除非漢克下令）。他完全接受了自己作為偽甲殼類的生活，願意為夥伴做任何事。"
       },
       "starPowers": [
         {
@@ -726,19 +1070,31 @@
           "name": {
             "ja": "早手の斥候",
             "en": "Recon",
-            "ko": "선발 정찰병"
+            "ko": "선발 정찰병",
+            "es": "Reconocimiento",
+            "ar": "استطلاع",
+            "fr": "Reconnaissance",
+            "zh-tw": "先遣偵查"
           },
           "description": {
             "ja": "トークンゲージが3溜まった状態でバトルがスタートする",
             "en": "Starts the battle with 3 tokens charged",
-            "ko": "전투를 토큰 게이지가 3개 채워진 상태로 시작합니다"
+            "ko": "전투를 토큰 게이지가 3개 채워진 상태로 시작합니다",
+            "es": "Comienza la batalla con 3 fichas cargadas",
+            "ar": "يبدأ المعركة مع 3 رموز مشحونة",
+            "fr": "Commence le combat avec 3 jetons chargés",
+            "zh-tw": "戰鬥開始時已有3個代幣充能"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "第一形態が弱すぎるのでカバーできる有龍なスタパ。",
               "en": "A valuable star power that covers his weak initial form.",
-              "ko": "첫 번째 형태가 너무 약해서 커버할 수 있는 유용한 스타파워입니다."
+              "ko": "첫 번째 형태가 너무 약해서 커버할 수 있는 유용한 스타파워입니다.",
+              "es": "Un poder estelar valioso que cubre su débil forma inicial.",
+              "ar": "قوة نجمية قيمة تغطي شكله الأولي الضعيف.",
+              "fr": "Un pouvoir stellaire précieux qui compense sa forme initiale faible.",
+              "zh-tw": "一個有價值的星力，可以彌補他較弱的初始形態。"
             }
           }
         },
@@ -747,19 +1103,31 @@
           "name": {
             "ja": "熟練の兵士",
             "en": "Pumping Up",
-            "ko": "숙련된 군인"
+            "ko": "숙련된 군인",
+            "es": "Recarga Total",
+            "ar": "تعبئة كاملة",
+            "fr": "Rechargement Total",
+            "zh-tw": "火力全開"
           },
           "description": {
             "ja": "クランシーは敵を倒すたびに弾薬を全回復します。",
             "en": "Clancy fully reloads his ammo every time he defeats an enemy.",
-            "ko": "클랜시는 적을 처치할 때마다 탄약을 전부 회복합니다."
+            "ko": "클랜시는 적을 처치할 때마다 탄약을 전부 회복합니다.",
+            "es": "Clancy recarga completamente su munición cada vez que derrota a un enemigo.",
+            "ar": "يعيد كلانسي تحميل ذخيرته بالكامل في كل مرة يهزم فيها عدواً.",
+            "fr": "Clancy recharge entièrement ses munitions chaque fois qu'il vainc un ennemi.",
+            "zh-tw": "克蘭西每次擊敗敵人時都會完全重新裝填彈藥。"
           },
           "recommendation": {
             "level": 3,
             "reason": {
               "ja": "初期状態が弱すぎるので敵を倒せないのが難点。",
               "en": "Hard to utilize as his initial state is too weak to defeat enemies.",
-              "ko": "초기 상태가 너무 약해서 적을 처치하기 어려운 것이 단점입니다."
+              "ko": "초기 상태가 너무 약해서 적을 처치하기 어려운 것이 단점입니다.",
+              "es": "Difícil de utilizar ya que su estado inicial es demasiado débil para derrotar enemigos.",
+              "ar": "من الصعب استخدامها لأن حالته الأولية ضعيفة جداً لهزيمة الأعداء.",
+              "fr": "Difficile à utiliser car son état initial est trop faible pour vaincre les ennemis.",
+              "zh-tw": "難以運用，因為他的初始狀態太弱，難以擊敗敵人。"
             }
           }
         }
@@ -770,19 +1138,31 @@
           "name": {
             "ja": "刹那の鼓動",
             "en": "Snappy Shooting",
-            "ko": "순간의 고동"
+            "ko": "순간의 고동",
+            "es": "Disparo Rápido",
+            "ar": "تصويب سريع",
+            "fr": "Tir Rapide",
+            "zh-tw": "快速射擊"
           },
           "description": {
             "ja": "クランシーは5秒間トークンを2倍獲得します。",
             "en": "Clancy gains double tokens for 5 seconds.",
-            "ko": "클랜시는 5초 동안 토큰을 2배로 획득합니다."
+            "ko": "클랜시는 5초 동안 토큰을 2배로 획득합니다.",
+            "es": "Clancy obtiene el doble de fichas durante 5 segundos.",
+            "ar": "يحصل كلانسي على ضعف الرموز لمدة 5 ثوانٍ.",
+            "fr": "Clancy gagne le double de jetons pendant 5 secondes.",
+            "zh-tw": "克蘭西在5秒內獲得雙倍代幣。"
           },
           "recommendation": {
             "level": 4,
             "reason": {
               "ja": "第一形態が弱すぎるのでカバーできる有龍なスタパ。",
               "en": "A useful gadget that helps cover his weak initial form.",
-              "ko": "첫 번째 형태가 너무 약한 것을 보완할 수 있는 유용한 가젯입니다."
+              "ko": "첫 번째 형태가 너무 약한 것을 보완할 수 있는 유용한 가젯입니다.",
+              "es": "Un gadget útil que ayuda a cubrir su débil forma inicial.",
+              "ar": "أداة مفيدة تساعد في تغطية شكله الأولي الضعيف.",
+              "fr": "Un gadget utile qui aide à compenser sa forme initiale faible.",
+              "zh-tw": "一個有用的裝置，可以幫助彌補他較弱的初始形態。"
             }
           }
         },
@@ -791,19 +1171,31 @@
           "name": {
             "ja": "戦術的撤退",
             "en": "Tactical Retreat",
-            "ko": "전술적 후퇴"
+            "ko": "전술적 후퇴",
+            "es": "Retirada Táctica",
+            "ar": "انسحاب تكتيكي",
+            "fr": "Retraite Tactique",
+            "zh-tw": "戰術撤退"
           },
           "description": {
             "ja": "クランシーはダッシュし1弾を補充します",
             "en": "Clancy dashes and reloads one ammo",
-            "ko": "클랜시는 대시하고 탄약 1발을 보충합니다"
+            "ko": "클랜시는 대시하고 탄약 1발을 보충합니다",
+            "es": "Clancy se precipita y recarga una munición",
+            "ar": "يندفع كلانسي ويعيد تحميل ذخيرة واحدة",
+            "fr": "Clancy fonce et recharge une munition",
+            "zh-tw": "克蘭西衝刺並重新裝填一發彈藥"
           },
           "recommendation": {
             "level": 4,
             "reason": {
               "ja": "機動力が上がるため攻守共に優れている",
               "en": "Excellent for both offense and defense due to increased mobility",
-              "ko": "기동력이 올라가서 공수 모두에 뛰어납니다"
+              "ko": "기동력이 올라가서 공수 모두에 뛰어납니다",
+              "es": "Excelente tanto para el ataque como para la defensa debido a la mayor movilidad",
+              "ar": "ممتاز للهجوم والدفاع بسبب زيادة القدرة على الحركة",
+              "fr": "Excellent tant en attaque qu'en défense grâce à une mobilité accrue",
+              "zh-tw": "由於機動性提高，在攻防兩端都表現出色"
             }
           }
         }
@@ -819,7 +1211,11 @@
       "name": {
         "ja": "ベリー",
         "en": "Berry",
-        "ko": "베리"
+        "ko": "베리",
+        "es": "Berry",
+        "ar": "بيري",
+        "fr": "Berry",
+        "zh-tw": "貝莉"
       },
       "image": "require('../../assets/BrawlerIcons/berry_pin.png')",
       "class": {
@@ -834,7 +1230,11 @@
       "description": {
         "ja": "マンディのキャンディショップで働くのに何が問題になるでしょうか？全てです！幸いにも、ベリーは働き者の忍耐力とタフさを持っています。仕事の毎秒が嫌いなようですが、シフトの終わりには一瞬の笑顔を見せることがあります。",
         "en": "What's wrong with working at Mandy's candy shop? Everything! Fortunately, Berry has a worker's patience and toughness. Though they seem to hate every second of work, they might flash a brief smile at the end of their shift.",
-        "ko": "맨디의 캔디숍에서 일하는 게 뭐가 문제일까요? 모든 것입니다! 다행히도 베리는 근면한 인내력과 강인함을 가지고 있습니다. 일하는 매 순간을 싫어하는 것 같지만, 교대 근무가 끝날 때는 잠깐의 미소를 보여줄 때도 있습니다."
+        "ko": "맨디의 캔디숍에서 일하는 게 뭐가 문제일까요? 모든 것입니다! 다행히도 베리는 근면한 인내력과 강인함을 가지고 있습니다. 일하는 매 순간을 싫어하는 것 같지만, 교대 근무가 끝날 때는 잠깐의 미소를 보여줄 때도 있습니다.",
+        "es": "¿Qué tiene de malo trabajar en la tienda de dulces de Mandy? ¡Todo! Afortunadamente, Berry tiene la paciencia y la resistencia de un trabajador. Aunque parece odiar cada segundo de trabajo, podría mostrar una breve sonrisa al final de su turno.",
+        "ar": "ما المشكلة في العمل في متجر حلوى ماندي؟ كل شيء! لحسن الحظ، يتمتع بيري بصبر وقوة العامل. على الرغم من أنه يبدو أنه يكره كل ثانية من العمل، قد يظهر ابتسامة قصيرة في نهاية نوبة عمله.",
+        "fr": "Qu'est-ce qui ne va pas avec le travail à la confiserie de Mandy ? Tout ! Heureusement, Berry a la patience et la ténacité d'un travailleur. Bien qu'ils semblent détester chaque seconde de travail, ils pourraient afficher un bref sourire à la fin de leur service.",
+        "zh-tw": "在曼蒂的糖果店工作有什麼問題？一切都是問題！幸運的是，貝莉擁有工人的耐心和韌性。雖然似乎討厭工作的每一秒，但在輪班結束時可能會閃現短暫的微笑。"
       },
       "starPowers": [
         {
@@ -842,19 +1242,31 @@
           "name": {
             "ja": "床は大丈夫",
             "en": "Floor Is Fine",
-            "ko": "바닥은 괜찮아"
+            "ko": "바닥은 괜찮아",
+            "es": "El Suelo Está Bien",
+            "ar": "الأرض بخير",
+            "fr": "Le Sol Va Bien",
+            "zh-tw": "地板沒問題"
           },
           "description": {
             "ja": "ベリーは自分の溶けたアイスクリームの上に立っている時、リロード速度が50%上昇します。",
             "en": "Berry's reload speed increases by 50% while standing on their own melted ice cream.",
-            "ko": "베리는 자신의 녹은 아이스크림 위에 서 있을 때 재장전 속도가 50% 증가합니다."
+            "ko": "베리는 자신의 녹은 아이스크림 위에 서 있을 때 재장전 속도가 50% 증가합니다.",
+            "es": "La velocidad de recarga de Berry aumenta un 50% mientras está sobre su propio helado derretido.",
+            "ar": "تزداد سرعة إعادة تحميل بيري بنسبة 50% أثناء الوقوف على الآيس كريم الخاص به المذاب.",
+            "fr": "La vitesse de rechargement de Berry augmente de 50% lorsqu'il se tient sur sa propre crème glacée fondue.",
+            "zh-tw": "貝莉站在自己的融化冰淇淋上時，重新裝填速度提升50%。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "リロード速度の上昇率が高すぎて最強。",
               "en": "Strongest due to extremely high reload speed increase.",
-              "ko": "재장전 속도 증가율이 너무 높아서 최강입니다."
+              "ko": "재장전 속도 증가율이 너무 높아서 최강입니다.",
+              "es": "El más fuerte debido al aumento extremadamente alto de la velocidad de recarga.",
+              "ar": "الأقوى بسبب الزيادة العالية جداً في سرعة إعادة التحميل.",
+              "fr": "Le plus fort en raison de l'augmentation extrêmement élevée de la vitesse de rechargement.",
+              "zh-tw": "由於重新裝填速度提升極高而最強。"
             }
           }
         },
@@ -863,19 +1275,31 @@
           "name": {
             "ja": "混乱を作る",
             "en": "Making A Mess",
-            "ko": "혼란 만들기"
+            "ko": "혼란 만들기",
+            "es": "Haciendo un Desastre",
+            "ar": "صنع فوضى",
+            "fr": "Créer le Chaos",
+            "zh-tw": "製造混亂"
           },
           "description": {
             "ja": "アイスクリームのない領域では、ベリーの基本攻撃の衝撃時のダメージが20%上昇します。",
             "en": "Berry's basic attack impact damage increases by 20% in areas without ice cream.",
-            "ko": "아이스크림이 없는 영역에서는 베리의 기본 공격의 충격 데미지가 20% 증가합니다."
+            "ko": "아이스크림이 없는 영역에서는 베리의 기본 공격의 충격 데미지가 20% 증가합니다.",
+            "es": "El daño de impacto del ataque básico de Berry aumenta un 20% en áreas sin helado.",
+            "ar": "يزداد ضرر تأثير الهجوم الأساسي لبيري بنسبة 20% في المناطق التي لا يوجد فيها آيس كريم.",
+            "fr": "Les dégâts d'impact de l'attaque de base de Berry augmentent de 20% dans les zones sans crème glacée.",
+            "zh-tw": "在沒有冰淇淋的區域，貝莉的基本攻擊衝擊傷害提升20%。"
           },
           "recommendation": {
             "level": 2,
             "reason": {
               "ja": "もう片方のガジェットが強すぎてちょっと話にならない。",
               "en": "Not worth considering as the other gadget is too powerful.",
-              "ko": "다른 가젯이 너무 강력해서 비교가 안 됩니다."
+              "ko": "다른 가젯이 너무 강력해서 비교가 안 됩니다.",
+              "es": "No vale la pena considerarlo ya que el otro gadget es demasiado poderoso.",
+              "ar": "لا يستحق النظر فيه لأن الأداة الأخرى قوية جداً.",
+              "fr": "Ne vaut pas la peine d'être considéré car l'autre gadget est trop puissant.",
+              "zh-tw": "不值得考慮，因為另一個裝置太強大了。"
             }
           }
         }
@@ -886,19 +1310,31 @@
           "name": {
             "ja": "フレンドシップ",
             "en": "Friendship Is Great",
-            "ko": "우정은 위대해"
+            "ko": "우정은 위대해",
+            "es": "La Amistad es Genial",
+            "ar": "الصداقة رائعة",
+            "fr": "L'Amitié est Formidable",
+            "zh-tw": "友誼萬歲"
           },
           "description": {
             "ja": "ベリーは尻尾を振り、敵をノックバックし近くの味方を1000回復させます。",
             "en": "Berry wags their tail, knocking back enemies and healing nearby allies for 1000.",
-            "ko": "베리가 꼬리를 흔들어 적을 넉백시키고 근처의 아군을 1000만큼 회복시킵니다."
+            "ko": "베리가 꼬리를 흔들어 적을 넉백시키고 근처의 아군을 1000만큼 회복시킵니다.",
+            "es": "Berry mueve su cola, empujando a los enemigos y curando a los aliados cercanos por 1000.",
+            "ar": "يهز بيري ذيله، مما يدفع الأعداء للخلف ويشفي الحلفاء القريبين بمقدار 1000.",
+            "fr": "Berry remue sa queue, repoussant les ennemis et soignant les alliés proches de 1000.",
+            "zh-tw": "貝莉搖動尾巴，擊退敵人並治療附近的盟友1000點。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "タンクやアサシンへの対抗策として超有能ガジェット。",
               "en": "Extremely capable gadget as a counter to tanks and assassins.",
-              "ko": "탱크와 암살자에 대한 대책으로서 매우 유능한 가젯입니다."
+              "ko": "탱크와 암살자에 대한 대책으로서 매우 유능한 가젯입니다.",
+              "es": "Gadget extremadamente capaz como contramedida contra tanques y asesinos.",
+              "ar": "أداة قوية للغاية كمضاد للدبابات والقتلة.",
+              "fr": "Gadget extrêmement efficace comme contre-mesure face aux tanks et aux assassins.",
+              "zh-tw": "作為對抗坦克和刺客的對策，是非常強大的裝置。"
             }
           }
         },
@@ -907,19 +1343,31 @@
           "name": {
             "ja": "健康的な添加物",
             "en": "Healthy Additives",
-            "ko": "건강한 첨가물"
+            "ko": "건강한 첨가물",
+            "es": "Aditivos Saludables",
+            "ar": "إضافات صحية",
+            "fr": "Additifs Sains",
+            "zh-tw": "健康添加劑"
           },
           "description": {
             "ja": "ベリーの次のメイン攻撃エリアの持続時間がx%延長されます。",
             "en": "The duration of Berry's next main attack area is extended by x%.",
-            "ko": "베리의 다음 메인 공격 영역의 지속 시간이 x% 연장됩니다."
+            "ko": "베리의 다음 메인 공격 영역의 지속 시간이 x% 연장됩니다.",
+            "es": "La duración del área del próximo ataque principal de Berry se extiende en x%.",
+            "ar": "يتم تمديد مدة منطقة الهجوم الرئيسي التالي لبيري بنسبة x%.",
+            "fr": "La durée de la zone d'attaque principale suivante de Berry est prolongée de x%.",
+            "zh-tw": "貝莉下一次主要攻擊區域的持續時間延長x%。"
           },
           "recommendation": {
             "level": 3,
             "reason": {
               "ja": "強奪では優秀だがそれ以外では一切見かけない。",
               "en": "Excellent in Heist but never seen elsewhere.",
-              "ko": "강탈에서는 우수하지만 그 외에서는 전혀 보이지 않습니다."
+              "ko": "강탈에서는 우수하지만 그 외에서는 전혀 보이지 않습니다.",
+              "es": "Excelente en Atraco pero nunca se ve en otros modos.",
+              "ar": "ممتاز في السطو ولكن لا يُرى أبداً في مكان آخر.",
+              "fr": "Excellent en Braquage mais jamais vu ailleurs.",
+              "zh-tw": "在搶劫模式中表現出色，但在其他地方從未見過。"
             }
           }
         }
@@ -934,7 +1382,11 @@
       "name": {
         "ja": "リリー",
         "en": "Lily",
-        "ko": "릴리"
+        "ko": "릴리",
+        "es": "Lily",
+        "ar": "ليلي",
+        "fr": "Lily",
+        "zh-tw": "莉莉"
       },
       "image": "require('../../assets/BrawlerIcons/lily_pin.png')",
       "class": {
@@ -949,7 +1401,11 @@
       "description": {
         "ja": "心は根っからのオタクで魔女の知識マニア、リリーの知識欲は彼女を魔法の森へと導き、そこでホタルと食虫植物に関する事件が彼女の人生を永遠に変えることになりました...",
         "en": "A nerd at heart and a witch knowledge enthusiast, Lily's thirst for knowledge led her to the magical forest where an incident with fireflies and carnivorous plants would change her life forever...",
-        "ko": "마음은 뼛속까지 오타쿠이자 마녀 지식광인 릴리의 지식욕은 그녀를 마법의 숲으로 이끌었고, 그곳에서 반딧불이와 식충식물에 관한 사건이 그녀의 인생을 영원히 바꾸게 되었습니다..."
+        "ko": "마음은 뼛속까지 오타쿠이자 마녀 지식광인 릴리의 지식욕은 그녀를 마법의 숲으로 이끌었고, 그곳에서 반딧불이와 식충식물에 관한 사건이 그녀의 인생을 영원히 바꾸게 되었습니다...",
+        "es": "Una nerd de corazón y entusiasta del conocimiento de las brujas, la sed de conocimiento de Lily la llevó al bosque mágico donde un incidente con luciérnagas y plantas carnívoras cambiaría su vida para siempre...",
+        "ar": "متحمسة للمعرفة وعاشقة لعلوم السحر، قادها عطشها للمعرفة إلى الغابة السحرية حيث حادث مع اليراعات والنباتات آكلة اللحوم سيغير حياتها إلى الأبد...",
+        "fr": "Passionnée de connaissances et férue de sorcellerie, la soif de savoir de Lily l'a menée dans la forêt magique où une rencontre avec des lucioles et des plantes carnivores allait changer sa vie à jamais...",
+        "zh-tw": "骨子裡是個宅女，又是個癡迷巫術知識的狂熱者，莉莉對知識的渴望將她帶到了魔法森林，在那裡，一場與螢火蟲和食蟲植物有關的事件永遠改變了她的人生..."
       },
       "starPowers": [
         {
@@ -957,19 +1413,31 @@
           "name": {
             "ja": "フラワースティンガー",
             "en": "Flower Stinger",
-            "ko": "꽃의 가시"
+            "ko": "꽃의 가시",
+            "es": "Aguijón Floral",
+            "ar": "لسعة الزهرة",
+            "fr": "Dard Floral",
+            "zh-tw": "花之刺"
           },
           "description": {
             "ja": "敵にテレポート後、リリーの次の攻撃が1060増加したダメージを与えます",
             "en": "After teleporting to an enemy, Lily's next attack deals 1060 additional damage",
-            "ko": "적에게 텔레포트한 후, 릴리의 다음 공격이 1060 증가된 데미지를 줍니다"
+            "ko": "적에게 텔레포트한 후, 릴리의 다음 공격이 1060 증가된 데미지를 줍니다",
+            "es": "Después de teletransportarse a un enemigo, el siguiente ataque de Lily inflige 1060 de daño adicional",
+            "ar": "بعد الانتقال الآني إلى عدو، يلحق الهجوم التالي لليلي 1060 ضررًا إضافيًا",
+            "fr": "Après s'être téléportée vers un ennemi, la prochaine attaque de Lily inflige 1060 dégâts supplémentaires",
+            "zh-tw": "傳送到敵人身邊後，莉莉的下一次攻擊將造成額外1060點傷害"
           },
           "recommendation": {
             "level": 2,
             "reason": {
               "ja": "上昇する火力が低すぎて使い物にならない。",
               "en": "The damage increase is too low to be useful.",
-              "ko": "증가하는 화력이 너무 낮아서 쓸모가 없습니다."
+              "ko": "증가하는 화력이 너무 낮아서 쓸모가 없습니다.",
+              "es": "El aumento de daño es demasiado bajo para ser útil.",
+              "ar": "زيادة الضرر منخفضة جداً لتكون مفيدة.",
+              "fr": "L'augmentation des dégâts est trop faible pour être utile.",
+              "zh-tw": "傷害提升太低，實用性不足。"
             }
           }
         },
@@ -978,19 +1446,31 @@
           "name": {
             "ja": "警戒態勢",
             "en": "Vigilance",
-            "ko": "경계 태세"
+            "ko": "경계 태세",
+            "es": "Vigilancia",
+            "ar": "يقظة",
+            "fr": "Vigilance",
+            "zh-tw": "警戒態勢"
           },
           "description": {
             "ja": "スーパーのチャージ範囲内に敵がいる間、移動速度が15%上昇します",
             "en": "Movement speed increases by 15% while enemies are within super charge range",
-            "ko": "궁극기 충전 범위 내에 적이 있는 동안 이동 속도가 15% 증가합니다"
+            "ko": "궁극기 충전 범위 내에 적이 있는 동안 이동 속도가 15% 증가합니다",
+            "es": "La velocidad de movimiento aumenta un 15% mientras los enemigos estén dentro del rango de carga del súper",
+            "ar": "تزداد سرعة الحركة بنسبة 15٪ عندما يكون الأعداء ضمن نطاق شحن القدرة الخارقة",
+            "fr": "La vitesse de déplacement augmente de 15% lorsque des ennemis sont à portée de charge du super",
+            "zh-tw": "當敵人在超級技能充能範圍內時，移動速度提升15%"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "弾除けと敵への接近がやりやすくなるためかなり強力",
               "en": "Very powerful as it makes dodging bullets and approaching enemies easier",
-              "ko": "총알 회피와 적에 대한 접근이 쉬워져서 매우 강력합니다"
+              "ko": "총알 회피와 적에 대한 접근이 쉬워져서 매우 강력합니다",
+              "es": "Muy poderoso ya que facilita esquivar balas y acercarse a los enemigos",
+              "ar": "قوية جداً لأنها تجعل تفادي الرصاص والاقتراب من الأعداء أسهل",
+              "fr": "Très puissant car facilite l'esquive des projectiles et l'approche des ennemis",
+              "zh-tw": "非常強大，因為更容易躲避子彈和接近敵人"
             }
           }
         }
@@ -1001,19 +1481,31 @@
           "name": {
             "ja": "ゲッタウェイ",
             "en": "Vanish",
-            "ko": "도망가기"
+            "ko": "도망가기",
+            "es": "Desvanecer",
+            "ar": "تلاشي",
+            "fr": "Disparition",
+            "zh-tw": "消失"
           },
           "description": {
             "ja": "リリーは3秒間影の領域に入ります",
             "en": "Lily enters the shadow realm for 3 seconds",
-            "ko": "릴리가 3초 동안 그림자 영역에 들어갑니다"
+            "ko": "릴리가 3초 동안 그림자 영역에 들어갑니다",
+            "es": "Lily entra en el reino de las sombras durante 3 segundos",
+            "ar": "تدخل ليلي عالم الظل لمدة 3 ثوانٍ",
+            "fr": "Lily entre dans le royaume des ombres pendant 3 secondes",
+            "zh-tw": "莉莉進入暗影領域3秒"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "超必須ガジェットでこれがないとウルトが貯まらない。",
               "en": "Essential gadget, can't charge super without it.",
-              "ko": "초필수 가젯으로 이것 없이는 궁극기를 모을 수 없습니다."
+              "ko": "초필수 가젯으로 이것 없이는 궁극기를 모을 수 없습니다.",
+              "es": "Gadget esencial, no se puede cargar el súper sin él.",
+              "ar": "أداة ضرورية، لا يمكن شحن القدرة الخارقة بدونها.",
+              "fr": "Gadget essentiel, impossible de charger le super sans lui.",
+              "zh-tw": "必備裝置，沒有它就無法充能超級技能。"
             }
           }
         },
@@ -1022,19 +1514,31 @@
           "name": {
             "ja": "植え替え",
             "en": "Repot",
-            "ko": "화분 갈아심기"
+            "ko": "화분 갈아심기",
+            "es": "Trasplantar",
+            "ar": "إعادة الزرع",
+            "fr": "Rempotage",
+            "zh-tw": "移植"
           },
           "description": {
             "ja": "次の開花は投げ攻撃となり、リリーは衝突地点にテレポートします",
             "en": "Next bloom becomes a thrown attack, and Lily teleports to the impact point",
-            "ko": "다음 개화가 투척 공격이 되며, 릴리는 충돌 지점으로 텔레포트합니다"
+            "ko": "다음 개화가 투척 공격이 되며, 릴리는 충돌 지점으로 텔레포트합니다",
+            "es": "La siguiente floración se convierte en un ataque arrojadizo, y Lily se teletransporta al punto de impacto",
+            "ar": "تتحول الزهرة التالية إلى هجوم مقذوف، وتنتقل ليلي آنياً إلى نقطة الاصطدام",
+            "fr": "La prochaine floraison devient une attaque lancée, et Lily se téléporte au point d'impact",
+            "zh-tw": "下一次綻放變成投擲攻擊，莉莉會傳送到撞擊點"
           },
           "recommendation": {
             "level": 1,
             "reason": {
               "ja": "意味ねぇ。",
               "en": "Completely useless.",
-              "ko": "의미 없음."
+              "ko": "의미 없음.",
+              "es": "Completamente inútil.",
+              "ar": "عديم الفائدة تماماً.",
+              "fr": "Complètement inutile.",
+              "zh-tw": "完全沒用。"
             }
           }
         }
@@ -1049,7 +1553,11 @@
       "name": {
         "ja": "ドラコ",
         "en": "Draco",
-        "ko": "드라코"
+        "ko": "드라코",
+        "es": "Draco",
+        "ar": "دراكو",
+        "fr": "Draco",
+        "zh-tw": "德拉科"
       },
       "image": "require('../../assets/BrawlerIcons/draco_pin.png')",
       "class": {
@@ -1064,7 +1572,11 @@
       "description": {
         "ja": "空気で膨らむドラゴンに乗り、花火を打ち上げ、ドラコは毎晩ショーストッピングなフィナーレを約束します。エレキギターを轟かせ、炎を吐く乗り物で観客を魅了し、ファンタジーを最高潮に盛り上げます！",
         "en": "Riding an inflatable dragon and shooting fireworks, Draco promises a show-stopping finale every night. With his electric guitar blasting and fire-breathing ride, he captivates the audience and brings fantasy to its peak!",
-        "ko": "공기로 부풀어 오르는 드래곤을 타고 불꽃을 쏘아 올리며, 드라코는 매일 밤 쇼를 멈추게 하는 피날레를 약속합니다. 전기 기타를 울리고 불을 뿜는 탈것으로 관객을 매료시키며 판타지를 절정으로 끌어올립니다!"
+        "ko": "공기로 부풀어 오르는 드래곤을 타고 불꽃을 쏘아 올리며, 드라코는 매일 밤 쇼를 멈추게 하는 피날레를 약속합니다. 전기 기타를 울리고 불을 뿜는 탈것으로 관객을 매료시키며 판타지를 절정으로 끌어올립니다!",
+        "es": "Montando un dragón inflable y lanzando fuegos artificiales, Draco promete un final espectacular cada noche. ¡Con su guitarra eléctrica resonando y su montura que escupe fuego, cautiva al público y lleva la fantasía a su máximo esplendor!",
+        "ar": "يركب دراكو تنيناً قابلاً للنفخ ويطلق الألعاب النارية، واعداً بنهاية مذهلة كل ليلة. بجيتاره الكهربائي الصاخب وركوبه النافث للنار، يأسر الجمهور ويرفع الخيال إلى ذروته!",
+        "fr": "Chevauchant un dragon gonflable et tirant des feux d'artifice, Draco promet un final époustouflant chaque soir. Avec sa guitare électrique rugissante et sa monture crachant du feu, il captive le public et pousse la fantaisie à son paroxysme !",
+        "zh-tw": "騎著充氣龍並發射煙火，德拉科每晚都承諾帶來令人驚嘆的終場表演。以他震撼的電吉他和噴火坐騎，他吸引著觀眾，將奇幻推向巔峰！"
       },
       "starPowers": [
         {
@@ -1072,19 +1584,31 @@
           "name": {
             "ja": "エクスポーズ",
             "en": "Expose",
-            "ko": "노출"
+            "ko": "노출",
+            "es": "Exponer",
+            "ar": "كشف",
+            "fr": "Exposition",
+            "zh-tw": "暴露"
           },
           "description": {
             "ja": "5秒ごとに、次の槍突きが命中した敵を暴露状態にします。暴露された敵は5秒間、受けるダメージが35%増加します。",
             "en": "Every 5 seconds, the next spear thrust exposes hit enemies. Exposed enemies receive 35% more damage for 5 seconds.",
-            "ko": "5초마다 다음 창 찌르기가 명중한 적을 노출 상태로 만듭니다. 노출된 적은 5초 동안 받는 데미지가 35% 증가합니다."
+            "ko": "5초마다 다음 창 찌르기가 명중한 적을 노출 상태로 만듭니다. 노출된 적은 5초 동안 받는 데미지가 35% 증가합니다.",
+            "es": "Cada 5 segundos, el siguiente golpe de lanza expone a los enemigos golpeados. Los enemigos expuestos reciben 35% más de daño durante 5 segundos.",
+            "ar": "كل 5 ثوانٍ، تكشف طعنة الرمح التالية الأعداء المصابين. يتلقى الأعداء المكشوفون ضرراً إضافياً بنسبة 35% لمدة 5 ثوانٍ.",
+            "fr": "Toutes les 5 secondes, la prochaine poussée de lance expose les ennemis touchés. Les ennemis exposés reçoivent 35% de dégâts supplémentaires pendant 5 secondes.",
+            "zh-tw": "每5秒，下一次長矛突刺會暴露被擊中的敵人。被暴露的敵人在5秒內受到的傷害增加35%。"
           },
           "recommendation": {
             "level": 3,
             "reason": {
               "ja": "強奪の特殊戦術と一部の変態の間で使用される。",
               "en": "Used in specialized Heist tactics and by some enthusiasts.",
-              "ko": "강탈의 특수 전술과 일부 매니아들 사이에서 사용됩니다."
+              "ko": "강탈의 특수 전술과 일부 매니아들 사이에서 사용됩니다.",
+              "es": "Utilizado en tácticas especializadas de Atraco y por algunos entusiastas.",
+              "ar": "يستخدم في تكتيكات السطو المتخصصة ومن قبل بعض المتحمسين.",
+              "fr": "Utilisé dans les tactiques spécialisées de Braquage et par certains passionnés.",
+              "zh-tw": "在搶劫專門戰術和一些愛好者之間使用。"
             }
           }
         },
@@ -1093,19 +1617,31 @@
           "name": {
             "ja": "速弾き",
             "en": "Shredding",
-            "ko": "빠른 연주"
+            "ko": "빠른 연주",
+            "es": "Destrozando",
+            "ar": "عزف سريع",
+            "fr": "Déchirement",
+            "zh-tw": "狂飆"
           },
           "description": {
             "ja": "ドラゴンソロの発動時に2750の回復も行うようになります。",
             "en": "Dragon Solo now also heals for 2750 when activated.",
-            "ko": "드래곤 솔로 발동 시 2750의 회복도 함께 이루어집니다."
+            "ko": "드래곤 솔로 발동 시 2750의 회복도 함께 이루어집니다.",
+            "es": "El Solo de Dragón ahora también cura 2750 al activarse.",
+            "ar": "عزف التنين الآن يشفي أيضاً بمقدار 2750 عند تفعيله.",
+            "fr": "Le Solo du Dragon soigne maintenant aussi de 2750 lorsqu'il est activé.",
+            "zh-tw": "龍之獨奏現在啟動時也會治療2750點。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "回復量が多く、ウルトと組み合わせることで無敵に近くなれる。",
               "en": "High healing amount, becomes nearly invincible when combined with ultimate.",
-              "ko": "회복량이 많고 궁극기와 조합하면 거의 무적이 됩니다."
+              "ko": "회복량이 많고 궁극기와 조합하면 거의 무적이 됩니다.",
+              "es": "Gran cantidad de curación, se vuelve casi invencible cuando se combina con el definitivo.",
+              "ar": "كمية شفاء عالية، يصبح شبه لا يقهر عند دمجه مع القدرة النهائية.",
+              "fr": "Grande quantité de soins, devient presque invincible en combinaison avec l'ultime.",
+              "zh-tw": "治療量高，與終極技能組合時幾乎無敵。"
             }
           }
         }
@@ -1116,19 +1652,31 @@
           "name": {
             "ja": "アッパーカット",
             "en": "Upper Cut",
-            "ko": "어퍼컷"
+            "ko": "어퍼컷",
+            "es": "Gancho Alto",
+            "ar": "لكمة صاعدة",
+            "fr": "Uppercut",
+            "zh-tw": "上鉤拳"
           },
           "description": {
             "ja": "次の槍突きは敵を短時間空中に投げ上げます。",
             "en": "Next spear thrust launches enemies into the air briefly.",
-            "ko": "다음 창 찌르기는 적을 잠시 공중으로 띄웁니다."
+            "ko": "다음 창 찌르기는 적을 잠시 공중으로 띄웁니다.",
+            "es": "El siguiente golpe de lanza lanza a los enemigos al aire brevemente.",
+            "ar": "طعنة الرمح التالية تقذف الأعداء في الهواء لفترة وجيزة.",
+            "fr": "La prochaine poussée de lance propulse brièvement les ennemis dans les airs.",
+            "zh-tw": "下一次長矛突刺會短暫將敵人拋向空中。"
           },
           "recommendation": {
             "level": 1,
             "reason": {
               "ja": "使わないでください。",
               "en": "Don't use this.",
-              "ko": "사용하지 마세요."
+              "ko": "사용하지 마세요.",
+              "es": "No uses esto.",
+              "ar": "لا تستخدم هذا.",
+              "fr": "Ne pas utiliser.",
+              "zh-tw": "不要使用這個。"
             }
           }
         },
@@ -1137,19 +1685,31 @@
           "name": {
             "ja": "最後の抵抗",
             "en": "Last Stand",
-            "ko": "마지막 저항"
+            "ko": "마지막 저항",
+            "es": "Última Resistencia",
+            "ar": "المقاومة الأخيرة",
+            "fr": "Dernier Rempart",
+            "zh-tw": "最後一搏"
           },
           "description": {
             "ja": "ドラコは2秒間、体力が1未満にならなくなります。",
             "en": "For 2 seconds, Draco's health cannot fall below 1.",
-            "ko": "드라코는 2초 동안 체력이 1 미만이 되지 않습니다."
+            "ko": "드라코는 2초 동안 체력이 1 미만이 되지 않습니다.",
+            "es": "Durante 2 segundos, la salud de Draco no puede caer por debajo de 1.",
+            "ar": "لمدة ثانيتين، لا يمكن أن تنخفض صحة دراكو إلى أقل من 1.",
+            "fr": "Pendant 2 secondes, la santé de Draco ne peut pas descendre en dessous de 1.",
+            "zh-tw": "在2秒內，德拉科的生命值不會降到1以下。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "ウルトの状態での無敵無双が最強のため必須ガジェット。",
               "en": "Essential gadget as invincibility during ultimate is extremely powerful.",
-              "ko": "궁극기 상태에서의 무적 무쌍이 최강이라 필수 가젯입니다."
+              "ko": "궁극기 상태에서의 무적 무쌍이 최강이라 필수 가젯입니다.",
+              "es": "Gadget esencial ya que la invencibilidad durante el definitivo es extremadamente poderosa.",
+              "ar": "أداة ضرورية لأن عدم القابلية للإصابة أثناء القدرة النهائية قوية للغاية.",
+              "fr": "Gadget essentiel car l'invincibilité pendant l'ultime est extrêmement puissante.",
+              "zh-tw": "必備裝置，因為終極技能時的無敵狀態極其強大。"
             }
           }
         }
@@ -1165,7 +1725,11 @@
       "name": {
         "ja": "アンジェロ",
         "en": "Angelo",
-        "ko": "안젤로"
+        "ko": "안젤로",
+        "es": "Angelo",
+        "ar": "أنجيلو",
+        "fr": "Angelo",
+        "zh-tw": "安傑洛"
       },
       "image": "require('../../assets/BrawlerIcons/angelo_pin.png')",
       "class": {
@@ -1180,7 +1744,11 @@
       "description": {
         "ja": "アンジェロはラブスワンプの住人で、キューピッドから蚊に変身しました。運河周辺を飛び回り、恋する二人を魅了する魅力を放ち、時には少々とがった刺激も必要とします。",
         "en": "Angelo is a resident of Love Swamp who transformed from Cupid into a mosquito. Flying around the canals, he radiates charm that enchants love-struck couples, sometimes needing to add a little sharp stimulus.",
-        "ko": "안젤로는 러브 스웜프의 주민으로, 큐피드에서 모기로 변신했습니다. 운하 주변을 날아다니며 사랑에 빠진 연인들을 매혹하는 매력을 발산하고, 때로는 약간의 날카로운 자극도 필요로 합니다."
+        "ko": "안젤로는 러브 스웜프의 주민으로, 큐피드에서 모기로 변신했습니다. 운하 주변을 날아다니며 사랑에 빠진 연인들을 매혹하는 매력을 발산하고, 때로는 약간의 날카로운 자극도 필요로 합니다.",
+        "es": "Angelo es un habitante del Pantano del Amor que se transformó de Cupido en mosquito. Volando por los canales, irradia un encanto que hechiza a las parejas enamoradas, a veces necesitando añadir un pequeño estímulo punzante.",
+        "ar": "أنجيلو هو ساكن في مستنقع الحب تحول من كيوبيد إلى بعوضة. يطير حول القنوات، يشع سحراً يأسر الأزواج العاشقين، وأحياناً يحتاج إلى إضافة حافز حاد قليلاً.",
+        "fr": "Angelo est un résident du Marais de l'Amour qui s'est transformé de Cupidon en moustique. Volant autour des canaux, il dégage un charme qui enchante les couples amoureux, ayant parfois besoin d'ajouter un petit stimulus piquant.",
+        "zh-tw": "安傑洛是愛情沼澤的居民，從丘比特變成了蚊子。他在運河周圍飛行，散發出迷人的魅力吸引戀愛中的情侶，有時也需要添加一點刺激。"
       },
       "starPowers": [
         {
@@ -1188,19 +1756,31 @@
           "name": {
             "ja": "エネルギー転化",
             "en": "Empower",
-            "ko": "에너지 전환"
+            "ko": "에너지 전환",
+            "es": "Potenciar",
+            "ar": "تعزيز",
+            "fr": "Renforcement",
+            "zh-tw": "能量轉化"
           },
           "description": {
             "ja": "スーパー内にいる間、アンジェロは毎秒600の回復を得ます。",
             "en": "While in his super, Angelo gains 600 healing per second.",
-            "ko": "궁극기 안에 있는 동안 안젤로는 초당 600의 회복을 얻습니다."
+            "ko": "궁극기 안에 있는 동안 안젤로는 초당 600의 회복을 얻습니다.",
+            "es": "Mientras está en su súper, Angelo obtiene 600 de curación por segundo.",
+            "ar": "أثناء وجوده في قدرته الخارقة، يكتسب أنجيلو 600 شفاء في الثانية.",
+            "fr": "Pendant son super, Angelo gagne 600 points de guérison par seconde.",
+            "zh-tw": "在超級技能狀態下，安傑洛每秒獲得600點治療。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "回復しにくいキャラクターのためこの回復が非常に重宝される。",
               "en": "This healing is highly valuable for a character that has difficulty recovering health.",
-              "ko": "회복이 어려운 캐릭터이기 때문에 이 회복이 매우 유용합니다."
+              "ko": "회복이 어려운 캐릭터이기 때문에 이 회복이 매우 유용합니다.",
+              "es": "Esta curación es muy valiosa para un personaje que tiene dificultad para recuperar salud.",
+              "ar": "هذا الشفاء قيم للغاية لشخصية تجد صعوبة في استعادة الصحة.",
+              "fr": "Cette guérison est très précieuse pour un personnage qui a du mal à récupérer de la santé.",
+              "zh-tw": "對於難以恢復生命值的角色來說，這個治療效果非常寶貴。"
             }
           }
         },
@@ -1209,19 +1789,31 @@
           "name": {
             "ja": "空中浮遊",
             "en": "Flow",
-            "ko": "공중 부양"
+            "ko": "공중 부양",
+            "es": "Flujo",
+            "ar": "تدفق",
+            "fr": "Fluidité",
+            "zh-tw": "氣流"
           },
           "description": {
             "ja": "水に入った後、アンジェロは移動速度が25%上昇します。",
             "en": "After entering water, Angelo's movement speed increases by 25%.",
-            "ko": "물에 들어간 후, 안젤로의 이동 속도가 25% 증가합니다."
+            "ko": "물에 들어간 후, 안젤로의 이동 속도가 25% 증가합니다.",
+            "es": "Después de entrar al agua, la velocidad de movimiento de Angelo aumenta un 25%.",
+            "ar": "بعد دخول الماء، تزداد سرعة حركة أنجيلو بنسبة 25%.",
+            "fr": "Après être entré dans l'eau, la vitesse de déplacement d'Angelo augmente de 25%.",
+            "zh-tw": "進入水中後，安傑洛的移動速度提升25%。"
           },
           "recommendation": {
             "level": 4,
             "reason": {
               "ja": "水のあるノックアウトや賞金稼ぎで稀に使用される。",
               "en": "Occasionally used in Knockout and Bounty maps with water.",
-              "ko": "물이 있는 녹아웃이나 현상금 사냥에서 가끔 사용됩니다."
+              "ko": "물이 있는 녹아웃이나 현상금 사냥에서 가끔 사용됩니다.",
+              "es": "Se usa ocasionalmente en mapas de Knockout y Recompensa con agua.",
+              "ar": "يستخدم أحياناً في خرائط الإقصاء والمكافآت التي تحتوي على ماء.",
+              "fr": "Utilisé occasionnellement dans les cartes Knockout et Prime avec de l'eau.",
+              "zh-tw": "在有水的擊倒和賞金地圖中偶爾使用。"
             }
           }
         }
@@ -1232,19 +1824,31 @@
           "name": {
             "ja": "激痛テイクオフ",
             "en": "Stinging Flight",
-            "ko": "쏘는 비행"
+            "ko": "쏘는 비행",
+            "es": "Vuelo Punzante",
+            "ar": "طيران لاذع",
+            "fr": "Vol Piquant",
+            "zh-tw": "刺痛飛行"
           },
           "description": {
             "ja": "1.0秒間空中に飛び上がります。離陸時に近くの敵からHP660を吸収します。",
             "en": "Jumps into the air for 1.0 seconds. Absorbs 660 HP from nearby enemies when taking off.",
-            "ko": "1.0초 동안 공중으로 뛰어오릅니다. 이륙 시 근처의 적으로부터 HP 660을 흡수합니다."
+            "ko": "1.0초 동안 공중으로 뛰어오릅니다. 이륙 시 근처의 적으로부터 HP 660을 흡수합니다.",
+            "es": "Salta al aire durante 1.0 segundos. Absorbe 660 PS de los enemigos cercanos al despegar.",
+            "ar": "يقفز في الهواء لمدة 1.0 ثانية. يمتص 660 نقطة صحة من الأعداء القريبين عند الإقلاع.",
+            "fr": "Saute dans les airs pendant 1.0 seconde. Absorbe 660 PV des ennemis proches au décollage.",
+            "zh-tw": "跳到空中1.0秒。起飛時從附近敵人吸收660生命值。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "賞金稼ぎとノックアウト、バトロワの超優秀な効果を発揮する。",
               "en": "Shows excellent effectiveness in Bounty, Knockout, and Showdown.",
-              "ko": "현상금 사냥과 녹아웃, 배틀로얄에서 매우 우수한 효과를 발휘합니다."
+              "ko": "현상금 사냥과 녹아웃, 배틀로얄에서 매우 우수한 효과를 발휘합니다.",
+              "es": "Muestra excelente efectividad en Recompensa, Knockout y Supervivencia.",
+              "ar": "يظهر فعالية ممتازة في المكافآت والإقصاء والمواجهة النهائية.",
+              "fr": "Montre une excellente efficacité en Prime, Knockout et Combat Ultime.",
+              "zh-tw": "在賞金、擊倒和死鬥模式中表現出色。"
             }
           }
         },
@@ -1253,19 +1857,31 @@
           "name": {
             "ja": "ピアシングアロー",
             "en": "Master Fletcher",
-            "ko": "명사수"
+            "ko": "명사수",
+            "es": "Maestro Flechador",
+            "ar": "صانع السهام الماهر",
+            "fr": "Maître Archer",
+            "zh-tw": "箭術大師"
           },
           "description": {
             "ja": "次の狙い撃ちは敵と環境を貫通します。",
             "en": "Next aimed shot pierces through enemies and environment.",
-            "ko": "다음 조준 사격이 적과 환경을 관통합니다."
+            "ko": "다음 조준 사격이 적과 환경을 관통합니다.",
+            "es": "El siguiente disparo apuntado atraviesa enemigos y el entorno.",
+            "ar": "التصويب التالي يخترق الأعداء والبيئة.",
+            "fr": "Le prochain tir visé traverse les ennemis et l'environnement.",
+            "zh-tw": "下一次瞄準射擊可穿透敵人和環境。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "基本的にはこちらのガジェットで壁裏の敵を葬るのが非常に強力。",
               "en": "Generally, this gadget is very powerful for taking out enemies behind walls.",
-              "ko": "기본적으로 이 가젯으로 벽 뒤의 적을 처치하는 것이 매우 강력합니다."
+              "ko": "기본적으로 이 가젯으로 벽 뒤의 적을 처치하는 것이 매우 강력합니다.",
+              "es": "En general, este gadget es muy poderoso para eliminar enemigos detrás de las paredes.",
+              "ar": "بشكل عام، هذه الأداة قوية جداً للقضاء على الأعداء خلف الجدران.",
+              "fr": "Généralement, ce gadget est très puissant pour éliminer les ennemis derrière les murs.",
+              "zh-tw": "通常來說，這個裝置對於消滅牆後的敵人非常強大。"
             }
           }
         }
@@ -1281,7 +1897,11 @@
       "name": {
         "ja": "メロディー",
         "en": "Melodie",
-        "ko": "멜로디"
+        "ko": "멜로디",
+        "es": "Melodie",
+        "ar": "ميلودي",
+        "fr": "Mélodie",
+        "zh-tw": "美樂蒂"
       },
       "image": "require('../../assets/BrawlerIcons/melodie_pin.png')",
       "class": {
@@ -1296,7 +1916,11 @@
       "description": {
         "ja": "カラオケとなると、メロディは容赦しません。カワイイ外見と悪魔的な歌声を武器に、彼女は常に注目の的となります。",
         "en": "When it comes to karaoke, Melodie shows no mercy. With her cute appearance and demonic singing voice as weapons, she's always the center of attention.",
-        "ko": "노래방이 되면 멜로디는 용서하지 않습니다. 귀여운 외모와 악마적인 노래 목소리를 무기로, 그녀는 항상 주목의 대상이 됩니다."
+        "ko": "노래방이 되면 멜로디는 용서하지 않습니다. 귀여운 외모와 악마적인 노래 목소리를 무기로, 그녀는 항상 주목의 대상이 됩니다.",
+        "es": "Cuando se trata de karaoke, Melodie no muestra piedad. Con su apariencia linda y voz demoníaca como armas, siempre es el centro de atención.",
+        "ar": "عندما يتعلق الأمر بالكاراوكي، لا تظهر ميلودي أي رحمة. بمظهرها اللطيف وصوتها الشيطاني كأسلحة، هي دائماً محط الأنظار.",
+        "fr": "Quand il s'agit de karaoké, Mélodie ne fait preuve d'aucune pitié. Avec son apparence mignonne et sa voix démoniaque comme armes, elle est toujours le centre de l'attention.",
+        "zh-tw": "說到卡拉OK，美樂蒂絕不留情。以她可愛的外表和魔鬼般的歌聲為武器，她永遠是眾人矚目的焦點。"
       },
       "starPowers": [
         {
@@ -1304,19 +1928,31 @@
           "name": {
             "ja": "アップテンポ",
             "en": "Fast Beats",
-            "ko": "빠른 비트"
+            "ko": "빠른 비트",
+            "es": "Ritmos Rápidos",
+            "ar": "إيقاعات سريعة",
+            "fr": "Rythmes Rapides",
+            "zh-tw": "快速節拍"
           },
           "description": {
             "ja": "メロディは周りを回る音符1つにつき移動速度が6%上昇します。",
             "en": "Melodie's movement speed increases by 6% for each musical note circling around her.",
-            "ko": "멜로디는 주위를 도는 음표 하나당 이동 속도가 6% 증가합니다."
+            "ko": "멜로디는 주위를 도는 음표 하나당 이동 속도가 6% 증가합니다.",
+            "es": "La velocidad de movimiento de Melodie aumenta un 6% por cada nota musical que gira a su alrededor.",
+            "ar": "تزداد سرعة حركة ميلودي بنسبة 6% لكل نوتة موسيقية تدور حولها.",
+            "fr": "La vitesse de déplacement de Mélodie augmente de 6% pour chaque note de musique qui tourne autour d'elle.",
+            "zh-tw": "美樂蒂的移動速度隨著圍繞她的每個音符增加6%。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "最大18％の移動速度上昇がかなり優秀",
               "en": "The maximum 18% movement speed increase is very effective",
-              "ko": "최대 18%의 이동 속도 증가가 상당히 우수합니다"
+              "ko": "최대 18%의 이동 속도 증가가 상당히 우수합니다",
+              "es": "El aumento máximo de velocidad de movimiento del 18% es muy efectivo",
+              "ar": "زيادة سرعة الحركة القصوى بنسبة 18% فعالة جداً",
+              "fr": "L'augmentation maximale de 18% de la vitesse de déplacement est très efficace",
+              "zh-tw": "最高18%的移動速度提升非常有效"
             }
           }
         },
@@ -1325,19 +1961,31 @@
           "name": {
             "ja": "ボーナストラック",
             "en": "Extended Mix",
-            "ko": "확장 믹스"
+            "ko": "확장 믹스",
+            "es": "Mezcla Extendida",
+            "ar": "مزيج ممتد",
+            "fr": "Mix Prolongé",
+            "zh-tw": "延長混音"
           },
           "description": {
             "ja": "メロディの音符は消えるまでの持続時間が25%延長されます。",
             "en": "Melodie's musical notes last 25% longer before disappearing.",
-            "ko": "멜로디의 음표는 사라지기까지의 지속 시간이 25% 연장됩니다."
+            "ko": "멜로디의 음표는 사라지기까지의 지속 시간이 25% 연장됩니다.",
+            "es": "Las notas musicales de Melodie duran un 25% más antes de desaparecer.",
+            "ar": "تدوم النوتات الموسيقية لميلودي لفترة أطول بنسبة 25% قبل الاختفاء.",
+            "fr": "Les notes de musique de Mélodie durent 25% plus longtemps avant de disparaître.",
+            "zh-tw": "美樂蒂的音符在消失前持續時間延長25%。"
           },
           "recommendation": {
             "level": 2,
             "reason": {
               "ja": "いつ使えるの。",
               "en": "When would you even use this.",
-              "ko": "언제 쓸 수 있나요."
+              "ko": "언제 쓸 수 있나요.",
+              "es": "¿Cuándo usarías esto?",
+              "ar": "متى يمكنك استخدام هذا؟",
+              "fr": "Quand utiliserais-tu même ça ?",
+              "zh-tw": "這要什麼時候才用得上。"
             }
           }
         }
@@ -1348,19 +1996,31 @@
           "name": {
             "ja": "フォルテシモ",
             "en": "Perfect Pitch",
-            "ko": "완벽한 피치"
+            "ko": "완벽한 피치",
+            "es": "Tono Perfecto",
+            "ar": "النغمة المثالية",
+            "fr": "Ton Parfait",
+            "zh-tw": "完美音高"
           },
           "description": {
             "ja": "5秒の間、音符の周回速度が25%上昇し、周回範囲が60%増加する。",
             "en": "For 5 seconds, musical notes rotate 25% faster and their orbit range increases by 60%.",
-            "ko": "5초 동안 음표의 회전 속도가 25% 증가하고 회전 범위가 60% 증가합니다."
+            "ko": "5초 동안 음표의 회전 속도가 25% 증가하고 회전 범위가 60% 증가합니다.",
+            "es": "Durante 5 segundos, las notas musicales rotan un 25% más rápido y su rango orbital aumenta un 60%.",
+            "ar": "لمدة 5 ثوانٍ، تدور النوتات الموسيقية بسرعة أكبر بنسبة 25% ويزداد نطاق مدارها بنسبة 60%.",
+            "fr": "Pendant 5 secondes, les notes de musique tournent 25% plus vite et leur portée orbitale augmente de 60%.",
+            "zh-tw": "在5秒內，音符旋轉速度提升25%，軌道範圍增加60%。"
           },
           "recommendation": {
             "level": 2,
             "reason": {
               "ja": "強化待ち。",
               "en": "Waiting for a buff.",
-              "ko": "강화가 필요합니다."
+              "ko": "강화가 필요합니다.",
+              "es": "Esperando una mejora.",
+              "ar": "في انتظار التحسين.",
+              "fr": "En attente d'un buff.",
+              "zh-tw": "等待加強。"
             }
           }
         },
@@ -1369,19 +2029,31 @@
           "name": {
             "ja": "インタールード",
             "en": "Interlude",
-            "ko": "간주"
+            "ko": "간주",
+            "es": "Interludio",
+            "ar": "فاصل موسيقي",
+            "fr": "Interlude",
+            "zh-tw": "間奏"
           },
           "description": {
             "ja": "メロディは周りを回る音符1つにつき10%のシールドを得ます。",
             "en": "Melodie gains a 10% shield for each musical note circling around her.",
-            "ko": "멜로디는 주위를 도는 음표 하나당 10%의 보호막을 얻습니다."
+            "ko": "멜로디는 주위를 도는 음표 하나당 10%의 보호막을 얻습니다.",
+            "es": "Melodie gana un escudo del 10% por cada nota musical que gira a su alrededor.",
+            "ar": "تكتسب ميلودي درعاً بنسبة 10% لكل نوتة موسيقية تدور حولها.",
+            "fr": "Mélodie gagne un bouclier de 10% pour chaque note de musique qui tourne autour d'elle.",
+            "zh-tw": "美樂蒂為每個圍繞她的音符獲得10%的護盾。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "シールドが非常に強力で生存性が大幅に向上するのがキャラ性能との相性が非常に良い。",
               "en": "The shield is very powerful and greatly improves survivability, which synergizes very well with the character's abilities.",
-              "ko": "보호막이 매우 강력하고 생존성이 크게 향상되어 캐릭터 성능과 궁합이 매우 좋습니다."
+              "ko": "보호막이 매우 강력하고 생존성이 크게 향상되어 캐릭터 성능과 궁합이 매우 좋습니다.",
+              "es": "El escudo es muy poderoso y mejora enormemente la supervivencia, lo que se sincroniza muy bien con las habilidades del personaje.",
+              "ar": "الدرع قوي جداً ويحسن البقاء على قيد الحياة بشكل كبير، مما يتناغم بشكل جيد جداً مع قدرات الشخصية.",
+              "fr": "Le bouclier est très puissant et améliore grandement la survie, ce qui se combine très bien avec les capacités du personnage.",
+              "zh-tw": "護盾非常強大，大大提高了生存能力，與角色的能力非常協調。"
             }
           }
         }
@@ -1398,7 +2070,11 @@
       "name": {
         "ja": "ラリー&ローリー",
         "en": "Larry & Lawrie",
-        "ko": "래리 & 로리"
+        "ko": "래리 & 로리",
+        "es": "Larry y Lawrie",
+        "ar": "لاري ولوري",
+        "fr": "Larry et Lawrie",
+        "zh-tw": "拉里和勞里"
       },
       "image": "require('../../assets/BrawlerIcons/larryandlawrie_pin.png')",
       "class": {
@@ -1413,7 +2089,11 @@
       "description": {
         "ja": "ラリーは双子の兄弟ローリーの監視の下、スターパークの来場者にチケットを販売しています。ラリーはルールが大好きで、ルールは人生を楽にしてくれます！ローリーはルールそのものよりも、ルールを執行することが好きです。2人は良いチームを組んでいます。",
         "en": "Larry sells tickets to Starr Park visitors under the watchful eye of his twin brother Lawrie. Larry loves rules because they make life easier! Lawrie likes enforcing rules more than the rules themselves. They make a great team.",
-        "ko": "래리는 쌍둥이 형제 로리의 감시 하에 스타파크 방문객들에게 티켓을 판매합니다. 래리는 규칙을 사랑하는데, 규칙이 삶을 쉽게 만들어주기 때문입니다! 로리는 규칙 그 자체보다 규칙을 집행하는 것을 좋아합니다. 둘은 좋은 팀을 이루고 있습니다."
+        "ko": "래리는 쌍둥이 형제 로리의 감시 하에 스타파크 방문객들에게 티켓을 판매합니다. 래리는 규칙을 사랑하는데, 규칙이 삶을 쉽게 만들어주기 때문입니다! 로리는 규칙 그 자체보다 규칙을 집행하는 것을 좋아합니다. 둘은 좋은 팀을 이루고 있습니다.",
+        "es": "Larry vende entradas a los visitantes de Starr Park bajo la atenta mirada de su hermano gemelo Lawrie. ¡A Larry le encantan las reglas porque hacen la vida más fácil! A Lawrie le gusta más hacer cumplir las reglas que las reglas en sí. Hacen un gran equipo.",
+        "ar": "يبيع لاري التذاكر لزوار ستار بارك تحت أنظار أخيه التوأم لوري. يحب لاري القواعد لأنها تجعل الحياة أسهل! لوري يفضل تطبيق القواعد أكثر من القواعد نفسها. إنهما يشكلان فريقاً رائعاً.",
+        "fr": "Larry vend des billets aux visiteurs de Starr Park sous l'œil vigilant de son frère jumeau Lawrie. Larry adore les règles car elles simplifient la vie ! Lawrie préfère faire respecter les règles plutôt que les règles elles-mêmes. Ils forment une excellente équipe.",
+        "zh-tw": "拉里在雙胞胎兄弟勞里的監督下，向星光樂園的遊客售票。拉里喜歡規則，因為規則讓生活更簡單！勞里比起規則本身，更喜歡執行規則。他們是絕佳的搭檔。"
       },
       "starPowers": [
         {
@@ -1421,19 +2101,31 @@
           "name": {
             "ja": "防衛プロトコル",
             "en": "Protocol Protect",
-            "ko": "보호 프로토콜"
+            "ko": "보호 프로토콜",
+            "es": "Protocolo de Protección",
+            "ar": "بروتوكول الحماية",
+            "fr": "Protocole de Protection",
+            "zh-tw": "防護協議"
           },
           "description": {
             "ja": "ローリーが範囲内にいる間、受けるダメージの30%をローリーに移し替える。",
             "en": "While Lawrie is in range, 30% of damage taken is transferred to Lawrie.",
-            "ko": "로리가 범위 내에 있는 동안, 받는 데미지의 30%를 로리에게 전가합니다."
+            "ko": "로리가 범위 내에 있는 동안, 받는 데미지의 30%를 로리에게 전가합니다.",
+            "es": "Mientras Lawrie esté dentro del alcance, el 30% del daño recibido se transfiere a Lawrie.",
+            "ar": "عندما يكون لوري في النطاق، يتم نقل 30٪ من الضرر المتلقى إلى لوري.",
+            "fr": "Lorsque Lawrie est à portée, 30% des dégâts subis sont transférés à Lawrie.",
+            "zh-tw": "當勞里在範圍內時，受到傷害的30%轉移給勞里。"
           },
           "recommendation": {
             "level": 4,
             "reason": {
               "ja": "耐久力と相手のウルトを溜めさせにくくなるため、かなり使い勝手が良い",
               "en": "Very practical as it increases durability and makes it harder for opponents to charge their supers",
-              "ko": "내구력이 증가하고 상대의 궁극기를 채우기 어렵게 만들어서 상당히 사용하기 좋습니다"
+              "ko": "내구력이 증가하고 상대의 궁극기를 채우기 어렵게 만들어서 상당히 사용하기 좋습니다",
+              "es": "Muy práctico ya que aumenta la durabilidad y dificulta que los oponentes carguen sus súpers",
+              "ar": "عملي جداً حيث يزيد من القدرة على التحمل ويجعل من الصعب على الخصوم شحن قدراتهم الخارقة",
+              "fr": "Très pratique car augmente la durabilité et rend plus difficile pour les adversaires de charger leurs supers",
+              "zh-tw": "非常實用，因為增加了耐久性並使對手更難充能超級技能"
             }
           }
         },
@@ -1442,19 +2134,31 @@
           "name": {
             "ja": "装填プロトコル",
             "en": "Protocol Assist",
-            "ko": "지원 프로토콜"
+            "ko": "지원 프로토콜",
+            "es": "Protocolo de Asistencia",
+            "ar": "بروتوكول المساعدة",
+            "fr": "Protocole d'Assistance",
+            "zh-tw": "輔助協議"
           },
           "description": {
             "ja": "ローリーが範囲内にいる間、彼が敵にダメージを与えるたびに弾薬を30%リロードします。",
             "en": "While Lawrie is in range, reload 30% ammo each time he damages enemies.",
-            "ko": "로리가 범위 내에 있는 동안, 그가 적에게 데미지를 줄 때마다 탄약을 30% 재장전합니다."
+            "ko": "로리가 범위 내에 있는 동안, 그가 적에게 데미지를 줄 때마다 탄약을 30% 재장전합니다.",
+            "es": "Mientras Lawrie esté dentro del alcance, recarga 30% de munición cada vez que él daña a los enemigos.",
+            "ar": "عندما يكون لوري في النطاق، يتم إعادة تحميل 30٪ من الذخيرة في كل مرة يلحق فيها ضرراً بالأعداء.",
+            "fr": "Lorsque Lawrie est à portée, recharge 30% des munitions chaque fois qu'il inflige des dégâts aux ennemis.",
+            "zh-tw": "當勞里在範圍內時，每次他對敵人造成傷害就重新裝填30%彈藥。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "タンクを倒しやすくなり、マルチでの使用率が圧倒的に高い。",
               "en": "Makes it easier to defeat tanks, overwhelmingly popular in multiplayer.",
-              "ko": "탱크를 처치하기 쉬워지고, 멀티플레이에서 압도적으로 많이 사용됩니다."
+              "ko": "탱크를 처치하기 쉬워지고, 멀티플레이에서 압도적으로 많이 사용됩니다.",
+              "es": "Facilita derrotar a los tanques, abrumadoramente popular en multijugador.",
+              "ar": "يجعل من السهل هزيمة الدبابات، شعبية كبيرة في اللعب الجماعي.",
+              "fr": "Facilite l'élimination des tanks, extrêmement populaire en multijoueur.",
+              "zh-tw": "使擊敗坦克更容易，在多人遊戲中極受歡迎。"
             }
           }
         }
@@ -1465,19 +2169,31 @@
           "name": {
             "ja": "交換指令",
             "en": "Order Swap",
-            "ko": "교환 명령"
+            "ko": "교환 명령",
+            "es": "Orden de Intercambio",
+            "ar": "أمر التبديل",
+            "fr": "Ordre d'Échange",
+            "zh-tw": "交換命令"
           },
           "description": {
             "ja": "ローリーと武器を交換します。",
             "en": "Swap weapons with Lawrie.",
-            "ko": "로리와 무기를 교환합니다."
+            "ko": "로리와 무기를 교환합니다.",
+            "es": "Intercambia armas con Lawrie.",
+            "ar": "تبادل الأسلحة مع لوري.",
+            "fr": "Échange d'armes avec Lawrie.",
+            "zh-tw": "與勞里交換武器。"
           },
           "recommendation": {
             "level": 1,
             "reason": {
               "ja": "むしろ使用すると弱くなる究極のネタガジェット。",
               "en": "The ultimate gimmick gadget that actually makes you weaker when used.",
-              "ko": "오히려 사용하면 약해지는 궁극의 네타 가젯입니다."
+              "ko": "오히려 사용하면 약해지는 궁극의 네타 가젯입니다.",
+              "es": "El último gadget de truco que en realidad te debilita cuando se usa.",
+              "ar": "أداة خدعة نهائية تجعلك في الواقع أضعف عند استخدامها.",
+              "fr": "Le gadget ultime qui vous affaiblit en réalité lorsqu'il est utilisé.",
+              "zh-tw": "使用反而會變弱的終極花招裝置。"
             }
           }
         },
@@ -1486,19 +2202,31 @@
           "name": {
             "ja": "撤退指令",
             "en": "Order Fall Back",
-            "ko": "후퇴 명령"
+            "ko": "후퇴 명령",
+            "es": "Orden de Retirada",
+            "ar": "أمر التراجع",
+            "fr": "Ordre de Repli",
+            "zh-tw": "撤退命令"
           },
           "description": {
             "ja": "ラリーはローリーに、ローリーはラリーに向かってダッシュし、両者が最大HPの25%を回復します。",
             "en": "Larry dashes towards Lawrie and Lawrie dashes towards Larry, both healing 25% of their max HP.",
-            "ko": "래리는 로리에게, 로리는 래리에게 대시하며, 둘 다 최대 HP의 25%를 회복합니다."
+            "ko": "래리는 로리에게, 로리는 래리에게 대시하며, 둘 다 최대 HP의 25%를 회복합니다.",
+            "es": "Larry corre hacia Lawrie y Lawrie corre hacia Larry, ambos curando el 25% de su HP máximo.",
+            "ar": "يندفع لاري نحو لوري ولوري نحو لاري، ويشفى كلاهما 25٪ من الحد الأقصى للصحة.",
+            "fr": "Larry se précipite vers Lawrie et Lawrie se précipite vers Larry, les deux récupérant 25% de leurs PV max.",
+            "zh-tw": "拉里衝向勞里，勞里衝向拉里，雙方都恢復最大生命值的25%。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "攻守ともに使用でき、回復としても有能なためいつでも需要がある有能さ。",
               "en": "Can be used both offensively and defensively, always in demand as it's also effective for healing.",
-              "ko": "공수 모두에 사용할 수 있고, 회복으로도 유능해서 언제나 수요가 있는 유능함."
+              "ko": "공수 모두에 사용할 수 있고, 회복으로도 유능해서 언제나 수요가 있는 유능함.",
+              "es": "Se puede usar tanto ofensiva como defensivamente, siempre demandado ya que también es efectivo para curar.",
+              "ar": "يمكن استخدامه هجومياً ودفاعياً، مطلوب دائماً لأنه فعال أيضاً في الشفاء.",
+              "fr": "Peut être utilisé offensivement et défensivement, toujours demandé car efficace aussi pour la guérison.",
+              "zh-tw": "可用於進攻和防守，作為治療也很有效，因此一直很受歡迎。"
             }
           }
         }
@@ -1514,7 +2242,11 @@
       "name": {
         "ja": "キット",
         "en": "Kit",
-        "ko": "키트"
+        "ko": "키트",
+        "es": "Kit",
+        "ar": "كيت",
+        "fr": "Kit",
+        "zh-tw": "奇特"
       },
       "image": "require('../../assets/BrawlerIcons/kit_pin.png')",
       "class": {
@@ -1529,7 +2261,11 @@
       "description": {
         "ja": "スタートゥーンスタジオで熱狂的なファンにサインを求められ続けるカートゥーンスーパースターのキットは、外見ではなく演技力で評価され、業界で再び注目を集められるようになることを夢見ています。",
         "en": "A cartoon superstar constantly asked for autographs at Startoon Studios, Kit dreams of being valued for their acting skills rather than their looks and making a comeback in the industry.",
-        "ko": "스타툰 스튜디오에서 열렬한 팬들에게 계속 사인을 요청받는 카툰 슈퍼스타 키트는, 외모가 아닌 연기력으로 평가받고 업계에서 다시 주목받게 되는 것을 꿈꾸고 있습니다."
+        "ko": "스타툰 스튜디오에서 열렬한 팬들에게 계속 사인을 요청받는 카툰 슈퍼스타 키트는, 외모가 아닌 연기력으로 평가받고 업계에서 다시 주목받게 되는 것을 꿈꾸고 있습니다.",
+        "es": "Una superestrella de dibujos animados a quien constantemente le piden autógrafos en los Estudios Startoon, Kit sueña con ser valorado por sus habilidades actorales en lugar de su apariencia y hacer un regreso en la industria.",
+        "ar": "نجم كرتون شهير يُطلب منه التوقيعات باستمرار في استوديوهات ستارتون، يحلم كيت بأن يتم تقديره لمهاراته التمثيلية بدلاً من مظهره وأن يعود إلى الصناعة من جديد.",
+        "fr": "Superstar de dessin animé constamment sollicitée pour des autographes aux Studios Startoon, Kit rêve d'être valorisé pour ses talents d'acteur plutôt que pour son apparence et de faire son retour dans l'industrie.",
+        "zh-tw": "一位在星通卡通工作室經常被要求簽名的卡通巨星，奇特夢想能夠因為演技而非外表受到重視，並在業界重新崛起。"
       },
       "starPowers": [
         {
@@ -1537,19 +2273,31 @@
           "name": {
             "ja": "上昇志向",
             "en": "Power Hungry",
-            "ko": "권력욕"
+            "ko": "권력욕",
+            "es": "Hambre de Poder",
+            "ar": "جوع للقوة",
+            "fr": "Soif de Pouvoir",
+            "zh-tw": "渴望力量"
           },
           "description": {
             "ja": "キットは各パワーキューブから150%のパワーを得ます。",
             "en": "Kit gains 150% power from each Power Cube.",
-            "ko": "키트는 각 파워큐브로부터 150%의 파워를 얻습니다."
+            "ko": "키트는 각 파워큐브로부터 150%의 파워를 얻습니다.",
+            "es": "Kit obtiene 150% de poder de cada Cubo de Poder.",
+            "ar": "يكتسب كيت 150% قوة من كل مكعب قوة.",
+            "fr": "Kit gagne 150% de puissance de chaque Cube de Pouvoir.",
+            "zh-tw": "奇特從每個能量方塊獲得150%的力量。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "バトロワを崩壊させるほど強力な最強スタパでなぜか下方修正が来ない。",
               "en": "The strongest star power that breaks Showdown, yet somehow hasn't been nerfed.",
-              "ko": "배틀로얄을 붕괴시킬 정도로 강력한 최강의 스타파워인데 왜인지 하향 조정이 오지 않습니다."
+              "ko": "배틀로얄을 붕괴시킬 정도로 강력한 최강의 스타파워인데 왜인지 하향 조정이 오지 않습니다.",
+              "es": "El poder estelar más fuerte que rompe el Showdown, pero de alguna manera no ha sido debilitado.",
+              "ar": "أقوى قوة نجمية تكسر نظام المعركة الملكية، ومع ذلك لم يتم إضعافها بعد.",
+              "fr": "Le pouvoir stellaire le plus fort qui brise le Showdown, mais qui n'a étrangement pas encore été affaibli.",
+              "zh-tw": "最強大的星力，破壞了大亂鬥的平衡，但不知為何還沒有被削弱。"
             }
           }
         },
@@ -1558,19 +2306,31 @@
           "name": {
             "ja": "甘えんぼ",
             "en": "Overly Attached",
-            "ko": "집착"
+            "ko": "집착",
+            "es": "Muy Apegado",
+            "ar": "شديد التعلق",
+            "fr": "Trop Attaché",
+            "zh-tw": "過度依戀"
           },
           "description": {
             "ja": "キットは味方のブローラーに5秒長く取り付くことができます。",
             "en": "Kit can stay attached to friendly brawlers for 5 seconds longer.",
-            "ko": "키트는 아군 브롤러에게 5초 더 오래 부착할 수 있습니다."
+            "ko": "키트는 아군 브롤러에게 5초 더 오래 부착할 수 있습니다.",
+            "es": "Kit puede permanecer adherido a brawlers aliados 5 segundos más.",
+            "ar": "يمكن لكيت البقاء ملتصقاً بالمقاتلين الحلفاء لمدة 5 ثوانٍ إضافية.",
+            "fr": "Kit peut rester attaché aux brawlers alliés 5 secondes de plus.",
+            "zh-tw": "奇特可以多附著在友方鬥士身上5秒。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "バトロワ以外で使用される。タンクとのコンビが強力。",
               "en": "Used outside of Showdown. Powerful in combination with tanks.",
-              "ko": "배틀로얄 외에서 사용됩니다. 탱크와의 조합이 강력합니다."
+              "ko": "배틀로얄 외에서 사용됩니다. 탱크와의 조합이 강력합니다.",
+              "es": "Se usa fuera del Showdown. Poderoso en combinación con tanques.",
+              "ar": "يستخدم خارج المعركة الملكية. قوي جداً عند استخدامه مع الدبابات.",
+              "fr": "Utilisé en dehors du Showdown. Puissant en combinaison avec les tanks.",
+              "zh-tw": "在大亂鬥之外使用。與坦克組合非常強大。"
             }
           }
         }
@@ -1581,19 +2341,31 @@
           "name": {
             "ja": "段ボール箱",
             "en": "Cardboard Box",
-            "ko": "박스"
+            "ko": "박스",
+            "es": "Caja de Cartón",
+            "ar": "صندوق كرتون",
+            "fr": "Boîte en Carton",
+            "zh-tw": "紙箱"
           },
           "description": {
             "ja": "段ボール箱に隠れて3秒間透明になります。移動を止めると必殺技のチャージ速度が100%上昇する",
             "en": "Hide in a cardboard box to become invisible for 3 seconds. Stopping movement increases super charge rate by 100%",
-            "ko": "박스에 숨어 3초 동안 투명해집니다. 움직임을 멈추면 궁극기 충전 속도가 100% 증가합니다"
+            "ko": "박스에 숨어 3초 동안 투명해집니다. 움직임을 멈추면 궁극기 충전 속도가 100% 증가합니다",
+            "es": "Escóndete en una caja de cartón para volverte invisible durante 3 segundos. Detenerse aumenta la velocidad de carga del súper en 100%",
+            "ar": "اختبئ في صندوق كرتون لتصبح غير مرئي لمدة 3 ثوانٍ. يزيد التوقف عن الحركة من معدل شحن القدرة الخارقة بنسبة 100%",
+            "fr": "Se cacher dans une boîte en carton pour devenir invisible pendant 3 secondes. L'arrêt du mouvement augmente la vitesse de charge du super de 100%",
+            "zh-tw": "躲在紙箱中變得隱形3秒。停止移動時超級技能充能速率增加100%"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "いつでも使える透明がの性能が強すぎて批判されまくっている。",
               "en": "Heavily criticized for having invisibility that's too powerful and can be used anytime.",
-              "ko": "언제든 사용할 수 있는 투명 효과가 너무 강력해서 비판을 많이 받고 있습니다."
+              "ko": "언제든 사용할 수 있는 투명 효과가 너무 강력해서 비판을 많이 받고 있습니다.",
+              "es": "Muy criticado por tener una invisibilidad demasiado poderosa que se puede usar en cualquier momento.",
+              "ar": "تم انتقاده بشدة لامتلاكه خاصية إخفاء قوية جداً يمكن استخدامها في أي وقت.",
+              "fr": "Fortement critiqué pour avoir une invisibilité trop puissante qui peut être utilisée à tout moment.",
+              "zh-tw": "因為隱形效果太強大且可以隨時使用而受到大量批評。"
             }
           }
         },
@@ -1602,19 +2374,31 @@
           "name": {
             "ja": "チーズバーガー",
             "en": "Cheeseburger",
-            "ko": "치즈버거"
+            "ko": "치즈버거",
+            "es": "Hamburguesa con Queso",
+            "ar": "برجر بالجبن",
+            "fr": "Cheeseburger",
+            "zh-tw": "起司漢堡"
           },
           "description": {
             "ja": "自身と取り付いている味方のブローラーを30%回復させます。",
             "en": "Heal yourself and the attached friendly brawler by 30%.",
-            "ko": "자신과 부착된 아군 브롤러를 30% 회복시킵니다."
+            "ko": "자신과 부착된 아군 브롤러를 30% 회복시킵니다.",
+            "es": "Cura un 30% a ti mismo y al brawler aliado al que estés adherido.",
+            "ar": "اشفِ نفسك والمقاتل الحليف الملتصق به بنسبة 30%.",
+            "fr": "Soigne de 30% vous-même et le brawler allié auquel vous êtes attaché.",
+            "zh-tw": "治療自己和附著的友方鬥士30%生命值。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "タンクと合わせる際に超強力でマジで死ななくなる。",
               "en": "Extremely powerful when paired with tanks, making you nearly immortal.",
-              "ko": "탱크와 함께 사용할 때 초강력해서 정말 죽지 않게 됩니다."
+              "ko": "탱크와 함께 사용할 때 초강력해서 정말 죽지 않게 됩니다.",
+              "es": "Extremadamente poderoso cuando se combina con tanques, haciéndote casi inmortal.",
+              "ar": "قوي للغاية عند استخدامه مع الدبابات، مما يجعلك شبه خالد.",
+              "fr": "Extrêmement puissant lorsqu'il est associé aux tanks, vous rendant presque immortel.",
+              "zh-tw": "與坦克搭配時極其強大，幾乎讓你變得不死。"
             }
           }
         }
@@ -1630,7 +2414,11 @@
       "name": {
         "ja": "ミコ",
         "en": "Mico",
-        "ko": "미코"
+        "ko": "미코",
+        "es": "Mico",
+        "ar": "ميكو",
+        "fr": "Mico",
+        "zh-tw": "米可"
       },
       "image": "require('../../assets/BrawlerIcons/mico_pin.png')",
       "class": {
@@ -1645,7 +2433,11 @@
       "description": {
         "ja": "ミコはブロールウッドの音響担当ですが、自慢話や有名人の名前を出すので、本人が有名人だと思われても仕方ありません。短気で不安定な性格で、冗談が通じません。決して彼のことを面白いと言わないでください...",
         "en": "Mico is Brawlywood's sound engineer, but with all their name-dropping and boasting, you'd think they were the celebrity. Short-tempered and volatile, they can't take a joke. Never call them funny...",
-        "ko": "미코는 브롤리우드의 음향 담당자입니다만, 자랑 이야기와 유명인의 이름을 언급해서, 본인이 유명인이라고 생각해도 어쩔 수 없습니다. 성격이 급하고 불안정하며, 농담을 이해하지 못합니다. 절대로 그를 재미있다고 말하지 마세요..."
+        "ko": "미코는 브롤리우드의 음향 담당자입니다만, 자랑 이야기와 유명인의 이름을 언급해서, 본인이 유명인이라고 생각해도 어쩔 수 없습니다. 성격이 급하고 불안정하며, 농담을 이해하지 못합니다. 절대로 그를 재미있다고 말하지 마세요...",
+        "es": "Mico es el ingeniero de sonido de Brawlywood, pero con todas sus menciones de nombres y alardes, pensarías que es la celebridad. De mal genio y volátil, no aguanta una broma. Nunca le digas que es gracioso...",
+        "ar": "ميكو هو مهندس الصوت في برولوود، لكن مع كثرة ذكره لأسماء المشاهير وتباهيه، قد تظن أنه هو النجم. سريع الغضب ومتقلب المزاج، لا يتحمل المزاح. لا تقل أبداً أنه مضحك...",
+        "fr": "Mico est l'ingénieur du son de Brawlywood, mais avec toutes ses références aux célébrités et ses vantardises, on pourrait croire que c'est lui la star. Colérique et instable, il ne supporte pas la plaisanterie. Ne le qualifiez jamais de drôle...",
+        "zh-tw": "米可是鬥木林的音響工程師，但從他不斷提到名人和自吹自擂的樣子來看，你會以為他才是名人。脾氣暴躁且反覆無常，他無法接受玩笑。千萬不要說他很有趣..."
       },
       "starPowers": [
         {
@@ -1653,19 +2445,31 @@
           "name": {
             "ja": "モンキーパンチ",
             "en": "Monkey Business",
-            "ko": "몽키 펀치"
+            "ko": "몽키 펀치",
+            "es": "Asunto de Monos",
+            "ar": "عمل القرود",
+            "fr": "Affaire de Singe",
+            "zh-tw": "猴子把戲"
           },
           "description": {
             "ja": "5秒ごとに、ミコの基本攻撃が命中した敵から弾薬を奪います。",
             "en": "Every 5 seconds, Mico's basic attack steals ammo from enemies it hits.",
-            "ko": "5초마다 미코의 기본 공격이 명중한 적으로부터 탄약을 빼앗습니다."
+            "ko": "5초마다 미코의 기본 공격이 명중한 적으로부터 탄약을 빼앗습니다.",
+            "es": "Cada 5 segundos, el ataque básico de Mico roba munición de los enemigos que golpea.",
+            "ar": "كل 5 ثوانٍ، يسرق الهجوم الأساسي لميكو ذخيرة من الأعداء الذين يصيبهم.",
+            "fr": "Toutes les 5 secondes, l'attaque de base de Mico vole des munitions aux ennemis touchés.",
+            "zh-tw": "每5秒，米可的基本攻擊會從擊中的敵人那裡偷取彈藥。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "これを当てるだけでタイマン勝率がグッと上がるかなり強いスタパ。",
               "en": "A very strong star power that significantly increases one-on-one win rate just by hitting it.",
-              "ko": "이것만 맞춰도 1대1 승률이 크게 올라가는 매우 강한 스타파워입니다."
+              "ko": "이것만 맞춰도 1대1 승률이 크게 올라가는 매우 강한 스타파워입니다.",
+              "es": "Un poder estelar muy fuerte que aumenta significativamente la tasa de victorias uno contra uno solo con acertar.",
+              "ar": "قوة نجمية قوية جداً تزيد بشكل كبير من معدل الفوز في المواجهات الفردية بمجرد إصابة الهدف.",
+              "fr": "Un pouvoir stellaire très puissant qui augmente significativement le taux de victoire en un contre un rien qu'en touchant.",
+              "zh-tw": "非常強大的星力，僅僅命中就能顯著提高一對一的勝率。"
             }
           }
         },
@@ -1674,19 +2478,31 @@
           "name": {
             "ja": "ミリオンヒット",
             "en": "Record Smash",
-            "ko": "밀리언 히트"
+            "ko": "밀리언 히트",
+            "es": "Rompe Récords",
+            "ar": "تحطيم الأرقام القياسية",
+            "fr": "Brise-Record",
+            "zh-tw": "破紀錄"
           },
           "description": {
             "ja": "ミコはブローラー以外に対して100%の追加ダメージを与えます。",
             "en": "Mico deals 100% additional damage to non-brawler targets.",
-            "ko": "미코는 브롤러가 아닌 대상에게 100%의 추가 데미지를 줍니다."
+            "ko": "미코는 브롤러가 아닌 대상에게 100%의 추가 데미지를 줍니다.",
+            "es": "Mico causa 100% de daño adicional a objetivos que no sean brawlers.",
+            "ar": "يلحق ميكو 100% ضرر إضافي للأهداف غير المقاتلين.",
+            "fr": "Mico inflige 100% de dégâts supplémentaires aux cibles qui ne sont pas des brawlers.",
+            "zh-tw": "米可對非鬥士目標造成100%額外傷害。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "強奪で超必須のスタパで、金庫を削る速度と攻撃での移動性能が良い。",
               "en": "Essential star power in Heist, great for both safe damage and movement during attacks.",
-              "ko": "강탈에서 초필수 스타파워로, 금고를 깎는 속도와 공격 시 이동성이 좋습니다."
+              "ko": "강탈에서 초필수 스타파워로, 금고를 깎는 속도와 공격 시 이동성이 좋습니다.",
+              "es": "Poder estelar esencial en Atraco, excelente tanto para dañar la caja fuerte como para moverse durante los ataques.",
+              "ar": "قوة نجمية ضرورية في السطو، ممتازة لإلحاق الضرر بالخزنة والحركة أثناء الهجمات.",
+              "fr": "Pouvoir stellaire essentiel en Braquage, excellent pour les dégâts au coffre-fort et les déplacements pendant les attaques.",
+              "zh-tw": "搶劫模式中必備的星力，對保險箱的傷害和攻擊時的移動性能都很出色。"
             }
           }
         }
@@ -1697,19 +2513,31 @@
           "name": {
             "ja": "音量解放",
             "en": "Clipping Scream",
-            "ko": "클리핑 스크림"
+            "ko": "클리핑 스크림",
+            "es": "Grito Distorsionado",
+            "ar": "صرخة مدوية",
+            "fr": "Cri Saturé",
+            "zh-tw": "破音尖叫"
           },
           "description": {
             "ja": "ミコは最も近い敵に向かって耳をつんざくような叫び声を上げ、命中時に545ダメージを与え2秒間減速させます。",
             "en": "Mico unleashes an ear-piercing scream at the nearest enemy, dealing 545 damage and slowing them for 2 seconds on hit.",
-            "ko": "미코는 가장 가까운 적을 향해 귀가 찢어질듯한 비명을 지르며, 명중 시 545 데미지를 주고 2초간 감속시킵니다."
+            "ko": "미코는 가장 가까운 적을 향해 귀가 찢어질듯한 비명을 지르며, 명중 시 545 데미지를 주고 2초간 감속시킵니다.",
+            "es": "Mico desata un grito ensordecedor hacia el enemigo más cercano, causando 545 de daño y ralentizándolo durante 2 segundos al impactar.",
+            "ar": "يطلق ميكو صرخة مؤلمة للأذن تجاه أقرب عدو، ملحقاً 545 ضرر ومبطئاً حركتهم لمدة ثانيتين عند الإصابة.",
+            "fr": "Mico pousse un cri perçant vers l'ennemi le plus proche, infligeant 545 dégâts et les ralentissant pendant 2 secondes en cas d'impact.",
+            "zh-tw": "米可對最近的敵人發出刺耳的尖叫，命中時造成545點傷害並使其減速2秒。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "火力不足と移動速度の速い敵をオートエイムで攻撃するため超必須な効力",
               "en": "Essential for auto-aiming fast-moving enemies and compensating for lack of damage",
-              "ko": "화력 부족과 이동 속도가 빠른 적을 자동 조준으로 공격하기 위해 초필수적인 효과"
+              "ko": "화력 부족과 이동 속도가 빠른 적을 자동 조준으로 공격하기 위해 초필수적인 효과",
+              "es": "Esencial para apuntar automáticamente a enemigos rápidos y compensar la falta de daño",
+              "ar": "ضروري للتصويب التلقائي على الأعداء سريعي الحركة وتعويض نقص الضرر",
+              "fr": "Essentiel pour viser automatiquement les ennemis rapides et compenser le manque de dégâts",
+              "zh-tw": "對於自動瞄準快速移動的敵人和彌補傷害不足來說是必需的"
             }
           }
         },
@@ -1718,19 +2546,31 @@
           "name": {
             "ja": "プレスト",
             "en": "Presto",
-            "ko": "프레스토"
+            "ko": "프레스토",
+            "es": "Presto",
+            "ar": "بريستو",
+            "fr": "Presto",
+            "zh-tw": "急板"
           },
           "description": {
             "ja": "ミコの次のジャンプの射程が34%延長されます。",
             "en": "Mico's next jump range is extended by 34%.",
-            "ko": "미코의 다음 점프 사거리가 34% 연장됩니다."
+            "ko": "미코의 다음 점프 사거리가 34% 연장됩니다.",
+            "es": "El alcance del siguiente salto de Mico se extiende un 34%.",
+            "ar": "يزداد مدى القفزة التالية لميكو بنسبة 34%.",
+            "fr": "La portée du prochain saut de Mico est augmentée de 34%.",
+            "zh-tw": "米可的下一次跳躍範圍延長34%。"
           },
           "recommendation": {
             "level": 1,
             "reason": {
               "ja": "いつ使うん？",
               "en": "When would you even use this?",
-              "ko": "이걸 언제 써요?"
+              "ko": "이걸 언제 써요?",
+              "es": "¿Cuándo usarías esto?",
+              "ar": "متى ستستخدم هذا؟",
+              "fr": "Quand utiliserais-tu ça ?",
+              "zh-tw": "這要什麼時候用？"
             }
           }
         }
@@ -1746,7 +2586,11 @@
       "name": {
         "ja": "チャーリー",
         "en": "Charlie",
-        "ko": "찰리"
+        "ko": "찰리",
+        "es": "Charlie",
+        "ar": "شارلي",
+        "fr": "Charlie",
+        "zh-tw": "查莉"
       },
       "image": "require('../../assets/BrawlerIcons/charlie_pin.png')",
       "class": {
@@ -1759,9 +2603,13 @@
         "color": "#fe5e72"
       },
       "description": {
+        "ja": "世にも奇妙なサーカスで垂らすは蜘蛛の糸の如し髪有り金全てをくすね取り群衆の中に雲隠れテントの中に髪を張り巡らせ小銭を一枚残らず独り占め！",
         "en": "Itsy bitsy Charlie Put on a crazy show She let down her hair And made off with all your dough In came the crowd It filled up the circus tent So Charlie weaved away while Taking every cent!",
         "ko": "작은 찰리는 미친 쇼를 펼쳤습니다. 그녀는 머리를 풀어내고 당신의 모든 돈을 가져갔습니다. 관객들이 들어오자 서커스 텐트가 가득 찼습니다. 찰리는 모든 센트를 가져가며 떠나갔습니다!",
-        "ja": "世にも奇妙なサーカスで垂らすは蜘蛛の糸の如し髪有り金全てをくすね取り群衆の中に雲隠れテントの中に髪を張り巡らせ小銭を一枚残らず独り占め！"
+        "es": "La pequeña Charlie montó un show loco Soltó su cabello Y se llevó todo tu oro La multitud llegó Llenando la carpa del circo ¡Y Charlie tejió su huida Llevándose hasta el último céntimo!",
+        "ar": "شارلي الصغيرة قدمت عرضاً مجنوناً أرخت شعرها وهربت بكل مالك جاء الحشد ملأ خيمة السيرك فنسجت شارلي طريقها وأخذت كل قرش!",
+        "fr": "La petite Charlie fit un spectacle fou Elle dénoua ses cheveux Et prit tout votre sou La foule arriva Remplit le chapiteau Alors Charlie tissa sa fuite En prenant jusqu'au dernier centime!",
+        "zh-tw": "小小查莉演出瘋狂秀 放下秀髮偷走你的錢 人群湧入馬戲團帳篷 查莉編織離去時 一分錢也不留下！"
       },
       "starPowers": [
         {
@@ -1769,19 +2617,31 @@
           "name": {
             "ja": "オーイタイ酸",
             "en": "Digestive",
-            "ko": "소화산"
+            "ko": "소화산",
+            "es": "Digestivo",
+            "ar": "هاضم",
+            "fr": "Digestif",
+            "zh-tw": "消化酸"
           },
           "description": {
             "ja": "マユに包まれた敵は、HPの25%を失う",
             "en": "Enemies wrapped in cocoon lose 25% of their HP",
-            "ko": "고치에 감싸인 적은 HP의 25%를 잃습니다"
+            "ko": "고치에 감싸인 적은 HP의 25%를 잃습니다",
+            "es": "Los enemigos envueltos en capullo pierden 25% de su vida",
+            "ar": "يفقد الأعداء الملفوفون في شرنقة 25٪ من صحتهم",
+            "fr": "Les ennemis enveloppés dans un cocon perdent 25% de leurs PV",
+            "zh-tw": "被繭包裹的敵人失去25%生命值"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "ウルトを喰らった敵の絶望感を増させる酷いもの。",
               "en": "A brutal power that increases the despair of enemies hit by the ultimate.",
-              "ko": "궁극기를 맞은 적의 절망감을 증가시키는 끔찍한 능력입니다."
+              "ko": "궁극기를 맞은 적의 절망감을 증가시키는 끔찍한 능력입니다.",
+              "es": "Un poder brutal que aumenta la desesperación de los enemigos golpeados por el súper.",
+              "ar": "قوة وحشية تزيد من يأس الأعداء الذين يتعرضون للضربة النهائية.",
+              "fr": "Un pouvoir brutal qui augmente le désespoir des ennemis touchés par l'ultime.",
+              "zh-tw": "一個殘酷的能力，增加被終極技能擊中敵人的絕望感。"
             }
           }
         },
@@ -1790,19 +2650,31 @@
           "name": {
             "ja": "スライミーロード",
             "en": "Slimy",
-            "ko": "끈적한 길"
+            "ko": "끈적한 길",
+            "es": "Viscoso",
+            "ar": "لزج",
+            "fr": "Visqueux",
+            "zh-tw": "黏滑路徑"
           },
           "description": {
             "ja": "繭は5秒間粘液の跡を残し、その上を歩く敵を減速させます。",
             "en": "Cocoons leave a slimy trail for 5 seconds, slowing enemies that walk on it.",
-            "ko": "고치는 5초 동안 끈적한 흔적을 남기며, 그 위를 걷는 적을 감속시킵니다."
+            "ko": "고치는 5초 동안 끈적한 흔적을 남기며, 그 위를 걷는 적을 감속시킵니다.",
+            "es": "Los capullos dejan un rastro viscoso durante 5 segundos, ralentizando a los enemigos que caminan sobre él.",
+            "ar": "تترك الشرانق أثراً لزجاً لمدة 5 ثوانٍ، يبطئ الأعداء الذين يمشون عليه.",
+            "fr": "Les cocons laissent une traînée visqueuse pendant 5 secondes, ralentissant les ennemis qui marchent dessus.",
+            "zh-tw": "繭會留下持續5秒的黏液痕跡，減緩走在上面的敵人速度。"
           },
           "recommendation": {
             "level": 4,
             "reason": {
               "ja": "絶妙に使いにくいが使いこなせるとほどほどに強いと噂されている",
               "en": "Tricky to use but rumored to be moderately strong when mastered",
-              "ko": "절묘하게 사용하기 어렵지만 잘 다루면 꽤 강하다고 소문납니다"
+              "ko": "절묘하게 사용하기 어렵지만 잘 다루면 꽤 강하다고 소문납니다",
+              "es": "Difícil de usar pero se rumorea que es moderadamente fuerte cuando se domina",
+              "ar": "صعب الاستخدام لكن يقال أنه قوي بشكل معتدل عند إتقانه",
+              "fr": "Difficile à utiliser mais réputé être modérément puissant une fois maîtrisé",
+              "zh-tw": "操作不易，但據說精通後威力適中"
             }
           }
         }
@@ -1813,19 +2685,31 @@
           "name": {
             "ja": "クモ",
             "en": "Spiders",
-            "ko": "거미들"
+            "ko": "거미들",
+            "es": "Arañas",
+            "ar": "عناكب",
+            "fr": "Araignées",
+            "zh-tw": "蜘蛛"
           },
           "description": {
             "ja": "チャーリーは3匹のクモを放ち、最も近い敵を探して攻撃します。",
             "en": "Charlie releases 3 spiders that seek and attack the nearest enemy.",
-            "ko": "찰리는 3마리의 거미를 풀어놓아 가장 가까운 적을 찾아 공격합니다."
+            "ko": "찰리는 3마리의 거미를 풀어놓아 가장 가까운 적을 찾아 공격합니다.",
+            "es": "Charlie libera 3 arañas que buscan y atacan al enemigo más cercano.",
+            "ar": "تطلق شارلي 3 عناكب تبحث عن أقرب عدو وتهاجمه.",
+            "fr": "Charlie libère 3 araignées qui cherchent et attaquent l'ennemi le plus proche.",
+            "zh-tw": "查莉釋放3隻蜘蛛，尋找並攻擊最近的敵人。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "単発攻撃のキャラクターを号泣させる前線を一気に押せる強い性能",
               "en": "Strong ability that can quickly push the frontline and make single-attack characters cry",
-              "ko": "단발 공격 캐릭터를 울리는 전선을 단숨에 밀어붙일 수 있는 강력한 성능"
+              "ko": "단발 공격 캐릭터를 울리는 전선을 단숨에 밀어붙일 수 있는 강력한 성능",
+              "es": "Fuerte habilidad que puede empujar rápidamente la línea frontal y hacer llorar a los personajes de ataque único",
+              "ar": "قدرة قوية يمكنها دفع الخط الأمامي بسرعة وجعل الشخصيات ذات الهجوم الفردي تبكي",
+              "fr": "Capacité puissante qui peut rapidement pousser la ligne de front et faire pleurer les personnages à attaque unique",
+              "zh-tw": "強大的能力，可以快速推進前線並讓單體攻擊角色叫苦連天"
             }
           }
         },
@@ -1834,19 +2718,31 @@
           "name": {
             "ja": "パーソナルスペース",
             "en": "Personal Space",
-            "ko": "개인 공간"
+            "ko": "개인 공간",
+            "es": "Espacio Personal",
+            "ar": "مساحة شخصية",
+            "fr": "Espace Personnel",
+            "zh-tw": "個人空間"
           },
           "description": {
             "ja": "チャーリーは自身を繭で包み、最大体力の50%を回復します。",
             "en": "Charlie wraps themselves in a cocoon, healing 50% of their maximum health.",
-            "ko": "찰리는 자신을 고치로 감싸 최대 체력의 50%를 회복합니다."
+            "ko": "찰리는 자신을 고치로 감싸 최대 체력의 50%를 회복합니다.",
+            "es": "Charlie se envuelve en un capullo, curando el 50% de su salud máxima.",
+            "ar": "تلف شارلي نفسها في شرنقة، وتستعيد 50٪ من صحتها القصوى.",
+            "fr": "Charlie s'enveloppe dans un cocon, récupérant 50% de sa santé maximale.",
+            "zh-tw": "查莉用繭包裹自己，恢復最大生命值的50%。"
           },
           "recommendation": {
             "level": 3,
             "reason": {
               "ja": "たまに使われるがバトロワ霧耐久以外ではほぼ見かけない。",
               "en": "Sometimes used but rarely seen outside of Showdown fog survival.",
-              "ko": "가끔 사용되지만 배틀로얄 안개 버티기 외에서는 거의 보이지 않습니다."
+              "ko": "가끔 사용되지만 배틀로얄 안개 버티기 외에서는 거의 보이지 않습니다.",
+              "es": "A veces se usa pero raramente se ve fuera de la supervivencia en la niebla del Showdown.",
+              "ar": "يستخدم أحياناً ولكن نادراً ما يُرى خارج البقاء في ضباب المواجهة النهائية.",
+              "fr": "Parfois utilisé mais rarement vu en dehors de la survie dans le brouillard du Showdown.",
+              "zh-tw": "偶爾使用，但在死鬥迷霧生存之外幾乎看不到。"
             }
           }
         }
@@ -1862,7 +2758,11 @@
       "name": {
         "ja": "チャック",
         "en": "Chuck",
-        "ko": "척"
+        "ko": "척",
+        "es": "Chuck",
+        "ar": "تشاك",
+        "fr": "Chuck",
+        "zh-tw": "查克"
       },
       "image": "require('../../assets/BrawlerIcons/chuck_pin.png')",
       "class": {
@@ -1877,7 +2777,11 @@
       "description": {
         "ja": "かつての優れた指揮者が、今は列車の運転手として、コンサートホールの交響曲をゴーストステーションの不協和音と交換しました。全ては音楽における次の大きな発見を求めて！",
         "en": "Once a brilliant conductor, now a train driver who traded concert hall symphonies for Ghost Station's dissonance. All in pursuit of the next big musical discovery!",
-        "ko": "한때의 뛰어난 지휘자가 이제는 기관사가 되어 콘서트홀의 교향곡을 고스트 스테이션의 불협화음과 교환했습니다. 모든 것은 음악에서의 다음 큰 발견을 위해!"
+        "ko": "한때의 뛰어난 지휘자가 이제는 기관사가 되어 콘서트홀의 교향곡을 고스트 스테이션의 불협화음과 교환했습니다. 모든 것은 음악에서의 다음 큰 발견을 위해!",
+        "es": "Antes un brillante director de orquesta, ahora un conductor de tren que cambió las sinfonías de la sala de conciertos por la disonancia de la Estación Fantasma. ¡Todo en busca del próximo gran descubrimiento musical!",
+        "ar": "كان قائد أوركسترا لامعاً، والآن سائق قطار استبدل سيمفونيات قاعة الحفلات بتنافر محطة الأشباح. كل ذلك سعياً وراء الاكتشاف الموسيقي الكبير القادم!",
+        "fr": "Autrefois brillant chef d'orchestre, maintenant conducteur de train qui a échangé les symphonies de la salle de concert contre la dissonance de la Station Fantôme. Tout cela à la recherche de la prochaine grande découverte musicale !",
+        "zh-tw": "曾經是位傑出的指揮家，現在是一名列車司機，用幽靈車站的不諧和音取代了音樂廳的交響樂。一切都是為了追求音樂上的下一個重大發現！"
       },
       "starPowers": [
         {
@@ -1885,19 +2789,31 @@
           "name": {
             "ja": "ピットストップ",
             "en": "Pit Stop",
-            "ko": "피트 스톱"
+            "ko": "피트 스톱",
+            "es": "Parada en Boxes",
+            "ar": "توقف الصيانة",
+            "fr": "Arrêt au Stand",
+            "zh-tw": "維修站"
           },
           "description": {
             "ja": "ポストの最大数が1増加します。",
             "en": "Increases the maximum number of posts by 1.",
-            "ko": "포스트의 최대 개수가 1 증가합니다."
+            "ko": "포스트의 최대 개수가 1 증가합니다.",
+            "es": "Aumenta el número máximo de postes en 1.",
+            "ar": "يزيد الحد الأقصى لعدد الأعمدة بمقدار 1.",
+            "fr": "Augmente le nombre maximum de poteaux de 1.",
+            "zh-tw": "增加最大柱子數量1個。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "強奪やホットゾーンなどでは必須の移動距離を増やす良い性能",
               "en": "Essential ability for increasing movement distance in Heist and Hot Zone",
-              "ko": "강탈이나 핫 존 등에서는 필수적인 이동 거리를 늘리는 좋은 성능"
+              "ko": "강탈이나 핫 존 등에서는 필수적인 이동 거리를 늘리는 좋은 성능",
+              "es": "Habilidad esencial para aumentar la distancia de movimiento en Atraco y Zona Caliente",
+              "ar": "قدرة ضرورية لزيادة مسافة الحركة في السطو والمنطقة الساخنة",
+              "fr": "Capacité essentielle pour augmenter la distance de déplacement en Braquage et Zone Chaude",
+              "zh-tw": "在搶劫和熱區等模式中，是增加移動距離的必備能力"
             }
           }
         },
@@ -1906,19 +2822,31 @@
           "name": {
             "ja": "切符確認",
             "en": "Tickets Please",
-            "ko": "표 검사"
+            "ko": "표 검사",
+            "es": "Billetes Por Favor",
+            "ar": "التذاكر من فضلك",
+            "fr": "Billets S'il Vous Plaît",
+            "zh-tw": "查票"
           },
           "description": {
             "ja": "スーパーで敵を突き抜けると、その敵の弾薬を33%奪います。",
             "en": "When passing through enemies with super, steal 33% of their ammo.",
-            "ko": "궁극기로 적을 관통하면 그 적의 탄약을 33% 빼앗습니다."
+            "ko": "궁극기로 적을 관통하면 그 적의 탄약을 33% 빼앗습니다.",
+            "es": "Al atravesar enemigos con el súper, roba el 33% de su munición.",
+            "ar": "عند المرور عبر الأعداء بالقدرة الخارقة، اسرق 33% من ذخيرتهم.",
+            "fr": "En traversant les ennemis avec le super, vole 33% de leurs munitions.",
+            "zh-tw": "使用超級技能穿過敵人時，偷取其33%的彈藥。"
           },
           "recommendation": {
             "level": 3,
             "reason": {
               "ja": "使いこなすのがあまりにも線路を難しいが極めた者だけが使っている...？",
               "en": "Extremely difficult to master but used only by those who've perfected it...?",
-              "ko": "사용하기가 너무나 어렵지만 마스터한 사람만이 사용하고 있는...?"
+              "ko": "사용하기가 너무나 어렵지만 마스터한 사람만이 사용하고 있는...?",
+              "es": "¿Extremadamente difícil de dominar pero usado solo por aquellos que lo han perfeccionado...?",
+              "ar": "صعب للغاية في إتقانه ولكن يستخدمه فقط أولئك الذين أتقنوه...؟",
+              "fr": "Extrêmement difficile à maîtriser mais utilisé uniquement par ceux qui l'ont perfectionné...?",
+              "zh-tw": "極其難以掌握，但只有那些完全精通的人才在使用...？"
             }
           }
         }
@@ -1929,19 +2857,31 @@
           "name": {
             "ja": "経路変更",
             "en": "Rerouting",
-            "ko": "경로 변경"
+            "ko": "경로 변경",
+            "es": "Redirección",
+            "ar": "تغيير المسار",
+            "fr": "Déviation",
+            "zh-tw": "改道"
           },
           "description": {
             "ja": "チャックは最も近いポストを除去し、スーパーを再チャージします。",
             "en": "Chuck removes the nearest post and recharges their super.",
-            "ko": "척은 가장 가까운 포스트를 제거하고 궁극기를 재충전합니다."
+            "ko": "척은 가장 가까운 포스트를 제거하고 궁극기를 재충전합니다.",
+            "es": "Chuck elimina el poste más cercano y recarga su súper.",
+            "ar": "يزيل تشاك أقرب عمود ويعيد شحن قدرته الخارقة.",
+            "fr": "Chuck supprime le poteau le plus proche et recharge son super.",
+            "zh-tw": "查克移除最近的柱子並重新充能超級技能。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "強奪で最後の削りや奥にウルトを置く際にかなり重宝される。",
               "en": "Highly valued in Heist for final damage and placing ultimates in the back.",
-              "ko": "강탈에서 마지막 데미지나 안쪽에 궁극기를 설치할 때 매우 유용합니다."
+              "ko": "강탈에서 마지막 데미지나 안쪽에 궁극기를 설치할 때 매우 유용합니다.",
+              "es": "Muy valorado en Atraco para el daño final y colocar definitivas en la retaguardia.",
+              "ar": "مقدر للغاية في السطو للضرر النهائي ووضع القدرات النهائية في الخلف.",
+              "fr": "Très apprécié en Braquage pour les dégâts finaux et le placement des ultimes à l'arrière.",
+              "zh-tw": "在搶劫模式中非常有價值，用於最後的傷害和在後方放置終極技能。"
             }
           }
         },
@@ -1950,19 +2890,31 @@
           "name": {
             "ja": "幽霊鉄道",
             "en": "Ghost Train",
-            "ko": "유령 열차"
+            "ko": "유령 열차",
+            "es": "Tren Fantasma",
+            "ar": "قطار الأشباح",
+            "fr": "Train Fantôme",
+            "zh-tw": "幽靈列車"
           },
           "description": {
             "ja": "次の必殺技壁を通り抜けることが可能になる",
             "en": "Next super can pass through walls",
-            "ko": "다음 필살기가 벽을 통과할 수 있게 됩니다"
+            "ko": "다음 필살기가 벽을 통과할 수 있게 됩니다",
+            "es": "El siguiente súper puede atravesar paredes",
+            "ar": "القدرة الخارقة التالية يمكنها اختراق الجدران",
+            "fr": "Le prochain super peut traverser les murs",
+            "zh-tw": "下一次超級技能可以穿過牆壁"
           },
           "recommendation": {
             "level": 3,
             "reason": {
               "ja": "本当にたまに見かけるが使いこなすのが難しすぎる。",
               "en": "Really only seen occasionally as it's too difficult to master.",
-              "ko": "정말 가끔 보이지만 사용하기가 너무 어렵습니다."
+              "ko": "정말 가끔 보이지만 사용하기가 너무 어렵습니다.",
+              "es": "Realmente solo se ve ocasionalmente ya que es demasiado difícil de dominar.",
+              "ar": "نادراً ما يُرى حقاً لأنه صعب جداً في الإتقان.",
+              "fr": "Vraiment vu qu'occasionnellement car trop difficile à maîtriser.",
+              "zh-tw": "真的只是偶爾看到，因為太難掌握了。"
             }
           }
         }
@@ -1978,7 +2930,11 @@
       "name": {
         "ja": "パール",
         "en": "Pearl",
-        "ko": "펄"
+        "ko": "펄",
+        "es": "Pearl",
+        "ar": "بيرل",
+        "fr": "Pearl",
+        "zh-tw": "珍珠"
       },
       "image": "require('../../assets/BrawlerIcons/pearl_pin.png')",
       "class": {
@@ -1993,7 +2949,11 @@
       "description": {
         "ja": "予想に反して、パールは彼女の武装解除するような温かい性格のおかげで、ベルとサムの硬い心の中に入り込むことができました。それに、チョコレートクッキーに抵抗できる人がいるでしょうか？",
         "en": "Contrary to expectations, Pearl's disarming warmth managed to crack into Belle and Sam's hardened hearts. Besides, who can resist chocolate cookies?",
-        "ko": "예상과 달리, 펄은 그녀의 무장해제하는듯한 따뜻한 성격 덕분에 벨과 샘의 굳어진 마음속으로 들어갈 수 있었습니다. 게다가, 초콜릿 쿠키를 거부할 수 있는 사람이 있을까요?"
+        "ko": "예상과 달리, 펄은 그녀의 무장해제하는듯한 따뜻한 성격 덕분에 벨과 샘의 굳어진 마음속으로 들어갈 수 있었습니다. 게다가, 초콜릿 쿠키를 거부할 수 있는 사람이 있을까요?",
+        "es": "Contrario a lo esperado, la calidez desarmante de Pearl logró penetrar en los corazones endurecidos de Belle y Sam. Además, ¿quién puede resistirse a las galletas de chocolate?",
+        "ar": "على عكس التوقعات، نجحت دفء بيرل المُنزع السلاح في اختراق قلبي بيل وسام المتصلبين. وبعد كل شيء، من يستطيع مقاومة كعك الشوكولاتة؟",
+        "fr": "Contrairement aux attentes, la chaleur désarmante de Pearl a réussi à percer les cœurs endurcis de Belle et Sam. D'ailleurs, qui peut résister aux cookies au chocolat ?",
+        "zh-tw": "出乎意料的是，珍珠那令人放下戒心的溫暖性格成功融化了貝兒和山姆堅硬的心。再說了，誰能抵擋巧克力餅乾的誘惑呢？"
       },
       "starPowers": [
         {
@@ -2001,19 +2961,31 @@
           "name": {
             "ja": "熱管理",
             "en": "Heat Retention",
-            "ko": "열 관리"
+            "ko": "열 관리",
+            "es": "Retención de Calor",
+            "ar": "احتفاظ الحرارة",
+            "fr": "Rétention de Chaleur",
+            "zh-tw": "熱能保持"
           },
           "description": {
             "ja": "必殺技の熱の消費量が50減少します。",
             "en": "Super's heat consumption is reduced by 50.",
-            "ko": "궁극기의 열 소비량이 50 감소합니다."
+            "ko": "궁극기의 열 소비량이 50 감소합니다.",
+            "es": "El consumo de calor del súper se reduce en 50.",
+            "ar": "يقل استهلاك الحرارة للقدرة الخارقة بمقدار 50.",
+            "fr": "La consommation de chaleur du super est réduite de 50.",
+            "zh-tw": "超級技能的熱能消耗減少50。"
           },
           "recommendation": {
             "level": 3,
             "reason": {
               "ja": "ウルトの使用頻度が結構低いキャラなので相性が良くない。",
               "en": "Doesn't synergize well as the character has relatively low super usage frequency.",
-              "ko": "궁극기 사용 빈도가 꽤 낮은 캐릭터라서 궁합이 좋지 않습니다."
+              "ko": "궁극기 사용 빈도가 꽤 낮은 캐릭터라서 궁합이 좋지 않습니다.",
+              "es": "No funciona bien ya que el personaje tiene una frecuencia de uso del súper relativamente baja.",
+              "ar": "لا يتناسق جيداً لأن الشخصية لديها تكرار منخفض نسبياً لاستخدام القدرة الخارقة.",
+              "fr": "Ne fonctionne pas bien car le personnage a une fréquence d'utilisation du super relativement faible.",
+              "zh-tw": "不太合適，因為這個角色的超級技能使用頻率相對較低。"
             }
           }
         },
@@ -2022,19 +2994,31 @@
           "name": {
             "ja": "熱防御",
             "en": "Heat Shield",
-            "ko": "열 방어"
+            "ko": "열 방어",
+            "es": "Escudo de Calor",
+            "ar": "درع حراري",
+            "fr": "Bouclier Thermique",
+            "zh-tw": "熱能護盾"
           },
           "description": {
             "ja": "熱が80%を超えている間、受けるダメージが20%減少します。",
             "en": "While heat is above 80%, damage taken is reduced by 20%.",
-            "ko": "열이 80%를 초과하는 동안 받는 데미지가 20% 감소합니다."
+            "ko": "열이 80%를 초과하는 동안 받는 데미지가 20% 감소합니다.",
+            "es": "Mientras el calor esté por encima del 80%, el daño recibido se reduce en un 20%.",
+            "ar": "عندما تكون الحرارة فوق 80٪، يقل الضرر المتلقى بنسبة 20٪.",
+            "fr": "Lorsque la chaleur est supérieure à 80%, les dégâts subis sont réduits de 20%.",
+            "zh-tw": "當熱能超過80%時，受到的傷害減少20%。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "耐久力の上昇と効果の条件もキャラ性能的に難しくないため使い勝手が良い",
               "en": "Good usability due to increased durability and conditions that aren't difficult to meet based on character capabilities",
-              "ko": "내구력 상승과 효과 조건도 캐릭터 성능상 어렵지 않아서 사용하기 좋습니다"
+              "ko": "내구력 상승과 효과 조건도 캐릭터 성능상 어렵지 않아서 사용하기 좋습니다",
+              "es": "Buena usabilidad debido al aumento de durabilidad y condiciones que no son difíciles de cumplir según las capacidades del personaje",
+              "ar": "سهل الاستخدام بسبب زيادة التحمل والشروط التي ليست صعبة التحقيق بناءً على قدرات الشخصية",
+              "fr": "Bonne utilisabilité grâce à une durabilité accrue et des conditions faciles à remplir selon les capacités du personnage",
+              "zh-tw": "由於增加耐久度且條件不難達成，非常實用"
             }
           }
         }
@@ -2045,19 +3029,31 @@
           "name": {
             "ja": "焼きすぎ君",
             "en": "Overcooked",
-            "ko": "과다 가열"
+            "ko": "과다 가열",
+            "es": "Requemado",
+            "ar": "مفرط الطهي",
+            "fr": "Trop Cuit",
+            "zh-tw": "過度烤焦"
           },
           "description": {
             "ja": "次の通常攻撃で炎を帯びたクッキーを発射し、的に1040の継続ダメージを追加で与える。",
             "en": "Next basic attack fires a flaming cookie, dealing an additional 1040 damage over time.",
-            "ko": "다음 일반 공격으로 불타는 쿠키를 발사하여 대상에게 1040의 지속 데미지를 추가로 줍니다."
+            "ko": "다음 일반 공격으로 불타는 쿠키를 발사하여 대상에게 1040의 지속 데미지를 추가로 줍니다.",
+            "es": "El siguiente ataque básico dispara una galleta en llamas, causando 1040 de daño adicional con el tiempo.",
+            "ar": "الهجوم الأساسي التالي يطلق كعكة ملتهبة، مسببة 1040 ضرر إضافي مع مرور الوقت.",
+            "fr": "La prochaine attaque de base lance un cookie enflammé, infligeant 1040 dégâts supplémentaires sur la durée.",
+            "zh-tw": "下一次基礎攻擊發射一個燃燒的餅乾，造成額外1040點持續傷害。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "持続ダメージかつ超高火力なため、どのモードでも超強い",
               "en": "Extremely strong in all modes due to damage over time and very high damage output",
-              "ko": "지속 데미지에 초고화력이라 어떤 모드에서도 매우 강합니다"
+              "ko": "지속 데미지에 초고화력이라 어떤 모드에서도 매우 강합니다",
+              "es": "Extremadamente fuerte en todos los modos debido al daño a lo largo del tiempo y al alto daño generado",
+              "ar": "قوي للغاية في جميع الأوضاع بسبب الضرر مع مرور الوقت والضرر العالي جداً",
+              "fr": "Extrêmement fort dans tous les modes grâce aux dégâts sur la durée et aux dégâts très élevés",
+              "zh-tw": "由於持續傷害和超高輸出，在所有模式中都非常強大"
             }
           }
         },
@@ -2066,19 +3062,31 @@
           "name": {
             "ja": "愛の形",
             "en": "Made With Love",
-            "ko": "사랑을 담아"
+            "ko": "사랑을 담아",
+            "es": "Hecho con Amor",
+            "ar": "صنع بحب",
+            "fr": "Fait avec Amour",
+            "zh-tw": "愛心製作"
           },
           "description": {
             "ja": "次の通常攻撃で時間と共に味方のHPを2800回復する。この攻撃で敵にダメージを与えることができない。",
             "en": "Next basic attack heals allies' HP by 2800 over time. This attack cannot damage enemies.",
-            "ko": "다음 일반 공격으로 시간이 지나면서 아군의 HP를 2800 회복시킵니다. 이 공격은 적에게 데미지를 줄 수 없습니다."
+            "ko": "다음 일반 공격으로 시간이 지나면서 아군의 HP를 2800 회복시킵니다. 이 공격은 적에게 데미지를 줄 수 없습니다.",
+            "es": "El siguiente ataque básico cura 2800 de vida a los aliados con el tiempo. Este ataque no puede dañar a los enemigos.",
+            "ar": "الهجوم الأساسي التالي يشفي صحة الحلفاء بمقدار 2800 مع مرور الوقت. لا يمكن لهذا الهجوم إلحاق الضرر بالأعداء.",
+            "fr": "La prochaine attaque de base soigne les PV des alliés de 2800 sur la durée. Cette attaque ne peut pas endommager les ennemis.",
+            "zh-tw": "下一次基礎攻擊隨時間治療隊友2800生命值。此攻擊無法對敵人造成傷害。"
           },
           "recommendation": {
             "level": 1,
             "reason": {
               "ja": "回復量も低くマジで使い道がない。",
               "en": "Low healing amount and really has no use.",
-              "ko": "회복량도 낮고 정말로 쓸모가 없습니다."
+              "ko": "회복량도 낮고 정말로 쓸모가 없습니다.",
+              "es": "Cantidad de curación baja y realmente no tiene utilidad.",
+              "ar": "كمية الشفاء منخفضة وليس له استخدام حقيقي.",
+              "fr": "Faible quantité de soins et n'a vraiment aucune utilité.",
+              "zh-tw": "治療量低且確實沒有用處。"
             }
           }
         }
@@ -2095,7 +3103,11 @@
       "name": {
         "ja": "ダグ",
         "en": "Doug",
-        "ko": "더그"
+        "ko": "더그",
+        "es": "Doug",
+        "ar": "دوغ",
+        "fr": "Doug",
+        "zh-tw": "道格"
       },
       "image": "require('../../assets/BrawlerIcons/doug_pin.png')",
       "class": {
@@ -2110,7 +3122,11 @@
       "description": {
         "ja": "ダグのホットドッグは友達の賞味期限を延ばしてくれます。",
         "en": "Doug's hot dogs extend the expiration date of friends.",
-        "ko": "더그의 핫도그는 친구들의 유통기한을 연장시켜 줍니다."
+        "ko": "더그의 핫도그는 친구들의 유통기한을 연장시켜 줍니다.",
+        "es": "Los perros calientes de Doug extienden la fecha de caducidad de los amigos.",
+        "ar": "نقانق دوغ تمدد تاريخ صلاحية الأصدقاء.",
+        "fr": "Les hot-dogs de Doug prolongent la date de péremption des amis.",
+        "zh-tw": "道格的熱狗可以延長朋友們的保質期。"
       },
       "starPowers": [
         {
@@ -2118,19 +3134,31 @@
           "name": {
             "ja": "ファストフード",
             "en": "Fast Food",
-            "ko": "패스트푸드"
+            "ko": "패스트푸드",
+            "es": "Comida Rápida",
+            "ar": "وجبات سريعة",
+            "fr": "Fast Food",
+            "zh-tw": "快餐"
           },
           "description": {
             "ja": "復活したキャラクターの移動速度が3秒間上昇する。",
             "en": "Revived characters gain increased movement speed for 3 seconds.",
-            "ko": "부활한 캐릭터의 이동 속도가 3초 동안 증가합니다."
+            "ko": "부활한 캐릭터의 이동 속도가 3초 동안 증가합니다.",
+            "es": "Los personajes revividos ganan velocidad de movimiento aumentada durante 3 segundos.",
+            "ar": "تكتسب الشخصيات المُحياة سرعة حركة متزايدة لمدة 3 ثوانٍ.",
+            "fr": "Les personnages ressuscités gagnent une vitesse de déplacement accrue pendant 3 secondes.",
+            "zh-tw": "復活的角色獲得3秒增加的移動速度。"
           },
           "recommendation": {
             "level": 2,
             "reason": {
               "ja": "もう一つのスタパが強いのであまり使用されない。",
               "en": "Rarely used because the other star power is stronger.",
-              "ko": "다른 스타파워가 강력해서 잘 사용되지 않습니다."
+              "ko": "다른 스타파워가 강력해서 잘 사용되지 않습니다.",
+              "es": "Raramente usado porque el otro poder estelar es más fuerte.",
+              "ar": "نادراً ما يستخدم لأن القوة النجمية الأخرى أقوى.",
+              "fr": "Rarement utilisé car l'autre pouvoir stellaire est plus fort.",
+              "zh-tw": "因為另一個星力更強所以很少使用。"
             }
           }
         },
@@ -2139,19 +3167,31 @@
           "name": {
             "ja": "セルフサービス",
             "en": "Self-Service",
-            "ko": "셀프 서비스"
+            "ko": "셀프 서비스",
+            "es": "Autoservicio",
+            "ar": "خدمة ذاتية",
+            "fr": "Self-Service",
+            "zh-tw": "自助服務"
           },
           "description": {
             "ja": "通常攻撃を行うと、ダグのHPが480回復する。",
             "en": "When performing a basic attack, Doug recovers 480 HP.",
-            "ko": "일반 공격을 하면 더그의 HP가 480 회복됩니다."
+            "ko": "일반 공격을 하면 더그의 HP가 480 회복됩니다.",
+            "es": "Al realizar un ataque básico, Doug recupera 480 PS.",
+            "ar": "عند تنفيذ هجوم أساسي، يستعيد دوغ 480 نقطة صحة.",
+            "fr": "Lors d'une attaque de base, Doug récupère 480 PV.",
+            "zh-tw": "進行基本攻擊時，道格恢復480生命值。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "耐久力がかなり上昇し、ダメージ計算を狂わせるので強力。",
               "en": "Powerful as it greatly increases durability and disrupts damage calculations.",
-              "ko": "내구력이 상당히 증가하고 데미지 계산을 교란시키므로 강력합니다."
+              "ko": "내구력이 상당히 증가하고 데미지 계산을 교란시키므로 강력합니다.",
+              "es": "Poderoso ya que aumenta enormemente la durabilidad y altera los cálculos de daño.",
+              "ar": "قوي لأنه يزيد من القدرة على التحمل بشكل كبير ويعطل حسابات الضرر.",
+              "fr": "Puissant car il augmente grandement la durabilité et perturbe les calculs de dégâts.",
+              "zh-tw": "強大，因為它大大提高了耐久性並打亂了傷害計算。"
             }
           }
         }
@@ -2162,19 +3202,31 @@
           "name": {
             "ja": "ダブルソーセージ",
             "en": "Double Sausage",
-            "ko": "더블 소시지"
+            "ko": "더블 소시지",
+            "es": "Salchicha Doble",
+            "ar": "نقانق مضاعفة",
+            "fr": "Double Saucisse",
+            "zh-tw": "雙倍香腸"
           },
           "description": {
             "ja": "次の通常攻撃が味方を回復させるだけの効果になるが、回復量が2倍になる。",
             "en": "Next basic attack only heals allies, but the healing amount is doubled.",
-            "ko": "다음 일반 공격이 아군을 회복시키기만 하는 효과가 되지만, 회복량이 2배가 됩니다."
+            "ko": "다음 일반 공격이 아군을 회복시키기만 하는 효과가 되지만, 회복량이 2배가 됩니다.",
+            "es": "El siguiente ataque básico solo cura a los aliados, pero la cantidad de curación se duplica.",
+            "ar": "الهجوم الأساسي التالي يشفي الحلفاء فقط، لكن كمية الشفاء تتضاعف.",
+            "fr": "La prochaine attaque de base ne fait que soigner les alliés, mais la quantité de soin est doublée.",
+            "zh-tw": "下一次基本攻擊只會治療隊友，但治療量會加倍。"
           },
           "recommendation": {
             "level": 3,
             "reason": {
               "ja": "何らかの特殊戦術の場合以外では基本使用されない。効果はそこまで弱いわけではない。",
               "en": "Not typically used except for specific strategies. The effect isn't particularly weak.",
-              "ko": "특수 전술의 경우를 제외하고는 기본적으로 사용되지 않습니다. 효과가 그렇게 약하지는 않습니다."
+              "ko": "특수 전술의 경우를 제외하고는 기본적으로 사용되지 않습니다. 효과가 그렇게 약하지는 않습니다.",
+              "es": "No se usa típicamente excepto para estrategias específicas. El efecto no es particularmente débil.",
+              "ar": "لا يستخدم عادةً إلا لاستراتيجيات معينة. التأثير ليس ضعيفاً بشكل خاص.",
+              "fr": "Pas typiquement utilisé sauf pour des stratégies spécifiques. L'effet n'est pas particulièrement faible.",
+              "zh-tw": "除了特定策略外通常不使用。效果並不是特別弱。"
             }
           }
         },
@@ -2183,19 +3235,31 @@
           "name": {
             "ja": "マシマシマスタード",
             "en": "Extra Mustard",
-            "ko": "추가 머스타드"
+            "ko": "추가 머스타드",
+            "es": "Mostaza Extra",
+            "ar": "خردل إضافي",
+            "fr": "Moutarde Extra",
+            "zh-tw": "額外芥末"
           },
           "description": {
             "ja": "次の通常攻撃が敵にダメージを与えるだけの効果になるが、ダメージが2倍になる。",
             "en": "Next basic attack only deals damage to enemies, but the damage is doubled.",
-            "ko": "다음 일반 공격이 적에게 데미지만 주는 효과가 되지만, 데미지가 2배가 됩니다."
+            "ko": "다음 일반 공격이 적에게 데미지만 주는 효과가 되지만, 데미지가 2배가 됩니다.",
+            "es": "El siguiente ataque básico solo causa daño a los enemigos, pero el daño se duplica.",
+            "ar": "الهجوم الأساسي التالي يلحق الضرر بالأعداء فقط، لكن الضرر يتضاعف.",
+            "fr": "La prochaine attaque de base ne fait que des dégâts aux ennemis, mais les dégâts sont doublés.",
+            "zh-tw": "下一次基本攻擊只對敵人造成傷害，但傷害會加倍。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "不足している火力が大幅に向上するためタンクにかなり強くなる。",
               "en": "Significantly improves lacking damage output, becoming very effective against tanks.",
-              "ko": "부족한 화력이 크게 향상되어 탱크에 상당히 강해집니다."
+              "ko": "부족한 화력이 크게 향상되어 탱크에 상당히 강해집니다.",
+              "es": "Mejora significativamente el daño que falta, volviéndose muy efectivo contra tanques.",
+              "ar": "يحسن بشكل كبير مخرجات الضرر المفقودة، مما يجعله فعالاً جداً ضد الدبابات.",
+              "fr": "Améliore significativement les dégâts manquants, devenant très efficace contre les tanks.",
+              "zh-tw": "顯著改善不足的傷害輸出，對坦克特別有效。"
             }
           }
         }
@@ -2211,7 +3275,11 @@
       "name": {
         "ja": "コーデリアス",
         "en": "Cordelius",
-        "ko": "코델리우스"
+        "ko": "코델리우스",
+        "es": "Cordelius",
+        "ar": "كورديليوس",
+        "fr": "Cordelius",
+        "zh-tw": "科迪利亞斯"
       },
       "image": "require('../../assets/BrawlerIcons/cordelius_pin.png')",
       "class": {
@@ -2226,7 +3294,11 @@
       "description": {
         "ja": "魔法の森の庭師兼管理人。キノコに取り憑かれており、見知らぬ人に対して敵対的です。",
         "en": "Gardener and caretaker of the Magic Forest. Obsessed with mushrooms and hostile to strangers.",
-        "ko": "마법의 숲의 정원사이자 관리인. 버섯에 사로잡혀 있으며, 낯선 사람들에게 적대적입니다."
+        "ko": "마법의 숲의 정원사이자 관리인. 버섯에 사로잡혀 있으며, 낯선 사람들에게 적대적입니다.",
+        "es": "Jardinero y cuidador del Bosque Mágico. Obsesionado con los hongos y hostil con los extraños.",
+        "ar": "بستاني وحارس الغابة السحرية. مهووس بالفطر وعدائي تجاه الغرباء.",
+        "fr": "Jardinier et gardien de la Forêt Magique. Obsédé par les champignons et hostile envers les étrangers.",
+        "zh-tw": "魔法森林的園丁兼管理員。痴迷於蘑菇，對陌生人充滿敵意。"
       },
       "starPowers": [
         {
@@ -2234,19 +3306,31 @@
           "name": {
             "ja": "キノコンボ",
             "en": "Comboshrooms",
-            "ko": "콤보 버섯"
+            "ko": "콤보 버섯",
+            "es": "Combosetas",
+            "ar": "فطر متتابع",
+            "fr": "Champicombos",
+            "zh-tw": "蘑菇連擊"
           },
           "description": {
             "ja": "2発目のキノコを同じ敵に命中させると30%の追加ダメージを与える。",
             "en": "Landing a second mushroom on the same enemy deals 30% additional damage.",
-            "ko": "두 번째 버섯이 같은 적에게 명중하면 30%의 추가 데미지를 줍니다."
+            "ko": "두 번째 버섯이 같은 적에게 명중하면 30%의 추가 데미지를 줍니다.",
+            "es": "Acertar un segundo hongo al mismo enemigo causa 30% de daño adicional.",
+            "ar": "إصابة العدو نفسه بالفطر الثاني تسبب 30٪ ضرر إضافي.",
+            "fr": "Toucher un même ennemi avec un second champignon inflige 30% de dégâts supplémentaires.",
+            "zh-tw": "第二個蘑菇擊中同一個敵人時造成30%額外傷害。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "体力が高い敵に対してかなり強くなるためマルチでは高頻度で使用される。",
               "en": "Frequently used in multiplayer as it's very effective against high HP enemies.",
-              "ko": "체력이 높은 적에 대해 상당히 강해져서 멀티플레이에서 자주 사용됩니다."
+              "ko": "체력이 높은 적에 대해 상당히 강해져서 멀티플레이에서 자주 사용됩니다.",
+              "es": "Muy utilizado en multijugador ya que es muy efectivo contra enemigos con mucha vida.",
+              "ar": "يستخدم بشكل متكرر في اللعب الجماعي لأنه فعال جداً ضد الأعداء ذوي الصحة العالية.",
+              "fr": "Fréquemment utilisé en multijoueur car très efficace contre les ennemis à PV élevés.",
+              "zh-tw": "在多人遊戲中經常使用，因為對高生命值敵人非常有效。"
             }
           }
         },
@@ -2255,19 +3339,31 @@
           "name": {
             "ja": "キノコキングダム",
             "en": "Mushroom Kingdom",
-            "ko": "버섯 왕국"
+            "ko": "버섯 왕국",
+            "es": "Reino de Hongos",
+            "ar": "مملكة الفطر",
+            "fr": "Royaume des Champignons",
+            "zh-tw": "蘑菇王國"
           },
           "description": {
             "ja": "必殺技を使うと闇のテリトリーに3個のキノコを生成する。キノコを拾った見方はHPが1440回復するが、敵が拾うと同僚のダメージを与える。",
             "en": "Using super spawns 3 mushrooms in dark territory. Allies picking up mushrooms heal 1440 HP, but enemies take damage.",
-            "ko": "궁극기를 사용하면 어둠의 영역에 3개의 버섯을 생성합니다. 버섯을 주운 아군은 HP가 1440 회복되지만, 적이 줍게 되면 데미지를 받습니다."
+            "ko": "궁극기를 사용하면 어둠의 영역에 3개의 버섯을 생성합니다. 버섯을 주운 아군은 HP가 1440 회복되지만, 적이 줍게 되면 데미지를 받습니다.",
+            "es": "El súper genera 3 hongos en territorio oscuro. Los aliados que los recojan curan 1440 PS, pero los enemigos reciben daño.",
+            "ar": "استخدام القدرة الخارقة ينشئ 3 فطر في المنطقة المظلمة. الحلفاء الذين يلتقطون الفطر يشفون 1440 نقطة صحة، لكن الأعداء يتلقون ضرراً.",
+            "fr": "Le super fait apparaître 3 champignons en territoire sombre. Les alliés ramassant les champignons guérissent 1440 PV, mais les ennemis subissent des dégâts.",
+            "zh-tw": "使用超級技能在黑暗區域生成3個蘑菇。隊友拾取蘑菇回復1440生命值，敵人拾取則受到傷害。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "タンク以外を敵対する時にかなり強くなるためガチバトルで高頻度で使用される。",
               "en": "Highly used in competitive battles as it's very strong against non-tank enemies.",
-              "ko": "탱크 외의 적과 대적할 때 상당히 강해져서 진지한 배틀에서 자주 사용됩니다."
+              "ko": "탱크 외의 적과 대적할 때 상당히 강해져서 진지한 배틀에서 자주 사용됩니다.",
+              "es": "Muy usado en batallas competitivas ya que es muy fuerte contra enemigos que no son tanques.",
+              "ar": "يستخدم بكثرة في المعارك التنافسية لأنه قوي جداً ضد الأعداء غير الدبابات.",
+              "fr": "Très utilisé en combats compétitifs car très puissant contre les ennemis non-tanks.",
+              "zh-tw": "在競技對戰中經常使用，因為對非坦克敵人非常強大。"
             }
           }
         }
@@ -2278,19 +3374,31 @@
           "name": {
             "ja": "キノコジャンプ",
             "en": "Replanting",
-            "ko": "버섯 점프"
+            "ko": "버섯 점프",
+            "es": "Replantado",
+            "ar": "إعادة الزرع",
+            "fr": "Replantage",
+            "zh-tw": "重新種植"
           },
           "description": {
             "ja": "地上の障害物を素早く飛び越える。",
             "en": "Quickly jump over ground obstacles.",
-            "ko": "지상의 장애물을 빠르게 뛰어넘습니다."
+            "ko": "지상의 장애물을 빠르게 뛰어넘습니다.",
+            "es": "Salta rápidamente sobre obstáculos del suelo.",
+            "ar": "يقفز بسرعة فوق العوائق الأرضية.",
+            "fr": "Saute rapidement par-dessus les obstacles au sol.",
+            "zh-tw": "快速跳過地面障礙物。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "アサシンやタンクが急接近してきても距離をおけて、壁越しに逃げた敵を仕留めることもできる汎用性の塊。",
               "en": "Versatile utility allowing distance from approaching assassins and tanks, and can finish enemies who escape over walls.",
-              "ko": "암살자나 탱크가 급접근해도 거리를 둘 수 있고, 벽을 넘어 도망간 적도 처치할 수 있는 범용성의 결정체입니다."
+              "ko": "암살자나 탱크가 급접근해도 거리를 둘 수 있고, 벽을 넘어 도망간 적도 처치할 수 있는 범용성의 결정체입니다.",
+              "es": "Utilidad versátil que permite mantener distancia de asesinos y tanques que se acercan, y puede rematar enemigos que escapan sobre muros.",
+              "ar": "أداة متعددة الاستخدامات تسمح بالابتعاد عن القتلة والدبابات المقتربة، ويمكن إنهاء الأعداء الذين يهربون عبر الجدران.",
+              "fr": "Utilitaire polyvalent permettant de garder ses distances avec les assassins et tanks approchants, et d'achever les ennemis qui s'échappent par-dessus les murs.",
+              "zh-tw": "多功能實用技能，可以與接近的刺客和坦克保持距離，還能解決翻牆逃跑的敵人。"
             }
           }
         },
@@ -2299,19 +3407,31 @@
           "name": {
             "ja": "フウジタケ",
             "en": "Poison Mushroom",
-            "ko": "독버섯"
+            "ko": "독버섯",
+            "es": "Hongo Venenoso",
+            "ar": "فطر سام",
+            "fr": "Champignon Poison",
+            "zh-tw": "毒蘑菇"
           },
           "description": {
             "ja": "次の通常攻撃で毒キノコを発射し、命中した敵の攻撃を1.0秒間封じる。",
             "en": "Next basic attack fires a poisonous mushroom that seals enemy attacks for 1.0 seconds on hit.",
-            "ko": "다음 일반 공격으로 독버섯을 발사하여 명중한 적의 공격을 1.0초 동안 봉인합니다."
+            "ko": "다음 일반 공격으로 독버섯을 발사하여 명중한 적의 공격을 1.0초 동안 봉인합니다.",
+            "es": "El siguiente ataque básico dispara un hongo venenoso que sella los ataques enemigos durante 1.0 segundos al impactar.",
+            "ar": "الهجوم الأساسي التالي يطلق فطراً ساماً يمنع هجمات العدو لمدة 1.0 ثانية عند الإصابة.",
+            "fr": "La prochaine attaque de base lance un champignon empoisonné qui scelle les attaques ennemies pendant 1.0 seconde en cas de touche.",
+            "zh-tw": "下一次基礎攻擊發射毒蘑菇，命中時封鎖敵人攻擊1.0秒。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "対タンクとアサシンにかなり強力だが、攻撃を命中させる必要があるため少し訓練が必要",
               "en": "Very powerful against tanks and assassins, but requires some practice to land hits.",
-              "ko": "탱크와 암살자에 대해 상당히 강력하지만, 공격을 명중시켜야 하므로 약간의 훈련이 필요합니다"
+              "ko": "탱크와 암살자에 대해 상당히 강력하지만, 공격을 명중시켜야 하므로 약간의 훈련이 필요합니다",
+              "es": "Muy poderoso contra tanques y asesinos, pero requiere práctica para acertar los golpes.",
+              "ar": "قوي جداً ضد الدبابات والقتلة، لكن يتطلب بعض التدريب لتصيب الهدف.",
+              "fr": "Très puissant contre les tanks et les assassins, mais nécessite de l'entraînement pour toucher.",
+              "zh-tw": "對坦克和刺客非常強大，但需要練習才能命中。"
             }
           }
         }
@@ -2328,7 +3448,11 @@
       "name": {
         "ja": "ハンク",
         "en": "Hank",
-        "ko": "행크"
+        "ko": "행크",
+        "es": "Hank",
+        "ar": "هانك",
+        "fr": "Hank",
+        "zh-tw": "漢克"
       },
       "image": "require('../../assets/BrawlerIcons/hank_pin.png')",
       "class": {
@@ -2343,7 +3467,11 @@
       "description": {
         "ja": "ハンクは、世界中のキッチンや市場から海の生き物を解放するという使命を持った一匹のエビによるタンク部隊です。シェフの皆さん、警告を受け取ったと思ってください！",
         "en": "Hank is a one-shrimp tank unit with a mission to liberate sea creatures from kitchens and markets worldwide. Chefs, consider this your warning!",
-        "ko": "행크는 전 세계의 주방과 시장에서 해양 생물을 해방시키는 임무를 가진 한 마리 새우로 이루어진 탱크 부대입니다. 셰프 여러분, 경고를 받았다고 생각하세요!"
+        "ko": "행크는 전 세계의 주방과 시장에서 해양 생물을 해방시키는 임무를 가진 한 마리 새우로 이루어진 탱크 부대입니다. 셰프 여러분, 경고를 받았다고 생각하세요!",
+        "es": "Hank es una unidad tanque de un solo camarón con la misión de liberar a las criaturas marinas de cocinas y mercados en todo el mundo. ¡Chefs, consideren esto su advertencia!",
+        "ar": "هانك هو وحدة دبابة من جمبري واحد مهمته تحرير الكائنات البحرية من المطابخ والأسواق في جميع أنحاء العالم. أيها الطهاة، اعتبروا هذا تحذيركم!",
+        "fr": "Hank est une unité tank composée d'une seule crevette avec pour mission de libérer les créatures marines des cuisines et des marchés du monde entier. Chefs, considérez ceci comme votre avertissement !",
+        "zh-tw": "漢克是一隻蝦組成的坦克部隊，肩負著從世界各地的廚房和市場解放海洋生物的使命。廚師們，把這當作你們的警告吧！"
       },
       "starPowers": [
         {
@@ -2351,19 +3479,31 @@
           "name": {
             "ja": "ブロウアップ",
             "en": "Its Gonna Blow",
-            "ko": "폭발할 거야"
+            "ko": "폭발할 거야",
+            "es": "Va a Explotar",
+            "ar": "سوف تنفجر",
+            "fr": "Ça Va Péter",
+            "zh-tw": "即將爆炸"
           },
           "description": {
             "ja": "通常攻撃を80%以上チャージすると、移動速度が10%上昇する",
             "en": "Movement speed increases by 10% when basic attack is charged 80% or more",
-            "ko": "일반 공격을 80% 이상 차지하면 이동 속도가 10% 증가합니다"
+            "ko": "일반 공격을 80% 이상 차지하면 이동 속도가 10% 증가합니다",
+            "es": "La velocidad de movimiento aumenta un 10% cuando el ataque básico está cargado al 80% o más",
+            "ar": "تزداد سرعة الحركة بنسبة 10% عندما يتم شحن الهجوم الأساسي بنسبة 80% أو أكثر",
+            "fr": "La vitesse de déplacement augmente de 10% lorsque l'attaque de base est chargée à 80% ou plus",
+            "zh-tw": "當基本攻擊充能80%或以上時，移動速度提升10%"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "敵の距離を詰めるのにかなり強く、これがないと始まらない。",
               "en": "Very strong for closing the distance with enemies, and can't start without it.",
-              "ko": "적과의 거리를 좁히는 데 상당히 강하며, 이것이 없으면 시작할 수 없습니다."
+              "ko": "적과의 거리를 좁히는 데 상당히 강하며, 이것이 없으면 시작할 수 없습니다.",
+              "es": "Muy fuerte para cerrar la distancia con los enemigos, y no se puede empezar sin esto.",
+              "ar": "قوي جداً لتقليل المسافة مع الأعداء، ولا يمكن البدء بدونه.",
+              "fr": "Très fort pour réduire la distance avec les ennemis, et impossible de commencer sans.",
+              "zh-tw": "在縮短與敵人距離時非常強大，沒有這個就無法開始。"
             }
           }
         },
@@ -2372,19 +3512,31 @@
           "name": {
             "ja": "一時避難",
             "en": "Take Cover",
-            "ko": "피신"
+            "ko": "피신",
+            "es": "A Cubierto",
+            "ar": "احتمِ",
+            "fr": "À Couvert",
+            "zh-tw": "就地掩護"
           },
           "description": {
             "ja": "壁の近くにいる時、受けるダメージが20%減少します。",
             "en": "When near walls, damage taken is reduced by 20%.",
-            "ko": "벽 근처에 있을 때 받는 데미지가 20% 감소합니다."
+            "ko": "벽 근처에 있을 때 받는 데미지가 20% 감소합니다.",
+            "es": "Cuando está cerca de las paredes, el daño recibido se reduce en un 20%.",
+            "ar": "عند الاقتراب من الجدران، ينخفض الضرر المتلقى بنسبة 20%.",
+            "fr": "À proximité des murs, les dégâts subis sont réduits de 20%.",
+            "zh-tw": "在靠近牆壁時，受到的傷害減少20%。"
           },
           "recommendation": {
             "level": 3,
             "reason": {
               "ja": "耐久力が上昇することでさらに生存率が上がる。",
               "en": "Survival rate increases further due to increased durability.",
-              "ko": "내구력이 증가하여 생존율이 더욱 높아집니다."
+              "ko": "내구력이 증가하여 생존율이 더욱 높아집니다.",
+              "es": "La tasa de supervivencia aumenta aún más debido al aumento de la durabilidad.",
+              "ar": "يزداد معدل البقاء على قيد الحياة بسبب زيادة القدرة على التحمل.",
+              "fr": "Le taux de survie augmente davantage grâce à une durabilité accrue.",
+              "zh-tw": "由於耐久度增加，生存率進一步提高。"
             }
           }
         }
@@ -2395,19 +3547,31 @@
           "name": {
             "ja": "ウォーターバルーン",
             "en": "Water Balloons",
-            "ko": "물풍선"
+            "ko": "물풍선",
+            "es": "Globos de Agua",
+            "ar": "بالونات الماء",
+            "fr": "Ballons d'Eau",
+            "zh-tw": "水球"
           },
           "description": {
             "ja": "次に放つ通常攻撃が命中すると、敵が3秒間スローダウンする。",
             "en": "Next basic attack that hits slows enemies for 3 seconds.",
-            "ko": "다음에 발사하는 일반 공격이 명중하면 적이 3초간 감속됩니다."
+            "ko": "다음에 발사하는 일반 공격이 명중하면 적이 3초간 감속됩니다.",
+            "es": "El siguiente ataque básico que impacte ralentiza a los enemigos durante 3 segundos.",
+            "ar": "الهجوم الأساسي التالي الذي يصيب يبطئ الأعداء لمدة 3 ثوانٍ.",
+            "fr": "La prochaine attaque de base qui touche ralentit les ennemis pendant 3 secondes.",
+            "zh-tw": "下一次命中的基本攻擊會使敵人減速3秒。"
           },
           "recommendation": {
             "level": 4,
             "reason": {
               "ja": "スローダウンしても自身のメリットは薄いため、味方依存のスローダウンで少し効果が弱い",
               "en": "Effect is somewhat weak as the slowdown benefits allies more than self",
-              "ko": "감속되어도 자신의 이점이 적어서 아군 의존적인 감속으로 효과가 약간 약합니다"
+              "ko": "감속되어도 자신의 이점이 적어서 아군 의존적인 감속으로 효과가 약간 약합니다",
+              "es": "El efecto es algo débil ya que la ralentización beneficia más a los aliados que a uno mismo",
+              "ar": "التأثير ضعيف نوعاً ما لأن الإبطاء يفيد الحلفاء أكثر من النفس",
+              "fr": "L'effet est un peu faible car le ralentissement profite plus aux alliés qu'à soi-même",
+              "zh-tw": "效果較弱，因為減速更多地有利於隊友而不是自己"
             }
           }
         },
@@ -2416,19 +3580,31 @@
           "name": {
             "ja": "隠れ裳",
             "en": "Barricade",
-            "ko": "바리케이드"
+            "ko": "바리케이드",
+            "es": "Barricada",
+            "ar": "متراس",
+            "fr": "Barricade",
+            "zh-tw": "路障"
           },
           "description": {
             "ja": "3秒間受けるダメージが40%減少する。",
             "en": "Reduces damage taken by 40% for 3 seconds.",
-            "ko": "3초 동안 받는 데미지가 40% 감소합니다."
+            "ko": "3초 동안 받는 데미지가 40% 감소합니다.",
+            "es": "Reduce el daño recibido en un 40% durante 3 segundos.",
+            "ar": "يقلل الضرر المتلقى بنسبة 40% لمدة 3 ثوانٍ.",
+            "fr": "Réduit les dégâts subis de 40% pendant 3 secondes.",
+            "zh-tw": "在3秒內減少受到的傷害40%。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "耐久力がさらに上昇するためマジで死ななくなる。",
               "en": "Durability increases further making you nearly unkillable.",
-              "ko": "내구력이 더욱 증가하여 정말로 죽지 않게 됩니다."
+              "ko": "내구력이 더욱 증가하여 정말로 죽지 않게 됩니다.",
+              "es": "La durabilidad aumenta aún más haciéndote casi imposible de matar.",
+              "ar": "تزداد القدرة على التحمل مما يجعلك شبه مستحيل القتل.",
+              "fr": "La durabilité augmente encore plus vous rendant presque immortel.",
+              "zh-tw": "耐久度進一步提升，讓你幾乎無法被殺死。"
             }
           }
         }
@@ -2444,7 +3620,11 @@
       "name": {
         "ja": "メイジー",
         "en": "Maisie",
-        "ko": "메이지"
+        "ko": "메이지",
+        "es": "Maisie",
+        "ar": "ميزي",
+        "fr": "Maisie",
+        "zh-tw": "梅西"
       },
       "image": "require('../../assets/BrawlerIcons/maisie_pin.png')",
       "class": {
@@ -2459,7 +3639,11 @@
       "description": {
         "ja": "メイジーは安全管理者として働いていますが、心の奥底では危険な状況を楽しんでいます。時々、彼女自身がその状況を作り出しているかのように感じることさえあります。",
         "en": "Maisie works as a safety supervisor but deep down enjoys dangerous situations. Sometimes it even feels like she might be creating those situations herself...",
-        "ko": "메이지는 안전 관리자로 일하고 있지만, 마음 속 깊이 위험한 상황을 즐기고 있습니다. 때때로 그녀가 직접 그런 상황을 만들어내고 있는 것처럼 느껴질 때도 있습니다."
+        "ko": "메이지는 안전 관리자로 일하고 있지만, 마음 속 깊이 위험한 상황을 즐기고 있습니다. 때때로 그녀가 직접 그런 상황을 만들어내고 있는 것처럼 느껴질 때도 있습니다.",
+        "es": "Maisie trabaja como supervisora de seguridad pero en el fondo disfruta de las situaciones peligrosas. A veces incluso parece que ella misma podría estar creando esas situaciones...",
+        "ar": "تعمل ميزي كمشرفة سلامة لكنها في أعماقها تستمتع بالمواقف الخطرة. في بعض الأحيان يبدو وكأنها قد تكون هي من تخلق تلك المواقف بنفسها...",
+        "fr": "Maisie travaille comme superviseure de sécurité mais au fond, elle apprécie les situations dangereuses. Parfois, on dirait même qu'elle pourrait créer ces situations elle-même...",
+        "zh-tw": "梅西是一名安全主管，但內心深處卻享受危險的情況。有時甚至感覺她可能在自己製造這些情況..."
       },
       "starPowers": [
         {
@@ -2467,19 +3651,31 @@
           "name": {
             "ja": "精密射撃",
             "en": "Pinpoint Precision",
-            "ko": "정밀 사격"
+            "ko": "정밀 사격",
+            "es": "Precisión Milimétrica",
+            "ar": "دقة متناهية",
+            "fr": "Précision Chirurgicale",
+            "zh-tw": "精確瞄準"
           },
           "description": {
             "ja": "通常攻撃の最大射程におけるダメージが20%増加する",
             "en": "Damage at maximum range of basic attacks increases by 20%",
-            "ko": "일반 공격의 최대 사거리에서의 데미지가 20% 증가합니다"
+            "ko": "일반 공격의 최대 사거리에서의 데미지가 20% 증가합니다",
+            "es": "El daño a distancia máxima de los ataques básicos aumenta un 20%",
+            "ar": "يزداد الضرر عند أقصى مدى للهجمات الأساسية بنسبة 20٪",
+            "fr": "Les dégâts à portée maximale des attaques de base augmentent de 20%",
+            "zh-tw": "基礎攻擊在最大射程時傷害提升20%"
           },
           "recommendation": {
             "level": 2,
             "reason": {
               "ja": "火力がさらに上昇しかなりダメージは出るが、もう一つのスタパが強すぎる。",
               "en": "Damage output increases significantly but the other star power is too strong.",
-              "ko": "화력이 더욱 상승하여 상당한 데미지가 나오지만, 다른 스타파워가 너무 강력합니다."
+              "ko": "화력이 더욱 상승하여 상당한 데미지가 나오지만, 다른 스타파워가 너무 강력합니다.",
+              "es": "El daño aumenta significativamente pero el otro poder estelar es demasiado fuerte.",
+              "ar": "يزداد الضرر بشكل كبير ولكن قوة النجم الأخرى قوية جداً.",
+              "fr": "Les dégâts augmentent considérablement mais l'autre pouvoir stellaire est trop puissant.",
+              "zh-tw": "傷害輸出顯著提升，但另一個星能力太強大了。"
             }
           }
         },
@@ -2488,19 +3684,31 @@
           "name": {
             "ja": "ガクブルソニック",
             "en": "Tremors",
-            "ko": "떨림"
+            "ko": "떨림",
+            "es": "Temblores",
+            "ar": "رجفات",
+            "fr": "Tremblements",
+            "zh-tw": "震顫"
           },
           "description": {
             "ja": "必殺技がヒットした敵は、2秒間スローダウンする。",
             "en": "Enemies hit by super are slowed down for 2 seconds.",
-            "ko": "궁극기에 맞은 적은 2초간 감속됩니다."
+            "ko": "궁극기에 맞은 적은 2초간 감속됩니다.",
+            "es": "Los enemigos golpeados por el súper son ralentizados durante 2 segundos.",
+            "ar": "الأعداء المصابون بالقدرة الخارقة يتباطؤون لمدة ثانيتين.",
+            "fr": "Les ennemis touchés par le super sont ralentis pendant 2 secondes.",
+            "zh-tw": "被超級技能擊中的敵人會被減速2秒。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "これを当てると次の通常攻撃が確定で当てれられるため超強力なスタパ。",
               "en": "Super powerful star power as it guarantees the next basic attack will hit.",
-              "ko": "이것을 맞추면 다음 일반 공격이 확실하게 맞출 수 있어서 매우 강력한 스타파워입니다."
+              "ko": "이것을 맞추면 다음 일반 공격이 확실하게 맞출 수 있어서 매우 강력한 스타파워입니다.",
+              "es": "Poder estelar súper poderoso ya que garantiza que el siguiente ataque básico acertará.",
+              "ar": "قوة نجمية قوية للغاية لأنها تضمن إصابة الهجوم الأساسي التالي.",
+              "fr": "Pouvoir stellaire super puissant car il garantit que la prochaine attaque de base touchera.",
+              "zh-tw": "超強大的星能力，因為可以確保下一次基礎攻擊必中。"
             }
           }
         }
@@ -2511,19 +3719,31 @@
           "name": {
             "ja": "戦略的撤退",
             "en": "Disengage",
-            "ko": "철수"
+            "ko": "철수",
+            "es": "Desenganche",
+            "ar": "فك الاشتباك",
+            "fr": "Désengagement",
+            "zh-tw": "脫離戰鬥"
           },
           "description": {
             "ja": "地震は前方にダッシュしながら敵を0.5秒に割って気絶する。",
             "en": "Earthquake dashes forward stunning enemies for 0.5 seconds.",
-            "ko": "지진이 전방으로 대시하면서 적을 0.5초 동안 기절시킵니다."
+            "ko": "지진이 전방으로 대시하면서 적을 0.5초 동안 기절시킵니다.",
+            "es": "Terremoto arremete hacia adelante aturdiendo a los enemigos durante 0.5 segundos.",
+            "ar": "يندفع الزلزال للأمام مذهلاً الأعداء لمدة 0.5 ثانية.",
+            "fr": "Le séisme fonce en avant étourdissant les ennemis pendant 0.5 secondes.",
+            "zh-tw": "地震向前衝刺，使敵人暈眩0.5秒。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "ウルトを当てるのにかなり重宝される。",
               "en": "Highly valued for landing ultimates.",
-              "ko": "궁극기를 맞추는 데 상당히 유용합니다."
+              "ko": "궁극기를 맞추는 데 상당히 유용합니다.",
+              "es": "Muy valorado para acertar los definitivos.",
+              "ar": "قيّم للغاية لإصابة الضربات النهائية.",
+              "fr": "Très apprécié pour réussir les ultimes.",
+              "zh-tw": "對於命中終極技非常有價值。"
             }
           }
         },
@@ -2532,19 +3752,31 @@
           "name": {
             "ja": "フィニッシャー",
             "en": "Finish Them",
-            "ko": "피니셔"
+            "ko": "피니셔",
+            "es": "Remátalos",
+            "ar": "أنهِهم",
+            "fr": "Achève-les",
+            "zh-tw": "終結技"
           },
           "description": {
             "ja": "瞬時に弾を1発リロードし、次の通常攻撃のダメージを強化する。強化率はターゲットが失った分のHPの30%となる。",
             "en": "Instantly reload one bullet and enhance next basic attack damage. Enhancement is 30% of target's lost HP.",
-            "ko": "즉시 탄환 1발을 재장전하고 다음 일반 공격의 데미지를 강화합니다. 강화율은 대상이 잃은 HP의 30%입니다."
+            "ko": "즉시 탄환 1발을 재장전하고 다음 일반 공격의 데미지를 강화합니다. 강화율은 대상이 잃은 HP의 30%입니다.",
+            "es": "Recarga instantáneamente una bala y mejora el daño del siguiente ataque básico. La mejora es el 30% de la vida perdida del objetivo.",
+            "ar": "أعد تحميل طلقة واحدة فوراً وعزز ضرر الهجوم الأساسي التالي. التعزيز هو 30٪ من الصحة المفقودة للهدف.",
+            "fr": "Recharge instantanément une balle et améliore les dégâts de la prochaine attaque de base. L'amélioration est de 30% des PV perdus de la cible.",
+            "zh-tw": "立即重新裝填一發子彈並強化下次基礎攻擊傷害。強化效果為目標已損失生命值的30%。"
           },
           "recommendation": {
             "level": 3,
             "reason": {
               "ja": "もう一つのガジェが強すぎて使用率が低いが効果自体は汎用性が高く悪くはないはず。",
               "en": "Usage rate is low due to the other gadget being too strong, but the effect itself is highly versatile and not bad.",
-              "ko": "다른 가젯이 너무 강해서 사용률이 낮지만, 효과 자체는 매우 다재다능하고 나쁘지 않습니다."
+              "ko": "다른 가젯이 너무 강해서 사용률이 낮지만, 효과 자체는 매우 다재다능하고 나쁘지 않습니다.",
+              "es": "La tasa de uso es baja debido a que el otro gadget es demasiado fuerte, pero el efecto en sí es muy versátil y no es malo.",
+              "ar": "معدل الاستخدام منخفض لأن الأداة الأخرى قوية جداً، لكن التأثير نفسه متعدد الاستخدامات وليس سيئاً.",
+              "fr": "Taux d'utilisation faible car l'autre gadget est trop fort, mais l'effet lui-même est très polyvalent et pas mauvais.",
+              "zh-tw": "由於另一個裝置太強大導致使用率低，但效果本身非常靈活且不差。"
             }
           }
         }
