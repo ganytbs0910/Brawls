@@ -5,11 +5,11 @@
             "name": {
                 "ja": "ジグザグ草原",
                 "en": "Snake Prairie",
-                "ko": "스네이크 프레리",
-                "es": "Pradera Serpiente",
-                "ar": "مرج الثعبان",
-                "fr": "Prairie du Serpent",
-                "zh-tw": "蛇形草原"
+                "ko": "뱀의 초원",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Snake_Prairie.png",
@@ -101,11 +101,11 @@
             "name": {
                 "ja": "流れ星",
                 "en": "Shooting Star",
-                "ko": "슈팅 스타",
-                "es": "Estrella Fugaz",
-                "ar": "نجم ساطع",
-                "fr": "Étoile Filante",
-                "zh-tw": "流星"
+                "ko": "별내림 계곡",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Shooting_Star.png",
@@ -232,11 +232,11 @@
             "name": {
                 "ja": "ごつごつ坑道",
                 "en": "Hard Rock Mine",
-                "ko": "하드록 마인",
-                "es": "Mina de Roca Dura",
-                "ar": "منجم الصخور الصلبة",
-                "fr": "Mine de Roche Dure",
-                "zh-tw": "堅硬礦坑"
+                "ko": "암석 광산",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Hard_Rock_Mine.png",
@@ -413,11 +413,11 @@
             "name": {
                 "ja": "クリスタルアーケード",
                 "en": "Crystal Arcade",
-                "ko": "크리스탈 아케이드",
-                "es": "Arcada de Cristal",
-                "ar": "قاعة الكريستال",
-                "fr": "Arcade de Cristal",
-                "zh-tw": "水晶遊樂場"
+                "ko": "수정 오락실",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Crystal_Arcade.png",
@@ -489,11 +489,11 @@
             "name": {
                 "ja": "サボテンの罠",
                 "en": "Deathcap Trap",
-                "ko": "데스캡 트랩",
-                "es": "Trampa de Setas",
-                "ar": "فخ الفطر",
-                "fr": "Piège de Champignon",
-                "zh-tw": "死帽陷阱"
+                "ko": "독버섯 함정",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Deathcap_Trap.png",
@@ -590,11 +590,11 @@
             "name": {
                 "ja": "エメラルドの要塞",
                 "en": "Gem Fort",
-                "ko": "젬 포트",
-                "es": "Fortaleza de Gemas",
-                "ar": "قلعة الجوهرة",
-                "fr": "Fort de Gemmes",
-                "zh-tw": "寶石堡壘"
+                "ko": "보석 요새",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Gem_Fort.png",
@@ -671,11 +671,11 @@
             "name": {
                 "ja": "アンダーマイン",
                 "en": "Undermine",
-                "ko": "언더마인",
-                "es": "Minas Subterráneas",
-                "ar": "تحت الأرض",
-                "fr": "Sous la Mine",
-                "zh-tw": "地底礦坑"
+                "ko": "흔들 광산",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Undermine.png",
@@ -822,11 +822,11 @@
             "name": {
                 "ja": "ガイコツ川",
                 "en": "Skull Creek",
-                "ko": "스컬 크릭",
-                "es": "Calavera Creek",
-                "ar": "نهر الجمجمة",
-                "fr": "Rivière du Crâne",
-                "zh-tw": "骷髏溪"
+                "ko": "해골천",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Skull_Creek.png",
@@ -883,11 +883,11 @@
             "name": {
                 "ja": "岩壁の決戦",
                 "en": "Rockwall Brawl",
-                "ko": "록월 브롤",
-                "es": "Pelea en la Pared de Roca",
-                "ar": "معركة الجدار الصخري",
-                "fr": "Baston sur le Mur de Pierre",
-                "zh-tw": "岩壁爭霸"
+                "ko": "바위 장벽 전투",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Rockwall_Brawl.png",
@@ -939,11 +939,11 @@
             "name": {
                 "ja": "天国と地獄",
                 "en": "Feast or Famine",
-                "ko": "피스트 오어 패민",
-                "es": "Fiesta o Hambre",
-                "ar": "وليمة أو مجاعة",
-                "fr": "Festin ou Famine",
-                "zh-tw": "盛宴或饑荒"
+                "ko": "모 아니면 도",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Feast_Or_Famine.png",
@@ -1005,11 +1005,11 @@
             "name": {
                 "ja": "どんぱち谷",
                 "en": "Kaboom Canyon",
-                "ko": "카붐 캐니언",
-                "es": "Cañón Kaboom",
-                "ar": "وادي الانفجار",
-                "fr": "Canyon Kaboom",
-                "zh-tw": "炸彈峽谷"
+                "ko": "우당탕 협곡",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Kaboom_Canyon.png",
@@ -1146,11 +1146,11 @@
             "name": {
                 "ja": "安全地帯",
                 "en": "Safe Zone",
-                "ko": "세이프 존",
-                "es": "Zona Segura",
-                "ar": "المنطقة الآمنة",
-                "fr": "Zone de Sécurité",
-                "zh-tw": "安全區"
+                "ko": "안전지대",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Safe_Zone.png",
@@ -1292,11 +1292,11 @@
             "name": {
                 "ja": "隠れ家",
                 "en": "Hideout",
-                "ko": "하이드아웃",
-                "es": "Escondite",
-                "ar": "مخبأ",
-                "fr": "Cachette",
-                "zh-tw": "藏身處"
+                "ko": "은신처",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Hideout.png",
@@ -1384,10 +1384,10 @@
                 "ja": "トリプルドリブル",
                 "en": "Triple Dribble",
                 "ko": "트리플 드리블",
-                "es": "Triple Dribble",
-                "ar": "ثلاثي الدربل",
-                "fr": "Triple Dribble",
-                "zh-tw": "三重運球"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Triple_Dribble.png",
@@ -1524,11 +1524,11 @@
             "name": {
                 "ja": "狭き門",
                 "en": "Pinhole Punt",
-                "ko": "핀홀 펀트",
-                "es": "Paseo de Pinhole",
-                "ar": "مرور الدبوس",
-                "fr": "Passe de Pinhole",
-                "zh-tw": "小孔踢球"
+                "ko": "핀홀 필드",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Pinhole_Punt.png",
@@ -1645,11 +1645,11 @@
             "name": {
                 "ja": "酸性湖",
                 "en": "Acid Lakes",
-                "ko": "애시드 레이크스",
-                "es": "Lagos Ácidos",
-                "ar": "بحيرات الأحماض",
-                "fr": "Lacs Acides",
-                "zh-tw": "酸湖"
+                "ko": "산성 호수",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Acid_Lakes.png",
@@ -1706,11 +1706,11 @@
             "name": {
                 "ja": "激動の洞窟",
                 "en": "Cavern Churn",
-                "ko": "캐번 처른",
-                "es": "Remolino Cavernícola",
-                "ar": "تجويف الدوامة",
-                "fr": "Tourbillon Caverneux",
-                "zh-tw": "洞穴漩渦"
+                "ko": "우당탕 진흙탕",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Cavern_Churn.png",
@@ -1768,10 +1768,10 @@
                 "ja": "ダブルトラブル",
                 "en": "Double Trouble",
                 "ko": "더블 트러블",
-                "es": "Doble Problema",
-                "ar": "مشكلة مزدوجة",
-                "fr": "Double Problème",
-                "zh-tw": "雙重麻煩"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Double_Trouble.png",
@@ -1823,11 +1823,11 @@
             "name": {
                 "ja": "囚われた島",
                 "en": "Island Invasion",
-                "ko": "아일랜드 인베이전",
-                "es": "Invasión Isleña",
-                "ar": "غزو الجزيرة",
-                "fr": "Invasion Îlienne",
-                "zh-tw": "島嶼入侵"
+                "ko": "무인도 침략",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Island_Invasion.png",
@@ -1890,10 +1890,10 @@
                 "ja": "静かな広場",
                 "en": "Sneaky Fields",
                 "ko": "스니키 필드",
-                "es": "Campos Sigilosos",
-                "ar": "حقول مخادعة",
-                "fr": "Champs Furtifs",
-                "zh-tw": "隱秘田野"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Sneaky_Fields.png",
@@ -2030,11 +2030,11 @@
             "name": {
                 "ja": "スーパービーチ",
                 "en": "Super Beach",
-                "ko": "슈퍼 비치",
-                "es": "Super Playa",
-                "ar": "شاطئ سوبر",
-                "fr": "Super Plage",
-                "zh-tw": "超級沙灘"
+                "ko": "슈퍼 해변",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Super_Beach.png",
@@ -2121,11 +2121,11 @@
             "name": {
                 "ja": "ホットポテト",
                 "en": "Hot Potato",
-                "ko": "핫 포테이토",
-                "es": "Patata Caliente",
-                "ar": "بطاطا ساخنة",
-                "fr": "Patate Chaude",
-                "zh-tw": "熱土豆"
+                "ko": "뜨거운 감자",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Hot_Potato.png",
@@ -2252,11 +2252,11 @@
             "name": {
                 "ja": "グランドカナル",
                 "en": "Canal Grande",
-                "ko": "카날 그란데",
-                "es": "Canal Grande",
-                "ar": "قناة جراندي",
-                "fr": "Canal Grande",
-                "zh-tw": "大運河"
+                "ko": "대운하",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Canal_Grande.png",
@@ -2384,10 +2384,10 @@
                 "ja": "橋の彼方",
                 "en": "Bridge Too Far",
                 "ko": "브릿지 투 파",
-                "es": "Puente Demasiado Lejos",
-                "ar": "جسر بعيد جدا",
-                "fr": "Pont Trop Loin",
-                "zh-tw": "太遠的橋"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Bridge_Too_Far.png",
@@ -2465,10 +2465,10 @@
                 "ja": "ミルフィーユ",
                 "en": "Layer Cake",
                 "ko": "레이어 케이크",
-                "es": "Pastel de Capas",
-                "ar": "كعكة الطبقات",
-                "fr": "Gâteau à Étages",
-                "zh-tw": "千層蛋糕"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Layer_Cake.png",
@@ -2560,11 +2560,11 @@
             "name": {
                 "ja": "暗い廊下",
                 "en": "Dark Passage",
-                "ko": "다크 패시지",
-                "es": "Pasaje Oscuro",
-                "ar": "ممر مظلم",
-                "fr": "Passage Sombre",
-                "zh-tw": "黑暗通道"
+                "ko": "어두운 통로",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Dark_Passage.png",
@@ -2626,11 +2626,11 @@
             "name": {
                 "ja": "ダブルレール",
                 "en": "Double Swoosh",
-                "ko": "더블 스우시",
-                "es": "Doble Swoosh",
-                "ar": "دبل سووش",
-                "fr": "Double Swoosh",
-                "zh-tw": "雙重擦過"
+                "ko": "이중 곡선",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Double_Swoosh.png",
@@ -2777,11 +2777,11 @@
             "name": {
                 "ja": "ピンボールドリーム",
                 "en": "Pinball Dreams",
-                "ko": "핀볼 드림즈",
-                "es": "Sueños de Pinball",
-                "ar": "أحلام البنبول",
-                "fr": "Rêves de Flipper",
-                "zh-tw": "彈珠夢"
+                "ko": "핀볼 드림",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Pinball_Dreams.png",
@@ -2928,11 +2928,11 @@
             "name": {
                 "ja": "トロッコの狂気",
                 "en": "Minecart Madness",
-                "ko": "마인카트 매드니스",
-                "es": "Locura de la Vagoneta",
-                "ar": "جنون عربة التعدين",
-                "fr": "Folie du Wagonnet",
-                "zh-tw": "礦車瘋狂"
+                "ko": "광기의 광산 열차",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Minecart_Madness.png",
@@ -3025,10 +3025,10 @@
                 "ja": "空飛ぶ絨毯",
                 "en": "Flying Fantasies",
                 "ko": "플라잉 판타지",
-                "es": "Fantasías Voladoras",
-                "ar": "أحلام طائرة",
-                "fr": "Fantaisies Volantes",
-                "zh-tw": "飛行幻想"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Flying_Fantasies.png",
@@ -3091,10 +3091,10 @@
                 "ja": "中央コート",
                 "en": "Center Stage",
                 "ko": "센터 스테이지",
-                "es": "Escenario Central",
-                "ar": "المسرح المركزي",
-                "fr": "Scène Centrale",
-                "zh-tw": "中央舞台"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Center_Stage.png",
@@ -3246,11 +3246,11 @@
             "name": {
                 "ja": "ビーチボール",
                 "en": "Beach Ball",
-                "ko": "비치 볼",
-                "es": "Balón de Playa",
-                "ar": "كرة الشاطئ",
-                "fr": "Ballon de Plage",
-                "zh-tw": "沙灘球"
+                "ko": "비치볼",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Beach_Ball.png",
@@ -3377,11 +3377,11 @@
             "name": {
                 "ja": "サニーサッカー",
                 "en": "Sunny Soccer",
-                "ko": "서니 사커",
-                "es": "Fútbol Soleado",
-                "ar": "كرة القدم المشمسة",
-                "fr": "Soccer Ensoleillé",
-                "zh-tw": "陽光足球"
+                "ko": "화창한 날",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Sunny_Soccer.png",
@@ -3493,11 +3493,11 @@
             "name": {
                 "ja": "安全センター",
                 "en": "Safety Center",
-                "ko": "세이프티 센터",
-                "es": "Centro de Seguridad",
-                "ar": "مركز السلامة",
-                "fr": "Centre de Sécurité",
-                "zh-tw": "安全中心"
+                "ko": "안전 센터",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Safety_Center.png",
@@ -3550,10 +3550,10 @@
                 "ja": "ペナルティキック",
                 "en": "Penalty Kick",
                 "ko": "페널티 킥",
-                "es": "Penalti",
-                "ar": "ركلة جزاء",
-                "fr": "Tir au But",
-                "zh-tw": "點球"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Penalty_Kick.png",
@@ -3655,11 +3655,11 @@
             "name": {
                 "ja": "オープンビジネス",
                 "en": "Open Business",
-                "ko": "오픈 비즈니스",
-                "es": "Negocios Abiertos",
-                "ar": "أعمال مفتوحة",
-                "fr": "Affaires Ouvertes",
-                "zh-tw": "開放商務"
+                "ko": "신장개업",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Open_Business.png",
@@ -3831,11 +3831,11 @@
             "name": {
                 "ja": "パラレルワールド",
                 "en": "Parallel Plays",
-                "ko": "패럴렐 플레이즈",
-                "es": "Juegos Paralelos",
-                "ar": "ألعاب موازية",
-                "fr": "Jeux Parallèles",
-                "zh-tw": "平行遊戲"
+                "ko": "평행선",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Parallel_Plays.png",
@@ -3957,11 +3957,11 @@
             "name": {
                 "ja": "言い訳厳禁",
                 "en": "No Excuses",
-                "ko": "노 엑스큐즈",
-                "es": "Sin Excusas",
-                "ar": "لا عذر",
-                "fr": "Pas d'Excuses",
-                "zh-tw": "不要藉口"
+                "ko": "변명 금지",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/No_Excuses.png",
@@ -4028,11 +4028,11 @@
             "name": {
                 "ja": "炎のリング",
                 "en": "Ring of Fire",
-                "ko": "링 오브 파이어",
-                "es": "Anillo de Fuego",
-                "ar": "حلقة النار",
-                "fr": "Anneau de Feu",
-                "zh-tw": "火環"
+                "ko": "불의 고리",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Ring_Of_Fire.png",
@@ -4174,11 +4174,11 @@
             "name": {
                 "ja": "ビートルバトル",
                 "en": "Dueling Beetles",
-                "ko": "듀얼링 비틀즈",
-                "es": "Escarabajos en Duelo",
-                "ar": "خنافس متصارعة",
-                "fr": "Scarabées en Duel",
-                "zh-tw": "對戰甲蟲"
+                "ko": "곤충 싸움",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Dueling_Beetles.png",
@@ -4303,13 +4303,13 @@
         },
         {
             "name": {
-                "ja": "廃れたアーケード",
+                "ja": "寂れたアーケード",
                 "en": "Rustic Arcade",
-                "ko": "러스틱 아케이드",
-                "es": "Arcade Rústico",
-                "ar": "صالة الألعاب القديمة",
-                "fr": "Arcade Rustique",
-                "zh-tw": "古老的遊戲廳"
+                "ko": "오래된 오락실",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Rustic_Arcade.png",
@@ -4421,11 +4421,11 @@
             "name": {
                 "ja": "ゴールドアームの渓谷",
                 "en": "Goldarm Gulch",
-                "ko": "골드암 걸치",
-                "es": "Cañón de Brazo de Oro",
-                "ar": "وادي ذهبي الذراع",
-                "fr": "Ravin de Bras d'Or",
-                "zh-tw": "金臂峽谷"
+                "ko": "골드암 협곡",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Goldarm_Gulch.png",
@@ -4562,11 +4562,11 @@
             "name": {
                 "ja": "ベルの岩",
                 "en": "Belle's Rock",
-                "ko": "벨스 록",
-                "es": "Roca de Belle",
-                "ar": "صخرة بيل",
-                "fr": "Rocher de Belle",
-                "zh-tw": "貝爾的岩石"
+                "ko": "벨스락",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Belles_Rock.png",
@@ -4688,11 +4688,11 @@
             "name": {
                 "ja": "枯れた川",
                 "en": "Dried Up River",
-                "ko": "마른 강",
-                "es": "Río Seco",
-                "ar": "نهر مجفف",
-                "fr": "Rivière Asséchée",
-                "zh-tw": "枯竭的河流"
+                "ko": "플라잉 판타지",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Dried_Up_River.png",
@@ -4750,10 +4750,10 @@
                 "ja": "燃える不死鳥",
                 "en": "Flaring Phoenix",
                 "ko": "타오르는 불사조",
-                "es": "Fénix Llameante",
-                "ar": "الفينيق المتوهج",
-                "fr": "Phénix Flamboyant",
-                "zh-tw": "火鳳凰"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Flaring_Phoenix.png",
@@ -4890,11 +4890,11 @@
             "name": {
                 "ja": "見えざる大蛇",
                 "en": "Shrouding Serpent",
-                "ko": "감싸는 뱀",
-                "es": "Serpiente Envuelta",
-                "ar": "ثعبان مغطى",
-                "fr": "Serpent Enveloppant",
-                "zh-tw": "隱藏的巨蛇"
+                "ko": "뒤덮는 뱀",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Duels",
             "image": "../../assets/MapImages/Shrouding_Serpent.png",
@@ -4956,11 +4956,11 @@
             "name": {
                 "ja": "四重傷",
                 "en": "Quad Damage",
-                "ko": "4배 데미지",
-                "es": "Cuádruple Daño",
-                "ar": "ضرر رباعي",
-                "fr": "Quad Dégâts",
-                "zh-tw": "四倍傷害"
+                "ko": "4중 피해",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Wipeout",
             "image": "../../assets/MapImages/Quad_Damage.png",
@@ -5033,10 +5033,10 @@
                 "ja": "オープンスペース",
                 "en": "Open Space",
                 "ko": "열린 공간",
-                "es": "Espacio Abierto",
-                "ar": "مساحة مفتوحة",
-                "fr": "Espace Ouvert",
-                "zh-tw": "開放空間"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Open_Space.png",
@@ -5128,11 +5128,11 @@
             "name": {
                 "ja": "オープンフィールド",
                 "en": "Out in the Open",
-                "ko": "넓은 공간에서",
-                "es": "A la Vista",
-                "ar": "في الهواء الطلق",
-                "fr": "En Plein Air",
-                "zh-tw": "開放空間"
+                "ko": "오픈 필드",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Out_In_The_Open.png",
@@ -5279,11 +5279,11 @@
             "name": {
                 "ja": "ガールズファイト",
                 "en": "Petticoat Duel",
-                "ko": "페티코트 결투",
-                "es": "Duelo de Enaguas",
-                "ar": "معركة الفستان",
-                "fr": "Duel",
-                "zh-tw": "女士對決"
+                "ko": "속치마 결투",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Duels",
             "image": "../../assets/MapImages/Petticoat_Duel.png",
@@ -5340,11 +5340,11 @@
             "name": {
                 "ja": "果てしなき不運",
                 "en": "Infinite Doom",
-                "ko": "무한한 파멸",
-                "es": "Perdición Infinita",
-                "ar": "مصير لا نهاية له",
-                "fr": "Destin Infini",
-                "zh-tw": "無盡的厄運"
+                "ko": "인피니트 둠",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Infinite_Doom.png",
@@ -5401,11 +5401,11 @@
             "name": {
                 "ja": "暴徒のオアシス",
                 "en": "Slayers Paradise",
-                "ko": "슬레이어의 낙원",
-                "es": "Paraíso de Asesinos",
-                "ar": "جنة القتلة",
-                "fr": "Paradis des Tueurs",
-                "zh-tw": "殺手的天堂"
+                "ko": "파괴의 천국",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Slayers_Paradise.png",
@@ -5463,10 +5463,10 @@
                 "ja": "ラストストップ",
                 "en": "Last Stop",
                 "ko": "종점",
-                "es": "Última Parada",
-                "ar": "المحطة الأخيرة",
-                "fr": "Dernier Arrêt",
-                "zh-tw": "最後一站"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Last_Stop.png",
@@ -5618,11 +5618,11 @@
             "name": {
                 "ja": "凍てつく波紋",
                 "en": "Freezing Ripples",
-                "ko": "얼어붙은 파문",
-                "es": "Ondas Congeladas",
-                "ar": "تموجات متجمدة",
-                "fr": "Ondes Glaciales",
-                "zh-tw": "冰凍波紋"
+                "ko": "얼어붙은 물결",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Brawl Ball 5v5",
             "image": "../../assets/MapImages/Freezing_Ripples.png",
@@ -5674,11 +5674,11 @@
             "name": {
                 "ja": "大波",
                 "en": "Great waves",
-                "ko": "큰 파도",
-                "es": "Grandes Olas",
-                "ar": "أمواج عظيمة",
-                "fr": "Grandes Vagues",
-                "zh-tw": "巨浪"
+                "ko": "성난 파도",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Brawl Ball 5v5",
             "image": "../../assets/MapImages/Great_Waves.png",
@@ -5730,11 +5730,11 @@
             "name": {
                 "ja": "クールシェイプ",
                 "en": "Cool shapes",
-                "ko": "멋진 모양",
-                "es": "Formas Geniales",
-                "ar": "أشكال باردة",
-                "fr": "Formes Cool",
-                "zh-tw": "酷炫造型"
+                "ko": "쿨셰이프",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Brawl Ball 5v5",
             "image": "../../assets/MapImages/Cool_Shapes.png",
@@ -5786,11 +5786,11 @@
             "name": {
                 "ja": "ツルツルロード",
                 "en": "Slippery Road",
-                "ko": "미끄러운 길",
-                "es": "Camino Resbaladizo",
-                "ar": "طريق مليء بالانزلاق",
-                "fr": "Route Glissante",
-                "zh-tw": "滑溜溜的路"
+                "ko": "미끌미끌 도로",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Wipeout 5v5",
             "image": "../../assets/MapImages/Slippery_Road.png",
@@ -5877,11 +5877,11 @@
             "name": {
                 "ja": "ガクブル公園",
                 "en": "Icy Ice Park",
-                "ko": "얼음 공원",
-                "es": "Parque Helado",
-                "ar": "حديقة الجليد",
-                "fr": "Parc Glacial",
-                "zh-tw": "冰冷公園"
+                "ko": "아이스 파크",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Wipeout 5v5",
             "image": "../../assets/MapImages/Icy_Ice_Park.png",
@@ -5958,11 +5958,11 @@
             "name": {
                 "ja": "フロスティトラック",
                 "en": "Frosty Tracks",
-                "ko": "서리 낀 트랙",
-                "es": "Pistas Heladas",
-                "ar": "مسارات متجمدة",
-                "fr": "Pistes Glacées",
-                "zh-tw": "冰凍軌道"
+                "ko": "서리 내린 트랙",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Wipeout 5v5",
             "image": "../../assets/MapImages/Frosty_Tracks.png",
@@ -6050,10 +6050,10 @@
                 "ja": "レイヤーケーキ",
                 "en": "Layer Bake",
                 "ko": "레이어 베이크",
-                "es": "Capas de Pastel",
-                "ar": "طبقات الكيك",
-                "fr": "Gâteau en Couches",
-                "zh-tw": "分層蛋糕"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/layer_bake.png",
@@ -6121,10 +6121,10 @@
                 "ja": "大いなる入口",
                 "en": "The Great Open",
                 "ko": "그레이트 오픈",
-                "es": "La Gran Apertura",
-                "ar": "الفتح الكبير",
-                "fr": "La Grande Ouverture",
-                "zh-tw": "偉大的開放"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/The_Great_Open.png",
@@ -6191,11 +6191,11 @@
             "name": {
                 "ja": "狙撃手たちの楽園",
                 "en": "Marksmans Paradise",
-                "ko": "마크스맨 파라다이스",
-                "es": "Paraíso de los Tiradores",
-                "ar": "جنة القناصين",
-                "fr": "Paradis des Tireurs",
-                "zh-tw": "狙擊手的天堂"
+                "ko": "저격수의 파라다이스",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Marksmans_Paradise.png",
@@ -6252,11 +6252,11 @@
             "name": {
                 "ja": "新たなる地平",
                 "en": "New Horizons",
-                "ko": "뉴 호라이즌",
-                "es": "Nuevos Horizontes",
-                "ar": "آفاق جديدة",
-                "fr": "Nouveaux Horizons",
-                "zh-tw": "新地平線"
+                "ko": "새로운 지평선",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/New_Horizons.png",
@@ -6349,10 +6349,10 @@
                 "ja": "サスペンダーズ",
                 "en": "Suspenders",
                 "ko": "서스펜더",
-                "es": "Tirantes",
-                "ar": "حمالات الصدر",
-                "fr": "Bretelles",
-                "zh-tw": "吊帶"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Brawl Ball 5v5",
             "image": "",
@@ -6405,10 +6405,10 @@
                 "ja": "四段階層",
                 "en": "Four Levels",
                 "ko": "네 개의 레벨",
-                "es": "Cuatro Niveles",
-                "ar": "أربعة مستويات",
-                "fr": "Quatre Niveaux",
-                "zh-tw": "四層"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Four_Levels.png",
@@ -6505,11 +6505,11 @@
             "name": {
                 "ja": "合流地点",
                 "en": "Riverbank Crossing",
-                "ko": "강변 횡단",
-                "es": "Cruce del Río",
-                "ar": "عبور الضفة",
-                "fr": "Traversée de la Rive",
-                "zh-tw": "河岸交叉"
+                "ko": "강둑 교차로",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Knockout 5v5",
             "image": "../../assets/MapImages/Riverbank_Crossing.png",
@@ -6596,11 +6596,11 @@
             "name": {
                 "ja": "鉄壁の守り",
                 "en": "Backyard Bowl",
-                "ko": "백야드 볼",
-                "es": "Bol de Patio Trasero",
-                "ar": "وعاء الفناء الخلفي",
-                "fr": "Bol de Cour Arrière",
-                "zh-tw": "後院碗"
+                "ko": "뒷마당 월드컵",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/backyard_bowl.png",
@@ -6722,11 +6722,11 @@
             "name": {
                 "ja": "禅の庭園",
                 "en": "Zen Garden",
-                "ko": "젠 가든",
-                "es": "Jardín Zen",
-                "ar": "حديقة الزين",
-                "fr": "Jardin Zen",
-                "zh-tw": "禪宗花園"
+                "ko": "실내 정원",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Duels",
             "image": "../../assets/MapImages/zen_garden.png",
@@ -6773,11 +6773,11 @@
             "name": {
                 "ja": "ウォータースポーツ",
                 "en": "Watersport",
-                "ko": "워터스포츠",
-                "es": "Deportes Acuáticos",
-                "ar": "رياضات مائية",
-                "fr": "Sports Nautiques",
-                "zh-tw": "水上運動"
+                "ko": "수상스포츠",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Watersport.png",
@@ -6844,11 +6844,11 @@
             "name": {
                 "ja": "喧騒居住地",
                 "en": "Noisy Neighbors",
-                "ko": "시끄러운 이웃",
-                "es": "Vecinos Ruid",
-                "ar": "جيران صاخبون",
-                "fr": "Voisins Bruyants",
-                "zh-tw": "吵鬧的鄰居"
+                "ko": "층간소음",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Noisy_Neighbors.png",
@@ -6900,11 +6900,11 @@
             "name": {
                 "ja": "森林伐採",
                 "en": "Forest Clearing",
-                "ko": "숲 속 공터",
-                "es": "Claro del Bosque",
-                "ar": "تخليص الغابة",
-                "fr": "Défrichage de la Forêt",
-                "zh-tw": "森林清理"
+                "ko": "숲속 공터",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Forest_Clearing.png",
@@ -6991,11 +6991,11 @@
             "name": {
                 "ja": "クールロック",
                 "en": "The Cooler Hard Rock",
-                "ko": "더 쿨한 하드록",
-                "es": "La Roca Dura Más Fría",
-                "ar": "الصخر الصلب الأكثر برودة",
-                "fr": "Le Rocher Dur le Plus Cool",
-                "zh-tw": "更酷的硬岩"
+                "ko": "멋진 암석",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/The_Cooler_Hard_Rock.png",
@@ -7067,11 +7067,11 @@
             "name": {
                 "ja": "白熱対戦",
                 "en": "H for...",
-                "ko": "H는...",
-                "es": "H para...",
-                "ar": "H ل...",
-                "fr": "H pour...",
-                "zh-tw": "H是..."
+                "ko": "핫 뜨거워",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/H_for.png",
@@ -7149,10 +7149,10 @@
                 "ja": "双頭の川",
                 "en": "Two Rivers",
                 "ko": "두 개의 강",
-                "es": "Dos Ríos",
-                "ar": "نهران",
-                "fr": "Deux Rivières",
-                "zh-tw": "兩條河流"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Two_Rivers.png",
@@ -7240,10 +7240,10 @@
                 "ja": "セカンドチャンス",
                 "en": "Second Try",
                 "ko": "두 번째 시도",
-                "es": "Segundo Intento",
-                "ar": "المحاولة الثانية",
-                "fr": "Deuxième Essai",
-                "zh-tw": "第二次嘗試"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Second_Try.png",
@@ -7340,11 +7340,11 @@
             "name": {
                 "ja": "トリッキー",
                 "en": "Trickey",
-                "ko": "트리키",
-                "es": "Trickey",
-                "ar": "تريكي",
-                "fr": "Trickey",
-                "zh-tw": "特里基"
+                "ko": "까다로운 도전",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Trickey.png",
@@ -7486,11 +7486,11 @@
             "name": {
                 "ja": "安全地帯・改",
                 "en": "Safe(r) Zone",
-                "ko": "안전(한) 구역",
-                "es": "Zona Segura(r)",
-                "ar": "منطقة آمنة(ر)",
-                "fr": "Zone Sûre(r)",
-                "zh-tw": "安全(更安全)區域"
+                "ko": "안전(?)지대",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Safe(r)_Zone.png",
@@ -7582,11 +7582,11 @@
             "name": {
                 "ja": "大いなる湖",
                 "en": "The Great Lake",
-                "ko": "그레이트 레이크",
-                "es": "El Gran Lago",
-                "ar": "البحيرة الكبيرة",
-                "fr": "Le Grand Lac",
-                "zh-tw": "大湖"
+                "ko": "대호수",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/The_Great_Lake.png",
@@ -7689,10 +7689,10 @@
                 "ja": "密林の奥地",
                 "en": "Deep Forest",
                 "ko": "깊은 숲",
-                "es": "Bosque Profundo",
-                "ar": "الغابة العميقة",
-                "fr": "Forêt Profonde",
-                "zh-tw": "深林"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Deep_Forest.png",
@@ -7779,11 +7779,11 @@
             "name": {
                 "ja": "極小列島",
                 "en": "Tiny Islands",
-                "ko": "작은 섬들",
-                "es": "Islas Pequeñas",
-                "ar": "جزر صغيرة",
-                "fr": "Petites Îles",
-                "zh-tw": "小島"
+                "ko": "아기자기 섬",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Tiny_Islands.png",
@@ -7865,11 +7865,11 @@
             "name": {
                 "ja": "バキューン神殿",
                 "en": "Temple Of Vroom",
-                "ko": "부르릉 사원",
-                "es": "Templo De Vroom",
-                "ar": "معبد فروم",
-                "fr": "Temple De Vroom",
-                "zh-tw": "Vroom神殿"
+                "ko": "부릉부릉 사원",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Temple_Of_Vroom.png",
@@ -7937,10 +7937,10 @@
                 "ja": "生い茂る廃墟",
                 "en": "Overgrown Ruins",
                 "ko": "우거진 폐허",
-                "es": "Ruinas Abandonadas",
-                "ar": "أطلال متجاوزة",
-                "fr": "Ruines Envahies",
-                "zh-tw": "廢墟"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Overgrown_Ruins.png",
@@ -7988,10 +7988,10 @@
                 "ja": "GG 2.0",
                 "en": "Gg 2.0",
                 "ko": "GG 2.0",
-                "es": "Gg 2.0",
-                "ar": "Gg 2.0",
-                "fr": "Gg 2.0",
-                "zh-tw": "GG 2.0"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Gg_2.0.png",
@@ -8073,11 +8073,11 @@
             "name": {
                 "ja": "不屈の精神",
                 "en": "No_Surrender",
-                "ko": "불굴의 정신",
-                "es": "No Rendirse",
-                "ar": "لا استسلام",
-                "fr": "Ne Pas Se Rendre",
-                "zh-tw": "不屈的精神"
+                "ko": "항복 없는 결투의 장",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Duels",
             "image": "require('../../assets/MapImages/No_Surrender.png')",
@@ -8119,11 +8119,11 @@
             "name": {
                 "ja": "常勝街道",
                 "en": "Warriors_Way",
-                "ko": "전승의 길",
-                "es": "Camino De Guerreros",
-                "ar": "طريق المحاربين",
-                "fr": "Chemin Des Guerriers",
-                "zh-tw": "戰士之路"
+                "ko": "전사의 길",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Duels",
             "image": "require('../../assets/MapImages/Warriors_Way.png')",
@@ -8176,10 +8176,10 @@
                 "ja": "猿の迷路",
                 "en": "Monkey Maze",
                 "ko": "원숭이 미로",
-                "es": "Laberinto De Monos",
-                "ar": "متاهة القرود",
-                "fr": "Labyrinthe De Singe",
-                "zh-tw": "猴"
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Duels",
             "image": "require('../../assets/MapImages/Monkey_Maze.png')",
@@ -8226,11 +8226,11 @@
             "name": {
                 "ja": "スパイスプロダクション",
                 "en": "Spice Production",
-                "ko": "스파이스 프로덕션",
-                "es": "Producción De Especias",
-                "ar": "إنتاج التوابل",
-                "fr": "Production D'épices",
-                "zh-tw": "香料生產"
+                "ko": "향신료 제작",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zh-tw": ""
             },
             "gameMode": "Duels",
             "image": "require('../../assets/MapImages/Spice_Production.png')",
