@@ -184,7 +184,8 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
       const shareMessage = {
         ja: `ブロスタのマップ情報をチェックできるアプリ「Brawl Status」\n\nApp Storeからダウンロード：\n${appStoreUrl}`,
         en: `Check Brawl Stars map information with "Brawl Status"\n\nDownload from App Store:\n${appStoreUrl}`,
-        ko: `브롤스타즈 맵 정보를 확인할 수 있는 앱 "Brawl Status"\n\nApp Store에서 다운로드：\n${appStoreUrl}`
+        ko: `브롤스타즈 맵 정보를 확인할 수 있는 앱 "Brawl Status"\n\nApp Store에서 다운로드：\n${appStoreUrl}`,
+        
       };
       
       const shareTitle = {

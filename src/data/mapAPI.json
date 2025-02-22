@@ -3,42 +3,13 @@
     "list": [
         {
             "name": {
-                "ja": "テンプル ルイン",
-                "en": "Temple Ruins",
-                "ko": "템플 루인"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ストーン フォート",
-                "en": "Stone Fort",
-                "ko": "스톤 포트"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "クリスタルクリアリング",
-                "en": "Crystal Clearing",
-                "ko": "크리스탈 클리어링"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "ジグザグ草原",
                 "en": "Snake Prairie",
-                "ko": "스네이크 프레리"
+                "ko": "스네이크 프레리",
+                "es": "Pradera Serpiente",
+                "ar": "مرج الثعبان",
+                "fr": "Prairie du Serpent",
+                "zh-tw": "蛇形草原"
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Snake_Prairie.png",
@@ -130,7 +101,11 @@
             "name": {
                 "ja": "流れ星",
                 "en": "Shooting Star",
-                "ko": "슈팅 스타"
+                "ko": "슈팅 스타",
+                "es": "Estrella Fugaz",
+                "ar": "نجم ساطع",
+                "fr": "Étoile Filante",
+                "zh-tw": "流星"
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Shooting_Star.png",
@@ -255,20 +230,13 @@
         },
         {
             "name": {
-                "ja": "アウトロー キャンプ",
-                "en": "Outlaw Camp",
-                "ko": "아웃로 캠프"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "ごつごつ坑道",
                 "en": "Hard Rock Mine",
-                "ko": "하드록 마인"
+                "ko": "하드록 마인",
+                "es": "Mina de Roca Dura",
+                "ar": "منجم الصخور الصلبة",
+                "fr": "Mine de Roche Dure",
+                "zh-tw": "堅硬礦坑"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Hard_Rock_Mine.png",
@@ -445,7 +413,11 @@
             "name": {
                 "ja": "クリスタルアーケード",
                 "en": "Crystal Arcade",
-                "ko": "크리스탈 아케이드"
+                "ko": "크리스탈 아케이드",
+                "es": "Arcada de Cristal",
+                "ar": "قاعة الكريستال",
+                "fr": "Arcade de Cristal",
+                "zh-tw": "水晶遊樂場"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Crystal_Arcade.png",
@@ -517,7 +489,11 @@
             "name": {
                 "ja": "サボテンの罠",
                 "en": "Deathcap Trap",
-                "ko": "데스캡 트랩"
+                "ko": "데스캡 트랩",
+                "es": "Trampa de Setas",
+                "ar": "فخ الفطر",
+                "fr": "Piège de Champignon",
+                "zh-tw": "死帽陷阱"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Deathcap_Trap.png",
@@ -614,7 +590,11 @@
             "name": {
                 "ja": "エメラルドの要塞",
                 "en": "Gem Fort",
-                "ko": "젬 포트"
+                "ko": "젬 포트",
+                "es": "Fortaleza de Gemas",
+                "ar": "قلعة الجوهرة",
+                "fr": "Fort de Gemmes",
+                "zh-tw": "寶石堡壘"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Gem_Fort.png",
@@ -691,7 +671,11 @@
             "name": {
                 "ja": "アンダーマイン",
                 "en": "Undermine",
-                "ko": "언더마인"
+                "ko": "언더마인",
+                "es": "Minas Subterráneas",
+                "ar": "تحت الأرض",
+                "fr": "Sous la Mine",
+                "zh-tw": "地底礦坑"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Undermine.png",
@@ -836,20 +820,13 @@
         },
         {
             "name": {
-                "ja": "ディープ ダイナー",
-                "en": "Deep Diner",
-                "ko": "딥 다이너"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "ガイコツ川",
                 "en": "Skull Creek",
-                "ko": "스컬 크릭"
+                "ko": "스컬 크릭",
+                "es": "Calavera Creek",
+                "ar": "نهر الجمجمة",
+                "fr": "Rivière du Crâne",
+                "zh-tw": "骷髏溪"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Skull_Creek.png",
@@ -904,20 +881,13 @@
         },
         {
             "name": {
-                "ja": "スコーチド ストーン",
-                "en": "Scorched Stone",
-                "ko": "스코치드 스톤"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "岩壁の決戦",
                 "en": "Rockwall Brawl",
-                "ko": "록월 브롤"
+                "ko": "록월 브롤",
+                "es": "Pelea en la Pared de Roca",
+                "ar": "معركة الجدار الصخري",
+                "fr": "Baston sur le Mur de Pierre",
+                "zh-tw": "岩壁爭霸"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Rockwall_Brawl.png",
@@ -969,7 +939,11 @@
             "name": {
                 "ja": "天国と地獄",
                 "en": "Feast or Famine",
-                "ko": "피스트 오어 패민"
+                "ko": "피스트 오어 패민",
+                "es": "Fiesta o Hambre",
+                "ar": "وليمة أو مجاعة",
+                "fr": "Festin ou Famine",
+                "zh-tw": "盛宴或饑荒"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Feast_Or_Famine.png",
@@ -1031,7 +1005,11 @@
             "name": {
                 "ja": "どんぱち谷",
                 "en": "Kaboom Canyon",
-                "ko": "카붐 캐니언"
+                "ko": "카붐 캐니언",
+                "es": "Cañón Kaboom",
+                "ar": "وادي الانفجار",
+                "fr": "Canyon Kaboom",
+                "zh-tw": "炸彈峽谷"
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Kaboom_Canyon.png",
@@ -1168,7 +1146,11 @@
             "name": {
                 "ja": "安全地帯",
                 "en": "Safe Zone",
-                "ko": "세이프 존"
+                "ko": "세이프 존",
+                "es": "Zona Segura",
+                "ar": "المنطقة الآمنة",
+                "fr": "Zone de Sécurité",
+                "zh-tw": "安全區"
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Safe_Zone.png",
@@ -1310,7 +1292,11 @@
             "name": {
                 "ja": "隠れ家",
                 "en": "Hideout",
-                "ko": "하이드아웃"
+                "ko": "하이드아웃",
+                "es": "Escondite",
+                "ar": "مخبأ",
+                "fr": "Cachette",
+                "zh-tw": "藏身處"
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Hideout.png",
@@ -1395,20 +1381,13 @@
         },
         {
             "name": {
-                "ja": "G.G. モーチュアリー",
-                "en": "G.g. Mortuary",
-                "ko": "G.G. 모츄어리"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "トリプルドリブル",
                 "en": "Triple Dribble",
-                "ko": "트리플 드리블"
+                "ko": "트리플 드리블",
+                "es": "Triple Dribble",
+                "ar": "ثلاثي الدربل",
+                "fr": "Triple Dribble",
+                "zh-tw": "三重運球"
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Triple_Dribble.png",
@@ -1545,7 +1524,11 @@
             "name": {
                 "ja": "狭き門",
                 "en": "Pinhole Punt",
-                "ko": "핀홀 펀트"
+                "ko": "핀홀 펀트",
+                "es": "Paseo de Pinhole",
+                "ar": "مرور الدبوس",
+                "fr": "Passe de Pinhole",
+                "zh-tw": "小孔踢球"
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Pinhole_Punt.png",
@@ -1660,20 +1643,13 @@
         },
         {
             "name": {
-                "ja": "サファイア プレインズ",
-                "en": "Sapphire Plains",
-                "ko": "사파이어 플레인즈"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "酸性湖",
                 "en": "Acid Lakes",
-                "ko": "애시드 레이크스"
+                "ko": "애시드 레이크스",
+                "es": "Lagos Ácidos",
+                "ar": "بحيرات الأحماض",
+                "fr": "Lacs Acides",
+                "zh-tw": "酸湖"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Acid_Lakes.png",
@@ -1730,7 +1706,11 @@
             "name": {
                 "ja": "激動の洞窟",
                 "en": "Cavern Churn",
-                "ko": "캐번 처른"
+                "ko": "캐번 처른",
+                "es": "Remolino Cavernícola",
+                "ar": "تجويف الدوامة",
+                "fr": "Tourbillon Caverneux",
+                "zh-tw": "洞穴漩渦"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Cavern_Churn.png",
@@ -1785,42 +1765,13 @@
         },
         {
             "name": {
-                "ja": "チル スペース",
-                "en": "Chill Space",
-                "ko": "칠 스페이스"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "エコー チェンバー",
-                "en": "Echo Chamber",
-                "ko": "에코 체임버"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ファンシー フェンシング",
-                "en": "Fancy Fencing",
-                "ko": "팬시 펜싱"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "ダブルトラブル",
                 "en": "Double Trouble",
-                "ko": "더블 트러블"
+                "ko": "더블 트러블",
+                "es": "Doble Problema",
+                "ar": "مشكلة مزدوجة",
+                "fr": "Double Problème",
+                "zh-tw": "雙重麻煩"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Double_Trouble.png",
@@ -1872,7 +1823,11 @@
             "name": {
                 "ja": "囚われた島",
                 "en": "Island Invasion",
-                "ko": "아일랜드 인베이전"
+                "ko": "아일랜드 인베이전",
+                "es": "Invasión Isleña",
+                "ar": "غزو الجزيرة",
+                "fr": "Invasion Îlienne",
+                "zh-tw": "島嶼入侵"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Island_Invasion.png",
@@ -1932,42 +1887,13 @@
         },
         {
             "name": {
-                "ja": "フォークス アウト",
-                "en": "Forks Out",
-                "ko": "포크스 아웃"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "フラッディド マイン",
-                "en": "Flooded Mine",
-                "ko": "플러디드 마인"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "カクタス コリドー",
-                "en": "Cactus Corridor",
-                "ko": "캭터스 코리도"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "静かな広場",
                 "en": "Sneaky Fields",
-                "ko": "스니키 필드"
+                "ko": "스니키 필드",
+                "es": "Campos Sigilosos",
+                "ar": "حقول مخادعة",
+                "fr": "Champs Furtifs",
+                "zh-tw": "隱秘田野"
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Sneaky_Fields.png",
@@ -2104,7 +2030,11 @@
             "name": {
                 "ja": "スーパービーチ",
                 "en": "Super Beach",
-                "ko": "슈퍼 비치"
+                "ko": "슈퍼 비치",
+                "es": "Super Playa",
+                "ar": "شاطئ سوبر",
+                "fr": "Super Plage",
+                "zh-tw": "超級沙灘"
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Super_Beach.png",
@@ -2189,20 +2119,13 @@
         },
         {
             "name": {
-                "ja": "パドル スプラッシュ",
-                "en": "Puddle Splash",
-                "ko": "퍼들 스플래시"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "ホットポテト",
                 "en": "Hot Potato",
-                "ko": "핫 포테이토"
+                "ko": "핫 포테이토",
+                "es": "Patata Caliente",
+                "ar": "بطاطا ساخنة",
+                "fr": "Patate Chaude",
+                "zh-tw": "熱土豆"
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Hot_Potato.png",
@@ -2329,7 +2252,11 @@
             "name": {
                 "ja": "グランドカナル",
                 "en": "Canal Grande",
-                "ko": "카날 그란데"
+                "ko": "카날 그란데",
+                "es": "Canal Grande",
+                "ar": "قناة جراندي",
+                "fr": "Canal Grande",
+                "zh-tw": "大運河"
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Canal_Grande.png",
@@ -2454,130 +2381,13 @@
         },
         {
             "name": {
-                "ja": "ホット メイズ",
-                "en": "Hot Maze",
-                "ko": "핫 메이즈"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スノー フォート",
-                "en": "Snow Fort",
-                "ko": "스노우 포트"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ホリデー チル",
-                "en": "Holiday Chill",
-                "ko": "홀리데이 칠"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スノーボール ファイト",
-                "en": "Snowball Fight",
-                "ko": "스노우볼 파이트"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "アイス ブロック ロック",
-                "en": "Ice Block Rock",
-                "ko": "아이스 블록 록"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スノーイー シージ",
-                "en": "Snowy Siege",
-                "ko": "스노위 시즈"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ギフト ラップ",
-                "en": "Gift Wrap",
-                "ko": "기프트 랩"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スプルース アップ",
-                "en": "Spruce Up",
-                "ko": "스프루스 업"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スプリット セカンド",
-                "en": "Split Second",
-                "ko": "스플릿 세컨드"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ローリング ランブル",
-                "en": "Rolling Rumble",
-                "ko": "롤링 럼블"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ツイスト アンド シュート",
-                "en": "Twist And Shoot",
-                "ko": "트위스트 앤 슛"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ブリッジ トゥー ファー",
+                "ja": "橋の彼方",
                 "en": "Bridge Too Far",
-                "ko": "브릿지 투 파"
+                "ko": "브릿지 투 파",
+                "es": "Puente Demasiado Lejos",
+                "ar": "جسر بعيد جدا",
+                "fr": "Pont Trop Loin",
+                "zh-tw": "太遠的橋"
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Bridge_Too_Far.png",
@@ -2652,42 +2462,13 @@
         },
         {
             "name": {
-                "ja": "コーナー ケース",
-                "en": "Corner Case",
-                "ko": "코너 케이스"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ブル ペン",
-                "en": "Bull Pen",
-                "ko": "불 펜"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "エクセル",
-                "en": "Excel",
-                "ko": "엑셀"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "ミルフィーユ",
                 "en": "Layer Cake",
-                "ko": "레이어 케이크"
+                "ko": "레이어 케이크",
+                "es": "Pastel de Capas",
+                "ar": "كعكة الطبقات",
+                "fr": "Gâteau à Étages",
+                "zh-tw": "千層蛋糕"
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Layer_Cake.png",
@@ -2777,75 +2558,13 @@
         },
         {
             "name": {
-                "ja": "ドライ シーズン",
-                "en": "Dry Season",
-                "ko": "드라이 시즌"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "マーチ フォート",
-                "en": "Merch Fort",
-                "ko": "머치 포트"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "プール パーティー",
-                "en": "Pool Party",
-                "ko": "풀 파티"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "デューン ドリフト",
-                "en": "Dune Drift",
-                "ko": "듄 드리프트"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ストーミー プレインズ",
-                "en": "Stormy Plains",
-                "ko": "스토미 플레인즈"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ロイヤル トリビュート",
-                "en": "Royal Tribute",
-                "ko": "로열 트리뷰트"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "暗い廊下",
                 "en": "Dark Passage",
-                "ko": "다크 패시지"
+                "ko": "다크 패시지",
+                "es": "Pasaje Oscuro",
+                "ar": "ممر مظلم",
+                "fr": "Passage Sombre",
+                "zh-tw": "黑暗通道"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Dark_Passage.png",
@@ -2905,184 +2624,13 @@
         },
         {
             "name": {
-                "ja": "ゴースト ポイント",
-                "en": "Ghost Point",
-                "ko": "고스트 포인트"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "エラティック ブロックス",
-                "en": "Erratic Blocks",
-                "ko": "에라틱 블록스"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "リバー ラッシュ",
-                "en": "River Rush",
-                "ko": "리버 러시"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "アイ オブ ザ ストーム",
-                "en": "Eye Of The Storm",
-                "ko": "아이 오브 더 스톰"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ダイアモンド ダスト",
-                "en": "Diamond Dust",
-                "ko": "다이아몬드 더스트"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "フォー スクエアード",
-                "en": "Four Squared",
-                "ko": "포 스퀘어드"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "バウンシング ダイナー",
-                "en": "Bouncing Diner",
-                "ko": "바운싱 다이너"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "エスケープ ベロシティ",
-                "en": "Escape Velocity",
-                "ko": "이스케이프 벨로시티"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "橋の彼方",
-                "en": "Bridge_Too_Far",
-                "ko": "브릿지 투 파"
-            },
-            "gameMode": "heist",
-            "image": "../../assets/MapImages/Bridge_Too_Far.png",
-            "description": "",
-            "recommendedBrawlers": [
-                {
-                    "name": "コルト",
-                    "reason": "",
-                    "power": 5
-                },
-                {
-                    "name": "ブロック",
-                    "reason": "",
-                    "power": 5
-                },
-                {
-                    "name": "アンジェロ",
-                    "reason": "",
-                    "power": 5
-                },
-                {
-                    "name": "イヴ",
-                    "reason": "",
-                    "power": 5
-                },
-                {
-                    "name": "ベル",
-                    "reason": "",
-                    "power": 5
-                },
-                {
-                    "name": "8ビット",
-                    "reason": "",
-                    "power": 5
-                },
-                {
-                    "name": "メロディー",
-                    "reason": "",
-                    "power": 5
-                },
-                {
-                    "name": "チャック",
-                    "reason": "",
-                    "power": 5
-                },
-                {
-                    "name": "ジュジュ",
-                    "reason": "",
-                    "power": 4
-                },
-                {
-                    "name": "ローラ",
-                    "reason": "",
-                    "power": 4
-                },
-                {
-                    "name": "コレット",
-                    "reason": "",
-                    "power": 4
-                },
-                {
-                    "name": "グロム",
-                    "reason": "",
-                    "power": 4
-                },
-                {
-                    "name": "バイロン",
-                    "reason": "",
-                    "power": 4
-                },
-                {
-                    "name": "エリザベス",
-                    "reason": "",
-                    "power": 4
-                },
-                {
-                    "name": "アンバー",
-                    "reason": "",
-                    "power": 4
-                }
-            ]
-        },
-        {
-            "name": {
                 "ja": "ダブルレール",
                 "en": "Double Swoosh",
-                "ko": "더블 스우시"
+                "ko": "더블 스우시",
+                "es": "Doble Swoosh",
+                "ar": "دبل سووش",
+                "fr": "Double Swoosh",
+                "zh-tw": "雙重擦過"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Double_Swoosh.png",
@@ -3227,31 +2775,13 @@
         },
         {
             "name": {
-                "ja": "セル ディビジョン",
-                "en": "Cell Division",
-                "ko": "셀 디비전"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スプリング トラップ",
-                "en": "Spring Trap",
-                "ko": "스프링 트랩"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "ピンボールドリーム",
                 "en": "Pinball Dreams",
-                "ko": "핀볼 드림즈"
+                "ko": "핀볼 드림즈",
+                "es": "Sueños de Pinball",
+                "ar": "أحلام البنبول",
+                "fr": "Rêves de Flipper",
+                "zh-tw": "彈珠夢"
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Pinball_Dreams.png",
@@ -3398,7 +2928,11 @@
             "name": {
                 "ja": "トロッコの狂気",
                 "en": "Minecart Madness",
-                "ko": "마인카트 매드니스"
+                "ko": "마인카트 매드니스",
+                "es": "Locura de la Vagoneta",
+                "ar": "جنون عربة التعدين",
+                "fr": "Folie du Wagonnet",
+                "zh-tw": "礦車瘋狂"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Minecart_Madness.png",
@@ -3490,7 +3024,11 @@
             "name": {
                 "ja": "空飛ぶ絨毯",
                 "en": "Flying Fantasies",
-                "ko": "플라잉 판타지"
+                "ko": "플라잉 판타지",
+                "es": "Fantasías Voladoras",
+                "ar": "أحلام طائرة",
+                "fr": "Fantaisies Volantes",
+                "zh-tw": "飛行幻想"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Flying_Fantasies.png",
@@ -3550,20 +3088,13 @@
         },
         {
             "name": {
-                "ja": "ロイヤル ランウェイ",
-                "en": "Royal Runway",
-                "ko": "로열 런웨이"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "中央コート",
                 "en": "Center Stage",
-                "ko": "센터 스테이지"
+                "ko": "센터 스테이지",
+                "es": "Escenario Central",
+                "ar": "المسرح المركزي",
+                "fr": "Scène Centrale",
+                "zh-tw": "中央舞台"
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Center_Stage.png",
@@ -3713,75 +3244,13 @@
         },
         {
             "name": {
-                "ja": "カーブボール",
-                "en": "Curveball",
-                "ko": "커브볼"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スーパースター",
-                "en": "Superstar",
-                "ko": "슈퍼스타"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ピット ストップ",
-                "en": "Pit Stop",
-                "ko": "피트 스톱"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "サイド ストーリー",
-                "en": "Side Story",
-                "ko": "사이드 스토리"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "クロス カット",
-                "en": "Cross Cut",
-                "ko": "크로스 컷"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ストック クラッシュ",
-                "en": "Stock Crash",
-                "ko": "스톡 크래시"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "ビーチボール",
                 "en": "Beach Ball",
-                "ko": "비치 볼"
+                "ko": "비치 볼",
+                "es": "Balón de Playa",
+                "ar": "كرة الشاطئ",
+                "fr": "Ballon de Plage",
+                "zh-tw": "沙灘球"
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Beach_Ball.png",
@@ -3908,7 +3377,11 @@
             "name": {
                 "ja": "サニーサッカー",
                 "en": "Sunny Soccer",
-                "ko": "서니 사커"
+                "ko": "서니 사커",
+                "es": "Fútbol Soleado",
+                "ar": "كرة القدم المشمسة",
+                "fr": "Soccer Ensoleillé",
+                "zh-tw": "陽光足球"
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Sunny_Soccer.png",
@@ -4018,383 +3491,13 @@
         },
         {
             "name": {
-                "ja": "ビーチコンバーズ",
-                "en": "Beachcombers",
-                "ko": "비치컴버스"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ツイステッド ジェムズ",
-                "en": "Twisted Gems",
-                "ko": "트위스티드 젬스"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "アキュート アングル",
-                "en": "Acute Angle",
-                "ko": "어큐트 앵글"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スネーク ショップ",
-                "en": "Snake Shop",
-                "ko": "스네이크 샵"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "サンストローク",
-                "en": "Sunstroke",
-                "ko": "선스트로크"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "バーニング サンズ",
-                "en": "Burning Sands",
-                "ko": "버닝 샌즈"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "フィギュア エイト",
-                "en": "Figure 8",
-                "ko": "피겨 8"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "デザーテッド バーテックス",
-                "en": "Deserted Vertex",
-                "ko": "데저티드 버텍스"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "アウトレイジャス アウトバック",
-                "en": "Outrageous Outback",
-                "ko": "아웃레이저스 아웃백"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "バレン バッドランズ",
-                "en": "Barren Badlands",
-                "ko": "배런 배들랜즈"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ロイヤル フラッシュ",
-                "en": "Royal Flush",
-                "ko": "로열 플러시"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "オーバーグロウン キャニオン",
-                "en": "Overgrown Canyon",
-                "ko": "오버그로운 캐니언"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "フィールド ゴール",
-                "en": "Field Goal",
-                "ko": "필드 골"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ポスト ヘイスト",
-                "en": "Post Haste",
-                "ko": "포스트 헤이스트"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スラローム スラム",
-                "en": "Slalom Slam",
-                "ko": "슬라롬 슬램"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "コース コース",
-                "en": "Coarse Course",
-                "ko": "코스 코스"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "パワー ショット",
-                "en": "Power Shot",
-                "ko": "파워 샷"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "クリティカル クロッシング",
-                "en": "Critical Crossing",
-                "ko": "크리티컬 크로싱"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "フォーセイクン フォールズ",
-                "en": "Forsaken Falls",
-                "ko": "포세이큰 폴스"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "タイム アウト",
-                "en": "Time Out",
-                "ko": "타임 아웃"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スワーリング ストーム",
-                "en": "Swirling Storm",
-                "ko": "스월링 스톰"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "エクセレント エスカペード",
-                "en": "Excellent Escapade",
-                "ko": "엑셀런트 이스케이프"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スペア スペース",
-                "en": "Spare Space",
-                "ko": "스페어 스페이스"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "シャビー シェルズ",
-                "en": "Shabby Shells",
-                "ko": "섀비 쉘스"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "シークレット サプライズ",
-                "en": "Secret Surprise",
-                "ko": "시크릿 서프라이즈"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "グリーン デッキ",
-                "en": "Green Deck",
-                "ko": "그린 덱"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "バンディット コーブ",
-                "en": "Bandit Cove",
-                "ko": "밴딧 코브"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "トルネード リング",
-                "en": "Tornado Ring",
-                "ko": "토네이도 링"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ディーパー デンジャー",
-                "en": "Deeper Danger",
-                "ko": "디퍼 데인저"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ランド アホイ",
-                "en": "Land Ahoy",
-                "ko": "랜드 아호이"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ポイント オブ ビュー",
-                "en": "Point Of View",
-                "ko": "포인트 오브 뷰"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "サーキュラー キャニオン",
-                "en": "Circular Canyon",
-                "ko": "서큘러 캐니언"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ロッキー ブロックス",
-                "en": "Rocky Blocks",
-                "ko": "록키 블록스"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ストッキー ストッケイズ",
-                "en": "Stocky Stockades",
-                "ko": "스토키 스토케이즈"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "安全センター",
                 "en": "Safety Center",
-                "ko": "세이프티 센터"
+                "ko": "세이프티 센터",
+                "es": "Centro de Seguridad",
+                "ar": "مركز السلامة",
+                "fr": "Centre de Sécurité",
+                "zh-tw": "安全中心"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Safety_Center.png",
@@ -4444,64 +3547,13 @@
         },
         {
             "name": {
-                "ja": "コア クランブル",
-                "en": "Core Crumble",
-                "ko": "코어 크럼블"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "トレジャー ハント",
-                "en": "Treasure Hunt",
-                "ko": "트레저 헌트"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "トゥー サウザンド レイクス",
-                "en": "Two Thousand Lakes",
-                "ko": "투 사우전드 레이크스"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "バンク ショット",
-                "en": "Bank Shot",
-                "ko": "뱅크 샷"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "プレイボックス",
-                "en": "Playbox",
-                "ko": "플레이박스"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "ペナルティキック",
                 "en": "Penalty Kick",
-                "ko": "페널티 킥"
+                "ko": "페널티 킥",
+                "es": "Penalti",
+                "ar": "ركلة جزاء",
+                "fr": "Tir au But",
+                "zh-tw": "點球"
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Penalty_Kick.png",
@@ -4601,383 +3653,13 @@
         },
         {
             "name": {
-                "ja": "サブスティテュート",
-                "en": "Substitute",
-                "ko": "서브스티튜트"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ハッピー フィート",
-                "en": "Happy Feet",
-                "ko": "해피 피트"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スクエア オフ",
-                "en": "Square Off",
-                "ko": "스퀘어 오프"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "バレル ボールト",
-                "en": "Barrel Vault",
-                "ko": "배럴 볼트"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "クォーター パウンダー",
-                "en": "Quarter Pounder",
-                "ko": "쿼터 파운더"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ハイ スコア",
-                "en": "High Score",
-                "ko": "하이 스코어"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "テンプル オブ ブーム",
-                "en": "Temple Of Boom",
-                "ko": "템플 오브 붐"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ブレイクアウト ブロウル",
-                "en": "Breakout Brawl",
-                "ko": "브레이크아웃 브롤"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "コントローラー カオス",
-                "en": "Controller Chaos",
-                "ko": "컨트롤러 카오스"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ゴールデン ハックス",
-                "en": "Golden Hacks",
-                "ko": "골든 핵스"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ストリート ブロウラー 2",
-                "en": "Street Brawler 2",
-                "ko": "스트리트 브롤러 2"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ギャラクシー アリーナ",
-                "en": "Galaxy Arena",
-                "ko": "갤럭시 아레나"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ショルダー バッシュ",
-                "en": "Shoulder Bash",
-                "ko": "숄더 배시"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ウェル カット",
-                "en": "Well Cut",
-                "ko": "웰 컷"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "センター フィールド",
-                "en": "Center Field",
-                "ko": "센터 필드"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ワープド ビーチ",
-                "en": "Warped Beach",
-                "ko": "워프드 비치"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "サウザンド レイクス",
-                "en": "Thousand Lakes",
-                "ko": "사우전드 레이크스"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ヒート ウェーブ",
-                "en": "Heat Wave",
-                "ko": "히트 웨이브"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "コブウェブ",
-                "en": "Cobweb",
-                "ko": "코브웹"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "トラフィック ジャム",
-                "en": "Traffic Jam",
-                "ko": "트래픽 잼"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "クロスロード",
-                "en": "Crossroads",
-                "ko": "크로스로드"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スーパー シティ",
-                "en": "Super City",
-                "ko": "슈퍼 시티"
-            },
-            "gameMode": "Super City Rampage",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ヌルフク ヌレバク",
-                "en": "Nruhc Nrevac",
-                "ko": "느루흐크 느레바크"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "リバーサイド リング",
-                "en": "Riverside Ring",
-                "ko": "리버사이드 링"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "シャドウ スピリッツ",
-                "en": "Shadow Spirits",
-                "ko": "섀도우 스피리츠"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "エッグシェル",
-                "en": "Eggshell",
-                "ko": "에그쉘"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ウィル オブ ザ ウィスプ",
-                "en": "Will Of The Wisp",
-                "ko": "윌 오브 더 위스프"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ビクター バレー",
-                "en": "Victor Valley",
-                "ko": "빅터 밸리"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "グラッシー ゴージ",
-                "en": "Grassy Gorge",
-                "ko": "그래시 고지"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "クラッシュ コロシアム",
-                "en": "Clash Colosseum",
-                "ko": "클래시 콜로세움"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スノーボール ファイト",
-                "en": "Snowball Fight",
-                "ko": "스노우볼 파이트"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "マッシブ アタック",
-                "en": "Massive Attack",
-                "ko": "매시브 어택"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "コントロール グランデ",
-                "en": "Control Grande",
-                "ko": "컨트롤 그란데"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ペリメーター",
-                "en": "Perimeter",
-                "ko": "페리미터"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "オープンビジネス",
                 "en": "Open Business",
-                "ko": "오픈 비즈니스"
+                "ko": "오픈 비즈니스",
+                "es": "Negocios Abiertos",
+                "ar": "أعمال مفتوحة",
+                "fr": "Affaires Ouvertes",
+                "zh-tw": "開放商務"
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Open_Business.png",
@@ -5149,7 +3831,11 @@
             "name": {
                 "ja": "パラレルワールド",
                 "en": "Parallel Plays",
-                "ko": "패럴렐 플레이즈"
+                "ko": "패럴렐 플레이즈",
+                "es": "Juegos Paralelos",
+                "ar": "ألعاب موازية",
+                "fr": "Jeux Parallèles",
+                "zh-tw": "平行遊戲"
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Parallel_Plays.png",
@@ -5269,20 +3955,13 @@
         },
         {
             "name": {
-                "ja": "スプリット",
-                "en": "Split",
-                "ko": "스플릿"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "言い訳厳禁",
                 "en": "No Excuses",
-                "ko": "노 엑스큐즈"
+                "ko": "노 엑스큐즈",
+                "es": "Sin Excusas",
+                "ar": "لا عذر",
+                "fr": "Pas d'Excuses",
+                "zh-tw": "不要藉口"
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/No_Excuses.png",
@@ -5347,53 +4026,13 @@
         },
         {
             "name": {
-                "ja": "コーナー ケース",
-                "en": "Corner Case",
-                "ko": "코너 케이스"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ホップ スキップ アンド ジャンプ",
-                "en": "Hop Skip And Jump",
-                "ko": "홉 스킵 앤 점프"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ポータル オーバーロード",
-                "en": "Portal Overload",
-                "ko": "포탈 오버로드"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "モッシュ ピット",
-                "en": "Mosh Pit",
-                "ko": "모시 피트"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "炎のリング",
                 "en": "Ring of Fire",
-                "ko": "링 오브 파이어"
+                "ko": "링 오브 파이어",
+                "es": "Anillo de Fuego",
+                "ar": "حلقة النار",
+                "fr": "Anneau de Feu",
+                "zh-tw": "火環"
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Ring_Of_Fire.png",
@@ -5533,53 +4172,13 @@
         },
         {
             "name": {
-                "ja": "クイック スキップ",
-                "en": "Quick Skip",
-                "ko": "퀵 스킵"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ターンアラウンド",
-                "en": "Turnaround",
-                "ko": "턴어라운드"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ウォッチ アウト",
-                "en": "Watch Out",
-                "ko": "와치 아웃"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "シズリング サプライズ",
-                "en": "Sizzling Surprise",
-                "ko": "시즐링 서프라이즈"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "ビートルバトル",
                 "en": "Dueling Beetles",
-                "ko": "듀얼링 비틀즈"
+                "ko": "듀얼링 비틀즈",
+                "es": "Escarabajos en Duelo",
+                "ar": "خنافس متصارعة",
+                "fr": "Scarabées en Duel",
+                "zh-tw": "對戰甲蟲"
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Dueling_Beetles.png",
@@ -5704,97 +4303,13 @@
         },
         {
             "name": {
-                "ja": "フラッディド ダム",
-                "en": "Flooded Dam",
-                "ko": "플러디드 댐"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "オープン プラザ",
-                "en": "Open Plaza",
-                "ko": "오픈 플라자"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "エンサークルメント",
-                "en": "Encirclement",
-                "ko": "인서클먼트"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ウィンター パーティー",
-                "en": "Winter Party",
-                "ko": "윈터 파티"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ジャンピング ビーンズ",
-                "en": "Jumping Beans",
-                "ko": "점핑 빈즈"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ファスト フォーク",
-                "en": "Fast Fork",
-                "ko": "패스트 포크"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "クリーン ショット",
-                "en": "Clean Shot",
-                "ko": "클린 샷"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ボクシング デイ",
-                "en": "Boxing Day",
-                "ko": "복싱 데이"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "廃れたアーケード",
                 "en": "Rustic Arcade",
-                "ko": "러스틱 아케이드"
+                "ko": "러스틱 아케이드",
+                "es": "Arcade Rústico",
+                "ar": "صالة الألعاب القديمة",
+                "fr": "Arcade Rustique",
+                "zh-tw": "古老的遊戲廳"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Rustic_Arcade.png",
@@ -5904,185 +4419,13 @@
         },
         {
             "name": {
-                "ja": "アレーヌ アン フォリー",
-                "en": "Arene En Folie",
-                "ko": "아렌 엔 폴리"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "レッド ヘリング",
-                "en": "Red Herring",
-                "ko": "레드 헤링"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "セントラル トラフィック",
-                "en": "Central Traffic",
-                "ko": "센트럴 트래픽"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スネークド アサルト",
-                "en": "Snaked Assault",
-                "ko": "스네이크드 어솔트"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "コンベヤー クラッシュ",
-                "en": "Conveyor Clash",
-                "ko": "컨베이어 클래시"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "トライアンビレート",
-                "en": "Triumvirate",
-                "ko": "트라이엄비레이트"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "クイック トラベル",
-                "en": "Quick Travel",
-                "ko": "퀵 트래블"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "マグネティック フィールド",
-                "en": "Magnetic Field",
-                "ko": "마그네틱 필드"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ザ ギャラクシー",
-                "en": "The Galaxy",
-                "ko": "더 갤럭시"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "エンズ ミート",
-                "en": "Ends Meet",
-                "ko": "엔즈 미트"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ミドル グラウンド",
-                "en": "Middle Ground",
-                "ko": "미들 그라운드"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "クローズ コール",
-                "en": "Close Call",
-                "ko": "클로즈 콜"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ジップ ザップ",
-                "en": "Zip Zap",
-                "ko": "집 잽"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ダブル ブラフ",
-                "en": "Double Bluff",
-                "ko": "더블 블러프"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スネーク アウト",
-                "en": "Snake Out",
-                "ko": "스네이크 아웃"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スプリット ディファレンス",
-                "en": "Split Difference",
-                "ko": "스플릿 디퍼런스"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "ゴールドアームの渓谷",
                 "en": "Goldarm Gulch",
-                "ko": "골드암 걸치"
+                "ko": "골드암 걸치",
+                "es": "Cañón de Brazo de Oro",
+                "ar": "وادي ذهبي الذراع",
+                "fr": "Ravin de Bras d'Or",
+                "zh-tw": "金臂峽谷"
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Goldarm_Gulch.png",
@@ -6219,7 +4562,11 @@
             "name": {
                 "ja": "ベルの岩",
                 "en": "Belle's Rock",
-                "ko": "벨스 록"
+                "ko": "벨스 록",
+                "es": "Roca de Belle",
+                "ar": "صخرة بيل",
+                "fr": "Rocher de Belle",
+                "zh-tw": "貝爾的岩石"
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Belles_Rock.png",
@@ -6339,295 +4686,13 @@
         },
         {
             "name": {
-                "ja": "クライムウォーター",
-                "en": "Crimewater",
-                "ko": "크라임워터"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ダーク ファンタジーズ",
-                "en": "Dark Fantasies",
-                "ko": "다크 판타지"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "リスキー クリフス",
-                "en": "Risky Cliffs",
-                "ko": "리스키 클리프스"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "イグニッション",
-                "en": "Ignition",
-                "ko": "이그니션"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ミスティック タッチ",
-                "en": "Mystic Touch",
-                "ko": "미스틱 터치"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "トラップ マップ",
-                "en": "Trap Map",
-                "ko": "트랩 맵"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スターダスト ストーム",
-                "en": "Stardust Storm",
-                "ko": "스타더스트 스톰"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "コットンキャンディドリーム",
-                "en": "Cotton Candy Dreams",
-                "ko": "코튼 캔디 드림"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ツイステッドトルペード",
-                "en": "Twisted Torpedo",
-                "ko": "트위스티드 토르페도"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ジェムバッシュ",
-                "en": "Gem Bash",
-                "ko": "젬 배시"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "モラセス",
-                "en": "Molasses",
-                "ko": "당밀"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "サイドストライク",
-                "en": "Side Strike",
-                "ko": "사이드 스트라이크"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ウェーブダッシュ",
-                "en": "Wavedash",
-                "ko": "웨이브대시"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "レティナ",
-                "en": "Retina",
-                "ko": "망막"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "タートルシェル",
-                "en": "Turtle Shell",
-                "ko": "거북이 등껍질"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "付箋紙",
-                "en": "Sticky Notes",
-                "ko": "스티커 노트"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "カバークラウド",
-                "en": "Cover Crowd",
-                "ko": "커버 크라우드"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "バンディットフック",
-                "en": "Bandit Hook",
-                "ko": "도적 갈고리"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スプリングオニオン",
-                "en": "Spring Onions",
-                "ko": "파"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "タイムワープ",
-                "en": "Time Warp",
-                "ko": "타임워프"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "アイアンケーブル",
-                "en": "Iron Cables",
-                "ko": "철 케이블"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "サボタージュストリップ",
-                "en": "Sabotage Strip",
-                "ko": "사보타주 스트립"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ストームアタック",
-                "en": "Storm Attack",
-                "ko": "폭풍 공격"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "フランキングマヌーバー",
-                "en": "Flanking Maneuver",
-                "ko": "측면 기동"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スプラッシュアウト",
-                "en": "Splash Out",
-                "ko": "스플래시 아웃"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ディープエンド",
-                "en": "Deep End",
-                "ko": "깊은 끝"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "枯れた川",
                 "en": "Dried Up River",
-                "ko": "마른 강"
+                "ko": "마른 강",
+                "es": "Río Seco",
+                "ar": "نهر مجفف",
+                "fr": "Rivière Asséchée",
+                "zh-tw": "枯竭的河流"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Dried_Up_River.png",
@@ -6682,31 +4747,13 @@
         },
         {
             "name": {
-                "ja": "キャニオンリバー",
-                "en": "Canyon Rivers",
-                "ko": "협곡 강"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ルイスの復讐",
-                "en": "Luis Revenge",
-                "ko": "루이스의 복수"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "燃える不死鳥",
                 "en": "Flaring Phoenix",
-                "ko": "타오르는 불사조"
+                "ko": "타오르는 불사조",
+                "es": "Fénix Llameante",
+                "ar": "الفينيق المتوهج",
+                "fr": "Phénix Flamboyant",
+                "zh-tw": "火鳳凰"
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Flaring_Phoenix.png",
@@ -6841,130 +4888,13 @@
         },
         {
             "name": {
-                "ja": "ダイアゴナルアレイ",
-                "en": "Diagonal Alley",
-                "ko": "대각선 골목"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ガラガラヘビの峡谷",
-                "en": "Rattlesnake Ravine",
-                "ko": "방울뱀 협곡"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "エレクトリックゾーン",
-                "en": "Electric Zone",
-                "ko": "전기 구역"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "キューブフォース",
-                "en": "Cube Force",
-                "ko": "큐브 포스"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "博物館の夜",
-                "en": "Night At The Museum",
-                "ko": "박물관의 밤"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "デンジャーゾーン",
-                "en": "Danger Zone",
-                "ko": "위험 구역"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ファームグリップ",
-                "en": "Firm Grip",
-                "ko": "단단한 손아귀"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "バイナリーコーディング",
-                "en": "Binary Coding",
-                "ko": "이진 코딩"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ピアスド",
-                "en": "Pierced",
-                "ko": "관통됨"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ジェムソース",
-                "en": "Gem Source",
-                "ko": "젬 소스"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "降伏なし",
-                "en": "No Surrender",
-                "ko": "항복 없음"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "見えざる大蛇",
                 "en": "Shrouding Serpent",
-                "ko": "감싸는 뱀"
+                "ko": "감싸는 뱀",
+                "es": "Serpiente Envuelta",
+                "ar": "ثعبان مغطى",
+                "fr": "Serpent Enveloppant",
+                "zh-tw": "隱藏的巨蛇"
             },
             "gameMode": "Duels",
             "image": "../../assets/MapImages/Shrouding_Serpent.png",
@@ -7024,174 +4954,13 @@
         },
         {
             "name": {
-                "ja": "ブロックアンドカウンター",
-                "en": "Block And Counter",
-                "ko": "블록 앤 카운터"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "戦士の道",
-                "en": "Warriors Way",
-                "ko": "전사의 길"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "決闘者の運命",
-                "en": "Duelists Destiny",
-                "ko": "결투자의 운명"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "鶴の草原",
-                "en": "Meadow Of The Crane",
-                "ko": "학의 초원"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "忍者チェックメイト",
-                "en": "Ninja Checkmate",
-                "ko": "닌자 체크메이트"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "硬い峡谷",
-                "en": "Rigid Ravines",
-                "ko": "단단한 협곡"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "モンキーメイズ",
-                "en": "Monkey Maze",
-                "ko": "원숭이 미로"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "タイガートラップ",
-                "en": "Tiger Trap",
-                "ko": "호랑이 덫"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "デンジャーチャンバー",
-                "en": "Danger Chamber",
-                "ko": "위험의 방"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "無限の破滅",
-                "en": "Infinite Doom",
-                "ko": "무한의 파멸"
-            },
-            "gameMode": "Wipeout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "キャンプ場",
-                "en": "Camping Grounds",
-                "ko": "캠핑장"
-            },
-            "gameMode": "Wipeout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "フレンドリーファイアオフ",
-                "en": "Friendly Fire Off",
-                "ko": "팀 데미지 없음"
-            },
-            "gameMode": "Wipeout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "トランスロケーター交換",
-                "en": "Translocator Exchange",
-                "ko": "위치 교환기"
-            },
-            "gameMode": "Wipeout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スレイヤーズパラダイス",
-                "en": "Slayers Paradise",
-                "ko": "슬레이어의 낙원"
-            },
-            "gameMode": "Wipeout",
-            "image": "../../assets/MapImages/Slayers_Paradise.png",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ウィキッドトゥイッグ",
-                "en": "Wicked Twig",
-                "ko": "사악한 가지"
-            },
-            "gameMode": "Wipeout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "四重傷",
                 "en": "Quad Damage",
-                "ko": "4배 데미지"
+                "ko": "4배 데미지",
+                "es": "Cuádruple Daño",
+                "ar": "ضرر رباعي",
+                "fr": "Quad Dégâts",
+                "zh-tw": "四倍傷害"
             },
             "gameMode": "Wipeout",
             "image": "../../assets/MapImages/Quad_Damage.png",
@@ -7261,20 +5030,13 @@
         },
         {
             "name": {
-                "ja": "トレーニング島",
-                "en": "Training Island",
-                "ko": "훈련 섬"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "オープンスペース",
                 "en": "Open Space",
-                "ko": "열린 공간"
+                "ko": "열린 공간",
+                "es": "Espacio Abierto",
+                "ar": "مساحة مفتوحة",
+                "fr": "Espace Ouvert",
+                "zh-tw": "開放空間"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Open_Space.png",
@@ -7364,218 +5126,13 @@
         },
         {
             "name": {
-                "ja": "オフザライン",
-                "en": "Off The Line",
-                "ko": "라인 오프"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "リバーサイド",
-                "en": "Riverside",
-                "ko": "강변"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "流れる泉",
-                "en": "Flowing Springs",
-                "ko": "흐르는 샘"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ダブルサイド",
-                "en": "Double-Sided",
-                "ko": "양면"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ヘアドライヤー処理",
-                "en": "Hairdryer Treatment",
-                "ko": "드라이기 처리"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ジェム交換",
-                "en": "Gem Exchange",
-                "ko": "젬 교환"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "対向要塞",
-                "en": "Opposing Forts",
-                "ko": "대치 요새"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "霊安室",
-                "en": "The Mortuary",
-                "ko": "영안실"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "オープンゾーン",
-                "en": "Open Zone",
-                "ko": "열린 구역"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "新しい視点",
-                "en": "New Perspective",
-                "ko": "새로운 관점"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "Xは宝の印",
-                "en": "X Marks The Spot",
-                "ko": "X자로 표시된 지점"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "触れられない",
-                "en": "Cant Touch This",
-                "ko": "손댈 수 없음"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "エクストラバウンシー",
-                "en": "Extra Bouncy",
-                "ko": "엑스트라 바운스"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "フルチルト",
-                "en": "Full Tilt",
-                "ko": "완전 기울기"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ハイスコア",
-                "en": "High Score",
-                "ko": "최고 점수"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ピンポン",
-                "en": "Ping Pong",
-                "ko": "핑퐁"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ダブルジェパディ",
-                "en": "Double Jeopardy",
-                "ko": "이중 위험"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "バウンスさせろ",
-                "en": "Make It Bounce",
-                "ko": "바운스시켜라"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "隠れた敵",
-                "en": "Hidden Enemy",
-                "ko": "숨은 적"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "オープンフィールド",
                 "en": "Out in the Open",
-                "ko": "넓은 공간에서"
+                "ko": "넓은 공간에서",
+                "es": "A la Vista",
+                "ar": "في الهواء الطلق",
+                "fr": "En Plein Air",
+                "zh-tw": "開放空間"
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Out_In_The_Open.png",
@@ -7720,152 +5277,13 @@
         },
         {
             "name": {
-                "ja": "リバーバンク",
-                "en": "River Banks",
-                "ko": "강둑"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ツリーフェクタ",
-                "en": "Treefecta",
-                "ko": "트리펙타"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "半分満たされたグラス",
-                "en": "Glass Half Full",
-                "ko": "반이 찬 잔"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "二元性",
-                "en": "Duality",
-                "ko": "이중성"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "振り向くな",
-                "en": "Dont Turn Around",
-                "ko": "돌아보지 마"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "サイドバイサイド",
-                "en": "Side By Side",
-                "ko": "나란히"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "トライデント",
-                "en": "Trident",
-                "ko": "삼지창"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "アンバランス",
-                "en": "Imbalance",
-                "ko": "불균형"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "箱詰め",
-                "en": "Boxed In",
-                "ko": "갇힘"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ズームアウト",
-                "en": "Zoomed Out",
-                "ko": "줌아웃"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ジュハのテストチャンバー",
-                "en": "Juhas Test Chamber",
-                "ko": "주하의 시험실"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ハミルトンの最期",
-                "en": "Hamiltons End",
-                "ko": "해밀턴의 최후"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ブラックリバー",
-                "en": "Black River",
-                "ko": "검은 강"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "ガールズファイト",
                 "en": "Petticoat Duel",
-                "ko": "페티코트 결투"
+                "ko": "페티코트 결투",
+                "es": "Duelo de Enaguas",
+                "ar": "معركة الفستان",
+                "fr": "Duel",
+                "zh-tw": "女士對決"
             },
             "gameMode": "Duels",
             "image": "../../assets/MapImages/Petticoat_Duel.png",
@@ -7920,317 +5338,13 @@
         },
         {
             "name": {
-                "ja": "燕切り",
-                "en": "Swallow Cut",
-                "ko": "제비 베기"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "言い訳無用",
-                "en": "No Excuses",
-                "ko": "변명 없음"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "グラディエーター",
-                "en": "Gladiators",
-                "ko": "검투사"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ホットヘッド",
-                "en": "Hotheaded",
-                "ko": "성급한"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "クロスロード",
-                "en": "Crossroads",
-                "ko": "교차로"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "四つのドア",
-                "en": "Four Doors",
-                "ko": "네 개의 문"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "隠れ場所なし",
-                "en": "Nowhere To Hide",
-                "ko": "숨을 곳 없음"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "オフセット強奪",
-                "en": "Offset Heist",
-                "ko": "오프셋 하이스트"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ラッシュアワー",
-                "en": "Rush Hour",
-                "ko": "러시아워"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "健全な中間地",
-                "en": "Healthy Middle Ground",
-                "ko": "건전한 중간지대"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "うっそうとした極",
-                "en": "Lush Poles",
-                "ko": "무성한 극지"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "堅固な中心",
-                "en": "Solid Center",
-                "ko": "단단한 중심"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "アイアンスタンドオフ",
-                "en": "Iron Standoff",
-                "ko": "철의 대치"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "センターコントロール",
-                "en": "Center Control",
-                "ko": "중앙 통제"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "アイアンカバー",
-                "en": "Iron Cover",
-                "ko": "철 커버"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "一歩ずつ",
-                "en": "Step By Step",
-                "ko": "한 걸음씩"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ハードリミット",
-                "en": "Hard Limits",
-                "ko": "강한 제한"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "円運動",
-                "en": "Circular Motion",
-                "ko": "원운동"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "アイアンコリドー",
-                "en": "Iron Corridor",
-                "ko": "철의 회랑"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "モグラたたき",
-                "en": "Mogura Tataki",
-                "ko": "두더지 잡기"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "四つの湖",
-                "en": "Four Lakes",
-                "ko": "네 개의 호수"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "不気味な島",
-                "en": "Grim Island",
-                "ko": "음침한 섬"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "アイアンコア",
-                "en": "Iron Core",
-                "ko": "철의 핵심"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "デスループ",
-                "en": "Death Loop",
-                "ko": "죽음의 순환"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "地面に目を向けて",
-                "en": "Eyes On The Ground",
-                "ko": "땅을 보며"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ずる賢いチョークポイント",
-                "en": "Cheeky Chokepoint",
-                "ko": "교활한 요충지"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "悪魔の通路",
-                "en": "Devils Pass",
-                "ko": "악마의 통로"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "傷ついた戦場",
-                "en": "Battered Battlefield",
-                "ko": "상처 입은 전장"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "果てしなき不運",
                 "en": "Infinite Doom",
-                "ko": "무한한 파멸"
+                "ko": "무한한 파멸",
+                "es": "Perdición Infinita",
+                "ar": "مصير لا نهاية له",
+                "fr": "Destin Infini",
+                "zh-tw": "無盡的厄運"
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Infinite_Doom.png",
@@ -8287,7 +5401,11 @@
             "name": {
                 "ja": "暴徒のオアシス",
                 "en": "Slayers Paradise",
-                "ko": "슬레이어의 낙원"
+                "ko": "슬레이어의 낙원",
+                "es": "Paraíso de Asesinos",
+                "ar": "جنة القتلة",
+                "fr": "Paradis des Tueurs",
+                "zh-tw": "殺手的天堂"
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/Slayers_Paradise.png",
@@ -8342,31 +5460,13 @@
         },
         {
             "name": {
-                "ja": "ドライシーズン",
-                "en": "Dry Season",
-                "ko": "건기"
-            },
-            "gameMode": "Wipeout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "踏み石",
-                "en": "Stepping Stones",
-                "ko": "디딤돌"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "ラストストップ",
                 "en": "Last Stop",
-                "ko": "종점"
+                "ko": "종점",
+                "es": "Última Parada",
+                "ar": "المحطة الأخيرة",
+                "fr": "Dernier Arrêt",
+                "zh-tw": "最後一站"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Last_Stop.png",
@@ -8518,7 +5618,11 @@
             "name": {
                 "ja": "凍てつく波紋",
                 "en": "Freezing Ripples",
-                "ko": "얼어붙은 파문"
+                "ko": "얼어붙은 파문",
+                "es": "Ondas Congeladas",
+                "ar": "تموجات متجمدة",
+                "fr": "Ondes Glaciales",
+                "zh-tw": "冰凍波紋"
             },
             "gameMode": "Brawl Ball 5v5",
             "image": "../../assets/MapImages/Freezing_Ripples.png",
@@ -8570,7 +5674,11 @@
             "name": {
                 "ja": "大波",
                 "en": "Great waves",
-                "ko": "큰 파도"
+                "ko": "큰 파도",
+                "es": "Grandes Olas",
+                "ar": "أمواج عظيمة",
+                "fr": "Grandes Vagues",
+                "zh-tw": "巨浪"
             },
             "gameMode": "Brawl Ball 5v5",
             "image": "../../assets/MapImages/Great_Waves.png",
@@ -8622,7 +5730,11 @@
             "name": {
                 "ja": "クールシェイプ",
                 "en": "Cool shapes",
-                "ko": "멋진 모양"
+                "ko": "멋진 모양",
+                "es": "Formas Geniales",
+                "ar": "أشكال باردة",
+                "fr": "Formes Cool",
+                "zh-tw": "酷炫造型"
             },
             "gameMode": "Brawl Ball 5v5",
             "image": "../../assets/MapImages/Cool_Shapes.png",
@@ -8672,53 +5784,13 @@
         },
         {
             "name": {
-                "ja": "北極圏採掘",
-                "en": "Arctic Extraction",
-                "ko": "북극 추출"
-            },
-            "gameMode": "Gem Grab 5v5",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "雪だるまの森",
-                "en": "Snowman Forest",
-                "ko": "눈사람 숲"
-            },
-            "gameMode": "Gem Grab 5v5",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "冷たい池の採石場",
-                "en": "Cold Pond Quarry",
-                "ko": "차가운 연못 채석장"
-            },
-            "gameMode": "Gem Grab 5v5",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スノーフレーク",
-                "en": "Snowflakes",
-                "ko": "눈송이"
-            },
-            "gameMode": "Gem Grab 5v5",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "ツルツルロード",
                 "en": "Slippery Road",
-                "ko": "미끄러운 길"
+                "ko": "미끄러운 길",
+                "es": "Camino Resbaladizo",
+                "ar": "طريق مليء بالانزلاق",
+                "fr": "Route Glissante",
+                "zh-tw": "滑溜溜的路"
             },
             "gameMode": "Wipeout 5v5",
             "image": "../../assets/MapImages/Slippery_Road.png",
@@ -8805,7 +5877,11 @@
             "name": {
                 "ja": "ガクブル公園",
                 "en": "Icy Ice Park",
-                "ko": "얼음 공원"
+                "ko": "얼음 공원",
+                "es": "Parque Helado",
+                "ar": "حديقة الجليد",
+                "fr": "Parc Glacial",
+                "zh-tw": "冰冷公園"
             },
             "gameMode": "Wipeout 5v5",
             "image": "../../assets/MapImages/Icy_Ice_Park.png",
@@ -8882,7 +5958,11 @@
             "name": {
                 "ja": "フロスティトラック",
                 "en": "Frosty Tracks",
-                "ko": "서리 낀 트랙"
+                "ko": "서리 낀 트랙",
+                "es": "Pistas Heladas",
+                "ar": "مسارات متجمدة",
+                "fr": "Pistes Glacées",
+                "zh-tw": "冰凍軌道"
             },
             "gameMode": "Wipeout 5v5",
             "image": "../../assets/MapImages/Frosty_Tracks.png",
@@ -8967,251 +6047,13 @@
         },
         {
             "name": {
-                "ja": "スタッキング",
-                "en": "Stacking",
-                "ko": "쌓기"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "倉庫",
-                "en": "Warehouse",
-                "ko": "창고"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "列車の上で",
-                "en": "On The Train",
-                "ko": "기차 위에서"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "オーバーザトップ",
-                "en": "Over The Top",
-                "ko": "넘어서"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "鉄格子",
-                "en": "Iron Bars",
-                "ko": "철창"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "致命的な反射",
-                "en": "Deadly Deflections",
-                "ko": "치명적인 굴절"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "破滅の水域",
-                "en": "Waters Of Doom",
-                "ko": "파멸의 물"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "無限への道",
-                "en": "Into Infinity",
-                "ko": "무한으로"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ハングリーヒポー",
-                "en": "Hungry Hippos",
-                "ko": "배고픈 하마"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スイングの支配者",
-                "en": "Sultans Of Swing",
-                "ko": "스윙의 술탄"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "邪悪な渦",
-                "en": "Vicious Vortex",
-                "ko": "사나운 소용돌이"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "次元降下",
-                "en": "Descending Dimensions",
-                "ko": "하강하는 차원"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "シューティングスター",
-                "en": "Shooting Star",
-                "ko": "슈팅 스타"
-            },
-            "gameMode": "Wipeout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "クロッシング",
-                "en": "Crossing",
-                "ko": "크로싱"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "サイドジャンプ",
-                "en": "Side Jump",
-                "ko": "사이드 점프"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ストレンジ",
-                "en": "Strange",
-                "ko": "스트레인지"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ラッシュ",
-                "en": "Rush",
-                "ko": "러쉬"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "リバーベッド",
-                "en": "Riverbed",
-                "ko": "리버베드"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "レーンキープ",
-                "en": "Stay In Your Lane",
-                "ko": "레인 유지"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "クローズクォーターズ",
-                "en": "Close Quarters",
-                "ko": "클로즈 쿼터스"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "グレートディバイド",
-                "en": "The Great Divide",
-                "ko": "그레이트 디바이드"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "チェッカード",
-                "en": "Checkered",
-                "ko": "체크무늬"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "レイヤーケーキ",
                 "en": "Layer Bake",
-                "ko": "레이어 베이크"
+                "ko": "레이어 베이크",
+                "es": "Capas de Pastel",
+                "ar": "طبقات الكيك",
+                "fr": "Gâteau en Couches",
+                "zh-tw": "分層蛋糕"
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/layer_bake.png",
@@ -9278,7 +6120,11 @@
             "name": {
                 "ja": "大いなる入口",
                 "en": "The Great Open",
-                "ko": "그레이트 오픈"
+                "ko": "그레이트 오픈",
+                "es": "La Gran Apertura",
+                "ar": "الفتح الكبير",
+                "fr": "La Grande Ouverture",
+                "zh-tw": "偉大的開放"
             },
             "gameMode": "Bounty",
             "image": "../../assets/MapImages/The_Great_Open.png",
@@ -9343,20 +6189,13 @@
         },
         {
             "name": {
-                "ja": "シズリングチェンバー",
-                "en": "Sizzling Chambers",
-                "ko": "시즐링 챔버"
-            },
-            "gameMode": "Knockout 5v5",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "狙撃手たちの楽園",
                 "en": "Marksmans Paradise",
-                "ko": "마크스맨 파라다이스"
+                "ko": "마크스맨 파라다이스",
+                "es": "Paraíso de los Tiradores",
+                "ar": "جنة القناصين",
+                "fr": "Paradis des Tireurs",
+                "zh-tw": "狙擊手的天堂"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Marksmans_Paradise.png",
@@ -9411,31 +6250,13 @@
         },
         {
             "name": {
-                "ja": "ゴールキーパーズドリーム",
-                "en": "Goalkeepers Dream",
-                "ko": "골키퍼의 꿈"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "デザートテンドリル",
-                "en": "Desert Tendrils",
-                "ko": "사막의 덩굴"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "新たなる地平",
                 "en": "New Horizons",
-                "ko": "뉴 호라이즌"
+                "ko": "뉴 호라이즌",
+                "es": "Nuevos Horizontes",
+                "ar": "آفاق جديدة",
+                "fr": "Nouveaux Horizons",
+                "zh-tw": "新地平線"
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/New_Horizons.png",
@@ -9527,7 +6348,11 @@
             "name": {
                 "ja": "サスペンダーズ",
                 "en": "Suspenders",
-                "ko": "서스펜더"
+                "ko": "서스펜더",
+                "es": "Tirantes",
+                "ar": "حمالات الصدر",
+                "fr": "Bretelles",
+                "zh-tw": "吊帶"
             },
             "gameMode": "Brawl Ball 5v5",
             "image": "",
@@ -9577,53 +6402,13 @@
         },
         {
             "name": {
-                "ja": "ジェミングチャネル",
-                "en": "Gemming Channels",
-                "ko": "젬 채널"
-            },
-            "gameMode": "Gem Grab 5v5",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "クリスピークリプト",
-                "en": "Crispy Crypt",
-                "ko": "바삭한 묘지"
-            },
-            "gameMode": "Knockout 5v5",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "フィフティファイブ",
-                "en": "Fiftyfive",
-                "ko": "피프티파이브"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ビトウィーンザリバーズ",
-                "en": "Between The Rivers",
-                "ko": "강 사이"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "四段階層",
                 "en": "Four Levels",
-                "ko": "네 개의 레벨"
+                "ko": "네 개의 레벨",
+                "es": "Cuatro Niveles",
+                "ar": "أربعة مستويات",
+                "fr": "Quatre Niveaux",
+                "zh-tw": "四層"
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Four_Levels.png",
@@ -9718,64 +6503,13 @@
         },
         {
             "name": {
-                "ja": "バーニングフレアーズ",
-                "en": "Burning Flares",
-                "ko": "불타는 플레어"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "シャッフルシティ",
-                "en": "Shuffle City",
-                "ko": "셔플 시티"
-            },
-            "gameMode": "Knockout 5v5",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "シズリングチェンバー",
-                "en": "Sizzling Chambers",
-                "ko": "시즐링 챔버"
-            },
-            "gameMode": "Wipeout 5v5",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "クリスピークリプト",
-                "en": "Crispy Crypt",
-                "ko": "바삭한 묘지"
-            },
-            "gameMode": "Wipeout 5v5",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "シャッフルシティ",
-                "en": "Shuffle City",
-                "ko": "셔플 시티"
-            },
-            "gameMode": "Wipeout 5v5",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "合流地点",
                 "en": "Riverbank Crossing",
-                "ko": "강변 횡단"
+                "ko": "강변 횡단",
+                "es": "Cruce del Río",
+                "ar": "عبور الضفة",
+                "fr": "Traversée de la Rive",
+                "zh-tw": "河岸交叉"
             },
             "gameMode": "Knockout 5v5",
             "image": "../../assets/MapImages/Riverbank_Crossing.png",
@@ -9860,218 +6594,13 @@
         },
         {
             "name": {
-                "ja": "フランクアタック",
-                "en": "Flank Attack",
-                "ko": "측면 공격"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "アイリスインターベンション",
-                "en": "Iris Intervention",
-                "ko": "아이리스 개입"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スパイダークローラー",
-                "en": "Spider Crawler",
-                "ko": "스파이더 크롤러"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "オフサイドトラップ",
-                "en": "Offside Trap",
-                "ko": "오프사이드 트랩"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スニーキースニーク",
-                "en": "Sneaky Sneak",
-                "ko": "살금살금"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "アヘッドオブザカーブ",
-                "en": "Ahead Of The Curve",
-                "ko": "곡선의 앞"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ダイヤモンドドーム",
-                "en": "Diamond Dome",
-                "ko": "다이아몬드 돔"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ダブルロッキング",
-                "en": "Double Locking",
-                "ko": "이중 잠금"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "リフレクションズ",
-                "en": "Reflections",
-                "ko": "반사"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ローカルビジネス",
-                "en": "Local Businesses",
-                "ko": "로컬 비즈니스"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ドラゴンジョーズ",
-                "en": "Dragon Jaws",
-                "ko": "드래곤 조스"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "トワイライトパッセージ",
-                "en": "Twilight Passage",
-                "ko": "황혼의 통로"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ハードレーン",
-                "en": "Hard Lane",
-                "ko": "하드 레인"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "アイランドホッピング",
-                "en": "Island Hopping",
-                "ko": "섬 호핑"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "リーピングフロッグス",
-                "en": "Leaping Frogs",
-                "ko": "뛰어오르는 개구리"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ファイナルフォー",
-                "en": "Final Four",
-                "ko": "파이널 포"
-            },
-            "gameMode": "Showdown",
-            "image": "../../assets/MapImages/final_four.png",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スパイスプロダクション",
-                "en": "Spice Production",
-                "ko": "스파이스 프로덕션"
-            },
-            "gameMode": "Wipeout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ココナッツコーブ",
-                "en": "Coconut Cove",
-                "ko": "코코넛 코브"
-            },
-            "gameMode": "Wipeout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "バンディットスタッシュ",
-                "en": "Bandit Stash",
-                "ko": "도적 은신처"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "鉄壁の守り",
                 "en": "Backyard Bowl",
-                "ko": "백야드 볼"
+                "ko": "백야드 볼",
+                "es": "Bol de Patio Trasero",
+                "ar": "وعاء الفناء الخلفي",
+                "fr": "Bol de Cour Arrière",
+                "zh-tw": "後院碗"
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/backyard_bowl.png",
@@ -10191,108 +6720,13 @@
         },
         {
             "name": {
-                "ja": "バックポケット",
-                "en": "Back Pocket",
-                "ko": "백 포켓"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ギブアンドテイク",
-                "en": "Give And Take",
-                "ko": "기브 앤 테이크"
-            },
-            "gameMode": "Wipeout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ベアトラップ",
-                "en": "Bear Trap",
-                "ko": "베어 트랩"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "クラウドストライク",
-                "en": "Crowd Strike",
-                "ko": "크라우드 스트라이크"
-            },
-            "gameMode": "Bounty",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ミスティメドウズ",
-                "en": "Misty Meadows",
-                "ko": "미스티 메도우"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "シークレットオアミステリー",
-                "en": "Secret Or Mystery",
-                "ko": "비밀 또는 미스터리"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "サンセットビスタ",
-                "en": "Sunset Vista",
-                "ko": "선셋 비스타"
-            },
-            "gameMode": "Showdown",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "サンセットスパー",
-                "en": "Sunset Spar",
-                "ko": "선셋 스파"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "エンズミート",
-                "en": "Ends Meet",
-                "ko": "엔즈 밋"
-            },
-            "gameMode": "Knockout Limbo",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "禅の庭園",
                 "en": "Zen Garden",
-                "ko": "젠 가든"
+                "ko": "젠 가든",
+                "es": "Jardín Zen",
+                "ar": "حديقة الزين",
+                "fr": "Jardin Zen",
+                "zh-tw": "禪宗花園"
             },
             "gameMode": "Duels",
             "image": "../../assets/MapImages/zen_garden.png",
@@ -10337,240 +6771,13 @@
         },
         {
             "name": {
-                "ja": "スイミングスキル",
-                "en": "Swimming Skills",
-                "ko": "수영 스킬"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "タングルドシュラブ",
-                "en": "Tangled Shrubs",
-                "ko": "얽힌 관목"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ブレイクス",
-                "en": "Breaks",
-                "ko": "브레이크"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ピラーズオブドゥーム",
-                "en": "Pillars Of Doom",
-                "ko": "파멸의 기둥"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "マンティスクロー",
-                "en": "Mantis Claw",
-                "ko": "사마귀 발톱"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ラインオブディフェンス",
-                "en": "Line Of Defense",
-                "ko": "방어선"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "トゥークールフォーサマー",
-                "en": "Too Cool For Summer",
-                "ko": "여름에는 너무 시원해"
-            },
-            "gameMode": "Duels",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ラッシュ",
-                "en": "Rush",
-                "ko": "러쉬"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "フロムダスクティルドーン",
-                "en": "From Dusk Till Dawn",
-                "ko": "황혼부터 새벽까지"
-            },
-            "gameMode": "Hot Zone",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "パイナップルプラザ",
-                "en": "Pineapple Plaza",
-                "ko": "파인애플 플라자"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "コークスクリュー",
-                "en": "Corkscrew",
-                "ko": "코크스크류"
-            },
-            "gameMode": "Gem Grab",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "グラティチュード",
-                "en": "Gratitude",
-                "ko": "감사"
-            },
-            "gameMode": "Knockout",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ウィークフット",
-                "en": "Weak Foot",
-                "ko": "약한 발"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ラズルダズル",
-                "en": "Razzle Dazzle",
-                "ko": "현란한 움직임"
-            },
-            "gameMode": "Brawl Ball",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "エレクトリックストーム",
-                "en": "Electric Storm",
-                "ko": "일렉트릭 스톰"
-            },
-            "gameMode": "Heist",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スーパーセンター",
-                "en": "Super Center",
-                "ko": "슈퍼 센터"
-            },
-            "gameMode": "Brawl Hockey",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スリッピースラップ",
-                "en": "Slippery Slap",
-                "ko": "미끄러운 슬랩"
-            },
-            "gameMode": "Brawl Hockey",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "バウンシーボウル",
-                "en": "Bouncy Bowl",
-                "ko": "바운시 볼"
-            },
-            "gameMode": "Brawl Hockey",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "ビロウゼロ",
-                "en": "Below Zero",
-                "ko": "빌로우 제로"
-            },
-            "gameMode": "Brawl Hockey",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "クールボックス",
-                "en": "Cool Box",
-                "ko": "쿨 박스"
-            },
-            "gameMode": "Brawl Hockey",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
-                "ja": "スターガーデン",
-                "en": "Starr Garden",
-                "ko": "스타 가든"
-            },
-            "gameMode": "Brawl Hockey",
-            "image": "",
-            "description": "",
-            "recommendedBrawlers": []
-        },
-        {
-            "name": {
                 "ja": "ウォータースポーツ",
                 "en": "Watersport",
-                "ko": "워터스포츠"
+                "ko": "워터스포츠",
+                "es": "Deportes Acuáticos",
+                "ar": "رياضات مائية",
+                "fr": "Sports Nautiques",
+                "zh-tw": "水上運動"
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Watersport.png",
@@ -10637,7 +6844,11 @@
             "name": {
                 "ja": "喧騒居住地",
                 "en": "Noisy Neighbors",
-                "ko": "시끄러운 이웃"
+                "ko": "시끄러운 이웃",
+                "es": "Vecinos Ruid",
+                "ar": "جيران صاخبون",
+                "fr": "Voisins Bruyants",
+                "zh-tw": "吵鬧的鄰居"
             },
             "gameMode": "Hot Zone",
             "image": "../../assets/MapImages/Noisy_Neighbors.png",
@@ -10689,7 +6900,11 @@
             "name": {
                 "ja": "森林伐採",
                 "en": "Forest Clearing",
-                "ko": "숲 속 공터"
+                "ko": "숲 속 공터",
+                "es": "Claro del Bosque",
+                "ar": "تخليص الغابة",
+                "fr": "Défrichage de la Forêt",
+                "zh-tw": "森林清理"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Forest_Clearing.png",
@@ -10776,7 +6991,11 @@
             "name": {
                 "ja": "クールロック",
                 "en": "The Cooler Hard Rock",
-                "ko": "더 쿨한 하드록"
+                "ko": "더 쿨한 하드록",
+                "es": "La Roca Dura Más Fría",
+                "ar": "الصخر الصلب الأكثر برودة",
+                "fr": "Le Rocher Dur le Plus Cool",
+                "zh-tw": "更酷的硬岩"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/The_Cooler_Hard_Rock.png",
@@ -10848,7 +7067,11 @@
             "name": {
                 "ja": "白熱対戦",
                 "en": "H for...",
-                "ko": "H는..."
+                "ko": "H는...",
+                "es": "H para...",
+                "ar": "H ل...",
+                "fr": "H pour...",
+                "zh-tw": "H是..."
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/H_for.png",
@@ -10925,7 +7148,11 @@
             "name": {
                 "ja": "双頭の川",
                 "en": "Two Rivers",
-                "ko": "두 개의 강"
+                "ko": "두 개의 강",
+                "es": "Dos Ríos",
+                "ar": "نهران",
+                "fr": "Deux Rivières",
+                "zh-tw": "兩條河流"
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Two_Rivers.png",
@@ -11012,7 +7239,11 @@
             "name": {
                 "ja": "セカンドチャンス",
                 "en": "Second Try",
-                "ko": "두 번째 시도"
+                "ko": "두 번째 시도",
+                "es": "Segundo Intento",
+                "ar": "المحاولة الثانية",
+                "fr": "Deuxième Essai",
+                "zh-tw": "第二次嘗試"
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Second_Try.png",
@@ -11109,7 +7340,11 @@
             "name": {
                 "ja": "トリッキー",
                 "en": "Trickey",
-                "ko": "트리키"
+                "ko": "트리키",
+                "es": "Trickey",
+                "ar": "تريكي",
+                "fr": "Trickey",
+                "zh-tw": "特里基"
             },
             "gameMode": "Brawl Ball",
             "image": "../../assets/MapImages/Trickey.png",
@@ -11251,7 +7486,11 @@
             "name": {
                 "ja": "安全地帯・改",
                 "en": "Safe(r) Zone",
-                "ko": "안전(한) 구역"
+                "ko": "안전(한) 구역",
+                "es": "Zona Segura(r)",
+                "ar": "منطقة آمنة(ر)",
+                "fr": "Zone Sûre(r)",
+                "zh-tw": "安全(更安全)區域"
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Safe(r)_Zone.png",
@@ -11343,7 +7582,11 @@
             "name": {
                 "ja": "大いなる湖",
                 "en": "The Great Lake",
-                "ko": "그레이트 레이크"
+                "ko": "그레이트 레이크",
+                "es": "El Gran Lago",
+                "ar": "البحيرة الكبيرة",
+                "fr": "Le Grand Lac",
+                "zh-tw": "大湖"
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/The_Great_Lake.png",
@@ -11445,7 +7688,11 @@
             "name": {
                 "ja": "密林の奥地",
                 "en": "Deep Forest",
-                "ko": "깊은 숲"
+                "ko": "깊은 숲",
+                "es": "Bosque Profundo",
+                "ar": "الغابة العميقة",
+                "fr": "Forêt Profonde",
+                "zh-tw": "深林"
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Deep_Forest.png",
@@ -11532,7 +7779,11 @@
             "name": {
                 "ja": "極小列島",
                 "en": "Tiny Islands",
-                "ko": "작은 섬들"
+                "ko": "작은 섬들",
+                "es": "Islas Pequeñas",
+                "ar": "جزر صغيرة",
+                "fr": "Petites Îles",
+                "zh-tw": "小島"
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Tiny_Islands.png",
@@ -11614,7 +7865,11 @@
             "name": {
                 "ja": "バキューン神殿",
                 "en": "Temple Of Vroom",
-                "ko": "부르릉 사원"
+                "ko": "부르릉 사원",
+                "es": "Templo De Vroom",
+                "ar": "معبد فروم",
+                "fr": "Temple De Vroom",
+                "zh-tw": "Vroom神殿"
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Temple_Of_Vroom.png",
@@ -11681,7 +7936,11 @@
             "name": {
                 "ja": "生い茂る廃墟",
                 "en": "Overgrown Ruins",
-                "ko": "우거진 폐허"
+                "ko": "우거진 폐허",
+                "es": "Ruinas Abandonadas",
+                "ar": "أطلال متجاوزة",
+                "fr": "Ruines Envahies",
+                "zh-tw": "廢墟"
             },
             "gameMode": "Knockout",
             "image": "../../assets/MapImages/Overgrown_Ruins.png",
@@ -11728,7 +7987,11 @@
             "name": {
                 "ja": "GG 2.0",
                 "en": "Gg 2.0",
-                "ko": "GG 2.0"
+                "ko": "GG 2.0",
+                "es": "Gg 2.0",
+                "ar": "Gg 2.0",
+                "fr": "Gg 2.0",
+                "zh-tw": "GG 2.0"
             },
             "gameMode": "Heist",
             "image": "../../assets/MapImages/Gg_2.0.png",
@@ -11810,7 +8073,11 @@
             "name": {
                 "ja": "不屈の精神",
                 "en": "No_Surrender",
-                "ko": "불굴의 정신"
+                "ko": "불굴의 정신",
+                "es": "No Rendirse",
+                "ar": "لا استسلام",
+                "fr": "Ne Pas Se Rendre",
+                "zh-tw": "不屈的精神"
             },
             "gameMode": "Duels",
             "image": "require('../../assets/MapImages/No_Surrender.png')",
@@ -11852,7 +8119,11 @@
             "name": {
                 "ja": "常勝街道",
                 "en": "Warriors_Way",
-                "ko": "전승의 길"
+                "ko": "전승의 길",
+                "es": "Camino De Guerreros",
+                "ar": "طريق المحاربين",
+                "fr": "Chemin Des Guerriers",
+                "zh-tw": "戰士之路"
             },
             "gameMode": "Duels",
             "image": "require('../../assets/MapImages/Warriors_Way.png')",
@@ -11904,7 +8175,11 @@
             "name": {
                 "ja": "猿の迷路",
                 "en": "Monkey Maze",
-                "ko": "원숭이 미로"
+                "ko": "원숭이 미로",
+                "es": "Laberinto De Monos",
+                "ar": "متاهة القرود",
+                "fr": "Labyrinthe De Singe",
+                "zh-tw": "猴"
             },
             "gameMode": "Duels",
             "image": "require('../../assets/MapImages/Monkey_Maze.png')",
@@ -11951,7 +8226,11 @@
             "name": {
                 "ja": "スパイスプロダクション",
                 "en": "Spice Production",
-                "ko": "스파이스 프로덕션"
+                "ko": "스파이스 프로덕션",
+                "es": "Producción De Especias",
+                "ar": "إنتاج التوابل",
+                "fr": "Production D'épices",
+                "zh-tw": "香料生產"
             },
             "gameMode": "Duels",
             "image": "require('../../assets/MapImages/Spice_Production.png')",
