@@ -236,7 +236,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "堅石礦井"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Hard_Rock_Mine.png",
@@ -417,7 +417,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "水晶遊戲場"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Crystal_Arcade.png",
@@ -493,7 +493,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "戈壁陷阱"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Deathcap_Trap.png",
@@ -594,7 +594,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "寶石要塞"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Gem_Fort.png",
@@ -675,7 +675,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "地下礦坑"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Undermine.png",
@@ -826,7 +826,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "幽暗溪流"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Skull_Creek.png",
@@ -887,7 +887,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "石牆亂鬥"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Rockwall_Brawl.png",
@@ -943,7 +943,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "饑荒盛宴"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Feast_Or_Famine.png",
@@ -1649,7 +1649,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "酸蝕湖泊"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Acid_Lakes.png",
@@ -1710,7 +1710,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "洞穴迷宮"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Cavern_Churn.png",
@@ -1827,7 +1827,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "孤島入侵"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Island_Invasion.png",
@@ -2630,7 +2630,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "咻咻作響"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Double_Swoosh.png",
@@ -2932,7 +2932,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "礦車狂奔"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Minecart_Madness.png",
@@ -3028,7 +3028,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "飛翔幻夢"
             },
             "gameMode": "Showdown",
             "image": "../../assets/MapImages/Flying_Fantasies.png",
@@ -4309,7 +4309,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "鄉趣遊樂場"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Rustic_Arcade.png",
@@ -5036,7 +5036,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "開闊地帶"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Open_Space.png",
@@ -5466,7 +5466,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "終點站"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Last_Stop.png",
@@ -6904,7 +6904,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "清理森林"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/Forest_Clearing.png",
@@ -6995,7 +6995,7 @@
                 "es": "",
                 "ar": "",
                 "fr": "",
-                "zh-tw": ""
+                "zh-tw": "更酷的堅石礦井"
             },
             "gameMode": "Gem Grab",
             "image": "../../assets/MapImages/The_Cooler_Hard_Rock.png",
