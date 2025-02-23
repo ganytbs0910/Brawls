@@ -4,6 +4,7 @@ export type SettingsScreenTranslation = {
     privacy: string;
     terms: string;
     allTips: string;
+    roulette: string;
   };
   menuItems: {
     language: string;
@@ -15,6 +16,11 @@ export type SettingsScreenTranslation = {
     terms: string;
     allTips: string;
     punishmentGame: string;
+    roulette: string;
+  };
+  roulette: {
+    spin: string;
+    spinning: string;
   };
   purchase: {
     title: string;
@@ -53,6 +59,7 @@ export const ja: SettingsScreenTranslation = {
     privacy: 'プライバシーポリシー',
     terms: '利用規約',
     allTips: '豆知識一覧',
+    roulette: 'キャラクタールーレット',
   },
   menuItems: {
     language: '言語設定',
@@ -64,6 +71,11 @@ export const ja: SettingsScreenTranslation = {
     terms: '利用規約',
     allTips: '豆知識一覧',
     punishmentGame: '罰ゲーム',
+    roulette: 'キャラクタールーレット',
+  },
+  roulette: {
+    spin: 'スピン！',
+    spinning: 'スピン中...',
   },
   purchase: {
     title: '広告削除の購入',
@@ -102,6 +114,7 @@ export const en: SettingsScreenTranslation = {
     privacy: 'Privacy Policy',
     terms: 'Terms of Service',
     allTips: 'All Tips',
+    roulette: 'Character Roulette',
   },
   menuItems: {
     language: 'Language Settings',
@@ -113,6 +126,11 @@ export const en: SettingsScreenTranslation = {
     terms: 'Terms of Service',
     allTips: 'All Tips',
     punishmentGame: 'Punishment Game',
+    roulette: 'Character Roulette',
+  },
+  roulette: {
+    spin: 'Spin!',
+    spinning: 'Spinning...',
   },
   purchase: {
     title: 'Remove Ads',
@@ -151,6 +169,7 @@ export const ko: SettingsScreenTranslation = {
     privacy: '개인정보 처리방침',
     terms: '이용약관',
     allTips: '모든 팁',
+    roulette: '캐릭터 룰렛',
   },
   menuItems: {
     language: '언어 설정',
@@ -162,6 +181,11 @@ export const ko: SettingsScreenTranslation = {
     terms: '이용약관',
     allTips: '모든 팁',
     punishmentGame: '벌칙 게임',
+    roulette: '캐릭터 룰렛',
+  },
+  roulette: {
+    spin: '돌리기!',
+    spinning: '돌리는 중...',
   },
   purchase: {
     title: '광고 제거',
@@ -200,6 +224,7 @@ export const es: SettingsScreenTranslation = {
     privacy: 'Política de Privacidad',
     terms: 'Términos de Servicio',
     allTips: 'Todos los Consejos',
+    roulette: 'Ruleta de Personajes',
   },
   menuItems: {
     language: 'Configuración de Idioma',
@@ -211,6 +236,11 @@ export const es: SettingsScreenTranslation = {
     terms: 'Términos de Servicio',
     allTips: 'Todos los Consejos',
     punishmentGame: 'Juego de Castigo',
+    roulette: 'Ruleta de Personajes',
+  },
+  roulette: {
+    spin: '¡Girar!',
+    spinning: 'Girando...',
   },
   purchase: {
     title: 'Eliminar Anuncios',
@@ -249,6 +279,7 @@ export const ar: SettingsScreenTranslation = {
     privacy: 'سياسة الخصوصية',
     terms: 'شروط الخدمة',
     allTips: 'جميع النصائح',
+    roulette: 'عجلة الشخصيات',
   },
   menuItems: {
     language: 'إعدادات اللغة',
@@ -260,6 +291,11 @@ export const ar: SettingsScreenTranslation = {
     terms: 'شروط الخدمة',
     allTips: 'جميع النصائح',
     punishmentGame: 'لعبة العقاب',
+    roulette: 'عجلة الشخصيات',
+  },
+  roulette: {
+    spin: 'دوران!',
+    spinning: 'يدور...',
   },
   purchase: {
     title: 'إزالة الإعلانات',
@@ -298,6 +334,7 @@ export const fr: SettingsScreenTranslation = {
     privacy: 'Politique de Confidentialité',
     terms: 'Conditions d\'Utilisation',
     allTips: 'Tous les Conseils',
+    roulette: 'Roulette des Personnages',
   },
   menuItems: {
     language: 'Paramètres de Langue',
@@ -309,6 +346,11 @@ export const fr: SettingsScreenTranslation = {
     terms: 'Conditions d\'Utilisation',
     allTips: 'Tous les Conseils',
     punishmentGame: 'Jeu de Gage',
+    roulette: 'Roulette des Personnages',
+  },
+  roulette: {
+    spin: 'Tourner !',
+    spinning: 'En rotation...',
   },
   purchase: {
     title: 'Supprimer les Publicités',
@@ -347,6 +389,7 @@ export const zhTw: SettingsScreenTranslation = {
     privacy: '隱私權政策',
     terms: '使用條款',
     allTips: '所有提示',
+    roulette: '角色輪盤',
   },
   menuItems: {
     language: '語言設定',
@@ -358,6 +401,11 @@ export const zhTw: SettingsScreenTranslation = {
     terms: '使用條款',
     allTips: '所有提示',
     punishmentGame: '懲罰遊戲',
+    roulette: '角色輪盤',
+  },
+  roulette: {
+    spin: '轉動！',
+    spinning: '轉動中...',
   },
   purchase: {
     title: '移除廣告',
@@ -390,7 +438,6 @@ export const zhTw: SettingsScreenTranslation = {
   },
 };
 
-// 翻訳オブジェクトの更新
 export const settingsScreenTranslations = {
   ja,
   en,

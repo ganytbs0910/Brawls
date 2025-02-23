@@ -32,6 +32,7 @@ import { RewardedAd } from 'react-native-google-mobile-ads';
 import AdMobService from '../services/AdMobService';
 import MapDetailScreen from './MapDetailScreen';
 import PunishmentGameScreen from './PunishmentGameScreen';
+import CharacterRouletteScreen from './CharacterRouletteScreen';
 import { MapDetail, ScreenType, ScreenState } from '../types';
 import { LanguageSelector } from './LanguageSelector';
 import { useSettingsScreenTranslation } from '../i18n/settingsScreen';
@@ -45,6 +46,9 @@ const PURCHASE_CONFIG = {
   PRICE_DISPLAY: '¥500',
   PRODUCT_NAME: '広告削除パック',
 } as const;
+
+// ScreenType に 'roulette' を追加
+type ScreenType = 'settings' | 'privacy' | 'terms' | 'allTips' | 'punishmentGame' | 'language' | 'mapDetail' | 'roulette';
 
 interface SettingsScreenProps {
   screen?: ScreenState;
@@ -141,7 +145,6 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   const [loading, setLoading] = useState(false);
   const [isIAPAvailable, setIsIAPAvailable] = useState(false);
   
-  // Initialize with default screen state if none provided
   const initialScreen: ScreenState = {
     type: 'settings',
     translateX: new Animated.Value(0),
@@ -149,7 +152,6 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   };
   const [screenStack, setScreenStack] = useState<ScreenState[]>([screen || initialScreen]);
 
-  // Update stack when screen prop changes
   useEffect(() => {
     if (screen) {
       setScreenStack([screen]);
@@ -165,45 +167,43 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   }, []);
 
   useEffect(() => {
-  const initAdService = async () => {
-    try {
-      if (!adService.current) {
-        adService.current = await AdMobService.initialize();
+    const initAdService = async () => {
+      try {
+        if (!adService.current) {
+          adService.current = await AdMobService.initialize();
+        }
+      } catch (error) {
+        console.error('Failed to initialize AdMobService:', error);
       }
-    } catch (error) {
-      console.error('Failed to initialize AdMobService:', error);
-    }
-  };
-  
-  initAdService();
-}, []);
+    };
+    
+    initAdService();
+  }, []);
 
   const handleShare = async () => {
-  try {
-    const appStoreUrl = 'https://apps.apple.com/jp/app/brawl-status/id6738936691';
-    
-    await Share.share({
-      message: t.share.message.replace('{appStoreUrl}', appStoreUrl),
-      url: appStoreUrl,
-      title: t.share.title
-    }, {
-      dialogTitle: t.share.dialogTitle,
-      subject: t.share.title,
-      tintColor: '#21A0DB'
-    });
-  } catch (error) {
-    console.error('Share error:', error);
-  }
-};
+    try {
+      const appStoreUrl = 'https://apps.apple.com/jp/app/brawl-status/id6738936691';
+      
+      await Share.share({
+        message: t.share.message.replace('{appStoreUrl}', appStoreUrl),
+        url: appStoreUrl,
+        title: t.share.title
+      }, {
+        dialogTitle: t.share.dialogTitle,
+        subject: t.share.title,
+        tintColor: '#21A0DB'
+      });
+    } catch (error) {
+      console.error('Share error:', error);
+    }
+  };
 
   const handlePurchaseAdRemoval = async () => {
     if (loading || isAdFree || !isIAPAvailable) return;
 
     Alert.alert(
       t.purchase.title,
-      t.purchase.message
-        .replace('{originalPrice}', PURCHASE_CONFIG.ORIGINAL_PRICE_DISPLAY)
-        .replace('{salePrice}', PURCHASE_CONFIG.SALE_PRICE_DISPLAY),
+      t.purchase.message,
       [
         {
           text: t.purchase.cancel,
@@ -345,13 +345,14 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
           <Text style={styles.backButtonText}>←</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity 
-        style={styles.settingsItem}
-        onPress={() => navigateToScreen('language')}
-      >
-        <Text style={styles.settingsItemText}>{t.menuItems.language}</Text>
-      </TouchableOpacity>
       <ScrollView style={styles.settingsContent}>
+        <TouchableOpacity 
+          style={styles.settingsItem}
+          onPress={() => navigateToScreen('language')}
+        >
+          <Text style={styles.settingsItemText}>{t.menuItems.language}</Text>
+        </TouchableOpacity>
+
         <TouchableOpacity 
           style={styles.settingsItem}
           onPress={handleShare}
@@ -405,6 +406,14 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
         >
           <Text style={styles.settingsItemText}>{t.menuItems.punishmentGame}</Text>
         </TouchableOpacity>
+
+        {/* ルーレット機能の追加 */}
+        <TouchableOpacity 
+          style={styles.settingsItem}
+          onPress={() => navigateToScreen('roulette')}
+        >
+          <Text style={styles.settingsItemText}>{t.menuItems.roulette}</Text>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
@@ -422,7 +431,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
               android: t.purchase.errors.storeConnect.replace('App Store', 'Google Play')
             })}
           </Text>
-        </TouchableOpacity>
+          </TouchableOpacity>
       );
     }
 
@@ -444,12 +453,12 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
             {loading && ' (処理中...)'}
           </Text>
           {!isAdFree && !loading && (
-  <View style={styles.priceContainer}>
-    <Text style={styles.price}>
-      {PURCHASE_CONFIG.PRICE_DISPLAY}
-    </Text>
-  </View>
-)}
+            <View style={styles.priceContainer}>
+              <Text style={styles.price}>
+                {PURCHASE_CONFIG.PRICE_DISPLAY}
+              </Text>
+            </View>
+          )}
         </View>
       </TouchableOpacity>
     );
@@ -501,6 +510,8 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
         return <PunishmentGameScreen onClose={goBack} />;
       case 'language':
         return <LanguageSelector onClose={goBack} />;
+      case 'roulette':
+        return <CharacterRouletteScreen onClose={goBack} />;
       default:
         return null;
     }
