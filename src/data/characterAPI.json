@@ -8,7 +8,7 @@
         "en": "Ollie",
         "ko": "올리",
         "es": "Ollie",
-        "ar": "أولي",
+        "ar": "",
         "fr": "Ollie",
         "zh-tw": "奧利"
       },
@@ -38,10 +38,10 @@
             "ja": "ウォールライド",
             "en": "Kick Push",
             "ko": "킥 앤푸시",
-            "es": "Patada y Empuje",
-            "ar": "ركلة ودفع",
-            "fr": "Coup de pied et Poussée",
-            "zh-tw": "踢推"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "牆面滑行"
           },
           "description": {
             "ja": "壁の近くで移動速度が20%上昇する。",
@@ -71,10 +71,10 @@
             "ja": "レネゲード",
             "en": "Renegade",
             "ko": "레니게이드",
-            "es": "Renegado",
-            "ar": "متمرد",
-            "fr": "Renégat",
-            "zh-tw": "叛徒"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "嘻哈嗆聲"
           },
           "description": {
             "ja": "必殺技で前方に移動した後、4000HPの消耗型のシールドを獲得する。シールドは4秒で消滅する。",
@@ -106,10 +106,10 @@
             "ja": "コンボトリック",
             "en": "Regulate",
             "ko": "컨트롤 킥",
-            "es": "Regulador",
-            "ar": "تنظيم",
-            "fr": "Réguler",
-            "zh-tw": "調節"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "我的地盤"
           },
           "description": {
             "ja": "ジャンプしてキックフリップを決め、1.0秒間にわたり着地地点を全て挑発状態にする\nクールダウン:17秒",
@@ -139,10 +139,10 @@
             "ja": "ゴン攻め",
             "en": "All Eyez On Me",
             "ko": "시선집중",
-            "es": "Todos los Ojos en Mí",
-            "ar": "كل الأعين علي",
-            "fr": "Tous les Yeux sur Moi",
-            "zh-tw": "所有人的目光都在我身上"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "萬眾焦點"
           },
           "description": {
             "ja": "次の通常攻撃を受けた敵は、1.0秒間にわたって挑発状態になる\nクールダウン:15秒",
@@ -180,9 +180,9 @@
         "en": "Meeple",
         "ko": "미플",
         "es": "Meeple",
-        "ar": "ميبل",
+        "ar": "",
         "fr": "Meeple",
-        "zh-tw": "米普"
+        "zh-tw": "謎寶"
       },
       "image": "require('../../assets/BrawlerIcons/meeple_pin.png')",
       "class": {
@@ -210,10 +210,10 @@
             "ja": "プリズンカード",
             "en": "Do Not Pass Go",
             "ko": "통행금지",
-            "es": "No Pases por la Cárcel",
-            "ar": "لا تمر بالذهاب",
-            "fr": "Ne Passez Pas par la Case Départ",
-            "zh-tw": "不要經過去"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "直達目標"
           },
           "description": {
             "ja": "障害物を貫通した攻撃の与ダメージが600上昇する",
@@ -243,10 +243,10 @@
             "ja": "法の曲解",
             "en": "Rule Bending",
             "ko": "꼼수",
-            "es": "Doblador de Reglas",
-            "ar": "انحناء القواعد",
-            "fr": "Courbe des Règles",
-            "zh-tw": "彎曲規則"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "扭曲規則"
           },
           "description": {
             "ja": "必殺技が範囲内の味方のリロード速度を20%上昇させる。",
@@ -278,10 +278,10 @@
             "ja": "マンション・オブ・ミープル",
             "en": "Mansions Of Meeple",
             "ko": "미플의 저택",
-            "es": "Mansión de Meeple",
-            "ar": "قصور ميبل",
-            "fr": "Manoirs de Meeple",
-            "zh-tw": "米普的豪宅"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "謎寶莊園"
           },
           "description": {
             "ja": "次の通常攻撃の着弾地点にサイコロの塔を生成し、1000ダメージを与える。\nクールダウン:20秒",
@@ -311,10 +311,10 @@
             "ja": "キレ落ち",
             "en": "Ragequit",
             "ko": "분노의 종료",
-            "es": "Abandono",
-            "ar": "الغضب",
-            "fr": "Ragequit",
-            "zh-tw": "憤怒退出"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "憤怒中離"
           },
           "description": {
             "ja": "怒りで頭に血が上り、近くの敵に突撃してスタン＋ノックバックさせる。自身のHPが少なくなるほどスタンの効果時間が延長される。\nクールダウン:16秒",
@@ -353,9 +353,9 @@
         "en": "Juju",
         "ko": "주주",
         "es": "Juju",
-        "ar": "جوجو",
+        "ar": "",
         "fr": "Juju",
-        "zh-tw": "朱朱"
+        "zh-tw": "茱茱"
       },
       "image": "require('../../assets/BrawlerIcons/juju_pin.png')",
       "class": {
@@ -383,10 +383,10 @@
             "ja": "グリグリシールド",
             "en": "Gris-Gris Shield",
             "ko": "그리그리 실드",
-            "es": "Escudo Gris-Gris",
-            "ar": "درع جريس-جريس",
-            "fr": "Bouclier Gris-Gris",
-            "zh-tw": "格里斯-格里斯盾牌"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "特製娃娃"
           },
           "description": {
             "ja": "召喚したグリグリにシールドが付与される。",
@@ -416,10 +416,10 @@
             "ja": "スローニードル",
             "en": "Slow Needle",
             "ko": "마비의 바늘",
-            "es": "Aguja Lenta",
-            "ar": "إبرة بطيئة",
-            "fr": "Aiguille Lente",
-            "zh-tw": "慢針"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "麻痺飛針"
           },
           "description": {
             "ja": "グリグリの攻撃が1.0秒にわたって敵をスローダウンにさせるようになる。",
@@ -451,10 +451,10 @@
             "ja": "ブードゥーチャイル",
             "en": "Voodoo Doll",
             "ko": "주술의 힘",
-            "es": "Muñeco Vudú",
-            "ar": "دمية الفودو",
-            "fr": "Poupée Vaudou",
-            "zh-tw": "巫毒娃娃"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "巫毒之子"
           },
           "description": {
             "ja": "次の通常攻撃に3種類の効果が全て付与される。\nクールダウン:14秒",
@@ -484,10 +484,10 @@
             "ja": "エレメンタリスト",
             "en": "Elementalist",
             "ko": "원소술사",
-            "es": "Elementalista",
-            "ar": "عنصري",
-            "fr": "Élémentaliste",
-            "zh-tw": "元素使"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "元素加護"
           },
           "description": {
             "ja": "現在いる地形に応じて一時的な特殊効果を得る。地面:被ダメージ減少 草:透明化 水上:移動速度が上昇\nクールダウン:17秒",
@@ -526,9 +526,9 @@
         "en": "Shade",
         "ko": "셰이드",
         "es": "Shade",
-        "ar": "ظل",
+        "ar": "",
         "fr": "Shade",
-        "zh-tw": "陰影"
+        "zh-tw": "謝德"
       },
       "image": "require('../../assets/BrawlerIcons/shade_pin.png')",
       "class": {
@@ -556,10 +556,10 @@
             "ja": "ポルターヘイスト",
             "en": "Spooky Speedster",
             "ko": "오싹한 스피드광",
-            "es": "Velocista Espeluznante",
-            "ar": "سبيدستر مخيف",
-            "fr": "Speedster Spooky",
-            "zh-tw": "幽靈速度賽車手"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "急速掠襲"
           },
           "description": {
             "ja": "シェイドのメイン攻撃の中心部で敵に命中すると、短時間の移動速度上昇を得ます。",
@@ -589,10 +589,10 @@
             "ja": "スペクトルアーマー",
             "en": "Hardened Hoodie",
             "ko": "튼튼한 후드티",
-            "es": "Sudadera Reforzada",
-            "ar": "هودي مقوى",
-            "fr": "Sweat à capuche renforcé",
-            "zh-tw": "加固連帽衫"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "硬化帽T"
           },
           "description": {
             "ja": "霊体化フォーム中、シェイドは30%のダメージ軽減を得ます。",
@@ -624,10 +624,10 @@
             "ja": "ロングアーム",
             "en": "Long Arms",
             "ko": "팔척귀신",
-            "es": "Brazos Largos",
-            "ar": "أذرع طويلة",
-            "fr": "Bras longs",
-            "zh-tw": "長臂"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "詭異長臂"
           },
           "description": {
             "ja": "次のメイン攻撃の射程が50%延長されます。\nクールダウン:15秒",
@@ -657,10 +657,10 @@
             "ja": "ジャンプスケア",
             "en": "Jump Scare",
             "ko": "깜짝 놀랐지",
-            "es": "Susto al Saltar",
-            "ar": "القفز المفاجئ",
-            "fr": "Sursaut de saut",
-            "zh-tw": "跳躍驚嚇"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "嚇你一跳"
           },
           "description": {
             "ja": "シェイドは近くの敵を驚かせ、4秒間減速させます。\nクールダウン:11秒",
@@ -697,9 +697,9 @@
         "en": "Kenji",
         "ko": "켄지",
         "es": "Kenji",
-        "ar": "كينجي",
+        "ar": "",
         "fr": "Kenji",
-        "zh-tw": "健二"
+        "zh-tw": "賢治"
       },
       "image": "require('../../assets/BrawlerIcons/kenji_pin.png')",
       "class": {
@@ -727,10 +727,10 @@
             "ja": "名刀「たちわりおろし」",
             "en": "Studied the Blade",
             "ko": "회칼 연마",
-            "es": "Maestro de la Hoja",
-            "ar": "دراسة النصل",
-            "fr": "Maître de la Lame",
-            "zh-tw": "劍術精通"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "精湛刀工"
           },
           "description": {
             "ja": "必殺技の射程距離が30%延長されます",
@@ -760,10 +760,10 @@
             "ja": "秘技「流れ鮨」",
             "en": "Nigiri Nemesis",
             "ko": "절치부심",
-            "es": "Némesis del Nigiri",
-            "ar": "خصم النيجيري",
-            "fr": "Némésis du Nigiri",
-            "zh-tw": "握壽司之敵"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "握壽司之護"
           },
           "description": {
             "ja": "5秒間ダメージを受けなかった後、次の敵の攻撃から60%のダメージ軽減を得ます。",
@@ -795,10 +795,10 @@
             "ja": "攻法「出汁走り」",
             "en": "Dashi Dash",
             "ko": "전진 베기 수련",
-            "es": "Carrera Dashi",
-            "ar": "اندفاع داشي",
-            "fr": "Dash Dashi",
-            "zh-tw": "高湯衝刺"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "元氣高湯"
           },
           "description": {
             "ja": "３秒にわたり、通常攻撃が突撃のみになる。\nクールダウン:15秒",
@@ -828,10 +828,10 @@
             "ja": "療法「活き造り」",
             "en": "Hosomaki Healing",
             "ko": "치유의 김초밥",
-            "es": "Curación Hosomaki",
-            "ar": "شفاء هوسوماكي",
-            "fr": "Guérison Hosomaki",
-            "zh-tw": "細卷治療"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "回生細卷"
           },
           "description": {
             "ja": "過去3秒間に受けたダメージの50%を即座に回復します。\nクールダウン:17秒",
@@ -869,7 +869,7 @@
         "en": "Moe",
         "ko": "모",
         "es": "Moe",
-        "ar": "مو",
+        "ar": "",
         "fr": "Moe",
         "zh-tw": "莫"
       },
@@ -899,10 +899,10 @@
             "ja": "石切り",
             "en": "Skipping Stones",
             "ko": "땅수제비",
-            "es": "Piedras Saltarinas",
-            "ar": "تخطي الأحجار",
-            "fr": "Ricochet de Pierres",
-            "zh-tw": "跳石"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "靈巧飛石"
           },
           "description": {
             "ja": "モーの基本攻撃がもう1回跳ねるようになります。攻撃の射程は変わりません。",
@@ -932,10 +932,10 @@
             "ja": "マイナーズ・ハイ",
             "en": "Speeding Ticket",
             "ko": "과속 딱지",
-            "es": "Multa por Velocidad",
-            "ar": "تذكرة السرعة",
-            "fr": "Excès de Vitesse",
-            "zh-tw": "礦工亢奮"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "超速駕駛"
           },
           "description": {
             "ja": "ドリラーの移動速度が上昇します。",
@@ -967,10 +967,10 @@
             "ja": "ここ掘れチューチュー",
             "en": "Dodgy Digging",
             "ko": "보물찾기",
-            "es": "Excavación Sospechosa",
-            "ar": "حفر مراوغ",
-            "fr": "Fouille Douteuse",
-            "zh-tw": "可疑挖掘"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "危險挖掘"
           },
           "description": {
             "ja": "モーは「借りてきた」物を掘り出し、ウルトのチャージ率を5秒間にわたって50%上昇させる。\nクールダウン:13秒",
@@ -1000,10 +1000,10 @@
             "ja": "ラットレース",
             "en": "Rat Race",
             "ko": "치열한 경주",
-            "es": "Carrera de Ratas",
-            "ar": "سباق الفئران",
-            "fr": "Course de Rats",
-            "zh-tw": "老鼠賽跑"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "全速前進"
           },
           "description": {
             "ja": "モーはドリラーで短距離をダッシュし、その過程で壁を破壊しブローラーをノックバックさせます。\nクールダウン:16秒",
@@ -1041,7 +1041,7 @@
         "en": "Clancy",
         "ko": "클랜시",
         "es": "Clancy",
-        "ar": "كلانسي",
+        "ar": "",
         "fr": "Clancy",
         "zh-tw": "克蘭西"
       },
@@ -1071,10 +1071,10 @@
             "ja": "早手の斥候",
             "en": "Recon",
             "ko": "정찰",
-            "es": "Reconocimiento",
-            "ar": "استطلاع",
-            "fr": "Reconnaissance",
-            "zh-tw": "先遣偵查"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "戰場老兵"
           },
           "description": {
             "ja": "トークンゲージが3溜まった状態でバトルがスタートする",
@@ -1104,10 +1104,10 @@
             "ja": "熟練の兵士",
             "en": "Pumping Up",
             "ko": "활력 증강",
-            "es": "Recarga Total",
-            "ar": "تعبئة كاملة",
-            "fr": "Rechargement Total",
-            "zh-tw": "火力全開"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "以戰養戰"
           },
           "description": {
             "ja": "クランシーは敵を倒すたびに弾薬を全回復します。",
@@ -1139,10 +1139,10 @@
             "ja": "刹那の鼓動",
             "en": "Snappy Shooting",
             "ko": "황금빛 사격",
-            "es": "Disparo Rápido",
-            "ar": "تصويب سريع",
-            "fr": "Tir Rapide",
-            "zh-tw": "快速射擊"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "戰功赫赫"
           },
           "description": {
             "ja": "クランシーは5秒間トークンを2倍獲得します。\nクールダウン:15秒",
@@ -1172,10 +1172,10 @@
             "ja": "雌伏の撤退",
             "en": "Tactical Retreat",
             "ko": "작전상 후퇴",
-            "es": "Retirada Táctica",
-            "ar": "انسحاب تكتيكي",
-            "fr": "Retraite Tactique",
-            "zh-tw": "戰術撤退"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "轉移陣地"
           },
           "description": {
             "ja": "クランシーはダッシュし1弾を補充します\nクールダウン:16秒",
@@ -1213,9 +1213,9 @@
         "en": "Berry",
         "ko": "베리",
         "es": "Berry",
-        "ar": "بيري",
+        "ar": "",
         "fr": "Berry",
-        "zh-tw": "貝莉"
+        "zh-tw": "貝瑞"
       },
       "image": "require('../../assets/BrawlerIcons/berry_pin.png')",
       "class": {
@@ -1243,10 +1243,10 @@
             "ja": "トロトロリロード",
             "en": "Floor Is Fine",
             "ko": "끈적한 바닥",
-            "es": "El Suelo Está Bien",
-            "ar": "الأرض بخير",
-            "fr": "Le Sol Va Bien",
-            "zh-tw": "地板沒問題"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "夢幻領地"
           },
           "description": {
             "ja": "ベリーは自分の溶けたアイスクリームの上に立っている時、リロード速度が50%上昇します。",
@@ -1276,10 +1276,10 @@
             "ja": "ペイント＆ペイン",
             "en": "Making A Mess",
             "ko": "엉망진창",
-            "es": "Haciendo un Desastre",
-            "ar": "صنع فوضى",
-            "fr": "Créer le Chaos",
-            "zh-tw": "製造混亂"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "到處搗亂"
           },
           "description": {
             "ja": "アイスクリームのない領域では、ベリーの基本攻撃の衝撃時のダメージが20%上昇します。",
@@ -1311,10 +1311,10 @@
             "ja": "フレンドシップ",
             "en": "Friendship Is Great",
             "ko": "위대한 우정",
-            "es": "La Amistad es Genial",
-            "ar": "الصداقة رائعة",
-            "fr": "L'Amitié est Formidable",
-            "zh-tw": "友誼萬歲"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "絢爛友誼"
           },
           "description": {
             "ja": "ベリーは尻尾を振り、敵をノックバックし近くの味方を1000回復させます。\nクールダウン:17秒",
@@ -1344,10 +1344,10 @@
             "ja": "シュガーマシマシ",
             "en": "Healthy Additives",
             "ko": "건강한 첨가물",
-            "es": "Aditivos Saludables",
-            "ar": "إضافات صحية",
-            "fr": "Additifs Sains",
-            "zh-tw": "健康添加劑"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "天然添加物"
           },
           "description": {
             "ja": "ベリーの次のメイン攻撃エリアの持続時間がx%延長されます。\nクールダウン:12秒",
@@ -1384,7 +1384,7 @@
         "en": "Lily",
         "ko": "릴리",
         "es": "Lily",
-        "ar": "ليلي",
+        "ar": "",
         "fr": "Lily",
         "zh-tw": "莉莉"
       },
@@ -1414,10 +1414,10 @@
             "ja": "フラワースティンガー",
             "en": "Flower Stinger",
             "ko": "따끔한 일격",
-            "es": "Aguijón Floral",
-            "ar": "لسعة الزهرة",
-            "fr": "Dard Floral",
-            "zh-tw": "花之刺"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "芒刺在背"
           },
           "description": {
             "ja": "敵にテレポート後、リリーの次の攻撃が1060増加したダメージを与えます",
@@ -1447,10 +1447,10 @@
             "ja": "警戒態勢",
             "en": "Vigilance",
             "ko": "경계 태세",
-            "es": "Vigilancia",
-            "ar": "يقظة",
-            "fr": "Vigilance",
-            "zh-tw": "警戒態勢"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "一葉知秋"
           },
           "description": {
             "ja": "スーパーのチャージ範囲内に敵がいる間、移動速度が15%上昇します",
@@ -1482,10 +1482,10 @@
             "ja": "ゲッタウェイ",
             "en": "Vanish",
             "ko": "증발",
-            "es": "Desvanecer",
-            "ar": "تلاشي",
-            "fr": "Disparition",
-            "zh-tw": "消失"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "藏木於林"
           },
           "description": {
             "ja": "リリーは3秒間影の領域に入ります\nクールダウン:22秒",
@@ -1515,10 +1515,10 @@
             "ja": "植え替え",
             "en": "Repot",
             "ko": "분갈이",
-            "es": "Trasplantar",
-            "ar": "إعادة الزرع",
-            "fr": "Rempotage",
-            "zh-tw": "移植"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "落地生根"
           },
           "description": {
             "ja": "次の開花は投げ攻撃となり、リリーは衝突地点にテレポートします\nクールダウン:10秒",
@@ -1555,9 +1555,9 @@
         "en": "Draco",
         "ko": "드라코",
         "es": "Draco",
-        "ar": "دراكو",
+        "ar": "",
         "fr": "Draco",
-        "zh-tw": "德拉科"
+        "zh-tw": "德拉古"
       },
       "image": "require('../../assets/BrawlerIcons/draco_pin.png')",
       "class": {
@@ -1585,10 +1585,10 @@
             "ja": "エクスポーズ",
             "en": "Expose",
             "ko": "약점 공략",
-            "es": "Exponer",
-            "ar": "كشف",
-            "fr": "Exposition",
-            "zh-tw": "暴露"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "龍破斬"
           },
           "description": {
             "ja": "5秒ごとに、次の槍突きが命中した敵を暴露状態にします。暴露された敵は5秒間、受けるダメージが35%増加します。",
@@ -1618,10 +1618,10 @@
             "ja": "速弾き",
             "en": "Shredding",
             "ko": "슈레딩",
-            "es": "Destrozando",
-            "ar": "عزف سريع",
-            "fr": "Déchirement",
-            "zh-tw": "狂飆"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "華麗速彈"
           },
           "description": {
             "ja": "ドラゴンソロの発動時に2750の回復も行うようになります。",
@@ -1653,10 +1653,10 @@
             "ja": "アッパーカット",
             "en": "Upper Cut",
             "ko": "어퍼컷",
-            "es": "Gancho Alto",
-            "ar": "لكمة صاعدة",
-            "fr": "Uppercut",
-            "zh-tw": "上鉤拳"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "升龍擊"
           },
           "description": {
             "ja": "次の槍突きは敵を短時間空中に投げ上げます。\nクールダウン:11秒",
@@ -1686,9 +1686,9 @@
             "ja": "ラストスタンド",
             "en": "Last Stand",
             "ko": "최후의 몸부림",
-            "es": "Última Resistencia",
-            "ar": "المقاومة الأخيرة",
-            "fr": "Dernier Rempart",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "最後一搏"
           },
           "description": {
@@ -1727,7 +1727,7 @@
         "en": "Angelo",
         "ko": "안젤로",
         "es": "Angelo",
-        "ar": "أنجيلو",
+        "ar": "",
         "fr": "Angelo",
         "zh-tw": "安傑洛"
       },
@@ -1757,10 +1757,10 @@
             "ja": "エネルギー転化",
             "en": "Empower",
             "ko": "힐링타임",
-            "es": "Potenciar",
-            "ar": "تعزيز",
-            "fr": "Renforcement",
-            "zh-tw": "能量轉化"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "毒來毒往"
           },
           "description": {
             "ja": "スーパー内にいる間、アンジェロは毎秒600の回復を得ます。",
@@ -1790,10 +1790,10 @@
             "ja": "空中浮遊",
             "en": "Flow",
             "ko": "흘러흘러",
-            "es": "Flujo",
-            "ar": "تدفق",
-            "fr": "Fluidité",
-            "zh-tw": "氣流"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "熟稔水性"
           },
           "description": {
             "ja": "水に入った後、アンジェロは移動速度が25%上昇します。",
@@ -1825,10 +1825,10 @@
             "ja": "激痛テイクオフ",
             "en": "Stinging Flight",
             "ko": "따끔한 비행",
-            "es": "Vuelo Punzante",
-            "ar": "طيران لاذع",
-            "fr": "Vol Piquant",
-            "zh-tw": "刺痛飛行"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "叮人飛蟲"
           },
           "description": {
             "ja": "1.0秒間空中に飛び上がります。離陸時に近くの敵からHP660を吸収します。\nクールダウン:18秒",
@@ -1858,10 +1858,10 @@
             "ja": "ピアシングアロー",
             "en": "Master Fletcher",
             "ko": "화살 마스터",
-            "es": "Maestro Flechador",
-            "ar": "صانع السهام الماهر",
-            "fr": "Maître Archer",
-            "zh-tw": "箭術大師"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "銳利飛刺"
           },
           "description": {
             "ja": "次の狙い撃ちは敵と環境を貫通します。\nクールダウン:14秒",
@@ -1899,7 +1899,7 @@
         "en": "Melodie",
         "ko": "멜로디",
         "es": "Melodie",
-        "ar": "ميلودي",
+        "ar": "",
         "fr": "Mélodie",
         "zh-tw": "美樂蒂"
       },
@@ -1929,10 +1929,10 @@
             "ja": "アップテンポ",
             "en": "Fast Beats",
             "ko": "빠른 비트",
-            "es": "Ritmos Rápidos",
-            "ar": "إيقاعات سريعة",
-            "fr": "Rythmes Rapides",
-            "zh-tw": "快速節拍"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "動感節拍"
           },
           "description": {
             "ja": "メロディは周りを回る音符1つにつき移動速度が6%上昇します。",
@@ -1962,10 +1962,10 @@
             "ja": "ボーナストラック",
             "en": "Extended Mix",
             "ko": "익스텐디드 믹스",
-            "es": "Mezcla Extendida",
-            "ar": "مزيج ممتد",
-            "fr": "Mix Prolongé",
-            "zh-tw": "延長混音"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "混音加長版"
           },
           "description": {
             "ja": "メロディの音符は消えるまでの持続時間が25%延長されます。",
@@ -1997,10 +1997,10 @@
             "ja": "フォルテシモ",
             "en": "Perfect Pitch",
             "ko": "퍼펙트 피치",
-            "es": "Tono Perfecto",
-            "ar": "النغمة المثالية",
-            "fr": "Ton Parfait",
-            "zh-tw": "完美音高"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "絕對美聲"
           },
           "description": {
             "ja": "5秒の間、音符の周回速度が25%上昇し、周回範囲が60%増加する。\nクールダウン:14秒",
@@ -2020,7 +2020,7 @@
               "es": "Esperando una mejora.",
               "ar": "في انتظار التحسين.",
               "fr": "En attente d'un buff.",
-              "zh-tw": "等待加強。"
+              "zh-tw": "等舒緩間奏"
             }
           }
         },
@@ -2030,10 +2030,10 @@
             "ja": "インタールード",
             "en": "Interlude",
             "ko": "간주",
-            "es": "Interludio",
-            "ar": "فاصل موسيقي",
-            "fr": "Interlude",
-            "zh-tw": "間奏"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "舒緩間奏"
           },
           "description": {
             "ja": "メロディは周りを回る音符1つにつき10%のシールドを得ます。\nクールダウン:19秒",
@@ -2072,9 +2072,9 @@
         "en": "Larry & Lawrie",
         "ko": "래리 & 로리",
         "es": "Larry y Lawrie",
-        "ar": "لاري ولوري",
+        "ar": "ري",
         "fr": "Larry et Lawrie",
-        "zh-tw": "拉里和勞里"
+        "zh-tw": "賴瑞和羅瑞"
       },
       "image": "require('../../assets/BrawlerIcons/larryandlawrie_pin.png')",
       "class": {
@@ -2102,10 +2102,10 @@
             "ja": "防衛プロトコル",
             "en": "Protocol Protect",
             "ko": "방위 프로토콜",
-            "es": "Protocolo de Protección",
-            "ar": "بروتوكول الحماية",
-            "fr": "Protocole de Protection",
-            "zh-tw": "防護協議"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "協議：保護"
           },
           "description": {
             "ja": "ローリーが範囲内にいる間、受けるダメージの30%をローリーに移し替える。",
@@ -2135,10 +2135,10 @@
             "ja": "装填プロトコル",
             "en": "Protocol Assist",
             "ko": "지원 프로토콜",
-            "es": "Protocolo de Asistencia",
-            "ar": "بروتوكول المساعدة",
-            "fr": "Protocole d'Assistance",
-            "zh-tw": "輔助協議"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "協議：支援"
           },
           "description": {
             "ja": "ローリーが範囲内にいる間、彼が敵にダメージを与えるたびに弾薬を30%リロードします。",
@@ -2170,10 +2170,10 @@
             "ja": "交換指令",
             "en": "Order Swap",
             "ko": "교환 명령",
-            "es": "Orden de Intercambio",
-            "ar": "أمر التبديل",
-            "fr": "Ordre d'Échange",
-            "zh-tw": "交換命令"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "指令：交換"
           },
           "description": {
             "ja": "ローリーと武器を交換します。\nクールダウン:12秒",
@@ -2203,10 +2203,10 @@
             "ja": "撤退指令",
             "en": "Order Fall Back",
             "ko": "후퇴 명령",
-            "es": "Orden de Retirada",
-            "ar": "أمر التراجع",
-            "fr": "Ordre de Repli",
-            "zh-tw": "撤退命令"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "指令：撤離"
           },
           "description": {
             "ja": "ラリーはローリーに、ローリーはラリーに向かってダッシュし、両者が最大HPの25%を回復します。\nクールダウン:17秒",
@@ -2244,9 +2244,9 @@
         "en": "Kit",
         "ko": "키트",
         "es": "Kit",
-        "ar": "كيت",
+        "ar": "",
         "fr": "Kit",
-        "zh-tw": "奇特"
+        "zh-tw": "凱特"
       },
       "image": "require('../../assets/BrawlerIcons/kit_pin.png')",
       "class": {
@@ -2274,10 +2274,10 @@
             "ja": "上昇志向",
             "en": "Power Hungry",
             "ko": "파워 헝그리",
-            "es": "Hambre de Poder",
-            "ar": "جوع للقوة",
-            "fr": "Soif de Pouvoir",
-            "zh-tw": "渴望力量"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "元氣滿滿"
           },
           "description": {
             "ja": "キットは各パワーキューブから150%のパワーを得ます。",
@@ -2307,10 +2307,10 @@
             "ja": "甘えんぼ",
             "en": "Overly Attached",
             "ko": "과잉 애착",
-            "es": "Muy Apegado",
-            "ar": "شديد التعلق",
-            "fr": "Trop Attaché",
-            "zh-tw": "過度依戀"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "超級黏人"
           },
           "description": {
             "ja": "キットは味方のブローラーに5秒長く取り付くことができます。",
@@ -2342,10 +2342,10 @@
             "ja": "段ボール箱",
             "en": "Cardboard Box",
             "ko": "종이 상자",
-            "es": "Caja de Cartón",
-            "ar": "صندوق كرتون",
-            "fr": "Boîte en Carton",
-            "zh-tw": "紙箱"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "紙箱躱貓貓"
           },
           "description": {
             "ja": "段ボール箱に隠れて3秒間透明になります。移動を止めると必殺技のチャージ速度が100%上昇する\nクールダウン:20秒",
@@ -2375,10 +2375,10 @@
             "ja": "チーズバーガー",
             "en": "Cheeseburger",
             "ko": "치즈버거",
-            "es": "Hamburguesa con Queso",
-            "ar": "برجر بالجبن",
-            "fr": "Cheeseburger",
-            "zh-tw": "起司漢堡"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "吃漢堡囉"
           },
           "description": {
             "ja": "自身と取り付いている味方のブローラーを30%回復させます。\nクールダウン:15秒",
@@ -2416,7 +2416,7 @@
         "en": "Mico",
         "ko": "미코",
         "es": "Mico",
-        "ar": "ميكو",
+        "ar": "",
         "fr": "Mico",
         "zh-tw": "米可"
       },
@@ -2446,10 +2446,10 @@
             "ja": "モンキーパンチ",
             "en": "Monkey Business",
             "ko": "몽키 비즈니스",
-            "es": "Asunto de Monos",
-            "ar": "عمل القرود",
-            "fr": "Affaire de Singe",
-            "zh-tw": "猴子把戲"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "猴子偷彈"
           },
           "description": {
             "ja": "5秒ごとに、ミコの基本攻撃が命中した敵から弾薬を奪います。",
@@ -2479,10 +2479,10 @@
             "ja": "ミリオンヒット",
             "en": "Record Smash",
             "ko": "쇼킹 스매시",
-            "es": "Rompe Récords",
-            "ar": "تحطيم الأرقام القياسية",
-            "fr": "Brise-Record",
-            "zh-tw": "破紀錄"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "爆裂破音"
           },
           "description": {
             "ja": "ミコはブローラー以外に対して100%の追加ダメージを与えます。",
@@ -2514,10 +2514,10 @@
             "ja": "声量解放",
             "en": "Clipping Scream",
             "ko": "고막 주의",
-            "es": "Grito Distorsionado",
-            "ar": "صرخة مدوية",
-            "fr": "Cri Saturé",
-            "zh-tw": "破音尖叫"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "刺耳尖叫"
           },
           "description": {
             "ja": "ミコは最も近い敵に向かって耳をつんざくような叫び声を上げ、命中時に545ダメージを与え2秒間減速させます。\nクールダウン:15秒",
@@ -2547,10 +2547,10 @@
             "ja": "猿まわし",
             "en": "Presto",
             "ko": "구름판",
-            "es": "Presto",
-            "ar": "بريستو",
-            "fr": "Presto",
-            "zh-tw": "急板"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "凌空飛躍"
           },
           "description": {
             "ja": "ミコの次のジャンプの射程が34%延長されます。\nクールダウン:17秒",
@@ -2588,7 +2588,7 @@
         "en": "Charlie",
         "ko": "찰리",
         "es": "Charlie",
-        "ar": "شارلي",
+        "ar": "",
         "fr": "Charlie",
         "zh-tw": "查莉"
       },
@@ -2618,10 +2618,10 @@
             "ja": "オーイタイ酸",
             "en": "Digestive",
             "ko": "소화",
-            "es": "Digestivo",
-            "ar": "هاضم",
-            "fr": "Digestif",
-            "zh-tw": "消化酸"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "消化殆盡"
           },
           "description": {
             "ja": "マユに包まれた敵は、HPの25%を失う",
@@ -2651,10 +2651,10 @@
             "ja": "スライミーロード",
             "en": "Slimy",
             "ko": "끈끈이",
-            "es": "Viscoso",
-            "ar": "لزج",
-            "fr": "Visqueux",
-            "zh-tw": "黏滑路徑"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "膠戰守則"
           },
           "description": {
             "ja": "繭は5秒間粘液の跡を残し、その上を歩く敵を減速させます。",
@@ -2686,10 +2686,10 @@
             "ja": "ペットスパイダー",
             "en": "Spiders",
             "ko": "거미",
-            "es": "Arañas",
-            "ar": "عناكب",
-            "fr": "Araignées",
-            "zh-tw": "蜘蛛"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "蜘蛛攻勢"
           },
           "description": {
             "ja": "チャーリーは3匹のクモを放ち、最も近い敵を探して攻撃します。\nクールダウン:18秒",
@@ -2719,10 +2719,10 @@
             "ja": "パーソナルスペース",
             "en": "Personal Space",
             "ko": "프라이버시",
-            "es": "Espacio Personal",
-            "ar": "مساحة شخصية",
-            "fr": "Espace Personnel",
-            "zh-tw": "個人空間"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "從繭修復"
           },
           "description": {
             "ja": "チャーリーは自身を繭で包み、最大体力の50%を回復します。\nクールダウン:15秒",
@@ -2760,7 +2760,7 @@
         "en": "Chuck",
         "ko": "척",
         "es": "Chuck",
-        "ar": "تشاك",
+        "ar": "",
         "fr": "Chuck",
         "zh-tw": "查克"
       },
@@ -2790,10 +2790,10 @@
             "ja": "ピットストップ",
             "en": "Pit Stop",
             "ko": "정차",
-            "es": "Parada en Boxes",
-            "ar": "توقف الصيانة",
-            "fr": "Arrêt au Stand",
-            "zh-tw": "維修站"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "擴建鐵路"
           },
           "description": {
             "ja": "ポストの最大数が1増加します。",
@@ -2823,10 +2823,10 @@
             "ja": "切符を拝見！",
             "en": "Tickets Please",
             "ko": "티켓 검사",
-            "es": "Billetes Por Favor",
-            "ar": "التذاكر من فضلك",
-            "fr": "Billets S'il Vous Plaît",
-            "zh-tw": "查票"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "驗票正身"
           },
           "description": {
             "ja": "スーパーで敵を突き抜けると、その敵の弾薬を33%奪います。",
@@ -2858,10 +2858,10 @@
             "ja": "振替輸送",
             "en": "Rerouting",
             "ko": "경로 변경",
-            "es": "Redirección",
-            "ar": "تغيير المسار",
-            "fr": "Déviation",
-            "zh-tw": "改道"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "路線變更"
           },
           "description": {
             "ja": "チャックは最も近いポストを除去し、スーパーを再チャージします。\nクールダウン:10秒",
@@ -2891,9 +2891,9 @@
             "ja": "幽霊鉄道",
             "en": "Ghost Train",
             "ko": "유령 열차",
-            "es": "Tren Fantasma",
-            "ar": "قطار الأشباح",
-            "fr": "Train Fantôme",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "幽靈列車"
           },
           "description": {
@@ -2932,9 +2932,9 @@
         "en": "Pearl",
         "ko": "펄",
         "es": "Pearl",
-        "ar": "بيرل",
+        "ar": "",
         "fr": "Pearl",
-        "zh-tw": "珍珠"
+        "zh-tw": "珀爾"
       },
       "image": "require('../../assets/BrawlerIcons/pearl_pin.png')",
       "class": {
@@ -2962,10 +2962,10 @@
             "ja": "熱管理",
             "en": "Heat Retention",
             "ko": "열기 유지",
-            "es": "Retención de Calor",
-            "ar": "احتفاظ الحرارة",
-            "fr": "Rétention de Chaleur",
-            "zh-tw": "熱能保持"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "蓄勢保溫"
           },
           "description": {
             "ja": "必殺技の熱の消費量が50減少します。",
@@ -2995,10 +2995,10 @@
             "ja": "熱防御",
             "en": "Heat Shield",
             "ko": "열기 보호막",
-            "es": "Escudo de Calor",
-            "ar": "درع حراري",
-            "fr": "Bouclier Thermique",
-            "zh-tw": "熱能護盾"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "炙熱護盾"
           },
           "description": {
             "ja": "熱が80%を超えている間、受けるダメージが20%減少します。",
@@ -3030,10 +3030,10 @@
             "ja": "焼きすぎ君",
             "en": "Overcooked",
             "ko": "오버쿡",
-            "es": "Requemado",
-            "ar": "مفرط الطهي",
-            "fr": "Trop Cuit",
-            "zh-tw": "過度烤焦"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "烤焦如焚"
           },
           "description": {
             "ja": "次の通常攻撃で炎を帯びたクッキーを発射し、的に1040の継続ダメージを追加で与える。\nクールダウン:15秒",
@@ -3063,10 +3063,10 @@
             "ja": "愛の形",
             "en": "Made With Love",
             "ko": "사랑의 쿠키",
-            "es": "Hecho con Amor",
-            "ar": "صنع بحب",
-            "fr": "Fait avec Amour",
-            "zh-tw": "愛心製作"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "用愛烘焙"
           },
           "description": {
             "ja": "次の通常攻撃で時間と共に味方のHPを2800回復する。この攻撃で敵にダメージを与えることができない。\nクールダウン:11秒",
@@ -3105,7 +3105,7 @@
         "en": "Doug",
         "ko": "더그",
         "es": "Doug",
-        "ar": "دوغ",
+        "ar": "",
         "fr": "Doug",
         "zh-tw": "道格"
       },
@@ -3135,10 +3135,10 @@
             "ja": "ファストフード",
             "en": "Fast Food",
             "ko": "패스트푸드",
-            "es": "Comida Rápida",
-            "ar": "وجبات سريعة",
-            "fr": "Fast Food",
-            "zh-tw": "快餐"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "速食主義"
           },
           "description": {
             "ja": "復活したキャラクターの移動速度が3秒間上昇する。",
@@ -3168,10 +3168,10 @@
             "ja": "セルフサービス",
             "en": "Self-Service",
             "ko": "셀프 서비스",
-            "es": "Autoservicio",
-            "ar": "خدمة ذاتية",
-            "fr": "Self-Service",
-            "zh-tw": "自助服務"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "自助補給"
           },
           "description": {
             "ja": "通常攻撃を行うと、ダグのHPが480回復する。",
@@ -3203,10 +3203,10 @@
             "ja": "ダブルソーセージ",
             "en": "Double Sausage",
             "ko": "더블 소시지",
-            "es": "Salchicha Doble",
-            "ar": "نقانق مضاعفة",
-            "fr": "Double Saucisse",
-            "zh-tw": "雙倍香腸"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "雙份熱狗"
           },
           "description": {
             "ja": "次の通常攻撃が味方を回復させるだけの効果になるが、回復量が2倍になる。\nクールダウン:15秒",
@@ -3236,10 +3236,10 @@
             "ja": "マシマシマスタード",
             "en": "Extra Mustard",
             "ko": "추가 머스터드",
-            "es": "Mostaza Extra",
-            "ar": "خردل إضافي",
-            "fr": "Moutarde Extra",
-            "zh-tw": "額外芥末"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "芥末加量"
           },
           "description": {
             "ja": "次の通常攻撃が敵にダメージを与えるだけの効果になるが、ダメージが2倍になる。\nクールダウン:15秒",
@@ -3277,9 +3277,9 @@
         "en": "Cordelius",
         "ko": "코델리우스",
         "es": "Cordelius",
-        "ar": "كورديليوس",
+        "ar": "",
         "fr": "Cordelius",
-        "zh-tw": "科迪利亞斯"
+        "zh-tw": "康迪留斯"
       },
       "image": "require('../../assets/BrawlerIcons/cordelius_pin.png')",
       "class": {
@@ -3307,10 +3307,10 @@
             "ja": "キノコンボ",
             "en": "Comboshrooms",
             "ko": "콤보 버섯",
-            "es": "Combosetas",
-            "ar": "فطر متتابع",
-            "fr": "Champicombos",
-            "zh-tw": "蘑菇連擊"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "蘑性大發"
           },
           "description": {
             "ja": "2発目のキノコを同じ敵に命中させると30%の追加ダメージを与える。",
@@ -3340,9 +3340,9 @@
             "ja": "キノコキングダム",
             "en": "Mushroom Kingdom",
             "ko": "버섯 왕국",
-            "es": "Reino de Hongos",
-            "ar": "مملكة الفطر",
-            "fr": "Royaume des Champignons",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "蘑菇王國"
           },
           "description": {
@@ -3375,10 +3375,10 @@
             "ja": "キノコジャンプ",
             "en": "Replanting",
             "ko": "다시 심기",
-            "es": "Replantado",
-            "ar": "إعادة الزرع",
-            "fr": "Replantage",
-            "zh-tw": "重新種植"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "快速移植"
           },
           "description": {
             "ja": "地上の障害物を素早く飛び越える。\nクールダウン:18秒",
@@ -3408,10 +3408,10 @@
             "ja": "フウジタケ",
             "en": "Poison Mushroom",
             "ko": "독버섯",
-            "es": "Hongo Venenoso",
-            "ar": "فطر سام",
-            "fr": "Champignon Poison",
-            "zh-tw": "毒蘑菇"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "沉默毒菇"
           },
           "description": {
             "ja": "次の通常攻撃で毒キノコを発射し、命中した敵の攻撃を1.0秒間封じる。\nクールダウン:18秒",
@@ -3450,7 +3450,7 @@
         "en": "Hank",
         "ko": "행크",
         "es": "Hank",
-        "ar": "هانك",
+        "ar": "",
         "fr": "Hank",
         "zh-tw": "漢克"
       },
@@ -3480,10 +3480,10 @@
             "ja": "ブロウアップ",
             "en": "Its Gonna Blow",
             "ko": "터질 것 같아!",
-            "es": "Va a Explotar",
-            "ar": "سوف تنفجر",
-            "fr": "Ça Va Péter",
-            "zh-tw": "即將爆炸"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "驚爆時刻"
           },
           "description": {
             "ja": "通常攻撃を80%以上チャージすると、移動速度が10%上昇する",
@@ -3513,10 +3513,10 @@
             "ja": "一時避難",
             "en": "Take Cover",
             "ko": "뒤로 숨어!",
-            "es": "A Cubierto",
-            "ar": "احتمِ",
-            "fr": "À Couvert",
-            "zh-tw": "就地掩護"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "堅實掩體"
           },
           "description": {
             "ja": "壁の近くにいる時、受けるダメージが20%減少します。",
@@ -3548,10 +3548,10 @@
             "ja": "ウォーターバルーン",
             "en": "Water Balloons",
             "ko": "물풍선",
-            "es": "Globos de Agua",
-            "ar": "بالونات الماء",
-            "fr": "Ballons d'Eau",
-            "zh-tw": "水球"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "水球攻勢"
           },
           "description": {
             "ja": "次に放つ通常攻撃が命中すると、敵が3秒間スローダウンする。\nクールダウン:11秒",
@@ -3581,10 +3581,10 @@
             "ja": "隠れ裳",
             "en": "Barricade",
             "ko": "방어벽",
-            "es": "Barricada",
-            "ar": "متراس",
-            "fr": "Barricade",
-            "zh-tw": "路障"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "銅牆鐵壁"
           },
           "description": {
             "ja": "3秒間受けるダメージが40%減少する。\nクールダウン:15秒",
@@ -3622,9 +3622,9 @@
         "en": "Maisie",
         "ko": "메이지",
         "es": "Maisie",
-        "ar": "ميزي",
+        "ar": "",
         "fr": "Maisie",
-        "zh-tw": "梅西"
+        "zh-tw": "麥希"
       },
       "image": "require('../../assets/BrawlerIcons/maisie_pin.png')",
       "class": {
@@ -3652,10 +3652,10 @@
             "ja": "精密射撃",
             "en": "Pinpoint Precision",
             "ko": "나노 정밀도",
-            "es": "Precisión Milimétrica",
-            "ar": "دقة متناهية",
-            "fr": "Précision Chirurgicale",
-            "zh-tw": "精確瞄準"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "精準射擊"
           },
           "description": {
             "ja": "通常攻撃の最大射程におけるダメージが20%増加する",
@@ -3685,10 +3685,10 @@
             "ja": "ガクブルソニック",
             "en": "Tremors",
             "ko": "후덜덜",
-            "es": "Temblores",
-            "ar": "رجفات",
-            "fr": "Tremblements",
-            "zh-tw": "震顫"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "震顫衝擊"
           },
           "description": {
             "ja": "必殺技がヒットした敵は、2秒間スローダウンする。",
@@ -3720,10 +3720,10 @@
             "ja": "戦略的撤退",
             "en": "Disengage",
             "ko": "철수!",
-            "es": "Desenganche",
-            "ar": "فك الاشتباك",
-            "fr": "Désengagement",
-            "zh-tw": "脫離戰鬥"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "撤離戰場"
           },
           "description": {
             "ja": "地震は前方にダッシュしながら敵を0.5秒に割って気絶する。\nクールダウン:16秒",
@@ -3753,10 +3753,10 @@
             "ja": "フィニッシャー",
             "en": "Finish Them",
             "ko": "로켓 피니시",
-            "es": "Remátalos",
-            "ar": "أنهِهم",
-            "fr": "Achève-les",
-            "zh-tw": "終結技"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "終結必殺"
           },
           "description": {
             "ja": "瞬時に弾を1発リロードし、次の通常攻撃のダメージを強化する。強化率はターゲットが失った分のHPの30%となる。\nクールダウン:10秒",
@@ -3795,9 +3795,9 @@
         "en": "Willow",
         "ko": "윌로우",
         "es": "Willow",
-        "ar": "ويلو",
+        "ar": "",
         "fr": "Willow",
-        "zh-tw": "薇洛"
+        "zh-tw": "葳洛"
       },
       "image": "require('../../assets/BrawlerIcons/willow_pin.png')",
       "class": {
@@ -3825,10 +3825,10 @@
             "ja": "恋は盲目",
             "en": "Love Is Blind",
             "ko": "사랑의 콩깍지",
-            "es": "El Amor es Ciego",
-            "ar": "الحب أعمى",
-            "fr": "L'Amour est Aveugle",
-            "zh-tw": "愛情是盲目的"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "盲目狂戀"
           },
           "description": {
             "ja": "通常攻撃が命中した敵はリロード速度が30%遅くなる。",
@@ -3858,10 +3858,10 @@
             "ja": "君に夢中",
             "en": "Obsession",
             "ko": "집착",
-            "es": "Obsesión",
-            "ar": "هوس",
-            "fr": "Obsession",
-            "zh-tw": "著迷"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "痴心絕對"
           },
           "description": {
             "ja": "必殺技が命中した敵は、スピードが33%上昇する。",
@@ -3893,10 +3893,10 @@
             "ja": "トランス",
             "en": "Spellbound",
             "ko": "오싹한 매력",
-            "es": "Hechizado",
-            "ar": "مسحور",
-            "fr": "Envoûté",
-            "zh-tw": "著魔"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "當局者迷"
           },
           "description": {
             "ja": "次の通常攻撃のダメージが600増加すると共に、継続ダメージではなく瞬時にダメージを与える。\nクールダウン:13秒",
@@ -3926,10 +3926,10 @@
             "ja": "ダイブ",
             "en": "Dive",
             "ko": "잠수",
-            "es": "Zambullida",
-            "ar": "غطس",
-            "fr": "Plongée",
-            "zh-tw": "潛水"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "潛形匿影"
           },
           "description": {
             "ja": "2秒間ダイブして敵のターゲットにされなくなるが、その間は何もできなくなる。\nクールダウン:16秒",
@@ -3967,7 +3967,7 @@
         "en": "R-T",
         "ko": "R-T",
         "es": "R-T",
-        "ar": "آر-تي",
+        "ar": "تي",
         "fr": "R-T",
         "zh-tw": "R-T"
       },
@@ -3997,10 +3997,10 @@
             "ja": "高速演算",
             "en": "Quick Maths",
             "ko": "재빠른 계산",
-            "es": "Matemáticas Rápidas",
-            "ar": "حسابات سريعة",
-            "fr": "Calculs Rapides",
-            "zh-tw": "快速運算"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "高速運算"
           },
           "description": {
             "ja": "マーキングの有効時間が3秒間延びる",
@@ -4030,10 +4030,10 @@
             "ja": "レコーディング",
             "en": "Recording",
             "ko": "녹화 모드",
-            "es": "Grabación",
-            "ar": "تسجيل",
-            "fr": "Enregistrement",
-            "zh-tw": "記錄"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "機底記錄"
           },
           "description": {
             "ja": "分裂時に本体と脚の受けるダメージが20%減少する。",
@@ -4065,10 +4065,10 @@
             "ja": "実力行使",
             "en": "Out Of Line",
             "ko": "라인 이탈",
-            "es": "Fuera de Línea",
-            "ar": "خارج الحدود",
-            "fr": "Hors Ligne",
-            "zh-tw": "越界"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "緊急訊號"
           },
           "description": {
             "ja": "自分の必殺技を瞬時にチャージする。\nクールダウン:20秒",
@@ -4098,10 +4098,10 @@
             "ja": "一斉起爆",
             "en": "Hacks",
             "ko": "해킹 주의!",
-            "es": "Hackeos",
-            "ar": "اختراقات",
-            "fr": "Piratages",
-            "zh-tw": "駭入"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "駭客入侵"
           },
           "description": {
             "ja": "敵キャラクターにつけた全てのマーキングを起動させ、ダメージを与える\nクールダウン:15秒",
@@ -4139,7 +4139,7 @@
         "en": "Mandy",
         "ko": "맨디",
         "es": "Mandy",
-        "ar": "ماندي",
+        "ar": "",
         "fr": "Mandy",
         "zh-tw": "曼蒂"
       },
@@ -4169,10 +4169,10 @@
             "ja": "視界良好",
             "en": "In My Sights",
             "ko": "시야 확보",
-            "es": "En Mi Mira",
-            "ar": "في مرماي",
-            "fr": "Dans Ma Ligne de Mire",
-            "zh-tw": "視野良好"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "凝神遠眺"
           },
           "description": {
             "ja": "集中力ゲージが溜まっている間は、キャンディの発射速度が15％上昇する",
@@ -4202,10 +4202,10 @@
             "ja": "ハードキャンディ",
             "en": "Hard Candy",
             "ko": "알사탕",
-            "es": "Caramelo Duro",
-            "ar": "حلوى صلبة",
-            "fr": "Bonbon Dur",
-            "zh-tw": "硬糖"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "堅硬糖衣"
           },
           "description": {
             "ja": "集中力ゲージが溜まっている間、シールドを発動してダメージを40％軽減する。",
@@ -4237,10 +4237,10 @@
             "ja": "キャラメトル",
             "en": "Caramelize",
             "ko": "설탕 코팅",
-            "es": "Caramelizar",
-            "ar": "تكريمل",
-            "fr": "Caramélisation",
-            "zh-tw": "焦糖化"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "黏人焦糖"
           },
           "description": {
             "ja": "次の通常攻撃が命中すると、敵を2.5秒間にわたってスローダウンする。\nクールダウン:13秒",
@@ -4270,9 +4270,9 @@
             "ja": "クッキースクランブル",
             "en": "Cookie Crumbs",
             "ko": "쿠키 부스러기",
-            "es": "Migas de Galleta",
-            "ar": "فتات البسكويت",
-            "fr": "Miettes de Biscuit",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "餅乾碎屑"
           },
           "description": {
@@ -4311,9 +4311,9 @@
         "en": "Gray",
         "ko": "그레이",
         "es": "Gray",
-        "ar": "غراي",
+        "ar": "",
         "fr": "Gray",
-        "zh-tw": "格雷"
+        "zh-tw": "蓋瑞"
       },
       "image": "require('../../assets/BrawlerIcons/gray_pin.png')",
       "class": {
@@ -4341,10 +4341,10 @@
             "ja": "マリーシア",
             "en": "Fake Injury",
             "ko": "할리우드 액션",
-            "es": "Lesión Falsa",
-            "ar": "إصابة مزيفة",
-            "fr": "Fausse Blessure",
-            "zh-tw": "假裝受傷"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "虛假傷害"
           },
           "description": {
             "ja": "HPが満タンのとき、受けるダメージが50％軽減される。",
@@ -4374,10 +4374,10 @@
             "ja": "ワープマジック",
             "en": "New Perspective",
             "ko": "새로운 관점",
-            "es": "Nueva Perspectiva",
-            "ar": "منظور جديد",
-            "fr": "Nouvelle Perspective",
-            "zh-tw": "新視角"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "煥然一新"
           },
           "description": {
             "ja": "作り出したワープ地点を自身や味方が通過すると、HPが1320回復する。",
@@ -4409,10 +4409,10 @@
             "ja": "ウォーキングステッキ",
             "en": "Walking Cane",
             "ko": "지팡이",
-            "es": "Bastón",
-            "ar": "عصا المشي",
-            "fr": "Canne de Marche",
-            "zh-tw": "手杖"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "虛假傷害"
           },
           "description": {
             "ja": "次の通常攻撃でステッキを発射し、命中すると敵を自分の方へ少しだけ引き寄せる。\nクールダウン:18秒",
@@ -4442,10 +4442,10 @@
             "ja": "グランドピアノ",
             "en": "Grand Piano",
             "ko": "그랜드 피아",
-            "es": "Piano de Cola",
-            "ar": "بيانو كبير",
-            "fr": "Piano à Queue",
-            "zh-tw": "大鋼琴"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "煥然一新"
           },
           "description": {
             "ja": "次に通常攻撃を発射すると地面に目印が付き、そこにピアノを落として敵を下敷きにする。余計な怪我人が出ないことを祈るばかりだ…\nクールダウン:14秒",
@@ -4483,9 +4483,9 @@
         "en": "Chester",
         "ko": "체스터",
         "es": "Chester",
-        "ar": "تشيستر",
+        "ar": "",
         "fr": "Chester",
-        "zh-tw": "切斯特"
+        "zh-tw": "查斯特"
       },
       "image": "require('../../assets/BrawlerIcons/chester_pin.png')",
       "class": {
@@ -4513,10 +4513,10 @@
             "ja": "ドデかい一撃",
             "en": "Single Bellomania",
             "ko": "강력한 한 방울",
-            "es": "Bellomanía Única",
-            "ar": "هوس الضربة",
-            "fr": "Bellomanie Simple",
-            "zh-tw": "狂暴一擊"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "獨鈴絕技"
           },
           "description": {
             "ja": "通常攻撃の1段階目のダメージが150%増加する。",
@@ -4546,10 +4546,10 @@
             "ja": "ネタばらし",
             "en": "Sneak Peek",
             "ko": "살짝 엿보기",
-            "es": "Vista Previa",
-            "ar": "نظرة خاطفة",
-            "fr": "Avant-Première",
-            "zh-tw": "劇透"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "料事如神"
           },
           "description": {
             "ja": "自分が次に繰り出す必殺技の種類が常に表示される。",
@@ -4581,10 +4581,10 @@
             "ja": "ダイスロール",
             "en": "Spicy Dice",
             "ko": "주사위 게임",
-            "es": "Dados Picantes",
-            "ar": "نرد حار",
-            "fr": "Dés Épicés",
-            "zh-tw": "辣味骰子"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "隨骰應變"
           },
           "description": {
             "ja": "表示されている必殺技がランダムに入れ替わる。\nクールダウン:12秒",
@@ -4614,10 +4614,10 @@
             "ja": "ドッキリキャンディ",
             "en": "Candy Beans",
             "ko": "젤리 빈",
-            "es": "Frijoles de Dulce",
-            "ar": "حبوب الحلوى",
-            "fr": "Bonbons Surprises",
-            "zh-tw": "驚喜糖豆"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "奇幻糖果豆"
           },
           "description": {
             "ja": "食べるまで味がわからないキャンディを帽子から取り出し、5秒にわたってステータスがランダムに強化される。\nクールダウン:15秒",
@@ -4655,7 +4655,7 @@
         "en": "Buster",
         "ko": "버스터",
         "es": "Buster",
-        "ar": "باستر",
+        "ar": "",
         "fr": "Buster",
         "zh-tw": "巴斯特"
       },
@@ -4685,10 +4685,10 @@
             "ja": "ブロックバスター",
             "en": "Blockbuster",
             "ko": "블록버스터",
-            "es": "Taquillazo",
-            "ar": "بلوكباستر",
-            "fr": "Blockbuster",
-            "zh-tw": "大片"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "強檔鉅作"
           },
           "description": {
             "ja": "通常攻撃のダメージを、必殺技チャージエリア内の味方1人につき15％増加させる。",
@@ -4718,10 +4718,10 @@
             "ja": "防弾チョッキ",
             "en": "Kevlar Vest",
             "ko": "방탄 조끼",
-            "es": "Chaleco Kevlar",
-            "ar": "سترة كيفلار",
-            "fr": "Gilet Pare-balles",
-            "zh-tw": "防彈背心"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "道具防彈背心"
           },
           "description": {
             "ja": "モンタージュを使用中、バスターの被ダメージを10％減少させ、ノックバック、スローダウン、気絶を無効にする",
@@ -4753,10 +4753,10 @@
             "ja": "ユーティリティベルト",
             "en": "Utility Belt",
             "ko": "유틸리티 벨트",
-            "es": "Cinturón Utilitario",
-            "ar": "حزام المنافع",
-            "fr": "Ceinture Utilitaire",
-            "zh-tw": "工具腰帶"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "劇組萬用腰帶"
           },
           "description": {
             "ja": "必殺技チャージエリアにいる味方1体につき、自分と周囲にいる味方のHPを900回復させる。\nクールダウン:16秒",
@@ -4786,9 +4786,9 @@
             "ja": "コマ落とし",
             "en": "Slo-Mo Replay",
             "ko": "슬로 모션 리플레이",
-            "es": "Repetición a Cámara Lenta",
-            "ar": "إعادة بطيئة",
-            "fr": "Replay au Ralenti",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "慢動作重播"
           },
           "description": {
@@ -4826,7 +4826,7 @@
         "en": "Gus",
         "ko": "가스",
         "es": "Gus",
-        "ar": "غاس",
+        "ar": "",
         "fr": "Gus",
         "zh-tw": "格斯"
       },
@@ -4856,10 +4856,10 @@
             "ja": "ヒールアップ",
             "en": "Heal Up",
             "ko": "회복뿜뿜",
-            "es": "Curación Aumentada",
-            "ar": "تعزيز الشفاء",
-            "fr": "Soin Amélioré",
-            "zh-tw": "治療提升"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "靈氣吸收"
           },
           "description": {
             "ja": "ゴースト回収によるHPの回復量を100％増加させる。",
@@ -4889,10 +4889,10 @@
             "ja": "スピリットアニマル",
             "en": "Spirit Animal",
             "ko": "든든한 내 친구",
-            "es": "Animal Espiritual",
-            "ar": "حيوان روحي",
-            "fr": "Animal Spirituel",
-            "zh-tw": "精神動物"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "靈友助戰"
           },
           "description": {
             "ja": "味方1人のダメージ量を5秒にわたって25%増加させる。",
@@ -4924,10 +4924,10 @@
             "ja": "ゴーストクラッカー",
             "en": "Ghost Cracker",
             "ko": "유령 팡팡",
-            "es": "Rompefantasmas",
-            "ar": "كاسر الأشباح",
-            "fr": "Briseur de Fantômes",
-            "zh-tw": "幽靈爆破器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "爆裂幽魂"
           },
           "description": {
             "ja": "回収していないゴーストをすべて破裂させて、近くにいる敵に2240ダメージを与える。\nクールダウン:16秒",
@@ -4957,10 +4957,10 @@
             "ja": "ソウルスイッチャー",
             "en": "Soul Switcher",
             "ko": "영혼 교체",
-            "es": "Cambiador de Almas",
-            "ar": "مبدل الأرواح",
-            "fr": "Échangeur d'Âmes",
-            "zh-tw": "靈魂轉換器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "靈界契約"
           },
           "description": {
             "ja": "HPの5%犠牲にして、瞬時にゴーストのゲージを100%チャージする。\nクールダウン:10秒",
@@ -4998,7 +4998,7 @@
         "en": "Sam",
         "ko": "샘",
         "es": "Sam",
-        "ar": "سام",
+        "ar": "",
         "fr": "Sam",
         "zh-tw": "山姆"
       },
@@ -5028,10 +5028,10 @@
             "ja": "元気復活",
             "en": "Hearty Recovery",
             "ko": "원기회복",
-            "es": "Recuperación Vigorosa",
-            "ar": "تعافي قوي",
-            "fr": "Récupération Vigoureuse",
-            "zh-tw": "強健恢復"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "鐵血復甦"
           },
           "description": {
             "ja": "ナックルバスターを呼び戻すと、失ったHPの20%を瞬時に回復する。",
@@ -5061,10 +5061,10 @@
             "ja": "リモートチャージ",
             "en": "Remote Recharge",
             "ko": "원격 충전",
-            "es": "Recarga Remota",
-            "ar": "شحن عن بعد",
-            "fr": "Recharge à Distance",
-            "zh-tw": "遠程充能"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "蓄勢待發"
           },
           "description": {
             "ja": "地上のナックルバスターの近くに敵がいると、必殺技がチャージされる。",
@@ -5096,10 +5096,10 @@
             "ja": "磁場",
             "en": "Magnetic Field",
             "ko": "자기장",
-            "es": "Campo Magnético",
-            "ar": "مجال مغناطيسي",
-            "fr": "Champ Magnétique",
-            "zh-tw": "磁場"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "磁性力場"
           },
           "description": {
             "ja": "ナックルバスターが地上にある状態で発動すると、近くの敵がナックルに引き寄せられる。\nクールダウン:17秒",
@@ -5129,10 +5129,10 @@
             "ja": "パルスウェーブ",
             "en": "Pulse Repellent",
             "ko": "전류 분출",
-            "es": "Repelente de Pulso",
-            "ar": "نبض طارد",
-            "fr": "Répulsif à Impulsion",
-            "zh-tw": "脈衝排斥"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "脈衝驅逐"
           },
           "description": {
             "ja": "次にナックルバスターを発動すると、地上に落ちると同時に電磁パルスが発生して敵をノックバックする。\nクールダウン:11秒",
@@ -5169,9 +5169,9 @@
         "en": "Otis",
         "ko": "오티스",
         "es": "Otis",
-        "ar": "أوتيس",
+        "ar": "",
         "fr": "Otis",
-        "zh-tw": "奧提斯"
+        "zh-tw": "歐提斯"
       },
       "image": "require('../../assets/BrawlerIcons/otis_pin.png')",
       "class": {
@@ -5199,10 +5199,10 @@
             "ja": "ぺったんこシール",
             "en": "Stencil Glue",
             "ko": "스텐실 글루",
-            "es": "Pegamento de Plantilla",
-            "ar": "غراء الاستنسل",
-            "fr": "Colle à Pochoir",
-            "zh-tw": "模板膠水"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "強力吸盤"
           },
           "description": {
             "ja": "ヒトデのシルが全力で敵にへばりつき、敵の攻撃を封じる時間が33%長くなる。",
@@ -5232,10 +5232,10 @@
             "ja": "詰替用インク",
             "en": "Ink Refills",
             "ko": "먹물 리필",
-            "es": "Recarga de Tinta",
-            "ar": "إعادة تعبئة الحبر",
-            "fr": "Recharges d'Encre",
-            "zh-tw": "墨水補充"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "墨囊充足"
           },
           "description": {
             "ja": "オーティスの放つインク玉が33％増える。",
@@ -5267,10 +5267,10 @@
             "ja": "スリープスター",
             "en": "Dormant Star",
             "ko": "잠꾸러기 별",
-            "es": "Estrella Dormida",
-            "ar": "نجمة خاملة",
-            "fr": "Étoile Dormante",
-            "zh-tw": "休眠之星"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "海星伏擊"
           },
           "description": {
             "ja": "次にシルを投げたときに敵に当たらなかった場合は地面に張り付き、敵が近付くまで目を覚まさない。\nクールダウン:11秒",
@@ -5300,10 +5300,10 @@
             "ja": "黒潮",
             "en": "Phat Splatter",
             "ko": "먹물 웅덩이",
-            "es": "Salpicadura Gorda",
-            "ar": "بقعة ضخمة",
-            "fr": "Grosse Éclaboussure",
-            "zh-tw": "巨型潑濺"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "超量墨球"
           },
           "description": {
             "ja": "次にオーティスが放つ攻撃が巨大なインク玉となり、落ちた場所にインクの水たまりを作る。水たまりは3.8秒にわたって、敵に1150ずつダメージを与える。\nクールダウン:17秒",
@@ -5341,7 +5341,7 @@
         "en": "Bonnie",
         "ko": "보니",
         "es": "Bonnie",
-        "ar": "بوني",
+        "ar": "",
         "fr": "Bonnie",
         "zh-tw": "邦妮"
       },
@@ -5371,10 +5371,10 @@
             "ja": "ブラックパウダー",
             "en": "Black Powder",
             "ko": "검은 화약",
-            "es": "Pólvora Negra",
-            "ar": "البارود الأسود",
-            "fr": "Poudre Noire",
-            "zh-tw": "黑火藥"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "淘氣火藥"
           },
           "description": {
             "ja": "必殺技の射程が36%伸びる。",
@@ -5404,10 +5404,10 @@
             "ja": "親知らず",
             "en": "Wisdom Tooth",
             "ko": "사랑니",
-            "es": "Muela del Juicio",
-            "ar": "ضرس العقل",
-            "fr": "Dent de Sagesse",
-            "zh-tw": "智齒"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "爆裂智齒"
           },
           "description": {
             "ja": "通常攻撃が命中すると拡散して周囲の敵に25％の追加ダメージを与える。",
@@ -5439,10 +5439,10 @@
             "ja": "シュガーラッシュ",
             "en": "Sugar Rush",
             "ko": "슈가 러시",
-            "es": "Subidón de Azúcar",
-            "ar": "اندفاع السكر",
-            "fr": "Rush de Sucre",
-            "zh-tw": "糖分衝擊"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "甜蜜猛攻"
           },
           "description": {
             "ja": "大砲の移動速度とリロード速度が5秒にわたって30％上昇する。\nクールダウン:16秒",
@@ -5472,10 +5472,10 @@
             "ja": "衝突試験",
             "en": "Crash Test",
             "ko": "충돌 테스트",
-            "es": "Prueba de Choque",
-            "ar": "اختبار التصادم",
-            "fr": "Crash Test",
-            "zh-tw": "碰撞測試"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "搗蛋衝擊"
           },
           "description": {
             "ja": "前方にダッシュして敵をノックバックしながら2320ダメージを与える。\nクールダウン:10秒",
@@ -5512,10 +5512,10 @@
         "ja": "ジャネット",
         "en": "Janet",
         "ko": "자넷",
-        "es": "Janet",
+        "es": "",
         "ar": "جانيت",
         "fr": "Janet",
-        "zh-tw": "珍妮特"
+        "zh-tw": "珍娜"
       },
       "image": "require('../../assets/BrawlerIcons/janet_pin.png')",
       "class": {
@@ -5542,10 +5542,10 @@
             "ja": "特等席",
             "en": "Stage View",
             "ko": "무대인사",
-            "es": "Vista del Escenario",
-            "ar": "مشهد المسرح",
-            "fr": "Vue de la Scène",
-            "zh-tw": "最佳視野"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "舞台視角"
           },
           "description": {
             "ja": "飛行中は周囲のやぶの中が広範囲にわたって見えるようになる。",
@@ -5575,10 +5575,10 @@
             "ja": "発声練習",
             "en": "Vocal Warm-Up",
             "ko": "발성연습",
-            "es": "Calentamiento Vocal",
-            "ar": "تمرين صوتي",
-            "fr": "Échauffement Vocal",
-            "zh-tw": "發聲練習"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "熱身彩排"
           },
           "description": {
             "ja": "通常攻撃のエイムの集約速度が30％上昇する。",
@@ -5610,10 +5610,10 @@
             "ja": "低音スピーカー",
             "en": "Drop The Bass",
             "ko": "강력한 베이스",
-            "es": "Suelta el Bajo",
-            "ar": "إسقاط الباس",
-            "fr": "Lâche la Basse",
-            "zh-tw": "重低音"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "震撼低音"
           },
           "description": {
             "ja": "重低音を轟かすスピーカーを投入し、破壊されるまで効果範囲内の敵に毎秒200ダメージを与える。\nクールダウン:20秒",
@@ -5643,10 +5643,10 @@
             "ja": "舞台裏直行券",
             "en": "Backstage Pass",
             "ko": "백스테이지 통행증",
-            "es": "Pase Tras Bastidores",
-            "ar": "تصريح الكواليس",
-            "fr": "Pass des Coulisses",
-            "zh-tw": "後台通行證"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "完美退場"
           },
           "description": {
             "ja": "次の通常攻撃で、反動を使って大きく後ろにジャンプする。壁を越えることも可能で、エイムが集約されているほど、後退する距離も長くなる。\nクールダウン:16秒",
@@ -5684,9 +5684,9 @@
         "en": "Eve",
         "ko": "이브",
         "es": "Eve",
-        "ar": "إيف",
+        "ar": "",
         "fr": "Eve",
-        "zh-tw": "伊芙"
+        "zh-tw": "異芙"
       },
       "image": "require('../../assets/BrawlerIcons/eve_pin.png')",
       "class": {
@@ -5714,10 +5714,10 @@
             "ja": "摂理への冒涜",
             "en": "Unnatural Order",
             "ko": "어색한 순서",
-            "es": "Orden Antinatural",
-            "ar": "نظام غير طبيعي",
-            "fr": "Ordre Contre Nature",
-            "zh-tw": "違反自然"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "不自然規律"
           },
           "description": {
             "ja": "通常攻撃で撃ち出されるタマゴの順番が逆になる。",
@@ -5747,10 +5747,10 @@
             "ja": "ベビーシャワー",
             "en": "Happy Surprise",
             "ko": "해피 서프라이즈",
-            "es": "Sorpresa Feliz",
-            "ar": "مفاجأة سعيدة",
-            "fr": "Heureuse Surprise",
-            "zh-tw": "驚喜時刻"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "意外驚喜"
           },
           "description": {
             "ja": "通常攻撃の一番大きなタマゴが命中すると、そのタマゴから5秒ごとにベビーが産まれる。",
@@ -5782,10 +5782,10 @@
             "ja": "ベビーシッター",
             "en": "Gotta Go",
             "ko": "이만 가볼게!",
-            "es": "Tengo que Irme",
-            "ar": "علي الذهاب",
-            "fr": "Faut y Aller",
-            "zh-tw": "必須走了"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "走為上策"
           },
           "description": {
             "ja": "ベビーを1体その場に産み落とし、大きくジャンプする。\nクールダウン:17秒",
@@ -5815,10 +5815,10 @@
             "ja": "無条件の愛",
             "en": "Motherly Love",
             "ko": "모성애",
-            "es": "Amor Maternal",
-            "ar": "حب الأم",
-            "fr": "Amour Maternel",
-            "zh-tw": "母愛"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "偉大母愛"
           },
           "description": {
             "ja": "タマゴから産まれるベビーが時間とともに味方を回復する。ただし、敵には攻撃を加えなくなる。\nクールダウン:11秒",
@@ -5857,9 +5857,9 @@
         "en": "Fang",
         "ko": "팡",
         "es": "Fang",
-        "ar": "فانغ",
+        "ar": "",
         "fr": "Fang",
-        "zh-tw": "方格"
+        "zh-tw": "范"
       },
       "image": "require('../../assets/BrawlerIcons/fang_pin.png')",
       "class": {
@@ -5887,10 +5887,10 @@
             "ja": "ボーナススニーカー",
             "en": "Fresh Kicks",
             "ko": "충전 킥",
-            "es": "Patadas Frescas",
-            "ar": "ركلات منعشة",
-            "fr": "Coups Frais",
-            "zh-tw": "新鮮踢技"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "電光追擊"
           },
           "description": {
             "ja": "必殺技で敵を倒すとゲージが満タンにチャージされ、すぐにもう一度使えるようになる。",
@@ -5920,10 +5920,10 @@
             "ja": "厚底シューズ",
             "en": "Divine Soles",
             "ko": "신성한 신발",
-            "es": "Suelas Divinas",
-            "ar": "نعال إلهية",
-            "fr": "Semelles Divines",
-            "zh-tw": "神聖鞋底"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "金鐘罩"
           },
           "description": {
             "ja": "3秒につき1度、敵の攻撃を688ダメージ低減する。最大低減率は、受けたダメージの90%となる。",
@@ -5955,10 +5955,10 @@
             "ja": "ポップシュート",
             "en": "Corn Fu",
             "ko": "팝콘폭탄",
-            "es": "Maíz Fu",
-            "ar": "ذرة فو",
-            "fr": "Maïs Fu",
-            "zh-tw": "玉米功夫"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "暴玉梨花"
           },
           "description": {
             "ja": "小型の爆弾を空中にばらまいて、ポップコーンさながらに破裂させる。爆弾は1つにつき1088ダメージを与える。\nクールダウン:15秒",
@@ -5988,10 +5988,10 @@
             "ja": "まわし蹴り",
             "en": "Roundhouse Kick",
             "ko": "돌려차기",
-            "es": "Patada Circular",
-            "ar": "ركلة دائرية",
-            "fr": "Coup de Pied Circulaire",
-            "zh-tw": "迴旋踢"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "眩暈彈腿"
           },
           "description": {
             "ja": "回転して周囲にいる敵全員を蹴り散らす。命中した敵は0.5秒間気絶して動けなくなる。\nクールダウン:16秒",
@@ -6029,7 +6029,7 @@
         "en": "Lola",
         "ko": "롤라",
         "es": "Lola",
-        "ar": "لولا",
+        "ar": "",
         "fr": "Lola",
         "zh-tw": "蘿拉"
       },
@@ -6059,10 +6059,10 @@
             "ja": "即興劇",
             "en": "Improvise",
             "ko": "임기응변",
-            "es": "Improvisación",
-            "ar": "ارتجال",
-            "fr": "Improvisation",
-            "zh-tw": "即興表演"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "即興演出"
           },
           "description": {
             "ja": "残りの弾数が1発の状態で攻撃すると、敵に30%の追加ダメージを与える。",
@@ -6092,10 +6092,10 @@
             "ja": "痛いの飛んでけ",
             "en": "Sealed With A Kiss",
             "ko": "사랑을 담아",
-            "es": "Sellado Con Un Beso",
-            "ar": "مختوم بقبلة",
-            "fr": "Scellé d'un Baiser",
-            "zh-tw": "愛的封印"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "療傷吻戲"
           },
           "description": {
             "ja": "分身から放たれる弾丸の軌道上にいる味方のHPを224回復する。",
@@ -6127,10 +6127,10 @@
             "ja": "シャッターチャンス",
             "en": "Freeze Frame",
             "ko": "정지 화면",
-            "es": "Fotograma Congelado",
-            "ar": "إطار متجمد",
-            "fr": "Image Figée",
-            "zh-tw": "定格瞬間"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "定格鏡頭"
           },
           "description": {
             "ja": "分身が動きを止めてポーズを決めると、4秒間にわたってシールドが発動し、分身の受けるダメージを50%低減する。\nクールダウン:11秒",
@@ -6160,9 +6160,9 @@
             "ja": "スタントダブル",
             "en": "Stunt Double",
             "ko": "대역",
-            "es": "Doble de Riesgo",
-            "ar": "البديل المتهور",
-            "fr": "Doublure Cascade",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "特技替身"
           },
           "description": {
@@ -6202,7 +6202,7 @@
         "en": "Meg",
         "ko": "메그",
         "es": "Meg",
-        "ar": "ميج",
+        "ar": "",
         "fr": "Meg",
         "zh-tw": "梅格"
       },
@@ -6232,10 +6232,10 @@
             "ja": "相棒の加護",
             "en": "Force Field",
             "ko": "힘의 장",
-            "es": "Campo de Fuerza",
-            "ar": "مجال القوة",
-            "fr": "Champ de Force",
-            "zh-tw": "力場護盾"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "防禦力場"
           },
           "description": {
             "ja": "メカが破壊されると、ダメージを25%軽減するシールドが発動し、10秒間メグを守る。",
@@ -6265,10 +6265,10 @@
             "ja": "メタルショック",
             "en": "Heavy Metal",
             "ko": "작별 선물",
-            "es": "Metal Pesado",
-            "ar": "معدن ثقيل",
-            "fr": "Métal Lourd",
-            "zh-tw": "重金屬"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "重裝機甲"
           },
           "description": {
             "ja": "メカのHPがなくなると爆発し、近くの敵に2400ダメージを与えてノックバックさせる。",
@@ -6300,10 +6300,10 @@
             "ja": "急速チャージ",
             "en": "Jolting Volts",
             "ko": "급속 충전",
-            "es": "Voltios Sacudidos",
-            "ar": "فولتات مفاجئة",
-            "fr": "Volts Saccadés",
-            "zh-tw": "電流衝擊"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "電能補給"
           },
           "description": {
             "ja": "メカのHPが5秒間にわたって、毎秒490回復する。\nクールダウン:17秒",
@@ -6333,10 +6333,10 @@
             "ja": "ツールボックス",
             "en": "Toolbox",
             "ko": "공구함",
-            "es": "Caja de Herramientas",
-            "ar": "صندوق الأدوات",
-            "fr": "Boîte à Outils",
-            "zh-tw": "工具箱"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "維修工具箱"
           },
           "description": {
             "ja": "地面にツールボックスを設置し、破壊されるまで近くの味方のリロード速度を35%上昇させる。\nクールダウン:19秒",
@@ -6374,9 +6374,9 @@
         "en": "Ash",
         "ko": "애쉬",
         "es": "Ash",
-        "ar": "آش",
+        "ar": "",
         "fr": "Ash",
-        "zh-tw": "艾許"
+        "zh-tw": "阿信"
       },
       "image": "require('../../assets/BrawlerIcons/ash_pin.png')",
       "class": {
@@ -6404,10 +6404,10 @@
             "ja": "綺麗好き",
             "en": "First Bash",
             "ko": "뜨거운 분노",
-            "es": "Primer Golpe",
-            "ar": "الضربة الأولى",
-            "fr": "Premier Coup",
-            "zh-tw": "潔癖狂熱"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "越掃越氣"
           },
           "description": {
             "ja": "通常攻撃のゲージが満タンの状態で敵を攻撃すると、怒りゲージの上昇率が200％増加する。",
@@ -6437,10 +6437,10 @@
             "ja": "大激怒",
             "en": "Mad As Heck",
             "ko": "분노 폭발",
-            "es": "Furioso Como Nunca",
-            "ar": "غاضب جداً",
-            "fr": "Fou de Rage",
-            "zh-tw": "狂怒"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "怒氣衝衝衝"
           },
           "description": {
             "ja": "怒りが溜まるにつれて、リロード速度が最大40％まで徐々に上昇する。",
@@ -6472,9 +6472,9 @@
             "ja": "鎮静剤",
             "en": "Chill Pill",
             "ko": "진정제",
-            "es": "Píldora Tranquilizante",
-            "ar": "حبة التهدئة",
-            "fr": "Calmant",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "鎮定劑"
           },
           "description": {
@@ -6505,9 +6505,9 @@
             "ja": "バナナの皮",
             "en": "Rotten Banana",
             "ko": "썩은 바나나",
-            "es": "Plátano Podrido",
-            "ar": "موزة فاسدة",
-            "fr": "Banane Pourrie",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "腐爛香蕉"
           },
           "description": {
@@ -6545,7 +6545,7 @@
         "en": "Griff",
         "ko": "그리프",
         "es": "Griff",
-        "ar": "غريف",
+        "ar": "",
         "fr": "Griff",
         "zh-tw": "格里夫"
       },
@@ -6575,9 +6575,9 @@
             "ja": "釣りはいらねぇ",
             "en": "Keep The Change",
             "ko": "잔돈은 가지세요",
-            "es": "Quédate el Cambio",
-            "ar": "احتفظ بالباقي",
-            "fr": "Gardez la Monnaie",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "不用找了"
           },
           "description": {
@@ -6608,10 +6608,10 @@
             "ja": "V字回復",
             "en": "Business Resilience",
             "ko": "경기 회복",
-            "es": "Resiliencia Empresarial",
-            "ar": "مرونة الأعمال",
-            "fr": "Résilience Commerciale",
-            "zh-tw": "商業韌性"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "止跌回升"
           },
           "description": {
             "ja": "2秒ごとに、失ったHPの最大15%を回復する。",
@@ -6643,10 +6643,10 @@
             "ja": "ブタの貯金箱",
             "en": "Piggy Bank",
             "ko": "돼지 저금통",
-            "es": "Hucha",
-            "ar": "حصالة",
-            "fr": "Tirelire",
-            "zh-tw": "小豬撲滿"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "豬公撲滿"
           },
           "description": {
             "ja": "爆薬入りのブタの貯金箱を出現させる。設置すると少し遅れて爆発して障害物を破壊し、範囲内にいる敵に1400ダメージを与える。\nクールダウン:16秒",
@@ -6676,10 +6676,10 @@
             "ja": "コインの雨",
             "en": "Coin Shower",
             "ko": "코인 샤워",
-            "es": "Lluvia de Monedas",
-            "ar": "وابل العملات",
-            "fr": "Pluie de Pièces",
-            "zh-tw": "硬幣淋浴"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "沐浴金幣"
           },
           "description": {
             "ja": "通常攻撃で放たれるコインが33%増加する。\nクールダウン:11秒",
@@ -6718,9 +6718,9 @@
         "en": "Buzz",
         "ko": "버즈",
         "es": "Buzz",
-        "ar": "باز",
+        "ar": "",
         "fr": "Buzz",
-        "zh-tw": "巴茲"
+        "zh-tw": "霸子"
       },
       "image": "require('../../assets/BrawlerIcons/buzz_pin.png')",
       "class": {
@@ -6748,10 +6748,10 @@
             "ja": "魚雷改",
             "en": "Tougher Torpedo",
             "ko": "더 강한 튜브",
-            "es": "Torpedo Más Duro",
-            "ar": "طوربيد أقوى",
-            "fr": "Torpille Renforcée",
-            "zh-tw": "強化魚雷"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "裝備升級"
           },
           "description": {
             "ja": "必殺技による気絶の最短効果時間が0.5秒間延びる。",
@@ -6781,10 +6781,10 @@
             "ja": "鋭い眼差し",
             "en": "Eyes Sharp",
             "ko": "날카로운 눈",
-            "es": "Ojos Agudos",
-            "ar": "عيون حادة",
-            "fr": "Yeux Perçants",
-            "zh-tw": "銳利目光"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "目光如炬"
           },
           "description": {
             "ja": "必殺技のチャージエリアが33%拡大する。",
@@ -6816,10 +6816,10 @@
             "ja": "緊急ブイ",
             "en": "Reserve Buoy",
             "ko": "예비 튜브",
-            "es": "Boya de Reserva",
-            "ar": "عوامة احتياطية",
-            "fr": "Bouée de Secours",
-            "zh-tw": "備用浮標"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "備用浮板"
           },
           "description": {
             "ja": "必殺技のゲージを即座に満タンにするが、次回の気絶効果はなくなる。\nクールダウン:18秒",
@@ -6849,10 +6849,10 @@
             "ja": "X線ゴーグル",
             "en": "X-Ray Shades",
             "ko": "엑스레이 고글",
-            "es": "Gafas de Rayos X",
-            "ar": "نظارات أشعة إكس",
-            "fr": "Lunettes à Rayons X",
-            "zh-tw": "X光眼鏡"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "X光塁鏡"
           },
           "description": {
             "ja": "必殺技がチャージされる範囲内では、やぶの中にいる敵が12秒にわたって見えるようになる\nクールダウン:20秒",
@@ -6889,9 +6889,9 @@
         "en": "Grom",
         "ko": "그롬",
         "es": "Grom",
-        "ar": "غروم",
+        "ar": "",
         "fr": "Grom",
-        "zh-tw": "格羅姆"
+        "zh-tw": "葛羅姆"
       },
       "image": "require('../../assets/BrawlerIcons/grom_pin.png')",
       "class": {
@@ -6919,10 +6919,10 @@
             "ja": "巡回警備",
             "en": "Foot Patrol",
             "ko": "도보 순찰",
-            "es": "Patrulla a Pie",
-            "ar": "دورية راجلة",
-            "fr": "Patrouille à Pied",
-            "zh-tw": "步行巡邏"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "徒步巡邏"
           },
           "description": {
             "ja": "必殺技が完全にチャージされている間、移動速度が15%上昇する。",
@@ -6952,9 +6952,9 @@
             "ja": "Xファクター",
             "en": "X-Factor",
             "ko": "X-팩터",
-            "es": "Factor X",
-            "ar": "عامل إكس",
-            "fr": "Facteur X",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "X因子"
           },
           "description": {
@@ -6987,10 +6987,10 @@
             "ja": "監視カメラ",
             "en": "Watchtower",
             "ko": "감시 레이더",
-            "es": "Torre de Vigilancia",
-            "ar": "برج المراقبة",
-            "fr": "Tour de Guet",
-            "zh-tw": "監視塔"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "守望塔"
           },
           "description": {
             "ja": "懐から小型カメラを取り出すと、広範囲にわたって監視機能が作動し、やぶに隠れた敵が味方から見えるようになる。小型カメラのHPは時間とともに少しずつ減少する。\nクールダウン:20秒",
@@ -7020,10 +7020,10 @@
             "ja": "無線チェック",
             "en": "Radio Check",
             "ko": "라디오 체크",
-            "es": "Control de Radio",
-            "ar": "فحص اللاسلكي",
-            "fr": "Vérification Radio",
-            "zh-tw": "無線電檢查"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "通訊檢查"
           },
           "description": {
             "ja": "次の通常攻撃で、3個のトランシーバーを素早く連続で投げつける。\nクールダウン:15秒",
@@ -7061,9 +7061,9 @@
         "en": "Squeak",
         "ko": "스퀴크",
         "es": "Squeak",
-        "ar": "سكويك",
+        "ar": "",
         "fr": "Squeak",
-        "zh-tw": "史奎克"
+        "zh-tw": "斯威克"
       },
       "image": "require('../../assets/BrawlerIcons/squeak_pin.png')",
       "class": {
@@ -7091,9 +7091,9 @@
             "ja": "連鎖反応",
             "en": "Chain Reaction",
             "ko": "연쇄 반응",
-            "es": "Reacción en Cadena",
-            "ar": "تفاعل متسلسل",
-            "fr": "Réaction en Chaîne",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "連鎖反應"
           },
           "description": {
@@ -7124,10 +7124,10 @@
             "ja": "超粘着質",
             "en": "Super Sticky",
             "ko": "초강력 끈끈이",
-            "es": "Super Pegajoso",
-            "ar": "فائق اللزوجة",
-            "fr": "Super Collant",
-            "zh-tw": "超級黏性"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "黏性驚人"
           },
           "description": {
             "ja": "必殺技の二次爆発に巻き込まれた敵を、4秒間にわたってスローダウンさせる。",
@@ -7159,10 +7159,10 @@
             "ja": "ネジ巻き",
             "en": "Windup",
             "ko": "와인드업",
-            "es": "Cuerda",
-            "ar": "تعبئة",
-            "fr": "Remontage",
-            "zh-tw": "發條"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "伸縮自如"
           },
           "description": {
             "ja": "次の通常攻撃のダメージが50%、射程距離が100%増加する。\nクールダウン:11秒",
@@ -7192,10 +7192,10 @@
             "ja": "不純物",
             "en": "Residue",
             "ko": "불순물",
-            "es": "Residuo",
-            "ar": "بقايا",
-            "fr": "Résidu",
-            "zh-tw": "殘留物"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "黏性殘渣"
           },
           "description": {
             "ja": "次の通常攻撃の破裂後に汚染されたエリアを作り出し、6秒にわたって敵をスローダウンさせる。さらに、自分と味方はやぶの中が見えるようになる。\nクールダウン:20秒",
@@ -7232,9 +7232,9 @@
         "en": "Belle",
         "ko": "벨",
         "es": "Belle",
-        "ar": "بيل",
+        "ar": "",
         "fr": "Belle",
-        "zh-tw": "貝兒"
+        "zh-tw": "蓓爾"
       },
       "image": "require('../../assets/BrawlerIcons/belle_pin.png')",
       "class": {
@@ -7262,10 +7262,10 @@
             "ja": "フレミング",
             "en": "Positive Feedback",
             "ko": "긍정적인 피드백",
-            "es": "Retroalimentación Positiva",
-            "ar": "تغذية راجعة إيجابية",
-            "fr": "Rétroaction Positive",
-            "zh-tw": "正反饋"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "正向回饋"
           },
           "description": {
             "ja": "電撃がターゲットに命中すると、ダメージを20%低減するシールドを獲得する。",
@@ -7295,10 +7295,10 @@
             "ja": "感電",
             "en": "Grounded",
             "ko": "일시 고장",
-            "es": "Conectado a Tierra",
-            "ar": "متأريض",
-            "fr": "Mise à la Terre",
-            "zh-tw": "接地"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "彈盡糧絕"
           },
           "description": {
             "ja": "必殺技によってマーキングされた敵は、通常攻撃を5秒間リロードができなくなる。",
@@ -7330,10 +7330,10 @@
             "ja": "ビリビリトラップ",
             "en": "Nest Egg",
             "ko": "예비용 함정",
-            "es": "Huevo del Nido",
-            "ar": "بيضة العش",
-            "fr": "Œuf du Nid",
-            "zh-tw": "巢蛋陷阱"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "緩速陷阱"
           },
           "description": {
             "ja": "敵が触れると起動するトラップを地面に設置する。トラップは624ダメージを与えるうえ、範囲内にいるすべての敵を3秒間にわたってスローダウンさせる。\nクールダウン:15秒",
@@ -7363,10 +7363,10 @@
             "ja": "逆極性",
             "en": "Reverse Polarity",
             "ko": "역극성",
-            "es": "Polaridad Inversa",
-            "ar": "قطبية عكسية",
-            "fr": "Polarité Inverse",
-            "zh-tw": "反極性"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "極性反轉"
           },
           "description": {
             "ja": "次の通常攻撃が壁から跳ね返る。\nクールダウン:14秒",
@@ -7406,9 +7406,9 @@
         "en": "Stu",
         "ko": "스튜",
         "es": "Stu",
-        "ar": "ستو",
+        "ar": "",
         "fr": "Stu",
-        "zh-tw": "斯圖"
+        "zh-tw": "駛徒"
       },
       "image": "require('../../assets/BrawlerIcons/stu_pin.png')",
       "class": {
@@ -7436,10 +7436,10 @@
             "ja": "抵抗ゼロ",
             "en": "Zero Drag",
             "ko": "제로 드래그",
-            "es": "Cero Resistencia",
-            "ar": "انعدام المقاومة",
-            "fr": "Zéro Résistance",
-            "zh-tw": "零阻力"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "飛速突進"
           },
           "description": {
             "ja": "必殺技のダッシュ距離が71%増加する。",
@@ -7469,10 +7469,10 @@
             "ja": "ガスヒール",
             "en": "Gaso-Heal",
             "ko": "가스 힐",
-            "es": "Cura-Gas",
-            "ar": "شفاء الوقود",
-            "fr": "Guérison-Essence",
-            "zh-tw": "汽油治療"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "燃料補給"
           },
           "description": {
             "ja": "必殺技を発動すると、自身のHPが640回復する。",
@@ -7504,9 +7504,9 @@
             "ja": "スピードゾーン",
             "en": "Speed Zone",
             "ko": "스피드존",
-            "es": "Zona de Velocidad",
-            "ar": "منطقة السرعة",
-            "fr": "Zone de Vitesse",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "加速區域"
           },
           "description": {
@@ -7537,10 +7537,10 @@
             "ja": "ブレイクスルー",
             "en": "Breakthrough",
             "ko": "파괴적 돌진",
-            "es": "Atravesar",
-            "ar": "اختراق",
-            "fr": "Percée",
-            "zh-tw": "突破"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "爆破表演"
           },
           "description": {
             "ja": "次の必殺技で、障害物を突き破ることができる。前方に飛び散った破片が敵に命中すると、1つにつき216ダメージを与える。\nクールダウン:16秒",
@@ -7578,9 +7578,9 @@
         "en": "Ruffs",
         "ko": "러프스",
         "es": "Ruffs",
-        "ar": "رافس",
+        "ar": "",
         "fr": "Ruffs",
-        "zh-tw": "拉夫斯"
+        "zh-tw": "拉夫"
       },
       "image": "require('../../assets/BrawlerIcons/ruffs_pin.png')",
       "class": {
@@ -7608,10 +7608,10 @@
             "ja": "制空",
             "en": "Air Superiority",
             "ko": "제공권",
-            "es": "Superioridad Aérea",
-            "ar": "تفوق جوي",
-            "fr": "Supériorité Aérienne",
-            "zh-tw": "制空權"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "制空優勢"
           },
           "description": {
             "ja": "支援物資に爆弾を仕込むことで、落下ダメージが120%増加し、壁を壊せるようになる。",
@@ -7641,10 +7641,10 @@
             "ja": "一括昇格",
             "en": "Field Promotion",
             "ko": "전장 진급",
-            "es": "Ascenso de Campo",
-            "ar": "ترقية ميدانية",
-            "fr": "Promotion sur le Terrain",
-            "zh-tw": "實地晉升"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "戰地晉升"
           },
           "description": {
             "ja": "この能力の効果範囲内にいる味方は、最大HPが毎秒30ずつ増加する。",
@@ -7676,9 +7676,9 @@
             "ja": "バリケード",
             "en": "Take Cover",
             "ko": "엄폐물",
-            "es": "Búscar Cobertura",
-            "ar": "احتماء",
-            "fr": "À Couvert",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "就地掩護"
           },
           "description": {
@@ -7709,9 +7709,9 @@
             "ja": "エアサポート",
             "en": "Air Support",
             "ko": "공중 지원",
-            "es": "Apoyo Aéreo",
-            "ar": "دعم جوي",
-            "fr": "Soutien Aérien",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "空中支援"
           },
           "description": {
@@ -7749,7 +7749,7 @@
         "en": "Edgar",
         "ko": "에드가",
         "es": "Edgar",
-        "ar": "إدغار",
+        "ar": "",
         "fr": "Edgar",
         "zh-tw": "艾德加"
       },
@@ -7779,10 +7779,10 @@
             "ja": "ハードランディング",
             "en": "Hard Landing",
             "ko": "하드 랜딩",
-            "es": "Aterrizaje Duro",
-            "ar": "هبوط قوي",
-            "fr": "Atterrissage Brutal",
-            "zh-tw": "硬著陸"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "強行著陸"
           },
           "description": {
             "ja": "必殺技の着弾時に周囲の敵に1300ダメージを与える。",
@@ -7812,10 +7812,10 @@
             "ja": "拳一本",
             "en": "Fisticuffs",
             "ko": "주먹다짐",
-            "es": "Puños",
-            "ar": "ملاكمة",
-            "fr": "Corps à Corps",
-            "zh-tw": "赤手空拳"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "越戰越勇"
           },
           "description": {
             "ja": "通常攻撃での回復率が25％上昇する。",
@@ -7847,10 +7847,10 @@
             "ja": "原動力",
             "en": "Let's Fly",
             "ko": "플라이 하이",
-            "es": "A Volar",
-            "ar": "هيا نطير",
-            "fr": "En Vol",
-            "zh-tw": "起飛吧"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "跑酷徽章"
           },
           "description": {
             "ja": "必殺技のチャージ速度が4秒にわたって525％上昇する。\nクールダウン:23秒",
@@ -7880,10 +7880,10 @@
             "ja": "ハードコア",
             "en": "Hardcore",
             "ko": "하드코어",
-            "es": "Hardcore",
-            "ar": "متشدد",
-            "fr": "Hardcore",
-            "zh-tw": "硬核"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "核心鍛錬"
           },
           "description": {
             "ja": "シールドを発動し、次に受ける3300ダメージを無効化する。シールドは時間とともに耐久力が低下する。\nクールダウン:19秒",
@@ -7921,7 +7921,7 @@
         "en": "Byron",
         "ko": "바이런",
         "es": "Byron",
-        "ar": "بايرون",
+        "ar": "",
         "fr": "Byron",
         "zh-tw": "拜倫"
       },
@@ -7951,10 +7951,10 @@
             "ja": "倦怠感",
             "en": "Malaise",
             "ko": "부작용",
-            "es": "Malestar",
-            "ar": "توعك",
-            "fr": "Malaise",
-            "zh-tw": "倦怠"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "免疫失調"
           },
           "description": {
             "ja": "必殺技に当たった敵は、あらゆる回復の効果が9秒にわたって75%減少する。",
@@ -7984,10 +7984,10 @@
             "ja": "注射",
             "en": "Injection",
             "ko": "관통 주사",
-            "es": "Inyección",
-            "ar": "حقنة",
-            "fr": "Injection",
-            "zh-tw": "注射"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "穿透療法"
           },
           "description": {
             "ja": "通常攻撃が3.5秒ごとに、標的を貫通するようになる。",
@@ -8019,10 +8019,10 @@
             "ja": "カンフル剤",
             "en": "Shot in the Arm",
             "ko": "활력소",
-            "es": "Inyección de Adrenalina",
-            "ar": "حقنة في الذراع",
-            "fr": "Piqûre de Rappel",
-            "zh-tw": "強心劑"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "緊急注射器"
           },
           "description": {
             "ja": "薬剤を自分に注入して、3秒にわたってHPを毎秒1200回復する。\nクールダウン:17秒",
@@ -8052,10 +8052,10 @@
             "ja": "ブースター注射",
             "en": "Booster Shots",
             "ko": "부스터 샷",
-            "es": "Inyecciones de Refuerzo",
-            "ar": "حقن معززة",
-            "fr": "Injections de Boost",
-            "zh-tw": "加速注射"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "附加劑量"
           },
           "description": {
             "ja": "次の通常攻撃で、3発のショットを同時に発射する。ただし、それぞれのダメージは20％、回復量は40％低減する。\nクールダウン:14秒",
@@ -8093,9 +8093,9 @@
         "en": "Lou",
         "ko": "루",
         "es": "Lou",
-        "ar": "لو",
+        "ar": "",
         "fr": "Lou",
-        "zh-tw": "盧"
+        "zh-tw": "阿魯"
       },
       "image": "require('../../assets/BrawlerIcons/lou_pin.png')",
       "class": {
@@ -8123,10 +8123,10 @@
             "ja": "スーパークール",
             "en": "Supercool",
             "ko": "빙결 지대",
-            "es": "Superfrío",
-            "ar": "فائق البرودة",
-            "fr": "Super Froid",
-            "zh-tw": "超級冷凍"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "寒氣逼人"
           },
           "description": {
             "ja": "必殺技の効果範囲にいる敵は、凍結速度が33％上昇する。",
@@ -8156,10 +8156,10 @@
             "ja": "低体温",
             "en": "Hypothermia",
             "ko": "저체온증",
-            "es": "Hipotermia",
-            "ar": "انخفاض حرارة الجسم",
-            "fr": "Hypothermie",
-            "zh-tw": "體溫過低"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "失溫現象"
           },
           "description": {
             "ja": "攻撃による凍結度合に応じて、敵の攻撃力を最大で50％低下させる。",
@@ -8191,10 +8191,10 @@
             "ja": "アイスブロック",
             "en": "Ice Block",
             "ko": "얼음 방패",
-            "es": "Bloque de Hielo",
-            "ar": "كتلة الجليد",
-            "fr": "Bloc de Glace",
-            "zh-tw": "冰塊"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "巨型冰塊"
           },
           "description": {
             "ja": "氷のシールドを発生させ、1.0秒間ダメージを無効化する。\nクールダウン:18秒",
@@ -8224,10 +8224,10 @@
             "ja": "氷結シロップ",
             "en": "Cryo Syrup",
             "ko": "냉동 시럽",
-            "es": "Jarabe Criogénico",
-            "ar": "شراب التجميد",
-            "fr": "Sirop Cryo",
-            "zh-tw": "冷凍糖漿"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "沁涼冷飲"
           },
           "description": {
             "ja": "必殺技の効果範囲にいる敵は、凍結メーターが50％上昇する。\nクールダウン:18秒",
@@ -8265,9 +8265,9 @@
         "en": "Amber",
         "ko": "앰버",
         "es": "Amber",
-        "ar": "آمبر",
+        "ar": "",
         "fr": "Amber",
-        "zh-tw": "安柏"
+        "zh-tw": "安珀"
       },
       "image": "require('../../assets/BrawlerIcons/amber_pin.png')",
       "class": {
@@ -8295,10 +8295,10 @@
             "ja": "ワイルドフレイム",
             "en": "Wild Flames",
             "ko": "야생 불꽃",
-            "es": "Llamas Salvajes",
-            "ar": "لهب بري",
-            "fr": "Flammes Sauvages",
-            "zh-tw": "狂野烈焰"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "熾烈野火"
           },
           "description": {
             "ja": "地面に燃料の水たまりを同時に2つ作り出すことができる。燃料のそばにいる間は、必殺技のゲージが自動的に溜まる。",
@@ -8328,10 +8328,10 @@
             "ja": "フレイムアブゾーブ",
             "en": "Scorchin' Siphon",
             "ko": "뜨거운 연료",
-            "es": "Sifón Abrasador",
-            "ar": "سحب محرق",
-            "fr": "Siphon Brûlant",
-            "zh-tw": "烈焰吸收"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "火速進攻"
           },
           "description": {
             "ja": "燃料の水たまりのそばにいる間は、吐き出す炎のチャージ速度が50%増加する。",
@@ -8363,10 +8363,10 @@
             "ja": "ファイアスターター",
             "en": "Fire Starters",
             "ko": "불쏘시개",
-            "es": "Iniciadores de Fuego",
-            "ar": "مشعلات النار",
-            "fr": "Allume-feux",
-            "zh-tw": "點火器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "易燃火種"
           },
           "description": {
             "ja": "3秒間マップを素早く移動して、燃料を地面にまき散らす。燃料には火をつけることができる。\nクールダウン:15秒",
@@ -8396,10 +8396,10 @@
             "ja": "ダンシングフレイム",
             "en": "Dancing Flames",
             "ko": "춤추는 불꽃",
-            "es": "Llamas Danzantes",
-            "ar": "لهب راقص",
-            "fr": "Flammes Dansantes",
-            "zh-tw": "舞動烈焰"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "躍動火舞"
           },
           "description": {
             "ja": "3個の炎の玉が5秒にわたって自分の周りを旋回し、敵に当たるたびに1890ダメージを与える。\nクールダウン:14秒",
@@ -8438,9 +8438,9 @@
         "en": "Colette",
         "ko": "콜레트",
         "es": "Colette",
-        "ar": "كوليت",
+        "ar": "",
         "fr": "Colette",
-        "zh-tw": "科萊特"
+        "zh-tw": "葛蕾特"
       },
       "image": "require('../../assets/BrawlerIcons/colette_pin.png')",
       "class": {
@@ -8468,10 +8468,10 @@
             "ja": "ダメ押し",
             "en": "Push It",
             "ko": "강제 집행",
-            "es": "Empujón",
-            "ar": "ادفعه",
-            "fr": "Poussée",
-            "zh-tw": "推進"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "沿途施壓"
           },
           "description": {
             "ja": "必殺技に当たったすべての敵は、ダッシュの最大距離まで押し戻される。",
@@ -8501,10 +8501,10 @@
             "ja": "重税",
             "en": "Mass Tax",
             "ko": "보호세",
-            "es": "Impuesto Masivo",
-            "ar": "ضريبة جماعية",
-            "fr": "Taxe Massive",
-            "zh-tw": "重稅"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "稅賦減免"
           },
           "description": {
             "ja": "必殺技を発動すると、ダメージを20％軽減するシールドが5秒間発生する。命中した敵1体ごとに、軽減率が10％増加する。",
@@ -8536,10 +8536,10 @@
             "ja": "反骨精神",
             "en": "Na-ah",
             "ko": "부분 청구",
-            "es": "Nah-ah",
-            "ar": "لا-لا",
-            "fr": "Non-non",
-            "zh-tw": "不-對"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "納稅證明"
           },
           "description": {
             "ja": "次のショットで、1500の追加ダメージを与える。\nクールダウン:10秒",
@@ -8569,10 +8569,10 @@
             "ja": "インセンティブ",
             "en": "Gotcha",
             "ko": "딱 걸렸어!",
-            "es": "¡Te Pillé!",
-            "ar": "أمسكتك!",
-            "fr": "Je t'ai eu !",
-            "zh-tw": "抓到你了！"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "抓到你了"
           },
           "description": {
             "ja": "発動してから5秒間にわたって、敵に与えたダメージの80％が自身のHPに充当される。\nクールダウン:17秒",
@@ -8610,9 +8610,9 @@
         "en": "Surge",
         "ko": "서지",
         "es": "Surge",
-        "ar": "سيرج",
+        "ar": "",
         "fr": "Surge",
-        "zh-tw": "衝鋒"
+        "zh-tw": "奔騰"
       },
       "image": "require('../../assets/BrawlerIcons/surge_pin.png')",
       "class": {
@@ -8640,10 +8640,10 @@
             "ja": "マキシマムショット",
             "en": "To The Max",
             "ko": "맥시멈 블래스트",
-            "es": "Al Máximo",
-            "ar": "للأقصى",
-            "fr": "Au Maximum",
-            "zh-tw": "極限射擊"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "爆裂"
           },
           "description": {
             "ja": "通常攻撃が壁に当たると、弾丸が分裂する。",
@@ -8673,10 +8673,10 @@
             "ja": "ベストタイミング",
             "en": "Serve Ice Cold",
             "ko": "업그레이드 백업",
-            "es": "Servido Helado",
-            "ar": "تقديم بارد",
-            "fr": "Service Glacé",
-            "zh-tw": "冰鎮服務"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "急凍冰息"
           },
           "description": {
             "ja": "バトルの間、常に第1段階の強化が維持される。",
@@ -8708,10 +8708,10 @@
             "ja": "パワーサージ",
             "en": "Power Surge",
             "ko": "파워 서지",
-            "es": "Subida de Poder",
-            "ar": "طفرة القوة",
-            "fr": "Sursaut de Puissance",
-            "zh-tw": "能量激增"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "能量奔湧"
           },
           "description": {
             "ja": "出力のリミッターを外し、10秒にわたって自分自身を1段階強化する。\nクールダウン:15秒",
@@ -8741,10 +8741,10 @@
             "ja": "パワーシールド",
             "en": "Power Shield",
             "ko": "파워 실드",
-            "es": "Escudo de Poder",
-            "ar": "درع القوة",
-            "fr": "Bouclier de Puissance",
-            "zh-tw": "能量護盾"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "動能裝甲"
           },
           "description": {
             "ja": "発動してから2秒以内にダメージを受けると、そのダメージを50％軽減して、弾を2発リロードする。\nクールダウン:17秒",
@@ -8782,9 +8782,9 @@
         "en": "Sprout",
         "ko": "스프라우트",
         "es": "Sprout",
-        "ar": "سبراوت",
+        "ar": "",
         "fr": "Sprout",
-        "zh-tw": "萌芽"
+        "zh-tw": "芽芽"
       },
       "image": "require('../../assets/BrawlerIcons/sprout_pin.png')",
       "class": {
@@ -8812,10 +8812,10 @@
             "ja": "急速成長",
             "en": "Overgrowth",
             "ko": "과성장",
-            "es": "Sobrecrecimiento",
-            "ar": "نمو مفرط",
-            "fr": "Surcroissance",
-            "zh-tw": "過度生長"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "種子大爆炸"
           },
           "description": {
             "ja": "発射する種爆弾の爆発半径が大きくなる。この効果は5秒ごとに使用できる。",
@@ -8845,10 +8845,10 @@
             "ja": "光合成",
             "en": "Photosynthesis",
             "ko": "광합성",
-            "es": "Fotosíntesis",
-            "ar": "تمثيل ضوئي",
-            "fr": "Photosynthèse",
-            "zh-tw": "光合作用"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "綠能護盾"
           },
           "description": {
             "ja": "やぶの中にいる間はシールドが発生し、すべての攻撃からある程度守ってくれる。",
@@ -8880,10 +8880,10 @@
             "ja": "花畑の保護土",
             "en": "Garden Mulcher",
             "ko": "잔디깎이",
-            "es": "Mantillo de Jardín",
-            "ar": "مهاد الحديقة",
-            "fr": "Paillis de Jardin",
-            "zh-tw": "花園護根土"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "割草機"
           },
           "description": {
             "ja": "やぶを消費してHPを1800回復する。\nクールダウン:9秒",
@@ -8913,10 +8913,10 @@
             "ja": "トランスプラント",
             "en": "Transplant",
             "ko": "옮겨심기",
-            "es": "Trasplante",
-            "ar": "زرع",
-            "fr": "Transplantation",
-            "zh-tw": "移植"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "綠能轉換器"
           },
           "description": {
             "ja": "生成した生け垣ブロックを破壊する代わりに、必殺技のゲージを瞬時に満タンにする。\nクールダウン:15秒",
@@ -8955,9 +8955,9 @@
         "en": "Nani",
         "ko": "나니",
         "es": "Nani",
-        "ar": "ناني",
+        "ar": "",
         "fr": "Nani",
-        "zh-tw": "奈奈"
+        "zh-tw": "納妮"
       },
       "image": "require('../../assets/BrawlerIcons/nani_pin.png')",
       "class": {
@@ -8985,9 +8985,9 @@
             "ja": "オートフォーカス",
             "en": "Autofocus",
             "ko": "자동 집중",
-            "es": "Enfoque Automático",
-            "ar": "تركيز تلقائي",
-            "fr": "Autofocus",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "自動對焦"
           },
           "description": {
@@ -9018,10 +9018,10 @@
             "ja": "強化スチール",
             "en": "Tempered Steel",
             "ko": "단련된 강철",
-            "es": "Acero Templado",
-            "ar": "فولاذ مقوى",
-            "fr": "Acier Trempé",
-            "zh-tw": "強化鋼材"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "鋼製機殼"
           },
           "description": {
             "ja": "必殺技発動中に受けるダメージが80%低下する。",
@@ -9053,10 +9053,10 @@
             "ja": "ワープタイム",
             "en": "Warp Time",
             "ko": "타임 워프",
-            "es": "Tiempo de Distorsión",
-            "ar": "وقت الانتقال",
-            "fr": "Temps de Distorsion",
-            "zh-tw": "傳送時刻"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "位移裝置"
           },
           "description": {
             "ja": "ナーニはピープを爆発させ、ピープが最後にいた場所にテレポートする。\nクールダウン:13秒",
@@ -9086,10 +9086,10 @@
             "ja": "差し戻し",
             "en": "Return to Sender",
             "ko": "반송",
-            "es": "Devolver al Remitente",
-            "ar": "إعادة للمرسل",
-            "fr": "Retour à l'Envoyeur",
-            "zh-tw": "退回寄件人"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "反射機制"
           },
           "description": {
             "ja": "発動してから2秒以内に敵からダメージを受けると、最初のダメージの80％をその敵に返す。\nクールダウン:17秒",
@@ -9127,9 +9127,9 @@
         "en": "Gale",
         "ko": "게일",
         "es": "Gale",
-        "ar": "غيل",
+        "ar": "",
         "fr": "Gale",
-        "zh-tw": "蓋爾"
+        "zh-tw": "格爾"
       },
       "image": "require('../../assets/BrawlerIcons/gale_pin.png')",
       "class": {
@@ -9157,10 +9157,10 @@
             "ja": "暴風",
             "en": "Blustery Blow",
             "ko": "눈사태 주의",
-            "es": "Golpe Tormentoso",
-            "ar": "ضربة عاصفة",
-            "fr": "Coup Tempétueux",
-            "zh-tw": "暴風吹襲"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "極地風暴"
           },
           "description": {
             "ja": "必殺技で押し戻されて障害物に激突した敵は1.2秒間気絶する。",
@@ -9190,10 +9190,10 @@
             "ja": "凍てつく雪",
             "en": "Freezing Snow",
             "ko": "눈이 꽁꽁꽁",
-            "es": "Nieve Congelante",
-            "ar": "ثلج متجمد",
-            "fr": "Neige Glaciale",
-            "zh-tw": "凍結之雪"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "雪上加霜"
           },
           "description": {
             "ja": "雪玉に当たった敵は、0.5秒にわたってスローダウンする。",
@@ -9225,10 +9225,10 @@
             "ja": "バネジャンプ",
             "en": "Spring Ejector",
             "ko": "스프링 발사기",
-            "es": "Eyector de Resorte",
-            "ar": "قاذف النابض",
-            "fr": "Éjecteur à Ressort",
-            "zh-tw": "彈簧發射器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "緊急彈跳板"
           },
           "description": {
             "ja": "ゲイルは足元にジャンプ台を置いて、味方も敵も空中に跳ね上げる。\nクールダウン:20秒",
@@ -9258,10 +9258,10 @@
             "ja": "ツイスター",
             "en": "Twister",
             "ko": "토네이도",
-            "es": "Tornado",
-            "ar": "إعصار",
-            "fr": "Tornade",
-            "zh-tw": "旋風"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "嚴防強風"
           },
           "description": {
             "ja": "噴射機で小さな竜巻を起こし、通り抜けようとする敵を押し戻す。\nクールダウン:21秒",
@@ -9299,9 +9299,9 @@
         "en": "Jacky",
         "ko": "재키",
         "es": "Jacky",
-        "ar": "جاكي",
+        "ar": "",
         "fr": "Jacky",
-        "zh-tw": "傑基"
+        "zh-tw": "賈姬"
       },
       "image": "require('../../assets/BrawlerIcons/jacky_pin.png')",
       "class": {
@@ -9329,10 +9329,10 @@
             "ja": "カウンタークラッシュ",
             "en": "Counter Crush",
             "ko": "친절한 반격",
-            "es": "Contraataque Demoledor",
-            "ar": "سحق مضاد",
-            "fr": "Contre-Écrasement",
-            "zh-tw": "反擊粉碎"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "以岩還眼"
           },
           "description": {
             "ja": "ダメージを受けると、グラウンドブレイカーで反撃し30％のダメージを相手に返す。",
@@ -9362,10 +9362,10 @@
             "ja": "ガチガチヘルメット",
             "en": "Hardy Hard Hat",
             "ko": "튼튼한 안전모",
-            "es": "Casco Resistente",
-            "ar": "خوذة صلبة",
-            "fr": "Casque Robuste",
-            "zh-tw": "堅固安全帽"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "防護頭盔"
           },
           "description": {
             "ja": "被っている硬いヘルメットのおかげで、受けるダメージが20％減少する。",
@@ -9397,10 +9397,10 @@
             "ja": "圧縮空気ブースター",
             "en": "Pneumatic Booster",
             "ko": "공기압 부스터",
-            "es": "Impulsor Neumático",
-            "ar": "معزز هوائي",
-            "fr": "Propulseur Pneumatique",
-            "zh-tw": "氣動加速器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "噴氣加速器"
           },
           "description": {
             "ja": "力を全身にみなぎらせ、4秒間25％移動速度が上がる。\nクールダウン:10秒",
@@ -9430,10 +9430,10 @@
             "ja": "再建",
             "en": "Rebuild",
             "ko": "재건",
-            "es": "Reconstruir",
-            "ar": "إعادة البناء",
-            "fr": "Reconstruction",
-            "zh-tw": "重建"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "地形重塑"
           },
           "description": {
             "ja": "周囲にある障害物を作り直す。\nクールダウン:11秒",
@@ -9471,9 +9471,9 @@
         "en": "Max",
         "ko": "맥스",
         "es": "Max",
-        "ar": "ماكس",
+        "ar": "",
         "fr": "Max",
-        "zh-tw": "馬克斯"
+        "zh-tw": "麥克絲"
       },
       "image": "require('../../assets/BrawlerIcons/max_pin.png')",
       "class": {
@@ -9501,10 +9501,10 @@
             "ja": "スーパーチャージ",
             "en": "Super Charged",
             "ko": "슈퍼 차지",
-            "es": "Súper Cargado",
-            "ar": "شحن فائق",
-            "fr": "Super Chargé",
-            "zh-tw": "超級充能"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "動感蓄能"
           },
           "description": {
             "ja": "移動中も必殺技がチャージされるようになる。",
@@ -9534,10 +9534,10 @@
             "ja": "ダッシュリロード",
             "en": "Run n Gun",
             "ko": "런 앤건",
-            "es": "Correr y Disparar",
-            "ar": "الجري والإطلاق",
-            "fr": "Course et Tir",
-            "zh-tw": "跑和射"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "游擊裝彈"
           },
           "description": {
             "ja": "移動中のリロード速度が上昇する。",
@@ -9569,10 +9569,10 @@
             "ja": "ギアチェンジャー",
             "en": "Phase Shifter",
             "ko": "위상 이동",
-            "es": "Cambio de Fase",
-            "ar": "محول الطور",
-            "fr": "Déphaseur",
-            "zh-tw": "相位轉換器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "相位偏移器"
           },
           "description": {
             "ja": "前にダッシュする。ダッシュしている間は、敵から受けるダメージがすべて無効になる。\nクールダウン:14秒",
@@ -9602,10 +9602,10 @@
             "ja": "スニークスニーカー",
             "en": "Sneaky Sneakers",
             "ko": "공간 이동 운동화",
-            "es": "Zapatillas Sigilosas",
-            "ar": "أحذية متسللة",
-            "fr": "Baskets Furtives",
-            "zh-tw": "潛行運動鞋"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "超能時空鞋"
           },
           "description": {
             "ja": "3秒間経過後に、発動地点まで瞬時に戻る。この間に受けたダメージはすべて回復する。\nクールダウン:14秒",
@@ -9644,9 +9644,9 @@
         "en": "Mr. P",
         "ko": "미스터 P",
         "es": "Sr. P",
-        "ar": "السيد بي",
+        "ar": "بي",
         "fr": "M. P",
-        "zh-tw": "P先生"
+        "zh-tw": "Mr. P"
       },
       "image": "require('../../assets/BrawlerIcons/mrp_pin.png')",
       "class": {
@@ -9674,9 +9674,9 @@
             "ja": "真心込めて",
             "en": "Handle with Care",
             "ko": "취급 주의",
-            "es": "Manejar con Cuidado",
-            "ar": "تعامل بحذر",
-            "fr": "Manipuler avec Soin",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "小心輕放"
           },
           "description": {
@@ -9707,9 +9707,9 @@
             "ja": "回転扉",
             "en": "Revolving Door",
             "ko": "회전문",
-            "es": "Puerta Giratoria",
-            "ar": "باب دوار",
-            "fr": "Porte Tournante",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "旋轉門"
           },
           "description": {
@@ -9742,9 +9742,9 @@
             "ja": "サービスベル",
             "en": "Service Bell",
             "ko": "서비스 벨",
-            "es": "Timbre de Servicio",
-            "ar": "جرس الخدمة",
-            "fr": "Sonnette de Service",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "服務鈴"
           },
           "description": {
@@ -9775,10 +9775,10 @@
             "ja": "応援ポーター",
             "en": "Porter Reinforcements",
             "ko": "짐꾼 보충",
-            "es": "Refuerzos de Porteros",
-            "ar": "تعزيزات الحمالين",
-            "fr": "Renforts de Porteurs",
-            "zh-tw": "行李員增援"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "貼身助手"
           },
           "description": {
             "ja": "次の通常攻撃の落下地点に、低出力のポーターの1体出現させる。\nクールダウン:15秒",
@@ -9817,9 +9817,9 @@
         "en": "Emz",
         "ko": "엠즈",
         "es": "Emz",
-        "ar": "إي إم زي",
+        "ar": "إم زي",
         "fr": "Emz",
-        "zh-tw": "愛咪姿"
+        "zh-tw": "艾謎"
       },
       "image": "require('../../assets/BrawlerIcons/emz_pin.png')",
       "class": {
@@ -9847,10 +9847,10 @@
             "ja": "因果応報",
             "en": "Bad Karma",
             "ko": "나쁜 냄새",
-            "es": "Mal Karma",
-            "ar": "كارما سيئة",
-            "fr": "Mauvais Karma",
-            "zh-tw": "惡性循環"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "壞運連連"
           },
           "description": {
             "ja": "彼女のヘアスプレーの範囲内にいる敵は、時間の経過とともに25％ずつ受けるダメージが増加する。",
@@ -9880,10 +9880,10 @@
             "ja": "元気注入",
             "en": "Hype",
             "ko": "후원 감사",
-            "es": "Éxtasis",
-            "ar": "حماس",
-            "fr": "Euphorie",
-            "zh-tw": "亢奮"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "食腐復甦"
           },
           "description": {
             "ja": "必殺技の範囲内にいる敵1体につき、EmzのHPが毎秒576回復する。",
@@ -9915,10 +9915,10 @@
             "ja": "フレンドゾーン",
             "en": "Friend Zoner",
             "ko": "지독한 향수",
-            "es": "Zona de Amigos",
-            "ar": "منطقة الأصدقاء",
-            "fr": "Zone d'Ami",
-            "zh-tw": "好友區"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "好人卡"
           },
           "description": {
             "ja": "周囲にいる敵全員を押しのけ、同時に676ダメージを与える。\nクールダウン:18秒",
@@ -9948,10 +9948,10 @@
             "ja": "酸性スプレー",
             "en": "Acid Spray",
             "ko": "산성 스프레이",
-            "es": "Spray Ácido",
-            "ar": "رذاذ حمضي",
-            "fr": "Spray Acide",
-            "zh-tw": "酸性噴霧"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "酸性毒霧"
           },
           "description": {
             "ja": "次の通常攻撃が壁をすり抜け、向こう側にいる敵まで届く。ただし、ダメージは10％低減する。\nクールダウン:11秒",
@@ -9989,9 +9989,9 @@
         "en": "Bea",
         "ko": "비",
         "es": "Bea",
-        "ar": "بيا",
+        "ar": "",
         "fr": "Bea",
-        "zh-tw": "蜜蕊"
+        "zh-tw": "碧兒"
       },
       "image": "require('../../assets/BrawlerIcons/bea_pin.png')",
       "class": {
@@ -10019,10 +10019,10 @@
             "ja": "ロイヤルゼリー",
             "en": "Insta Beeload",
             "ko": "벌침 급조",
-            "es": "Recarga Instantánea",
-            "ar": "شحن فوري",
-            "fr": "Recharge Instantanée",
-            "zh-tw": "蜂王漿"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "百蟄不撓"
           },
           "description": {
             "ja": "ブーストされた攻撃を外した場合、もう1ショット分の「針の一撃」を瞬時にパワーアップする。",
@@ -10052,10 +10052,10 @@
             "ja": "ハニカム",
             "en": "Honeycomb",
             "ko": "벌집",
-            "es": "Panal",
-            "ar": "قرص العسل",
-            "fr": "Rayon de Miel",
-            "zh-tw": "蜂巢"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "甜蜜護盾"
           },
           "description": {
             "ja": "通常攻撃がパワーアップしている間、シールドを発動してダメージを30％軽減する。",
@@ -10087,10 +10087,10 @@
             "ja": "ハニーモラセス",
             "en": "Honey Molasses",
             "ko": "벌꿀 함정",
-            "es": "Melaza de Miel",
-            "ar": "دبس العسل",
-            "fr": "Mélasse de Miel",
-            "zh-tw": "蜂蜜糖蜜"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "危險蜂蜜"
           },
           "description": {
             "ja": "ネバネバのはちみつが付いたハチの巣を設置し、あふれ出た蜜に触れた敵をスローダウンさせる。\nクールダウン:20秒",
@@ -10120,10 +10120,10 @@
             "ja": "荒くれバチ",
             "en": "Rattled Hive",
             "ko": "성난 벌집",
-            "es": "Colmena Agitada",
-            "ar": "خلية مهتاجة",
-            "fr": "Ruche Agitée",
-            "zh-tw": "憤怒蜂巢"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "黃蜂哨兵"
           },
           "description": {
             "ja": "怒ったハチが4匹が、渦を描くように周囲を飛び回る。ハチが遠くに行くほど、与えるダメージが大きくなる(最大1200ダメージ)。\nクールダウン:17秒",
@@ -10162,9 +10162,9 @@
         "en": "Sandy",
         "ko": "샌디",
         "es": "Sandy",
-        "ar": "ساندي",
+        "ar": "",
         "fr": "Sandy",
-        "zh-tw": "桑迪"
+        "zh-tw": "沙迪"
       },
       "image": "require('../../assets/BrawlerIcons/sandy_pin.png')",
       "class": {
@@ -10192,10 +10192,10 @@
             "ja": "荒ぶる砂",
             "en": "Rude Sands",
             "ko": "거친 모래",
-            "es": "Arenas Rudas",
-            "ar": "رمال خشنة",
-            "fr": "Sables Brutaux",
-            "zh-tw": "狂暴之沙"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "滾滾黃沙"
           },
           "description": {
             "ja": "砂嵐が、範囲内にいる敵に毎秒216ダメージを与えるようになる。",
@@ -10225,10 +10225,10 @@
             "ja": "癒しの風",
             "en": "Healing Winds",
             "ko": "치유의 바람",
-            "es": "Vientos Sanadores",
-            "ar": "رياح الشفاء",
-            "fr": "Vents Guérisseurs",
-            "zh-tw": "治癒之風"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "復甦之風"
           },
           "description": {
             "ja": "砂嵐が、範囲内にいる味方のHPを毎秒380回復する。",
@@ -10260,10 +10260,10 @@
             "ja": "睡眠刺激薬",
             "en": "Sleep Stimulator",
             "ko": "수면 유도제",
-            "es": "Estimulador del Sueño",
-            "ar": "محفز النوم",
-            "fr": "Stimulateur de Sommeil",
-            "zh-tw": "催眠刺激劑"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "睡眠模擬器"
           },
           "description": {
             "ja": "1.5秒間眠りに落ちるが、HPが全回復する。\nクールダウン:18秒",
@@ -10293,10 +10293,10 @@
             "ja": "甘い夢",
             "en": "Sweet Dreams",
             "ko": "달콤한 꿈",
-            "es": "Dulces Sueños",
-            "ar": "أحلام حلوة",
-            "fr": "Doux Rêves",
-            "zh-tw": "甜美夢境"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "甜蜜好夢"
           },
           "description": {
             "ja": "次の通常攻撃で、敵を1.0秒間眠りに落とす。ただし、敵はダメージを受けると目を覚ます。\nクールダウン:18秒",
@@ -10334,9 +10334,9 @@
         "en": "8-BIT",
         "ko": "8비트",
         "es": "8-BIT",
-        "ar": "8-بت",
+        "ar": "بت",
         "fr": "8-BIT",
-        "zh-tw": "8位元"
+        "zh-tw": "比特8號"
       },
       "image": "require('../../assets/BrawlerIcons/8bit_pin.png')",
       "class": {
@@ -10364,10 +10364,10 @@
             "ja": "ダメージブースター",
             "en": "Boosted Booster",
             "ko": "부스터 증폭",
-            "es": "Potenciador Potenciado",
-            "ar": "معزز معزز",
-            "fr": "Booster Boosté",
-            "zh-tw": "傷害加成器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "功率全開"
           },
           "description": {
             "ja": "ダメージブースターの効果範囲が50％拡大し、与えるダメージがさらに15％増加する。",
@@ -10397,10 +10397,10 @@
             "ja": "ワイヤレス充電",
             "en": "Plugged In",
             "ko": "오버클럭",
-            "es": "Enchufado",
-            "ar": "موصول",
-            "fr": "Branché",
-            "zh-tw": "無線充電"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "行動電源"
           },
           "description": {
             "ja": "ダメージブースターの近くにいると、電力供給を受けて移動速度が増加する。",
@@ -10432,10 +10432,10 @@
             "ja": "裏技カセット",
             "en": "Cheat Cartridge",
             "ko": "치트키",
-            "es": "Cartucho Trampa",
-            "ar": "خرطوشة الغش",
-            "fr": "Cartouche de Triche",
-            "zh-tw": "作弊卡帶"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "金手指"
           },
           "description": {
             "ja": "ダメージブースターの位置まで瞬時にテレポートする。\nクールダウン:18秒",
@@ -10465,10 +10465,10 @@
             "ja": "ボーナスクレジット",
             "en": "Extra Credits",
             "ko": "추가 코인",
-            "es": "Créditos Extra",
-            "ar": "رصيد إضافي",
-            "fr": "Crédits Bonus",
-            "zh-tw": "額外點數"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "補充代幣"
           },
           "description": {
             "ja": "次の攻撃で、発射するブラスタービームの数が18発に増える。\nクールダウン:11秒",
@@ -10507,9 +10507,9 @@
         "en": "Bibi",
         "ko": "비비",
         "es": "Bibi",
-        "ar": "بيبي",
+        "ar": "",
         "fr": "Bibi",
-        "zh-tw": "碧碧"
+        "zh-tw": "嗶嗶"
       },
       "image": "require('../../assets/BrawlerIcons/bibi_pin.png')",
       "class": {
@@ -10537,9 +10537,9 @@
             "ja": "盗塁王",
             "en": "Home Run",
             "ko": "홈런",
-            "es": "Carrera Completa",
-            "ar": "ضربة منزلية",
-            "fr": "Home Run",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "全壘打"
           },
           "description": {
@@ -10570,10 +10570,10 @@
             "ja": "打撃の構え",
             "en": "Batting Stance",
             "ko": "타격 자세",
-            "es": "Postura de Bateo",
-            "ar": "وقفة الضرب",
-            "fr": "Position de Frappe",
-            "zh-tw": "打擊姿勢"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "打者就位"
           },
           "description": {
             "ja": "ホームランゲージが満タンの間、受けるダメージが20％減少する。",
@@ -10605,10 +10605,10 @@
             "ja": "ビタミンブースター",
             "en": "Vitamin Booster",
             "ko": "비타민제",
-            "es": "Impulso Vitamínico",
-            "ar": "معزز الفيتامينات",
-            "fr": "Boost Vitaminé",
-            "zh-tw": "維他命助推器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "強效維他命"
           },
           "description": {
             "ja": "4秒間、毎秒960ずつHPを回復する。\nクールダウン:12秒",
@@ -10638,10 +10638,10 @@
             "ja": "増強ガム",
             "en": "Extra Sticky",
             "ko": "끈끈이 볼",
-            "es": "Extra Pegajoso",
-            "ar": "لزج إضافي",
-            "fr": "Extra Collant",
-            "zh-tw": "超黏口香糖"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "超黏泡泡糖"
           },
           "description": {
             "ja": "次の必殺技が命中すると、敵を3秒間にわたってスローダウンする。\nクールダウン:10秒",
@@ -10678,7 +10678,7 @@
         "en": "Carl",
         "ko": "칼",
         "es": "Carl",
-        "ar": "كارل",
+        "ar": "",
         "fr": "Carl",
         "zh-tw": "卡爾"
       },
@@ -10708,10 +10708,10 @@
             "ja": "力投",
             "en": "Power Throw",
             "ko": "스피디 스로우",
-            "es": "Lanzamiento Potente",
-            "ar": "رمية قوية",
-            "fr": "Lancer Puissant",
-            "zh-tw": "強力投擲"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "全力投擲"
           },
           "description": {
             "ja": "カールが投げるツルハシの速度が10％増加し、より早く戻ってくるようになる。",
@@ -10741,10 +10741,10 @@
             "ja": "防護スピン",
             "en": "Protective Pirouette",
             "ko": "보호 피루엣",
-            "es": "Pirueta Protectora",
-            "ar": "دوران وقائي",
-            "fr": "Pirouette Protectrice",
-            "zh-tw": "防護旋轉"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "安全駕駛"
           },
           "description": {
             "ja": "必殺技の発動中は、受けるダメージが35％減少する。",
@@ -10776,10 +10776,10 @@
             "ja": "灼熱イジェクター",
             "en": "Heat Ejector",
             "ko": "가열 장치",
-            "es": "Eyector de Calor",
-            "ar": "قاذف الحرارة",
-            "fr": "Éjecteur de Chaleur",
-            "zh-tw": "熱能噴射器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "炙熱排氣管"
           },
           "description": {
             "ja": "次の通常攻撃で、ツルハシの下にアツアツの石を落とす。石に触れた敵は引火し、毎秒740ダメージを受ける。\nクールダウン:15秒",
@@ -10809,10 +10809,10 @@
             "ja": "空飛ぶフック",
             "en": "Flying Hook",
             "ko": "갈고리",
-            "es": "Gancho Volador",
-            "ar": "خطاف طائر",
-            "fr": "Crochet Volant",
-            "zh-tw": "飛天鉤"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "飛行鉤爪"
           },
           "description": {
             "ja": "次の攻撃で、投げたツルハシの最高到達地点まで自分を引き寄せる。\nクールダウン:19秒",
@@ -10850,9 +10850,9 @@
         "en": "Rosa",
         "ko": "로사",
         "es": "Rosa",
-        "ar": "روزا",
+        "ar": "",
         "fr": "Rosa",
-        "zh-tw": "蘿莎"
+        "zh-tw": "羅莎"
       },
       "image": "require('../../assets/BrawlerIcons/rosa_pin.png')",
       "class": {
@@ -10880,10 +10880,10 @@
             "ja": "雑草魂",
             "en": "Plant Life",
             "ko": "자연이 좋아",
-            "es": "Vida Vegetal",
-            "ar": "حياة النبات",
-            "fr": "Vie Végétale",
-            "zh-tw": "植物生命"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "綠茵療癒"
           },
           "description": {
             "ja": "やぶに入ると自身のHPが毎秒300回復する。",
@@ -10913,10 +10913,10 @@
             "ja": "トゲトゲグローブ",
             "en": "Thorny Gloves",
             "ko": "가시 글러브",
-            "es": "Guantes Espinosos",
-            "ar": "قفازات شائكة",
-            "fr": "Gants Épineux",
-            "zh-tw": "荊棘手套"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "荊棘拳套"
           },
           "description": {
             "ja": "必殺技の発動中は、パンチのダメージが+276増加する。",
@@ -10948,10 +10948,10 @@
             "ja": "成長促進ライト",
             "en": "Grow Light",
             "ko": "식물 육성 램프",
-            "es": "Luz de Crecimiento",
-            "ar": "ضوء النمو",
-            "fr": "Lampe de Croissance",
-            "zh-tw": "生長燈"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "植物生長燈"
           },
           "description": {
             "ja": "周囲の地面に肥料を撒くと、瞬時にやぶが出現し、身を隠すことができる。\nクールダウン:10秒",
@@ -10981,10 +10981,10 @@
             "ja": "やぶの反撃",
             "en": "Unfriendly Bushes",
             "ko": "가시 덤불",
-            "es": "Arbustos Hostiles",
-            "ar": "شجيرات غير ودية",
-            "fr": "Buissons Hostiles",
-            "zh-tw": "敵對草叢"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "荊棘草叢"
           },
           "description": {
             "ja": "やぶの中に隠れている敵全員に276ダメージを与え、3秒間スローダウンさせる。\nクールダウン:14秒",
@@ -11021,7 +11021,7 @@
         "en": "Leon",
         "ko": "레온",
         "es": "Leon",
-        "ar": "ليون",
+        "ar": "",
         "fr": "Léon",
         "zh-tw": "里昂"
       },
@@ -11051,10 +11051,10 @@
             "ja": "煙遁の術",
             "en": "Smoke Trails",
             "ko": "안개 은신술",
-            "es": "Rastros de Humo",
-            "ar": "آثار الدخان",
-            "fr": "Traînées de Fumée",
-            "zh-tw": "煙縱術"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "遁走之術"
           },
           "description": {
             "ja": "必殺技を発動すると、周りから姿が見えない間の移動速度が30%ブーストされる。",
@@ -11084,10 +11084,10 @@
             "ja": "インビジヒール",
             "en": "Invisiheal",
             "ko": "은신 치유",
-            "es": "Curación Invisible",
-            "ar": "شفاء خفي",
-            "fr": "Guérison Invisible",
-            "zh-tw": "隱形治療"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "隱療之術"
           },
           "description": {
             "ja": "必殺技の発動中は、レオンのHPが毎秒1360回復する。",
@@ -11119,10 +11119,10 @@
             "ja": "クローンプロジェクター",
             "en": "Clone Projector",
             "ko": "환영 영사기",
-            "es": "Proyector de Clones",
-            "ar": "عارض النسخ",
-            "fr": "Projecteur de Clone",
-            "zh-tw": "分身投影儀"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "複製投射器"
           },
           "description": {
             "ja": "自分の分身を召喚し、敵を混乱させる。\nクールダウン:13秒",
@@ -11152,10 +11152,10 @@
             "ja": "ロリポップドロップ",
             "en": "Lollipop Drop",
             "ko": "막대사탕 드랍",
-            "es": "Caída de Piruleta",
-            "ar": "إسقاط المصاصة",
-            "fr": "Chute de Sucette",
-            "zh-tw": "棒棒糖投放"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "神隱結界"
           },
           "description": {
             "ja": "味方が透明になるエリアを作り出す。キャンディのHPは時間とともにゆっくりと減少する。\nクールダウン:20秒",
@@ -11193,9 +11193,9 @@
         "en": "Tick",
         "ko": "틱",
         "es": "Tick",
-        "ar": "تيك",
+        "ar": "",
         "fr": "Tick",
-        "zh-tw": "題克"
+        "zh-tw": "滴答"
       },
       "image": "require('../../assets/BrawlerIcons/tick_pin.png')",
       "class": {
@@ -11223,10 +11223,10 @@
             "ja": "潤滑良好",
             "en": "Well Oiled",
             "ko": "셀프 수리",
-            "es": "Bien Engrasado",
-            "ar": "تزييت جيد",
-            "fr": "Bien Huilé",
-            "zh-tw": "潤滑充足"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "悉心保養"
           },
           "description": {
             "ja": "ダメージを受けず攻撃も行わなければ、ティックのHPが通常より2秒速く回復する。",
@@ -11256,10 +11256,10 @@
             "ja": "オートマ・ティック装填",
             "en": "Automa-Tick Reload",
             "ko": "오토매틱 재장전",
-            "es": "Recarga Automá-Tick",
-            "ar": "إعادة تحميل أوتوماتيك",
-            "fr": "Rechargement Automa-Tick",
-            "zh-tw": "自動裝填"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "自動自發"
           },
           "description": {
             "ja": "リロード時間が9％短縮される。",
@@ -11291,10 +11291,10 @@
             "ja": "地雷マニア",
             "en": "Mine Mania",
             "ko": "지뢰 마니아",
-            "es": "Manía Minera",
-            "ar": "هوس الألغام",
-            "fr": "Manie des Mines",
-            "zh-tw": "地雷狂熱"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "地雷大放送"
           },
           "description": {
             "ja": "次の攻撃で、6個の地雷を投げる。\nクールダウン:15秒",
@@ -11324,10 +11324,10 @@
             "ja": "最後のひと踏ん張り",
             "en": "Last Hurrah",
             "ko": "최후의 저항",
-            "es": "Último Hurra",
-            "ar": "الهتاف الأخير",
-            "fr": "Dernier Hourra",
-            "zh-tw": "最後掙扎"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "最後狂歡"
           },
           "description": {
             "ja": "1秒間にわたってシールドを発動し、ダメージを50％軽減する。効果時間が過ぎると、シールドが爆発して1280ダメージを与える。\nクールダウン:15秒",
@@ -11364,7 +11364,7 @@
         "en": "Gene",
         "ko": "진",
         "es": "Gene",
-        "ar": "جين",
+        "ar": "",
         "fr": "Gene",
         "zh-tw": "吉恩"
       },
@@ -11394,10 +11394,10 @@
             "ja": "魔法の吐息",
             "en": "Magic Puffs",
             "ko": "매직 오라",
-            "es": "Soplos Mágicos",
-            "ar": "نفثات سحرية",
-            "fr": "Souffles Magiques",
-            "zh-tw": "魔法氣息"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "治癒魔霧"
           },
           "description": {
             "ja": "周囲にいる仲間のHPが毎秒576回復する。",
@@ -11427,10 +11427,10 @@
             "ja": "一発入魂",
             "en": "Spirit Slap",
             "ko": "영혼 따귀",
-            "es": "Golpe Espiritual",
-            "ar": "صفعة روحية",
-            "fr": "Gifle Spirituelle",
-            "zh-tw": "靈魂重擊"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "精靈神掌"
           },
           "description": {
             "ja": "魔法の手で敵にダメージも与えることができる。(命中ダメージ2000)。",
@@ -11462,10 +11462,10 @@
             "ja": "風おこしランプ",
             "en": "Lamp Blowout",
             "ko": "요술 램프 폭발",
-            "es": "Lámpara Sopladora",
-            "ar": "نفخة المصباح",
-            "fr": "Souffle de Lampe",
-            "zh-tw": "吹風神燈"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "救援神燈"
           },
           "description": {
             "ja": "近くにいる敵全員を瞬時にノックバックする。効果範囲内に敵が1体以上いた場合、自身の最大HPの10％を回復する。\nクールダウン:20秒",
@@ -11495,10 +11495,10 @@
             "ja": "復讐心",
             "en": "Vengeful Spirits",
             "ko": "복수의 정령",
-            "es": "Espíritus Vengativos",
-            "ar": "أرواح منتقمة",
-            "fr": "Esprits Vengeurs",
-            "zh-tw": "復仇之魂"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "惡作劇之靈"
           },
           "description": {
             "ja": "射程内にいるすべての敵に、広範囲にわたってホーミングミサイルを発射し、距離に応じて最大1600ダメージを与える。\nクールダウン:16秒",
@@ -11537,7 +11537,7 @@
         "en": "Frank",
         "ko": "프랭크",
         "es": "Frank",
-        "ar": "فرانك",
+        "ar": "",
         "fr": "Frank",
         "zh-tw": "法蘭克"
       },
@@ -11567,10 +11567,10 @@
             "ja": "生気泥棒",
             "en": "Power Grab",
             "ko": "파워 그랩",
-            "es": "Robo de Poder",
-            "ar": "اختطاف القوة",
-            "fr": "Vol de Puissance",
-            "zh-tw": "奪取力量"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "力量奪取"
           },
           "description": {
             "ja": "倒した敵の生気を吸い取ることで、12秒間にわたってダメージが25％増加する！",
@@ -11600,10 +11600,10 @@
             "ja": "スポンジ",
             "en": "Sponge",
             "ko": "스폰지",
-            "es": "Esponja",
-            "ar": "إسفنج",
-            "fr": "Éponge",
-            "zh-tw": "海綿"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "強健體魄"
           },
           "description": {
             "ja": "自身のHPが+1340増加する。",
@@ -11635,10 +11635,10 @@
             "ja": "ノイズキャンセリング",
             "en": "Active Noise Canceling",
             "ko": "노이즈 캔슬링 헤드폰",
-            "es": "Cancelación Activa de Ruido",
-            "ar": "إلغاء الضوضاء النشط",
-            "fr": "Réduction Active du Bruit",
-            "zh-tw": "主動降噪"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "降噪耳機"
           },
           "description": {
             "ja": "自分が受けている状態異常の効果をすべて無効化し、一時的に気絶、スローダウン、ノックバックを受けなくなる。\nクールダウン:18秒",
@@ -11668,10 +11668,10 @@
             "ja": "不可抗力",
             "en": "Irresistible Attraction",
             "ko": "거부할 수 없는 이끌림",
-            "es": "Atracción Irresistible",
-            "ar": "جاذبية لا تقاوم",
-            "fr": "Attraction Irrésistible",
-            "zh-tw": "不可抗力"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "魅力無法擋"
           },
           "description": {
             "ja": "次の通常攻撃で敵を自分の方へ引き寄せ、50％の追加ダメージを与える。\nクールダウン:15秒",
@@ -11709,9 +11709,9 @@
         "en": "Penny",
         "ko": "페니",
         "es": "Penny",
-        "ar": "بيني",
+        "ar": "",
         "fr": "Penny",
-        "zh-tw": "潘妮"
+        "zh-tw": "佩妮"
       },
       "image": "require('../../assets/BrawlerIcons/penny_pin.png')",
       "class": {
@@ -11739,10 +11739,10 @@
             "ja": "お宝ザクザク",
             "en": "Heavy Coffers",
             "ko": "두둑한 금고",
-            "es": "Cofres Pesados",
-            "ar": "صناديق ثقيلة",
-            "fr": "Coffres Lourds",
-            "zh-tw": "寶箱滿溢"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "大肆揮霍"
           },
           "description": {
             "ja": "金貨の飛び散る範囲が、敵に命中するたびに100％広くなる。",
@@ -11772,10 +11772,10 @@
             "ja": "マスターブラスター",
             "en": "Master Blaster",
             "ko": "블래스터 마스터",
-            "es": "Maestro Explosivo",
-            "ar": "سيد المتفجرات",
-            "fr": "Maître Artificier",
-            "zh-tw": "爆破大師"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "炸裂炮彈"
           },
           "description": {
             "ja": "大砲を配置した場所にいる敵をノックバックし、1372ダメージを与える。",
@@ -11807,10 +11807,10 @@
             "ja": "ソルティーバレル",
             "en": "Salty Barrel",
             "ko": "소금통",
-            "es": "Barril Salado",
-            "ar": "برميل مالح",
-            "fr": "Tonneau Salé",
-            "zh-tw": "鹽桶"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "堅固鹽桶"
           },
           "description": {
             "ja": "塩の入ったタルを出現させて敵の攻撃を防ぐ。自らタルを攻撃すると、袋の金貨が拡散される。\nクールダウン:18秒",
@@ -11840,10 +11840,10 @@
             "ja": "カリブの望遠鏡",
             "en": "Trusty Spyglass",
             "ko": "든든한 망원경",
-            "es": "Catalejo Confiable",
-            "ar": "منظار موثوق",
-            "fr": "Longue-vue Fidèle",
-            "zh-tw": "可靠望遠鏡"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "佩式追蹤炮"
           },
           "description": {
             "ja": "ペニーの大砲が、射程内の見える敵すべてに砲撃を放つ。\nクールダウン:15秒",
@@ -11882,7 +11882,7 @@
         "en": "Darryl",
         "ko": "대릴",
         "es": "Darryl",
-        "ar": "داريل",
+        "ar": "",
         "fr": "Darryl",
         "zh-tw": "達里爾"
       },
@@ -11912,10 +11912,10 @@
             "ja": "鋼の盾",
             "en": "Steel Hoops",
             "ko": "강철 후프",
-            "es": "Aros de Acero",
-            "ar": "أطواق الفولاذ",
-            "fr": "Cerceaux d'Acier",
-            "zh-tw": "鋼鐵護環"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "護身鋼圈"
           },
           "description": {
             "ja": "バレルロールを発動すると、受けるダメージを2秒にわたって25％軽減する。",
@@ -11945,10 +11945,10 @@
             "ja": "瞬速リロード",
             "en": "Rolling Reload",
             "ko": "롤링 리로드",
-            "es": "Recarga Rodante",
-            "ar": "إعادة التحميل المتدحرجة",
-            "fr": "Rechargement Roulant",
-            "zh-tw": "滾動裝填"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "翻滾填裝"
           },
           "description": {
             "ja": "必殺技を発動すると、リロード速度が5秒間2倍になる。",
@@ -11980,10 +11980,10 @@
             "ja": "パワースプリング",
             "en": "Recoiling Rotator",
             "ko": "나선형 회전기",
-            "es": "Rotador de Retroceso",
-            "ar": "الدوار المرتد",
-            "fr": "Rotateur à Recul",
-            "zh-tw": "反衝旋轉器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "反衝螺旋機"
           },
           "description": {
             "ja": "身体を回転させながら、あらゆる方向に弾丸を放つ。弾丸1発につき600ダメージを与え、敵に命中すると必殺技ゲージが25%ずつ溜まっていく。\nクールダウン:12秒",
@@ -12013,10 +12013,10 @@
             "ja": "タールバレル",
             "en": "Tar Barrel",
             "ko": "타르 통",
-            "es": "Barril de Alquitrán",
-            "ar": "برميل القطران",
-            "fr": "Baril de Goudron",
-            "zh-tw": "焦油桶"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "柏油桶"
           },
           "description": {
             "ja": "敵の移動速度を低下させるエリアを周囲に5秒間生成する。\nクールダウン:15秒",
@@ -12053,7 +12053,7 @@
         "en": "Tara",
         "ko": "타라",
         "es": "Tara",
-        "ar": "تارا",
+        "ar": "",
         "fr": "Tara",
         "zh-tw": "塔拉"
       },
@@ -12083,10 +12083,10 @@
             "ja": "影武者",
             "en": "Black Portal",
             "ko": "블랙 포털",
-            "es": "Portal Negro",
-            "ar": "بوابة سوداء",
-            "fr": "Portail Noir",
-            "zh-tw": "影武者"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "惡魔分身"
           },
           "description": {
             "ja": "神秘の力で次元の扉が開かれる...！彼女の影が現れて、次々に敵を攻撃する。",
@@ -12116,10 +12116,10 @@
             "ja": "癒しの影",
             "en": "Healing Shade",
             "ko": "그림자 치유",
-            "es": "Sombra Curativa",
-            "ar": "ظل الشفاء",
-            "fr": "Ombre Guérisseuse",
-            "zh-tw": "治癒之影"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "療傷隱者"
           },
           "description": {
             "ja": "異次元の空間から解き放たれたタラの影が、自身やチームメイトを回復する。",
@@ -12151,10 +12151,10 @@
             "ja": "サイキック活性化剤",
             "en": "Psychic Enhancer",
             "ko": "초능력 증폭기",
-            "es": "Potenciador Psíquico",
-            "ar": "معزز نفسي",
-            "fr": "Amplificateur Psychique",
-            "zh-tw": "心靈增幅器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "超能力增強劑"
           },
           "description": {
             "ja": "自分と味方が、やぶに隠れている敵全員を4秒間にわたって見透かすことができるようになる。\nクールダウン:20秒",
@@ -12184,10 +12184,10 @@
             "ja": "彼方の使者",
             "en": "Support From Beyond",
             "ko": "그림자 소환",
-            "es": "Apoyo del Más Allá",
-            "ar": "دعم من وراء",
-            "fr": "Soutien de l'Au-delà",
-            "zh-tw": "來自彼方的支援"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "異界魔術師"
           },
           "description": {
             "ja": "自分の周りに弱い影を3体出現させ、敵を攻撃する。影は6秒経つと消える。\nクールダウン:15秒",
@@ -12226,7 +12226,7 @@
         "en": "Pam",
         "ko": "팸",
         "es": "Pam",
-        "ar": "بام",
+        "ar": "",
         "fr": "Pam",
         "zh-tw": "帕姆"
       },
@@ -12256,10 +12256,10 @@
             "ja": "ママの抱擁",
             "en": "Mama's Hug",
             "ko": "엄마의 포옹",
-            "es": "Abrazo de Mamá",
-            "ar": "حضن الأم",
-            "fr": "Câlin de Maman",
-            "zh-tw": "媽媽的擁抱"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "愛的抱抱"
           },
           "description": {
             "ja": "メタルストームで敵を攻撃するたび、自身と周辺の仲間のHPが96回復する。",
@@ -12289,10 +12289,10 @@
             "ja": "ママのベアハッグ",
             "en": "Mama's Squeeze",
             "ko": "엄마의 폭풍 압박",
-            "es": "Apretón de Mamá",
-            "ar": "عصرة الأم",
-            "fr": "Étreinte de Maman",
-            "zh-tw": "媽媽的熊抱"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "愛的禁區"
           },
           "description": {
             "ja": "癒しのタレットが、敵に毎秒960ダメージを与えるようになる。",
@@ -12324,9 +12324,9 @@
             "ja": "パルスモジュレーター",
             "en": "Pulse Modulator",
             "ko": "파동 변조기",
-            "es": "Modulador de Pulso",
-            "ar": "معدل النبض",
-            "fr": "Modulateur d'Impulsion",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "脈衝調節器"
           },
           "description": {
@@ -12357,10 +12357,10 @@
             "ja": "ガラクタ吸収",
             "en": "Scrapsucker",
             "ko": "고철 처리기",
-            "es": "Succiona Chatarra",
-            "ar": "ماص الخردة",
-            "fr": "Aspirateur à Ferraille",
-            "zh-tw": "廢料吸收器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "資源回收"
           },
           "description": {
             "ja": "次の通常攻撃が命中すると、弾丸1発ごとに敵キャラクターの最大装弾数の25％を減少させ、その内50％を自分にチャージする。\nクールダウン:17秒",
@@ -12398,9 +12398,9 @@
         "en": "Piper",
         "ko": "파이퍼",
         "es": "Piper",
-        "ar": "بايبر",
+        "ar": "",
         "fr": "Piper",
-        "zh-tw": "派佩"
+        "zh-tw": "小辣椒"
       },
       "image": "require('../../assets/BrawlerIcons/piper_pin.png')",
       "class": {
@@ -12428,10 +12428,10 @@
             "ja": "待ち伏せ",
             "en": "Ambush",
             "ko": "매복",
-            "es": "Emboscada",
-            "ar": "كمين",
-            "fr": "Embuscade",
-            "zh-tw": "伏擊"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "暗地守候"
           },
           "description": {
             "ja": "やぶに隠れた状態で攻撃すると、最大射程において+1190の追加ダメージが発生する。",
@@ -12461,10 +12461,10 @@
             "ja": "スナッピースナイプ",
             "en": "Snappy Sniping",
             "ko": "재빠른 저격",
-            "es": "Francotirador Ágil",
-            "ar": "قنص سريع",
-            "fr": "Tir Rapide",
-            "zh-tw": "快速狙擊"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "命中有禮"
           },
           "description": {
             "ja": "敵にダメージを与えた際に、0.4発の弾を瞬時にリロードする。",
@@ -12496,10 +12496,10 @@
             "ja": "自動照準器",
             "en": "Auto Aimer",
             "ko": "자동 조준기",
-            "es": "Auto Apuntador",
-            "ar": "تصويب تلقائي",
-            "fr": "Viseur Automatique",
-            "zh-tw": "自動瞄準器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "自動瞄準鏡"
           },
           "description": {
             "ja": "一番近くにいる敵に高速で射撃を浴びせ、170ダメージを与えてノックバックさせる。\nクールダウン:18秒",
@@ -12529,10 +12529,10 @@
             "ja": "ホームメイドレシピ",
             "en": "Homemade Recipe",
             "ko": "가정용 레시피",
-            "es": "Receta Casera",
-            "ar": "وصفة منزلية",
-            "fr": "Recette Maison",
-            "zh-tw": "自製配方"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "家傳秘方"
           },
           "description": {
             "ja": "使用すると、エリザベスの次の通常攻撃が敵にホーミングされる。\nクールダウン:18秒",
@@ -12571,9 +12571,9 @@
         "en": "Bo",
         "ko": "보",
         "es": "Bo",
-        "ar": "بو",
+        "ar": "",
         "fr": "Bo",
-        "zh-tw": "博"
+        "zh-tw": "鷹獵人爆"
       },
       "image": "require('../../assets/BrawlerIcons/bo_pin.png')",
       "class": {
@@ -12601,10 +12601,10 @@
             "ja": "鷹の目",
             "en": "Circling Eagle",
             "ko": "독수리의 눈",
-            "es": "Águila Vigilante",
-            "ar": "النسر الدائر",
-            "fr": "Aigle en Cercle",
-            "zh-tw": "盤旋之鷹"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "鷹眼"
           },
           "description": {
             "ja": "やぶに隠れた敵を、通常の150％の距離から見つけられる。",
@@ -12634,9 +12634,9 @@
             "ja": "ベアトラップ",
             "en": "Snare a Bear",
             "ko": "곰 사냥",
-            "es": "Trampa para Osos",
-            "ar": "فخ الدب",
-            "fr": "Piège à Ours",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "捕熊陷阱"
           },
           "description": {
@@ -12669,9 +12669,9 @@
             "ja": "スーパートーテム",
             "en": "Super Totem",
             "ko": "슈퍼 토템",
-            "es": "Super Tótem",
-            "ar": "التوتم الخارق",
-            "fr": "Super Totem",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "超級圖騰"
           },
           "description": {
@@ -12702,10 +12702,10 @@
             "ja": "ワイヤートラップ",
             "en": "Tripwire",
             "ko": "와이어 함정",
-            "es": "Cable Trampa",
-            "ar": "السلك المتعثر",
-            "fr": "Fil-Piège",
-            "zh-tw": "絆線"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "地雷引線"
           },
           "description": {
             "ja": "1.5秒後にすべての地雷を起爆させる。起爆するまで、敵は地雷がどこにあるか分からない。\nクールダウン:8秒",
@@ -12744,7 +12744,7 @@
         "en": "Poco",
         "ko": "포코",
         "es": "Poco",
-        "ar": "بوكو",
+        "ar": "",
         "fr": "Poco",
         "zh-tw": "波可"
       },
@@ -12774,10 +12774,10 @@
             "ja": "ダ・カーポ",
             "en": "Da Capo",
             "ko": "뮤직 테라피",
-            "es": "Da Capo",
-            "ar": "دا كابو",
-            "fr": "Da Capo",
-            "zh-tw": "反覆記號"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "單曲循環"
           },
           "description": {
             "ja": "彼の攻撃が仲間に当たると、その仲間のHPが962回復する。",
@@ -12807,10 +12807,10 @@
             "ja": "むせび泣くギター",
             "en": "Screeching Solo",
             "ko": "불협화음",
-            "es": "Solo Estridente",
-            "ar": "عزف صارخ",
-            "fr": "Solo Strident",
-            "zh-tw": "尖叫獨奏"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "驚世獨奏"
           },
           "description": {
             "ja": "必殺技が、敵に対して1520ダメージを与える。",
@@ -12842,10 +12842,10 @@
             "ja": "癒しの音叉",
             "en": "Tuning Fork",
             "ko": "소리굽쇠",
-            "es": "Diapasón",
-            "ar": "شوكة رنانة",
-            "fr": "Diapason",
-            "zh-tw": "音叉"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "療癒音叉"
           },
           "description": {
             "ja": "自分と周囲にいる味方のHPが5秒間、毎秒740回復する。\nクールダウン:16秒",
@@ -12875,10 +12875,10 @@
             "ja": "護りのメロディー",
             "en": "Protective Melody",
             "ko": "보호의 선율",
-            "es": "Melodía Protectora",
-            "ar": "لحن وقائي",
-            "fr": "Mélodie Protectrice",
-            "zh-tw": "保護旋律"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "守護進行曲"
           },
           "description": {
             "ja": "味方の状態異常を癒す効果を広範囲に発動し、状態異常攻撃を4秒間無効にする。\nクールダウン:11秒",
@@ -12917,9 +12917,9 @@
         "en": "Crow",
         "ko": "크로우",
         "es": "Crow",
-        "ar": "كرو",
+        "ar": "",
         "fr": "Crow",
-        "zh-tw": "烏鴉"
+        "zh-tw": "鴉"
       },
       "image": "require('../../assets/BrawlerIcons/crow_pin.png')",
       "class": {
@@ -12947,10 +12947,10 @@
             "ja": "猛毒",
             "en": "Extra Toxic",
             "ko": "맹독",
-            "es": "Extra Tóxico",
-            "ar": "سام للغاية",
-            "fr": "Extra Toxique",
-            "zh-tw": "劇毒"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "致殘毒藥"
           },
           "description": {
             "ja": "毒に侵された敵はパワーを奪われ、その間に与えるダメージが15％低減する。",
@@ -12980,10 +12980,10 @@
             "ja": "カリオン・クロウ",
             "en": "Carrion Crow",
             "ko": "약한 먹잇감",
-            "es": "Cuervo Carroñero",
-            "ar": "غراب الجيف",
-            "fr": "Corbeau Charognard",
-            "zh-tw": "腐鳥"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "毒腐收割"
           },
           "description": {
             "ja": "HPが50%以下の敵に対して、クロウの通常攻撃と必殺技で+40%の追加ダメージが発生する。",
@@ -13015,10 +13015,10 @@
             "ja": "防御ブースター",
             "en": "Defense Booster",
             "ko": "방어 부스터",
-            "es": "Potenciador de Defensa",
-            "ar": "معزز الدفاع",
-            "fr": "Booster de Défense",
-            "zh-tw": "防禦增幅器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "護盾產生器"
           },
           "description": {
             "ja": "3秒間にわたってシールドを発動し、受けるダメージの40%を無効にする。\nクールダウン:15秒",
@@ -13048,10 +13048,10 @@
             "ja": "スローダウンポイズン",
             "en": "Slowing Toxin",
             "ko": "둔화 독",
-            "es": "Toxina Ralentizante",
-            "ar": "سم مبطئ",
-            "fr": "Toxine Ralentissante",
-            "zh-tw": "減速毒素"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "緩速毒液"
           },
           "description": {
             "ja": "使用時に毒状態の敵全員の動きが、2秒間遅くなる。\nクールダウン:18秒",
@@ -13090,9 +13090,9 @@
         "en": "Mortis",
         "ko": "모티스",
         "es": "Mortis",
-        "ar": "مورتيس",
+        "ar": "",
         "fr": "Mortis",
-        "zh-tw": "魔鬼"
+        "zh-tw": "莫提斯"
       },
       "image": "require('../../assets/BrawlerIcons/mortis_pin.png')",
       "class": {
@@ -13120,10 +13120,10 @@
             "ja": "魂狩り",
             "en": "Creepy Harvest",
             "ko": "영혼 사냥",
-            "es": "Cosecha Espeluznante",
-            "ar": "حصاد مخيف",
-            "fr": "Récolte Sinistre",
-            "zh-tw": "陰森收割"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "恐怖收割"
           },
           "description": {
             "ja": "倒した敵の魂を刈り取ることで、自身の最大HPの20％を回復する。",
@@ -13153,10 +13153,10 @@
             "ja": "蛇の跳躍",
             "en": "Coiled Snake",
             "ko": "전속력 돌진",
-            "es": "Serpiente Enroscada",
-            "ar": "الأفعى الملتفة",
-            "fr": "Serpent Lové",
-            "zh-tw": "盤蛇"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "腹蛇突襲"
           },
           "description": {
             "ja": "長距離ダッシュのチャージにかかる時間が2秒短くなる。",
@@ -13188,10 +13188,10 @@
             "ja": "コンボスピナー",
             "en": "Combo Spinner",
             "ko": "콤보 스피너",
-            "es": "Giro Combinado",
-            "ar": "دوران متتابع",
-            "fr": "Rotation Combo",
-            "zh-tw": "連環旋轉"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "連擊轉輪"
           },
           "description": {
             "ja": "シャベルを振り回し、周りの敵全員に2000ダメージを与える。\nクールダウン:10秒",
@@ -13221,10 +13221,10 @@
             "ja": "サバイバルシャベル",
             "en": "Survival Shovel",
             "ko": "생존용 삽",
-            "es": "Pala de Supervivencia",
-            "ar": "مجرفة البقاء",
-            "fr": "Pelle de Survie",
-            "zh-tw": "生存鏟"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "特製握柄"
           },
           "description": {
             "ja": "4秒間リロードが速くなる。\nクールダウン:16秒",
@@ -13262,9 +13262,9 @@
         "en": "El Primo",
         "ko": "엘 프리모",
         "es": "El Primo",
-        "ar": "إل بريمو",
+        "ar": "مو",
         "fr": "El Primo",
-        "zh-tw": "普里莫"
+        "zh-tw": "艾爾普里莫"
       },
       "image": "require('../../assets/BrawlerIcons/elprimo_pin.png')",
       "class": {
@@ -13292,10 +13292,10 @@
             "ja": "バーニングドロップ",
             "en": "El Fuego",
             "ko": "엘 푸에고",
-            "es": "El Fuego",
-            "ar": "النار",
-            "fr": "El Fuego",
-            "zh-tw": "烈焰"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "燃燒摔角魂"
           },
           "description": {
             "ja": "彼の必殺技の標的となった敵は、4秒間にわたり炎に包まれ1800ダメージを受ける。",
@@ -13325,9 +13325,9 @@
             "ja": "流星雨",
             "en": "Meteor Rush",
             "ko": "유성 러시",
-            "es": "Prisa Meteórica",
-            "ar": "اندفاع النيزك",
-            "fr": "Ruée Météorique",
+            "es": "",
+            "ar": "",
+            "fr": "",
             "zh-tw": "流星衝刺"
           },
           "description": {
@@ -13360,10 +13360,10 @@
             "ja": "スープレックスサプリ",
             "en": "Suplex Supplement",
             "ko": "보충제 수플렉스",
-            "es": "Suplemento de Suplex",
-            "ar": "مكمل السوبلكس",
-            "fr": "Supplément de Suplex",
-            "zh-tw": "摔角補給"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "高蛋白補品"
           },
           "description": {
             "ja": "手近な敵をつかんで、パンケーキをひっくり返すようにヒラリと後ろに投げ飛ばす。\nクールダウン:14秒",
@@ -13393,10 +13393,10 @@
             "ja": "アステロイドベルト",
             "en": "Asteroid Belt",
             "ko": "유성우 벨트",
-            "es": "Cinturón de Asteroides",
-            "ar": "حزام الكويكبات",
-            "fr": "Ceinture d'Astéroïdes",
-            "zh-tw": "小行星帶"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "流星腰帶"
           },
           "description": {
             "ja": "小惑星を召喚して最も近くにいる敵にぶつける。3040ダメージを与え、壁を破壊する。\nクールダウン:13秒",
@@ -13434,9 +13434,9 @@
         "en": "Dynamike",
         "ko": "다이너마이크",
         "es": "Dinamike",
-        "ar": "دينامايك",
+        "ar": "",
         "fr": "Dynamike",
-        "zh-tw": "炸彈老爹"
+        "zh-tw": "爆破麥克"
       },
       "image": "require('../../assets/BrawlerIcons/dynamike_pin.png')",
       "class": {
@@ -13464,10 +13464,10 @@
             "ja": "爆風ジャンプ",
             "en": "Dyna-Jump",
             "ko": "다이너점프",
-            "es": "Salto Explosivo",
-            "ar": "قفزة دينا",
-            "fr": "Saut Explosif",
-            "zh-tw": "炸藥跳躍"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "爆破跳躍"
           },
           "description": {
             "ja": "自ら生み出す爆風に乗って、障害物を飛び越える！",
@@ -13497,10 +13497,10 @@
             "ja": "解体屋",
             "en": "Demolition",
             "ko": "폭파",
-            "es": "Demolición",
-            "ar": "هدم",
-            "fr": "Démolition",
-            "zh-tw": "爆破專家"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "爆破炸翻天"
           },
           "description": {
             "ja": "必殺技に+1600ダメージを増加する。",
@@ -13532,10 +13532,10 @@
             "ja": "危機一髪スピナー",
             "en": "Fidget Spinner",
             "ko": "피젯 스피너",
-            "es": "Spinner Explosivo",
-            "ar": "سبينر متفجر",
-            "fr": "Toupie Explosive",
-            "zh-tw": "旋轉陀螺"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "指尖陀螺"
           },
           "description": {
             "ja": "激しく身体を回転させて、ダイナマイトを勢いよく周囲にまき散らす。敵にダイナマイトが当たるたびに2400ダメージを与える。\nクールダウン:12秒",
@@ -13565,10 +13565,10 @@
             "ja": "梱包爆薬",
             "en": "Satchel Charge",
             "ko": "화약 주머니",
-            "es": "Carga de Mochila",
-            "ar": "شحنة الحقيبة",
-            "fr": "Charge de Sacoche",
-            "zh-tw": "炸藥包"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "震爆炸彈"
           },
           "description": {
             "ja": "使用すると、次の通常攻撃は敵を1.5秒間気絶させる。\nクールダウン:23秒",
@@ -13606,7 +13606,7 @@
         "en": "Nita",
         "ko": "니타",
         "es": "Nita",
-        "ar": "نيتا",
+        "ar": "",
         "fr": "Nita",
         "zh-tw": "妮塔"
       },
@@ -13636,10 +13636,10 @@
             "ja": "森の絆",
             "en": "Bear With Me",
             "ko": "곰과 나",
-            "es": "Aguanta Conmigo",
-            "ar": "تحمل معي",
-            "fr": "Reste avec Moi",
-            "zh-tw": "與熊同行"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "靈魂協同"
           },
           "description": {
             "ja": "クマが敵を攻撃するたびにニタのHPが1040回復し、ニタが敵にダメージを与えるとクマのHPが1040回復する。",
@@ -13669,10 +13669,10 @@
             "ja": "ハイパーベア",
             "en": "Hyper Bear",
             "ko": "하이퍼 베어",
-            "es": "Oso Híper",
-            "ar": "الدب الهائج",
-            "fr": "Ours Hyper",
-            "zh-tw": "狂暴之熊"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "熊之狂暴"
           },
           "description": {
             "ja": "クマの攻撃速度が上がる。攻撃の間隔は60%減少する。",
@@ -13704,10 +13704,10 @@
             "ja": "クマの手",
             "en": "Bear Paws",
             "ko": "곰 발톱",
-            "es": "Patas de Oso",
-            "ar": "مخالب الدب",
-            "fr": "Pattes d'Ours",
-            "zh-tw": "熊掌"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "震盪熊掌"
           },
           "description": {
             "ja": "クマが地面を強烈に叩いて、効果範囲内のすべての敵を気絶させる。\nクールダウン:13秒",
@@ -13737,10 +13737,10 @@
             "ja": "フェイクファー",
             "en": "Faux Fur",
             "ko": "인조 모피",
-            "es": "Piel Falsa",
-            "ar": "فرو مزيف",
-            "fr": "Fausse Fourrure",
-            "zh-tw": "人造毛皮"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "堅硬熊毛"
           },
           "description": {
             "ja": "クマへのダメージを3秒間にわたって35%減少させるシールドを発動する。\nクールダウン:14秒",
@@ -13779,7 +13779,7 @@
         "en": "Jessie",
         "ko": "제시",
         "es": "Jessie",
-        "ar": "جيسي",
+        "ar": "",
         "fr": "Jessie",
         "zh-tw": "潔西"
       },
@@ -13809,10 +13809,10 @@
             "ja": "リチャージ",
             "en": "Energize",
             "ko": "에너지 충전",
-            "es": "Energizar",
-            "ar": "تنشيط",
-            "fr": "Énergiser",
-            "zh-tw": "能量充電"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "脈衝充能"
           },
           "description": {
             "ja": "自分の攻撃でタレットに電気を送り込むことで、失ったHPを1060回復できる。",
@@ -13842,10 +13842,10 @@
             "ja": "ショッキング",
             "en": "Shocky",
             "ko": "쇼키",
-            "es": "Descarga",
-            "ar": "صاعق",
-            "fr": "Électrochoc",
-            "zh-tw": "電擊"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "脈衝炮台"
           },
           "description": {
             "ja": "がらくタレットが、敵から敵へと跳ね返るエネルギー弾を発射するようになる。跳ねた後の飛距離は、通常の51％となる。",
@@ -13877,10 +13877,10 @@
             "ja": "スパークプラグ",
             "en": "Spark Plug",
             "ko": "점화 플러그",
-            "es": "Bujía",
-            "ar": "شمعة إشعال",
-            "fr": "Bougie d'Allumage",
-            "zh-tw": "火星塞"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "震盪火星塞"
           },
           "description": {
             "ja": "タレットから衝撃波を出し、効果範囲内のすべての敵の動きをスローダウンさせる。\nクールダウン:15秒",
@@ -13910,10 +13910,10 @@
             "ja": "リコイルスプリング",
             "en": "Recoil Spring",
             "ko": "반동 역제 스프링",
-            "es": "Resorte de Retroceso",
-            "ar": "نابض ارتداد",
-            "fr": "Ressort de Recul",
-            "zh-tw": "後座彈簧"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "炮台零件"
           },
           "description": {
             "ja": "がらくタレットの攻撃速度が、5秒間2倍になる。\nクールダウン:11秒",
@@ -13952,9 +13952,9 @@
         "en": "Barley",
         "ko": "발리",
         "es": "Barley",
-        "ar": "بارلي",
+        "ar": "",
         "fr": "Barley",
-        "zh-tw": "巴利"
+        "zh-tw": "保力"
       },
       "image": "require('../../assets/BrawlerIcons/barley_pin.png')",
       "class": {
@@ -13982,10 +13982,10 @@
             "ja": "百薬の長",
             "en": "Medical Use",
             "ko": "메디컬 알코올",
-            "es": "Uso Médico",
-            "ar": "استخدام طبي",
-            "fr": "Usage Médical",
-            "zh-tw": "醫療用途"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "療癒特調"
           },
           "description": {
             "ja": "通常攻撃するたびにHPが480回復する",
@@ -14015,10 +14015,10 @@
             "ja": "超猛毒",
             "en": "Extra Noxious",
             "ko": "유독성 알코올",
-            "es": "Extra Nocivo",
-            "ar": "سام للغاية",
-            "fr": "Extra Nocif",
-            "zh-tw": "劇毒加強"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "加量不加價"
           },
           "description": {
             "ja": "自身の攻撃に毎秒+200ダメージを追加",
@@ -14050,10 +14050,10 @@
             "ja": "ネバネバシロップミキサー",
             "en": "Sticky Syrup Mixer",
             "ko": "끈적한 시럽 칵테일",
-            "es": "Mezclador de Jarabe Pegajoso",
-            "ar": "خلاط الشراب اللزج",
-            "fr": "Mélangeur de Sirop Collant",
-            "zh-tw": "黏稠糖漿混合器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "黏稠糖漿"
           },
           "description": {
             "ja": "ネバネバの混ぜものを落として水たまりを作る。触れた敵は動きが遅くなる。\nクールダウン:18秒",
@@ -14083,10 +14083,10 @@
             "ja": "薬草の強壮剤",
             "en": "Herbal Tonic",
             "ko": "약초 칵테일",
-            "es": "Tónico Herbal",
-            "ar": "مقوي عشبي",
-            "fr": "Tonique aux Herbes",
-            "zh-tw": "草藥強身劑"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "養生特調"
           },
           "description": {
             "ja": "近くの味方に回復ポーションを投げ、範囲内で毎秒720体力を回復する場を作ります。\nクールダウン:17秒",
@@ -14125,9 +14125,9 @@
         "en": "Spike",
         "ko": "스파이크",
         "es": "Spike",
-        "ar": "سبايك",
+        "ar": "",
         "fr": "Spike",
-        "zh-tw": "仙人掌"
+        "zh-tw": "史派克"
       },
       "image": "require('../../assets/BrawlerIcons/spike_pin.png')",
       "class": {
@@ -14155,10 +14155,10 @@
             "ja": "栄養補給",
             "en": "Fertilize",
             "ko": "따뜻한 햇살",
-            "es": "Fertilizar",
-            "ar": "تسميد",
-            "fr": "Fertilisation",
-            "zh-tw": "養分補充"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "療癒派對"
           },
           "description": {
             "ja": "必殺技を発動した際、自身がその効果範囲に入ることでHPが毎秒1400回復する。",
@@ -14188,10 +14188,10 @@
             "ja": "カーブシュート",
             "en": "Curveball",
             "ko": "커브볼",
-            "es": "Bola Curva",
-            "ar": "كرة منحنية",
-            "fr": "Balle Courbe",
-            "zh-tw": "曲線球"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "曲線刺刺球"
           },
           "description": {
             "ja": "サボテンの破片が曲線を描いて飛び、敵に当てやすくなります。",
@@ -14223,10 +14223,10 @@
             "ja": "破裂トゲクッション",
             "en": "Popping Pincushion",
             "ko": "가시방석",
-            "es": "Alfiletero Explosivo",
-            "ar": "وسادة الدبابيس المتفجرة",
-            "fr": "Pelote Explosive",
-            "zh-tw": "爆刺墊"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "尖刺針包"
           },
           "description": {
             "ja": "全方向に3回大量の針を発射し、ヒットごとに1080ダメージを与えます。\nクールダウン:15秒",
@@ -14256,10 +14256,10 @@
             "ja": "ライフプラント",
             "en": "Life Plant",
             "ko": "자연의 신비",
-            "es": "Planta Vital",
-            "ar": "نبات الحياة",
-            "fr": "Plante de Vie",
-            "zh-tw": "生命植物"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "生命之樹"
           },
           "description": {
             "ja": "体力2800のサボテンを設置して味方の盾を作ります。破壊されると、近くの味方全員の体力を1680回復させます。\nクールダウン:15秒",
@@ -14298,9 +14298,9 @@
         "en": "Rico",
         "ko": "리코",
         "es": "Rico",
-        "ar": "ريكو",
+        "ar": "",
         "fr": "Rico",
-        "zh-tw": "里科"
+        "zh-tw": "彈射"
       },
       "image": "require('../../assets/BrawlerIcons/rico_pin.png')",
       "class": {
@@ -14328,10 +14328,10 @@
             "ja": "スーパーバウンド",
             "en": "Super Bouncy",
             "ko": "슈퍼 통통탄",
-            "es": "Super Rebotador",
-            "ar": "فائق الارتداد",
-            "fr": "Super Rebondissant",
-            "zh-tw": "超級彈跳"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "超級反彈"
           },
           "description": {
             "ja": "通常の攻撃および必殺技の弾丸が最初のバウンドでさらにパワーを帯び、ダメージが256増加する。",
@@ -14361,10 +14361,10 @@
             "ja": "ロボ流退却",
             "en": "Robo Retreat",
             "ko": "로봇 질주",
-            "es": "Retirada Robótica",
-            "ar": "تراجع الروبوت",
-            "fr": "Retraite Robotique",
-            "zh-tw": "機器人撤退"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "戰術撤退"
           },
           "description": {
             "ja": "体力が40%を下回ると、移動速度が34%上昇します！",
@@ -14396,10 +14396,10 @@
             "ja": "マルチボールランチャー",
             "en": "Multiball Launcher",
             "ko": "통통탄 발사기",
-            "es": "Lanzador Multibola",
-            "ar": "قاذف الكرات المتعددة",
-            "fr": "Lanceur Multiballe",
-            "zh-tw": "多球發射器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "連續發球機"
           },
           "description": {
             "ja": "全方向に跳ね返る弾を連射します。\nクールダウン:20秒",
@@ -14429,10 +14429,10 @@
             "ja": "バウンシングヒール",
             "en": "Bouncy Castle",
             "ko": "바운시 캐슬",
-            "es": "Castillo Rebotante",
-            "ar": "قلعة الارتداد",
-            "fr": "Château Rebondissant",
-            "zh-tw": "彈跳城堡"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "彈性傷癒"
           },
           "description": {
             "ja": "次の通常攻撃が跳ね返るたびにHPが256回復する。\nクールダウン:17秒",
@@ -14470,7 +14470,7 @@
         "en": "Brock",
         "ko": "브록",
         "es": "Brock",
-        "ar": "بروك",
+        "ar": "",
         "fr": "Brock",
         "zh-tw": "布洛克"
       },
@@ -14500,10 +14500,10 @@
             "ja": "集中豪雨",
             "en": "More Rockets",
             "ko": "로켓 샤워!",
-            "es": "Más Cohetes",
-            "ar": "صواريخ أكثر",
-            "fr": "Plus de Roquettes",
-            "zh-tw": "火箭增援"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "火箭狂潮"
           },
           "description": {
             "ja": "必殺技で発射するロケットが44%増加します。",
@@ -14533,10 +14533,10 @@
             "ja": "第4のロケット",
             "en": "Incendiary",
             "ko": "로켓 4호기",
-            "es": "Incendiario",
-            "ar": "حارق",
-            "fr": "Incendiaire",
-            "zh-tw": "第四發火箭"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "四號火箭"
           },
           "description": {
             "ja": "ランチャーに4発目のロケットを装填し、弾薬容量が増加します。",
@@ -14568,10 +14568,10 @@
             "ja": "ロケットレース",
             "en": "Rocket Laces",
             "ko": "로켓 스니커즈",
-            "es": "Cordones Cohete",
-            "ar": "أربطة صاروخية",
-            "fr": "Lacets Fusée",
-            "zh-tw": "火箭鞋帶"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "火箭推進器"
           },
           "description": {
             "ja": "足元を爆破して空中に飛び上がります。爆発は近くの敵に580ダメージを与えます。\nクールダウン:15秒",
@@ -14601,10 +14601,10 @@
             "ja": "ロケット燃料",
             "en": "Rocket Fuel",
             "ko": "로켓 연료",
-            "es": "Combustible de Cohete",
-            "ar": "وقود صاروخي",
-            "fr": "Carburant de Roquette",
-            "zh-tw": "火箭燃料"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "超級火箭"
           },
           "description": {
             "ja": "次の通常攻撃で、大きさと速度が増したど迫力のロケットを発射し、壁までも破壊する。\nクールダウン:15秒",
@@ -14642,9 +14642,9 @@
         "en": "Bull",
         "ko": "불",
         "es": "Bull",
-        "ar": "بول",
+        "ar": "",
         "fr": "Bull",
-        "zh-tw": "布爾"
+        "zh-tw": "狂牛"
       },
       "image": "require('../../assets/BrawlerIcons/bull_pin.png')",
       "class": {
@@ -14672,10 +14672,10 @@
             "ja": "暴れウシ",
             "en": "Berserker",
             "ko": "버서커",
-            "es": "Berserker",
-            "ar": "المقاتل المجنون",
-            "fr": "Berserker",
-            "zh-tw": "狂戰士"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "狂牛之怒"
           },
           "description": {
             "ja": "HPが60%を以下になると、リロード速度が2倍に！",
@@ -14705,10 +14705,10 @@
             "ja": "タフガイ",
             "en": "Tough Guy",
             "ko": "터프가이",
-            "es": "Tipo Duro",
-            "ar": "الرجل القوي",
-            "fr": "Dur à Cuire",
-            "zh-tw": "硬漢"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "鋼鐵硬漢"
           },
           "description": {
             "ja": "HPが40%以下になると、受けるダメージがすべて30%低減される。",
@@ -14740,10 +14740,10 @@
             "ja": "Tボーンインジェクター",
             "en": "T-Bone Injector",
             "ko": "육즙 가득 스테이크",
-            "es": "Inyector de T-Bone",
-            "ar": "حاقن تي-بون",
-            "fr": "Injecteur T-Bone",
-            "zh-tw": "T骨注射器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "丁骨營養針"
           },
           "description": {
             "ja": "即座に体力を2000回復します。\nクールダウン:12秒",
@@ -14770,13 +14770,13 @@
         {
           "id": 23000310,
           "name": {
-            "ja": "グランドシェーカー",
+            "ja": "グラウンドシェイカー",
             "en": "Stomper",
             "ko": "발 구르기",
-            "es": "Pisoteador",
-            "ar": "الدراس",
-            "fr": "Piétineur",
-            "zh-tw": "重踏者"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "重踏鐵靴"
           },
           "description": {
             "ja": "必殺技の突進を中断し、地面を豪快に踏みつけて、近くにいるすべての敵の移動速度を1.5秒間低下させる。\nクールダウン:10秒",
@@ -14814,7 +14814,7 @@
         "en": "Colt",
         "ko": "콜트",
         "es": "Colt",
-        "ar": "كولت",
+        "ar": "",
         "fr": "Colt",
         "zh-tw": "柯爾特"
       },
@@ -14844,10 +14844,10 @@
             "ja": "スイスイブーツ",
             "en": "Slick Boots",
             "ko": "스피드 부츠",
-            "es": "Botas Elegantes",
-            "ar": "أحذية أنيقة",
-            "fr": "Bottes Élégantes",
-            "zh-tw": "滑溜靴子"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "速度之靴"
           },
           "description": {
             "ja": "移動速度が13%上昇します。",
@@ -14877,10 +14877,10 @@
             "ja": "マグナムスペシャル",
             "en": "Magnum Special",
             "ko": "매그넘 스페셜",
-            "es": "Magnum Especial",
-            "ar": "ماغنوم خاص",
-            "fr": "Magnum Spécial",
-            "zh-tw": "麥格農特製"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "特製左輪"
           },
           "description": {
             "ja": "攻撃の射程と弾速11%上昇します。",
@@ -14912,10 +14912,10 @@
             "ja": "スピードローダー",
             "en": "Speedloader",
             "ko": "쾌속 장전기",
-            "es": "Cargador Rápido",
-            "ar": "محمل سريع",
-            "fr": "Chargeur Rapide",
-            "zh-tw": "快速裝填器"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "快速裝彈器"
           },
           "description": {
             "ja": "即座に2発の弾をリロードする。\nクールダウン:11秒",
@@ -14945,10 +14945,10 @@
             "ja": "シルバーブレット",
             "en": "Silver Bullet",
             "ko": "실버 불릿",
-            "es": "Bala de Plata",
-            "ar": "رصاصة فضية",
-            "fr": "Balle d'Argent",
-            "zh-tw": "銀彈"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "穿甲銀彈"
           },
           "description": {
             "ja": "コルトの次の攻撃は、射程が伸び、障害物を破壊し、3040ダメージを与えます。\nクールダウン:16秒",
@@ -14987,7 +14987,7 @@
         "en": "Shelly",
         "ko": "쉘리",
         "es": "Shelly",
-        "ar": "شيلي",
+        "ar": "",
         "fr": "Shelly",
         "zh-tw": "雪莉"
       },
@@ -15017,10 +15017,10 @@
             "ja": "シェルショック",
             "en": "Shell Shock",
             "ko": "쉘 쇼크",
-            "es": "Shock de Concha",
-            "ar": "صدمة القذيفة",
-            "fr": "Choc d'Obus",
-            "zh-tw": "彈殼衝擊"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "震撼彈"
           },
           "description": {
             "ja": "スーパーシェルが敵の動きを2秒間鈍らせる！",
@@ -15050,10 +15050,10 @@
             "ja": "ばんそうこう",
             "en": "Band-Aid",
             "ko": "밴드에이드",
-            "es": "Curita",
-            "ar": "ضمادة",
-            "fr": "Pansement",
-            "zh-tw": "創可貼"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "緊急救護"
           },
           "description": {
             "ja": "HPが40%を下回ると、瞬時に2220回復する。再び発動するまでに15秒かかる。",
@@ -15085,10 +15085,10 @@
             "ja": "全速前進",
             "en": "Fast Forward",
             "ko": "빨리 감기",
-            "es": "Avance Rápido",
-            "ar": "تقدم سريع",
-            "fr": "Avance Rapide",
-            "zh-tw": "快速前進"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "衝鋒跑鞋"
           },
           "description": {
             "ja": "無駄のない軽やかな足取りで前に素早くダッシュする！\nクールダウン:13秒",
@@ -15118,10 +15118,10 @@
             "ja": "クレーピジョン",
             "en": "Clay Pigeons",
             "ko": "집중 사격",
-            "es": "Palomas de Arcilla",
-            "ar": "حمام طيني",
-            "fr": "Pigeons d'Argile",
-            "zh-tw": "泥鴿"
+            "es": "",
+            "ar": "",
+            "fr": "",
+            "zh-tw": "射擊飛靶"
           },
           "description": {
             "ja": "発動してから5秒にわたって通常攻撃の幅が狭くなり、射程距離が延びる。\nクールダウン:16秒",

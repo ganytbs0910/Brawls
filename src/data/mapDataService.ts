@@ -58,7 +58,7 @@ export const mapImages = {
   "ラストストップ": require('../../assets/MapImages/Last_Stop.png'),
   "トロッコの狂気": require('../../assets/MapImages/Minecart_Madness.png'),
   "オープンスペース": require('../../assets/MapImages/Open_Space.png'),
-  "廃れたアーケード": require('../../assets/MapImages/Rustic_Arcade.png'),
+  "寂れたアーケード": require('../../assets/MapImages/Rustic_Arcade.png'),
   "アンダーマイン": require('../../assets/MapImages/Undermine.png'),
   "クリスタルアーケード": require('../../assets/MapImages/Crystal_Arcade.png'),
   "サボテンの罠": require('../../assets/MapImages/Deathcap_Trap.png'),
@@ -220,7 +220,7 @@ export const maps = {
   ],
   gemGrab: [
     "エメラルドの要塞", "ごつごつ坑道", "ラストストップ", "トロッコの狂気", 
-    "オープンスペース", "廃れたアーケード", "クールロック", "アンダーマイン", 
+    "オープンスペース", "寂れたアーケード", "クールロック", "アンダーマイン", 
     "クリスタルアーケード", "サボテンの罠", "ダブルレール", "森林伐採", 
   ],
   heist: [
