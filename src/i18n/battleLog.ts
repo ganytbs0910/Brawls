@@ -1,4 +1,7 @@
 // src/i18n/battleLog.ts
+import { useState, useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Language } from '../data/modeData';
 
 export type BattleLogTranslation = {
   overview: {
@@ -13,6 +16,7 @@ export type BattleLogTranslation = {
   details: {
     title: string;
     noData: string;
+    loading: string;
     showMore: (count: number) => string;
   };
   battle: {
@@ -22,23 +26,7 @@ export type BattleLogTranslation = {
       draw: string;
       unknown: string;
     };
-    mode: {
-      friendly: string;
-      gemGrab: string;
-      brawlBall: string;
-      bounty: string;
-      heist: string;
-      hotZone: string;
-      wipeOut: string;
-      knockout: string;
-      duels: string;
-      soloShowdown: string;
-      duoShowdown: string;
-      showdown: string;
-      basketBrawl: string;
-      payLoad: string;
-    };
-    mapPrefix: string; // " - " のような接頭辞
+    mapPrefix: string;
     vs: string;
   };
 };
@@ -57,6 +45,7 @@ export const ja: BattleLogTranslation = {
   details: {
     title: 'バトルの詳細',
     noData: '表示できる対戦記録がありません',
+    loading: '読み込み中...',
     showMore: (count: number) => `さらに${count}件の記録を見る`,
   },
   battle: {
@@ -65,22 +54,6 @@ export const ja: BattleLogTranslation = {
       defeat: 'DEFEAT',
       draw: 'DRAW',
       unknown: 'Unknown',
-    },
-    mode: {
-      friendly: 'フレンドバトル',
-      gemGrab: 'エメラルドハント',
-      brawlBall: 'ブロストライカー',
-      bounty: '賞金稼ぎ',
-      heist: '強奪',
-      hotZone: 'ホットゾーン',
-      wipeOut: '殲滅',
-      knockout: 'ノックアウト',
-      duels: 'デュエル',
-      soloShowdown: 'ソロバトルロワイヤル',
-      duoShowdown: 'デュオバトルロワイヤル',
-      showdown: 'バトルロワイヤル',
-      basketBrawl: 'バスケブロール',
-      payLoad: 'ペイロード',
     },
     mapPrefix: ' - ',
     vs: 'VS',
@@ -101,6 +74,7 @@ export const en: BattleLogTranslation = {
   details: {
     title: 'Battle Details',
     noData: 'No battle records available',
+    loading: 'Loading...',
     showMore: (count: number) => `Show ${count} more records`,
   },
   battle: {
@@ -109,22 +83,6 @@ export const en: BattleLogTranslation = {
       defeat: 'DEFEAT',
       draw: 'DRAW',
       unknown: 'Unknown',
-    },
-    mode: {
-      friendly: 'Friendly Battle',
-      gemGrab: 'Gem Grab',
-      brawlBall: 'Brawl Ball',
-      bounty: 'Bounty',
-      heist: 'Heist',
-      hotZone: 'Hot Zone',
-      wipeOut: 'Wipe Out',
-      knockout: 'Knockout',
-      duels: 'Duels',
-      soloShowdown: 'Solo Showdown',
-      duoShowdown: 'Duo Showdown',
-      showdown: 'Showdown',
-      basketBrawl: 'Basket Brawl',
-      payLoad: 'Payload',
     },
     mapPrefix: ' - ',
     vs: 'VS',
@@ -145,6 +103,7 @@ export const ko: BattleLogTranslation = {
   details: {
     title: '배틀 상세',
     noData: '표시할 전투 기록이 없습니다',
+    loading: '로딩 중...',
     showMore: (count: number) => `${count}개 더 보기`,
   },
   battle: {
@@ -154,27 +113,12 @@ export const ko: BattleLogTranslation = {
       draw: 'DRAW',
       unknown: 'Unknown',
     },
-    mode: {
-      friendly: '친선전',
-      gemGrab: '젬 그랩',
-      brawlBall: '브롤 볼',
-      bounty: '바운티',
-      heist: '하이스트',
-      hotZone: '핫 존',
-      wipeOut: '와이프 아웃',
-      knockout: '녹아웃',
-      duels: '결투',
-      soloShowdown: '솔로 쇼다운',
-      duoShowdown: '듀오 쇼다운',
-      showdown: '쇼다운',
-      basketBrawl: '농구 브롤',
-      payLoad: '페이로드',
-    },
     mapPrefix: ' - ',
     vs: 'VS',
   },
 };
 
+// スペイン語翻訳
 export const es: BattleLogTranslation = {
   overview: {
     title: 'Resumen de Batalla',
@@ -188,6 +132,7 @@ export const es: BattleLogTranslation = {
   details: {
     title: 'Detalles de Batalla',
     noData: 'No hay registros de batalla disponibles',
+    loading: 'Cargando...',
     showMore: (count: number) => `Mostrar ${count} registros más`,
   },
   battle: {
@@ -196,22 +141,6 @@ export const es: BattleLogTranslation = {
       defeat: 'DERROTA',
       draw: 'EMPATE',
       unknown: 'Desconocido',
-    },
-    mode: {
-      friendly: 'Batalla Amistosa',
-      gemGrab: 'Atrapagemas',
-      brawlBall: 'Brawl Ball',
-      bounty: 'Recompensa',
-      heist: 'Atraco',
-      hotZone: 'Zona Candente',
-      wipeOut: 'Aniquilación',
-      knockout: 'Knockout',
-      duels: 'Duelos',
-      soloShowdown: 'Showdown Solo',
-      duoShowdown: 'Showdown Dúo',
-      showdown: 'Showdown',
-      basketBrawl: 'Baloncesto Brawl',
-      payLoad: 'Carga',
     },
     mapPrefix: ' - ',
     vs: 'VS',
@@ -232,6 +161,7 @@ export const ar: BattleLogTranslation = {
   details: {
     title: 'تفاصيل المعركة',
     noData: 'لا توجد سجلات معارك متاحة',
+    loading: 'جار التحميل...',
     showMore: (count: number) => `عرض ${count} سجلات إضافية`,
   },
   battle: {
@@ -240,22 +170,6 @@ export const ar: BattleLogTranslation = {
       defeat: 'هزيمة',
       draw: 'تعادل',
       unknown: 'غير معروف',
-    },
-    mode: {
-      friendly: 'معركة ودية',
-      gemGrab: 'جمع الجواهر',
-      brawlBall: 'كرة براول',
-      bounty: 'المكافأة',
-      heist: 'السطو',
-      hotZone: 'المنطقة الساخنة',
-      wipeOut: 'الإبادة',
-      knockout: 'الإقصاء',
-      duels: 'المبارزة',
-      soloShowdown: 'شوداون فردي',
-      duoShowdown: 'شوداون ثنائي',
-      showdown: 'شوداون',
-      basketBrawl: 'سلة براول',
-      payLoad: 'الحمولة',
     },
     mapPrefix: ' - ',
     vs: 'ضد',
@@ -276,6 +190,7 @@ export const fr: BattleLogTranslation = {
   details: {
     title: 'Détails des Batailles',
     noData: 'Aucun enregistrement de bataille disponible',
+    loading: 'Chargement...',
     showMore: (count: number) => `Afficher ${count} enregistrements supplémentaires`,
   },
   battle: {
@@ -285,27 +200,12 @@ export const fr: BattleLogTranslation = {
       draw: 'ÉGALITÉ',
       unknown: 'Inconnu',
     },
-    mode: {
-      friendly: 'Bataille Amicale',
-      gemGrab: 'Chasse aux Gemmes',
-      brawlBall: 'Foot Brawl',
-      bounty: 'Prime',
-      heist: 'Braquage',
-      hotZone: 'Zone Chaude',
-      wipeOut: 'Annihilation',
-      knockout: 'Knockout',
-      duels: 'Duels',
-      soloShowdown: 'Showdown Solo',
-      duoShowdown: 'Showdown Duo',
-      showdown: 'Showdown',
-      basketBrawl: 'Basket Brawl',
-      payLoad: 'Convoi',
-    },
     mapPrefix: ' - ',
     vs: 'VS',
   },
 };
 
+// 中国語（繁体字）翻訳
 export const zhTw: BattleLogTranslation = {
   overview: {
     title: '對戰概覽',
@@ -319,6 +219,7 @@ export const zhTw: BattleLogTranslation = {
   details: {
     title: '對戰詳情',
     noData: '沒有可顯示的對戰記錄',
+    loading: '載入中...',
     showMore: (count: number) => `顯示${count}筆更多記錄`,
   },
   battle: {
@@ -327,22 +228,6 @@ export const zhTw: BattleLogTranslation = {
       defeat: '失敗',
       draw: '平手',
       unknown: '未知',
-    },
-    mode: {
-      friendly: '友誼賽',
-      gemGrab: '寶石爭奪',
-      brawlBall: '荒野足球',
-      bounty: '賞金獵人',
-      heist: '保險箱保衛',
-      hotZone: '熱區爭奪',
-      wipeOut: '殲滅模式',
-      knockout: '淘汰賽',
-      duels: '決鬥',
-      soloShowdown: '單人生存',
-      duoShowdown: '雙人生存',
-      showdown: '生存模式',
-      basketBrawl: '荒野籃球',
-      payLoad: '推車護送',
     },
     mapPrefix: ' - ',
     vs: 'VS',
@@ -360,13 +245,7 @@ export const battleLogTranslations = {
   'zh-tw': zhTw,
 } as const;
 
-// 言語タイプの定義
-export type Language = keyof typeof battleLogTranslations;
-
 // カスタムフック
-import { useState, useEffect } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
 export function useBattleLogTranslation() {
   const [currentLanguage, setCurrentLanguage] = useState<Language>('ja');
 

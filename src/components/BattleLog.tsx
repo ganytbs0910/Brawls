@@ -10,23 +10,7 @@ import type { BattleLogItem } from '../hooks/useBrawlStarsApi';
 import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages';
 import { useBattleLogTranslation } from '../i18n/battleLog';
 import { getMapData, initializeMapData } from '../data/mapDataService';
-
-// ゲームモードのアイコン定義
-const GAME_MODE_ICONS: { [key: string]: any } = {
-  'gemGrab': require('../../assets/GameModeIcons/gem_grab_icon.png'),
-  'brawlBall': require('../../assets/GameModeIcons/brawl_ball_icon.png'),
-  'bounty': require('../../assets/GameModeIcons/bounty_icon.png'),
-  'heist': require('../../assets/GameModeIcons/heist_icon.png'),
-  'hotZone': require('../../assets/GameModeIcons/hot_zone_icon.png'),
-  'wipeOut': require('../../assets/GameModeIcons/wipeout_icon.png'),
-  'knockout': require('../../assets/GameModeIcons/knock_out_icon.png'),
-  'duels': require('../../assets/GameModeIcons/duels_icon.png'),
-  'soloShowdown': require('../../assets/GameModeIcons/showdown_icon.png'),
-  'duoShowdown': require('../../assets/GameModeIcons/showdown_icon.png'),
-  'showdown': require('../../assets/GameModeIcons/showdown_icon.png'),
-  'basketBrawl': require('../../assets/GameModeIcons/basket_brawl_icon.png'),
-  'payLoad': require('../../assets/GameModeIcons/payload_icon.png'),
-};
+import { getModeIcon, getLocalizedModeName, GAME_MODES } from '../data/modeData';
 
 // ランクアイコン定義
 const RANK_ICONS = {
@@ -56,18 +40,16 @@ const getLocalizedBattleMapName = async (mapName: string | undefined, currentLan
   
   try {
     await initializeMapData();
-    
     const mapData = getMapData(mapName);
 
     if (!mapData) {
       console.warn(`No map data found for: ${mapName}`);
-      // 英語名から日本語名への変換を試みる
       const alternativeMap = Object.values(mapsDataCache).find(
         m => m.nameEn.toLowerCase() === mapName.toLowerCase()
       );
       if (alternativeMap) {
         console.log('Found alternative map:', alternativeMap);
-        return alternativeMap.name;  // 日本語名を返す
+        return alternativeMap.name;
       }
       return mapName;
     }
@@ -77,6 +59,8 @@ const getLocalizedBattleMapName = async (mapName: string | undefined, currentLan
         return mapData.nameEn || mapName;
       case 'ko':
         return mapData.nameKo || mapName;
+      case 'zh-tw':
+        return mapData.nameZhTw || mapName;
       default:
         return mapData.name || mapName;
     }
@@ -98,42 +82,34 @@ const getRankIcon = (trophies: number) => {
 };
 
 // ゲームモード名の正規化
-const normalizeModeName = (modeName: string): string => {
-  if (!modeName) return '';
+const normalizeModeName = (modeName: string): keyof typeof GAME_MODES => {
+  if (!modeName) return 'GEM_GRAB';
 
-  if (GAME_MODE_ICONS.hasOwnProperty(modeName)) {
-    return modeName;
-  }
-
-  const modeNameMapping: { [key: string]: string } = {
-    'gemGrab': 'gemGrab',
-    'brawlBall': 'brawlBall',
-    'bounty': 'bounty',
-    'heist': 'heist',
-    'hotZone': 'hotZone',
-    'wipeOut': 'wipeOut',
-    'knockout': 'knockout',
-    'duels': 'duels',
-    'soloShowdown': 'soloShowdown',
-    'duoShowdown': 'duoShowdown',
-    'showdown': 'showdown',
-    'basketBrawl': 'basketBrawl',
-    'payLoad': 'payLoad',
-  };
-
+  // キャメルケースに変換
   const camelCaseName = modeName.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => 
     index === 0 ? letter.toLowerCase() : letter.toUpperCase()
   ).replace(/\s+/g, '');
 
-  const mappedName = modeNameMapping[camelCaseName] || camelCaseName;
-  
-  const existingKey = Object.keys(GAME_MODE_ICONS).find(key => 
-    key.toLowerCase() === mappedName.toLowerCase()
-  );
+  // モード名のマッピング
+  const modeNameToKey: { [key: string]: keyof typeof GAME_MODES } = {
+    'gemGrab': 'GEM_GRAB',
+    'brawlBall': 'BRAWL_BALL',
+    'bounty': 'BOUNTY',
+    'heist': 'HEIST',
+    'hotZone': 'HOT_ZONE',
+    'wipeOut': 'WIPEOUT',
+    'knockout': 'KNOCKOUT',
+    'duels': 'DUEL',
+    'soloShowdown': 'SOLO_BATTLE_ROYALE',
+    'duoShowdown': 'DUO_BATTLE_ROYALE',
+    'showdown': 'BATTLE_ROYALE',
+    'basketBrawl': 'BASKET_BRAWL',
+    'payLoad': 'PAYLOAD',
+    'friendly': 'FRIENDLY'
+  };
 
-  return existingKey || mappedName;
+  return modeNameToKey[camelCaseName] || 'GEM_GRAB';
 };
-
 // キャラクターの画像を取得
 const getPortraitSource = (brawlerName: string) => {
   try {
@@ -163,13 +139,6 @@ const getPortraitSource = (brawlerName: string) => {
   }
 };
 
-// ゲームモードのアイコンを取得
-const getModeIcon = (modeName: string) => {
-  if (!modeName) return null;
-  const normalizedName = normalizeModeName(modeName);
-  return GAME_MODE_ICONS[normalizedName];
-};
-
 // バトル結果を取得
 const getBattleResult = (battle: BattleLogItem, t: BattleLogTranslation) => {
   const isSoloMode = battle.battle.mode === 'soloShowdown';
@@ -197,7 +166,7 @@ const getBattleResult = (battle: BattleLogItem, t: BattleLogTranslation) => {
 
 // バトル概要コンポーネント
 const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog }) => {
-  const { t } = useBattleLogTranslation();
+  const { t, currentLanguage } = useBattleLogTranslation();
   
   if (!battleLog || !Array.isArray(battleLog)) return null;
 
@@ -225,7 +194,7 @@ const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog })
     const isVictory = result === t.battle.results.victory;
     const isDraw = result === t.battle.results.draw;
     const resultColor = isDraw ? DRAW_COLOR : isVictory ? VICTORY_COLOR : DEFEAT_COLOR;
-    const modeIcon = getModeIcon(battle.battle?.mode);
+    const modeIcon = getModeIcon(normalizeModeName(battle.battle?.mode));
     
     return (
       <View 
@@ -278,17 +247,6 @@ const BattleOverview: React.FC<{ battleLog: BattleLogItem[] }> = ({ battleLog })
       </View>
     </View>
   );
-};
-const getModeName = (mode: string, t: BattleLogTranslation): string => {
-  const normalizedMode = normalizeModeName(mode);
-  
-  // t.battle.mode から対応する翻訳を取得
-  if (t.battle.mode.hasOwnProperty(normalizedMode)) {
-    return t.battle.mode[normalizedMode as keyof typeof t.battle.mode];
-  }
-
-  // マッピングにない場合はそのまま返す
-  return mode;
 };
 
 // メインのバトルログコンポーネント
@@ -455,11 +413,12 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
     const isVictory = result === t.battle.results.victory;
     const isDraw = result === t.battle.results.draw;
     const resultColor = isDraw ? DRAW_COLOR : isVictory ? VICTORY_COLOR : DEFEAT_COLOR;
-    const modeIcon = getModeIcon(battle.battle.mode);
+    const modeIcon = getModeIcon(normalizeModeName(battle.battle.mode));
     const isSoloRanked = battle.battle.type === 'soloRanked';
     const isFriendly = battle.battle.type === 'friendly';
 
     const mapName = battle.event?.map ? localizedMapNames[battle.event.map] || battle.event.map : '';
+    const modeName = battle.battle.mode ? getLocalizedModeName(normalizeModeName(battle.battle.mode), currentLanguage) : '';
 
     return (
       <View 
@@ -482,9 +441,9 @@ export const BattleLog: React.FC<BattleLogProps> = ({ battleLog }) => {
                 />
               )}
               <Text style={styles.battleMode}>
-                {isFriendly ? t.battle.mode.friendly : getModeName(battle.battle.mode, t)}
-                {mapName ? `${t.battle.mapPrefix}${mapName}` : ''}
-              </Text>
+  {isFriendly ? getLocalizedModeName('FRIENDLY', currentLanguage) : modeName}
+  {mapName ? `${t.battle.mapPrefix}${mapName}` : ''}
+</Text>
             </View>
             <Text style={styles.battleTime}>
               {new Date(battle.battleTime).toLocaleString()}
@@ -753,6 +712,12 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   noDataText: {
+    textAlign: 'center',
+    color: '#666',
+    fontSize: 14,
+    marginVertical: 20,
+  },
+  loadingText: {
     textAlign: 'center',
     color: '#666',
     fontSize: 14,

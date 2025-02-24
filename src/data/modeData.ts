@@ -212,19 +212,19 @@ export const GAME_MODES: { [key: string]: GameMode } = {
     icon: require('../../assets/GameModeIcons/duels_icon.png')
   },
   FRIENDLY: {
-    name: 'friendly',
-    color: "#99ff66",
-    translations: {
-      ja: 'フレンドバトル',
-      en: 'Friendly Battle',
-      ko: '친선전',
-      es: 'Batalla Amistosa',
-      ar: 'معركة ودية',
-      fr: 'Bataille Amicale',
-      'zh-tw': '友誼賽'
-    },
-    icon: require('../../assets/GameModeIcons/friendly_icon.png')
+  name: 'friendly',
+  color: "#99ff66",
+  translations: {
+    ja: 'フレンドバトル',
+    en: 'Friendly Battle',
+    ko: '친선전',
+    es: 'Batalla Amistosa',
+    ar: 'معركة ودية',
+    fr: 'Bataille Amicale',
+    'zh-tw': '友誼賽'
   },
+  icon: require('../../assets/GameModeIcons/friendly_icon.png')
+},
   BASKET_BRAWL: {
     name: 'basketBrawl',
     color: "#cccccc",
