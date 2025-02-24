@@ -109,6 +109,14 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
         return mapData.nameEn;
       case 'ko':
         return mapData.nameKo;
+      case 'zh-tw':
+        return mapData.nameZhTw;
+      case 'es':
+        return mapData.nameEs;
+      case 'fr':
+        return mapData.nameFr;
+      case 'ar':
+        return mapData.nameAr;
       default:
         return mapData.name;
     }

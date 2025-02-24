@@ -116,6 +116,11 @@ export interface MapData {
   name: string;        // 日本語名
   nameEn: string;      // 英語名
   nameKo: string;      // 韓国語名
+  nameEs: string;      // スペイン語名
+  nameFr: string;      // フランス語名
+  nameAr: string;      // アラビア語名
+  nameZhTw: string;    // 中国語（繁体字）名
+  
   gameMode: string;    // ゲームモード (Bounty, Gem Grab, etc.)
   image: string;       // マップ画像のパス
   description: string; // マップの説明

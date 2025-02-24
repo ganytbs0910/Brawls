@@ -250,10 +250,10 @@ export const maps = {
 };
 
 // 言語設定の取得
-const getCurrentLanguage = async (): Promise<'en' | 'ja' | 'ko'> => {
+const getCurrentLanguage = async (): Promise<'en' | 'ja' | 'ko' | 'es' | 'ar' | 'fr' | 'zh-tw'> => {
   try {
     const savedLanguage = await AsyncStorage.getItem('selectedLanguage');
-    return (savedLanguage as 'en' | 'ja' | 'ko') || 'en';
+    return (savedLanguage as 'en' | 'ja' | 'ko' | 'es' | 'ar' | 'fr' | 'zh-tw') || 'en';
   } catch (error) {
     console.error('Error getting language:', error);
     return 'en';
@@ -277,6 +277,10 @@ const processMapsData = async (maps: BrawlifyMap[]): Promise<Record<string, MapD
       name: mapName,
       nameEn: map.name.en,
       nameKo: map.name.ko,
+      nameEs: map.name.es,
+      nameAr: map.name.ar,
+      nameFr: map.name.fr,
+      nameZhTw: map.name['zh-tw'],
       gameMode: map.gameMode,
       image: mapImages[mapName] || null,
       description: map.description,

@@ -124,6 +124,14 @@ const Home: React.FC = () => {
         return mapData.nameEn;
       case 'ko':
         return mapData.nameKo;
+      case 'es':
+        return mapData.nameEs;
+      case 'ar':
+        return mapData.nameAr;
+      case 'fr':
+        return mapData.nameFr;
+      case 'zh-tw':
+        return mapData.nameZhTw;
       default:
         return mapData.name;  // Japanese name
     }

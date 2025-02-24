@@ -154,6 +154,10 @@ const RecommendedMaps = ({ characterName }) => {
             // Get localized map name based on current language
             const localizedMapName = currentLanguage === 'en' ? map.nameEn : 
                                    currentLanguage === 'ko' ? map.nameKo : 
+                                    currentLanguage === 'es' ? map.nameEs :
+                                    currentLanguage === 'ar' ? map.nameAr :
+                                    currentLanguage === 'fr' ? map.nameFr :
+                                    currentLanguage === 'zh-tw' ? map.nameZhTw :
                                    map.name;
 
             return {

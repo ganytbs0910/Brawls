@@ -61,6 +61,12 @@ const getLocalizedBattleMapName = async (mapName: string | undefined, currentLan
         return mapData.nameKo || mapName;
       case 'zh-tw':
         return mapData.nameZhTw || mapName;
+      case 'es':
+        return mapData.nameEs || mapName;
+      case 'fr':
+        return mapData.nameFr || mapName;
+      case 'ar':
+        return mapData.nameAr || mapName;
       default:
         return mapData.name || mapName;
     }
