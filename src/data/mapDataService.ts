@@ -8,6 +8,10 @@ interface LocalizedText {
   ja: string;
   en: string;
   ko: string;
+  es: string;
+  ar: string;
+  fr: string;
+  'zh-tw': string;
 }
 
 interface BrawlifyMap {
@@ -337,32 +341,57 @@ const getLocalizedModeName = (mode: string, language: string): string => {
     gemGrab: {
       ja: "エメラルドハント",
       en: "Gem Grab",
-      ko: "젬 그랩"
+      ko: "젬 그랩",
+      es: "ATRAPAGEMAS",
+      ar: "جمع الجواهر",
+      fr: "RAZZIA DE GEMMES",
+      'zh-tw': "寶石爭奪戰",
+
     },
     brawlBall: {
       ja: "ブロストライカー",
       en: "Brawl Ball",
-      ko: "브롤 볼"
+      ko: "브롤 볼",
+      es: "BALÓN BRAWL",
+      ar: "كرة العراك",
+      fr: "BRAWLBALL",
+      'zh-tw': "亂鬥足球",
     },
     heist: {
       ja: "強奪",
       en: "Heist",
-      ko: "하이스트"
+      ko: "하이스트",
+      es: "ATRACO",
+      ar: "السطو",
+      fr: "BRAQUAGE",
+      'zh-tw': "金庫攻防戰",
     },
     knockout: {
       ja: "ノックアウト",
       en: "Knockout",
-      ko: "녹아웃"
+      ko: "녹아웃",
+      es: "NOQUEO",
+      ar: "الضربة القاضية",
+      fr: "HORS-JEU",
+      'zh-tw': "",
     },
     bounty: {
       ja: "賞金稼ぎ",
       en: "Bounty",
-      ko: "바운티"
+      ko: "바운티",
+      es: "CAZA ESTELAR",
+      ar: "الجائزة",
+      fr: "PRIME",
+      'zh-tw': "搶星大作戰",
     },
     hotZone: {
       ja: "ホットゾーン",
       en: "Hot Zone",
-      ko: "핫 존"
+      ko: "핫 존",
+      es: "ZONA RESTRINGIDA",
+      ar: "المنطقة الساخنة",
+      fr: "ZONE RÉSERVÉE",
+      'zh-tw': "據點搶奪戰",
     }
   };
 
