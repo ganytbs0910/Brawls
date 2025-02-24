@@ -4,6 +4,8 @@ import { useCharacterDetailsTranslation } from '../i18n/characterDetails';
 import { useCharacterLocalization } from '../hooks/useCharacterLocalization';
 import { getMapData, getMapInfo, initializeMapData } from '../data/mapDataService';
 import { CHARACTER_NAMES, JAPANESE_TO_ENGLISH_MAP } from '../data/characterCompatibility';
+// モードデータをインポート
+import { getLocalizedModeName, GAME_MODES } from '../data/modeData';
 
 const gameModeIcons = {
   gemGrab: require('../../assets/GameModeIcons/gem_grab_icon.png'),
@@ -20,6 +22,60 @@ const gameModeIcons = {
   showdown: require('../../assets/GameModeIcons/showdown_icon.png'),
   duoShowdown: require('../../assets/GameModeIcons/duo_showdown_icon.png'),
   rankFront: require('../../assets/GameModeIcons/rank_front.png'),
+};
+
+// モードキーのマッピング
+const MODE_MAPPING = {
+  'gemgrab': 'GEM_GRAB',
+  'brawlball': 'BRAWL_BALL',
+  'heist': 'HEIST',
+  'knockout': 'KNOCKOUT',
+  'bounty': 'BOUNTY',
+  'hotzone': 'HOT_ZONE',
+  'wipeout': 'WIPEOUT',
+  'brawlball5v5': 'BRAWL_BALL_5V5',
+  'wipeout5v5': 'WIPEOUT_5V5', 
+  'knockout5v5': 'KNOCKOUT', // 近いものを使用
+  'duels': 'DUEL',
+  'showdown': 'SOLO_BATTLE_ROYALE',
+  'duoshowdown': 'DUO_BATTLE_ROYALE',
+  'rankfront': 'RANK_FRONT'
+};
+
+// モードカラーの定義
+const MODE_COLORS = {
+  'gemgrab': "#DA70D6",
+  'brawlball': "#4169E1",
+  'heist': "#FF4500",
+  'knockout': "#FFA500",
+  'bounty': "#DA70D6",
+  'hotzone': "#FF69B4",
+  'wipeout': "#8A2BE2",
+  'brawlball5v5': "#4169E1",
+  'knockout5v5': "#FFA500",
+  'wipeout5v5': "#8A2BE2",
+  'duels': "#DC143C",
+  'showdown': "#32CD32",
+  'duoshowdown': "#32CD32",
+  'rankfront': "#99ff66"
+};
+
+// モードアイコンのマッピング
+const MODE_ICONS = {
+  'gemgrab': 'gemGrab',
+  'brawlball': 'brawlBall',
+  'heist': 'heist',
+  'knockout': 'knockout',
+  'bounty': 'bounty',
+  'hotzone': 'hotZone',
+  'wipeout': 'wipeout',
+  'brawlball5v5': 'brawlBall5v5',
+  'knockout5v5': 'knockout5v5',
+  'wipeout5v5': 'wipeout5v5',
+  'duels': 'duels',
+  'showdown': 'showdown',
+  'duoshowdown': 'duoShowdown',
+  'rankfront': 'rankFront'
 };
 
 const normalizeGameMode = (mode) => {
@@ -52,74 +108,6 @@ const RecommendedMaps = ({ characterName }) => {
 
   const japaneseCharacterName = CHARACTER_NAMES[JAPANESE_TO_ENGLISH_MAP[characterName] || characterName.toLowerCase()]?.ja || characterName;
 
-  const modeInfo = {
-    'gemgrab': { 
-      color: "#DA70D6", 
-      label: t.maps?.modes.gemGrab || "エメラルドハント",
-      icon: gameModeIcons.gemGrab
-    },
-    'brawlball': { 
-      color: "#4169E1", 
-      label: t.maps?.modes.brawlBall || "ブロストライカー",
-      icon: gameModeIcons.brawlBall
-    },
-    'heist': { 
-      color: "#FF4500", 
-      label: t.maps?.modes.heist || "強奪",
-      icon: gameModeIcons.heist
-    },
-    'knockout': { 
-      color: "#FFA500", 
-      label: t.maps?.modes.knockout || "ノックアウト",
-      icon: gameModeIcons.knockout
-    },
-    'bounty': { 
-      color: "#DA70D6", 
-      label: t.maps?.modes.bounty || "賞金稼ぎ",
-      icon: gameModeIcons.bounty
-    },
-    'hotzone': { 
-      color: "#FF69B4", 
-      label: t.maps?.modes.hotZone || "ホットゾーン",
-      icon: gameModeIcons.hotZone
-    },
-    'wipeout': {
-      color: "#8A2BE2",
-      label: t.maps?.modes.wipeout || "殲滅",
-      icon: gameModeIcons.wipeout
-    },
-    'brawlball5v5': {
-      color: "#4169E1",
-      label: t.maps?.modes.brawlBall5v5 || "5vs5ブロストライカー",
-      icon: gameModeIcons.brawlBall5v5
-    },
-    'knockout5v5': {
-      color: "#4169E1",
-      label: t.maps?.modes.knockout5v5 || "5vs5ノックアウト",
-      icon: gameModeIcons.knockout5v5
-    },
-    'wipeout5v5': {
-      color: "#8A2BE2",
-      label: t.maps?.modes.wipeout5v5 || "5vs5殲滅",
-      icon: gameModeIcons.wipeout5v5
-    },
-    'duels': {
-      color: "#DC143C",
-      label: t.maps?.modes.duels || "デュエル",
-      icon: gameModeIcons.duels
-    },
-    'showdown': {
-      color: "#32CD32",
-      label: t.maps?.modes.showdown || "バトルロイヤル",
-      icon: gameModeIcons.showdown
-    },
-    'rankfront': {
-      color: "#99ff66",
-      label: t.maps?.modes.rankFront || "ガチバトル",
-      icon: gameModeIcons.rankFront
-    }
-  };
-
   useEffect(() => {
     const loadMaps = async () => {
       try {
@@ -141,17 +129,22 @@ const RecommendedMaps = ({ characterName }) => {
             if (!map) return null;
 
             const normalizedGameMode = normalizeGameMode(map.gameMode);
-            const mode = modeInfo[normalizedGameMode] || { 
-              color: "#cccccc", 
-              label: map.gameMode,
-              icon: null
-            };
+            const gameModesKey = MODE_MAPPING[normalizedGameMode];
+            
+            // modeData.tsからローカライズされたモード名を取得
+            const localizedModeName = gameModesKey 
+              ? getLocalizedModeName(gameModesKey, currentLanguage as any) 
+              : map.gameMode;
+
+            const modeColor = MODE_COLORS[normalizedGameMode] || "#cccccc";
+            const iconKey = MODE_ICONS[normalizedGameMode];
+            const modeIcon = iconKey ? gameModeIcons[iconKey] : null;
 
             const recommendedBrawler = map.recommendedBrawlers.find(
               b => b.name === japaneseCharacterName
             );
 
-            // Get localized map name based on current language
+            // 現在の言語に基づいてローカライズされたマップ名を取得
             const localizedMapName = currentLanguage === 'en' ? map.nameEn : 
                                    currentLanguage === 'ko' ? map.nameKo : 
                                     currentLanguage === 'es' ? map.nameEs :
@@ -162,11 +155,11 @@ const RecommendedMaps = ({ characterName }) => {
 
             return {
               name: localizedMapName,
-              mode: mode.label,
+              mode: localizedModeName,
               gameMode: normalizedGameMode,
               power: recommendedBrawler?.power || 0,
-              modeColor: mode.color,
-              modeIcon: mode.icon,
+              modeColor: modeColor,
+              modeIcon: modeIcon,
               mapImage: map.image
             };
           })
@@ -187,7 +180,7 @@ const RecommendedMaps = ({ characterName }) => {
     };
 
     loadMaps();
-  }, [japaneseCharacterName, currentLanguage, t.maps?.modes]);
+  }, [japaneseCharacterName, currentLanguage]);
 
   return (
     <View style={styles.container}>
@@ -198,15 +191,15 @@ const RecommendedMaps = ({ characterName }) => {
       {Object.entries(groupedMaps).map(([mode, maps]) => (
         <View key={mode} style={styles.modeSection}>
           <View style={styles.modeHeader}>
-            {modeInfo[mode]?.icon && (
+            {maps[0].modeIcon && (
               <Image 
-                source={modeInfo[mode].icon}
+                source={maps[0].modeIcon}
                 style={styles.modeSectionIcon}
                 resizeMode="contain"
               />
             )}
-            <Text style={[styles.modeName, { color: modeInfo[mode]?.color }]}>
-              {modeInfo[mode]?.label}
+            <Text style={[styles.modeName, { color: maps[0].modeColor }]}>
+              {maps[0].mode}
             </Text>
           </View>
 

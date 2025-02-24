@@ -10,19 +10,12 @@ import { allCharacterData } from '../data/characterCompatibility';
 import { useCharacterDetailsTranslation } from '../i18n/characterDetails';
 import RecommendedMaps from './RecommendedMaps';
 import { useCharacterLocalization } from '../hooks/useCharacterLocalization';
+// モードデータをインポート
+import { getLocalizedModeName, GAME_MODES } from '../data/modeData';
 
 type CharacterDetailsRouteProp = RouteProp<RootStackParamList, 'CharacterDetails'>;
 type CharacterDetailsNavigationProp = StackNavigationProp<RootStackParamList, 'CharacterDetails'>;
 type CompatibilityView = 'good' | 'bad';
-
-type CompatibilityCategory = {
-  key: string;
-  title: string;
-  minScore: number;
-  maxScore: number;
-  color: string;
-  backgroundColor: string;
-};
 
 const CharacterDetails: React.FC = () => {
   const { t, currentLanguage } = useCharacterDetailsTranslation();

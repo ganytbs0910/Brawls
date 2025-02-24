@@ -1,27 +1,16 @@
+//src/i18n/characterDetails.ts
+
 export type CharacterDetailsTranslation = {
   tabs: {
     info: string;
     compatibility: string;
-    maps: string;  // 追加
+    maps: string;
   };
   maps: {
     recommendedTitle: string;
     powerLevel: string;
     noRecommendedMaps: string;
-    modes: {
-      gemGrab: string;
-      brawlBall: string;
-      heist: string;
-      knockout: string;
-      bounty: string;
-      hotZone: string;
-      wipeout: string;
-      brawlBall5v5: string;
-      wipeout5v5: string;
-      duels: string;
-      showdown: string;
-      rankFront: string;
-    };
+    // モード翻訳は削除（modeData.tsに統合）
   };
   basicInfo: {
     title: string;
@@ -76,24 +65,11 @@ export const ja: CharacterDetailsTranslation = {
     compatibility: '相性表',
     maps: '推奨マップ',
   },
-   maps: {
+  maps: {
     recommendedTitle: "推奨マップ",
     powerLevel: "パワーレベル",
     noRecommendedMaps: "このキャラクターに推奨されるマップはありません",
-    modes: {
-      gemGrab: "エメラルドハント",
-      brawlBall: "ブロストライカー",
-      heist: "強奪",
-      knockout: "ノックアウト",
-      bounty: "賞金稼ぎ",
-      hotZone: "ホットゾーン",
-      wipeout: "殲滅",
-      brawlBall5v5: "5vs5ブロストライカー",
-      wipeout5v5: "5vs5殲滅",
-      duels: "デュエル",
-      showdown: "バトルロイヤル",
-      rankFront: "ガチバトル"
-    }
+    // モード翻訳は削除（modeData.tsに統合）
   },
   basicInfo: {
     title: '基本情報',
@@ -152,20 +128,7 @@ export const en: CharacterDetailsTranslation = {
     recommendedTitle: "Recommended Maps",
     powerLevel: "Power Level",
     noRecommendedMaps: "No recommended maps for this character.",
-    modes: {
-      gemGrab: "Gem Grab",
-      brawlBall: "Brawl Ball",
-      heist: "Heist",
-      knockout: "Knockout",
-      bounty: "Bounty",
-      hotZone: "Hot Zone",
-      wipeout: "Wipeout",
-      brawlBall5v5: "5v5 Brawl Ball",
-      wipeout5v5: "5v5 Wipeout",
-      duels: "Duels",
-      showdown: "Showdown",
-      rankFront: "Rank Front"
-    }
+    // モード翻訳は削除（modeData.tsに統合）
   },
   basicInfo: {
     title: 'Basic Info',
@@ -218,26 +181,13 @@ export const ko: CharacterDetailsTranslation = {
   tabs: {
     info: '정보',
     compatibility: '상성표',
-    maps: '추천 맵',  // 追加
+    maps: '추천 맵',
   },
-   maps: {
+  maps: {
     recommendedTitle: "추천 맵",
     powerLevel: "파워 레벨",
     noRecommendedMaps: "이 캐릭터에 대한 추천 맵이 없습니다.",
-    modes: {
-      gemGrab: "젬 그랩",
-      brawlBall: "브롤 볼",
-      heist: "하이스트",
-      knockout: "녹아웃",
-      bounty: "바운티",
-      hotZone: "핫 존",
-      wipeout: "와이프아웃",
-      brawlBall5v5: "5대5 브롤 볼",
-      wipeout5v5: "5대5 와이프아웃",
-      duels: "듀얼",
-      showdown: "쇼다운",
-      rankFront: "랭크 프론트"
-    }
+    // モード翻訳は削除（modeData.tsに統合）
   },
   basicInfo: {
     title: '기본 정보',
@@ -296,20 +246,7 @@ export const es: CharacterDetailsTranslation = {
     recommendedTitle: "Mapas Recomendados",
     powerLevel: "Nivel de Poder",
     noRecommendedMaps: "No hay mapas recomendados para este personaje.",
-    modes: {
-      gemGrab: "Atrapagemas",
-      brawlBall: "Brawl Ball",
-      heist: "Atraco",
-      knockout: "Knockout",
-      bounty: "Recompensa",
-      hotZone: "Zona Candente",
-      wipeout: "Aniquilación",
-      brawlBall5v5: "Brawl Ball 5v5",
-      wipeout5v5: "Aniquilación 5v5",
-      duels: "Duelos",
-      showdown: "Showdown",
-      rankFront: "Frente de Rango"
-    }
+    // モード翻訳は削除（modeData.tsに統合）
   },
   basicInfo: {
     title: 'Información Básica',
@@ -358,7 +295,6 @@ export const es: CharacterDetailsTranslation = {
   },
 };
 
-// アラビア語翻訳
 export const ar: CharacterDetailsTranslation = {
   tabs: {
     info: 'معلومات',
@@ -369,20 +305,7 @@ export const ar: CharacterDetailsTranslation = {
     recommendedTitle: "الخرائط الموصى بها",
     powerLevel: "مستوى القوة",
     noRecommendedMaps: "لا توجد خرائط موصى بها لهذه الشخصية.",
-    modes: {
-      gemGrab: "جمع الجواهر",
-      brawlBall: "كرة براول",
-      heist: "السطو",
-      knockout: "الإقصاء",
-      bounty: "المكافأة",
-      hotZone: "المنطقة الساخنة",
-      wipeout: "الإبادة",
-      brawlBall5v5: "كرة براول 5 ضد 5",
-      wipeout5v5: "الإبادة 5 ضد 5",
-      duels: "المبارزة",
-      showdown: "المواجهة",
-      rankFront: "جبهة الرتبة"
-    }
+    // モード翻訳は削除（modeData.tsに統合）
   },
   basicInfo: {
     title: 'المعلومات الأساسية',
@@ -431,7 +354,6 @@ export const ar: CharacterDetailsTranslation = {
   },
 };
 
-// フランス語翻訳
 export const fr: CharacterDetailsTranslation = {
   tabs: {
     info: 'Infos',
@@ -442,20 +364,7 @@ export const fr: CharacterDetailsTranslation = {
     recommendedTitle: "Cartes Recommandées",
     powerLevel: "Niveau de Puissance",
     noRecommendedMaps: "Aucune carte recommandée pour ce personnage.",
-    modes: {
-      gemGrab: "Chasse aux Gemmes",
-      brawlBall: "Foot Brawl",
-      heist: "Braquage",
-      knockout: "Knockout",
-      bounty: "Prime",
-      hotZone: "Zone Chaude",
-      wipeout: "Annihilation",
-      brawlBall5v5: "Foot Brawl 5v5",
-      wipeout5v5: "Annihilation 5v5",
-      duels: "Duels",
-      showdown: "Showdown",
-      rankFront: "Front de Rang"
-    }
+    // モード翻訳は削除（modeData.tsに統合）
   },
   basicInfo: {
     title: 'Informations de Base',
@@ -504,7 +413,6 @@ export const fr: CharacterDetailsTranslation = {
   },
 };
 
-// 台湾語（繁体中文）翻訳を追加
 export const zhTw: CharacterDetailsTranslation = {
   tabs: {
     info: '資訊',
@@ -515,20 +423,7 @@ export const zhTw: CharacterDetailsTranslation = {
     recommendedTitle: "推薦地圖",
     powerLevel: "能力等級",
     noRecommendedMaps: "此角色沒有推薦地圖",
-    modes: {
-      gemGrab: "寶石爭奪",
-      brawlBall: "鬥球",
-      heist: "搶險",
-      knockout: "淘汰賽",
-      bounty: "賞金獵人",
-      hotZone: "熱區",
-      wipeout: "殲滅戰",
-      brawlBall5v5: "5對5鬥球",
-      wipeout5v5: "5對5殲滅戰",
-      duels: "決鬥",
-      showdown: "生存模式",
-      rankFront: "排位戰線"
-    }
+    // モード翻訳は削除（modeData.tsに統合）
   },
   basicInfo: {
     title: '基本資訊',
@@ -577,7 +472,6 @@ export const zhTw: CharacterDetailsTranslation = {
   },
 };
 
-// characterDetailsTranslations オブジェクトに台湾語を追加
 export const characterDetailsTranslations = {
   ja,
   en,
@@ -585,7 +479,7 @@ export const characterDetailsTranslations = {
   es,
   ar,
   fr,
-  zhTw, // 台湾語を追加
+  zhTw,
 } as const;
 
 export type Language = keyof typeof characterDetailsTranslations;
