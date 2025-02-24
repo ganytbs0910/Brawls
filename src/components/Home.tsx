@@ -25,6 +25,7 @@ import { useMapDetailTranslation } from '../i18n/mapDetail';
 import AdMobService from '../services/AdMobService';
 import SettingsScreen from './SettingsScreen';
 import { MapDetail, GameMode, ScreenType, ScreenState } from '../types';
+import { GAME_MODES, getLocalizedModeName, generateCombinedModeTranslation } from '../data/modeData';
 import { getMapDetails } from '../data/mapDetails';
 import { initializeMapData, getMapData, mapImages, getGameDataForDateTime } from '../data/mapDataService';
 
@@ -399,99 +400,84 @@ const Home: React.FC = () => {
   };
 
   const modes = useMemo(() => [
-    {
-      name: t.modes.battleRoyale,
-      currentMap: currentGameData.battleRoyale.map,
-      updateTime: 5,
-      color: "#99ff66",
-      icon: require('../../assets/GameModeIcons/showdown_icon.png')
+  {
+    name: t.modes.getModeName('BATTLE_ROYALE'),
+    currentMap: currentGameData.battleRoyale.map,
+    updateTime: 5,
+    color: GAME_MODES.BATTLE_ROYALE.color || "#99ff66",
+    icon: GAME_MODES.BATTLE_ROYALE.icon
+  },
+  {
+    name: t.modes.getModeName('GEM_GRAB'),
+    currentMap: currentGameData.gemGrab.map,
+    updateTime: 11,
+    color: GAME_MODES.GEM_GRAB.color || "#DA70D6",
+    icon: GAME_MODES.GEM_GRAB.icon
+  },
+  {
+    name: currentGameData.heist.mode?.name 
+      ? t.modes.getModeName(currentGameData.heist.mode.name as keyof typeof GAME_MODES)
+      : t.modes.getCombinedModeName(['HOT_ZONE', 'HEIST']),
+    currentMap: currentGameData.heist.map,
+    updateTime: 23,
+    color: () => {
+      const modeName = currentGameData.heist.mode?.name;
+      if (modeName) {
+        return GAME_MODES[modeName]?.color || "#FF69B4";
+      }
+      return "#FF69B4";
     },
-    {
-      name: t.modes.gemGrab,
-      currentMap: currentGameData.gemGrab.map,
-      updateTime: 11,
-      color: "#DA70D6",
-      icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
+    isRotating: true,
+    icon: currentGameData.heist.mode?.icon || GAME_MODES.HEIST.icon
+  },
+  {
+    name: t.modes.getModeName('BRAWL_BALL'),
+    currentMap: currentGameData.brawlBall.map,
+    updateTime: 17,
+    color: GAME_MODES.BRAWL_BALL.color || "#cccccc",
+    isRotating: true,
+    icon: GAME_MODES.BRAWL_BALL.icon
+  },
+  {
+    name: currentGameData.brawlBall5v5.mode?.name 
+      ? t.modes.getModeName(currentGameData.brawlBall5v5.mode.name as keyof typeof GAME_MODES)
+      : t.modes.getModeName('BRAWL_BALL_5V5'),
+    currentMap: currentGameData.brawlBall5v5.map,
+    updateTime: 17,
+    color: () => {
+      const modeName = currentGameData.brawlBall5v5.mode?.name;
+      if (modeName) {
+        return GAME_MODES[modeName]?.color || "#cccccc";
+      }
+      return "#d3d3d3";
     },
-    {
-      name: currentGameData.heist.mode?.name 
-        ? (currentGameData.heist.mode.name === t.modes.heist 
-          ? t.modes.heist 
-          : t.modes.hotZone)
-        : `${t.modes.hotZone} & ${t.modes.heist}`,
-      currentMap: currentGameData.heist.map,
-      updateTime: 23,
-      color: () => {
-        switch (currentGameData.heist.mode?.name) {
-          case t.modes.heist:
-            return "#FF69B4";
-          case t.modes.hotZone:
-            return "#ff7f7f";
-          default:
-            return "#FF69B4";
-        }
-      },
-      isRotating: true,
-      icon: currentGameData.heist.mode?.icon || require('../../assets/GameModeIcons/heist_icon.png')
+    isRotating: true,
+    icon: currentGameData.brawlBall5v5.mode?.icon || GAME_MODES.BRAWL_BALL_5V5.icon
+  },
+  {
+    name: currentGameData.duel.mode?.name 
+      ? t.modes.getModeName(currentGameData.duel.mode.name as keyof typeof GAME_MODES)
+      : t.modes.getCombinedModeName(['DUEL', 'WIPEOUT', 'BOUNTY']),
+    currentMap: currentGameData.duel.map,
+    updateTime: 23,
+    color: () => {
+      const modeName = currentGameData.duel.mode?.name;
+      if (modeName) {
+        return GAME_MODES[modeName]?.color || "#FF0000";
+      }
+      return "#FF0000";
     },
-    {
-      name: t.modes.brawlBall,
-      currentMap: currentGameData.brawlBall.map,
-      updateTime: 17,
-      color: "#cccccc",
-      isRotating: true,
-      icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
-    },
-    {
-      name: currentGameData.brawlBall5v5.mode?.name 
-        ? (currentGameData.brawlBall5v5.mode.name === t.modes.brawlBall5v5 
-          ? t.modes.brawlBall5v5 
-          : t.modes.annihilation)
-        : t.modes.brawlBall5v5,
-      currentMap: currentGameData.brawlBall5v5.map,
-      updateTime: 17,
-      color: () => {
-        switch (currentGameData.brawlBall5v5.mode?.name) {
-          case t.modes.brawlBall5v5:
-            return "#cccccc";
-          case t.modes.annihilation:
-            return "#e95295";
-          default:
-            return "#d3d3d3";
-        }
-      },
-      isRotating: true,
-      icon: currentGameData.brawlBall5v5.mode?.icon || require('../../assets/GameModeIcons/brawl_ball_icon.png')
-    },
-    {
-      name: currentGameData.duel.mode?.name 
-        ? currentGameData.duel.mode.name 
-        : t.modes.duelRotating,
-      currentMap: currentGameData.duel.map,
-      updateTime: 23,
-      color: () => {
-        switch (currentGameData.duel.mode?.name) {
-          case t.modes.bounty:
-            return "#00ccff";
-          case t.modes.annihilation:
-            return "#e95295";
-          case t.modes.duel:
-            return "#FF0000";
-          default:
-            return "#FF0000";
-        }
-      },
-      isRotating: true,
-      icon: currentGameData.duel.mode?.icon || require('../../assets/GameModeIcons/bounty_icon.png')
-    },
-    {
-      name: t.modes.knockout,
-      currentMap: currentGameData.knockout.map,
-      updateTime: 11,
-      color: "#FFA500",
-      icon: require('../../assets/GameModeIcons/knock_out_icon.png')
-    }
-  ], [currentGameData, t.modes]);
+    isRotating: true,
+    icon: currentGameData.duel.mode?.icon || GAME_MODES.BOUNTY.icon
+  },
+  {
+    name: t.modes.getModeName('KNOCKOUT'),
+    currentMap: currentGameData.knockout.map,
+    updateTime: 11,
+    color: GAME_MODES.KNOCKOUT.color || "#FFA500",
+    icon: GAME_MODES.KNOCKOUT.icon
+  }
+], [currentGameData, t.modes]);
 
   return (
     <SafeAreaView style={styles.safeArea}>

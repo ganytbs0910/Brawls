@@ -1,4 +1,5 @@
 // src/i18n/home.ts
+import { GAME_MODES, getLocalizedModeName, generateCombinedModeTranslation, Language as ModeLanguage } from '../data/modeData';
 
 export type HomeTranslation = {
   header: {
@@ -14,17 +15,8 @@ export type HomeTranslation = {
     timeUntilUpdate: (hours: number, minutes: number) => string;
   };
   modes: {
-    battleRoyale: string;
-    gemGrab: string;
-    heist: string;
-    hotZone: string;
-    brawlBall: string;
-    brawlBall5v5: string;
-    bounty: string;
-    knockout: string;
-    annihilation: string;
-    duel: string;
-    duelRotating: string;
+    getModeName: (modeName: keyof typeof GAME_MODES) => string;
+    getCombinedModeName: (modes: (keyof typeof GAME_MODES)[]) => string;
   };
 };
 
@@ -43,18 +35,9 @@ export const ja: HomeTranslation = {
     timeUntilUpdate: (hours: number, minutes: number) => `更新まで ${hours}時間${minutes}分`,
   },
   modes: {
-    battleRoyale: 'バトルロワイヤル',
-    gemGrab: 'エメラルドハント',
-    heist: '強奪',
-    hotZone: 'ホットゾーン',
-    brawlBall: 'ブロストライカー',
-    brawlBall5v5: '5vs5ブロストライカー',
-    bounty: '賞金稼ぎ',
-    knockout: 'ノックアウト',
-    annihilation: '殲滅',
-    duel: 'デュエル',
-    duelRotating: 'デュエル＆殲滅＆賞金稼ぎ',
-  },
+    getModeName: (modeName) => getLocalizedModeName(modeName, 'ja'),
+    getCombinedModeName: (modes) => generateCombinedModeTranslation(modes, 'ja')
+  }
 };
 
 // 英語翻訳
@@ -73,18 +56,9 @@ export const en: HomeTranslation = {
       `${hours}h ${minutes}m until update`,
   },
   modes: {
-    battleRoyale: 'Battle Royale',
-    gemGrab: 'Gem Grab',
-    heist: 'Heist',
-    hotZone: 'Hot Zone',
-    brawlBall: 'Brawl Ball',
-    brawlBall5v5: '5v5 Brawl Ball',
-    bounty: 'Bounty',
-    knockout: 'Knockout',
-    annihilation: 'Annihilation',
-    duel: 'Duel',
-    duelRotating: 'Duel & Annihilation & Bounty',
-  },
+    getModeName: (modeName) => getLocalizedModeName(modeName, 'en'),
+    getCombinedModeName: (modes) => generateCombinedModeTranslation(modes, 'en')
+  }
 };
 
 // 韓国語翻訳
@@ -103,18 +77,9 @@ export const ko: HomeTranslation = {
       `업데이트까지 ${hours}시간 ${minutes}분`,
   },
   modes: {
-    battleRoyale: '배틀로얄',
-    gemGrab: '젬 그랩',
-    heist: '하이스트',
-    hotZone: '핫 존',
-    brawlBall: '브롤 볼',
-    brawlBall5v5: '5대5 브롤 볼',
-    bounty: '바운티',
-    knockout: '녹아웃',
-    annihilation: '섬멸전',
-    duel: '결투',
-    duelRotating: '결투 & 섬멸전 & 바운티',
-  },
+    getModeName: (modeName) => getLocalizedModeName(modeName, 'ko'),
+    getCombinedModeName: (modes) => generateCombinedModeTranslation(modes, 'ko')
+  }
 };
 
 export const es: HomeTranslation = {
@@ -132,18 +97,9 @@ export const es: HomeTranslation = {
       `${hours}h ${minutes}m hasta la actualización`,
   },
   modes: {
-    battleRoyale: 'Battle Royale',
-    gemGrab: 'Atrapagemas',
-    heist: 'Atraco',
-    hotZone: 'Zona Candente',
-    brawlBall: 'Brawl Ball',
-    brawlBall5v5: 'Brawl Ball 5v5',
-    bounty: 'Recompensa',
-    knockout: 'Knockout',
-    annihilation: 'Aniquilación',
-    duel: 'Duelo',
-    duelRotating: 'Duelo & Aniquilación & Recompensa',
-  },
+    getModeName: (modeName) => getLocalizedModeName(modeName, 'es'),
+    getCombinedModeName: (modes) => generateCombinedModeTranslation(modes, 'es')
+  }
 };
 
 // アラビア語翻訳
@@ -162,18 +118,9 @@ export const ar: HomeTranslation = {
       `${hours} ساعة ${minutes} دقيقة حتى التحديث`,
   },
   modes: {
-    battleRoyale: 'باتل رويال',
-    gemGrab: 'جمع الجواهر',
-    heist: 'السطو',
-    hotZone: 'المنطقة الساخنة',
-    brawlBall: 'كرة براول',
-    brawlBall5v5: 'كرة براول 5 ضد 5',
-    bounty: 'المكافأة',
-    knockout: 'الإقصاء',
-    annihilation: 'الإبادة',
-    duel: 'المبارزة',
-    duelRotating: 'مبارزة وإبادة ومكافأة',
-  },
+    getModeName: (modeName) => getLocalizedModeName(modeName, 'ar'),
+    getCombinedModeName: (modes) => generateCombinedModeTranslation(modes, 'ar')
+  }
 };
 
 // フランス語翻訳
@@ -192,18 +139,9 @@ export const fr: HomeTranslation = {
       `${hours}h ${minutes}m avant la mise à jour`,
   },
   modes: {
-    battleRoyale: 'Battle Royale',
-    gemGrab: 'Chasse aux Gemmes',
-    heist: 'Braquage',
-    hotZone: 'Zone Chaude',
-    brawlBall: 'Foot Brawl',
-    brawlBall5v5: 'Foot Brawl 5v5',
-    bounty: 'Prime',
-    knockout: 'Knockout',
-    annihilation: 'Annihilation',
-    duel: 'Duel',
-    duelRotating: 'Duel & Annihilation & Prime',
-  },
+    getModeName: (modeName) => getLocalizedModeName(modeName, 'fr'),
+    getCombinedModeName: (modes) => generateCombinedModeTranslation(modes, 'fr')
+  }
 };
 
 export const zhTw: HomeTranslation = {
@@ -221,18 +159,9 @@ export const zhTw: HomeTranslation = {
       `距離更新還有 ${hours}小時${minutes}分鐘`,
   },
   modes: {
-    battleRoyale: '大逃殺',
-    gemGrab: '寶石爭奪',
-    heist: '金庫搶奪',
-    hotZone: '熱區爭奪',
-    brawlBall: '荒野足球',
-    brawlBall5v5: '5對5荒野足球',
-    bounty: '賞金獵人',
-    knockout: '淘汰賽',
-    annihilation: '殲滅戰',
-    duel: '決鬥',
-    duelRotating: '決鬥 & 殲滅戰 & 賞金獵人',
-  },
+    getModeName: (modeName) => getLocalizedModeName(modeName, 'zh-tw'),
+    getCombinedModeName: (modes) => generateCombinedModeTranslation(modes, 'zh-tw')
+  }
 };
 
 // 翻訳オブジェクトをまとめたもの
@@ -243,7 +172,7 @@ export const homeTranslations = {
   es,
   ar,
   fr,
-  zhTw // 台湾語を追加
+  zhTw
 } as const;
 
 // 言語タイプの定義
