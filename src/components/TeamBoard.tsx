@@ -25,6 +25,8 @@ import characterData from '../data/characterAPI.json';
 import AdMobService from '../services/AdMobService';
 import { createClient, RealtimeChannel } from '@supabase/supabase-js';
 import 'react-native-url-polyfill/auto';
+// GAME_MODESをインポート
+import { GAME_MODES } from '../data/modeData';
 
 const supabase = createClient(
   'https://llxmsbnqtdlqypnwapzz.supabase.co',
@@ -54,7 +56,7 @@ interface TeamPost {
 }
 
 interface GameMode {
-  id: keyof TeamBoardTranslation['modes'];
+  id: string;
   name: string;
   color: string;
   icon: any;
@@ -66,7 +68,52 @@ interface TeamBoardProps {
   onShowDetails?: (content: React.ReactNode) => void;
 }
 
-  const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetails }) => {
+// 表示するゲームモードを定義
+const DISPLAY_MODES = [
+  'ranked',
+  'duoShowdown',
+  'gemGrab',
+  'brawlBall',
+  'heist',
+  'knockout',
+  'bounty',
+  'wipeout',
+  'hotZone',
+  'brawlBall5v5',
+  'wipeout5v5'
+];
+
+// ゲームモード情報を取得する関数
+const getGameModes = (t: TeamBoardTranslation): GameMode[] => {
+  if (!t || !t.modes) {
+    console.error('Translation object is not properly loaded or modes is undefined');
+    return [];
+  }
+
+  return DISPLAY_MODES
+    .filter(modeId => t.modes[modeId]) // t.modes[modeId]が存在する場合のみ
+    .map(modeId => {
+      // modeData.tsからゲームモード情報を検索
+      const modeEntry = Object.entries(GAME_MODES).find(([_, mode]) => mode.name === modeId);
+      
+      if (!modeEntry) {
+        console.warn(`Mode with id ${modeId} not found in GAME_MODES`);
+        return null;
+      }
+
+      const [_, modeData] = modeEntry;
+      
+      return {
+        id: modeId,
+        name: t.modes[modeId],
+        color: modeData.color,
+        icon: modeData.icon
+      };
+    })
+    .filter(Boolean) as GameMode[]; // nullを除外
+};
+
+const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetails }) => {
   const { width } = useWindowDimensions();
   const isIPad = Platform.OS === 'ios' && Platform.isPad;
 
@@ -75,14 +122,7 @@ interface TeamBoardProps {
   const { t, currentLanguage } = useTeamBoardTranslation();
   const scrollViewRef = useRef<ScrollView>(null);
   const inviteLinkInputRef = useRef<TextInput>(null);
-  console.log('TeamBoard rendering');
   const playerDataAPI = usePlayerData();
-  console.log('playerDataAPI initialized:', {
-    exists: !!playerDataAPI,
-    hasData: !!playerDataAPI?.data,
-    hasError: !!playerDataAPI?.error,
-    loading: playerDataAPI?.loading
-  });
   const brawlersData = useBrawlersData();  // 追加
 
   // state の設定
@@ -108,6 +148,15 @@ interface TeamBoardProps {
     totalTrophies: 0,
     winsDuo: 0
   });
+  // ゲームモードの一覧をt.modesから取得
+  const [gameModes, setGameModes] = useState<GameMode[]>([]);
+
+  useEffect(() => {
+    // tとt.modesが利用可能になったらゲームモード情報を設定
+    if (t && t.modes) {
+      setGameModes(getGameModes(t));
+    }
+  }, [t]); // tが変更されたら再実行
 
   const REFRESH_COOLDOWN = 3000;
 
@@ -147,94 +196,59 @@ interface TeamBoardProps {
   const getTableName = (lang: string) => `team_posts_${lang}`;
 
   // ゲームモードの設定
-  const getCurrentModes = () => {
-    const modes: GameMode[] = [
-      {
-        id: 'ranked',
-        name: t.modes.ranked,
-        color: "#99ff66",
-        icon: require('../../assets/GameModeIcons/rank_front.png')
-      },
-      {
-        id: 'duoShowdown',
-        name: t.modes.duoShowdown,
-        color: "#99ff66",
-        icon: require('../../assets/GameModeIcons/duo_showdown_icon.png')
-      },
-      {
-        id: 'gemGrab',
-        name: t.modes.gemGrab,
-        color: "#DA70D6",
-        icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
-      },
-      {
-        id: 'brawlBall',
-        name: t.modes.brawlBall,
-        color: "#cccccc",
-        icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
-      },
-      {
-        id: 'heist',
-        name: t.modes.heist,
-        color: "#cccccc",
-        icon: require('../../assets/GameModeIcons/heist_icon.png')
-      },
-      {
-        id: 'knockout',
-        name: t.modes.knockout,
-        color: "#FFA500",
-        icon: require('../../assets/GameModeIcons/knock_out_icon.png')
-      },
-      {
-        id: 'bounty',
-        name: t.modes.bounty,
-        color: "#DA70D6",
-        icon: require('../../assets/GameModeIcons/bounty_icon.png')
-      },
-      {
-        id: 'wipeout',
-        name: t.modes.wipeout,
-        color: "#DA70D6",
-        icon: require('../../assets/GameModeIcons/wipeout_icon.png')
-      },
-      {
-        id: 'hotZone',
-        name: t.modes.hotZone,
-        color: "#cccccc",
-        icon: require('../../assets/GameModeIcons/hot_zone_icon.png')
-      },
-      {
-        id: 'brawlBall5v5',
-        name: t.modes.brawlBall5v5,
-        color: "#FFA500",
-        icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
-      },
-      {
-        id: 'wipeout5v5',
-        name: t.modes.wipeout5v5,
-        color: "#FFA500",
-        icon: require('../../assets/GameModeIcons/5v5wipeout_icon.png')
-      }
-    ];
-    return modes;
-  };
+  const getCurrentModes = (t: TeamBoardTranslation) => {
+  // 表示するゲームモードを限定する
+  const DISPLAY_MODES = [
+    'ranked',
+    'duoShowdown',
+    'gemGrab',
+    'brawlBall',
+    'heist',
+    'knockout',
+    'bounty',
+    'wipeout',
+    'hotZone',
+    'brawlBall5v5',
+    'wipeout5v5'
+  ];
+
+  const modes: GameMode[] = DISPLAY_MODES.map(modeId => {
+    // modeData.tsからモード情報を取得
+    const modeKey = Object.keys(GAME_MODES).find(key => 
+      GAME_MODES[key].name === modeId
+    );
+    
+    if (!modeKey) return null;
+    
+    const modeData = GAME_MODES[modeKey];
+    
+    return {
+      id: modeId as keyof TeamBoardTranslation['modes'],
+      name: t.modes[modeId],
+      color: modeData.color,
+      icon: modeData.icon
+    };
+  }).filter(Boolean) as GameMode[];
+  
+  return modes;
+};
 
   // 投稿の取得とリアルタイム更新の設定
   useEffect(() => {
-  const initializeData = async () => {
-    try {
-      // 初期化中はローディング表示
-      setLoading(true);
-      await brawlersData.fetchBrawlers();
-    } catch (error) {
-      console.error('Error initializing brawlers data:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    const initializeData = async () => {
+      try {
+        // 初期化中はローディング表示
+        setLoading(true);
+        await brawlersData.fetchBrawlers();
+      } catch (error) {
+        console.error('Error initializing brawlers data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  initializeData();
-}, []);  // コンポーネントマウント時に1回だけ実行
+    initializeData();
+  }, []);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -860,24 +874,8 @@ const validateInviteLink = (link: string): boolean => {
 
         {isPlayerVerified && (
           <>
-            <View style={styles.modeSelectorContainer}>
-              <Text style={styles.inputLabel}>{t.modeSelection}</Text>
-              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                {getCurrentModes().map((mode, index) => (
-                  <TouchableOpacity
-                    key={index}
-                    style={[
-                      styles.modeIconButton,
-                      selectedMode === mode.name && styles.selectedModeIconButton,
-                      { borderColor: selectedMode === mode.name ? mode.color : '#e0e0e0' }
-                    ]}
-                    onPress={() => setSelectedMode(mode.name)}
-                  >
-                    <Image source={mode.icon} style={styles.modeIconLarge} />
-                  </TouchableOpacity>
-                ))}
-              </ScrollView>
-            </View>
+            {/* 独自の関数ではなく、useState経由でキャッシュされたgameModesを使用 */}
+            {renderModeSelector()}
 
             <CharacterSelector
               title={t.useCharacter}
@@ -952,39 +950,39 @@ const validateInviteLink = (link: string): boolean => {
         )}
 
         <View style={styles.modalButtons}>
-      <TouchableOpacity
-        style={[styles.modalButton, styles.cancelButton]}
-        onPress={() => {
-          setIsPlayerVerified(false);
-          setModalVisible(false);
-          resetForm();
-        }}
-        disabled={isSubmitting} // 投稿処理中は無効化
-      >
-        <Text style={styles.cancelButtonText}>{t.cancel}</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={[
-          styles.modalButton, 
-          styles.submitButton,
-          (!isPlayerVerified || isSubmitting) && styles.submitButtonDisabled
-        ]}
-        onPress={createPost}
-        disabled={!isPlayerVerified || isSubmitting} // 投稿処理中は無効化
-      >
-        {isSubmitting ? (
-          <ActivityIndicator size="small" color="#fff" />
-        ) : (
-          <Text style={styles.submitButtonText}>{t.submit}</Text>
-        )}
-      </TouchableOpacity>
-    </View>
+          <TouchableOpacity
+            style={[styles.modalButton, styles.cancelButton]}
+            onPress={() => {
+              setIsPlayerVerified(false);
+              setModalVisible(false);
+              resetForm();
+            }}
+            disabled={isSubmitting} // 投稿処理中は無効化
+          >
+            <Text style={styles.cancelButtonText}>{t.cancel}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.modalButton, 
+              styles.submitButton,
+              (!isPlayerVerified || isSubmitting) && styles.submitButtonDisabled
+            ]}
+            onPress={createPost}
+            disabled={!isPlayerVerified || isSubmitting} // 投稿処理中は無効化
+          >
+            {isSubmitting ? (
+              <ActivityIndicator size="small" color="#fff" />
+            ) : (
+              <Text style={styles.submitButtonText}>{t.submit}</Text>
+            )}
+          </TouchableOpacity>
+        </View>
       </View>
     </ScrollView>
   );
 
   // モードフィルターの表示
-  const renderModeFilter = () => (
+ const renderModeFilter = () => (
     <View style={styles.filterContainer}>
       <ScrollView 
         horizontal 
@@ -1006,7 +1004,7 @@ const validateInviteLink = (link: string): boolean => {
           />
         </TouchableOpacity>
 
-        {getCurrentModes().map((mode, index) => (
+        {gameModes.map((mode, index) => (
           <TouchableOpacity
             key={index}
             style={[
@@ -1017,6 +1015,27 @@ const validateInviteLink = (link: string): boolean => {
             onPress={() => setSelectedModeFilter(mode.name)}
           >
             <Image source={mode.icon} style={styles.filterIcon} />
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+    </View>
+  );
+
+  const renderModeSelector = () => (
+    <View style={styles.modeSelectorContainer}>
+      <Text style={styles.inputLabel}>{t.modeSelection}</Text>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {gameModes.map((mode, index) => (
+          <TouchableOpacity
+            key={index}
+            style={[
+              styles.modeIconButton,
+              selectedMode === mode.name && styles.selectedModeIconButton,
+              { borderColor: selectedMode === mode.name ? mode.color : '#e0e0e0' }
+            ]}
+            onPress={() => setSelectedMode(mode.name)}
+          >
+            <Image source={mode.icon} style={styles.modeIconLarge} />
           </TouchableOpacity>
         ))}
       </ScrollView>
@@ -1050,18 +1069,16 @@ const validateInviteLink = (link: string): boolean => {
               <Text style={styles.refreshButtonText}>{t.refresh}</Text>
             </TouchableOpacity>
             <TouchableOpacity
-  style={styles.createButton}
-  onPress={async () => {
-    const canPost = await checkPostCooldown();
-    if (canPost) {
-      // 単純にモーダルを表示するだけに変更
-      // 広告のプリロードは createPost 内で行う
-      setModalVisible(true);
-    }
-  }}
->
-  <Text style={styles.createButtonText}>{t.create}</Text>
-</TouchableOpacity>
+              style={styles.createButton}
+              onPress={async () => {
+                const canPost = await checkPostCooldown();
+                if (canPost) {
+                  setModalVisible(true);
+                }
+              }}
+            >
+              <Text style={styles.createButtonText}>{t.create}</Text>
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -1379,4 +1396,3 @@ const styles = StyleSheet.create({
   }
 });
 export default TeamBoard;
-
