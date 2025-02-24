@@ -1,4 +1,5 @@
 // src/i18n/pickPrediction.ts
+import { GAME_MODES, Language as ModeLanguage } from '../data/modeData';
 
 export type PickPredictionTranslation = {
   header: {
@@ -20,19 +21,29 @@ export type PickPredictionTranslation = {
     average: string;
     needsConsideration: string;
   };
+  // モードはmodeData.tsから取得するため、ここでは型定義のみを行う
   modes: {
-    gemGrab: string;
-    brawlBall: string;
-    heist: string;
-    knockout: string;
-    bounty: string;
-    hotZone: string;
+    [key: string]: string;
   };
   mapSelection: {
     title: string;
     selectStage: string;
   };
 };
+
+// モード名をmodeData.tsから取得する関数
+function getModeTranslations(language: ModeLanguage): { [key: string]: string } {
+  const translations: { [key: string]: string } = {};
+  
+  // modeData.tsのGAME_MODESからモード名を取得
+  Object.entries(GAME_MODES).forEach(([key, mode]) => {
+    // モード名の小文字化（例：GEM_GRAB -> gemGrab）
+    const modeKey = mode.name;
+    translations[modeKey] = mode.translations[language];
+  });
+  
+  return translations;
+}
 
 // 日本語翻訳
 export const ja: PickPredictionTranslation = {
@@ -55,14 +66,8 @@ export const ja: PickPredictionTranslation = {
     average: '標準的な選択',
     needsConsideration: '要検討',
   },
-  modes: {
-    gemGrab: 'エメラルドハント',
-    brawlBall: 'ブロストライカー',
-    heist: '強奪',
-    knockout: 'ノックアウト',
-    bounty: '賞金稼ぎ',
-    hotZone: 'ホットゾーン',
-  },
+  // モードはmodeData.tsから取得
+  modes: getModeTranslations('ja'),
   mapSelection: {
     title: 'ステージを選択',
     selectStage: 'ステージを選択',
@@ -90,14 +95,8 @@ export const en: PickPredictionTranslation = {
     average: 'Average Choice',
     needsConsideration: 'Needs Consideration',
   },
-  modes: {
-    gemGrab: 'Gem Grab',
-    brawlBall: 'Brawl Ball',
-    heist: 'Heist',
-    knockout: 'Knockout',
-    bounty: 'Bounty',
-    hotZone: 'Hot Zone',
-  },
+  // モードはmodeData.tsから取得
+  modes: getModeTranslations('en'),
   mapSelection: {
     title: 'Select Stage',
     selectStage: 'Select Stage',
@@ -125,14 +124,8 @@ export const ko: PickPredictionTranslation = {
     average: '평균적인 선택',
     needsConsideration: '재고려 필요',
   },
-  modes: {
-    gemGrab: '젬 그랩',
-    brawlBall: '브롤 볼',
-    heist: '하이스트',
-    knockout: '녹아웃',
-    bounty: '바운티',
-    hotZone: '핫 존',
-  },
+  // モードはmodeData.tsから取得
+  modes: getModeTranslations('ko'),
   mapSelection: {
     title: '스테이지 선택',
     selectStage: '스테이지 선택',
@@ -160,14 +153,8 @@ export const ar: PickPredictionTranslation = {
     average: 'اختيار متوسط',
     needsConsideration: 'يحتاج إلى دراسة',
   },
-  modes: {
-    gemGrab: 'جمع الجواهر',
-    brawlBall: 'كرة المعركة',
-    heist: 'السطو',
-    knockout: 'الإقصاء',
-    bounty: 'المكافأة',
-    hotZone: 'المنطقة الساخنة',
-  },
+  // モードはmodeData.tsから取得
+  modes: getModeTranslations('ar'),
   mapSelection: {
     title: 'اختيار المرحلة',
     selectStage: 'اختيار المرحلة',
@@ -195,14 +182,8 @@ export const fr: PickPredictionTranslation = {
     average: 'Choix Moyen',
     needsConsideration: 'À Reconsidérer',
   },
-  modes: {
-    gemGrab: 'Prise de Gemmes',
-    brawlBall: 'Brawl Ball',
-    heist: 'Braquage',
-    knockout: 'Knockout',
-    bounty: 'Prime',
-    hotZone: 'Zone Chaude',
-  },
+  // モードはmodeData.tsから取得
+  modes: getModeTranslations('fr'),
   mapSelection: {
     title: 'Sélection du Terrain',
     selectStage: 'Sélectionner le Terrain',
@@ -230,14 +211,8 @@ export const es: PickPredictionTranslation = {
     average: 'Elección Promedio',
     needsConsideration: 'Necesita Consideración',
   },
-  modes: {
-    gemGrab: 'Atrapagemas',
-    brawlBall: 'Brawl Ball',
-    heist: 'Atraco',
-    knockout: 'Knockout',
-    bounty: 'Recompensa',
-    hotZone: 'Zona Caliente',
-  },
+  // モードはmodeData.tsから取得
+  modes: getModeTranslations('es'),
   mapSelection: {
     title: 'Seleccionar Escenario',
     selectStage: 'Seleccionar Escenario',
@@ -265,14 +240,8 @@ export const zhTw: PickPredictionTranslation = {
     average: '普通選擇',
     needsConsideration: '需要考慮',
   },
-  modes: {
-    gemGrab: '寶石爭奪',
-    brawlBall: '荒野足球',
-    heist: '金庫搶奪',
-    knockout: '淘汰賽',
-    bounty: '賞金獵人',
-    hotZone: '熱區爭奪',
-  },
+  // モードはmodeData.tsから取得
+  modes: getModeTranslations('zh-tw'),
   mapSelection: {
     title: '選擇地圖',
     selectStage: '選擇地圖',

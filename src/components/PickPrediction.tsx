@@ -13,9 +13,36 @@ import {
 import { TeamSection } from './TeamSection';
 import { CharacterSelection } from './CharacterSelection';
 import MapDetailScreen from './MapDetailScreen';
-import { GAME_MODES } from '../data/mapDataService';
+// GAME_MODESをmodeData.tsからインポート
+import { GAME_MODES } from '../data/modeData';
 import { usePickPrediction } from '../hooks/usePickPrediction';
 import { ScreenState } from './types';
+
+// ScreenTypeの型定義
+type ScreenType = 'home' | 'mapDetail' | 'characterDetail';
+
+// 表示するゲームモードを限定する
+const DISPLAY_MODES = [
+  'gemGrab',    // エメラルドハント
+  'brawlBall',  // ブロストライカー
+  'heist',      // 強奪
+  'knockout',   // ノックアウト
+  'bounty',     // 賞金稼ぎ
+  'hotZone'     // ホットゾーン
+];
+
+// モード名から対応するGAME_MODESのキーを取得するヘルパー関数
+const getGameModeKey = (modeName) => {
+  return Object.keys(GAME_MODES).find(key => 
+    GAME_MODES[key].name === modeName
+  );
+};
+
+// 表示するゲームモードのオブジェクトリスト
+const displayModes = DISPLAY_MODES.map(modeName => {
+  const modeKey = getGameModeKey(modeName);
+  return modeKey ? GAME_MODES[modeKey] : null;
+}).filter(Boolean); // nullは除外
 
 const PickPrediction: React.FC = () => {
   const {
@@ -146,6 +173,15 @@ const PickPrediction: React.FC = () => {
     });
   };
 
+  // モードと言語の関係を処理する関数
+  const getGameModeByName = (modeName: string) => {
+    return Object.values(GAME_MODES).find(mode => {
+      // 現在の言語でのモード名と一致するか確認
+      const currentLanguage = t.currentLanguage || 'en';
+      return mode.translations[currentLanguage] === modeName;
+    });
+  };
+
   const renderModeAndMapModal = () => {
     return (
       <Modal
@@ -161,13 +197,14 @@ const PickPrediction: React.FC = () => {
         >
           <View style={styles.modeModalContent}>
             <View style={styles.modeGrid}>
-              {GAME_MODES.map((mode) => (
+              {/* 限定された表示モードのみを使用 */}
+              {displayModes.map((mode) => (
                 <TouchableOpacity
                   key={mode.name}
                   style={[
                     styles.modeModalButton,
-                    gameState.selectedMode === t.modes[mode.name] && {
-                      backgroundColor: typeof mode.color === 'function' ? mode.color() : mode.color
+                    gameState.selectedMode === mode.translations[t.currentLanguage] && {
+                      backgroundColor: mode.color
                     }
                   ]}
                   onPress={() => handleModeSelect(mode.name)}
@@ -195,7 +232,8 @@ const PickPrediction: React.FC = () => {
                           style={styles.mapModalInfoButton}
                           onPress={(e) => {
                             e.stopPropagation();
-                            const selectedMode = GAME_MODES.find(mode => t.modes[mode.name] === gameState.selectedMode);
+                            // 選択されたモードを特定
+                            const selectedMode = getGameModeByName(gameState.selectedMode);
                             if (selectedMode) {
                               setShowModeModal(false);
                               handleMapInfoPress(selectedMode, map.name);
@@ -298,7 +336,7 @@ const PickPrediction: React.FC = () => {
                 <TouchableOpacity 
                   style={styles.infoButton}
                   onPress={() => {
-                    const selectedMode = GAME_MODES.find(mode => t.modes[mode.name] === gameState.selectedMode);
+                    const selectedMode = getGameModeByName(gameState.selectedMode);
                     if (selectedMode && gameState.selectedMap) {
                       handleMapInfoPress(selectedMode, gameState.selectedMap);
                       showScreen('mapDetail');
