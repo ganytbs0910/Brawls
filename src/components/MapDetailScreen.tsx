@@ -109,7 +109,7 @@ const MapDetailScreen: React.FC<MapDetailScreenProps> = ({
         return mapData.nameEn;
       case 'ko':
         return mapData.nameKo;
-      case 'zh-tw':
+      case 'zhTw':
         return mapData.nameZhTw;
       case 'es':
         return mapData.nameEs;

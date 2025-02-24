@@ -95,7 +95,7 @@ export const CHARACTER_NAMES = {
     es: "Shelly",
     ar: "شيلي",
     fr: "Shelly",
-    "zh-tw": "雪莉"
+    "zhTw": "雪莉"
   },
   nita: { 
     ja: "ニタ", 
@@ -104,7 +104,7 @@ export const CHARACTER_NAMES = {
     es: "Nita",
     ar: "نيتا",
     fr: "Nita",
-    "zh-tw": "妮塔"
+    "zhTw": "妮塔"
   },
   colt: { 
     ja: "コルト", 
@@ -113,7 +113,7 @@ export const CHARACTER_NAMES = {
     es: "Colt",
     ar: "كولت",
     fr: "Colt",
-    "zh-tw": "科爾特"
+    "zhTw": "科爾特"
   },
   bull: { 
     ja: "ブル", 
@@ -122,7 +122,7 @@ export const CHARACTER_NAMES = {
     es: "Bull",
     ar: "بول",
     fr: "Bull",
-    "zh-tw": "布魯"
+    "zhTw": "布魯"
   },
   brock: { 
     ja: "ブロック", 
@@ -131,7 +131,7 @@ export const CHARACTER_NAMES = {
     es: "Brock",
     ar: "بروك",
     fr: "Brock",
-    "zh-tw": "布洛克"
+    "zhTw": "布洛克"
   },
   elPrimo: { 
     ja: "エルプリモ", 
@@ -140,7 +140,7 @@ export const CHARACTER_NAMES = {
     es: "El Primo",
     ar: "إل بريمو",
     fr: "El Primo",
-    "zh-tw": "普里莫"
+    "zhTw": "普里莫"
   },
   barley: { 
     ja: "バーリー", 
@@ -149,7 +149,7 @@ export const CHARACTER_NAMES = {
     es: "Barley",
     ar: "بارلي",
     fr: "Barley",
-    "zh-tw": "巴利"
+    "zhTw": "巴利"
   },
   poco: { 
     ja: "ポコ", 
@@ -158,7 +158,7 @@ export const CHARACTER_NAMES = {
     es: "Poco",
     ar: "بوكو",
     fr: "Poco",
-    "zh-tw": "波克"
+    "zhTw": "波克"
   },
   rosa: { 
     ja: "ローサ", 
@@ -167,7 +167,7 @@ export const CHARACTER_NAMES = {
     es: "Rosa",
     ar: "روزا",
     fr: "Rosa",
-    "zh-tw": "蘿莎"
+    "zhTw": "蘿莎"
   },
   jessie: { 
     ja: "ジェシー", 
@@ -176,7 +176,7 @@ export const CHARACTER_NAMES = {
     es: "Jessie",
     ar: "جيسي",
     fr: "Jessie",
-    "zh-tw": "潔西"
+    "zhTw": "潔西"
   },
   dynamike: { 
     ja: "ダイナマイク", 
@@ -185,7 +185,7 @@ export const CHARACTER_NAMES = {
     es: "Dinamike",
     ar: "دينامايك",
     fr: "Dynamike",
-    "zh-tw": "炸彈老爹"
+    "zhTw": "炸彈老爹"
   },
   tick: { 
     ja: "ティック", 
@@ -194,7 +194,7 @@ export const CHARACTER_NAMES = {
     es: "Tick",
     ar: "تيك",
     fr: "Tick",
-    "zh-tw": "滴答"
+    "zhTw": "滴答"
   },
   eightBit: { 
     ja: "8ビット", 
@@ -203,7 +203,7 @@ export const CHARACTER_NAMES = {
     es: "8-Bit",
     ar: "8-بت",
     fr: "8-Bit",
-    "zh-tw": "8位元"
+    "zhTw": "8位元"
   },
   rico: { 
     ja: "リコ", 
@@ -212,7 +212,7 @@ export const CHARACTER_NAMES = {
     es: "Rico",
     ar: "ريكو",
     fr: "Rico",
-    "zh-tw": "瑞克"
+    "zhTw": "瑞克"
   },
   darryl: { 
     ja: "ダリル", 
@@ -221,7 +221,7 @@ export const CHARACTER_NAMES = {
     es: "Darryl",
     ar: "داريل",
     fr: "Darryl",
-    "zh-tw": "達利爾"
+    "zhTw": "達利爾"
   },
   penny: { 
     ja: "ペニー", 
@@ -230,7 +230,7 @@ export const CHARACTER_NAMES = {
     es: "Penny",
     ar: "بيني",
     fr: "Penny",
-    "zh-tw": "潘妮"
+    "zhTw": "潘妮"
   },
   carl: { 
     ja: "カール", 
@@ -239,7 +239,7 @@ export const CHARACTER_NAMES = {
     es: "Carl",
     ar: "كارل",
     fr: "Carl",
-    "zh-tw": "卡爾"
+    "zhTw": "卡爾"
   },
   jacky: { 
     ja: "ジャッキー", 
@@ -248,7 +248,7 @@ export const CHARACTER_NAMES = {
     es: "Jacky",
     ar: "جاكي",
     fr: "Jacky",
-    "zh-tw": "傑基"
+    "zhTw": "傑基"
   },
   gus: { 
     ja: "ガス", 
@@ -257,7 +257,7 @@ export const CHARACTER_NAMES = {
     es: "Gus",
     ar: "غاس",
     fr: "Gus",
-    "zh-tw": "格斯"
+    "zhTw": "格斯"
   },
   bo: { 
     ja: "ボウ", 
@@ -266,7 +266,7 @@ export const CHARACTER_NAMES = {
     es: "Bo",
     ar: "بو",
     fr: "Bo",
-    "zh-tw": "博"
+    "zhTw": "博"
   },
   emz: { 
     ja: "Emz", 
@@ -275,7 +275,7 @@ export const CHARACTER_NAMES = {
     es: "EMZ",
     ar: "إي إم زي",
     fr: "EMZ",
-    "zh-tw": "EMZ"
+    "zhTw": "EMZ"
   },
   stu: { 
     ja: "ストゥー", 
@@ -284,7 +284,7 @@ export const CHARACTER_NAMES = {
     es: "Stu",
     ar: "ستو",
     fr: "Stu",
-    "zh-tw": "斯圖"
+    "zhTw": "斯圖"
   },
   piper: { 
     ja: "エリザベス", 
@@ -293,7 +293,7 @@ export const CHARACTER_NAMES = {
     es: "Piper",
     ar: "بايبر",
     fr: "Piper",
-    "zh-tw": "派佩"
+    "zhTw": "派佩"
   },
   pam: { 
     ja: "パム", 
@@ -302,7 +302,7 @@ export const CHARACTER_NAMES = {
     es: "Pam",
     ar: "بام",
     fr: "Pam",
-    "zh-tw": "帕姆"
+    "zhTw": "帕姆"
   },
   frank: { 
     ja: "フランケン", 
@@ -311,7 +311,7 @@ export const CHARACTER_NAMES = {
     es: "Frank",
     ar: "فرانك",
     fr: "Frank",
-    "zh-tw": "法蘭克"
+    "zhTw": "法蘭克"
   },
   bibi: { 
     ja: "ビビ", 
@@ -320,7 +320,7 @@ export const CHARACTER_NAMES = {
     es: "Bibi",
     ar: "بيبي",
     fr: "Bibi",
-    "zh-tw": "碧碧"
+    "zhTw": "碧碧"
   },
   bea: { 
     ja: "ビー", 
@@ -329,7 +329,7 @@ export const CHARACTER_NAMES = {
     es: "Bea",
     ar: "بيا",
     fr: "Bea",
-    "zh-tw": "蜜蜂"
+    "zhTw": "蜜蜂"
   },
   nani: { 
     ja: "ナーニ", 
@@ -338,7 +338,7 @@ export const CHARACTER_NAMES = {
     es: "Nani",
     ar: "ناني",
     fr: "Nani",
-    "zh-tw": "娜妮"
+    "zhTw": "娜妮"
   },
   edgar: { 
     ja: "エドガー", 
@@ -347,7 +347,7 @@ export const CHARACTER_NAMES = {
     es: "Edgar",
     ar: "إدغار",
     fr: "Edgar",
-    "zh-tw": "艾德加"
+    "zhTw": "艾德加"
   },
   griff: { 
     ja: "グリフ", 
@@ -356,7 +356,7 @@ export const CHARACTER_NAMES = {
     es: "Griff",
     ar: "غريف",
     fr: "Griff",
-    "zh-tw": "格里夫"
+    "zhTw": "格里夫"
   },
   grom: { 
     ja: "グロム", 
@@ -365,7 +365,7 @@ export const CHARACTER_NAMES = {
     es: "Grom",
     ar: "غروم",
     fr: "Grom",
-    "zh-tw": "格羅姆"
+    "zhTw": "格羅姆"
   },
   bonnie: { 
     ja: "ボニー", 
@@ -374,7 +374,7 @@ export const CHARACTER_NAMES = {
     es: "Bonnie",
     ar: "بوني",
     fr: "Bonnie",
-    "zh-tw": "邦妮"
+    "zhTw": "邦妮"
   },
   gale: { 
     ja: "ゲイル", 
@@ -383,7 +383,7 @@ export const CHARACTER_NAMES = {
     es: "Gale",
     ar: "غيل",
     fr: "Gale",
-    "zh-tw": "蓋爾"
+    "zhTw": "蓋爾"
   },
   colette: { 
     ja: "コレット", 
@@ -392,7 +392,7 @@ export const CHARACTER_NAMES = {
     es: "Colette",
     ar: "كوليت",
     fr: "Colette",
-    "zh-tw": "柯萊特"
+    "zhTw": "柯萊特"
   },
   belle: { 
     ja: "ベル", 
@@ -401,7 +401,7 @@ export const CHARACTER_NAMES = {
     es: "Belle",
     ar: "بيل",
     fr: "Belle",
-    "zh-tw": "貝兒"
+    "zhTw": "貝兒"
   },
   ash: { 
     ja: "アッシュ", 
@@ -410,7 +410,7 @@ export const CHARACTER_NAMES = {
     es: "Ash",
     ar: "آش",
     fr: "Ash",
-    "zh-tw": "艾許"
+    "zhTw": "艾許"
   },
   lola: { 
     ja: "ローラ", 
@@ -419,7 +419,7 @@ export const CHARACTER_NAMES = {
     es: "Lola",
     ar: "لولا",
     fr: "Lola",
-    "zh-tw": "蘿拉"
+    "zhTw": "蘿拉"
   },
   sam: { 
     ja: "サム", 
@@ -428,7 +428,7 @@ export const CHARACTER_NAMES = {
     es: "Sam",
     ar: "سام",
     fr: "Sam",
-    "zh-tw": "山姆"
+    "zhTw": "山姆"
   },
   mandy: { 
     ja: "マンディ", 
@@ -437,7 +437,7 @@ export const CHARACTER_NAMES = {
     es: "Mandy",
     ar: "ماندي",
     fr: "Mandy",
-    "zh-tw": "曼蒂"
+    "zhTw": "曼蒂"
   },
   maisie: { 
     ja: "メイジー", 
@@ -446,7 +446,7 @@ export const CHARACTER_NAMES = {
     es: "Maisie",
     ar: "ميزي",
     fr: "Maisie",
-    "zh-tw": "梅西"
+    "zhTw": "梅西"
   },
   hank: { 
     ja: "ハンク", 
@@ -455,7 +455,7 @@ export const CHARACTER_NAMES = {
     es: "Hank",
     ar: "هانك",
     fr: "Hank",
-    "zh-tw": "漢克"
+    "zhTw": "漢克"
   },
   pearl: { 
     ja: "パール", 
@@ -464,7 +464,7 @@ export const CHARACTER_NAMES = {
     es: "Pearl",
     ar: "بيرل",
     fr: "Pearl",
-    "zh-tw": "珍珠"
+    "zhTw": "珍珠"
   },
   larryandLawrie: { 
     ja: "ラリー&ローリー", 
@@ -473,7 +473,7 @@ export const CHARACTER_NAMES = {
     es: "Larry y Lawrie",
     ar: "لاري ولوري",
     fr: "Larry et Lawrie",
-    "zh-tw": "拉里和勞裡"
+    "zhTw": "拉里和勞裡"
   },
   angelo: { 
     ja: "アンジェロ", 
@@ -482,7 +482,7 @@ export const CHARACTER_NAMES = {
     es: "Angelo",
     ar: "أنجيلو",
     fr: "Angelo",
-    "zh-tw": "安傑洛"
+    "zhTw": "安傑洛"
   },
   berry: { 
     ja: "ベリー", 
@@ -491,7 +491,7 @@ export const CHARACTER_NAMES = {
     es: "Berry",
     ar: "بيري",
     fr: "Berry",
-    "zh-tw": "貝莉"
+    "zhTw": "貝莉"
   },
   shade: { 
     ja: "シェイド", 
@@ -500,7 +500,7 @@ export const CHARACTER_NAMES = {
     es: "Shade",
     ar: "شيد",
     fr: "Shade",
-    "zh-tw": "暗影"
+    "zhTw": "暗影"
   },
   mortis: { 
     ja: "モーティス", 
@@ -509,7 +509,7 @@ export const CHARACTER_NAMES = {
     es: "Mortis",
     ar: "مورتيس",
     fr: "Mortis",
-    "zh-tw": "莫提斯"
+    "zhTw": "莫提斯"
   },
   tara: { 
     ja: "タラ", 
@@ -518,7 +518,7 @@ export const CHARACTER_NAMES = {
     es: "Tara",
     ar: "تارا",
     fr: "Tara",
-    "zh-tw": "塔拉"
+    "zhTw": "塔拉"
   },
   gene: { 
     ja: "ジーン", 
@@ -527,7 +527,7 @@ export const CHARACTER_NAMES = {
     es: "Gene",
     ar: "جين",
     fr: "Gene",
-    "zh-tw": "吉恩"
+    "zhTw": "吉恩"
   },
   max: { 
     ja: "MAX", 
@@ -536,7 +536,7 @@ export const CHARACTER_NAMES = {
     es: "Max",
     ar: "ماكس",
     fr: "Max",
-    "zh-tw": "馬克斯"
+    "zhTw": "馬克斯"
   },
   mrp: { 
     ja: "ミスターP", 
@@ -545,7 +545,7 @@ export const CHARACTER_NAMES = {
     es: "Sr. P",
     ar: "السيد بي",
     fr: "M. P",
-    "zh-tw": "P先生"
+    "zhTw": "P先生"
   },
   sprout: { 
     ja: "スプラウト", 
@@ -554,7 +554,7 @@ export const CHARACTER_NAMES = {
     es: "Sprout",
     ar: "سبراوت",
     fr: "Sprout",
-    "zh-tw": "芽芽"
+    "zhTw": "芽芽"
   },
   byron: { 
     ja: "バイロン", 
@@ -563,7 +563,7 @@ export const CHARACTER_NAMES = {
     es: "Byron",
     ar: "بايرون",
     fr: "Byron",
-    "zh-tw": "拜倫"
+    "zhTw": "拜倫"
   },
   squeak: { 
     ja: "スクウィーク", 
@@ -572,7 +572,7 @@ export const CHARACTER_NAMES = {
     es: "Squeak",
     ar: "سكويك",
     fr: "Squeak",
-    "zh-tw": "吱吱"
+    "zhTw": "吱吱"
   },
   lou: { 
     ja: "ルー", 
@@ -581,7 +581,7 @@ export const CHARACTER_NAMES = {
     es: "Lou",
     ar: "لو",
     fr: "Lou",
-    "zh-tw": "樓"
+    "zhTw": "樓"
   },
   ruffs: { 
     ja: "ラフス", 
@@ -590,7 +590,7 @@ export const CHARACTER_NAMES = {
     es: "Ruffs",
     ar: "رافس",
     fr: "Ruffs",
-    "zh-tw": "拉夫斯"
+    "zhTw": "拉夫斯"
   },
   buzz: { 
     ja: "バズ", 
@@ -599,7 +599,7 @@ export const CHARACTER_NAMES = {
     es: "Buzz",
     ar: "باز",
     fr: "Buzz",
-    "zh-tw": "巴茲"
+    "zhTw": "巴茲"
   },
   fang: { 
     ja: "ファング", 
@@ -608,7 +608,7 @@ export const CHARACTER_NAMES = {
     es: "Fang",
     ar: "فانغ",
     fr: "Fang",
-    "zh-tw": "方"
+    "zhTw": "方"
   },
   eve: { 
     ja: "イヴ", 
@@ -617,7 +617,7 @@ export const CHARACTER_NAMES = {
     es: "Eve",
     ar: "إيف",
     fr: "Eve",
-    "zh-tw": "伊芙"
+    "zhTw": "伊芙"
   },
   janet: { 
     ja: "ジャネット", 
@@ -626,7 +626,7 @@ export const CHARACTER_NAMES = {
     es: "Janet",
     ar: "جانيت",
     fr: "Janet",
-    "zh-tw": "珍妮特"
+    "zhTw": "珍妮特"
   },
   otis: { 
     ja: "オーティス", 
@@ -635,7 +635,7 @@ export const CHARACTER_NAMES = {
     es: "Otis",
     ar: "أوتيس",
     fr: "Otis",
-    "zh-tw": "奧蒂斯"
+    "zhTw": "奧蒂斯"
   },
   buster: { 
     ja: "バスター", 
@@ -644,7 +644,7 @@ export const CHARACTER_NAMES = {
     es: "Buster",
     ar: "باستر",
     fr: "Buster",
-    "zh-tw": "巴斯特"
+    "zhTw": "巴斯特"
   },
   gray: { 
     ja: "グレイ", 
@@ -653,7 +653,7 @@ export const CHARACTER_NAMES = {
     es: "Gray",
     ar: "غراي",
     fr: "Gray",
-    "zh-tw": "格雷"
+    "zhTw": "格雷"
   },
   rt: { 
     ja: "R-T", 
@@ -662,7 +662,7 @@ export const CHARACTER_NAMES = {
     es: "R-T",
     ar: "آر-تي",
     fr: "R-T",
-    "zh-tw": "R-T"
+    "zhTw": "R-T"
   },
   willow: { 
     ja: "ウィロー", 
@@ -671,7 +671,7 @@ export const CHARACTER_NAMES = {
     es: "Willow",
     ar: "ويلو",
     fr: "Willow",
-    "zh-tw": "威洛"
+    "zhTw": "威洛"
   },
   doug: { 
     ja: "ダグ", 
@@ -680,7 +680,7 @@ export const CHARACTER_NAMES = {
     es: "Doug",
     ar: "دوغ",
     fr: "Doug",
-    "zh-tw": "道格"
+    "zhTw": "道格"
   },
   chuck: { 
     ja: "チャック", 
@@ -689,7 +689,7 @@ export const CHARACTER_NAMES = {
     es: "Chuck",
     ar: "تشاك",
     fr: "Chuck",
-    "zh-tw": "查克"
+    "zhTw": "查克"
   },
   charlie: { 
     ja: "チャーリー", 
@@ -698,7 +698,7 @@ export const CHARACTER_NAMES = {
     es: "Charlie",
     ar: "تشارلي",
     fr: "Charlie",
-    "zh-tw": "查理"
+    "zhTw": "查理"
   },
   mico: { 
     ja: "ミコ", 
@@ -707,7 +707,7 @@ export const CHARACTER_NAMES = {
     es: "Mico",
     ar: "ميكو",
     fr: "Mico",
-    "zh-tw": "米可"
+    "zhTw": "米可"
   },
   melodie: { 
     ja: "メロディー", 
@@ -716,7 +716,7 @@ export const CHARACTER_NAMES = {
     es: "Melodie",
     ar: "ميلودي",
     fr: "Mélodie",
-    "zh-tw": "美樂蒂"
+    "zhTw": "美樂蒂"
   },
   lily: { 
     ja: "リリー", 
@@ -725,7 +725,7 @@ export const CHARACTER_NAMES = {
     es: "Lily",
     ar: "ليلي",
     fr: "Lily",
-    "zh-tw": "莉莉"
+    "zhTw": "莉莉"
   },
   clancy: { 
     ja: "クランシー", 
@@ -734,7 +734,7 @@ export const CHARACTER_NAMES = {
     es: "Clancy",
     ar: "كلانسي",
     fr: "Clancy",
-    "zh-tw": "克蘭西"
+    "zhTw": "克蘭西"
   },
   moe: { 
     ja: "モー", 
@@ -743,7 +743,7 @@ export const CHARACTER_NAMES = {
     es: "Moe",
     ar: "مو",
     fr: "Moe",
-    "zh-tw": "莫"
+    "zhTw": "莫"
   },
   juju: { 
     ja: "ジュジュ", 
@@ -752,7 +752,7 @@ export const CHARACTER_NAMES = {
     es: "Juju",
     ar: "جوجو",
     fr: "Juju",
-    "zh-tw": "朱朱"
+    "zhTw": "朱朱"
   },
   spike: { 
     ja: "スパイク", 
@@ -761,7 +761,7 @@ export const CHARACTER_NAMES = {
     es: "Spike",
     ar: "سبايك",
     fr: "Spike",
-    "zh-tw": "仙人掌"
+    "zhTw": "仙人掌"
   },
   crow: { 
     ja: "クロウ", 
@@ -770,7 +770,7 @@ export const CHARACTER_NAMES = {
     es: "Crow",
     ar: "كرو",
     fr: "Crow",
-    "zh-tw": "烏鴉"
+    "zhTw": "烏鴉"
   },
   leon: { 
     ja: "レオン", 
@@ -779,7 +779,7 @@ export const CHARACTER_NAMES = {
     es: "Leon",
     ar: "ليون",
     fr: "Léon",
-    "zh-tw": "里昂"
+    "zhTw": "里昂"
   },
   sandy: { 
     ja: "サンディ", 
@@ -788,7 +788,7 @@ export const CHARACTER_NAMES = {
     es: "Sandy",
     ar: "ساندي",
     fr: "Sandy",
-    "zh-tw": "桑迪"
+    "zhTw": "桑迪"
   },
   amber: { 
     ja: "アンバー", 
@@ -797,7 +797,7 @@ export const CHARACTER_NAMES = {
     es: "Amber",
     ar: "آمبر",
     fr: "Amber",
-    "zh-tw": "安珀"
+    "zhTw": "安珀"
   },
   meg: { 
     ja: "メグ", 
@@ -806,7 +806,7 @@ export const CHARACTER_NAMES = {
     es: "Meg",
     ar: "ميغ",
     fr: "Meg",
-    "zh-tw": "梅格"
+    "zhTw": "梅格"
   },
   surge: { 
     ja: "サージ", 
@@ -815,7 +815,7 @@ export const CHARACTER_NAMES = {
     es: "Surge",
     ar: "سيرج",
     fr: "Surge",
-    "zh-tw": "衝浪"
+    "zhTw": "衝浪"
   },
   chester: { 
     ja: "チェスター", 
@@ -824,7 +824,7 @@ export const CHARACTER_NAMES = {
     es: "Chester",
     ar: "تشيستر",
     fr: "Chester",
-    "zh-tw": "切斯特"
+    "zhTw": "切斯特"
   },
   cordelius: { 
     ja: "コーデリアス", 
@@ -833,7 +833,7 @@ export const CHARACTER_NAMES = {
     es: "Cordelius",
     ar: "كورديليوس",
     fr: "Cordelius",
-    "zh-tw": "科德利厄斯"
+    "zhTw": "科德利厄斯"
   },
   kit: { 
     ja: "キット", 
@@ -842,7 +842,7 @@ export const CHARACTER_NAMES = {
     es: "Kit",
     ar: "كيت",
     fr: "Kit",
-    "zh-tw": "基特"
+    "zhTw": "基特"
   },
   draco: { 
     ja: "ドラコ", 
@@ -851,7 +851,7 @@ export const CHARACTER_NAMES = {
     es: "Draco",
     ar: "دراكو",
     fr: "Draco",
-    "zh-tw": "德拉科"
+    "zhTw": "德拉科"
   },
   kenji: { 
     ja: "ケンジ", 
@@ -860,7 +860,7 @@ export const CHARACTER_NAMES = {
     es: "Kenji",
     ar: "كنجي",
     fr: "Kenji",
-    "zh-tw": "健二"
+    "zhTw": "健二"
   },
   meeple: { 
     ja: "ミープル", 
@@ -869,7 +869,7 @@ export const CHARACTER_NAMES = {
     es: "Meeple",
     ar: "ميبل",
     fr: "Meeple",
-    "zh-tw": "米普"
+    "zhTw": "米普"
   },
   ollie: { 
     ja: "オーリー", 
@@ -878,7 +878,7 @@ export const CHARACTER_NAMES = {
     es: "Ollie",
     ar: "أولي",
     fr: "Ollie",
-    "zh-tw": "奧利"
+    "zhTw": "奧利"
   }
 } as const;
 

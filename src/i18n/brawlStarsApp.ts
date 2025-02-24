@@ -203,7 +203,7 @@ export const brawlStarsAppTranslations = {
   es,
   ar,
   fr,
-  'zh-tw': zhTw,
+  zhTw,
 } as const;
 
 export type Language = keyof typeof brawlStarsAppTranslations;

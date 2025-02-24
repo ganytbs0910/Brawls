@@ -150,7 +150,7 @@ const RecommendedMaps = ({ characterName }) => {
                                     currentLanguage === 'es' ? map.nameEs :
                                     currentLanguage === 'ar' ? map.nameAr :
                                     currentLanguage === 'fr' ? map.nameFr :
-                                    currentLanguage === 'zh-tw' ? map.nameZhTw :
+                                    currentLanguage === 'zhTw' ? map.nameZhTw :
                                    map.name;
 
             return {

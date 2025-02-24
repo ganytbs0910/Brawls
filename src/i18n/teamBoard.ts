@@ -402,7 +402,7 @@ export const zhTw: TeamBoardTranslation = {
     postCreated: '貼文發布成功'
   },
   // モードはmodeData.tsから取得
-  modes: getModeTranslations('zh-tw'),
+  modes: getModeTranslations('zhTw'),
 };
 
 // Update translations object

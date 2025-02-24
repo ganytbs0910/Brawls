@@ -7,12 +7,12 @@ const modeNameMapping = {
   // 日本語のモード名をキーとして、他の言語の対応を設定
   "ガチバトル": {
     ja: "ガチバトル",
-    en: "Ranked Battle",
+    en: "Ranked",
     ko: "경쟁전",
     es: "COMPETITIVO",
     ar: "المصنف",
     fr: "CLASSÉ",
-    'zh-tw': "排位賽",
+    zhTw: "排位賽",
     icon: require('../../assets/GameModeIcons/rank_front.png')
   },
   "バトルロワイヤル": {
@@ -22,7 +22,7 @@ const modeNameMapping = {
     es: "SUPERVIVENCIA",
     ar: "المواجهة الحاسمة",
     fr: "SURVIVANT",
-    'zh-tw': "荒野生死鬥",
+    zhTw: "荒野生死鬥",
     icon: require('../../assets/GameModeIcons/showdown_icon.png')
   },
   "ソロバトルロワイヤル": {
@@ -32,7 +32,7 @@ const modeNameMapping = {
     es: "SUPERVIVENCIA (SOLO)",
     ar: "المواجهة الحاسمة الفردية",
     fr: "SURVIVANT SOLO",
-    'zh-tw': "單人荒野生死鬥",
+    zhTw: "單人荒野生死鬥",
     icon: require('../../assets/GameModeIcons/showdown_icon.png')
   },
   "デュオバトルロワイヤル": {
@@ -42,7 +42,7 @@ const modeNameMapping = {
     es: "SUPERVIVENCIA (DÚO)",
     ar: "المواجهة الحاسمة الزوجية",
     fr: "SURVIVANT DUO",
-    'zh-tw': "雙人荒野生死鬥",
+    zhTw: "雙人荒野生死鬥",
     icon: require('../../assets/GameModeIcons/duo_showdown_icon.png')
   },
   "エメラルドハント": {
@@ -52,7 +52,7 @@ const modeNameMapping = {
     es: "ATRAPAGEMAS",
     ar: "جمع الجواهر",
     fr: "RAZZIA DE GEMMES",
-    'zh-tw': "寶石爭奪戰",
+    zhTw: "寶石爭奪戰",
     icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
   },
   "ブロストライカー": {
@@ -62,7 +62,7 @@ const modeNameMapping = {
     es: "BALÓN BRAWL",
     ar: "كرة العراك",
     fr: "BRAWLBALL",
-    'zh-tw': "亂鬥足球",
+    zhTw: "亂鬥足球",
     icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
   },
   "5vs5ブロストライカー": {
@@ -72,7 +72,7 @@ const modeNameMapping = {
     es: "BALÓN BRAWL 5C5",
     ar: "كرة العراك 5 ضد 5",
     fr: "BRAWLBALL 5C5",
-    'zh-tw': "5v5亂鬥足球",
+    zhTw: "5v5亂鬥足球",
     icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
   },
   "強奪": {
@@ -82,7 +82,7 @@ const modeNameMapping = {
     es: "ATRACO",
     ar: "السطو",
     fr: "BRAQUAGE",
-    'zh-tw': "金庫攻防戰",
+    zhTw: "金庫攻防戰",
     icon: require('../../assets/GameModeIcons/heist_icon.png')
   },
   "ノックアウト": {
@@ -92,7 +92,7 @@ const modeNameMapping = {
     es: "NOQUEO",
     ar: "الضربة القاضية",
     fr: "HORS-JEU",
-    'zh-tw': "極限淘汰賽",
+    zhTw: "極限淘汰賽",
     icon: require('../../assets/GameModeIcons/knock_out_icon.png')
   },
   "賞金稼ぎ": {
@@ -102,7 +102,7 @@ const modeNameMapping = {
     es: "CAZA ESTELAR",
     ar: "الجائزة",
     fr: "PRIME",
-    'zh-tw': "搶星大作戰",
+    zhTw: "搶星大作戰",
     icon: require('../../assets/GameModeIcons/bounty_icon.png')
   },
   "ホットゾーン": {
@@ -112,7 +112,7 @@ const modeNameMapping = {
     es: "ZONA RESTRINGIDA",
     ar: "المنطقة الساخنة",
     fr: "ZONE RÉSERVÉE",
-    'zh-tw': "據點搶奪戰",
+    zhTw: "據點搶奪戰",
     icon: require('../../assets/GameModeIcons/hot_zone_icon.png')
   },
   "殲滅": {
@@ -122,7 +122,7 @@ const modeNameMapping = {
     es: "DESTRUCCIÓN",
     ar: "المحو",
     fr: "CHASSE OUVERTE",
-    'zh-tw': "",
+    zhTw: "",
     icon: require('../../assets/GameModeIcons/wipeout_icon.png')
   },
   "5vs5殲滅": {
@@ -132,7 +132,7 @@ const modeNameMapping = {
     es: "DESTRUCCIÓN 5C5",
     ar: "المحو 5 ضد 5",
     fr: "CHASSE OUVERTE 5C5",
-    'zh-tw': "5v5積分爭奪戰",
+    zhTw: "5v5積分爭奪戰",
     icon: require('../../assets/GameModeIcons/5v5wipeout_icon.png')
   }
 };

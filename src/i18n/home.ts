@@ -159,8 +159,8 @@ export const zhTw: HomeTranslation = {
       `距離更新還有 ${hours}小時${minutes}分鐘`,
   },
   modes: {
-    getModeName: (modeName) => getLocalizedModeName(modeName, 'zh-tw'),
-    getCombinedModeName: (modes) => generateCombinedModeTranslation(modes, 'zh-tw')
+    getModeName: (modeName) => getLocalizedModeName(modeName, 'zhTw'),
+    getCombinedModeName: (modes) => generateCombinedModeTranslation(modes, 'zhTw')
   }
 };
 

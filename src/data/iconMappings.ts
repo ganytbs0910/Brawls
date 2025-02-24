@@ -21,7 +21,7 @@ interface GearData {
     es: string;
     ar: string;
     fr: string;
-    "zh-tw": string;
+    zhTw: string;
   };
   icon: any;
   description: {
@@ -31,7 +31,7 @@ interface GearData {
     es: string;
     ar: string;
     fr: string;
-    "zh-tw": string;
+    zhTw: string;
   };
   type: 'superrare' | 'epic' | 'mythic' | 'plus';
 }
@@ -47,7 +47,7 @@ const gearData = {
         es: "Engranaje de Velocidad",
         ar: "ترس السرعة",
         fr: "Engrenage de Vitesse",
-        "zh-tw": "速度齒輪"
+        zhTw: "速度齒輪"
       },
       icon: require('../../assets/GearIcon/gear_superrare_speed.png'),
       description: {
@@ -57,7 +57,7 @@ const gearData = {
         es: "Aumenta la velocidad de movimiento en arbustos en un 15%.",
         ar: "يزيد من سرعة الحركة في الأدغال بنسبة 15٪.",
         fr: "Augmente la vitesse de déplacement dans les buissons de 15%.",
-        "zh-tw": "在草叢中移動速度提升15%。"
+        zhTw: "在草叢中移動速度提升15%。"
       },
       type: "superrare"
     },
@@ -70,7 +70,7 @@ const gearData = {
         es: "Engranaje de Visión",
         ar: "ترس الرؤية",
         fr: "Engrenage de Vision",
-        "zh-tw": "視野齒輪"
+        zhTw: "視野齒輪"
       },
       icon: require('../../assets/GearIcon/gear_superrare_vision.png'),
       description: {
@@ -80,7 +80,7 @@ const gearData = {
         es: "Cuando infliges daño a un enemigo, puedes verlo durante 2 segundos.",
         ar: "عند إلحاق الضرر بعدو، يمكنك رؤيته لمدة ثانيتين.",
         fr: "Lorsque vous infligez des dégâts à un ennemi, vous pouvez le voir pendant 2 secondes.",
-        "zh-tw": "對敵人造成傷害時，可以看見該敵人2秒。"
+        zhTw: "對敵人造成傷害時，可以看見該敵人2秒。"
       },
       type: "superrare"
     },
@@ -93,7 +93,7 @@ const gearData = {
         es: "Engranaje de Curación",
         ar: "ترس الشفاء",
         fr: "Engrenage de Soin",
-        "zh-tw": "治療齒輪"
+        zhTw: "治療齒輪"
       },
       icon: require('../../assets/GearIcon/gear_superrare_heal.png'),
       description: {
@@ -103,7 +103,7 @@ const gearData = {
         es: "Cura PS un 50% más eficientemente.",
         ar: "يشفي نقاط الصحة بكفاءة أعلى بنسبة 50٪.",
         fr: "Soigne les PV 50% plus efficacement.",
-        "zh-tw": "生命值恢復效率提升50%。"
+        zhTw: "生命值恢復效率提升50%。"
       },
       type: "superrare"
     },
@@ -116,7 +116,7 @@ const gearData = {
         es: "Engranaje de Escudo",
         ar: "ترس الدرع",
         fr: "Engrenage de Bouclier",
-        "zh-tw": "護盾齒輪"
+        zhTw: "護盾齒輪"
       },
       icon: require('../../assets/GearIcon/gear_superrare_shield.png'),
       description: {
@@ -126,7 +126,7 @@ const gearData = {
         es: "Aumenta los PS máximos en 900 como escudo consumible. Cuando los PS del personaje están llenos, el escudo se recupera por completo después de 10 segundos.",
         ar: "يزيد الحد الأقصى لنقاط الصحة بمقدار 900 كدرع قابل للاستهلاك. عندما تكون نقاط صحة الشخصية كاملة، يتم استعادة الدرع بالكامل بعد 10 ثوانٍ.",
         fr: "Augmente les PV maximum de 900 sous forme de bouclier consommable. Lorsque les PV du personnage sont pleins, le bouclier se régénère complètement après 10 secondes.",
-        "zh-tw": "增加900點最大生命值作為消耗性護盾。角色生命值滿時，護盾在10秒後完全恢復。"
+        zhTw: "增加900點最大生命值作為消耗性護盾。角色生命值滿時，護盾在10秒後完全恢復。"
       },
       type: "superrare"
     },
@@ -139,7 +139,7 @@ const gearData = {
         es: "Engranaje de Daño",
         ar: "ترس الضرر",
         fr: "Engrenage de Dégâts",
-        "zh-tw": "傷害齒輪"
+        zhTw: "傷害齒輪"
       },
       icon: require('../../assets/GearIcon/gear_superrare_damage.png'),
       description: {
@@ -149,7 +149,7 @@ const gearData = {
         es: "Cuando los PS caen por debajo del 50%, el daño infligido aumenta un 15%.",
         ar: "عندما تنخفض نقاط الصحة عن 50٪، يزداد الضرر الذي تلحقه بنسبة 15٪.",
         fr: "Lorsque les PV tombent en dessous de 50%, les dégâts infligés augmentent de 15%.",
-        "zh-tw": "生命值低於50%時，造成的傷害提升15%。"
+        zhTw: "生命值低於50%時，造成的傷害提升15%。"
       },
       type: "superrare"
     },
@@ -162,7 +162,7 @@ const gearData = {
         es: "Engranaje de Mejora de Gadget",
         ar: "ترس تعزيز الأداة",
         fr: "Engrenage d'Amélioration de Gadget",
-        "zh-tw": "道具強化齒輪"
+        zhTw: "道具強化齒輪"
       },
       icon: require('../../assets/GearIcon/gear_plus_gadgets.png'),
       description: {
@@ -172,7 +172,7 @@ const gearData = {
         es: "Aumenta en 1 el número de veces que puedes usar gadgets en batalla.",
         ar: "يزيد عدد مرات استخدام الأدوات في المعركة بمقدار مرة واحدة.",
         fr: "Augmente d'une fois le nombre d'utilisations des gadgets en combat.",
-        "zh-tw": "戰鬥中可使用道具的次數增加1次。"
+        zhTw: "戰鬥中可使用道具的次數增加1次。"
       },
       type: "plus"
     }
@@ -187,7 +187,7 @@ const gearData = {
         es: "Engranaje de Mejora de Mascota",
         ar: "ترس تعزيز الحيوان الأليف",
         fr: "Engrenage d'Amélioration d'Animal",
-        "zh-tw": "寵物強化齒輪"
+        zhTw: "寵物強化齒輪"
       },
       icon: require('../../assets/GearIcon/gear_epic_pet.png'),
       description: {
@@ -197,7 +197,7 @@ const gearData = {
         es: "Aumenta el poder de la mascota en un 25%.",
         ar: "يزيد قوة الحيوان الأليف بنسبة 25٪.",
         fr: "Augmente la puissance de l'animal de 25%.",
-        "zh-tw": "寵物能力提升25%。"
+        zhTw: "寵物能力提升25%。"
       },
       type: "epic"
     },
@@ -210,7 +210,7 @@ const gearData = {
         es: "Engranaje de Mejora de Recarga",
         ar: "ترس تعزيز إعادة التحميل",
         fr: "Engrenage d'Amélioration de Rechargement",
-        "zh-tw": "裝填強化齒輪"
+        zhTw: "裝填強化齒輪"
       },
       icon: require('../../assets/GearIcon/gear_epic_reload.png'),
       description: {
@@ -220,7 +220,7 @@ const gearData = {
         es: "Aumenta la velocidad de recarga en un 15%.",
         ar: "يزيد سرعة إعادة التحميل بنسبة 15٪.",
         fr: "Augmente la vitesse de rechargement de 15%.",
-        "zh-tw": "裝填速度提升15%。"
+        zhTw: "裝填速度提升15%。"
       },
       type: "epic"
     },
@@ -233,7 +233,7 @@ const gearData = {
         es: "Engranaje de Mejora de Super",
         ar: "ترس تعزيز السوبر",
         fr: "Engrenage d'Amélioration de Super",
-        "zh-tw": "超級強化齒輪"
+        zhTw: "超級強化齒輪"
       },
       icon: require('../../assets/GearIcon/gear_epic_super.png'),
       description: {
@@ -243,7 +243,7 @@ const gearData = {
         es: "Aumenta la velocidad de carga del Super en un 10%.",
         ar: "يزيد معدل شحن السوبر بنسبة 10٪.",
         fr: "Augmente la vitesse de charge du Super de 10%.",
-        "zh-tw": "超級技能充能速度提升10%。"
+        zhTw: "超級技能充能速度提升10%。"
       },
       type: "epic"
     }
@@ -258,7 +258,7 @@ const gearData = {
         es: "Engranaje de Tick",
         ar: "ترس تيك",
         fr: "Engrenage de Tick",
-        "zh-tw": "滴答專屬齒輪"
+        zhTw: "滴答專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_tick.png'),
       description: {
@@ -268,7 +268,7 @@ const gearData = {
         es: "Añade 1000 PS a la cabeza de Tick.",
         ar: "يضيف 1000 نقطة صحة لرأس تيك.",
         fr: "Ajoute 1000 PV à la tête de Tick.",
-        "zh-tw": "為滴答的頭增加1000生命值。"
+        zhTw: "為滴答的頭增加1000生命值。"
       },
       type: "mythic"
     },
@@ -281,7 +281,7 @@ const gearData = {
         es: "Engranaje de Pam",
         ar: "ترس بام",
         fr: "Engrenage de Pam",
-        "zh-tw": "帕姆專屬齒輪"
+        zhTw: "帕姆專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_pam.png'),
       description: {
@@ -291,7 +291,7 @@ const gearData = {
         es: "Aumenta la curación de la torreta en un 20%.",
         ar: "يزيد الشفاء من البرج بنسبة 20٪.",
         fr: "Augmente les soins de la tourelle de 20%.",
-        "zh-tw": "砲塔的治療量提升20%。"
+        zhTw: "砲塔的治療量提升20%。"
       },
       type: "mythic"
     },
@@ -304,7 +304,7 @@ const gearData = {
         es: "Engranaje de Mortis",
         ar: "ترس مورتيس",
         fr: "Engrenage de Mortis",
-        "zh-tw": "莫提斯專屬齒輪"
+        zhTw: "莫提斯專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_mortis.png'),
       description: {
@@ -314,7 +314,7 @@ const gearData = {
         es: "Aumenta la velocidad del murciélago en un 50%.",
         ar: "يزيد سرعة الخفاش بنسبة 50٪.",
         fr: "Augmente la vitesse des chauves-souris de 50%.",
-        "zh-tw": "蝙蝠速度提升50%。"
+        zhTw: "蝙蝠速度提升50%。"
       },
       type: "mythic"
     },
@@ -327,7 +327,7 @@ const gearData = {
         es: "Engranaje de Gene",
         ar: "ترس جين",
         fr: "Engrenage de Gene",
-        "zh-tw": "吉恩專屬齒輪"
+        zhTw: "吉恩專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_gene.png'),
       description: {
@@ -337,7 +337,7 @@ const gearData = {
         es: "Aumenta el alcance de la Mano Mágica de Gene.",
         ar: "يزيد مدى يد جين السحرية.",
         fr: "Augmente la portée de la Main Magique de Gene.",
-        "zh-tw": "增加吉恩魔法之手的射程。"
+        zhTw: "增加吉恩魔法之手的射程。"
       },
       type: "mythic"
     },
@@ -350,7 +350,7 @@ const gearData = {
         es: "Engranaje de Eve",
         ar: "ترس إيف",
         fr: "Engrenage d'Eve",
-        "zh-tw": "伊芙專屬齒輪"
+        zhTw: "伊芙專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_eve.png'),
       description: {
@@ -360,7 +360,7 @@ const gearData = {
         es: "Genera un bebé adicional con el Super.",
         ar: "يولد طفلاً إضافياً مع السوبر.",
         fr: "Fait apparaître un bébé supplémentaire avec le Super.",
-        "zh-tw": "超級技能多生成一隻寶寶。"
+        zhTw: "超級技能多生成一隻寶寶。"
       },
       type: "mythic"
     },
@@ -373,7 +373,7 @@ const gearData = {
         es: "Engranaje de Spike",
         ar: "ترس سبايك",
         fr: "Engrenage de Spike",
-        "zh-tw": "仙人掌專屬齒輪"
+        zhTw: "仙人掌專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_spike.png'),
       description: {
@@ -383,7 +383,7 @@ const gearData = {
         es: "Aumenta el efecto de ralentización del Super en un 30%.",
         ar: "يزيد تأثير إبطاء السوبر بنسبة 30٪.",
         fr: "Augmente l'effet de ralentissement du Super de 30%.",
-        "zh-tw": "超級技能的減速效果提升30%。"
+        zhTw: "超級技能的減速效果提升30%。"
       },
       type: "mythic"
     },
@@ -396,7 +396,7 @@ const gearData = {
         es: "Engranaje de Crow",
         ar: "ترس كرو",
         fr: "Engrenage de Crow",
-        "zh-tw": "烏鴉專屬齒輪"
+        zhTw: "烏鴉專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_crow.png'),
       description: {
@@ -406,7 +406,7 @@ const gearData = {
         es: "Aumenta el daño por veneno de Crow en un 30%.",
         ar: "يزيد ضرر سم كرو بنسبة 30٪.",
         fr: "Augmente les dégâts du poison de Crow de 30%.",
-        "zh-tw": "烏鴉的毒素傷害提升30%。"
+        zhTw: "烏鴉的毒素傷害提升30%。"
       },
       type: "mythic"
     },
@@ -419,7 +419,7 @@ const gearData = {
         es: "Engranaje de Leon",
         ar: "ترس ليون",
         fr: "Engrenage de Léon",
-        "zh-tw": "里昂專屬齒輪"
+        zhTw: "里昂專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_leon.png'),
       description: {
@@ -429,7 +429,7 @@ const gearData = {
         es: "Extiende la duración del Super por 2 segundos.",
         ar: "يمدد مدة السوبر لثانيتين.",
         fr: "Prolonge la durée du Super de 2 secondes.",
-        "zh-tw": "超級技能持續時間延長2秒。"
+        zhTw: "超級技能持續時間延長2秒。"
       },
       type: "mythic"
     },
@@ -442,7 +442,7 @@ const gearData = {
         es: "Engranaje de Sandy",
         ar: "ترس ساندي",
         fr: "Engrenage de Sandy",
-        "zh-tw": "桑迪專屬齒輪"
+        zhTw: "桑迪專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_sandy.png'),
       description: {
@@ -452,7 +452,7 @@ const gearData = {
         es: "Reduce el daño causado por enemigos en la tormenta de arena en un 20%.",
         ar: "يقلل الضرر الذي يسببه الأعداء في العاصفة الرملية بنسبة 20٪.",
         fr: "Réduit les dégâts infligés par les ennemis dans la tempête de sable de 20%.",
-        "zh-tw": "降低沙暴中敵人造成的傷害20%。"
+        zhTw: "降低沙暴中敵人造成的傷害20%。"
       },
       type: "mythic"
     },
@@ -465,7 +465,7 @@ const gearData = {
         es: "Engranaje de Amber",
         ar: "ترس آمبر",
         fr: "Engrenage d'Amber",
-        "zh-tw": "安珀專屬齒輪"
+        zhTw: "安珀專屬齒輪"
       },
       icon: require('../../assets/GearIcon/gear_mythic_amber.png'),
       description: {
@@ -475,7 +475,7 @@ const gearData = {
         es: "Ralentiza el movimiento del enemigo un 10% con aceite.",
         ar: "يبطئ حركة العدو بنسبة 10٪ بالزيت.",
         fr: "Ralentit les mouvements ennemis de 10% avec l'huile.",
-        "zh-tw": "用油減緩敵人移動速度10%。"
+        zhTw: "用油減緩敵人移動速度10%。"
       },
       type: "mythic"
     }

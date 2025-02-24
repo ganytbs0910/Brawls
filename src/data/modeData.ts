@@ -10,22 +10,22 @@ export type GameMode = {
     es: string;
     ar: string;
     fr: string;
-    'zh-tw': string;
+    zhTw: string;
   };
 };
 
 export const GAME_MODES: { [key: string]: GameMode } = {
-  RANK_FRONT: {
-    name: 'rankFront',
+  RANKED: {
+    name: 'ranked',
     color: "#99ff66",
     translations: {
       ja: 'ガチバトル',
-      en: 'Ranked Battle',
+      en: 'Ranked',
       ko: '경쟁전',
       es: 'COMPETITIVO',
       ar: 'المصنف',
       fr: 'CLASSÉ',
-      'zh-tw': '排位賽'
+      zhTw: '排位賽'
     },
     icon: require('../../assets/GameModeIcons/rank_front.png')
   },
@@ -39,7 +39,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
       es: 'SUPERVIVENCIA (DÚO)',
       ar: 'المواجهة الحاسمة الزوجية',
       fr: 'SURVIVANT DUO',
-      'zh-tw': '雙人荒野生死鬥'
+      zhTw: '雙人荒野生死鬥'
     },
     icon: require('../../assets/GameModeIcons/duo_showdown_icon.png')
   },
@@ -53,7 +53,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
       es: 'ATRAPAGEMAS',
       ar: 'جمع الجواهر',
       fr: 'RAZZIA DE GEMMES',
-      'zh-tw': '寶石爭奪戰'
+      zhTw: '寶石爭奪戰'
     },
     icon: require('../../assets/GameModeIcons/gem_grab_icon.png')
   },
@@ -67,7 +67,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
       es: 'BALÓN BRAWL',
       ar: 'كرة العراك',
       fr: 'BRAWLBALL',
-      'zh-tw': '亂鬥足球'
+      zhTw: '亂鬥足球'
     },
     icon: require('../../assets/GameModeIcons/brawl_ball_icon.png')
   },
@@ -81,7 +81,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
       es: 'ATRACO',
       ar: 'السطو',
       fr: 'BRAQUAGE',
-      'zh-tw': '金庫攻防戰'
+      zhTw: '金庫攻防戰'
     },
     icon: require('../../assets/GameModeIcons/heist_icon.png')
   },
@@ -95,7 +95,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
       es: 'NOQUEO',
       ar: 'الضربة القاضية',
       fr: 'HORS-JEU',
-      'zh-tw': '極限淘汰賽'
+      zhTw: '極限淘汰賽'
     },
     icon: require('../../assets/GameModeIcons/knock_out_icon.png')
   },
@@ -109,7 +109,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
       es: 'CAZA ESTELAR',
       ar: 'الجائزة',
       fr: 'PRIME',
-      'zh-tw': '搶星大作戰'
+      zhTw: '搶星大作戰'
     },
     icon: require('../../assets/GameModeIcons/bounty_icon.png')
   },
@@ -123,7 +123,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
       es: 'DESTRUCCIÓN',
       ar: 'المحو',
       fr: 'CHASSE OUVERTE',
-      'zh-tw': '殲滅戰'
+      zhTw: '殲滅戰'
     },
     icon: require('../../assets/GameModeIcons/wipeout_icon.png')
   },
@@ -137,7 +137,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
       es: 'ZONA RESTRINGIDA',
       ar: 'المنطقة الساخنة',
       fr: 'ZONE RÉSERVÉE',
-      'zh-tw': '據點搶奪戰'
+      zhTw: '據點搶奪戰'
     },
     icon: require('../../assets/GameModeIcons/hot_zone_icon.png')
   },
@@ -151,7 +151,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
       es: 'BALÓN BRAWL 5C5',
       ar: 'كرة العراك 5 ضد 5',
       fr: 'BRAWLBALL 5C5',
-      'zh-tw': '5v5亂鬥足球'
+      zhTw: '5v5亂鬥足球'
     },
     icon: require('../../assets/GameModeIcons/5v5brawl_ball_icon.png')
   },
@@ -165,7 +165,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
       es: 'DESTRUCCIÓN 5C5',
       ar: 'المحو 5 ضد 5',
       fr: 'CHASSE OUVERTE 5C5',
-      'zh-tw': '5v5積分爭奪戰'
+      zhTw: '5v5積分爭奪戰'
     },
     icon: require('../../assets/GameModeIcons/5v5wipeout_icon.png')
   },
@@ -179,7 +179,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
       es: 'Battle Royale',
       ar: 'باتل رويال',
       fr: 'Battle Royale',
-      'zh-tw': '大逃殺'
+      zhTw: '大逃殺'
     },
     icon: require('../../assets/GameModeIcons/showdown_icon.png')
   },
@@ -193,7 +193,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
       es: 'SUPERVIVENCIA (SOLO)',
       ar: 'المواجهة الحاسمة الفردية',
       fr: 'SURVIVANT SOLO',
-      'zh-tw': '單人荒野生死鬥'
+      zhTw: '單人荒野生死鬥'
     },
     icon: require('../../assets/GameModeIcons/showdown_icon.png')
   },
@@ -207,7 +207,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
       es: 'Duelo',
       ar: 'المبارزة',
       fr: 'Duel',
-      'zh-tw': '決鬥'
+      zhTw: '決鬥'
     },
     icon: require('../../assets/GameModeIcons/duels_icon.png')
   },
@@ -221,7 +221,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
     es: 'Batalla Amistosa',
     ar: 'معركة ودية',
     fr: 'Bataille Amicale',
-    'zh-tw': '友誼賽'
+    zhTw: '友誼賽'
   },
   icon: require('../../assets/GameModeIcons/friendly_icon.png')
 },
@@ -235,7 +235,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
       es: 'Baloncesto Brawl',
       ar: 'سلة براول',
       fr: 'Basket Brawl',
-      'zh-tw': '荒野籃球'
+      zhTw: '荒野籃球'
     },
     icon: require('../../assets/GameModeIcons/basket_brawl_icon.png')
   },
@@ -249,7 +249,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
       es: 'Carga',
       ar: 'الحمولة',
       fr: 'Convoi',
-      'zh-tw': '推車護送'
+      zhTw: '推車護送'
     },
     icon: require('../../assets/GameModeIcons/payload_icon.png')
   }

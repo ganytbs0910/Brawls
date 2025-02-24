@@ -241,7 +241,7 @@ export const zhTw: PickPredictionTranslation = {
     needsConsideration: '需要考慮',
   },
   // モードはmodeData.tsから取得
-  modes: getModeTranslations('zh-tw'),
+  modes: getModeTranslations('zhTw'),
   mapSelection: {
     title: '選擇地圖',
     selectStage: '選擇地圖',

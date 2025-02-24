@@ -130,7 +130,7 @@ const Home: React.FC = () => {
         return mapData.nameAr;
       case 'fr':
         return mapData.nameFr;
-      case 'zh-tw':
+      case 'zhTw':
         return mapData.nameZhTw;
       default:
         return mapData.name;  // Japanese name

@@ -11,7 +11,7 @@ interface LocalizedText {
   es: string;
   ar: string;
   fr: string;
-  'zh-tw': string;
+  zhTw: string;
 }
 
 interface BrawlifyMap {
@@ -250,10 +250,10 @@ export const maps = {
 };
 
 // 言語設定の取得
-const getCurrentLanguage = async (): Promise<'en' | 'ja' | 'ko' | 'es' | 'ar' | 'fr' | 'zh-tw'> => {
+const getCurrentLanguage = async (): Promise<'en' | 'ja' | 'ko' | 'es' | 'ar' | 'fr' | 'zhTw'> => {
   try {
     const savedLanguage = await AsyncStorage.getItem('selectedLanguage');
-    return (savedLanguage as 'en' | 'ja' | 'ko' | 'es' | 'ar' | 'fr' | 'zh-tw') || 'en';
+    return (savedLanguage as 'en' | 'ja' | 'ko' | 'es' | 'ar' | 'fr' | 'zhTw') || 'en';
   } catch (error) {
     console.error('Error getting language:', error);
     return 'en';
@@ -280,7 +280,7 @@ const processMapsData = async (maps: BrawlifyMap[]): Promise<Record<string, MapD
       nameEs: map.name.es,
       nameAr: map.name.ar,
       nameFr: map.name.fr,
-      nameZhTw: map.name['zh-tw'],
+      nameZhTw: map.name.zhTw,
       gameMode: map.gameMode,
       image: mapImages[mapName] || null,
       description: map.description,
@@ -349,7 +349,7 @@ const getLocalizedModeName = (mode: string, language: string): string => {
       es: "ATRAPAGEMAS",
       ar: "جمع الجواهر",
       fr: "RAZZIA DE GEMMES",
-      'zh-tw': "寶石爭奪戰",
+      zhTw: "寶石爭奪戰",
 
     },
     brawlBall: {
@@ -359,7 +359,7 @@ const getLocalizedModeName = (mode: string, language: string): string => {
       es: "BALÓN BRAWL",
       ar: "كرة العراك",
       fr: "BRAWLBALL",
-      'zh-tw': "亂鬥足球",
+      zhTw: "亂鬥足球",
     },
     heist: {
       ja: "強奪",
@@ -368,7 +368,7 @@ const getLocalizedModeName = (mode: string, language: string): string => {
       es: "ATRACO",
       ar: "السطو",
       fr: "BRAQUAGE",
-      'zh-tw': "金庫攻防戰",
+      zhTw: "金庫攻防戰",
     },
     knockout: {
       ja: "ノックアウト",
@@ -377,7 +377,7 @@ const getLocalizedModeName = (mode: string, language: string): string => {
       es: "NOQUEO",
       ar: "الضربة القاضية",
       fr: "HORS-JEU",
-      'zh-tw': "",
+      zhTw: "",
     },
     bounty: {
       ja: "賞金稼ぎ",
@@ -386,7 +386,7 @@ const getLocalizedModeName = (mode: string, language: string): string => {
       es: "CAZA ESTELAR",
       ar: "الجائزة",
       fr: "PRIME",
-      'zh-tw': "搶星大作戰",
+      zhTw: "搶星大作戰",
     },
     hotZone: {
       ja: "ホットゾーン",
@@ -395,7 +395,7 @@ const getLocalizedModeName = (mode: string, language: string): string => {
       es: "ZONA RESTRINGIDA",
       ar: "المنطقة الساخنة",
       fr: "ZONE RÉSERVÉE",
-      'zh-tw': "據點搶奪戰",
+      zhTw: "據點搶奪戰",
     }
   };
 

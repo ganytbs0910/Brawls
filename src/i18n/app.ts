@@ -156,7 +156,7 @@ const translations: Record<string, AppTranslations> = {
       }
     }
   },
-  'zh-tw': {
+  zhTw: {
     tabs: {
       home: '首頁',
       analysis: '分析',

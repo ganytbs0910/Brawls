@@ -1,6 +1,6 @@
 import { Platform, NativeModules } from 'react-native';
 
-export type Language = 'en' | 'ja' | 'ko' | 'es' | 'ar' | 'fr' | 'zh-tw';
+export type Language = 'en' | 'ja' | 'ko' | 'es' | 'ar' | 'fr' | 'zhTw';
 
 export const SUPPORTED_LANGUAGES = {
   ja: '日本語',
@@ -9,7 +9,7 @@ export const SUPPORTED_LANGUAGES = {
   es: 'Español',
   ar: 'العربية',
   fr: 'Français',
-  'zh-tw': '繁體中文',
+  zhTw: '繁體中文',
 } as const;
 
 export const getDeviceLanguage = (): Language => {
@@ -38,9 +38,9 @@ export const getDeviceLanguage = (): Language => {
         console.log('iOS raw locale:', locale);
         
         // 台湾語の場合の特別処理
-        if (locale?.toLowerCase().includes('zh-tw') || 
+        if (locale?.toLowerCase().includes('zhTw') || 
             locale?.toLowerCase().includes('zh-hant')) {
-          return 'zh-tw';
+          return 'zhTw';
         }
         return locale?.split('_')[0] || 'en';
       },
@@ -50,9 +50,9 @@ export const getDeviceLanguage = (): Language => {
         console.log('Android raw locale:', locale);
         
         // 台湾語の場合の特別処理
-        if (locale?.toLowerCase().includes('zh-tw') || 
+        if (locale?.toLowerCase().includes('zhTw') || 
             locale?.toLowerCase().includes('zh-hant')) {
-          return 'zh-tw';
+          return 'zhTw';
         }
         return locale?.split(/[-_]/)[0] || 'en';
       },

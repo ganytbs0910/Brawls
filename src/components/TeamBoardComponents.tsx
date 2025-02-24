@@ -28,6 +28,9 @@ const timeAgo = (dateString: string, t: any, currentLanguage: string) => {
   const now = new Date();
   const diffInMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60));
   
+  // 言語タグを標準形式に変換
+  const standardLanguage = currentLanguage === 'zhTw' ? 'zh-TW' : currentLanguage;
+  
   if (diffInMinutes < 1) {
     return t.postCard.time.justNow;
   } else if (diffInMinutes < 60) {
@@ -36,7 +39,7 @@ const timeAgo = (dateString: string, t: any, currentLanguage: string) => {
     const hours = Math.floor(diffInMinutes / 60);
     return `${hours}${t.postCard.time.hoursAgo}`;
   } else {
-    return date.toLocaleDateString(currentLanguage, {
+    return date.toLocaleDateString(standardLanguage, {
       month: 'numeric',
       day: 'numeric',
       hour: '2-digit',

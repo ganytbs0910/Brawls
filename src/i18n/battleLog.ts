@@ -242,7 +242,7 @@ export const battleLogTranslations = {
   es,
   ar,
   fr,
-  'zh-tw': zhTw,
+  zhTw,
 } as const;
 
 // カスタムフック
