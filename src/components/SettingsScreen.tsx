@@ -410,7 +410,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
         {/* ルーレット機能の追加 */}
         <TouchableOpacity 
           style={styles.settingsItem}
-          onPress={() => navigateToScreen('roulette')}
+          //onPress={() => navigateToScreen('roulette')}
         >
           <Text style={styles.settingsItemText}>{t.menuItems.roulette}</Text>
         </TouchableOpacity>
