@@ -4,7 +4,6 @@ import {
   Text,
   ScrollView,
   TouchableOpacity,
-  SafeAreaView,
   Modal,
   TextInput,
   Alert,
@@ -33,6 +32,10 @@ interface NewsPost {
   description: string;
   created_at: string;
   creator_name: string;
+}
+
+interface NewsProps {
+  isAdFree?: boolean;
 }
 
 const getTableName = async (language: Language): Promise<string> => {
@@ -106,7 +109,7 @@ const YouTubeCard: React.FC<{ post: NewsPost; t: typeof newsTranslations['en'] }
   );
 };
 
-const News: React.FC = () => {
+const News: React.FC<NewsProps> = ({ isAdFree = false }) => {
   const [posts, setPosts] = useState<NewsPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [modalVisible, setModalVisible] = useState(false);
@@ -119,7 +122,9 @@ const News: React.FC = () => {
   const [currentLanguage, setCurrentLanguage] = useState<Language>('en');
   const [t, setT] = useState(newsTranslations.en);
   const [actualLanguage, setActualLanguage] = useState<Language>('en');
+  const [initialLoad, setInitialLoad] = useState(true); // 初回ロードフラグを追加
 
+  // コンポーネントのマウント時に一度だけ実行
   useEffect(() => {
     const initLanguage = async () => {
       try {
@@ -133,55 +138,72 @@ const News: React.FC = () => {
         }
       } catch (error) {
         console.error('Failed to get language setting:', error);
+      } finally {
+        // 言語設定が完了したらデータ取得を開始
+        setInitialLoad(false);
       }
     };
 
     initLanguage();
   }, []);
 
+  // 言語設定完了後、または actualLanguage が変更されたときにデータを取得
   useEffect(() => {
-  const setupSubscription = async () => {
-    fetchPosts();
-
-    const tableName = await getTableName(actualLanguage);
-    const channel = supabase
-      .channel(`${tableName}_changes`)
-      .on('postgres_changes', 
-        { event: '*', schema: 'public', table: tableName },
-        payload => {
-          if (payload.eventType === 'INSERT') {
-            setPosts(prev => [payload.new as NewsPost, ...prev].slice(0, POST_LIMIT));
-          }
+    if (!initialLoad) {
+      const setupSubscription = async () => {
+        setLoading(true); // 明示的にローディング状態を設定
+        
+        try {
+          await fetchPosts(); // await を追加して確実に完了させる
+          
+          const tableName = await getTableName(actualLanguage);
+          const channel = supabase
+            .channel(`${tableName}_changes`)
+            .on('postgres_changes', 
+              { event: '*', schema: 'public', table: tableName },
+              payload => {
+                if (payload.eventType === 'INSERT') {
+                  setPosts(prev => [payload.new as NewsPost, ...prev].slice(0, POST_LIMIT));
+                }
+              }
+            )
+            .subscribe();
+            
+          return () => {
+            channel.unsubscribe();
+          };
+        } catch (error) {
+          console.error('Error in setup:', error);
+          Alert.alert(t.error, t.fetchError);
         }
-      )
-      .subscribe();
+      };
 
-    return () => {
-      channel.unsubscribe();
-    };
-  };
-
-  setupSubscription();
-}, [actualLanguage]);
+      setupSubscription();
+    }
+  }, [actualLanguage, initialLoad]);
 
   const fetchPosts = async () => {
-  try {
-    const tableName = await getTableName(actualLanguage);
-    const { data, error } = await supabase
-      .from(tableName)
-      .select('*')
-      .order('created_at', { ascending: false })
-      .limit(POST_LIMIT);
+    try {
+      const tableName = await getTableName(actualLanguage);
+      console.log(`Fetching posts from table: ${tableName}`);
+      
+      const { data, error } = await supabase
+        .from(tableName)
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(POST_LIMIT);
 
-    if (error) throw error;
-    setPosts(data as NewsPost[]);
-  } catch (error) {
-    console.error('Error fetching posts:', error);
-    Alert.alert(t.error, t.fetchError);
-  } finally {
-    setLoading(false);
-  }
-};
+      if (error) throw error;
+      
+      console.log(`Fetched ${data?.length || 0} posts`);
+      setPosts(data as NewsPost[] || []);
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+      Alert.alert(t.error, t.fetchError);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const verifyPassword = () => {
     if (password === CREATOR_PASSWORD) {
@@ -198,40 +220,43 @@ const News: React.FC = () => {
   };
 
   const createPost = async () => {
-  if (!title.trim()) {
-    Alert.alert(t.error, t.requiredField);
-    return;
-  }
-  if (!validateYouTubeUrl(youtubeUrl)) {
-    Alert.alert(t.error, t.invalidYouTubeUrl);
-    return;
-  }
-  if (!creatorName.trim()) {
-    Alert.alert(t.error, t.requiredField);
-    return;
-  }
+    if (!title.trim()) {
+      Alert.alert(t.error, t.requiredField);
+      return;
+    }
+    if (!validateYouTubeUrl(youtubeUrl)) {
+      Alert.alert(t.error, t.invalidYouTubeUrl);
+      return;
+    }
+    if (!creatorName.trim()) {
+      Alert.alert(t.error, t.requiredField);
+      return;
+    }
 
-  try {
-    const tableName = await getTableName(actualLanguage);
-    const { error } = await supabase
-      .from(tableName)
-      .insert([{
-        title: title.trim(),
-        youtube_url: youtubeUrl.trim(),
-        description: description.trim(),
-        creator_name: creatorName.trim()
-      }]);
+    try {
+      const tableName = await getTableName(actualLanguage);
+      const { error } = await supabase
+        .from(tableName)
+        .insert([{
+          title: title.trim(),
+          youtube_url: youtubeUrl.trim(),
+          description: description.trim(),
+          creator_name: creatorName.trim()
+        }]);
 
-    if (error) throw error;
-    
-    resetForm();
-    setModalVisible(false);
-    Alert.alert(t.success, t.postCreated);
-  } catch (error) {
-    console.error('Error creating post:', error);
-    Alert.alert(t.error, t.createError);
-  }
-};
+      if (error) throw error;
+      
+      resetForm();
+      setModalVisible(false);
+      Alert.alert(t.success, t.postCreated);
+      
+      // 投稿成功後に最新のデータを再取得
+      fetchPosts();
+    } catch (error) {
+      console.error('Error creating post:', error);
+      Alert.alert(t.error, t.createError);
+    }
+  };
 
   const resetForm = () => {
     setTitle('');
@@ -241,18 +266,19 @@ const News: React.FC = () => {
     setIsPasswordVerified(false);
   };
 
+  // ローディング状態の表示を改善
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#FF0000" />
+        <Text style={styles.loadingText}>{t.loading}</Text>
       </View>
     );
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>{t.title}</Text>
+    <View style={styles.container}>
+      <View style={styles.newsHeader}>
         <TouchableOpacity
           style={styles.createButton}
           onPress={() => setModalVisible(true)}
@@ -262,9 +288,17 @@ const News: React.FC = () => {
       </View>
 
       <ScrollView style={styles.content}>
-        {posts.map((post) => (
-          <YouTubeCard key={post.id} post={post} t={t} />
-        ))}
+        {posts.length > 0 ? (
+          posts.map((post) => (
+            <YouTubeCard key={post.id} post={post} t={t} />
+          ))
+        ) : (
+          <View style={styles.noContentContainer}>
+            <Text style={styles.noContentText}>
+              投稿がありません。最初の投稿を作成しましょう！
+            </Text>
+          </View>
+        )}
       </ScrollView>
 
       <Modal
@@ -370,7 +404,7 @@ const News: React.FC = () => {
           </View>
         </View>
       </Modal>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -378,27 +412,44 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    width: '100%',
+    height: '100%',
   },
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#fff',
   },
-  header: {
+  loadingText: {
+    marginTop: 10,
+    fontSize: 16,
+    color: '#666',
+  },
+  newsHeader: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     alignItems: 'center',
     padding: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#e0e0e0',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#FF0000',
+    backgroundColor: '#fff',
   },
   content: {
     flex: 1,
+    backgroundColor: '#fff',
+  },
+  noContentContainer: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 50,
+  },
+  noContentText: {
+    fontSize: 16,
+    color: '#666',
+    textAlign: 'center',
   },
   createButton: {
     backgroundColor: '#FF0000',

@@ -33,6 +33,7 @@ import AdMobService from '../services/AdMobService';
 import MapDetailScreen from './MapDetailScreen';
 import PunishmentGameScreen from './PunishmentGameScreen';
 import CharacterRouletteScreen from './CharacterRouletteScreen';
+import News from './News';
 import { MapDetail, ScreenType, ScreenState } from '../types';
 import { LanguageSelector } from './LanguageSelector';
 import { useSettingsScreenTranslation } from '../i18n/settingsScreen';
@@ -47,8 +48,8 @@ const PURCHASE_CONFIG = {
   PRODUCT_NAME: '広告削除パック',
 } as const;
 
-// ScreenType に 'roulette' を追加
-type ScreenType = 'settings' | 'privacy' | 'terms' | 'allTips' | 'punishmentGame' | 'language' | 'mapDetail' | 'roulette';
+// ScreenType に 'news' を追加
+type ScreenType = 'settings' | 'privacy' | 'terms' | 'allTips' | 'punishmentGame' | 'language' | 'mapDetail' | 'roulette' | 'news';
 
 interface SettingsScreenProps {
   screen?: ScreenState;
@@ -144,6 +145,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   const { t, currentLanguage } = useSettingsScreenTranslation();
   const [loading, setLoading] = useState(false);
   const [isIAPAvailable, setIsIAPAvailable] = useState(false);
+  const [newsKey, setNewsKey] = useState(0); // News コンポーネントを強制的に再レンダリングするためのキー
   
   const initialScreen: ScreenState = {
     type: 'settings',
@@ -305,6 +307,11 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   };
 
   const navigateToScreen = (newScreenType: ScreenType) => {
+    // ニュース画面に移動する場合は newsKey を更新して強制的に再レンダリング
+    if (newScreenType === 'news') {
+      setNewsKey(prevKey => prevKey + 1);
+    }
+    
     const newScreen: ScreenState = {
       type: newScreenType,
       translateX: new Animated.Value(SCREEN_WIDTH),
@@ -407,10 +414,18 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
           <Text style={styles.settingsItemText}>{t.menuItems.punishmentGame}</Text>
         </TouchableOpacity>
 
+        {/* YouTube News 項目を追加 */}
+        <TouchableOpacity 
+          style={styles.settingsItem}
+          onPress={() => navigateToScreen('news')}
+        >
+          <Text style={styles.settingsItemText}>{t.menuItems.news}</Text>
+        </TouchableOpacity>
+
         {/* ルーレット機能の追加 */}
         <TouchableOpacity 
           style={styles.settingsItem}
-          //onPress={() => navigateToScreen('roulette')}
+          onPress={() => navigateToScreen('roulette')}
         >
           <Text style={styles.settingsItemText}>{t.menuItems.roulette}</Text>
         </TouchableOpacity>
@@ -512,6 +527,21 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
         return <LanguageSelector onClose={goBack} />;
       case 'roulette':
         return <CharacterRouletteScreen onClose={goBack} />;
+      case 'news':
+        return (
+          <View style={styles.settingsContainer}>
+            <View style={styles.settingsHeader}>
+              <Text style={styles.settingsTitle}>{t.header.news}</Text>
+              <TouchableOpacity onPress={goBack} style={styles.backButton}>
+                <Text style={styles.backButtonText}>←</Text>
+              </TouchableOpacity>
+            </View>
+            {/* ここを修正: スタイルを明示的に指定し、key を追加 */}
+            <View style={{flex: 1, width: '100%', height: '100%'}}>
+              <News key={newsKey} isAdFree={isAdFree} />
+            </View>
+          </View>
+        );
       default:
         return null;
     }

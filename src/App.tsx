@@ -32,12 +32,12 @@ import BrawlStarsRankings from './components/BrawlStarsRankings';
 import CharacterDetails from './components/CharacterDetails';
 import PickPrediction from './components/PickPrediction';
 import Home from './components/Home';
-import News from './components/News';
+// News インポートを削除
 import Gacha from './components/Gacha';
 import { BannerAdComponent } from './components/BannerAdComponent';
 
 const { width, height: SCREEN_HEIGHT } = Dimensions.get('window');
-const TAB_WIDTH = width / 6;
+const TAB_WIDTH = width / 5; // タブ数を5に減らす（news削除）
 
 const SNAP_POINTS = {
   TOP: 0,
@@ -332,6 +332,7 @@ const TabBar = React.memo<{
   slideAnimation: Animated.Value;
   t: any;
 }>(({ activeTab, onTabPress, animatedValues, slideAnimation, t }) => {
+  // タブ定義から 'news' を削除
   const tabs = [
     {
       key: 'home',
@@ -357,11 +358,6 @@ const TabBar = React.memo<{
       key: 'rankings',
       label: t.tabs.rankings,
       icon: require('../assets/AppIcon/ranking.png'),
-    },
-    {
-      key: 'news',
-      label: t.tabs.news,
-      icon: require('../assets/AppIcon/loudspeaker_icon.png'),
     },
   ];
 
@@ -424,7 +420,8 @@ const TabBar = React.memo<{
 
 const App = () => {
   const { t } = useAppTranslation();
-  const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings' | 'prediction' | 'news' | 'gacha'>('home');
+  // activeTab の型定義から 'news' を削除
+  const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings' | 'prediction' | 'gacha'>('home');
   const [isAdFree, setIsAdFree] = useState(false);
   const [isSlideOverVisible, setIsSlideOverVisible] = useState(false);
   const [previousTab, setPreviousTab] = useState<typeof activeTab>('home');
@@ -434,13 +431,13 @@ const App = () => {
   const [isLanguageSelectorVisible, setIsLanguageSelectorVisible] = useState(false);
   const slideAnimation = useRef(new Animated.Value(0)).current;
 
+  // animatedValues から 'news' を削除
   const animatedValues = useRef({
     home: new Animated.Value(1),
     single: new Animated.Value(0),
     team: new Animated.Value(0),
     rankings: new Animated.Value(0),
     prediction: new Animated.Value(0),
-    news: new Animated.Value(0),
     gacha: new Animated.Value(0),
   }).current;
 
@@ -650,13 +647,7 @@ const App = () => {
             />
           </NavigationContainer>
         );
-      case 'news':
-        return (
-          <News 
-            isAdFree={isAdFree}
-            onShowDetails={handleShowSecondaryContent}
-          />
-        );
+      // 'news' のケースを削除
       default:
         return null;
     }

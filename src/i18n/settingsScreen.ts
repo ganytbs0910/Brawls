@@ -5,6 +5,7 @@ export type SettingsScreenTranslation = {
     terms: string;
     allTips: string;
     roulette: string;
+    news: string;
   };
   menuItems: {
     language: string;
@@ -17,6 +18,7 @@ export type SettingsScreenTranslation = {
     allTips: string;
     punishmentGame: string;
     roulette: string;
+    news: string;
   };
   roulette: {
     spin: string;
@@ -60,6 +62,7 @@ export const ja: SettingsScreenTranslation = {
     terms: '利用規約',
     allTips: '豆知識一覧',
     roulette: 'キャラクタールーレット',
+    news: 'YouTubeニュース', 
   },
   menuItems: {
     language: '言語設定',
@@ -72,6 +75,7 @@ export const ja: SettingsScreenTranslation = {
     allTips: '豆知識一覧',
     punishmentGame: '罰ゲーム',
     roulette: 'キャラクタールーレット',
+    news: 'YouTubeニュース',
   },
   roulette: {
     spin: 'スピン！',
@@ -115,6 +119,7 @@ export const en: SettingsScreenTranslation = {
     terms: 'Terms of Service',
     allTips: 'All Tips',
     roulette: 'Character Roulette',
+    news: 'YouTube News',
   },
   menuItems: {
     language: 'Language Settings',
@@ -127,6 +132,7 @@ export const en: SettingsScreenTranslation = {
     allTips: 'All Tips',
     punishmentGame: 'Punishment Game',
     roulette: 'Character Roulette',
+    news: 'YouTube News',
   },
   roulette: {
     spin: 'Spin!',
@@ -170,6 +176,7 @@ export const ko: SettingsScreenTranslation = {
     terms: '이용약관',
     allTips: '모든 팁',
     roulette: '캐릭터 룰렛',
+    news: 'YouTube 뉴스',
   },
   menuItems: {
     language: '언어 설정',
@@ -182,6 +189,7 @@ export const ko: SettingsScreenTranslation = {
     allTips: '모든 팁',
     punishmentGame: '벌칙 게임',
     roulette: '캐릭터 룰렛',
+    news: 'YouTube 뉴스',
   },
   roulette: {
     spin: '돌리기!',
@@ -225,6 +233,7 @@ export const es: SettingsScreenTranslation = {
     terms: 'Términos de Servicio',
     allTips: 'Todos los Consejos',
     roulette: 'Ruleta de Personajes',
+    news: 'Noticias de YouTube',
   },
   menuItems: {
     language: 'Configuración de Idioma',
@@ -237,6 +246,7 @@ export const es: SettingsScreenTranslation = {
     allTips: 'Todos los Consejos',
     punishmentGame: 'Juego de Castigo',
     roulette: 'Ruleta de Personajes',
+    news: 'Noticias de YouTube',
   },
   roulette: {
     spin: '¡Girar!',
@@ -280,6 +290,7 @@ export const ar: SettingsScreenTranslation = {
     terms: 'شروط الخدمة',
     allTips: 'جميع النصائح',
     roulette: 'عجلة الشخصيات',
+    news: 'أخبار YouTube',
   },
   menuItems: {
     language: 'إعدادات اللغة',
@@ -292,6 +303,7 @@ export const ar: SettingsScreenTranslation = {
     allTips: 'جميع النصائح',
     punishmentGame: 'لعبة العقاب',
     roulette: 'عجلة الشخصيات',
+    news: 'أخبار YouTube',
   },
   roulette: {
     spin: 'دوران!',
@@ -335,6 +347,7 @@ export const fr: SettingsScreenTranslation = {
     terms: 'Conditions d\'Utilisation',
     allTips: 'Tous les Conseils',
     roulette: 'Roulette des Personnages',
+    news: 'Actualités YouTube',
   },
   menuItems: {
     language: 'Paramètres de Langue',
@@ -347,6 +360,7 @@ export const fr: SettingsScreenTranslation = {
     allTips: 'Tous les Conseils',
     punishmentGame: 'Jeu de Gage',
     roulette: 'Roulette des Personnages',
+    news: 'Actualités YouTube',
   },
   roulette: {
     spin: 'Tourner !',
@@ -390,6 +404,7 @@ export const zhTw: SettingsScreenTranslation = {
     terms: '使用條款',
     allTips: '所有提示',
     roulette: '角色輪盤',
+    news: 'YouTube 新聞',
   },
   menuItems: {
     language: '語言設定',
@@ -402,6 +417,7 @@ export const zhTw: SettingsScreenTranslation = {
     allTips: '所有提示',
     punishmentGame: '懲罰遊戲',
     roulette: '角色輪盤',
+    news: 'YouTube 新聞',
   },
   roulette: {
     spin: '轉動！',
