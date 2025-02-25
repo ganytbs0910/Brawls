@@ -11,7 +11,7 @@ import {
   Easing,
   Vibration,
 } from 'react-native';
-import { useSettingsScreenTranslation } from '../i18n/settingsScreen';
+import { useCharacterRouletteTranslation } from '../i18n/characterRouletteScreen';
 import { 
   fetchAndProcessCharactersData, 
   getCharacterData,
@@ -34,7 +34,7 @@ interface CharacterRouletteScreenProps {
 }
 
 const CharacterRouletteScreen: React.FC<CharacterRouletteScreenProps> = ({ onClose }) => {
-  const { t } = useSettingsScreenTranslation();
+  const { t } = useCharacterRouletteTranslation();
   const { getLocalizedName } = useCharacterLocalization();
   const [characters, setCharacters] = useState<Character[]>([]);
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
@@ -277,7 +277,7 @@ const CharacterRouletteScreen: React.FC<CharacterRouletteScreenProps> = ({ onClo
       {showConfetti && <Confetti />}
       
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>キャラクタールーレット</Text>
+        <Text style={styles.headerTitle}>{t.header.title}</Text>
         <TouchableOpacity onPress={onClose} style={styles.backButton}>
           <Text style={styles.backButtonText}>←</Text>
         </TouchableOpacity>
@@ -286,7 +286,7 @@ const CharacterRouletteScreen: React.FC<CharacterRouletteScreenProps> = ({ onClo
       {isLoading ? (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#21A0DB" />
-          <Text style={styles.loadingText}>キャラクターをロード中...</Text>
+          <Text style={styles.loadingText}>{t.content.loading}</Text>
         </View>
       ) : (
         <View style={styles.contentContainer}>
@@ -319,7 +319,7 @@ const CharacterRouletteScreen: React.FC<CharacterRouletteScreenProps> = ({ onClo
                 
                 {!isSelecting && (
                   <Text style={styles.characterTagline}>
-                    ルーレットの結果はこのキャラクター！
+                    {t.content.resultTagline}
                   </Text>
                 )}
               </Animated.View>
@@ -332,7 +332,7 @@ const CharacterRouletteScreen: React.FC<CharacterRouletteScreenProps> = ({ onClo
                 resizeMode="contain"
               />
               <Text style={styles.placeholderText}>
-                ボタンを押して、ランダムなキャラクターを選択してください
+                {t.content.placeholder}
               </Text>
             </View>
           )}
@@ -346,18 +346,18 @@ const CharacterRouletteScreen: React.FC<CharacterRouletteScreenProps> = ({ onClo
             {isSelecting ? (
               <View style={styles.selectingContainer}>
                 <ActivityIndicator size="small" color="#fff" />
-                <Text style={styles.selectButtonText}>選択中...</Text>
+                <Text style={styles.selectButtonText}>{t.buttons.spinning}</Text>
               </View>
             ) : (
               <Text style={styles.selectButtonText}>
-                {selectedCharacter ? 'もう一度選択' : 'ルーレットスタート！'}
+                {selectedCharacter ? t.buttons.spinAgain : t.buttons.start}
               </Text>
             )}
           </TouchableOpacity>
           
           <View style={styles.statsContainer}>
             <Text style={styles.statsText}>
-              合計キャラクター数: {characters.length}
+              {t.content.totalCharacters.replace('{count}', characters.length.toString())}
             </Text>
           </View>
         </View>

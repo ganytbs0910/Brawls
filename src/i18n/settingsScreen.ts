@@ -1,3 +1,4 @@
+// src/i18n/settingsScreen.ts
 export type SettingsScreenTranslation = {
   header: {
     settings: string;
