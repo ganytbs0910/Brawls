@@ -107,8 +107,8 @@ export const mapImages = {
   "サニーサッカー": require('../../assets/MapImages/Sunny_Soccer.png'),
   "スーパービーチ": require('../../assets/MapImages/Super_Beach.png'),
   "トリッキー": require('../../assets/MapImages/Trickey.png'),
-  "トリプルドリブル": require('../../assets/MapImages/Triple_Dribble.png'),
-  "鉄壁の守り": require('../../assets/MapImages/Backyard_Bowl.png'),
+  "トリプル・ドリブル": require('../../assets/MapImages/Triple_Dribble.png'),
+  "鉄壁の護り": require('../../assets/MapImages/Backyard_Bowl.png'),
   "ビーチボール": require('../../assets/MapImages/Beach_Ball.png'),
   "中央コート": require('../../assets/MapImages/Center_Stage.png'),
   "ペナルティキック": require('../../assets/MapImages/Penalty_Kick.png'),
@@ -179,7 +179,7 @@ const RNAKED_MAPS = {
     "ラストストップ",
   ],
   brawlBall: [
-    "トリプルドリブル",
+    "トリプル・ドリブル",
     "静かな広場",
     "中央コート",
     "ピンボールドリーム",
@@ -238,7 +238,7 @@ export const maps = {
   ],
   brawlBall: [
     "狭き門", "セカンドチャンス", "静かな広場", "サニーサッカー", 
-    "スーパービーチ", "トリッキー", "トリプルドリブル", "鉄壁の守り", 
+    "スーパービーチ", "トリッキー", "トリプル・ドリブル", "鉄壁の護り", 
     "ビーチボール", "中央コート", "ペナルティキック", "ピンボールドリーム", 
   ],
   duel: [

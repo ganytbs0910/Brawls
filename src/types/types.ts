@@ -124,10 +124,9 @@ export interface MapData {
   gameMode: string;    // ゲームモード (Bounty, Gem Grab, etc.)
   image: string;       // マップ画像のパス
   description: string; // マップの説明
-  recommendedBrawlers: RecommendedBrawler[]; // 推奨ブローラーのリスト
+  recommendedBrawlers: RecommendedBrawler[];
 }
 
-// マップの推奨ブローラーの情報
 export interface RecommendedBrawler {
   name: string;
   reason: string;

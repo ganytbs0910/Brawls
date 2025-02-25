@@ -94,7 +94,7 @@ const normalizeGameMode = (mode) => {
     '5v5ワイプアウト': 'wipeout5v5',
     'デュエル': 'duels',
     'バトルロイヤル': 'showdown',
-    'デュオバトルロワイヤル': 'duoshowdown',
+    'デュオバトルロイヤル': 'duoshowdown',
     'ガチバトル': 'rankfront'
   };
 

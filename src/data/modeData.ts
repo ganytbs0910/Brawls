@@ -33,7 +33,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
     name: 'duoShowdown',
     color: "#99ff66",
     translations: {
-      ja: 'デュオバトルロワイヤル',
+      ja: 'デュオバトルロイヤル',
       en: 'Duo Showdown',
       ko: '듀오 쇼다운',
       es: 'SUPERVIVENCIA (DÚO)',
@@ -173,7 +173,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
     name: 'battleRoyale',
     color: "#99ff66",
     translations: {
-      ja: 'バトルロワイヤル',
+      ja: 'バトルロイヤル',
       en: 'Battle Royale',
       ko: '배틀로얄',
       es: 'Battle Royale',
@@ -187,7 +187,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
     name: 'soloShowdown',
     color: "#99ff66",
     translations: {
-      ja: 'ソロバトルロワイヤル',
+      ja: 'ソロバトルロイヤル',
       en: 'Solo Showdown',
       ko: '솔로 쇼다운',
       es: 'SUPERVIVENCIA (SOLO)',

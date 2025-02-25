@@ -156,8 +156,8 @@ const gearData = {
     gadget: {
       id: 6,
       name: {
-        ja: "ガジェット強化ギア",
-        en: "Gadget Boost Gear",
+        ja: "ガジェットクールダウンギア",
+        en: "Gadget CoolDown Gear",
         ko: "가젯 강화 기어",
         es: "Engranaje de Mejora de Gadget",
         ar: "ترس تعزيز الأداة",
@@ -166,7 +166,7 @@ const gearData = {
       },
       icon: require('../../assets/GearIcon/gear_plus_gadgets.png'),
       description: {
-        ja: "バトル中にガジェットを使える回数が1回増える。",
+        ja: "ガジェットのクールダウンが15%短縮される。",
         en: "Increases the number of times you can use gadgets in battle by 1.",
         ko: "배틀 중 가젯을 사용할 수 있는 횟수가 1회 증가합니다.",
         es: "Aumenta en 1 el número de veces que puedes usar gadgets en batalla.",
@@ -709,7 +709,7 @@ export const starPowerIcons: IconMapping = {
     1: require('../../assets/StarPowerIcon/gene_starpower_01.png'),
     2: require('../../assets/StarPowerIcon/gene_starpower_02.png')
   },
-  "MAX": {
+  "Max": {
     1: require('../../assets/StarPowerIcon/max_starpower_01.png'),
     2: require('../../assets/StarPowerIcon/max_starpower_02.png')
   },
@@ -1064,7 +1064,7 @@ export const gadgetIcons: IconMapping = {
     1: require('../../assets/GadgetIcon/gene_gadget_01.png'),
     2: require('../../assets/GadgetIcon/gene_gadget_02.png')
   },
-  "MAX": {
+  "Max": {
     1: require('../../assets/GadgetIcon/max_gadget_01.png'),
     2: require('../../assets/GadgetIcon/max_gadget_02.png')
   },

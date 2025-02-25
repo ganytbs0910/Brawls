@@ -198,40 +198,40 @@ const News: React.FC = () => {
   };
 
   const createPost = async () => {
-    if (!title.trim()) {
-      Alert.alert(t.error, t.requiredField);
-      return;
-    }
-    if (!validateYouTubeUrl(youtubeUrl)) {
-      Alert.alert(t.error, t.invalidYouTubeUrl);
-      return;
-    }
-    if (!creatorName.trim()) {
-      Alert.alert(t.error, t.requiredField);
-      return;
-    }
+  if (!title.trim()) {
+    Alert.alert(t.error, t.requiredField);
+    return;
+  }
+  if (!validateYouTubeUrl(youtubeUrl)) {
+    Alert.alert(t.error, t.invalidYouTubeUrl);
+    return;
+  }
+  if (!creatorName.trim()) {
+    Alert.alert(t.error, t.requiredField);
+    return;
+  }
 
-    try {
-      const tableName = getTableName(actualLanguage);
-      const { error } = await supabase
-        .from(tableName)
-        .insert([{
-          title: title.trim(),
-          youtube_url: youtubeUrl.trim(),
-          description: description.trim(),
-          creator_name: creatorName.trim()
-        }]);
+  try {
+    const tableName = await getTableName(actualLanguage);
+    const { error } = await supabase
+      .from(tableName)
+      .insert([{
+        title: title.trim(),
+        youtube_url: youtubeUrl.trim(),
+        description: description.trim(),
+        creator_name: creatorName.trim()
+      }]);
 
-      if (error) throw error;
-      
-      resetForm();
-      setModalVisible(false);
-      Alert.alert(t.success, t.postCreated);
-    } catch (error) {
-      console.error('Error creating post:', error);
-      Alert.alert(t.error, t.createError);
-    }
-  };
+    if (error) throw error;
+    
+    resetForm();
+    setModalVisible(false);
+    Alert.alert(t.success, t.postCreated);
+  } catch (error) {
+    console.error('Error creating post:', error);
+    Alert.alert(t.error, t.createError);
+  }
+};
 
   const resetForm = () => {
     setTitle('');

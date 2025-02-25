@@ -23,7 +23,7 @@
         "color": "#fe5e72"
       },
       "description": {
-        "ja": "オーリーはスターパークをカスタマイズしたホバーボードで駆け巡り、レールを研磨してトラブルを引き起こします！オールドスクールヒップホップのファンであるオーリーは、どこへ行くにもお気に入りの曲を爆音で流します。彼の音楽は伝染病...文字通りです。ブローラーたちはそれを聞くと踊らずにはいられません。",
+        "ja": "オーリーはスターパークをカスタマイズしたホバーボードで駆け巡り、レールを研磨してトラブルを引き起こします！オールドスクールヒップホップのファンであるオーリーは、どこへ行くにもお気に入りの曲を爆音で流します。彼の音楽は伝染病...文字通りです。キャラクターたちはそれを聞くと踊らずにはいられません。",
         "en": "Ollie rides his customized hoverboard around Starr Park, grinding rails and causing trouble! A fan of old school hip hop, Ollie blasts his favorite tunes wherever he goes. His music is infectious... literally. Brawlers can't help but dance when they hear it.",
         "ko": "올리는 스타파크를 커스텀한 호버보드로 돌아다니며 레일을 그리고 문제를 일으킵니다! 올드 스쿨 힙합의 팬인 올리는 어디를 가든지 좋아하는 음악을 큰 소리로 틀어놓습니다. 그의 음악은 전염병... 말 그대로입니다. 브롤러들은 그 음악을 듣자마자 춤을 추게 됩니다.",
         "es": "¡Ollie recorre Starr Park en su patineta voladora personalizada, deslizándose por las barandas y causando problemas! Fanático del hip hop de la vieja escuela, Ollie pone a todo volumen sus canciones favoritas dondequiera que vaya. Su música es contagiosa... literalmente. Los luchadores no pueden evitar bailar cuando la escuchan.",
@@ -541,7 +541,7 @@
         "color": "#d850ff"
       },
       "description": {
-        "ja": "このクールなサングラスを持つ謎の衣服の束については、あまり知られていません。ガスによって発見され、シェイドと名付けられ、現在は2人の不気味なブローラーがゴーストステーションで一緒に出没しています。",
+        "ja": "このクールなサングラスを持つ謎の衣服の束については、あまり知られていません。ガスによって発見され、シェイドと名付けられ、現在は2人の不気味なキャラクターがゴーストステーションで一緒に出没しています。",
         "en": "Not much is known about this mysterious bundle of clothes with cool sunglasses. Discovered by Gus and named Shade, now these two spooky brawlers haunt Ghost Station together.",
         "ko": "멋진 선글라스를 쓴 이 신비로운 옷뭉치에 대해서는 알려진 바가 많지 않습니다. 가스가 발견하고 쉐이드라고 이름 붙였으며, 현재는 이 두 으스스한 브롤러가 고스트 스테이션에서 함께 출몰하고 있습니다.",
         "es": "No se sabe mucho sobre este misterioso montón de ropa con gafas de sol geniales. Descubierto por Gus y llamado Shade, ahora estos dos espeluznantes luchadores acechan juntos en Ghost Station.",
@@ -1006,7 +1006,7 @@
             "zhTw": "全速前進"
           },
           "description": {
-            "ja": "モーはドリラーで短距離をダッシュし、その過程で壁を破壊しブローラーをノックバックさせます。\nクールダウン:16秒",
+            "ja": "モーはドリラーで短距離をダッシュし、その過程で壁を破壊し敵をノックバックさせます。\nクールダウン:16秒",
             "en": "Moe dashes a short distance with Driller, destroying walls and knocking back brawlers in the pro\nCooldown:16secondscess.",
             "ko": "모는 드릴러로 짧은 거리를 대시하며, 그 과정에서 벽을 파괴하고 브롤러들을 넉백시킵니다.\n재사용 대기 시간:16초",
             "es": "Moe se precipita una corta distancia con Driller, destruyendo paredes y empujando hacia atrás a los brawlers en el proceso.\nTiempo de carga:16segundos",
@@ -1156,7 +1156,7 @@
           "recommendation": {
             "level": 4,
             "reason": {
-              "ja": "第一形態が弱すぎるのでカバーできる有龍なスタパ。",
+              "ja": "第一形態が弱すぎるのでカバーできる有龍なガジェット。",
               "en": "A useful gadget that helps cover his weak initial form.",
               "ko": "첫 번째 형태가 너무 약한 것을 보완할 수 있는 유용한 가젯입니다.",
               "es": "Un gadget útil que ayuda a cubrir su débil forma inicial.",
@@ -1273,7 +1273,7 @@
         {
           "id": 23000765,
           "name": {
-            "ja": "ペイント＆ペイン",
+            "ja": "ペイント&ペイン",
             "en": "Making A Mess",
             "ko": "엉망진창",
             "es": "DESASTRE ARTÍSTICO",
@@ -1453,7 +1453,7 @@
             "zhTw": "一葉知秋"
           },
           "description": {
-            "ja": "スーパーのチャージ範囲内に敵がいる間、移動速度が15%上昇します",
+            "ja": "リリーのチャージ範囲内に敵がいる間、移動速度が15%上昇します",
             "en": "Movement speed increases by 15% while enemies are within super charge range",
             "ko": "궁극기 충전 범위 내에 적이 있는 동안 이동 속도가 15% 증가합니다",
             "es": "La velocidad de movimiento aumenta un 15% mientras los enemigos estén dentro del rango de carga del súper",
@@ -1703,7 +1703,7 @@
           "recommendation": {
             "level": 5,
             "reason": {
-              "ja": "ウルトの状態での無敵無双が最強のため必須ガジェット。",
+              "ja": "ウルト状態での無敵無双が最強のため必須ガジェット。",
               "en": "Essential gadget as invincibility during ultimate is extremely powerful.",
               "ko": "궁극기 상태에서의 무적 무쌍이 최강이라 필수 가젯입니다.",
               "es": "Gadget esencial ya que la invencibilidad durante el definitivo es extremadamente poderosa.",
@@ -1763,13 +1763,13 @@
             "zhTw": "毒來毒往"
           },
           "description": {
-            "ja": "スーパー内にいる間、アンジェロは毎秒600の回復を得ます。",
-            "en": "While in his super, Angelo gains 600 healing per second.",
-            "ko": "궁극기 안에 있는 동안 안젤로는 초당 600의 회복을 얻습니다.",
-            "es": "Mientras está en su súper, Angelo obtiene 600 de curación por segundo.",
-            "ar": "أثناء وجوده في قدرته الخارقة، يكتسب أنجيلو 600 شفاء في الثانية.",
-            "fr": "Pendant son super, Angelo gagne 600 points de guérison par seconde.",
-            "zhTw": "在超級技能狀態下，安傑洛每秒獲得600點治療。"
+            "ja": "毒霧の中にいると、アンジェロは毎秒600の回復する。",
+            "en": "While in the poison mist, Angelo heals 600 health per second.",
+            "ko": "독안개 속에 있을 때, 안젤로는 초당 600의 회복합니다.",
+            "es": "Mientras esté en la niebla venenosa, Angelo se cura 600 de salud por segundo.",
+            "ar": "أثناء وجوده في الضباب السام، يتعافى أنجيلو 600 نقطة صحة في الثانية.",
+            "fr": "Tant qu'il est dans le brouillard toxique, Angelo récupère 600 points de santé par seconde.",
+            "zhTw": "當處於毒霧中時，安傑洛每秒回復600點生命值。"
           },
           "recommendation": {
             "level": 5,
@@ -1864,7 +1864,7 @@
             "zhTw": "銳利飛刺"
           },
           "description": {
-            "ja": "次の狙い撃ちは敵と環境を貫通します。\nクールダウン:14秒",
+            "ja": "次の狙い撃ちは敵と障害物を貫通します。\nクールダウン:14秒",
             "en": "Next aimed shot pierces through enemies and environment.\nCooldown:14seconds",
             "ko": "다음 조준 사격이 적과 환경을 관통합니다.\n재사용 대기 시간:14초",
             "es": "El siguiente disparo apuntado atraviesa enemigos y el entorno.\nTiempo de carga:14segundos",
@@ -2313,7 +2313,7 @@
             "zhTw": "超級黏人"
           },
           "description": {
-            "ja": "キットは味方のブローラーに5秒長く取り付くことができます。",
+            "ja": "キットは味方のキャラクターに5秒長く取り付くことができます。",
             "en": "Kit can stay attached to friendly brawlers for 5 seconds longer.",
             "ko": "키트는 아군 브롤러에게 5초 더 오래 부착할 수 있습니다.",
             "es": "Kit puede permanecer adherido a brawlers aliados 5 segundos más.",
@@ -2381,7 +2381,7 @@
             "zhTw": "吃漢堡囉"
           },
           "description": {
-            "ja": "自身と取り付いている味方のブローラーを30%回復させます。\nクールダウン:15秒",
+            "ja": "自身と取り付いている味方のキャラクターを30%回復させます。\nクールダウン:15秒",
             "en": "Heal yourself and the attached friendly brawler by 30%.\nCooldown:15seconds",
             "ko": "자신과 부착된 아군 브롤러를 30% 회복시킵니다.\n재사용 대기 시간:15초",
             "es": "Cura un 30% a ti mismo y al brawler aliado al que estés adherido.\nTiempo de carga:15segundos",
@@ -2485,7 +2485,7 @@
             "zhTw": "爆裂破音"
           },
           "description": {
-            "ja": "ミコはブローラー以外に対して100%の追加ダメージを与えます。",
+            "ja": "ミコはキャラクター以外に対して100%の追加ダメージを与えます。",
             "en": "Mico deals 100% additional damage to non-brawler targets.",
             "ko": "미코는 브롤러가 아닌 대상에게 100%의 추가 데미지를 줍니다.",
             "es": "Mico causa 100% de daño adicional a objetivos que no sean brawlers.",
@@ -2511,7 +2511,7 @@
         {
           "id": 23000639,
           "name": {
-            "ja": "声量解放",
+            "ja": "声量開放",
             "en": "Clipping Scream",
             "ko": "고막 주의",
             "es": "ROMPETÍMPANOS",
@@ -2553,13 +2553,13 @@
             "zhTw": "凌空飛躍"
           },
           "description": {
-            "ja": "ミコの次のジャンプの射程が34%延長されます。\nクールダウン:17秒",
-            "en": "Mico's next jump range is extended by 34%.\nCooldown:17seconds",
-            "ko": "미코의 다음 점프 사거리가 34% 연장됩니다.\n재사용 대기 시간:17초",
-            "es": "El alcance del siguiente salto de Mico se extiende un 34%.\nTiempo de carga:17segundos",
-            "ar": "يزداد مدى القفزة التالية لميكو بنسبة 34%.\nفترة الانتظار: 17 ث",
-            "fr": "La portée du prochain saut de Mico est augmentée de 34%.\nDélai:17secondes",
-            "zhTw": "米可的下一次跳躍範圍延長34%。\n冷卻時間:17秒"
+            "ja": "ミコの次のジャンプの射程が34%延長されます。\nクールダウン:14秒",
+            "en": "Mico's next jump range is extended by 34%.\nCooldown:14seconds",
+            "ko": "미코의 다음 점프 사거리가 34% 연장됩니다.\n재사용 대기 시간:14초",
+            "es": "El alcance del siguiente salto de Mico se extiende un 34%.\nTiempo de carga:14segundos",
+            "ar": "يزداد مدى القفزة التالية لميكو بنسبة 34%.\nفترة الانتظار: 14 ث",
+            "fr": "La portée du prochain saut de Mico est augmentée de 34%.\nDélai:14secondes",
+            "zhTw": "米可的下一次跳躍範圍延長34%。\n冷卻時間:14秒"
           },
           "recommendation": {
             "level": 1,
@@ -2657,7 +2657,7 @@
             "zhTw": "膠戰守則"
           },
           "description": {
-            "ja": "繭は5秒間粘液の跡を残し、その上を歩く敵を減速させます。",
+            "ja": "マユは5秒間粘液の跡を残し、その上を歩く敵を減速させます。",
             "en": "Cocoons leave a slimy trail for 5 seconds, slowing enemies that walk on it.",
             "ko": "고치는 5초 동안 끈적한 흔적을 남기며, 그 위를 걷는 적을 감속시킵니다.",
             "es": "Los capullos dejan un rastro viscoso durante 5 segundos, ralentizando a los enemigos que caminan sobre él.",
@@ -2840,7 +2840,7 @@
           "recommendation": {
             "level": 3,
             "reason": {
-              "ja": "使いこなすのがあまりにも線路を難しいが極めた者だけが使っている...？",
+              "ja": "使いこなすのがあまりにも難しいが、線路を極めた者だけが使っている...？",
               "en": "Extremely difficult to master but used only by those who've perfected it...?",
               "ko": "사용하기가 너무나 어렵지만 마스터한 사람만이 사용하고 있는...?",
               "es": "¿Extremadamente difícil de dominar pero usado solo por aquellos que lo han perfeccionado...?",
@@ -2864,7 +2864,7 @@
             "zhTw": "路線變更"
           },
           "description": {
-            "ja": "チャックは最も近いポストを除去し、スーパーを再チャージします。\nクールダウン:10秒",
+            "ja": "チャックは最も近いポストを除去し、必殺技を再チャージします。\nクールダウン:10秒",
             "en": "Chuck removes the nearest post and recharges their super.\nCooldown:10seconds",
             "ko": "척은 가장 가까운 포스트를 제거하고 궁극기를 재충전합니다.\n재사용 대기 시간:10초",
             "es": "Chuck elimina el poste más cercano y recarga su súper.\nTiempo de carga:10segundos",
@@ -2897,7 +2897,7 @@
             "zhTw": "幽靈列車"
           },
           "description": {
-            "ja": "次の必殺技壁を通り抜けることが可能になる\nクールダウン:17秒",
+            "ja": "次の必殺技で壁を通り抜けることが可能になる\nクールダウン:17秒",
             "en": "Next super can pass through walls\nCooldown:17seconds",
             "ko": "다음 필살기가 벽을 통과할 수 있게 됩니다\n재사용 대기 시간:17초",
             "es": "El siguiente súper puede atravesar paredes\nTiempo de carga:17segundos",
@@ -3346,7 +3346,7 @@
             "zhTw": "蘑菇王國"
           },
           "description": {
-            "ja": "必殺技を使うと闇のテリトリーに3個のキノコを生成する。キノコを拾った見方はHPが1440回復するが、敵が拾うと同僚のダメージを与える。",
+            "ja": "必殺技を使うと闇のテリトリーに3個のキノコを生成する。キノコを拾った見方はHPが1440回復するが、敵が拾うと同量のダメージを与える。",
             "en": "Using super spawns 3 mushrooms in dark territory. Allies picking up mushrooms heal 1440 HP, but enemies take damage.",
             "ko": "궁극기를 사용하면 어둠의 영역에 3개의 버섯을 생성합니다. 버섯을 주운 아군은 HP가 1440 회복되지만, 적이 줍게 되면 데미지를 받습니다.",
             "es": "El súper genera 3 hongos en territorio oscuro. Los aliados que los recojan curan 1440 PS, pero los enemigos reciben daño.",
@@ -3405,7 +3405,7 @@
         {
           "id": 23000588,
           "name": {
-            "ja": "フウジタケ",
+            "ja": "フウジダケ",
             "en": "Poison Mushroom",
             "ko": "독버섯",
             "es": "CHAMPIÑÓN VENENOSO",
@@ -3565,7 +3565,7 @@
           "recommendation": {
             "level": 4,
             "reason": {
-              "ja": "スローダウンしても自身のメリットは薄いため、味方依存のスローダウンで少し効果が弱い",
+              "ja": "スローダウンしても自身のメリットは薄いため、味方依存のスローダウンは少し効果が弱い",
               "en": "Effect is somewhat weak as the slowdown benefits allies more than self",
               "ko": "감속되어도 자신의 이점이 적어서 아군 의존적인 감속으로 효과가 약간 약합니다",
               "es": "El efecto es algo débil ya que la ralentización beneficia más a los aliados que a uno mismo",
@@ -3726,7 +3726,7 @@
             "zhTw": "撤離戰場"
           },
           "description": {
-            "ja": "地震は前方にダッシュしながら敵を0.5秒に割って気絶する。\nクールダウン:16秒",
+            "ja": "前方にダッシュしながら敵を0.5秒にわたって気絶する。\nクールダウン:16秒",
             "en": "Earthquake dashes forward stunning enemies for 0.5 seconds.\nCooldown:16seconds",
             "ko": "지진이 전방으로 대시하면서 적을 0.5초 동안 기절시킵니다.\n재사용 대기 시간:16초",
             "es": "Terremoto arremete hacia adelante aturdiendo a los enemigos durante 0.5 segundos.\nTiempo de carga:16segundos",
@@ -4082,7 +4082,7 @@
           "recommendation": {
             "level": 5,
             "reason": {
-              "ja": "近距離の敵が怖くなくなり、ウルトを撃ってもすぐに戻れるようになるので弱点が消えるので強力",
+              "ja": "近距離の敵が怖くなくなり、ウルトを撃ってもすぐに戻れるようになるので弱点が消えるため強力",
               "en": "Powerful as it eliminates weakness by making close-range enemies less threatening and allowing quick recovery after using ultimate",
               "ko": "근거리의 적이 두렵지 않게 되고, 궁극기를 써도 바로 돌아올 수 있어서 약점이 사라져서 강력합니다",
               "es": "Poderoso ya que elimina la debilidad al hacer que los enemigos cercanos sean menos amenazantes y permite una recuperación rápida después de usar el definitivo",
@@ -4510,7 +4510,7 @@
         {
           "id": 23000527,
           "name": {
-            "ja": "ドデかい一撃",
+            "ja": "ドデカい一発",
             "en": "Single Bellomania",
             "ko": "강력한 한 방울",
             "es": "LLUVIA DE CASCABELES",
@@ -4954,7 +4954,7 @@
         {
           "id": 23000514,
           "name": {
-            "ja": "ソウルスイッチャー",
+            "ja": "ソウルコンバーター",
             "en": "Soul Switcher",
             "ko": "영혼 교체",
             "es": "CAMBIO DE ALMA",
@@ -5093,7 +5093,7 @@
         {
           "id": 23000505,
           "name": {
-            "ja": "磁場",
+            "ja": "磁界",
             "en": "Magnetic Field",
             "ko": "자기장",
             "es": "CAMPO MAGNÉTICO",
@@ -7279,7 +7279,7 @@
           "recommendation": {
             "level": 5,
             "reason": {
-              "ja": "耐久力上昇で圧が出るので前線を押し上げるきっかけとなる強力さとダメージ計算を狂わせる強みがある。",
+              "ja": "耐久力上昇で圧が出るため前線を押し上げるきっかけとなる強力さとダメージ計算を狂わせる強みがある。",
               "en": "It has the strength to push the front line by increasing durability, and the strength to disrupt damage calculations.",
               "ko": "내구력이 증가하여 압박을 줄 수 있으며, 데미지 계산을 괴롭히는 강점이 있습니다.",
               "es": "Tiene la fuerza para empujar la línea frontal al aumentar la durabilidad, y la fuerza para interrumpir los cálculos de daño.",
@@ -7336,13 +7336,13 @@
             "zhTw": "緩速陷阱"
           },
           "description": {
-            "ja": "敵が触れると起動するトラップを地面に設置する。トラップは624ダメージを与えるうえ、範囲内にいるすべての敵を3秒間にわたってスローダウンさせる。\nクールダウン:15秒",
-            "en": "Places a trap on the ground that activates when enemies touch it. The trap deals 624 damage and slows all enemies in range for 3 seconds.\nCooldown:15seconds",
-            "ko": "적이 닿으면 작동하는 트랩을 지면에 설치합니다. 트랩은 624 데미지를 주고 범위 내의 모든 적을 3초 동안 슬로우시킵니다.\n재사용 대기 시간:15초",
-            "es": "Coloca una trampa en el suelo que se activa cuando los enemigos la tocan. La trampa causa 624 de daño y ralentiza a todos los enemigos en el área durante 3 segundos.\nTiempo de carga:15segundos",
-            "ar": "يضع فخاً على الأرض ينشط عندما يلمسه الأعداء. يلحق الفخ 624 ضرراً ويبطئ جميع الأعداء في النطاق لمدة 3 ثوانٍ.\nفترة الانتظار: 15 ث",
-            "fr": "Place un piège au sol qui s'active quand les ennemis le touchent. Le piège inflige 624 dégâts et ralentit tous les ennemis à portée pendant 3 secondes.\nDélai:15secondes",
-            "zhTw": "在地面放置一個當敵人觸碰時啟動的陷阱。陷阱造成624點傷害並使範圍內所有敵人減速3秒。\n冷卻時間:15秒"
+            "ja": "敵が触れると起動するトラップを地面に設置する。トラップは624ダメージを与えるうえ、範囲内にいるすべての敵を3秒間にわたってスローダウンさせる。\nクールダウン:17秒",
+            "en": "Places a trap on the ground that activates when enemies touch it. The trap deals 624 damage and slows all enemies in range for 3 seconds.\nCooldown:17seconds",
+            "ko": "적이 닿으면 작동하는 트랩을 지면에 설치합니다. 트랩은 624 데미지를 주고 범위 내의 모든 적을 3초 동안 슬로우시킵니다.\n재사용 대기 시간:17초",
+            "es": "Coloca una trampa en el suelo que se activa cuando los enemigos la tocan. La trampa causa 624 de daño y ralentiza a todos los enemigos en el área durante 3 segundos.\nTiempo de carga:17segundos",
+            "ar": "يضع فخاً على الأرض ينشط عندما يلمسه الأعداء. يلحق الفخ 624 ضرراً ويبطئ جميع الأعداء في النطاق لمدة 3 ثوانٍ.\nفترة الانتظار: 17 ث",
+            "fr": "Place un piège au sol qui s'active quand les ennemis le touchent. Le piège inflige 624 dégâts et ralentit tous les ennemis à portée pendant 3 secondes.\nDélai:17secondes",
+            "zhTw": "在地面放置一個當敵人觸碰時啟動的陷阱。陷阱造成624點傷害並使範圍內所有敵人減速3秒。\n冷卻時間:17秒"
           },
           "recommendation": {
             "level": 5,
@@ -7475,24 +7475,24 @@
             "zhTw": "燃料補給"
           },
           "description": {
-            "ja": "必殺技を発動すると、自身のHPが640回復する。",
-            "en": "When Super is activated, heals 640 HP.",
-            "ko": "궁극기 발동 시 체력을 640 회복합니다.",
-            "es": "Cuando se activa el Súper, cura 640 PS.",
-            "ar": "عند تفعيل القدرة الخارقة، يستعيد 640 نقطة صحة.",
-            "fr": "Quand le Super est activé, soigne 640 PV.",
-            "zhTw": "啟動超級技能時，恢復640生命值。"
+            "ja": "必殺技を発動すると、自身のHPが512回復する。",
+            "en": "When Super is activated, heals 512 HP.",
+            "ko": "궁극기 발동 시 체력을 512 회복합니다.",
+            "es": "Cuando se activa el Súper, cura 512 PS.",
+            "ar": "عند تفعيل القدرة الخارقة، يستعيد 512 نقطة صحة.",
+            "fr": "Quand le Super est activé, soigne 512 PV.",
+            "zhTw": "啟動超級技能時，恢復512生命值。"
           },
           "recommendation": {
             "level": 5,
             "reason": {
-              "ja": "攻撃毎に640回復できるため耐久力が化け物になり、ハイパーチャージとの相性も最高。",
-              "en": "It can recover 640 HP per attack, making it a monster in durability, and it has the best compatibility with Hypercharge.",
-              "ko": "공격마다 640 체력을 회복할 수 있어 내구력이 괴물이 되며, 하이퍼차지와의 호환성도 최고입니다.",
-              "es": "Puede recuperar 640 PS por ataque, convirtiéndolo en un monstruo en durabilidad, y tiene la mejor compatibilidad con Hipercarga.",
-              "ar": "يمكنه استعادة 640 نقطة صحة لكل هجوم، مما يجعله وحشاً في التحمل، ولديه أفضل توافق مع الشحن الفائق.",
-              "fr": "Il peut récupérer 640 PV par attaque, ce qui en fait un monstre en termes de durabilité, et il a la meilleure compatibilité avec Hypercharge.",
-              "zhTw": "每次攻擊都能恢復640生命值，使耐久力變得很恐怖，而且和超級充能的相性也最好。"
+              "ja": "攻撃毎の回復で耐久力が大幅に上昇し、ハイパーチャージとの相性も最高であるためかなり強い。",
+              "en": "Durability is greatly increased by recovery per attack, and it is quite strong because it has the best compatibility with Hyper Charge.",
+              "ko": "공격마다 회복으로 내구력이 크게 상승하고 하이퍼 차지와의 호환성이 최고이기 때문에 상당히 강합니다.",
+              "es": "La durabilidad aumenta considerablemente por la recuperación por ataque, y es bastante fuerte porque tiene la mejor compatibilidad con la Hiper Carga.",
+              "ar": "تزيد القدرة على التحمل بشكل كبير بواسطة الشفاء لكل هجوم، وهو قوي للغاية لأنه يتمتع بأفضل توافق مع الشحن الفائق.",
+              "fr": "La durabilité est grandement augmentée par la récupération par attaque, et elle est assez forte car elle a la meilleure compatibilité avec la Hyper Charge.",
+              "zhTw": "每次攻擊回復耐久力大幅提升，並且與超級充能的最佳相容性，因此非常強大。"
             }
           }
         }
@@ -7776,7 +7776,7 @@
         {
           "id": 23000338,
           "name": {
-            "ja": "ハードランディング",
+            "ja": "ハードクラッシュ",
             "en": "Hard Landing",
             "ko": "하드 랜딩",
             "es": "ATERRIZAJE FORZOSO",
@@ -7785,7 +7785,7 @@
             "zhTw": "強行著陸"
           },
           "description": {
-            "ja": "必殺技の着弾時に周囲の敵に1300ダメージを与える。",
+            "ja": "必殺技の着地時に周囲の敵に1350ダメージを与える。",
             "en": "Deals 1300 damage to nearby enemies upon landing with Super.",
             "ko": "궁극기로 착지할 때 주변 적들에게 1300 데미지를 줍니다.",
             "es": "Causa 1300 de daño a los enemigos cercanos al aterrizar con el Súper.",
@@ -8312,7 +8312,7 @@
           "recommendation": {
             "level": 5,
             "reason": {
-              "ja": "燃料の水たまりで敵の行動を制限できルエリアが増えるので攻撃の幅が広がり前線をキープしやすくなる。",
+              "ja": "燃料の水たまりで敵の行動を制限できるエリアが増えるので、攻撃の幅が広がり前線をキープしやすくなる。",
               "en": "The range of attack is widened and it is easy to keep the front line because the enemy's movement can be restricted and the area is increased by the fuel puddle.",
               "ko": "연료 웅덩이로 적의 행동을 제한할 수 있어 루리어가 늘어나 공격의 폭이 넓어져 전선을 유지하기 쉬워집니다.",
               "es": "El rango de ataque se amplía y es fácil mantener la línea frontal porque el movimiento del enemigo puede ser restringido y el área aumenta por los charcos de combustible.",
@@ -8453,7 +8453,7 @@
         "color": "#d850ff"
       },
       "description": {
-        "ja": "コレットはすべてのブローラーのフィギュア、ぬいぐるみ、おもちゃを集めています。彼女は執着していますか？はい。現実との接点を失っていますか？それもはい。",
+        "ja": "コレットはすべてのBrawlerのフィギュア、ぬいぐるみ、おもちゃを集めています。彼女は執着していますか？はい。現実との接点を失っていますか？それもはい。",
         "en": "Colette collects all Brawlers' figures, plushies, and toys. Is she obsessed? Yes. Has she lost touch with reality? Also yes.",
         "ko": "콜레트는 모든 브롤러의 피규어, 인형, 장난감을 수집합니다. 집착하고 있나요? 네. 현실과의 접점을 잃었나요? 그것도 네.",
         "es": "Colette colecciona todas las figuras, peluches y juguetes de los Brawlers. ¿Está obsesionada? Sí. ¿Ha perdido el contacto con la realidad? También sí.",
@@ -8657,7 +8657,7 @@
           "recommendation": {
             "level": 5,
             "reason": {
-              "ja": "バトルロワイヤルでは別のスターパワーが不要であるため必須",
+              "ja": "バトルロイヤルでは別のスターパワーが不要であるため必須",
               "en": "It is essential because another star power is not required in Battle Royale.",
               "ko": "배틀 로얄에서 다른 스타파워가 필요하지 않기 때문에 필수입니다.",
               "es": "Es esencial porque no se requiere otro poder estelar en Battle Royale.",
@@ -8991,7 +8991,7 @@
             "zhTw": "自動對焦"
           },
           "description": {
-            "ja": "ピープが移動距離に基づいて最大1850追加ダメージ与える。",
+            "ja": "ピープが移動距離に基づいて最大1850の追加ダメージを与える。",
             "en": "Peep deals up to 1850 additional damage based on travel distance.",
             "ko": "핍이 이동 거리에 따라 최대 1850의 추가 데미지를 줍니다.",
             "es": "Peep causa hasta 1850 de daño adicional según la distancia recorrida.",
@@ -9015,7 +9015,7 @@
         {
           "id": 23000235,
           "name": {
-            "ja": "強化スチール",
+            "ja": "強化鋼",
             "en": "Tempered Steel",
             "ko": "단련된 강철",
             "es": "ACERO TEMPLADO",
@@ -9403,13 +9403,13 @@
             "zhTw": "噴氣加速器"
           },
           "description": {
-            "ja": "力を全身にみなぎらせ、4秒間25％移動速度が上がる。\nクールダウン:10秒",
-            "en": "Channel power throughout her body, increasing movement speed by 25% for 4 seconds.\nCooldown:10seconds",
-            "ko": "힘을 온몸에 끌어올려 4초 동안 이동 속도가 25% 증가합니다.\n재사용 대기 시간:10초",
-            "es": "Canaliza poder por todo su cuerpo, aumentando la velocidad de movimiento en un 25% durante 4 segundos.\nTiempo de carga:10segundos",
-            "ar": "توجيه القوة في جميع أنحاء جسدها، مما يزيد سرعة الحركة بنسبة 25٪ لمدة 4 ثوانٍ.\nفترة الانتظار: 10 ث",
-            "fr": "Canalise la puissance dans tout son corps, augmentant la vitesse de déplacement de 25% pendant 4 secondes.\nDélai:10secondes",
-            "zhTw": "將力量貫注全身，移動速度提升25%，持續4秒。\n冷卻時間:10秒"
+            "ja": "力を全身にみなぎらせ、4秒間25％移動速度が上がる。\nクールダウン:15秒",
+            "en": "Channel power throughout her body, increasing movement speed by 25% for 4 seconds.\nCooldown:15seconds",
+            "ko": "힘을 온몸에 끌어올려 4초 동안 이동 속도가 25% 증가합니다.\n재사용 대기 시간:15초",
+            "es": "Canaliza poder por todo su cuerpo, aumentando la velocidad de movimiento en un 25% durante 4 segundos.\nTiempo de carga:15segundos",
+            "ar": "توجيه القوة في جميع أنحاء جسدها، مما يزيد سرعة الحركة بنسبة 25٪ لمدة 4 ثوانٍ.\nفترة الانتظار: 15 ث",
+            "fr": "Canalise la puissance dans tout son corps, augmentant la vitesse de déplacement de 25% pendant 4 secondes.\nDélai:15secondes",
+            "zhTw": "將力量貫注全身，移動速度提升25%，持續4秒。\n冷卻時間:15秒"
           },
           "recommendation": {
             "level": 5,
@@ -9575,13 +9575,13 @@
             "zhTw": "相位偏移器"
           },
           "description": {
-            "ja": "前にダッシュする。ダッシュしている間は、敵から受けるダメージがすべて無効になる。\nクールダウン:14秒",
-            "en": "Dash forward. While dashing, all damage from enemies is negated.\nCooldown:14seconds",
-            "ko": "앞으로 돌진합니다. 돌진하는 동안에는 적으로부터 받는 모든 데미지가 무효화됩니다.\n재사용 대기 시간:14초",
-            "es": "Avanza rápidamente. Durante el avance, todo el daño de los enemigos es negado.\nTiempo de carga:14segundos",
-            "ar": "اندفع للأمام. أثناء الاندفاع، يتم إلغاء كل الضرر من الأعداء.\nفترة الانتظار: 14 ث",
-            "fr": "Sprint vers l'avant. Pendant le sprint, tous les dégâts des ennemis sont annulés.\nDélai:14secondes",
-            "zhTw": "向前衝刺。衝刺時，所有來自敵人的傷害都會被無效化。\n冷卻時間:14秒"
+            "ja": "前にダッシュする。ダッシュしている間は、敵から受けるダメージがすべて無効になる。\nクールダウン:15秒",
+            "en": "Dash forward. While dashing, all damage from enemies is negated.\nCooldown:15seconds",
+            "ko": "앞으로 돌진합니다. 돌진하는 동안에는 적으로부터 받는 모든 데미지가 무효화됩니다.\n재사용 대기 시간:15초",
+            "es": "Avanza rápidamente. Durante el avance, todo el daño de los enemigos es negado.\nTiempo de carga:15segundos",
+            "ar": "اندفع للأمام. أثناء الاندفاع، يتم إلغاء كل الضرر من الأعداء.\nفترة الانتظار: 15 ث",
+            "fr": "Sprint vers l'avant. Pendant le sprint, tous les dégâts des ennemis sont annulés.\nDélai:15secondes",
+            "zhTw": "向前衝刺。衝刺時，所有來自敵人的傷害都會被無效化。\n冷卻時間:15秒"
           },
           "recommendation": {
             "level": 5,
@@ -9608,13 +9608,13 @@
             "zhTw": "超能時空鞋"
           },
           "description": {
-            "ja": "3秒間経過後に、発動地点まで瞬時に戻る。この間に受けたダメージはすべて回復する。\nクールダウン:14秒",
-            "en": "After 3 seconds, instantly return to the activation point. All damage taken during this time is healed.\nCooldown:14seconds",
-            "ko": "3초 후에 발동 지점으로 즉시 돌아옵니다. 이 동안 받은 모든 데미지가 회복됩니다.\n재사용 대기 시간:14초",
-            "es": "Después de 3 segundos, regresa instantáneamente al punto de activación. Todo el daño recibido durante este tiempo se cura.\nTiempo de carga:14segundos",
-            "ar": "بعد 3 ثوانٍ، عد فوراً إلى نقطة التفعيل. يتم شفاء كل الضرر المتلقى خلال هذا الوقت.\nفترة الانتظار: 14 ث",
-            "fr": "Après 3 secondes, retourne instantanément au point d'activation. Tous les dégâts subis pendant ce temps sont soignés.\nDélai:14secondes",
-            "zhTw": "3秒後立即返回啟動點。期間受到的所有傷害都會恢復。\n冷卻時間:14秒"
+            "ja": "3秒間経過後に、発動地点まで瞬時に戻る。この間に受けたダメージはすべて回復する。\nクールダウン:12秒",
+            "en": "After 3 seconds, instantly return to the activation point. All damage taken during this time is healed.\nCooldown:12seconds",
+            "ko": "3초 후에 발동 지점으로 즉시 돌아옵니다. 이 동안 받은 모든 데미지가 회복됩니다.\n재사용 대기 시간:12초",
+            "es": "Después de 3 segundos, regresa instantáneamente al punto de activación. Todo el daño recibido durante este tiempo se cura.\nTiempo de carga:12segundos",
+            "ar": "بعد 3 ثوانٍ، عد فوراً إلى نقطة التفعيل. يتم شفاء كل الضرر المتلقى خلال هذا الوقت.\nفترة الانتظار: 12 ث",
+            "fr": "Après 3 secondes, retourne instantanément au point d'activation. Tous les dégâts subis pendant ce temps sont soignés.\nDélai:12secondes",
+            "zhTw": "3秒後立即返回啟動點。期間受到的所有傷害都會恢復。\n冷卻時間:12秒"
           },
           "recommendation": {
             "level": 4,
@@ -10266,13 +10266,13 @@
             "zhTw": "睡眠模擬器"
           },
           "description": {
-            "ja": "1.5秒間眠りに落ちるが、HPが全回復する。\nクールダウン:18秒",
-            "en": "Fall asleep for 1.5 seconds but fully recover HP.\nCooldown:18seconds",
-            "ko": "1.5초 동안 잠에 들지만 HP가 전부 회복됩니다.\n재사용 대기 시간:18초",
-            "es": "Cae dormido durante 1.5 segundos pero recupera toda la salud.\nTiempo de carga:18segundos",
-            "ar": "ينام لمدة 1.5 ثانية لكن يستعيد نقاط الصحة بالكامل.\nفترة الانتظار: 18 ث",
-            "fr": "S'endort pendant 1.5 secondes mais récupère tous les PV.\nDélai:18secondes",
-            "zhTw": "睡眠1.5秒但完全回復生命值。\n冷卻時間:18秒"
+            "ja": "1.5秒間眠りに落ちるが、HPが全回復する。\nクールダウン:11秒",
+            "en": "Fall asleep for 1.5 seconds but fully recover HP.\nCooldown:11seconds",
+            "ko": "1.5초 동안 잠에 들지만 HP가 전부 회복됩니다.\n재사용 대기 시간:11초",
+            "es": "Cae dormido durante 1.5 segundos pero recupera toda la salud.\nTiempo de carga:11segundos",
+            "ar": "ينام لمدة 1.5 ثانية لكن يستعيد نقاط الصحة بالكامل.\nفترة الانتظار: 11 ث",
+            "fr": "S'endort pendant 1.5 secondes mais récupère tous les PV.\nDélai:11secondes",
+            "zhTw": "睡眠1.5秒但完全回復生命值。\n冷卻時間:11秒"
           },
           "recommendation": {
             "level": 3,
@@ -10361,7 +10361,7 @@
         {
           "id": 23000168,
           "name": {
-            "ja": "ダメージブースター",
+            "ja": "ブースターブースト",
             "en": "Boosted Booster",
             "ko": "부스터 증폭",
             "es": "AMPLIFICADAÑO POTENCIADO",
@@ -10370,7 +10370,7 @@
             "zhTw": "功率全開"
           },
           "description": {
-            "ja": "ダメージブースターの効果範囲が50％拡大し、与えるダメージがさらに15％増加する。",
+            "ja": "ブースターブーストの効果範囲が50％拡大し、与えるダメージがさらに15％増加する。",
             "en": "Damage booster's effect range is increased by 50% and dealt damage is increased by an additional 15%.",
             "ko": "데미지 부스터의 효과 범위가 50% 확대되고, 주는 데미지가 추가로 15% 증가합니다.",
             "es": "El rango de efecto del potenciador de daño aumenta en un 50% y el daño causado aumenta un 15% adicional.",
@@ -10554,7 +10554,7 @@
           "recommendation": {
             "level": 5,
             "reason": {
-              "ja": "移動速度が大幅に上昇することで弾除けがしやすくなり、敵似接近しやすくかなり強力。",
+              "ja": "移動速度が大幅に上昇することで弾除けがしやすくなり、敵に接近しやすくかなり強力。",
               "en": "By significantly increasing the movement speed, it is easy to avoid bullets, easy to approach enemies, and quite powerful.",
               "ko": "이동 속도가 크게 상승하여 탄을 피하기 쉽고, 적에게 접근하기 쉽고 상당히 강력합니다.",
               "es": "Al aumentar significativamente la velocidad de movimiento, es fácil evitar balas, acercarse a los enemigos y es bastante poderoso.",
@@ -10587,7 +10587,7 @@
           "recommendation": {
             "level": 5,
             "reason": {
-              "ja": "性能が強いものの移動速度上昇の方がほのかに性能が勝るが、編成やモードによってはこちらを使用されることもある",
+              "ja": "性能は強いものの移動速度上昇の方が僅かに性能が勝る。しかし編成やモードによってはこちらを使用されることもある",
               "en": "Although the performance is strong, the increase in movement speed is slightly superior in performance, but depending on the formation and mode, this may be used.",
               "ko": "성능은 강하지만 이동 속도 상승이 약간 우세하지만, 편성과 모드에 따라 이것을 사용할 수도 있습니다.",
               "es": "Aunque el rendimiento es fuerte, el aumento de velocidad de movimiento es ligeramente superior, pero según la formación y el modo, esto puede ser usado.",
@@ -10611,18 +10611,18 @@
             "zhTw": "強效維他命"
           },
           "description": {
-            "ja": "4秒間、毎秒960ずつHPを回復する。\nクールダウン:12秒",
-            "en": "Heal 960 HP per second for 4 seconds.\nCooldown:12seconds",
-            "ko": "4초 동안 초당 960씩 HP를 회복합니다.\n재사용 대기 시간:12초",
-            "es": "Cura 960 PS por segundo durante 4 segundos.\nTiempo de carga:12segundos",
-            "ar": "يشفي 960 نقطة صحة في الثانية لمدة 4 ثوانٍ.\nفترة الانتظار: 12 ث",
-            "fr": "Soigne 960 PV par seconde pendant 4 secondes.\nDélai:12secondes",
-            "zhTw": "在4秒內每秒回復960生命值。\n冷卻時間:12秒"
+            "ja": "4秒間、毎秒960ずつHPを回復する。\nクールダウン:15秒",
+            "en": "Heal 960 HP per second for 4 seconds.\nCooldown:15seconds",
+            "ko": "4초 동안 초당 960씩 HP를 회복합니다.\n재사용 대기 시간:15초",
+            "es": "Cura 960 PS por segundo durante 4 segundos.\nTiempo de carga:15segundos",
+            "ar": "يشفي 960 نقطة صحة في الثانية لمدة 4 ثوانٍ.\nفترة الانتظار: 15 ث",
+            "fr": "Soigne 960 PV par seconde pendant 4 secondes.\nDélai:15secondes",
+            "zhTw": "在4秒內每秒回復960生命值。\n冷卻時間:15秒"
           },
           "recommendation": {
             "level": 5,
             "reason": {
-              "ja": "回復量がかなり多く耐久性がかなり上昇し使いやすくて強力。",
+              "ja": "回復量がかなり多く耐久性も大幅に上昇しているため使いやすくて強力。",
               "en": "The amount of recovery is quite large, the durability is significantly increased, easy to use, and powerful.",
               "ko": "회복량이 상당히 많고 내구성이 상당히 증가하여 사용하기 쉽고 강력합니다.",
               "es": "La cantidad de recuperación es bastante grande, la durabilidad aumenta significativamente, es fácil de usar y poderoso.",
@@ -12478,7 +12478,7 @@
           "recommendation": {
             "level": 5,
             "reason": {
-              "ja": "汎用性があまりにも高いためどの状況でも使用できるため、一番無難。",
+              "ja": "汎用性があまりにも高く、どの状況でも使用できるため一番無難。",
               "en": "It is the safest because it can be used in any situation due to its high versatility.",
               "ko": "다양성이 높아 어떤 상황에서도 사용할 수 있기 때문에 가장 안전합니다.",
               "es": "Es la opción más segura porque se puede usar en cualquier situación debido a su alta versatilidad.",
@@ -13894,7 +13894,7 @@
           "recommendation": {
             "level": 5,
             "reason": {
-              "ja": "タレットを投げて直後に打つと確実にスローダウンを与えられるため強力",
+              "ja": "タレットを投げた直後に打つと確実にスローダウンを与えられるため強力",
               "en": "It is powerful because you can give a slow down effect by throwing the turret and hitting it immediately.",
               "ko": "터렛을 던지고 바로 공격하면 확실히 슬로우다운 효과를 줄 수 있어 강력합니다.",
               "es": "Es poderoso porque puedes aplicar un efecto de ralentización lanzando la torreta y golpeándola inmediatamente.",
@@ -14172,7 +14172,7 @@
           "recommendation": {
             "level": 3,
             "reason": {
-              "ja": "生存性が大幅に向上するため前線をキープしやすいが、もう一つのガジェットが優秀すぎる。",
+              "ja": "生存性が大幅に向上するため前線をキープしやすいが使用するのが少し難しい",
               "en": "It is easy to keep the front line because the survivability is greatly improved, but the other gadget is too excellent.",
               "ko": "생존성이 크게 향상되어 전선을 유지하기 쉽지만 다른 가제트가 너무 뛰어납니다.",
               "es": "Es fácil mantener la línea frontal porque la supervivencia mejora mucho, pero el otro gadget es demasiado excelente.",
@@ -14345,7 +14345,7 @@
           "recommendation": {
             "level": 5,
             "reason": {
-              "ja": "火力がかなり上昇するため安定性とタンクを倒しやすくなるため強力。",
+              "ja": "火力がかなり上昇し、安定性とタンクを倒しやすくなるため強力。",
               "en": "It is powerful because the firepower increases significantly, making it easier to defeat tanks.",
               "ko": "화력이 상당히 증가하여 안정성이 높아지고 탱크를 쉽게 물리칠 수 있어 강력합니다.",
               "es": "Es poderoso porque el poder de fuego aumenta significativamente, facilitando la derrota de tanques.",
@@ -14607,7 +14607,7 @@
             "zhTw": "超級火箭"
           },
           "description": {
-            "ja": "次の通常攻撃で、大きさと速度が増したど迫力のロケットを発射し、壁までも破壊する。\nクールダウン:15秒",
+            "ja": "次の通常攻撃で、大きさと速度が増したド迫力のロケットを発射し、壁までも破壊する。\nクールダウン:15秒",
             "en": "Fires a powerful rocket that increases in size and speed, breaking walls.\nCooldown:15seconds",
             "ko": "다음 일반 공격으로 크기와 속도가 증가한 강력한 로켓을 발사하여 벽도 파괴합니다.\n재사용 대기 시간:15초",
             "es": "Dispara un cohete poderoso que aumenta en tamaño y velocidad, rompiendo paredes.\nTiempo de carga:15segundos",
@@ -14770,7 +14770,7 @@
         {
           "id": 23000310,
           "name": {
-            "ja": "グラウンドシェイカー",
+            "ja": "グラウンドシェーカー",
             "en": "Stomper",
             "ko": "발 구르기",
             "es": "PISOTEADOR",
@@ -14779,13 +14779,13 @@
             "zhTw": "重踏鐵靴"
           },
           "description": {
-            "ja": "必殺技の突進を中断し、地面を豪快に踏みつけて、近くにいるすべての敵の移動速度を1.5秒間低下させる。\nクールダウン:10秒",
-            "en": "Interrupts Super's charge to stomp the ground magnificently, reducing movement speed of all nearby enemies for 1.5 seconds.\nCooldown:10seconds",
-            "ko": "궁극기의 돌진을 중단하고 지면을 호쾌하게 밟아 가까이 있는 모든 적의 이동 속도를 1.5초간 감소시킵니다.\n재사용 대기 시간:10초",
-            "es": "Interrumpe la carga del Super para pisar el suelo magníficamente, reduciendo la velocidad de movimiento de todos los enemigos cercanos durante 1.5 segundos.\nTiempo de carga:10segundos",
-            "ar": "يقطع شحن السوبر ليدوس الأرض بقوة، مخفضاً سرعة حركة جميع الأعداء القريبين لمدة 1.5 ثانية.\nفترة الانتظار: 10 ث",
-            "fr": "Interrompt la charge du Super pour piétiner le sol magnifiquement, réduisant la vitesse de déplacement de tous les ennemis proches pendant 1,5 secondes.\nDélai:10secondes",
-            "zhTw": "中斷超級技能的衝鋒，magnificently踩踏地面，使附近所有敵人的移動速度降低1.5秒。\n冷卻時間:10秒"
+            "ja": "必殺技の突進を中断し、地面を豪快に踏みつけて、近くにいるすべての敵の移動速度を1.5秒間低下させる。\nクールダウン:14秒",
+            "en": "Interrupts Super's charge to stomp the ground magnificently, reducing movement speed of all nearby enemies for 1.5 seconds.\nCooldown:14seconds",
+            "ko": "궁극기의 돌진을 중단하고 지면을 호쾌하게 밟아 가까이 있는 모든 적의 이동 속도를 1.5초간 감소시킵니다.\n재사용 대기 시간:14초",
+            "es": "Interrumpe la carga del Super para pisar el suelo magníficamente, reduciendo la velocidad de movimiento de todos los enemigos cercanos durante 1.5 segundos.\nTiempo de carga:14segundos",
+            "ar": "يقطع شحن السوبر ليدوس الأرض بقوة، مخفضاً سرعة حركة جميع الأعداء القريبين لمدة 1.5 ثانية.\nفترة الانتظار: 14 ث",
+            "fr": "Interrompt la charge du Super pour piétiner le sol magnifiquement, réduisant la vitesse de déplacement de tous les ennemis proches pendant 1,5 secondes.\nDélai:14secondes",
+            "zhTw": "中斷超級技能的衝鋒，magnificently踩踏地面，使附近所有敵人的移動速度降低1.5秒。\n冷卻時間:14秒"
           },
           "recommendation": {
             "level": 5,
@@ -14951,13 +14951,13 @@
             "zhTw": "穿甲銀彈"
           },
           "description": {
-            "ja": "コルトの次の攻撃は、射程が伸び、障害物を破壊し、3040ダメージを与えます。\nクールダウン:16秒",
-            "en": "Colt's next attack has increased range, breaks obstacles, and deals 3040 damage.\nCooldown:16seconds",
-            "ko": "콜트의 다음 공격은 사거리가 늘어나고, 장애물을 파괴하며, 3040 데미지를 줍니다.\n재사용 대기 시간:16초",
-            "es": "El siguiente ataque de Colt tiene mayor alcance, rompe obstáculos y causa 3040 de daño.\nTiempo de carga:16segundos",
-            "ar": "هجوم كولت التالي له مدى أكبر، يحطم العوائق، ويسبب 3040 ضرراً.\nفترة الانتظار: 16 ث",
-            "fr": "La prochaine attaque de Colt a une portée accrue, brise les obstacles et inflige 3040 dégâts.\nDélai:16secondes",
-            "zhTw": "柯爾特的下次攻擊射程增加，可破壞障礙物，造成3040點傷害。\n冷卻時間:16秒"
+            "ja": "次の攻撃で、通常攻撃の弾丸2発分の威力を持つ強力なショットを1発放つ。このショットは障害物や敵を貫通する\nクールダウン:16秒",
+            "en": "The next attack fires a powerful shot with the power of 2 normal attack bullets. This shot penetrates obstacles and enemies.\nCooldown:16seconds",
+            "ko": "다음 공격으로, 일반 공격의 탄약 2발분의 파워를 가진 강력한 샷을 1발 발사합니다. 이 샷은 장애물과 적을 관통합니다.\n재사용 대기 시간:16초",
+            "es": "El siguiente ataque dispara un potente tiro con el poder de dos balas de ataque normales. Este disparo atraviesa obstáculos y enemigos.\nTiempo de carga:16segundos",
+            "ar": "يطلق الهجوم التالي رصاصة قوية بقوة رصاصتين هجوميتين عاديتين. هذه اللقطة تخترق العوائق والأعداء.\nفترة الانتظار: 16 ث",
+            "fr": "L'attaque suivante tire un tir puissant avec la puissance de deux balles d'attaque normales. Ce tir pénètre les obstacles et les ennemis.\nDélai:16secondes",
+            "zhTw": "下一次攻擊會發出相當於兩顆普通攻擊子彈威力的強力射擊。此射擊可穿透障礙物和敵人。\n冷卻時間:16秒"
           },
           "recommendation": {
             "level": 5,

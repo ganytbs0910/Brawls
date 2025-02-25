@@ -15,8 +15,8 @@ const modeNameMapping = {
     zhTw: "排位賽",
     icon: require('../../assets/GameModeIcons/rank_front.png')
   },
-  "バトルロワイヤル": {
-    ja: "バトルロワイヤル",
+  "バトルロイヤル": {
+    ja: "バトルロイヤル",
     en: "Battle Royale",
     ko: "쇼다운",
     es: "SUPERVIVENCIA",
@@ -25,8 +25,8 @@ const modeNameMapping = {
     zhTw: "荒野生死鬥",
     icon: require('../../assets/GameModeIcons/showdown_icon.png')
   },
-  "ソロバトルロワイヤル": {
-    ja: "ソロバトルロワイヤル",
+  "ソロバトルロイヤル": {
+    ja: "ソロバトルロイヤル",
     en: "Solo Battle Royale",
     ko: "솔로 쇼다운",
     es: "SUPERVIVENCIA (SOLO)",
@@ -35,8 +35,8 @@ const modeNameMapping = {
     zhTw: "單人荒野生死鬥",
     icon: require('../../assets/GameModeIcons/showdown_icon.png')
   },
-  "デュオバトルロワイヤル": {
-    ja: "デュオバトルロワイヤル",
+  "デュオバトルロイヤル": {
+    ja: "デュオバトルロイヤル",
     en: "Duo Showdown",
     ko: "듀오 쇼다운",
     es: "SUPERVIVENCIA (DÚO)",
@@ -156,7 +156,7 @@ const getCurrentModes = (currentLanguage: string) => {
       color: "#99ff66",
     },
     {
-      name: "デュオバトルロワイヤル",
+      name: "デュオバトルロイヤル",
       color: "#99ff66",
     },
     {

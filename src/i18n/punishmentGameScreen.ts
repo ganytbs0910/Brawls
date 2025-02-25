@@ -38,7 +38,7 @@ export const ja: PunishmentGameTranslation = {
     extreme: '鬼畜'
   },
   gameModes: {
-    duoShowdown: 'バトルロワイヤル（デュオ）',
+    duoShowdown: 'バトルロイヤル（デュオ）',
     gemGrab: 'エメラルドハント',
     brawlball: 'ブロストライカー',
     knockout: 'ノックアウト'
