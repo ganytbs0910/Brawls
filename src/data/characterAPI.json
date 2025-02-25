@@ -38,7 +38,7 @@
             "ja": "ウォールライド",
             "en": "Kick Push",
             "ko": "킥 앤푸시",
-            "es": "",
+            "es": "PATADA CON IMPULSO",
             "ar": "اركل، ادفع",
             "fr": "",
             "zhTw": "牆面滑行"
@@ -71,7 +71,7 @@
             "ja": "レネゲード",
             "en": "Renegade",
             "ko": "레니게이드",
-            "es": "",
+            "es": "RENEGADO",
             "ar": "المتمرد",
             "fr": "",
             "zhTw": "嘻哈嗆聲"
@@ -106,7 +106,7 @@
             "ja": "コンボトリック",
             "en": "Regulate",
             "ko": "컨트롤 킥",
-            "es": "",
+            "es": "ESTILO LIBRE",
             "ar": "التنظيم",
             "fr": "",
             "zhTw": "我的地盤"
@@ -139,7 +139,7 @@
             "ja": "ゴン攻め",
             "en": "All Eyez On Me",
             "ko": "시선집중",
-            "es": "",
+            "es": "OJOS BIEN ABIERTOS",
             "ar": "كل الأنظار علي",
             "fr": "",
             "zhTw": "萬眾焦點"
@@ -210,7 +210,7 @@
             "ja": "プリズンカード",
             "en": "Do Not Pass Go",
             "ko": "통행금지",
-            "es": "",
+            "es": "COMODÍN",
             "ar": "اذهب إلى السجن حالاً",
             "fr": "",
             "zhTw": "直達目標"
@@ -243,7 +243,7 @@
             "ja": "法の曲解",
             "en": "Rule Bending",
             "ko": "꼼수",
-            "es": "",
+            "es": "ROMPERREGLAS",
             "ar": "التلاعب بالقواعد",
             "fr": "",
             "zhTw": "扭曲規則"
@@ -278,7 +278,7 @@
             "ja": "マンション・オブ・ミープル",
             "en": "Mansions Of Meeple",
             "ko": "미플의 저택",
-            "es": "",
+            "es": "TIRADA MAESTRA",
             "ar": "قصور میبل",
             "fr": "",
             "zhTw": "謎寶莊園"
@@ -311,7 +311,7 @@
             "ja": "キレ落ち",
             "en": "Ragequit",
             "ko": "분노의 종료",
-            "es": "",
+            "es": "MAL PERDER",
             "ar": "الانسحاب الغاضب",
             "fr": "",
             "zhTw": "憤怒中離"
@@ -383,7 +383,7 @@
             "ja": "グリグリシールド",
             "en": "Gris-Gris Shield",
             "ko": "그리그리 실드",
-            "es": "",
+            "es": "GRIS-GRIS BLINDADO",
             "ar": "جريس جريس المحمي",
             "fr": "",
             "zhTw": "特製娃娃"
@@ -416,7 +416,7 @@
             "ja": "スローニードル",
             "en": "Slow Needle",
             "ko": "마비의 바늘",
-            "es": "",
+            "es": "ALFILERES PARALIZANTES",
             "ar": "إبر التخدير",
             "fr": "",
             "zhTw": "麻痺飛針"
@@ -451,7 +451,7 @@
             "ja": "ブードゥーチャイル",
             "en": "Voodoo Doll",
             "ko": "주술의 힘",
-            "es": "",
+            "es": "MAESTRA DE LOS ELEMENTOS",
             "ar": "فودو تشيلي",
             "fr": "",
             "zhTw": "巫毒之子"
@@ -484,7 +484,7 @@
             "ja": "エレメンタリスト",
             "en": "Elementalist",
             "ko": "원소술사",
-            "es": "",
+            "es": "ELEMENTALISTA",
             "ar": "قائمة العناصر",
             "fr": "",
             "zhTw": "元素加護"
@@ -556,7 +556,7 @@
             "ja": "ポルターヘイスト",
             "en": "Spooky Speedster",
             "ko": "오싹한 스피드광",
-            "es": "",
+            "es": "ESPRINT ESPECTRAL",
             "ar": "مقاتل سريع مخيف",
             "fr": "",
             "zhTw": "急速掠襲"
@@ -589,7 +589,7 @@
             "ja": "スペクトルアーマー",
             "en": "Hardened Hoodie",
             "ko": "튼튼한 후드티",
-            "es": "",
+            "es": "SUDADERA ANTIBALAS",
             "ar": "الغطاء المقوى",
             "fr": "",
             "zhTw": "硬化帽T"
@@ -624,7 +624,7 @@
             "ja": "ロングアーム",
             "en": "Long Arms",
             "ko": "팔척귀신",
-            "es": "",
+            "es": "BRAZOS LARGOS",
             "ar": "الأذرع الطويلة",
             "fr": "",
             "zhTw": "詭異長臂"
@@ -657,7 +657,7 @@
             "ja": "ジャンプスケア",
             "en": "Jump Scare",
             "ko": "깜짝 놀랐지",
-            "es": "",
+            "es": "APARICIÓN ABRUMADORA",
             "ar": "القفزة المفزعة",
             "fr": "",
             "zhTw": "嚇你一跳"
@@ -727,7 +727,7 @@
             "ja": "名刀「たちわりおろし」",
             "en": "Studied the Blade",
             "ko": "회칼 연마",
-            "es": "",
+            "es": "ESTOCADA DE ESTURIÓN",
             "ar": "شفرات الطاهي المحترف",
             "fr": "",
             "zhTw": "精湛刀工"
@@ -760,7 +760,7 @@
             "ja": "秘技「流れ鮨」",
             "en": "Nigiri Nemesis",
             "ko": "절치부심",
-            "es": "",
+            "es": "DEFENSA DE DASHI",
             "ar": "فنان سوشي النجيري",
             "fr": "",
             "zhTw": "握壽司之護"
@@ -795,7 +795,7 @@
             "ja": "攻法「出汁走り」",
             "en": "Dashi Dash",
             "ko": "전진 베기 수련",
-            "es": "",
+            "es": "FILO FUTOMAKI",
             "ar": "اندفاع الساموراي",
             "fr": "",
             "zhTw": "元氣高湯"
@@ -828,7 +828,7 @@
             "ja": "療法「活き造り」",
             "en": "Hosomaki Healing",
             "ko": "치유의 김초밥",
-            "es": "",
+            "es": "SALSA DE SOJA SANADORA",
             "ar": "تعافي الهوسوماكي",
             "fr": "",
             "zhTw": "回生細卷"
@@ -899,7 +899,7 @@
             "ja": "石切り",
             "en": "Skipping Stones",
             "ko": "땅수제비",
-            "es": "",
+            "es": "AVALANCHA",
             "ar": "الحجارة القافزة",
             "fr": "",
             "zhTw": "靈巧飛石"
@@ -932,7 +932,7 @@
             "ja": "マイナーズ・ハイ",
             "en": "Speeding Ticket",
             "ko": "과속 딱지",
-            "es": "",
+            "es": "QUINTA MARCHA",
             "ar": "مخالفة السرعة",
             "fr": "",
             "zhTw": "超速駕駛"
@@ -967,7 +967,7 @@
             "ja": "ここ掘れチューチュー",
             "en": "Dodgy Digging",
             "ko": "보물찾기",
-            "es": "",
+            "es": "CAZATESOROS",
             "ar": "كنز التنقيب",
             "fr": "",
             "zhTw": "危險挖掘"
@@ -1000,7 +1000,7 @@
             "ja": "ラットレース",
             "en": "Rat Race",
             "ko": "치열한 경주",
-            "es": "",
+            "es": "ACELERÓN",
             "ar": "سباق الفئران",
             "fr": "",
             "zhTw": "全速前進"
@@ -1071,7 +1071,7 @@
             "ja": "早手の斥候",
             "en": "Recon",
             "ko": "정찰",
-            "es": "",
+            "es": "INSPECCIÓN",
             "ar": "الاستخبارات",
             "fr": "",
             "zhTw": "戰場老兵"
@@ -1104,7 +1104,7 @@
             "ja": "熟練の兵士",
             "en": "Pumping Up",
             "ko": "활력 증강",
-            "es": "",
+            "es": "RECARGA A PRESIÓN",
             "ar": "التعبئة",
             "fr": "",
             "zhTw": "以戰養戰"
@@ -1139,7 +1139,7 @@
             "ja": "刹那の鼓動",
             "en": "Snappy Shooting",
             "ko": "황금빛 사격",
-            "es": "",
+            "es": "TESOROS DEL MAR",
             "ar": "إطلاق النار السريع",
             "fr": "",
             "zhTw": "戰功赫赫"
@@ -1172,7 +1172,7 @@
             "ja": "雌伏の撤退",
             "en": "Tactical Retreat",
             "ko": "작전상 후퇴",
-            "es": "",
+            "es": "RETIRADA TÁCTICA",
             "ar": "الانسحاب التكتيكي",
             "fr": "",
             "zhTw": "轉移陣地"
@@ -1243,7 +1243,7 @@
             "ja": "トロトロリロード",
             "en": "Floor Is Fine",
             "ko": "끈적한 바닥",
-            "es": "",
+            "es": "SUELO DE SABORES",
             "ar": "أرضية المثلجات",
             "fr": "",
             "zhTw": "夢幻領地"
@@ -1276,7 +1276,7 @@
             "ja": "ペイント＆ペイン",
             "en": "Making A Mess",
             "ko": "엉망진창",
-            "es": "",
+            "es": "DESASTRE ARTÍSTICO",
             "ar": "إحداث الفوضى",
             "fr": "",
             "zhTw": "到處搗亂"
@@ -1311,7 +1311,7 @@
             "ja": "フレンドシップ",
             "en": "Friendship Is Great",
             "ko": "위대한 우정",
-            "es": "",
+            "es": "AMIGOS PARA SIEMPRE",
             "ar": "جمال الصداقة",
             "fr": "",
             "zhTw": "絢爛友誼"
@@ -1344,7 +1344,7 @@
             "ja": "シュガーマシマシ",
             "en": "Healthy Additives",
             "ko": "건강한 첨가물",
-            "es": "",
+            "es": "ADITIVOS SALUDABLES",
             "ar": "إضافات صحية",
             "fr": "",
             "zhTw": "天然添加物"
@@ -1414,7 +1414,7 @@
             "ja": "フラワースティンガー",
             "en": "Flower Stinger",
             "ko": "따끔한 일격",
-            "es": "",
+            "es": "ESPINA VENENOSA",
             "ar": "الشائك",
             "fr": "",
             "zhTw": "芒刺在背"
@@ -1447,7 +1447,7 @@
             "ja": "警戒態勢",
             "en": "Vigilance",
             "ko": "경계 태세",
-            "es": "",
+            "es": "VIGILANCIA",
             "ar": "اليقظة",
             "fr": "",
             "zhTw": "一葉知秋"
@@ -1482,7 +1482,7 @@
             "ja": "ゲッタウェイ",
             "en": "Vanish",
             "ko": "증발",
-            "es": "",
+            "es": "DESAPARICIÓN",
             "ar": "الاختفاء",
             "fr": "",
             "zhTw": "藏木於林"
@@ -1515,7 +1515,7 @@
             "ja": "植え替え",
             "en": "Repot",
             "ko": "분갈이",
-            "es": "",
+            "es": "TRASPLANTE",
             "ar": "إعادة الزرع",
             "fr": "",
             "zhTw": "落地生根"
@@ -1585,7 +1585,7 @@
             "ja": "エクスポーズ",
             "en": "Expose",
             "ko": "약점 공략",
-            "es": "",
+            "es": "EXPONER",
             "ar": "الكشف",
             "fr": "",
             "zhTw": "龍破斬"
@@ -1618,7 +1618,7 @@
             "ja": "速弾き",
             "en": "Shredding",
             "ko": "슈레딩",
-            "es": "",
+            "es": "TRITURAR",
             "ar": "التمزيق",
             "fr": "",
             "zhTw": "華麗速彈"
@@ -1653,7 +1653,7 @@
             "ja": "アッパーカット",
             "en": "Upper Cut",
             "ko": "어퍼컷",
-            "es": "",
+            "es": "GANCHO",
             "ar": "الضربة العلوية",
             "fr": "",
             "zhTw": "升龍擊"
@@ -1686,7 +1686,7 @@
             "ja": "ラストスタンド",
             "en": "Last Stand",
             "ko": "최후의 몸부림",
-            "es": "",
+            "es": "EL ÚLTIMO BASTIÓN",
             "ar": "صمود إلى النهاية",
             "fr": "",
             "zhTw": "最後一搏"
@@ -1757,7 +1757,7 @@
             "ja": "エネルギー転化",
             "en": "Empower",
             "ko": "힐링타임",
-            "es": "",
+            "es": "ANTÍDOTO NATURAL",
             "ar": "التمكين",
             "fr": "",
             "zhTw": "毒來毒往"
@@ -1790,7 +1790,7 @@
             "ja": "空中浮遊",
             "en": "Flow",
             "ko": "흘러흘러",
-            "es": "",
+            "es": "HIDROFLUJO",
             "ar": "التدفق",
             "fr": "",
             "zhTw": "熟稔水性"
@@ -1825,7 +1825,7 @@
             "ja": "激痛テイクオフ",
             "en": "Stinging Flight",
             "ko": "따끔한 비행",
-            "es": "",
+            "es": "AGUIJÓN VAMPÍRICO",
             "ar": "طيران مؤلم",
             "fr": "",
             "zhTw": "叮人飛蟲"
@@ -1858,7 +1858,7 @@
             "ja": "ピアシングアロー",
             "en": "Master Fletcher",
             "ko": "화살 마스터",
-            "es": "",
+            "es": "FLECHA ROBUSTA",
             "ar": "محترف القنص",
             "fr": "",
             "zhTw": "銳利飛刺"
@@ -1929,7 +1929,7 @@
             "ja": "アップテンポ",
             "en": "Fast Beats",
             "ko": "빠른 비트",
-            "es": "",
+            "es": "CRESCENDO",
             "ar": "إيقاعات سريعة",
             "fr": "",
             "zhTw": "動感節拍"
@@ -1962,7 +1962,7 @@
             "ja": "ボーナストラック",
             "en": "Extended Mix",
             "ko": "익스텐디드 믹스",
-            "es": "",
+            "es": "BIS",
             "ar": "النسخة المطولة",
             "fr": "",
             "zhTw": "混音加長版"
@@ -1997,7 +1997,7 @@
             "ja": "フォルテシモ",
             "en": "Perfect Pitch",
             "ko": "퍼펙트 피치",
-            "es": "",
+            "es": "ENTONACIÓN PERFECTA",
             "ar": "طبقة صوتية مثالية",
             "fr": "",
             "zhTw": "絕對美聲"
@@ -2030,7 +2030,7 @@
             "ja": "インタールード",
             "en": "Interlude",
             "ko": "간주",
-            "es": "",
+            "es": "INTERLUDIO",
             "ar": "فاصل موسيقي",
             "fr": "",
             "zhTw": "舒緩間奏"
@@ -2102,7 +2102,7 @@
             "ja": "防衛プロトコル",
             "en": "Protocol Protect",
             "ko": "방위 프로토콜",
-            "es": "",
+            "es": "PROTOCOLO: PROTECCIÓN",
             "ar": "البروتوكول : الحماية",
             "fr": "",
             "zhTw": "協議：保護"
@@ -2135,7 +2135,7 @@
             "ja": "装填プロトコル",
             "en": "Protocol Assist",
             "ko": "지원 프로토콜",
-            "es": "",
+            "es": "PROTOCOLO: AYUDA",
             "ar": "البروتوكول: المساعدة",
             "fr": "",
             "zhTw": "協議：支援"
@@ -2170,7 +2170,7 @@
             "ja": "交換指令",
             "en": "Order Swap",
             "ko": "교환 명령",
-            "es": "",
+            "es": "ORDEN: CAMBIO",
             "ar": "الأمر: التبديل",
             "fr": "",
             "zhTw": "指令：交換"
@@ -2203,7 +2203,7 @@
             "ja": "撤退指令",
             "en": "Order Fall Back",
             "ko": "후퇴 명령",
-            "es": "",
+            "es": "ORDEN: RETIRADA",
             "ar": "الأمر: الانسحاب التكتيكي",
             "fr": "",
             "zhTw": "指令：撤離"
@@ -2274,7 +2274,7 @@
             "ja": "上昇志向",
             "en": "Power Hungry",
             "ko": "파워 헝그리",
-            "es": "",
+            "es": "SED DE PODER",
             "ar": "التعطش للسلطة",
             "fr": "",
             "zhTw": "元氣滿滿"
@@ -2307,7 +2307,7 @@
             "ja": "甘えんぼ",
             "en": "Overly Attached",
             "ko": "과잉 애착",
-            "es": "",
+            "es": "APEGO EXCESIVO",
             "ar": "التعلق الشديد",
             "fr": "",
             "zhTw": "超級黏人"
@@ -2342,7 +2342,7 @@
             "ja": "段ボール箱",
             "en": "Cardboard Box",
             "ko": "종이 상자",
-            "es": "",
+            "es": "CAJA DE CARTÓN",
             "ar": "صندوق الكرتون",
             "fr": "",
             "zhTw": "紙箱躱貓貓"
@@ -2375,7 +2375,7 @@
             "ja": "チーズバーガー",
             "en": "Cheeseburger",
             "ko": "치즈버거",
-            "es": "",
+            "es": "HAMBURGUESA CON QUESO",
             "ar": "برجر بالجبن",
             "fr": "",
             "zhTw": "吃漢堡囉"
@@ -2446,7 +2446,7 @@
             "ja": "モンキーパンチ",
             "en": "Monkey Business",
             "ko": "몽키 비즈니스",
-            "es": "",
+            "es": "ASUNTOS DE PRIMATES",
             "ar": "شغل قرود",
             "fr": "",
             "zhTw": "猴子偷彈"
@@ -2479,7 +2479,7 @@
             "ja": "ミリオンヒット",
             "en": "Record Smash",
             "ko": "쇼킹 스매시",
-            "es": "",
+            "es": "DISCO DE PLATINO",
             "ar": "تحطيم الرقم القياسي",
             "fr": "",
             "zhTw": "爆裂破音"
@@ -2514,7 +2514,7 @@
             "ja": "声量解放",
             "en": "Clipping Scream",
             "ko": "고막 주의",
-            "es": "",
+            "es": "ROMPETÍMPANOS",
             "ar": "صرخة الصمم",
             "fr": "",
             "zhTw": "刺耳尖叫"
@@ -2547,7 +2547,7 @@
             "ja": "猿まわし",
             "en": "Presto",
             "ko": "구름판",
-            "es": "",
+            "es": "PRESTO",
             "ar": "سرعة الإيقاع",
             "fr": "",
             "zhTw": "凌空飛躍"
@@ -2618,7 +2618,7 @@
             "ja": "オーイタイ酸",
             "en": "Digestive",
             "ko": "소화",
-            "es": "",
+            "es": "DIGESTIÓN",
             "ar": "الهضم",
             "fr": "",
             "zhTw": "消化殆盡"
@@ -2651,7 +2651,7 @@
             "ja": "スライミーロード",
             "en": "Slimy",
             "ko": "끈끈이",
-            "es": "",
+            "es": "ATRAPAPIÉS",
             "ar": "الأثر اللزج",
             "fr": "",
             "zhTw": "膠戰守則"
@@ -2686,7 +2686,7 @@
             "ja": "ペットスパイダー",
             "en": "Spiders",
             "ko": "거미",
-            "es": "",
+            "es": "ARAÑAS",
             "ar": "العناكب",
             "fr": "",
             "zhTw": "蜘蛛攻勢"
@@ -2719,7 +2719,7 @@
             "ja": "パーソナルスペース",
             "en": "Personal Space",
             "ko": "프라이버시",
-            "es": "",
+            "es": "ESPACIO PERSONAL",
             "ar": "الانطوائية",
             "fr": "",
             "zhTw": "從繭修復"
@@ -2790,7 +2790,7 @@
             "ja": "ピットストップ",
             "en": "Pit Stop",
             "ko": "정차",
-            "es": "",
+            "es": "PRÓXIMA PARADA",
             "ar": "استراحة الصيانة",
             "fr": "",
             "zhTw": "擴建鐵路"
@@ -2823,7 +2823,7 @@
             "ja": "切符を拝見！",
             "en": "Tickets Please",
             "ko": "티켓 검사",
-            "es": "",
+            "es": "EL BILLETE, POR FAVOR",
             "ar": "التذكرة، من فضلك",
             "fr": "",
             "zhTw": "驗票正身"
@@ -2858,7 +2858,7 @@
             "ja": "振替輸送",
             "en": "Rerouting",
             "ko": "경로 변경",
-            "es": "",
+            "es": "DESVÍO",
             "ar": "تغيير المسار",
             "fr": "",
             "zhTw": "路線變更"
@@ -2891,7 +2891,7 @@
             "ja": "幽霊鉄道",
             "en": "Ghost Train",
             "ko": "유령 열차",
-            "es": "",
+            "es": "TREN FANTASMAL",
             "ar": "قطار الأشباح",
             "fr": "",
             "zhTw": "幽靈列車"
@@ -2962,7 +2962,7 @@
             "ja": "熱管理",
             "en": "Heat Retention",
             "ko": "열기 유지",
-            "es": "",
+            "es": "CONSERVACIÓN DEL CALOR",
             "ar": "الاحتفاظ بالحرارة",
             "fr": "",
             "zhTw": "蓄勢保溫"
@@ -2995,7 +2995,7 @@
             "ja": "熱防御",
             "en": "Heat Shield",
             "ko": "열기 보호막",
-            "es": "",
+            "es": "ESCUDO DE CALOR",
             "ar": "درع الحرارة",
             "fr": "",
             "zhTw": "炙熱護盾"
@@ -3030,7 +3030,7 @@
             "ja": "焼きすぎ君",
             "en": "Overcooked",
             "ko": "오버쿡",
-            "es": "",
+            "es": "CHAMUSCADAS",
             "ar": "نار عالية",
             "fr": "",
             "zhTw": "烤焦如焚"
@@ -3063,7 +3063,7 @@
             "ja": "愛の形",
             "en": "Made With Love",
             "ko": "사랑의 쿠키",
-            "es": "",
+            "es": "HECHAS CON AMOR",
             "ar": "معمول بالحب",
             "fr": "",
             "zhTw": "用愛烘焙"
@@ -3135,7 +3135,7 @@
             "ja": "ファストフード",
             "en": "Fast Food",
             "ko": "패스트푸드",
-            "es": "",
+            "es": "COMIDA RÁPIDA",
             "ar": "الوجبات السريعة",
             "fr": "",
             "zhTw": "速食主義"
@@ -3168,7 +3168,7 @@
             "ja": "セルフサービス",
             "en": "Self-Service",
             "ko": "셀프 서비스",
-            "es": "",
+            "es": "AUTOSERVICIO",
             "ar": "الخدمة الذاتية",
             "fr": "",
             "zhTw": "自助補給"
@@ -3203,7 +3203,7 @@
             "ja": "ダブルソーセージ",
             "en": "Double Sausage",
             "ko": "더블 소시지",
-            "es": "",
+            "es": "SALCHICHA DOBLE",
             "ar": "النقانق المزدوجة",
             "fr": "",
             "zhTw": "雙份熱狗"
@@ -3236,7 +3236,7 @@
             "ja": "マシマシマスタード",
             "en": "Extra Mustard",
             "ko": "추가 머스터드",
-            "es": "",
+            "es": "EXTRA DE MOSTAZA",
             "ar": "المزيد من الخردل",
             "fr": "",
             "zhTw": "芥末加量"
@@ -3307,7 +3307,7 @@
             "ja": "キノコンボ",
             "en": "Comboshrooms",
             "ko": "콤보 버섯",
-            "es": "",
+            "es": "CHAMPICOMBOS",
             "ar": "الفطر المضاعف",
             "fr": "",
             "zhTw": "蘑性大發"
@@ -3340,7 +3340,7 @@
             "ja": "キノコキングダム",
             "en": "Mushroom Kingdom",
             "ko": "버섯 왕국",
-            "es": "",
+            "es": "REINO DE LOS CHAMPIÑONES",
             "ar": "مملكة الفطر",
             "fr": "",
             "zhTw": "蘑菇王國"
@@ -3375,7 +3375,7 @@
             "ja": "キノコジャンプ",
             "en": "Replanting",
             "ko": "다시 심기",
-            "es": "",
+            "es": "REPLANTAR",
             "ar": "إعادة الزرع",
             "fr": "",
             "zhTw": "快速移植"
@@ -3408,7 +3408,7 @@
             "ja": "フウジタケ",
             "en": "Poison Mushroom",
             "ko": "독버섯",
-            "es": "",
+            "es": "CHAMPIÑÓN VENENOSO",
             "ar": "الفطر السام",
             "fr": "",
             "zhTw": "沉默毒菇"
@@ -3480,7 +3480,7 @@
             "ja": "ブロウアップ",
             "en": "Its Gonna Blow",
             "ko": "터질 것 같아!",
-            "es": "",
+            "es": "VA A EXPLOTAR",
             "ar": "الانفجار الوشيك",
             "fr": "",
             "zhTw": "驚爆時刻"
@@ -3513,7 +3513,7 @@
             "ja": "一時避難",
             "en": "Take Cover",
             "ko": "뒤로 숨어!",
-            "es": "",
+            "es": "¡A CUBIERTO!",
             "ar": "احتم بساتر",
             "fr": "",
             "zhTw": "堅實掩體"
@@ -3548,7 +3548,7 @@
             "ja": "ウォーターバルーン",
             "en": "Water Balloons",
             "ko": "물풍선",
-            "es": "",
+            "es": "GLOBOS DE AGUA",
             "ar": "البالونات المائية",
             "fr": "",
             "zhTw": "水球攻勢"
@@ -3581,7 +3581,7 @@
             "ja": "隠れ裳",
             "en": "Barricade",
             "ko": "방어벽",
-            "es": "",
+            "es": "BARRICADA",
             "ar": "الحاجز",
             "fr": "",
             "zhTw": "銅牆鐵壁"
@@ -3652,7 +3652,7 @@
             "ja": "精密射撃",
             "en": "Pinpoint Precision",
             "ko": "나노 정밀도",
-            "es": "",
+            "es": "PRECISIÓN PRECISA",
             "ar": "الدقة التامة",
             "fr": "",
             "zhTw": "精準射擊"
@@ -3685,7 +3685,7 @@
             "ja": "ガクブルソニック",
             "en": "Tremors",
             "ko": "후덜덜",
-            "es": "",
+            "es": "TEMBLORES",
             "ar": "الارتجاف",
             "fr": "",
             "zhTw": "震顫衝擊"
@@ -3720,7 +3720,7 @@
             "ja": "戦略的撤退",
             "en": "Disengage",
             "ko": "철수!",
-            "es": "",
+            "es": "SUÉLTAME",
             "ar": "فك الاشتباك",
             "fr": "",
             "zhTw": "撤離戰場"
@@ -3753,7 +3753,7 @@
             "ja": "フィニッシャー",
             "en": "Finish Them",
             "ko": "로켓 피니시",
-            "es": "",
+            "es": "ACABA CON ELLOS",
             "ar": "اقض عليهم !",
             "fr": "",
             "zhTw": "終結必殺"
@@ -3825,7 +3825,7 @@
             "ja": "恋は盲目",
             "en": "Love Is Blind",
             "ko": "사랑의 콩깍지",
-            "es": "",
+            "es": "AMOR CIEGO",
             "ar": "مرأة الحب عمياء",
             "fr": "",
             "zhTw": "盲目狂戀"
@@ -3858,7 +3858,7 @@
             "ja": "君に夢中",
             "en": "Obsession",
             "ko": "집착",
-            "es": "",
+            "es": "OBSESIÓN",
             "ar": "الهوس",
             "fr": "",
             "zhTw": "痴心絕對"
@@ -3893,7 +3893,7 @@
             "ja": "トランス",
             "en": "Spellbound",
             "ko": "오싹한 매력",
-            "es": "",
+            "es": "FAROL EMBRUJADO",
             "ar": "الفانوس المسحور",
             "fr": "",
             "zhTw": "當局者迷"
@@ -3926,7 +3926,7 @@
             "ja": "ダイブ",
             "en": "Dive",
             "ko": "잠수",
-            "es": "",
+            "es": "BUCEO",
             "ar": "الغوص",
             "fr": "",
             "zhTw": "潛形匿影"
@@ -3997,7 +3997,7 @@
             "ja": "高速演算",
             "en": "Quick Maths",
             "ko": "재빠른 계산",
-            "es": "",
+            "es": "ÁLGEBRA",
             "ar": "التفكك السريع",
             "fr": "",
             "zhTw": "高速運算"
@@ -4030,7 +4030,7 @@
             "ja": "レコーディング",
             "en": "Recording",
             "ko": "녹화 모드",
-            "es": "",
+            "es": "GRABACIÓN",
             "ar": "التسجيل",
             "fr": "",
             "zhTw": "機底記錄"
@@ -4065,7 +4065,7 @@
             "ja": "実力行使",
             "en": "Out Of Line",
             "ko": "라인 이탈",
-            "es": "",
+            "es": "SIN COBERTURA",
             "ar": "بلا الحدود",
             "fr": "",
             "zhTw": "緊急訊號"
@@ -4098,7 +4098,7 @@
             "ja": "一斉起爆",
             "en": "Hacks",
             "ko": "해킹 주의!",
-            "es": "",
+            "es": "CUENTA ATRÁS",
             "ar": "الاختراق",
             "fr": "",
             "zhTw": "駭客入侵"
@@ -4169,7 +4169,7 @@
             "ja": "視界良好",
             "en": "In My Sights",
             "ko": "시야 확보",
-            "es": "",
+            "es": "A LA VISTA",
             "ar": "في مرمى نيراني",
             "fr": "",
             "zhTw": "凝神遠眺"
@@ -4202,7 +4202,7 @@
             "ja": "ハードキャンディ",
             "en": "Hard Candy",
             "ko": "알사탕",
-            "es": "",
+            "es": "CARAMELO RESISTENTE",
             "ar": "الحلوى الصلبة",
             "fr": "",
             "zhTw": "堅硬糖衣"
@@ -4237,7 +4237,7 @@
             "ja": "キャラメトル",
             "en": "Caramelize",
             "ko": "설탕 코팅",
-            "es": "",
+            "es": "CARAMELIZACIÓN",
             "ar": "الكرملة",
             "fr": "",
             "zhTw": "黏人焦糖"
@@ -4270,7 +4270,7 @@
             "ja": "クッキースクランブル",
             "en": "Cookie Crumbs",
             "ko": "쿠키 부스러기",
-            "es": "",
+            "es": "MIGAS DE GALLETAS",
             "ar": "فتات البسكويت",
             "fr": "",
             "zhTw": "餅乾碎屑"
@@ -4341,7 +4341,7 @@
             "ja": "マリーシア",
             "en": "Fake Injury",
             "ko": "할리우드 액션",
-            "es": "",
+            "es": "HERIDA FALSA",
             "ar": "إصابة وهمية",
             "fr": "",
             "zhTw": "虛假傷害"
@@ -4374,7 +4374,7 @@
             "ja": "ワープマジック",
             "en": "New Perspective",
             "ko": "새로운 관점",
-            "es": "",
+            "es": "NUEVA PERSPECTIVA",
             "ar": "منظور جدید",
             "fr": "",
             "zhTw": "煥然一新"
@@ -4409,7 +4409,7 @@
             "ja": "ウォーキングステッキ",
             "en": "Walking Cane",
             "ko": "지팡이",
-            "es": "",
+            "es": "BASTÓN",
             "ar": "العكاز",
             "fr": "",
             "zhTw": "虛假傷害"
@@ -4442,7 +4442,7 @@
             "ja": "グランドピアノ",
             "en": "Grand Piano",
             "ko": "그랜드 피아",
-            "es": "",
+            "es": "PIANO DE COLA",
             "ar": "البيانو الكبير",
             "fr": "",
             "zhTw": "煥然一新"
@@ -4513,7 +4513,7 @@
             "ja": "ドデかい一撃",
             "en": "Single Bellomania",
             "ko": "강력한 한 방울",
-            "es": "",
+            "es": "LLUVIA DE CASCABELES",
             "ar": "جنون الأجراس الفردي",
             "fr": "",
             "zhTw": "獨鈴絕技"
@@ -4546,7 +4546,7 @@
             "ja": "ネタばらし",
             "en": "Sneak Peek",
             "ko": "살짝 엿보기",
-            "es": "",
+            "es": "VEO VEO",
             "ar": "نظرة أولية",
             "fr": "",
             "zhTw": "料事如神"
@@ -4581,7 +4581,7 @@
             "ja": "ダイスロール",
             "en": "Spicy Dice",
             "ko": "주사위 게임",
-            "es": "",
+            "es": "DADO TRUCADO",
             "ar": "النرد العجيب",
             "fr": "",
             "zhTw": "隨骰應變"
@@ -4614,7 +4614,7 @@
             "ja": "ドッキリキャンディ",
             "en": "Candy Beans",
             "ko": "젤리 빈",
-            "es": "",
+            "es": "GRAGEAS",
             "ar": "حبوب الحلوى",
             "fr": "",
             "zhTw": "奇幻糖果豆"
@@ -4685,7 +4685,7 @@
             "ja": "ブロックバスター",
             "en": "Blockbuster",
             "ko": "블록버스터",
-            "es": "",
+            "es": "TAQUILLAZO",
             "ar": "أنجح الأفلام",
             "fr": "",
             "zhTw": "強檔鉅作"
@@ -4718,7 +4718,7 @@
             "ja": "防弾チョッキ",
             "en": "Kevlar Vest",
             "ko": "방탄 조끼",
-            "es": "",
+            "es": "CHALECO PROTECTOR",
             "ar": "السترة الواقية",
             "fr": "",
             "zhTw": "道具防彈背心"
@@ -4753,7 +4753,7 @@
             "ja": "ユーティリティベルト",
             "en": "Utility Belt",
             "ko": "유틸리티 벨트",
-            "es": "",
+            "es": "CINTURÓN DE HERRAMIENTAS",
             "ar": "حزام الأدوات",
             "fr": "",
             "zhTw": "劇組萬用腰帶"
@@ -4786,7 +4786,7 @@
             "ja": "コマ落とし",
             "en": "Slo-Mo Replay",
             "ko": "슬로 모션 리플레이",
-            "es": "",
+            "es": "A CÁMARA LENTA",
             "ar": "إعادة بالتصوير البطيء",
             "fr": "",
             "zhTw": "慢動作重播"
@@ -4856,7 +4856,7 @@
             "ja": "ヒールアップ",
             "en": "Heal Up",
             "ko": "회복뿜뿜",
-            "es": "",
+            "es": "SALUD ABUNDANTE",
             "ar": "منفاخ الصحة",
             "fr": "",
             "zhTw": "靈氣吸收"
@@ -4889,7 +4889,7 @@
             "ja": "スピリットアニマル",
             "en": "Spirit Animal",
             "ko": "든든한 내 친구",
-            "es": "",
+            "es": "GUÍA ESPIRITUAL",
             "ar": "الروح العجيبة",
             "fr": "",
             "zhTw": "靈友助戰"
@@ -4924,7 +4924,7 @@
             "ja": "ゴーストクラッカー",
             "en": "Ghost Cracker",
             "ko": "유령 팡팡",
-            "es": "",
+            "es": "EXPLOSIÓN ESPIRITUAL",
             "ar": "مفرقع البالونات الغريب",
             "fr": "",
             "zhTw": "爆裂幽魂"
@@ -4957,7 +4957,7 @@
             "ja": "ソウルスイッチャー",
             "en": "Soul Switcher",
             "ko": "영혼 교체",
-            "es": "",
+            "es": "CAMBIO DE ALMA",
             "ar": "مبدل الأرواح",
             "fr": "",
             "zhTw": "靈界契約"
@@ -5028,7 +5028,7 @@
             "ja": "元気復活",
             "en": "Hearty Recovery",
             "ko": "원기회복",
-            "es": "",
+            "es": "SE CURA HOY Y NO MAÑANA",
             "ar": "استدعاء الصحة",
             "fr": "",
             "zhTw": "鐵血復甦"
@@ -5061,7 +5061,7 @@
             "ja": "リモートチャージ",
             "en": "Remote Recharge",
             "ko": "원격 충전",
-            "es": "",
+            "es": "RECARGA REMOTA",
             "ar": "إعادة الشحن عن بعد",
             "fr": "",
             "zhTw": "蓄勢待發"
@@ -5096,7 +5096,7 @@
             "ja": "磁場",
             "en": "Magnetic Field",
             "ko": "자기장",
-            "es": "",
+            "es": "CAMPO MAGNÉTICO",
             "ar": "الحقل المغناطيسي",
             "fr": "",
             "zhTw": "磁性力場"
@@ -5129,7 +5129,7 @@
             "ja": "パルスウェーブ",
             "en": "Pulse Repellent",
             "ko": "전류 분출",
-            "es": "",
+            "es": "PULSO REPELENTE",
             "ar": "النبضات الصاعقة",
             "fr": "",
             "zhTw": "脈衝驅逐"
@@ -5199,7 +5199,7 @@
             "ja": "ぺったんこシール",
             "en": "Stencil Glue",
             "ko": "스텐실 글루",
-            "es": "",
+            "es": "PEGAMENTO",
             "ar": "صمغ المرسام",
             "fr": "",
             "zhTw": "強力吸盤"
@@ -5232,7 +5232,7 @@
             "ja": "詰替用インク",
             "en": "Ink Refills",
             "ko": "먹물 리필",
-            "es": "",
+            "es": "RELLENO DE TINTA",
             "ar": "عبوات الحبر",
             "fr": "",
             "zhTw": "墨囊充足"
@@ -5267,7 +5267,7 @@
             "ja": "スリープスター",
             "en": "Dormant Star",
             "ko": "잠꾸러기 별",
-            "es": "",
+            "es": "ESTRELLA DURMIENTE",
             "ar": "النجم الساكن",
             "fr": "",
             "zhTw": "海星伏擊"
@@ -5300,7 +5300,7 @@
             "ja": "黒潮",
             "en": "Phat Splatter",
             "ko": "먹물 웅덩이",
-            "es": "",
+            "es": "SALPICADURAS",
             "ar": "قنبلة الحبر",
             "fr": "",
             "zhTw": "超量墨球"
@@ -5371,7 +5371,7 @@
             "ja": "ブラックパウダー",
             "en": "Black Powder",
             "ko": "검은 화약",
-            "es": "",
+            "es": "PÓLVORA",
             "ar": "المسحوق الأسود",
             "fr": "",
             "zhTw": "淘氣火藥"
@@ -5404,7 +5404,7 @@
             "ja": "親知らず",
             "en": "Wisdom Tooth",
             "ko": "사랑니",
-            "es": "",
+            "es": "MUELA DEL JUICIO",
             "ar": "ضرس العقل",
             "fr": "",
             "zhTw": "爆裂智齒"
@@ -5439,7 +5439,7 @@
             "ja": "シュガーラッシュ",
             "en": "Sugar Rush",
             "ko": "슈가 러시",
-            "es": "",
+            "es": "SUBIDÓN DE AZÚCAR",
             "ar": "الاستعجال",
             "fr": "",
             "zhTw": "甜蜜猛攻"
@@ -5472,7 +5472,7 @@
             "ja": "衝突試験",
             "en": "Crash Test",
             "ko": "충돌 테스트",
-            "es": "",
+            "es": "PRUEBA DE CHOQUE",
             "ar": "اختبار الصدمات",
             "fr": "",
             "zhTw": "搗蛋衝擊"
@@ -5542,7 +5542,7 @@
             "ja": "特等席",
             "en": "Stage View",
             "ko": "무대인사",
-            "es": "",
+            "es": "ARRIBA EL TELÓN",
             "ar": "وراء الستار",
             "fr": "",
             "zhTw": "舞台視角"
@@ -5575,7 +5575,7 @@
             "ja": "発声練習",
             "en": "Vocal Warm-Up",
             "ko": "발성연습",
-            "es": "",
+            "es": "CALENTAMIENTO VOCAL",
             "ar": "إحماء صوتي",
             "fr": "",
             "zhTw": "熱身彩排"
@@ -5610,7 +5610,7 @@
             "ja": "低音スピーカー",
             "en": "Drop The Bass",
             "ko": "강력한 베이스",
-            "es": "",
+            "es": "ALTAVOZ",
             "ar": "مكبر الصوت",
             "fr": "",
             "zhTw": "震撼低音"
@@ -5643,7 +5643,7 @@
             "ja": "舞台裏直行券",
             "en": "Backstage Pass",
             "ko": "백스테이지 통행증",
-            "es": "",
+            "es": "ENTRE BAMBALINAS",
             "ar": "تصريح الكواليس",
             "fr": "",
             "zhTw": "完美退場"
@@ -5714,7 +5714,7 @@
             "ja": "摂理への冒涜",
             "en": "Unnatural Order",
             "ko": "어색한 순서",
-            "es": "",
+            "es": "DESORDEN NATURAL",
             "ar": "ترتيب غير طبيعي",
             "fr": "",
             "zhTw": "不自然規律"
@@ -5747,7 +5747,7 @@
             "ja": "ベビーシャワー",
             "en": "Happy Surprise",
             "ko": "해피 서프라이즈",
-            "es": "",
+            "es": "SORPRESITA",
             "ar": "مفاجأة سارة",
             "fr": "",
             "zhTw": "意外驚喜"
@@ -5782,7 +5782,7 @@
             "ja": "ベビーシッター",
             "en": "Gotta Go",
             "ko": "이만 가볼게!",
-            "es": "",
+            "es": "CHAO, PESCAO",
             "ar": "الفرار",
             "fr": "",
             "zhTw": "走為上策"
@@ -5815,7 +5815,7 @@
             "ja": "無条件の愛",
             "en": "Motherly Love",
             "ko": "모성애",
-            "es": "",
+            "es": "AMOR MATERNO",
             "ar": "حب الأم",
             "fr": "",
             "zhTw": "偉大母愛"
@@ -5887,7 +5887,7 @@
             "ja": "ボーナススニーカー",
             "en": "Fresh Kicks",
             "ko": "충전 킥",
-            "es": "",
+            "es": "PUNTAPIÉS FURIOSOS",
             "ar": "ركلات متجددة",
             "fr": "",
             "zhTw": "電光追擊"
@@ -5920,7 +5920,7 @@
             "ja": "厚底シューズ",
             "en": "Divine Soles",
             "ko": "신성한 신발",
-            "es": "",
+            "es": "SUELAS DIVINAS",
             "ar": "الركلات الساحقة",
             "fr": "",
             "zhTw": "金鐘罩"
@@ -5955,7 +5955,7 @@
             "ja": "ポップシュート",
             "en": "Corn Fu",
             "ko": "팝콘폭탄",
-            "es": "",
+            "es": "LLUVIA DE MAÍZ",
             "ar": "كورن فو",
             "fr": "",
             "zhTw": "暴玉梨花"
@@ -5988,7 +5988,7 @@
             "ja": "まわし蹴り",
             "en": "Roundhouse Kick",
             "ko": "돌려차기",
-            "es": "",
+            "es": "PATADA CIRCULAR",
             "ar": "الركلة الدائرية",
             "fr": "",
             "zhTw": "眩暈彈腿"
@@ -6059,7 +6059,7 @@
             "ja": "即興劇",
             "en": "Improvise",
             "ko": "임기응변",
-            "es": "",
+            "es": "IMPROVISACIÓN",
             "ar": "الارتجال",
             "fr": "",
             "zhTw": "即興演出"
@@ -6092,7 +6092,7 @@
             "ja": "痛いの飛んでけ",
             "en": "Sealed With A Kiss",
             "ko": "사랑을 담아",
-            "es": "",
+            "es": "LEGIÓN DE FANS",
             "ar": "مع قبلاتي",
             "fr": "",
             "zhTw": "療傷吻戲"
@@ -6127,7 +6127,7 @@
             "ja": "シャッターチャンス",
             "en": "Freeze Frame",
             "ko": "정지 화면",
-            "es": "",
+            "es": "POSE GLAMUROSA",
             "ar": "صورة تذكارية",
             "fr": "",
             "zhTw": "定格鏡頭"
@@ -6160,7 +6160,7 @@
             "ja": "スタントダブル",
             "en": "Stunt Double",
             "ko": "대역",
-            "es": "",
+            "es": "DOBLE DE RIESGO",
             "ar": "الدوبلير",
             "fr": "",
             "zhTw": "特技替身"
@@ -6232,7 +6232,7 @@
             "ja": "相棒の加護",
             "en": "Force Field",
             "ko": "힘의 장",
-            "es": "",
+            "es": "CAMPO DE FUERZA",
             "ar": "مجال القوة",
             "fr": "",
             "zhTw": "防禦力場"
@@ -6265,7 +6265,7 @@
             "ja": "メタルショック",
             "en": "Heavy Metal",
             "ko": "작별 선물",
-            "es": "",
+            "es": "AUTODESTRUCCIÓN",
             "ar": "معادن ثقيلة",
             "fr": "",
             "zhTw": "重裝機甲"
@@ -6300,7 +6300,7 @@
             "ja": "急速チャージ",
             "en": "Jolting Volts",
             "ko": "급속 충전",
-            "es": "",
+            "es": "DESCARGA ELÉCTRICA",
             "ar": "فولت دعم",
             "fr": "",
             "zhTw": "電能補給"
@@ -6333,7 +6333,7 @@
             "ja": "ツールボックス",
             "en": "Toolbox",
             "ko": "공구함",
-            "es": "",
+            "es": "CAJA DE HERRAMIENTAS",
             "ar": "صندوق الأدوات",
             "fr": "",
             "zhTw": "維修工具箱"
@@ -6404,7 +6404,7 @@
             "ja": "綺麗好き",
             "en": "First Bash",
             "ko": "뜨거운 분노",
-            "es": "",
+            "es": "PRIMER ESCOBAZO",
             "ar": "القصف الأول",
             "fr": "",
             "zhTw": "越掃越氣"
@@ -6437,7 +6437,7 @@
             "ja": "大激怒",
             "en": "Mad As Heck",
             "ko": "분노 폭발",
-            "es": "",
+            "es": "FUERA DE SÍ",
             "ar": "الغضب الكبير",
             "fr": "",
             "zhTw": "怒氣衝衝衝"
@@ -6472,7 +6472,7 @@
             "ja": "鎮静剤",
             "en": "Chill Pill",
             "ko": "진정제",
-            "es": "",
+            "es": "TRANQUILIZANTE",
             "ar": "الهدوء",
             "fr": "",
             "zhTw": "鎮定劑"
@@ -6505,7 +6505,7 @@
             "ja": "バナナの皮",
             "en": "Rotten Banana",
             "ko": "썩은 바나나",
-            "es": "",
+            "es": "PLÁTANO PODRIDO",
             "ar": "الموزة الفاسدة",
             "fr": "",
             "zhTw": "腐爛香蕉"
@@ -6575,7 +6575,7 @@
             "ja": "釣りはいらねぇ",
             "en": "Keep The Change",
             "ko": "잔돈은 가지세요",
-            "es": "",
+            "es": "QUÉDATE CON EL CAMBIO",
             "ar": "احتفظ بالباقي",
             "fr": "",
             "zhTw": "不用找了"
@@ -6590,15 +6590,15 @@
             "zhTw": "憤怒爆發，普通攻擊發射速度提升25%。"
           },
           "recommendation": {
-            "level": 4,
+            "level": 5,
             "reason": {
-              "ja": "悪くはないがもう一つのスタパの方が強い。",
-              "en": "It's not bad, but the other starpa is stronger.",
-              "ko": "나쁘지 않지만 다른 스타파가 더 강합니다.",
-              "es": "No está mal, pero el otro poder estelar es más fuerte.",
-              "ar": "ليس سيئاً، لكن القوة النجمية الأخرى أقوى.",
-              "fr": "Ce n'est pas mal, mais l'autre pouvoir stellaire est plus fort.",
-              "zhTw": "不算差，但另一個星能力更強。"
+              "ja": "対タンクに対して超強力になるため編成によっては使用される",
+              "en": "It is used depending on the formation because it becomes super powerful against tanks.",
+              "ko": "탱크에 대해 초강력이 되기 때문에 편성에 따라 사용됩니다.",
+              "es": "Se utiliza dependiendo de la formación porque se vuelve súper poderoso contra los tanques.",
+              "ar": "يُستخدم اعتمادًا على التشكيل لأنه يصبح قويًا للغاية ضد الدبابات.",
+              "fr": "Il est utilisé en fonction de la formation car il devient super puissant contre les tanks.",
+              "zhTw": "根據編隊使用，因為對付坦克時超強力。"
             }
           }
         },
@@ -6608,7 +6608,7 @@
             "ja": "V字回復",
             "en": "Business Resilience",
             "ko": "경기 회복",
-            "es": "",
+            "es": "RESISTENCIA EMPRESARIAL",
             "ar": "الموارد المتجددة",
             "fr": "",
             "zhTw": "止跌回升"
@@ -6643,7 +6643,7 @@
             "ja": "ブタの貯金箱",
             "en": "Piggy Bank",
             "ko": "돼지 저금통",
-            "es": "",
+            "es": "HUCHA",
             "ar": "الحصالة",
             "fr": "",
             "zhTw": "豬公撲滿"
@@ -6676,7 +6676,7 @@
             "ja": "コインの雨",
             "en": "Coin Shower",
             "ko": "코인 샤워",
-            "es": "",
+            "es": "LLUVIA DE MONEDAS",
             "ar": "سيل النقود",
             "fr": "",
             "zhTw": "沐浴金幣"
@@ -6691,15 +6691,15 @@
             "zhTw": "普通攻擊發射的硬幣數量增加33%。\n冷卻時間:11秒"
           },
           "recommendation": {
-            "level": 1,
+            "level": 3,
             "reason": {
-              "ja": "弱い",
-              "en": "Weak",
-              "ko": "약함",
-              "es": "Débil",
-              "ar": "ضعيف",
-              "fr": "Faible",
-              "zhTw": "較弱"
+              "ja": "壁破壊の必要がなくなった場合のみ使用されるがほとんど使用されない",
+              "en": "It is used only when the need to break walls is eliminated, but it is rarely used.",
+              "ko": "벽을 부수는 필요가 없어진 경우에만 사용되지만 거의 사용되지 않습니다.",
+              "es": "Se utiliza solo cuando se elimina la necesidad de romper paredes, pero rara vez se utiliza.",
+              "ar": "يُستخدم فقط عندما يتم القضاء على الحاجة إلى تحطيم الجدران، لكنه نادراً ما يُستخدم.",
+              "fr": "Il est utilisé uniquement lorsque le besoin de casser les murs est éliminé, mais il est rarement utilisé.",
+              "zhTw": "只有在不需要破壞牆壁時才使用，但幾乎不會使用。"
             }
           }
         }
@@ -6748,7 +6748,7 @@
             "ja": "魚雷改",
             "en": "Tougher Torpedo",
             "ko": "더 강한 튜브",
-            "es": "",
+            "es": "BOYA REFORZADA",
             "ar": "الطوربيد الأقوى",
             "fr": "",
             "zhTw": "裝備升級"
@@ -6781,7 +6781,7 @@
             "ja": "鋭い眼差し",
             "en": "Eyes Sharp",
             "ko": "날카로운 눈",
-            "es": "",
+            "es": "OJO AVIZOR",
             "ar": "النظر الثاقب",
             "fr": "",
             "zhTw": "目光如炬"
@@ -6816,7 +6816,7 @@
             "ja": "緊急ブイ",
             "en": "Reserve Buoy",
             "ko": "예비 튜브",
-            "es": "",
+            "es": "SALVAVIDAS DE REPUESTO",
             "ar": "عوامة الاحتياط",
             "fr": "",
             "zhTw": "備用浮板"
@@ -6849,7 +6849,7 @@
             "ja": "X線ゴーグル",
             "en": "X-Ray Shades",
             "ko": "엑스레이 고글",
-            "es": "",
+            "es": "GAFAS DE RAYOS X",
             "ar": "نظارات الأشعة السينية",
             "fr": "",
             "zhTw": "X光塁鏡"
@@ -6919,7 +6919,7 @@
             "ja": "巡回警備",
             "en": "Foot Patrol",
             "ko": "도보 순찰",
-            "es": "",
+            "es": "RONDA DE VIGILANCIA",
             "ar": "الدورية المترجلة",
             "fr": "",
             "zhTw": "徒步巡邏"
@@ -6952,7 +6952,7 @@
             "ja": "Xファクター",
             "en": "X-Factor",
             "ko": "X-팩터",
-            "es": "",
+            "es": "FACTOR X",
             "ar": "إكس فاكتور",
             "fr": "",
             "zhTw": "X因子"
@@ -6987,7 +6987,7 @@
             "ja": "監視カメラ",
             "en": "Watchtower",
             "ko": "감시 레이더",
-            "es": "",
+            "es": "TORRE DE VIGILANCIA",
             "ar": "برج المراقبة",
             "fr": "",
             "zhTw": "守望塔"
@@ -7020,7 +7020,7 @@
             "ja": "無線チェック",
             "en": "Radio Check",
             "ko": "라디오 체크",
-            "es": "",
+            "es": "RADIODIFUSIÓN",
             "ar": "فحص التردد اللاسلكي",
             "fr": "",
             "zhTw": "通訊檢查"
@@ -7091,7 +7091,7 @@
             "ja": "連鎖反応",
             "en": "Chain Reaction",
             "ko": "연쇄 반응",
-            "es": "",
+            "es": "REACCIÓN EN CADENA",
             "ar": "التفاعل المتسلسل",
             "fr": "",
             "zhTw": "連鎖反應"
@@ -7124,7 +7124,7 @@
             "ja": "超粘着質",
             "en": "Super Sticky",
             "ko": "초강력 끈끈이",
-            "es": "",
+            "es": "SUPERVISCOSAS",
             "ar": "عالي اللزوجة",
             "fr": "",
             "zhTw": "黏性驚人"
@@ -7159,7 +7159,7 @@
             "ja": "ネジ巻き",
             "en": "Windup",
             "ko": "와인드업",
-            "es": "",
+            "es": "PEGAJOSIDAD",
             "ar": "الصمغ الكثيف",
             "fr": "",
             "zhTw": "伸縮自如"
@@ -7192,7 +7192,7 @@
             "ja": "不純物",
             "en": "Residue",
             "ko": "불순물",
-            "es": "",
+            "es": "RESIDUO",
             "ar": "الرواسب",
             "fr": "",
             "zhTw": "黏性殘渣"
@@ -7262,7 +7262,7 @@
             "ja": "フレミング",
             "en": "Positive Feedback",
             "ko": "긍정적인 피드백",
-            "es": "",
+            "es": "RETROEFECTO POSITIVO",
             "ar": "مردود إيجابي",
             "fr": "",
             "zhTw": "正向回饋"
@@ -7295,7 +7295,7 @@
             "ja": "感電",
             "en": "Grounded",
             "ko": "일시 고장",
-            "es": "",
+            "es": "CASTIGADO",
             "ar": "منع التعبئة",
             "fr": "",
             "zhTw": "彈盡糧絕"
@@ -7330,7 +7330,7 @@
             "ja": "ビリビリトラップ",
             "en": "Nest Egg",
             "ko": "예비용 함정",
-            "es": "",
+            "es": "PREVENCIÓN EXPLOSIVA",
             "ar": "مصيدة الفئران",
             "fr": "",
             "zhTw": "緩速陷阱"
@@ -7363,7 +7363,7 @@
             "ja": "逆極性",
             "en": "Reverse Polarity",
             "ko": "역극성",
-            "es": "",
+            "es": "POLARIDAD INVERTIDA",
             "ar": "القطبية العكسية",
             "fr": "",
             "zhTw": "極性反轉"
@@ -7436,7 +7436,7 @@
             "ja": "抵抗ゼロ",
             "en": "Zero Drag",
             "ko": "제로 드래그",
-            "es": "",
+            "es": "SIN FRENOS",
             "ar": "ممنوع الوقوف",
             "fr": "",
             "zhTw": "飛速突進"
@@ -7469,7 +7469,7 @@
             "ja": "ガスヒール",
             "en": "Gaso-Heal",
             "ko": "가스 힐",
-            "es": "",
+            "es": "CHUTE DE ADRENALINA",
             "ar": "تموين الوقود",
             "fr": "",
             "zhTw": "燃料補給"
@@ -7504,7 +7504,7 @@
             "ja": "スピードゾーン",
             "en": "Speed Zone",
             "ko": "스피드존",
-            "es": "",
+            "es": "A TODA MECHA",
             "ar": "منطقة السرعة",
             "fr": "",
             "zhTw": "加速區域"
@@ -7537,7 +7537,7 @@
             "ja": "ブレイクスルー",
             "en": "Breakthrough",
             "ko": "파괴적 돌진",
-            "es": "",
+            "es": "DEMOLICIÓN",
             "ar": "الاختراق",
             "fr": "",
             "zhTw": "爆破表演"
@@ -7608,7 +7608,7 @@
             "ja": "制空",
             "en": "Air Superiority",
             "ko": "제공권",
-            "es": "",
+            "es": "SUPERIORIDAD AÉREA",
             "ar": "التفوق الجوي",
             "fr": "",
             "zhTw": "制空優勢"
@@ -7641,7 +7641,7 @@
             "ja": "一括昇格",
             "en": "Field Promotion",
             "ko": "전장 진급",
-            "es": "",
+            "es": "ASCENSO",
             "ar": "الترقية الميدانية",
             "fr": "",
             "zhTw": "戰地晉升"
@@ -7676,7 +7676,7 @@
             "ja": "バリケード",
             "en": "Take Cover",
             "ko": "엄폐물",
-            "es": "",
+            "es": "A CUBIERTO",
             "ar": "الساتر الرملي",
             "fr": "",
             "zhTw": "就地掩護"
@@ -7709,7 +7709,7 @@
             "ja": "エアサポート",
             "en": "Air Support",
             "ko": "공중 지원",
-            "es": "",
+            "es": "APOYO AÉREO",
             "ar": "الدعم الجوي",
             "fr": "",
             "zhTw": "空中支援"
@@ -7779,7 +7779,7 @@
             "ja": "ハードランディング",
             "en": "Hard Landing",
             "ko": "하드 랜딩",
-            "es": "",
+            "es": "ATERRIZAJE FORZOSO",
             "ar": "الهبوط العنيف",
             "fr": "",
             "zhTw": "強行著陸"
@@ -7812,7 +7812,7 @@
             "ja": "拳一本",
             "en": "Fisticuffs",
             "ko": "주먹다짐",
-            "es": "",
+            "es": "A PUÑETAZO LIMPIO",
             "ar": "قبضة التعافي",
             "fr": "",
             "zhTw": "越戰越勇"
@@ -7847,7 +7847,7 @@
             "ja": "原動力",
             "en": "Let's Fly",
             "ko": "플라이 하이",
-            "es": "",
+            "es": "POR LOS AIRES",
             "ar": "الطيران",
             "fr": "",
             "zhTw": "跑酷徽章"
@@ -7880,7 +7880,7 @@
             "ja": "ハードコア",
             "en": "Hardcore",
             "ko": "하드코어",
-            "es": "",
+            "es": "CORAZA",
             "ar": "الاحتماء",
             "fr": "",
             "zhTw": "核心鍛錬"
@@ -7951,7 +7951,7 @@
             "ja": "倦怠感",
             "en": "Malaise",
             "ko": "부작용",
-            "es": "",
+            "es": "MALESTAR",
             "ar": "الوعكة",
             "fr": "",
             "zhTw": "免疫失調"
@@ -7984,7 +7984,7 @@
             "ja": "注射",
             "en": "Injection",
             "ko": "관통 주사",
-            "es": "",
+            "es": "INYECCIÓN",
             "ar": "الحقن",
             "fr": "",
             "zhTw": "穿透療法"
@@ -8019,7 +8019,7 @@
             "ja": "カンフル剤",
             "en": "Shot in the Arm",
             "ko": "활력소",
-            "es": "",
+            "es": "AUTOMEDICACIÓN",
             "ar": "حقنة الذراع",
             "fr": "",
             "zhTw": "緊急注射器"
@@ -8052,7 +8052,7 @@
             "ja": "ブースター注射",
             "en": "Booster Shots",
             "ko": "부스터 샷",
-            "es": "",
+            "es": "INYECCIONES DE REFUERZO",
             "ar": "الجرعات التنشيطية",
             "fr": "",
             "zhTw": "附加劑量"
@@ -8123,7 +8123,7 @@
             "ja": "スーパークール",
             "en": "Supercool",
             "ko": "빙결 지대",
-            "es": "",
+            "es": "CORAZÓN CONGELADO",
             "ar": "البرد القارس",
             "fr": "",
             "zhTw": "寒氣逼人"
@@ -8156,7 +8156,7 @@
             "ja": "低体温",
             "en": "Hypothermia",
             "ko": "저체온증",
-            "es": "",
+            "es": "HIPOTERMΙΑ",
             "ar": "هبوط الحرارة",
             "fr": "",
             "zhTw": "失溫現象"
@@ -8191,7 +8191,7 @@
             "ja": "アイスブロック",
             "en": "Ice Block",
             "ko": "얼음 방패",
-            "es": "",
+            "es": "BLOQUE DE HIELO",
             "ar": "الحاجز الجليدي",
             "fr": "",
             "zhTw": "巨型冰塊"
@@ -8224,7 +8224,7 @@
             "ja": "氷結シロップ",
             "en": "Cryo Syrup",
             "ko": "냉동 시럽",
-            "es": "",
+            "es": "LÍQUIDO CRIOGÉNICO",
             "ar": "شراب التجميد",
             "fr": "",
             "zhTw": "沁涼冷飲"
@@ -8295,7 +8295,7 @@
             "ja": "ワイルドフレイム",
             "en": "Wild Flames",
             "ko": "야생 불꽃",
-            "es": "",
+            "es": "LLAMAS INCENDIARIAS",
             "ar": "النيران المستعرة",
             "fr": "",
             "zhTw": "熾烈野火"
@@ -8328,7 +8328,7 @@
             "ja": "フレイムアブゾーブ",
             "en": "Scorchin' Siphon",
             "ko": "뜨거운 연료",
-            "es": "",
+            "es": "ABSORCIÓN ÍGNEA",
             "ar": "شفاطة سائل الوقود",
             "fr": "",
             "zhTw": "火速進攻"
@@ -8363,7 +8363,7 @@
             "ja": "ファイアスターター",
             "en": "Fire Starters",
             "ko": "불쏘시개",
-            "es": "",
+            "es": "IGNICIÓN",
             "ar": "مضرمو النيران",
             "fr": "",
             "zhTw": "易燃火種"
@@ -8396,7 +8396,7 @@
             "ja": "ダンシングフレイム",
             "en": "Dancing Flames",
             "ko": "춤추는 불꽃",
-            "es": "",
+            "es": "DANZA DE LLAMAS",
             "ar": "ألسنة اللهب الراقصة",
             "fr": "",
             "zhTw": "躍動火舞"
@@ -8468,7 +8468,7 @@
             "ja": "ダメ押し",
             "en": "Push It",
             "ko": "강제 집행",
-            "es": "",
+            "es": "EMPUJÓN",
             "ar": "الدفع العاجل",
             "fr": "",
             "zhTw": "沿途施壓"
@@ -8501,7 +8501,7 @@
             "ja": "重税",
             "en": "Mass Tax",
             "ko": "보호세",
-            "es": "",
+            "es": "IMPUESTOS A TUTIPLÉN",
             "ar": "الضريبة الشاملة",
             "fr": "",
             "zhTw": "稅賦減免"
@@ -8536,7 +8536,7 @@
             "ja": "反骨精神",
             "en": "Na-ah",
             "ko": "부분 청구",
-            "es": "",
+            "es": "LIQUIDACIÓN PARCIAL",
             "ar": "تسوية الحساب",
             "fr": "",
             "zhTw": "納稅證明"
@@ -8569,7 +8569,7 @@
             "ja": "インセンティブ",
             "en": "Gotcha",
             "ko": "딱 걸렸어!",
-            "es": "",
+            "es": "DISPARO CURATIVO",
             "ar": "طلقات الشفاء",
             "fr": "",
             "zhTw": "抓到你了"
@@ -8640,7 +8640,7 @@
             "ja": "マキシマムショット",
             "en": "To The Max",
             "ko": "맥시멈 블래스트",
-            "es": "",
+            "es": "MAXIBOOM",
             "ar": "المدى الأقصى",
             "fr": "",
             "zhTw": "爆裂"
@@ -8673,7 +8673,7 @@
             "ja": "ベストタイミング",
             "en": "Serve Ice Cold",
             "ko": "업그레이드 백업",
-            "es": "",
+            "es": "ATAQUE REFRESCANTE",
             "ar": "إمكانية الاحتفاظ",
             "fr": "",
             "zhTw": "急凍冰息"
@@ -8708,7 +8708,7 @@
             "ja": "パワーサージ",
             "en": "Power Surge",
             "ko": "파워 서지",
-            "es": "",
+            "es": "HIPERACTIVIDAD",
             "ar": "الطاقة القصوى",
             "fr": "",
             "zhTw": "能量奔湧"
@@ -8741,7 +8741,7 @@
             "ja": "パワーシールド",
             "en": "Power Shield",
             "ko": "파워 실드",
-            "es": "",
+            "es": "ESCUDO DE FUERZA",
             "ar": "درع الطاقة",
             "fr": "",
             "zhTw": "動能裝甲"
@@ -8812,7 +8812,7 @@
             "ja": "急速成長",
             "en": "Overgrowth",
             "ko": "과성장",
-            "es": "",
+            "es": "SOBRECRECIMIENTO",
             "ar": "النمو المفرط",
             "fr": "",
             "zhTw": "種子大爆炸"
@@ -8845,7 +8845,7 @@
             "ja": "光合成",
             "en": "Photosynthesis",
             "ko": "광합성",
-            "es": "",
+            "es": "FOTOSÍNTESIS",
             "ar": "التمثيل الضوئي",
             "fr": "",
             "zhTw": "綠能護盾"
@@ -8880,7 +8880,7 @@
             "ja": "花畑の保護土",
             "en": "Garden Mulcher",
             "ko": "잔디깎이",
-            "es": "",
+            "es": "ABONO VEGETAL",
             "ar": "ماكينة جز الحشائش",
             "fr": "",
             "zhTw": "割草機"
@@ -8913,7 +8913,7 @@
             "ja": "トランスプラント",
             "en": "Transplant",
             "ko": "옮겨심기",
-            "es": "",
+            "es": "TRASPLANTE",
             "ar": "غرس الشتلات",
             "fr": "",
             "zhTw": "綠能轉換器"
@@ -8985,7 +8985,7 @@
             "ja": "オートフォーカス",
             "en": "Autofocus",
             "ko": "자동 집중",
-            "es": "",
+            "es": "FOCO AUTOMÁTICO",
             "ar": "الضبط التلقائي",
             "fr": "",
             "zhTw": "自動對焦"
@@ -9018,7 +9018,7 @@
             "ja": "強化スチール",
             "en": "Tempered Steel",
             "ko": "단련된 강철",
-            "es": "",
+            "es": "ACERO TEMPLADO",
             "ar": "الفولاذ المقسى",
             "fr": "",
             "zhTw": "鋼製機殼"
@@ -9053,7 +9053,7 @@
             "ja": "ワープタイム",
             "en": "Warp Time",
             "ko": "타임 워프",
-            "es": "",
+            "es": "INSEPARABLES",
             "ar": "حان وقت التزييف",
             "fr": "",
             "zhTw": "位移裝置"
@@ -9086,7 +9086,7 @@
             "ja": "差し戻し",
             "en": "Return to Sender",
             "ko": "반송",
-            "es": "",
+            "es": "DEVOLUCIÓN AL REMITENTE",
             "ar": "النتيجة العكسية",
             "fr": "",
             "zhTw": "反射機制"
@@ -9157,7 +9157,7 @@
             "ja": "暴風",
             "en": "Blustery Blow",
             "ko": "눈사태 주의",
-            "es": "",
+            "es": "GOLPE TEMPESTUOSO",
             "ar": "الزوبعة القاصمة",
             "fr": "",
             "zhTw": "極地風暴"
@@ -9190,7 +9190,7 @@
             "ja": "凍てつく雪",
             "en": "Freezing Snow",
             "ko": "눈이 꽁꽁꽁",
-            "es": "",
+            "es": "NIEVE GLACIAL",
             "ar": "كرات التجميد",
             "fr": "",
             "zhTw": "雪上加霜"
@@ -9225,7 +9225,7 @@
             "ja": "バネジャンプ",
             "en": "Spring Ejector",
             "ko": "스프링 발사기",
-            "es": "",
+            "es": "PROPULSOR AÉREO",
             "ar": "منصة القفز",
             "fr": "",
             "zhTw": "緊急彈跳板"
@@ -9258,7 +9258,7 @@
             "ja": "ツイスター",
             "en": "Twister",
             "ko": "토네이도",
-            "es": "",
+            "es": "TORNADO",
             "ar": "الإعصار الصناعي",
             "fr": "",
             "zhTw": "嚴防強風"
@@ -9329,7 +9329,7 @@
             "ja": "カウンタークラッシュ",
             "en": "Counter Crush",
             "ko": "친절한 반격",
-            "es": "",
+            "es": "NO HAY DE QUÉ",
             "ar": "الضربة المضادة",
             "fr": "",
             "zhTw": "以岩還眼"
@@ -9362,7 +9362,7 @@
             "ja": "ガチガチヘルメット",
             "en": "Hardy Hard Hat",
             "ko": "튼튼한 안전모",
-            "es": "",
+            "es": "CASCO BLINDADO",
             "ar": "الخوذة الصلبة",
             "fr": "",
             "zhTw": "防護頭盔"
@@ -9397,7 +9397,7 @@
             "ja": "圧縮空気ブースター",
             "en": "Pneumatic Booster",
             "ko": "공기압 부스터",
-            "es": "",
+            "es": "SUBIDÓN NEUMÁTICO",
             "ar": "معزز الحفر",
             "fr": "",
             "zhTw": "噴氣加速器"
@@ -9430,7 +9430,7 @@
             "ja": "再建",
             "en": "Rebuild",
             "ko": "재건",
-            "es": "",
+            "es": "RECONSTRUCCIÓN",
             "ar": "إعادة البناء",
             "fr": "",
             "zhTw": "地形重塑"
@@ -9501,7 +9501,7 @@
             "ja": "スーパーチャージ",
             "en": "Super Charged",
             "ko": "슈퍼 차지",
-            "es": "",
+            "es": "SÚPER CARGADO",
             "ar": "شحن الزخم",
             "fr": "",
             "zhTw": "動感蓄能"
@@ -9534,7 +9534,7 @@
             "ja": "ダッシュリロード",
             "en": "Run n Gun",
             "ko": "런 앤건",
-            "es": "",
+            "es": "¡CORRE Y VUELA!",
             "ar": "الشحن السريع",
             "fr": "",
             "zhTw": "游擊裝彈"
@@ -9569,7 +9569,7 @@
             "ja": "ギアチェンジャー",
             "en": "Phase Shifter",
             "ko": "위상 이동",
-            "es": "",
+            "es": "EMPUJE PODEROSO",
             "ar": "جرعة الطاقة المكثفة",
             "fr": "",
             "zhTw": "相位偏移器"
@@ -9602,7 +9602,7 @@
             "ja": "スニークスニーカー",
             "en": "Sneaky Sneakers",
             "ko": "공간 이동 운동화",
-            "es": "",
+            "es": "ZAPATILLAS MÁGICAS",
             "ar": "الحذاء المسعف",
             "fr": "",
             "zhTw": "超能時空鞋"
@@ -9674,7 +9674,7 @@
             "ja": "真心込めて",
             "en": "Handle with Care",
             "ko": "취급 주의",
-            "es": "",
+            "es": "EXCESO DE EQUIPAJE",
             "ar": "قابل للانفجار",
             "fr": "",
             "zhTw": "小心輕放"
@@ -9707,7 +9707,7 @@
             "ja": "回転扉",
             "en": "Revolving Door",
             "ko": "회전문",
-            "es": "",
+            "es": "PUERTA GIRATORIA",
             "ar": "الباب الدوار",
             "fr": "",
             "zhTw": "旋轉門"
@@ -9742,7 +9742,7 @@
             "ja": "サービスベル",
             "en": "Service Bell",
             "ko": "서비스 벨",
-            "es": "",
+            "es": "CAMPANA DE SERVICIO",
             "ar": "جرس الخدمة",
             "fr": "",
             "zhTw": "服務鈴"
@@ -9775,7 +9775,7 @@
             "ja": "応援ポーター",
             "en": "Porter Reinforcements",
             "ko": "짐꾼 보충",
-            "es": "",
+            "es": "BOTONES DE REFUERZO",
             "ar": "تعزيزات البطريق الآلي",
             "fr": "",
             "zhTw": "貼身助手"
@@ -9847,7 +9847,7 @@
             "ja": "因果応報",
             "en": "Bad Karma",
             "ko": "나쁜 냄새",
-            "es": "",
+            "es": "KARMA",
             "ar": "العاقبة السيئة",
             "fr": "",
             "zhTw": "壞運連連"
@@ -9880,7 +9880,7 @@
             "ja": "元気注入",
             "en": "Hype",
             "ko": "후원 감사",
-            "es": "",
+            "es": "AUTOBOMBO",
             "ar": "ازدواجية التأثير",
             "fr": "",
             "zhTw": "食腐復甦"
@@ -9915,7 +9915,7 @@
             "ja": "フレンドゾーン",
             "en": "Friend Zoner",
             "ko": "지독한 향수",
-            "es": "",
+            "es": "ESPACIO PERSONAL",
             "ar": "المساحة الشخصية",
             "fr": "",
             "zhTw": "好人卡"
@@ -9948,7 +9948,7 @@
             "ja": "酸性スプレー",
             "en": "Acid Spray",
             "ko": "산성 스프레이",
-            "es": "",
+            "es": "LACA LETAL",
             "ar": "بخاخ الحمض",
             "fr": "",
             "zhTw": "酸性毒霧"
@@ -10019,7 +10019,7 @@
             "ja": "ロイヤルゼリー",
             "en": "Insta Beeload",
             "ko": "벌침 급조",
-            "es": "",
+            "es": "ABEJA REINA",
             "ar": "الشحن الفوري",
             "fr": "",
             "zhTw": "百蟄不撓"
@@ -10052,7 +10052,7 @@
             "ja": "ハニカム",
             "en": "Honeycomb",
             "ko": "벌집",
-            "es": "",
+            "es": "PANAL",
             "ar": "قرص العسل",
             "fr": "",
             "zhTw": "甜蜜護盾"
@@ -10087,7 +10087,7 @@
             "ja": "ハニーモラセス",
             "en": "Honey Molasses",
             "ko": "벌꿀 함정",
-            "es": "",
+            "es": "MIELES FINALES",
             "ar": "دبس العسل",
             "fr": "",
             "zhTw": "危險蜂蜜"
@@ -10120,7 +10120,7 @@
             "ja": "荒くれバチ",
             "en": "Rattled Hive",
             "ko": "성난 벌집",
-            "es": "",
+            "es": "COLMENA AGITADA",
             "ar": "الخلية الثائرة",
             "fr": "",
             "zhTw": "黃蜂哨兵"
@@ -10192,7 +10192,7 @@
             "ja": "荒ぶる砂",
             "en": "Rude Sands",
             "ko": "거친 모래",
-            "es": "",
+            "es": "ARENA SEPULTADORA",
             "ar": "الرمال الخشنة",
             "fr": "",
             "zhTw": "滾滾黃沙"
@@ -10225,7 +10225,7 @@
             "ja": "癒しの風",
             "en": "Healing Winds",
             "ko": "치유의 바람",
-            "es": "",
+            "es": "MINERALES CURATIVOS",
             "ar": "رياح التعافي",
             "fr": "",
             "zhTw": "復甦之風"
@@ -10260,7 +10260,7 @@
             "ja": "睡眠刺激薬",
             "en": "Sleep Stimulator",
             "ko": "수면 유도제",
-            "es": "",
+            "es": "PASTILLAS PARA DORMIR",
             "ar": "محاكي النوم",
             "fr": "",
             "zhTw": "睡眠模擬器"
@@ -10293,7 +10293,7 @@
             "ja": "甘い夢",
             "en": "Sweet Dreams",
             "ko": "달콤한 꿈",
-            "es": "",
+            "es": "DULCES SUEÑOS",
             "ar": "أحلام سعيدة",
             "fr": "",
             "zhTw": "甜蜜好夢"
@@ -10364,7 +10364,7 @@
             "ja": "ダメージブースター",
             "en": "Boosted Booster",
             "ko": "부스터 증폭",
-            "es": "",
+            "es": "AMPLIFICADAÑO POTENCIADO",
             "ar": "المعزز المحسن",
             "fr": "",
             "zhTw": "功率全開"
@@ -10397,7 +10397,7 @@
             "ja": "ワイヤレス充電",
             "en": "Plugged In",
             "ko": "오버클럭",
-            "es": "",
+            "es": "ENCHUFADO",
             "ar": "الطاقة الإضافية",
             "fr": "",
             "zhTw": "行動電源"
@@ -10432,7 +10432,7 @@
             "ja": "裏技カセット",
             "en": "Cheat Cartridge",
             "ko": "치트키",
-            "es": "",
+            "es": "PUNTOS EXTRA",
             "ar": "قرص الغش",
             "fr": "",
             "zhTw": "金手指"
@@ -10465,7 +10465,7 @@
             "ja": "ボーナスクレジット",
             "en": "Extra Credits",
             "ko": "추가 코인",
-            "es": "",
+            "es": "CARTUCHO TELETRANSPORTADOR",
             "ar": "القذائف الإضافية",
             "fr": "",
             "zhTw": "補充代幣"
@@ -10537,7 +10537,7 @@
             "ja": "盗塁王",
             "en": "Home Run",
             "ko": "홈런",
-            "es": "",
+            "es": "CORREDORA",
             "ar": "ضربة التسجيل",
             "fr": "",
             "zhTw": "全壘打"
@@ -10570,7 +10570,7 @@
             "ja": "打撃の構え",
             "en": "Batting Stance",
             "ko": "타격 자세",
-            "es": "",
+            "es": "A LA DEFENSIVA",
             "ar": "وضعية القتال",
             "fr": "",
             "zhTw": "打者就位"
@@ -10605,7 +10605,7 @@
             "ja": "ビタミンブースター",
             "en": "Vitamin Booster",
             "ko": "비타민제",
-            "es": "",
+            "es": "SUPLEMENTO VITAMÍNICO",
             "ar": "معزز الفيتامين",
             "fr": "",
             "zhTw": "強效維他命"
@@ -10638,7 +10638,7 @@
             "ja": "増強ガム",
             "en": "Extra Sticky",
             "ko": "끈끈이 볼",
-            "es": "",
+            "es": "EXTRAPEGAJOSO",
             "ar": "لزوجة إضافية",
             "fr": "",
             "zhTw": "超黏泡泡糖"
@@ -10708,7 +10708,7 @@
             "ja": "力投",
             "en": "Power Throw",
             "ko": "스피디 스로우",
-            "es": "",
+            "es": "LANZAMIENTO VELOZ",
             "ar": "الرمية الخاطفة",
             "fr": "",
             "zhTw": "全力投擲"
@@ -10741,7 +10741,7 @@
             "ja": "防護スピン",
             "en": "Protective Pirouette",
             "ko": "보호 피루엣",
-            "es": "",
+            "es": "PIRUETA PROTECTORA",
             "ar": "الدوران الوقائي",
             "fr": "",
             "zhTw": "安全駕駛"
@@ -10776,7 +10776,7 @@
             "ja": "灼熱イジェクター",
             "en": "Heat Ejector",
             "ko": "가열 장치",
-            "es": "",
+            "es": "ROCAS VOLCÁNICAS",
             "ar": "طارد الحرارة",
             "fr": "",
             "zhTw": "炙熱排氣管"
@@ -10809,7 +10809,7 @@
             "ja": "空飛ぶフック",
             "en": "Flying Hook",
             "ko": "갈고리",
-            "es": "",
+            "es": "GANCHO REMOLCADOR",
             "ar": "الخطاف الطائر",
             "fr": "",
             "zhTw": "飛行鉤爪"
@@ -10880,7 +10880,7 @@
             "ja": "雑草魂",
             "en": "Plant Life",
             "ko": "자연이 좋아",
-            "es": "",
+            "es": "NATURALEZA VIVA",
             "ar": "الحياة النباتية",
             "fr": "",
             "zhTw": "綠茵療癒"
@@ -10913,7 +10913,7 @@
             "ja": "トゲトゲグローブ",
             "en": "Thorny Gloves",
             "ko": "가시 글러브",
-            "es": "",
+            "es": "GUANTES PUNZANTES",
             "ar": "القفازات الشائكة",
             "fr": "",
             "zhTw": "荊棘拳套"
@@ -10948,7 +10948,7 @@
             "ja": "成長促進ライト",
             "en": "Grow Light",
             "ko": "식물 육성 램프",
-            "es": "",
+            "es": "ARBUSTOS ROBUSTOS",
             "ar": "حبوب الإنبات",
             "fr": "",
             "zhTw": "植物生長燈"
@@ -10981,7 +10981,7 @@
             "ja": "やぶの反撃",
             "en": "Unfriendly Bushes",
             "ko": "가시 덤불",
-            "es": "",
+            "es": "ORTIGAS",
             "ar": "الشجيرات العدائية",
             "fr": "",
             "zhTw": "荊棘草叢"
@@ -11051,7 +11051,7 @@
             "ja": "煙遁の術",
             "en": "Smoke Trails",
             "ko": "안개 은신술",
-            "es": "",
+            "es": "HUMAREDA",
             "ar": "ألسنة الدخان",
             "fr": "",
             "zhTw": "遁走之術"
@@ -11084,7 +11084,7 @@
             "ja": "インビジヒール",
             "en": "Invisiheal",
             "ko": "은신 치유",
-            "es": "",
+            "es": "CURA INVISIBLE",
             "ar": "التعافي المتخفي",
             "fr": "",
             "zhTw": "隱療之術"
@@ -11119,7 +11119,7 @@
             "ja": "クローンプロジェクター",
             "en": "Clone Projector",
             "ko": "환영 영사기",
-            "es": "",
+            "es": "PROYECTOR CLONADOR",
             "ar": "آلة الاستنساخ",
             "fr": "",
             "zhTw": "複製投射器"
@@ -11152,7 +11152,7 @@
             "ja": "ロリポップドロップ",
             "en": "Lollipop Drop",
             "ko": "막대사탕 드랍",
-            "es": "",
+            "es": "PIRULETA FURTIVA",
             "ar": "مصاصة الاختباء",
             "fr": "",
             "zhTw": "神隱結界"
@@ -11223,7 +11223,7 @@
             "ja": "潤滑良好",
             "en": "Well Oiled",
             "ko": "셀프 수리",
-            "es": "",
+            "es": "AUTORREPARACIÓN",
             "ar": "استراحة التعافي",
             "fr": "",
             "zhTw": "悉心保養"
@@ -11256,7 +11256,7 @@
             "ja": "オートマ・ティック装填",
             "en": "Automa-Tick Reload",
             "ko": "오토매틱 재장전",
-            "es": "",
+            "es": "TIC, TAC, TIC, TAC",
             "ar": "إعادة تذخير تيك التلقائية",
             "fr": "",
             "zhTw": "自動自發"
@@ -11291,7 +11291,7 @@
             "ja": "地雷マニア",
             "en": "Mine Mania",
             "ko": "지뢰 마니아",
-            "es": "",
+            "es": "DERROCHE DE MINAS",
             "ar": "جنون الألغام",
             "fr": "",
             "zhTw": "地雷大放送"
@@ -11324,7 +11324,7 @@
             "ja": "最後のひと踏ん張り",
             "en": "Last Hurrah",
             "ko": "최후의 저항",
-            "es": "",
+            "es": "ÚLTIMAS PALABRAS",
             "ar": "الهتاف الأخير",
             "fr": "",
             "zhTw": "最後狂歡"
@@ -11394,7 +11394,7 @@
             "ja": "魔法の吐息",
             "en": "Magic Puffs",
             "ko": "매직 오라",
-            "es": "",
+            "es": "CURACIÓN MÁGICA",
             "ar": "النفخات السحرية",
             "fr": "",
             "zhTw": "治癒魔霧"
@@ -11427,7 +11427,7 @@
             "ja": "一発入魂",
             "en": "Spirit Slap",
             "ko": "영혼 따귀",
-            "es": "",
+            "es": "ESPÍRITU ENFADADO",
             "ar": "الصفعة الخفية",
             "fr": "",
             "zhTw": "精靈神掌"
@@ -11462,7 +11462,7 @@
             "ja": "風おこしランプ",
             "en": "Lamp Blowout",
             "ko": "요술 램프 폭발",
-            "es": "",
+            "es": "ALÉJATE SÉSAMO",
             "ar": "المصباح السحري",
             "fr": "",
             "zhTw": "救援神燈"
@@ -11495,7 +11495,7 @@
             "ja": "復讐心",
             "en": "Vengeful Spirits",
             "ko": "복수의 정령",
-            "es": "",
+            "es": "ESPÍRITUS VENGATIVOS",
             "ar": "أرواح الانتقام",
             "fr": "",
             "zhTw": "惡作劇之靈"
@@ -11567,7 +11567,7 @@
             "ja": "生気泥棒",
             "en": "Power Grab",
             "ko": "파워 그랩",
-            "es": "",
+            "es": "TOMA DE FUERZA",
             "ar": "استنزاف القوى",
             "fr": "",
             "zhTw": "力量奪取"
@@ -11600,7 +11600,7 @@
             "ja": "スポンジ",
             "en": "Sponge",
             "ko": "스폰지",
-            "es": "",
+            "es": "ESPONJA",
             "ar": "الإسفنج",
             "fr": "",
             "zhTw": "強健體魄"
@@ -11635,7 +11635,7 @@
             "ja": "ノイズキャンセリング",
             "en": "Active Noise Canceling",
             "ko": "노이즈 캔슬링 헤드폰",
-            "es": "",
+            "es": "CANCELACIÓN DE RUIDO",
             "ar": "كاتم الإزعاج",
             "fr": "",
             "zhTw": "降噪耳機"
@@ -11668,7 +11668,7 @@
             "ja": "不可抗力",
             "en": "Irresistible Attraction",
             "ko": "거부할 수 없는 이끌림",
-            "es": "",
+            "es": "ATRACCIÓN IRRESISTIBLE",
             "ar": "الانجذاب الهائل",
             "fr": "",
             "zhTw": "魅力無法擋"
@@ -11739,7 +11739,7 @@
             "ja": "お宝ザクザク",
             "en": "Heavy Coffers",
             "ko": "두둑한 금고",
-            "es": "",
+            "es": "ARCAS LLENAS",
             "ar": "الصناديق الثقيلة",
             "fr": "",
             "zhTw": "大肆揮霍"
@@ -11772,7 +11772,7 @@
             "ja": "マスターブラスター",
             "en": "Master Blaster",
             "ko": "블래스터 마스터",
-            "es": "",
+            "es": "TIROTEO MAESTRO",
             "ar": "القذيفة العظيمة",
             "fr": "",
             "zhTw": "炸裂炮彈"
@@ -11807,7 +11807,7 @@
             "ja": "ソルティーバレル",
             "en": "Salty Barrel",
             "ko": "소금통",
-            "es": "",
+            "es": "BARRIL DE SAL",
             "ar": "برميل الملح",
             "fr": "",
             "zhTw": "堅固鹽桶"
@@ -11840,7 +11840,7 @@
             "ja": "カリブの望遠鏡",
             "en": "Trusty Spyglass",
             "ko": "든든한 망원경",
-            "es": "",
+            "es": "CATALEJO DE CONFIANZA",
             "ar": "المنظار المتين",
             "fr": "",
             "zhTw": "佩式追蹤炮"
@@ -11912,7 +11912,7 @@
             "ja": "鋼の盾",
             "en": "Steel Hoops",
             "ko": "강철 후프",
-            "es": "",
+            "es": "AROS DE ACERO",
             "ar": "الأطر الفولاذية",
             "fr": "",
             "zhTw": "護身鋼圈"
@@ -11945,7 +11945,7 @@
             "ja": "瞬速リロード",
             "en": "Rolling Reload",
             "ko": "롤링 리로드",
-            "es": "",
+            "es": "RECARGA RODADORA",
             "ar": "الذخيرة المستمرة",
             "fr": "",
             "zhTw": "翻滾填裝"
@@ -11980,7 +11980,7 @@
             "ja": "パワースプリング",
             "en": "Recoiling Rotator",
             "ko": "나선형 회전기",
-            "es": "",
+            "es": "DISPAROS 360",
             "ar": "دوار الارتداد",
             "fr": "",
             "zhTw": "反衝螺旋機"
@@ -12013,7 +12013,7 @@
             "ja": "タールバレル",
             "en": "Tar Barrel",
             "ko": "타르 통",
-            "es": "",
+            "es": "BARRIL DE ALQUITRÁN",
             "ar": "برميل القطران",
             "fr": "",
             "zhTw": "柏油桶"
@@ -12083,7 +12083,7 @@
             "ja": "影武者",
             "en": "Black Portal",
             "ko": "블랙 포털",
-            "es": "",
+            "es": "PORTAL OSCURO",
             "ar": "البوابة السوداء",
             "fr": "",
             "zhTw": "惡魔分身"
@@ -12116,7 +12116,7 @@
             "ja": "癒しの影",
             "en": "Healing Shade",
             "ko": "그림자 치유",
-            "es": "",
+            "es": "SOMBRA CURATIVA",
             "ar": "ظل التعافي",
             "fr": "",
             "zhTw": "療傷隱者"
@@ -12151,7 +12151,7 @@
             "ja": "サイキック活性化剤",
             "en": "Psychic Enhancer",
             "ko": "초능력 증폭기",
-            "es": "",
+            "es": "OJO QUE TODO LO VE",
             "ar": "بلورة العرافة",
             "fr": "",
             "zhTw": "超能力增強劑"
@@ -12184,7 +12184,7 @@
             "ja": "彼方の使者",
             "en": "Support From Beyond",
             "ko": "그림자 소환",
-            "es": "",
+            "es": "REFUERZOS DEL MÁS ALLÁ",
             "ar": "دعم الظلال",
             "fr": "",
             "zhTw": "異界魔術師"
@@ -12256,7 +12256,7 @@
             "ja": "ママの抱擁",
             "en": "Mama's Hug",
             "ko": "엄마의 포옹",
-            "es": "",
+            "es": "ZONA DE CONFORT",
             "ar": "حضن الأم",
             "fr": "",
             "zhTw": "愛的抱抱"
@@ -12289,7 +12289,7 @@
             "ja": "ママのベアハッグ",
             "en": "Mama's Squeeze",
             "ko": "엄마의 폭풍 압박",
-            "es": "",
+            "es": "CURACIÓN DESTRUCTIVA",
             "ar": "الدفاع السري",
             "fr": "",
             "zhTw": "愛的禁區"
@@ -12324,7 +12324,7 @@
             "ja": "パルスモジュレーター",
             "en": "Pulse Modulator",
             "ko": "파동 변조기",
-            "es": "",
+            "es": "MODULADOR SÍSMICO",
             "ar": "منظم النبضات",
             "fr": "",
             "zhTw": "脈衝調節器"
@@ -12357,7 +12357,7 @@
             "ja": "ガラクタ吸収",
             "en": "Scrapsucker",
             "ko": "고철 처리기",
-            "es": "",
+            "es": "ABSORBECHATARRA",
             "ar": "مزيل الذخيرة",
             "fr": "",
             "zhTw": "資源回收"
@@ -12428,7 +12428,7 @@
             "ja": "待ち伏せ",
             "en": "Ambush",
             "ko": "매복",
-            "es": "",
+            "es": "EMBOSCADA",
             "ar": "الكمين",
             "fr": "",
             "zhTw": "暗地守候"
@@ -12461,7 +12461,7 @@
             "ja": "スナッピースナイプ",
             "en": "Snappy Sniping",
             "ko": "재빠른 저격",
-            "es": "",
+            "es": "ATACA Y VENCERÁS",
             "ar": "القنص السريع",
             "fr": "",
             "zhTw": "命中有禮"
@@ -12496,7 +12496,7 @@
             "ja": "自動照準器",
             "en": "Auto Aimer",
             "ko": "자동 조준기",
-            "es": "",
+            "es": "AUTODISPARO",
             "ar": "المصوب التلقائي",
             "fr": "",
             "zhTw": "自動瞄準鏡"
@@ -12529,7 +12529,7 @@
             "ja": "ホームメイドレシピ",
             "en": "Homemade Recipe",
             "ko": "가정용 레시피",
-            "es": "",
+            "es": "TRUCO SECRETO",
             "ar": "القذيفة الموجهة",
             "fr": "",
             "zhTw": "家傳秘方"
@@ -12601,7 +12601,7 @@
             "ja": "鷹の目",
             "en": "Circling Eagle",
             "ko": "독수리의 눈",
-            "es": "",
+            "es": "OJO DE ÁGUILA",
             "ar": "النسر الراصد",
             "fr": "",
             "zhTw": "鷹眼"
@@ -12634,7 +12634,7 @@
             "ja": "ベアトラップ",
             "en": "Snare a Bear",
             "ko": "곰 사냥",
-            "es": "",
+            "es": "CEPOS",
             "ar": "نصاب الفخاخ",
             "fr": "",
             "zhTw": "捕熊陷阱"
@@ -12669,7 +12669,7 @@
             "ja": "スーパートーテム",
             "en": "Super Totem",
             "ko": "슈퍼 토템",
-            "es": "",
+            "es": "SUPERTÓTEM",
             "ar": "عمود القوة الخارقة",
             "fr": "",
             "zhTw": "超級圖騰"
@@ -12702,7 +12702,7 @@
             "ja": "ワイヤートラップ",
             "en": "Tripwire",
             "ko": "와이어 함정",
-            "es": "",
+            "es": "CUERDA DETONANTE",
             "ar": "سلك التفجير",
             "fr": "",
             "zhTw": "地雷引線"
@@ -12774,7 +12774,7 @@
             "ja": "ダ・カーポ",
             "en": "Da Capo",
             "ko": "뮤직 테라피",
-            "es": "",
+            "es": "MUSICOTERAPIA",
             "ar": "شفاء الروح",
             "fr": "",
             "zhTw": "單曲循環"
@@ -12807,7 +12807,7 @@
             "ja": "むせび泣くギター",
             "en": "Screeching Solo",
             "ko": "불협화음",
-            "es": "",
+            "es": "SIN PLAYBACK",
             "ar": "الصراخ الفتاك",
             "fr": "",
             "zhTw": "驚世獨奏"
@@ -12842,7 +12842,7 @@
             "ja": "癒しの音叉",
             "en": "Tuning Fork",
             "ko": "소리굽쇠",
-            "es": "",
+            "es": "DIAPASÓN",
             "ar": "الشوكة الرنانة",
             "fr": "",
             "zhTw": "療癒音叉"
@@ -12875,7 +12875,7 @@
             "ja": "護りのメロディー",
             "en": "Protective Melody",
             "ko": "보호의 선율",
-            "es": "",
+            "es": "CANCIÓN PROTECTORA",
             "ar": "أنغام الوقاية",
             "fr": "",
             "zhTw": "守護進行曲"
@@ -12947,7 +12947,7 @@
             "ja": "猛毒",
             "en": "Extra Toxic",
             "ko": "맹독",
-            "es": "",
+            "es": "EXTRATÓXICO",
             "ar": "نبتة الحياة",
             "fr": "",
             "zhTw": "致殘毒藥"
@@ -12980,7 +12980,7 @@
             "ja": "カリオン・クロウ",
             "en": "Carrion Crow",
             "ko": "약한 먹잇감",
-            "es": "",
+            "es": "CRÍA CUERVOS",
             "ar": "غراب البين",
             "fr": "",
             "zhTw": "毒腐收割"
@@ -13015,7 +13015,7 @@
             "ja": "防御ブースター",
             "en": "Defense Booster",
             "ko": "방어 부스터",
-            "es": "",
+            "es": "PLUMAJE PROTECTOR",
             "ar": "معزز الدفاع",
             "fr": "",
             "zhTw": "護盾產生器"
@@ -13048,7 +13048,7 @@
             "ja": "スローダウンポイズン",
             "en": "Slowing Toxin",
             "ko": "둔화 독",
-            "es": "",
+            "es": "TOXINA RALENTIZANTE",
             "ar": "سم البطء",
             "fr": "",
             "zhTw": "緩速毒液"
@@ -13120,7 +13120,7 @@
             "ja": "魂狩り",
             "en": "Creepy Harvest",
             "ko": "영혼 사냥",
-            "es": "",
+            "es": "RECOLECTOR DE ALMAS",
             "ar": "سارق الأرواح",
             "fr": "",
             "zhTw": "恐怖收割"
@@ -13153,7 +13153,7 @@
             "ja": "蛇の跳躍",
             "en": "Coiled Snake",
             "ko": "전속력 돌진",
-            "es": "",
+            "es": "ATAQUE INESPERADO",
             "ar": "الثعبان الملتف",
             "fr": "",
             "zhTw": "腹蛇突襲"
@@ -13188,7 +13188,7 @@
             "ja": "コンボスピナー",
             "en": "Combo Spinner",
             "ko": "콤보 스피너",
-            "es": "",
+            "es": "PALA ROTATIVA",
             "ar": "الجاروف الدوار",
             "fr": "",
             "zhTw": "連擊轉輪"
@@ -13221,7 +13221,7 @@
             "ja": "サバイバルシャベル",
             "en": "Survival Shovel",
             "ko": "생존용 삽",
-            "es": "",
+            "es": "PALA DE SUPERVIVENCIA",
             "ar": "جاروف البقاء",
             "fr": "",
             "zhTw": "特製握柄"
@@ -13292,7 +13292,7 @@
             "ja": "バーニングドロップ",
             "en": "El Fuego",
             "ko": "엘 푸에고",
-            "es": "",
+            "es": "EL FUEGO",
             "ar": "الشهاب الحارق",
             "fr": "",
             "zhTw": "燃燒摔角魂"
@@ -13325,7 +13325,7 @@
             "ja": "流星雨",
             "en": "Meteor Rush",
             "ko": "유성 러시",
-            "es": "",
+            "es": "DEPRISA Y CORRIENDO",
             "ar": "اندفاع النيازك",
             "fr": "",
             "zhTw": "流星衝刺"
@@ -13360,7 +13360,7 @@
             "ja": "スープレックスサプリ",
             "en": "Suplex Supplement",
             "ko": "보충제 수플렉스",
-            "es": "",
+            "es": "VUELTA DE TUERCA",
             "ar": "مقوي العضلات",
             "fr": "",
             "zhTw": "高蛋白補品"
@@ -13393,7 +13393,7 @@
             "ja": "アステロイドベルト",
             "en": "Asteroid Belt",
             "ko": "유성우 벨트",
-            "es": "",
+            "es": "CINTURÓN DE ASTEROIDES",
             "ar": "حزام النيازك",
             "fr": "",
             "zhTw": "流星腰帶"
@@ -13464,7 +13464,7 @@
             "ja": "爆風ジャンプ",
             "en": "Dyna-Jump",
             "ko": "다이너점프",
-            "es": "",
+            "es": "DINASALTO",
             "ar": "القفزة الصاروخية",
             "fr": "",
             "zhTw": "爆破跳躍"
@@ -13497,7 +13497,7 @@
             "ja": "解体屋",
             "en": "Demolition",
             "ko": "폭파",
-            "es": "",
+            "es": "DEMOLICIÓN",
             "ar": "الهدم",
             "fr": "",
             "zhTw": "爆破炸翻天"
@@ -13532,7 +13532,7 @@
             "ja": "危機一髪スピナー",
             "en": "Fidget Spinner",
             "ko": "피젯 스피너",
-            "es": "",
+            "es": "GIROS EXPLOSIVOS",
             "ar": "الدبور الدوار",
             "fr": "",
             "zhTw": "指尖陀螺"
@@ -13565,7 +13565,7 @@
             "ja": "梱包爆薬",
             "en": "Satchel Charge",
             "ko": "화약 주머니",
-            "es": "",
+            "es": "PÓLVORA ATURDIDORA",
             "ar": "حقيبة القنابل",
             "fr": "",
             "zhTw": "震爆炸彈"
@@ -13636,7 +13636,7 @@
             "ja": "森の絆",
             "en": "Bear With Me",
             "ko": "곰과 나",
-            "es": "",
+            "es": "HERMANO OSO",
             "ar": "المنفعة المتبادلة",
             "fr": "",
             "zhTw": "靈魂協同"
@@ -13669,7 +13669,7 @@
             "ja": "ハイパーベア",
             "en": "Hyper Bear",
             "ko": "하이퍼 베어",
-            "es": "",
+            "es": "ZARPAZO VELOZ",
             "ar": "الدب السريع",
             "fr": "",
             "zhTw": "熊之狂暴"
@@ -13704,7 +13704,7 @@
             "ja": "クマの手",
             "en": "Bear Paws",
             "ko": "곰 발톱",
-            "es": "",
+            "es": "GARRAS DE OSO",
             "ar": "مخالب الدب",
             "fr": "",
             "zhTw": "震盪熊掌"
@@ -13737,7 +13737,7 @@
             "ja": "フェイクファー",
             "en": "Faux Fur",
             "ko": "인조 모피",
-            "es": "",
+            "es": "PIEL PROTECTORA",
             "ar": "الفرو الواقي",
             "fr": "",
             "zhTw": "堅硬熊毛"
@@ -13809,7 +13809,7 @@
             "ja": "リチャージ",
             "en": "Energize",
             "ko": "에너지 충전",
-            "es": "",
+            "es": "ENERGIZANTE",
             "ar": "شحن الطاقة",
             "fr": "",
             "zhTw": "脈衝充能"
@@ -13842,7 +13842,7 @@
             "ja": "ショッキング",
             "en": "Shocky",
             "ko": "쇼키",
-            "es": "",
+            "es": "REBOTE ELECTRIZANTE",
             "ar": "الصاعق",
             "fr": "",
             "zhTw": "脈衝炮台"
@@ -13877,7 +13877,7 @@
             "ja": "スパークプラグ",
             "en": "Spark Plug",
             "ko": "점화 플러그",
-            "es": "",
+            "es": "BUJÍA",
             "ar": "فتيل الإشعال",
             "fr": "",
             "zhTw": "震盪火星塞"
@@ -13910,7 +13910,7 @@
             "ja": "リコイルスプリング",
             "en": "Recoil Spring",
             "ko": "반동 역제 스프링",
-            "es": "",
+            "es": "INTENSIFICADOR",
             "ar": "نابض الارتداد",
             "fr": "",
             "zhTw": "炮台零件"
@@ -13982,7 +13982,7 @@
             "ja": "百薬の長",
             "en": "Medical Use",
             "ko": "메디컬 알코올",
-            "es": "",
+            "es": "LICOR CURATIVO",
             "ar": "استعمال طبي",
             "fr": "",
             "zhTw": "療癒特調"
@@ -14015,7 +14015,7 @@
             "ja": "超猛毒",
             "en": "Extra Noxious",
             "ko": "유독성 알코올",
-            "es": "",
+            "es": "LICOR EXTRANOCIVO",
             "ar": "الأذى الإضافي",
             "fr": "",
             "zhTw": "加量不加價"
@@ -14050,7 +14050,7 @@
             "ja": "ネバネバシロップミキサー",
             "en": "Sticky Syrup Mixer",
             "ko": "끈적한 시럽 칵테일",
-            "es": "",
+            "es": "MEJUNJE PEGAJOSO",
             "ar": "خلاط الشراب",
             "fr": "",
             "zhTw": "黏稠糖漿"
@@ -14083,7 +14083,7 @@
             "ja": "薬草の強壮剤",
             "en": "Herbal Tonic",
             "ko": "약초 칵테일",
-            "es": "",
+            "es": "TÓNICO DE HIERBAS",
             "ar": "أعشاب علاجية",
             "fr": "",
             "zhTw": "養生特調"
@@ -14155,7 +14155,7 @@
             "ja": "栄養補給",
             "en": "Fertilize",
             "ko": "따뜻한 햇살",
-            "es": "",
+            "es": "FERTILIZANTE",
             "ar": "التخصيب",
             "fr": "",
             "zhTw": "療癒派對"
@@ -14188,7 +14188,7 @@
             "ja": "カーブシュート",
             "en": "Curveball",
             "ko": "커브볼",
-            "es": "",
+            "es": "CURVATURA",
             "ar": "الضربة المنحنية",
             "fr": "",
             "zhTw": "曲線刺刺球"
@@ -14223,7 +14223,7 @@
             "ja": "破裂トゲクッション",
             "en": "Popping Pincushion",
             "ko": "가시방석",
-            "es": "",
+            "es": "LLUVIA DE ESPINAS",
             "ar": "الأشواك المنبثقة",
             "fr": "",
             "zhTw": "尖刺針包"
@@ -14256,7 +14256,7 @@
             "ja": "ライフプラント",
             "en": "Life Plant",
             "ko": "자연의 신비",
-            "es": "",
+            "es": "VIDA VEGETAL",
             "ar": "نبتة الحياة",
             "fr": "",
             "zhTw": "生命之樹"
@@ -14328,7 +14328,7 @@
             "ja": "スーパーバウンド",
             "en": "Super Bouncy",
             "ko": "슈퍼 통통탄",
-            "es": "",
+            "es": "SUPERREBOTE",
             "ar": "الرصاص النطاطي",
             "fr": "",
             "zhTw": "超級反彈"
@@ -14361,7 +14361,7 @@
             "ja": "ロボ流退却",
             "en": "Robo Retreat",
             "ko": "로봇 질주",
-            "es": "",
+            "es": "RETIRADA ROBÓTICA",
             "ar": "انسحاب الروبوتات",
             "fr": "",
             "zhTw": "戰術撤退"
@@ -14396,7 +14396,7 @@
             "ja": "マルチボールランチャー",
             "en": "Multiball Launcher",
             "ko": "통통탄 발사기",
-            "es": "",
+            "es": "PARQUE DE BOLAS",
             "ar": "رشاش الكرات",
             "fr": "",
             "zhTw": "連續發球機"
@@ -14429,7 +14429,7 @@
             "ja": "バウンシングヒール",
             "en": "Bouncy Castle",
             "ko": "바운시 캐슬",
-            "es": "",
+            "es": "CASTILLO HINCHABLE",
             "ar": "القلعة النطاطة",
             "fr": "",
             "zhTw": "彈性傷癒"
@@ -14500,7 +14500,7 @@
             "ja": "集中豪雨",
             "en": "More Rockets",
             "ko": "로켓 샤워!",
-            "es": "",
+            "es": "¡MÁS COHETES!",
             "ar": "المزيد من الصواريخ",
             "fr": "",
             "zhTw": "火箭狂潮"
@@ -14533,7 +14533,7 @@
             "ja": "第4のロケット",
             "en": "Incendiary",
             "ko": "로켓 4호기",
-            "es": "",
+            "es": "CUARTO COНЕТЕ",
             "ar": "الصاروخ رقم 4",
             "fr": "",
             "zhTw": "四號火箭"
@@ -14568,7 +14568,7 @@
             "ja": "ロケットレース",
             "en": "Rocket Laces",
             "ko": "로켓 스니커즈",
-            "es": "",
+            "es": "ZAPATILLAS EXPLOSIVAS",
             "ar": "الأحذية الصاروخية",
             "fr": "",
             "zhTw": "火箭推進器"
@@ -14601,7 +14601,7 @@
             "ja": "ロケット燃料",
             "en": "Rocket Fuel",
             "ko": "로켓 연료",
-            "es": "",
+            "es": "MEGACOHETE",
             "ar": "وقود الصواريخ",
             "fr": "",
             "zhTw": "超級火箭"
@@ -14672,7 +14672,7 @@
             "ja": "暴れウシ",
             "en": "Berserker",
             "ko": "버서커",
-            "es": "",
+            "es": "TORO FURIOSO",
             "ar": "الثور الجريح",
             "fr": "",
             "zhTw": "狂牛之怒"
@@ -14705,7 +14705,7 @@
             "ja": "タフガイ",
             "en": "Tough Guy",
             "ko": "터프가이",
-            "es": "",
+            "es": "TIPO DURO",
             "ar": "الدرع المتين",
             "fr": "",
             "zhTw": "鋼鐵硬漢"
@@ -14740,7 +14740,7 @@
             "ja": "Tボーンインジェクター",
             "en": "T-Bone Injector",
             "ko": "육즙 가득 스테이크",
-            "es": "",
+            "es": "VIGORIZADOR",
             "ar": "الوجبة المقوية",
             "fr": "",
             "zhTw": "丁骨營養針"
@@ -14773,7 +14773,7 @@
             "ja": "グラウンドシェイカー",
             "en": "Stomper",
             "ko": "발 구르기",
-            "es": "",
+            "es": "PISOTEADOR",
             "ar": "الدهس",
             "fr": "",
             "zhTw": "重踏鐵靴"
@@ -14844,7 +14844,7 @@
             "ja": "スイスイブーツ",
             "en": "Slick Boots",
             "ko": "스피드 부츠",
-            "es": "",
+            "es": "BOTAS VELOCES",
             "ar": "حذاء السرعة",
             "fr": "",
             "zhTw": "速度之靴"
@@ -14877,7 +14877,7 @@
             "ja": "マグナムスペシャル",
             "en": "Magnum Special",
             "ko": "매그넘 스페셜",
-            "es": "",
+            "es": "PISTOLETAZO",
             "ar": "الرصاصة القاتلة",
             "fr": "",
             "zhTw": "特製左輪"
@@ -14912,7 +14912,7 @@
             "ja": "スピードローダー",
             "en": "Speedloader",
             "ko": "쾌속 장전기",
-            "es": "",
+            "es": "RECARGA RÁPIDA",
             "ar": "مسرع التعبئة",
             "fr": "",
             "zhTw": "快速裝彈器"
@@ -14945,7 +14945,7 @@
             "ja": "シルバーブレット",
             "en": "Silver Bullet",
             "ko": "실버 불릿",
-            "es": "",
+            "es": "BALA DE PLATA",
             "ar": "الرصاصة الفضية",
             "fr": "",
             "zhTw": "穿甲銀彈"
@@ -15017,7 +15017,7 @@
             "ja": "シェルショック",
             "en": "Shell Shock",
             "ko": "쉘 쇼크",
-            "es": "",
+            "es": "CHOQUE MATE",
             "ar": "شلل الصدمة",
             "fr": "",
             "zhTw": "震撼彈"
@@ -15050,7 +15050,7 @@
             "ja": "ばんそうこう",
             "en": "Band-Aid",
             "ko": "밴드에이드",
-            "es": "",
+            "es": "PRIMEROS AUXILIOS",
             "ar": "الإسعافات الأولية",
             "fr": "",
             "zhTw": "緊急救護"
@@ -15085,7 +15085,7 @@
             "ja": "全速前進",
             "en": "Fast Forward",
             "ko": "빨리 감기",
-            "es": "",
+            "es": "PASO AL FRENTE",
             "ar": "عامل السرعة",
             "fr": "",
             "zhTw": "衝鋒跑鞋"
@@ -15118,7 +15118,7 @@
             "ja": "クレーピジョン",
             "en": "Clay Pigeons",
             "ko": "집중 사격",
-            "es": "",
+            "es": "TIRO AL PLATO",
             "ar": "الأهداف الطائرة",
             "fr": "",
             "zhTw": "射擊飛靶"
