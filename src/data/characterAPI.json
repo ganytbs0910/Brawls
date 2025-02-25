@@ -40,7 +40,7 @@
             "ko": "킥 앤푸시",
             "es": "PATADA CON IMPULSO",
             "ar": "اركل، ادفع",
-            "fr": "",
+            "fr": "BOUGE DE LÀ",
             "zhTw": "牆面滑行"
           },
           "description": {
@@ -73,7 +73,7 @@
             "ko": "레니게이드",
             "es": "RENEGADO",
             "ar": "المتمرد",
-            "fr": "",
+            "fr": "NARGUEUR",
             "zhTw": "嘻哈嗆聲"
           },
           "description": {
@@ -108,7 +108,7 @@
             "ko": "컨트롤 킥",
             "es": "ESTILO LIBRE",
             "ar": "التنظيم",
-            "fr": "",
+            "fr": "RÉGULATEUR",
             "zhTw": "我的地盤"
           },
           "description": {
@@ -141,7 +141,7 @@
             "ko": "시선집중",
             "es": "OJOS BIEN ABIERTOS",
             "ar": "كل الأنظار علي",
-            "fr": "",
+            "fr": "CENTRE DE L'ATTENTION",
             "zhTw": "萬眾焦點"
           },
           "description": {
@@ -212,7 +212,7 @@
             "ko": "통행금지",
             "es": "COMODÍN",
             "ar": "اذهب إلى السجن حالاً",
-            "fr": "",
+            "fr": "CARTE PRISON",
             "zhTw": "直達目標"
           },
           "description": {
@@ -245,7 +245,7 @@
             "ko": "꼼수",
             "es": "ROMPERREGLAS",
             "ar": "التلاعب بالقواعد",
-            "fr": "",
+            "fr": "MAÎTRE DU JEU",
             "zhTw": "扭曲規則"
           },
           "description": {
@@ -280,7 +280,7 @@
             "ko": "미플의 저택",
             "es": "TIRADA MAESTRA",
             "ar": "قصور میبل",
-            "fr": "",
+            "fr": "CITÉ MÉDIÉVALE",
             "zhTw": "謎寶莊園"
           },
           "description": {
@@ -313,7 +313,7 @@
             "ko": "분노의 종료",
             "es": "MAL PERDER",
             "ar": "الانسحاب الغاضب",
-            "fr": "",
+            "fr": "RAGEQUIT",
             "zhTw": "憤怒中離"
           },
           "description": {
@@ -385,7 +385,7 @@
             "ko": "그리그리 실드",
             "es": "GRIS-GRIS BLINDADO",
             "ar": "جريس جريس المحمي",
-            "fr": "",
+            "fr": "GRIS-GRIS RENFORCÉ",
             "zhTw": "特製娃娃"
           },
           "description": {
@@ -418,7 +418,7 @@
             "ko": "마비의 바늘",
             "es": "ALFILERES PARALIZANTES",
             "ar": "إبر التخدير",
-            "fr": "",
+            "fr": "AIGUILLES ENGOURDISSANTES",
             "zhTw": "麻痺飛針"
           },
           "description": {
@@ -453,7 +453,7 @@
             "ko": "주술의 힘",
             "es": "MAESTRA DE LOS ELEMENTOS",
             "ar": "فودو تشيلي",
-            "fr": "",
+            "fr": "ENFANT VAUDOU",
             "zhTw": "巫毒之子"
           },
           "description": {
@@ -486,7 +486,7 @@
             "ko": "원소술사",
             "es": "ELEMENTALISTA",
             "ar": "قائمة العناصر",
-            "fr": "",
+            "fr": "ÉLÉMENTALISTE",
             "zhTw": "元素加護"
           },
           "description": {
@@ -558,7 +558,7 @@
             "ko": "오싹한 스피드광",
             "es": "ESPRINT ESPECTRAL",
             "ar": "مقاتل سريع مخيف",
-            "fr": "",
+            "fr": "SINISTRE SPRINTEUR",
             "zhTw": "急速掠襲"
           },
           "description": {
@@ -591,7 +591,7 @@
             "ko": "튼튼한 후드티",
             "es": "SUDADERA ANTIBALAS",
             "ar": "الغطاء المقوى",
-            "fr": "",
+            "fr": "CAPUCHE RENFORCÉE",
             "zhTw": "硬化帽T"
           },
           "description": {
@@ -626,7 +626,7 @@
             "ko": "팔척귀신",
             "es": "BRAZOS LARGOS",
             "ar": "الأذرع الطويلة",
-            "fr": "",
+            "fr": "BRAS LONGS",
             "zhTw": "詭異長臂"
           },
           "description": {
@@ -659,7 +659,7 @@
             "ko": "깜짝 놀랐지",
             "es": "APARICIÓN ABRUMADORA",
             "ar": "القفزة المفزعة",
-            "fr": "",
+            "fr": "COUP D'EFFROI",
             "zhTw": "嚇你一跳"
           },
           "description": {
@@ -729,7 +729,7 @@
             "ko": "회칼 연마",
             "es": "ESTOCADA DE ESTURIÓN",
             "ar": "شفرات الطاهي المحترف",
-            "fr": "",
+            "fr": "ART DU SLASHIMI",
             "zhTw": "精湛刀工"
           },
           "description": {
@@ -762,7 +762,7 @@
             "ko": "절치부심",
             "es": "DEFENSA DE DASHI",
             "ar": "فنان سوشي النجيري",
-            "fr": "",
+            "fr": "NÉMÉSIS DU NIGIRI",
             "zhTw": "握壽司之護"
           },
           "description": {
@@ -797,7 +797,7 @@
             "ko": "전진 베기 수련",
             "es": "FILO FUTOMAKI",
             "ar": "اندفاع الساموراي",
-            "fr": "",
+            "fr": "UCHI AU DASHI",
             "zhTw": "元氣高湯"
           },
           "description": {
@@ -830,7 +830,7 @@
             "ko": "치유의 김초밥",
             "es": "SALSA DE SOJA SANADORA",
             "ar": "تعافي الهوسوماكي",
-            "fr": "",
+            "fr": "SOINS À L'HOSOMAKI",
             "zhTw": "回生細卷"
           },
           "description": {
@@ -901,7 +901,7 @@
             "ko": "땅수제비",
             "es": "AVALANCHA",
             "ar": "الحجارة القافزة",
-            "fr": "",
+            "fr": "RICOCHETS",
             "zhTw": "靈巧飛石"
           },
           "description": {
@@ -934,7 +934,7 @@
             "ko": "과속 딱지",
             "es": "QUINTA MARCHA",
             "ar": "مخالفة السرعة",
-            "fr": "",
+            "fr": "EXCÈS DE VITESSE",
             "zhTw": "超速駕駛"
           },
           "description": {
@@ -969,7 +969,7 @@
             "ko": "보물찾기",
             "es": "CAZATESOROS",
             "ar": "كنز التنقيب",
-            "fr": "",
+            "fr": "TROUVAILLES",
             "zhTw": "危險挖掘"
           },
           "description": {
@@ -1002,7 +1002,7 @@
             "ko": "치열한 경주",
             "es": "ACELERÓN",
             "ar": "سباق الفئران",
-            "fr": "",
+            "fr": "ATTAQUE EN RAT",
             "zhTw": "全速前進"
           },
           "description": {
@@ -1073,7 +1073,7 @@
             "ko": "정찰",
             "es": "INSPECCIÓN",
             "ar": "الاستخبارات",
-            "fr": "",
+            "fr": "RECONNAISSANCE",
             "zhTw": "戰場老兵"
           },
           "description": {
@@ -1106,7 +1106,7 @@
             "ko": "활력 증강",
             "es": "RECARGA A PRESIÓN",
             "ar": "التعبئة",
-            "fr": "",
+            "fr": "GONFLÉ À BLOC",
             "zhTw": "以戰養戰"
           },
           "description": {
@@ -1141,7 +1141,7 @@
             "ko": "황금빛 사격",
             "es": "TESOROS DEL MAR",
             "ar": "إطلاق النار السريع",
-            "fr": "",
+            "fr": "RICHESSES MARINES",
             "zhTw": "戰功赫赫"
           },
           "description": {
@@ -1174,7 +1174,7 @@
             "ko": "작전상 후퇴",
             "es": "RETIRADA TÁCTICA",
             "ar": "الانسحاب التكتيكي",
-            "fr": "",
+            "fr": "LANG-OUSTE!",
             "zhTw": "轉移陣地"
           },
           "description": {
@@ -1245,7 +1245,7 @@
             "ko": "끈적한 바닥",
             "es": "SUELO DE SABORES",
             "ar": "أرضية المثلجات",
-            "fr": "",
+            "fr": "SOL GLISSANT",
             "zhTw": "夢幻領地"
           },
           "description": {
@@ -1278,7 +1278,7 @@
             "ko": "엉망진창",
             "es": "DESASTRE ARTÍSTICO",
             "ar": "إحداث الفوضى",
-            "fr": "",
+            "fr": "PEINTURE SUCRÉE",
             "zhTw": "到處搗亂"
           },
           "description": {
@@ -1313,7 +1313,7 @@
             "ko": "위대한 우정",
             "es": "AMIGOS PARA SIEMPRE",
             "ar": "جمال الصداقة",
-            "fr": "",
+            "fr": "ENTRE AMIS",
             "zhTw": "絢爛友誼"
           },
           "description": {
@@ -1346,7 +1346,7 @@
             "ko": "건강한 첨가물",
             "es": "ADITIVOS SALUDABLES",
             "ar": "إضافات صحية",
-            "fr": "",
+            "fr": "ADDITIFS SAINS",
             "zhTw": "天然添加物"
           },
           "description": {
@@ -1416,7 +1416,7 @@
             "ko": "따끔한 일격",
             "es": "ESPINA VENENOSA",
             "ar": "الشائك",
-            "fr": "",
+            "fr": "ÉRAFLURE",
             "zhTw": "芒刺在背"
           },
           "description": {
@@ -1449,7 +1449,7 @@
             "ko": "경계 태세",
             "es": "VIGILANCIA",
             "ar": "اليقظة",
-            "fr": "",
+            "fr": "VIGILANCE",
             "zhTw": "一葉知秋"
           },
           "description": {
@@ -1484,7 +1484,7 @@
             "ko": "증발",
             "es": "DESAPARICIÓN",
             "ar": "الاختفاء",
-            "fr": "",
+            "fr": "DISPARITION",
             "zhTw": "藏木於林"
           },
           "description": {
@@ -1517,7 +1517,7 @@
             "ko": "분갈이",
             "es": "TRASPLANTE",
             "ar": "إعادة الزرع",
-            "fr": "",
+            "fr": "REMPOTAGE",
             "zhTw": "落地生根"
           },
           "description": {
@@ -1587,7 +1587,7 @@
             "ko": "약점 공략",
             "es": "EXPONER",
             "ar": "الكشف",
-            "fr": "",
+            "fr": "RÉVÉLATION",
             "zhTw": "龍破斬"
           },
           "description": {
@@ -1620,7 +1620,7 @@
             "ko": "슈레딩",
             "es": "TRITURAR",
             "ar": "التمزيق",
-            "fr": "",
+            "fr": "EFFRÉNÉ",
             "zhTw": "華麗速彈"
           },
           "description": {
@@ -1655,7 +1655,7 @@
             "ko": "어퍼컷",
             "es": "GANCHO",
             "ar": "الضربة العلوية",
-            "fr": "",
+            "fr": "UPPERCUT",
             "zhTw": "升龍擊"
           },
           "description": {
@@ -1688,7 +1688,7 @@
             "ko": "최후의 몸부림",
             "es": "EL ÚLTIMO BASTIÓN",
             "ar": "صمود إلى النهاية",
-            "fr": "",
+            "fr": "DERNIER EFFORT",
             "zhTw": "最後一搏"
           },
           "description": {
@@ -1759,7 +1759,7 @@
             "ko": "힐링타임",
             "es": "ANTÍDOTO NATURAL",
             "ar": "التمكين",
-            "fr": "",
+            "fr": "RENFORCEMENT",
             "zhTw": "毒來毒往"
           },
           "description": {
@@ -1792,7 +1792,7 @@
             "ko": "흘러흘러",
             "es": "HIDROFLUJO",
             "ar": "التدفق",
-            "fr": "",
+            "fr": "FLUX",
             "zhTw": "熟稔水性"
           },
           "description": {
@@ -1827,7 +1827,7 @@
             "ko": "따끔한 비행",
             "es": "AGUIJÓN VAMPÍRICO",
             "ar": "طيران مؤلم",
-            "fr": "",
+            "fr": "PIQUÉ AU VOL",
             "zhTw": "叮人飛蟲"
           },
           "description": {
@@ -1860,7 +1860,7 @@
             "ko": "화살 마스터",
             "es": "FLECHA ROBUSTA",
             "ar": "محترف القنص",
-            "fr": "",
+            "fr": "FLÈCHE PERFORANTE",
             "zhTw": "銳利飛刺"
           },
           "description": {
@@ -1931,7 +1931,7 @@
             "ko": "빠른 비트",
             "es": "CRESCENDO",
             "ar": "إيقاعات سريعة",
-            "fr": "",
+            "fr": "BASSES CURSIVES",
             "zhTw": "動感節拍"
           },
           "description": {
@@ -1964,7 +1964,7 @@
             "ko": "익스텐디드 믹스",
             "es": "BIS",
             "ar": "النسخة المطولة",
-            "fr": "",
+            "fr": "VERSION DELUXE",
             "zhTw": "混音加長版"
           },
           "description": {
@@ -1999,7 +1999,7 @@
             "ko": "퍼펙트 피치",
             "es": "ENTONACIÓN PERFECTA",
             "ar": "طبقة صوتية مثالية",
-            "fr": "",
+            "fr": "ACCORD PARFAIT",
             "zhTw": "絕對美聲"
           },
           "description": {
@@ -2032,7 +2032,7 @@
             "ko": "간주",
             "es": "INTERLUDIO",
             "ar": "فاصل موسيقي",
-            "fr": "",
+            "fr": "INTERLUDE",
             "zhTw": "舒緩間奏"
           },
           "description": {
@@ -2104,7 +2104,7 @@
             "ko": "방위 프로토콜",
             "es": "PROTOCOLO: PROTECCIÓN",
             "ar": "البروتوكول : الحماية",
-            "fr": "",
+            "fr": "PROTOCOLE DE PROTECTION",
             "zhTw": "協議：保護"
           },
           "description": {
@@ -2137,7 +2137,7 @@
             "ko": "지원 프로토콜",
             "es": "PROTOCOLO: AYUDA",
             "ar": "البروتوكول: المساعدة",
-            "fr": "",
+            "fr": "PROTOCOLE D'ASSISTANCE",
             "zhTw": "協議：支援"
           },
           "description": {
@@ -2172,7 +2172,7 @@
             "ko": "교환 명령",
             "es": "ORDEN: CAMBIO",
             "ar": "الأمر: التبديل",
-            "fr": "",
+            "fr": "ORDRE: ÉCHANGE",
             "zhTw": "指令：交換"
           },
           "description": {
@@ -2205,7 +2205,7 @@
             "ko": "후퇴 명령",
             "es": "ORDEN: RETIRADA",
             "ar": "الأمر: الانسحاب التكتيكي",
-            "fr": "",
+            "fr": "ORDRE: REPLI",
             "zhTw": "指令：撤離"
           },
           "description": {
@@ -2276,7 +2276,7 @@
             "ko": "파워 헝그리",
             "es": "SED DE PODER",
             "ar": "التعطش للسلطة",
-            "fr": "",
+            "fr": "SOIF DE POUVOIR",
             "zhTw": "元氣滿滿"
           },
           "description": {
@@ -2309,7 +2309,7 @@
             "ko": "과잉 애착",
             "es": "APEGO EXCESIVO",
             "ar": "التعلق الشديد",
-            "fr": "",
+            "fr": "POT DE COLLE",
             "zhTw": "超級黏人"
           },
           "description": {
@@ -2344,7 +2344,7 @@
             "ko": "종이 상자",
             "es": "CAJA DE CARTÓN",
             "ar": "صندوق الكرتون",
-            "fr": "",
+            "fr": "BOÎTE EN CARTON",
             "zhTw": "紙箱躱貓貓"
           },
           "description": {
@@ -2377,7 +2377,7 @@
             "ko": "치즈버거",
             "es": "HAMBURGUESA CON QUESO",
             "ar": "برجر بالجبن",
-            "fr": "",
+            "fr": "HERBE À CHAT",
             "zhTw": "吃漢堡囉"
           },
           "description": {
@@ -2448,7 +2448,7 @@
             "ko": "몽키 비즈니스",
             "es": "ASUNTOS DE PRIMATES",
             "ar": "شغل قرود",
-            "fr": "",
+            "fr": "SINGERIE",
             "zhTw": "猴子偷彈"
           },
           "description": {
@@ -2481,7 +2481,7 @@
             "ko": "쇼킹 스매시",
             "es": "DISCO DE PLATINO",
             "ar": "تحطيم الرقم القياسي",
-            "fr": "",
+            "fr": "GROSSES MANDALES",
             "zhTw": "爆裂破音"
           },
           "description": {
@@ -2516,7 +2516,7 @@
             "ko": "고막 주의",
             "es": "ROMPETÍMPANOS",
             "ar": "صرخة الصمم",
-            "fr": "",
+            "fr": "CRI ASSOMMANT",
             "zhTw": "刺耳尖叫"
           },
           "description": {
@@ -2549,7 +2549,7 @@
             "ko": "구름판",
             "es": "PRESTO",
             "ar": "سرعة الإيقاع",
-            "fr": "",
+            "fr": "PRESTO",
             "zhTw": "凌空飛躍"
           },
           "description": {
@@ -2620,7 +2620,7 @@
             "ko": "소화",
             "es": "DIGESTIÓN",
             "ar": "الهضم",
-            "fr": "",
+            "fr": "DIGESTIF",
             "zhTw": "消化殆盡"
           },
           "description": {
@@ -2653,7 +2653,7 @@
             "ko": "끈끈이",
             "es": "ATRAPAPIÉS",
             "ar": "الأثر اللزج",
-            "fr": "",
+            "fr": "VISQUEUX",
             "zhTw": "膠戰守則"
           },
           "description": {
@@ -2688,7 +2688,7 @@
             "ko": "거미",
             "es": "ARAÑAS",
             "ar": "العناكب",
-            "fr": "",
+            "fr": "ARAIGNÉES",
             "zhTw": "蜘蛛攻勢"
           },
           "description": {
@@ -2721,7 +2721,7 @@
             "ko": "프라이버시",
             "es": "ESPACIO PERSONAL",
             "ar": "الانطوائية",
-            "fr": "",
+            "fr": "BULLE PERSO",
             "zhTw": "從繭修復"
           },
           "description": {
@@ -2792,7 +2792,7 @@
             "ko": "정차",
             "es": "PRÓXIMA PARADA",
             "ar": "استراحة الصيانة",
-            "fr": "",
+            "fr": "PROCHAIN ARRÊT",
             "zhTw": "擴建鐵路"
           },
           "description": {
@@ -2825,7 +2825,7 @@
             "ko": "티켓 검사",
             "es": "EL BILLETE, POR FAVOR",
             "ar": "التذكرة، من فضلك",
-            "fr": "",
+            "fr": "P'TITS TROUS",
             "zhTw": "驗票正身"
           },
           "description": {
@@ -2860,7 +2860,7 @@
             "ko": "경로 변경",
             "es": "DESVÍO",
             "ar": "تغيير المسار",
-            "fr": "",
+            "fr": "REMISE SUR RAILS",
             "zhTw": "路線變更"
           },
           "description": {
@@ -2893,7 +2893,7 @@
             "ko": "유령 열차",
             "es": "TREN FANTASMAL",
             "ar": "قطار الأشباح",
-            "fr": "",
+            "fr": "TRAIN FANTÔME",
             "zhTw": "幽靈列車"
           },
           "description": {
@@ -2964,7 +2964,7 @@
             "ko": "열기 유지",
             "es": "CONSERVACIÓN DEL CALOR",
             "ar": "الاحتفاظ بالحرارة",
-            "fr": "",
+            "fr": "ET QUE ÇA CHAUFFE",
             "zhTw": "蓄勢保溫"
           },
           "description": {
@@ -2997,7 +2997,7 @@
             "ko": "열기 보호막",
             "es": "ESCUDO DE CALOR",
             "ar": "درع الحرارة",
-            "fr": "",
+            "fr": "BOUCLIER DE CHALEUR",
             "zhTw": "炙熱護盾"
           },
           "description": {
@@ -3032,7 +3032,7 @@
             "ko": "오버쿡",
             "es": "CHAMUSCADAS",
             "ar": "نار عالية",
-            "fr": "",
+            "fr": "CARBONISÉ",
             "zhTw": "烤焦如焚"
           },
           "description": {
@@ -3065,7 +3065,7 @@
             "ko": "사랑의 쿠키",
             "es": "HECHAS CON AMOR",
             "ar": "معمول بالحب",
-            "fr": "",
+            "fr": "FAITS AVEC AMOUR",
             "zhTw": "用愛烘焙"
           },
           "description": {
@@ -3137,7 +3137,7 @@
             "ko": "패스트푸드",
             "es": "COMIDA RÁPIDA",
             "ar": "الوجبات السريعة",
-            "fr": "",
+            "fr": "FAST FOOD",
             "zhTw": "速食主義"
           },
           "description": {
@@ -3170,7 +3170,7 @@
             "ko": "셀프 서비스",
             "es": "AUTOSERVICIO",
             "ar": "الخدمة الذاتية",
-            "fr": "",
+            "fr": "LIBRE-SERVICE",
             "zhTw": "自助補給"
           },
           "description": {
@@ -3205,7 +3205,7 @@
             "ko": "더블 소시지",
             "es": "SALCHICHA DOBLE",
             "ar": "النقانق المزدوجة",
-            "fr": "",
+            "fr": "DOUBLE SAUCISSE",
             "zhTw": "雙份熱狗"
           },
           "description": {
@@ -3238,7 +3238,7 @@
             "ko": "추가 머스터드",
             "es": "EXTRA DE MOSTAZA",
             "ar": "المزيد من الخردل",
-            "fr": "",
+            "fr": "SUPPLÉMENT MOUTARDE",
             "zhTw": "芥末加量"
           },
           "description": {
@@ -3309,7 +3309,7 @@
             "ko": "콤보 버섯",
             "es": "CHAMPICOMBOS",
             "ar": "الفطر المضاعف",
-            "fr": "",
+            "fr": "CHAMPI-COMBO",
             "zhTw": "蘑性大發"
           },
           "description": {
@@ -3342,7 +3342,7 @@
             "ko": "버섯 왕국",
             "es": "REINO DE LOS CHAMPIÑONES",
             "ar": "مملكة الفطر",
-            "fr": "",
+            "fr": "ROYAUME DES CHAMPIS",
             "zhTw": "蘑菇王國"
           },
           "description": {
@@ -3377,7 +3377,7 @@
             "ko": "다시 심기",
             "es": "REPLANTAR",
             "ar": "إعادة الزرع",
-            "fr": "",
+            "fr": "REPLANTAGE",
             "zhTw": "快速移植"
           },
           "description": {
@@ -3410,7 +3410,7 @@
             "ko": "독버섯",
             "es": "CHAMPIÑÓN VENENOSO",
             "ar": "الفطر السام",
-            "fr": "",
+            "fr": "CHAMPIGNON VÉNÉNEUX",
             "zhTw": "沉默毒菇"
           },
           "description": {
@@ -3482,7 +3482,7 @@
             "ko": "터질 것 같아!",
             "es": "VA A EXPLOTAR",
             "ar": "الانفجار الوشيك",
-            "fr": "",
+            "fr": "BON GROS BOUM",
             "zhTw": "驚爆時刻"
           },
           "description": {
@@ -3515,7 +3515,7 @@
             "ko": "뒤로 숨어!",
             "es": "¡A CUBIERTO!",
             "ar": "احتم بساتر",
-            "fr": "",
+            "fr": "À COUVERT!",
             "zhTw": "堅實掩體"
           },
           "description": {
@@ -3550,7 +3550,7 @@
             "ko": "물풍선",
             "es": "GLOBOS DE AGUA",
             "ar": "البالونات المائية",
-            "fr": "",
+            "fr": "BOMBE TRAFIQUÉE",
             "zhTw": "水球攻勢"
           },
           "description": {
@@ -3583,7 +3583,7 @@
             "ko": "방어벽",
             "es": "BARRICADA",
             "ar": "الحاجز",
-            "fr": "",
+            "fr": "BARRICADE",
             "zhTw": "銅牆鐵壁"
           },
           "description": {
@@ -3654,7 +3654,7 @@
             "ko": "나노 정밀도",
             "es": "PRECISIÓN PRECISA",
             "ar": "الدقة التامة",
-            "fr": "",
+            "fr": "PRÉCISION MATHÉMATIQUE",
             "zhTw": "精準射擊"
           },
           "description": {
@@ -3687,7 +3687,7 @@
             "ko": "후덜덜",
             "es": "TEMBLORES",
             "ar": "الارتجاف",
-            "fr": "",
+            "fr": "TREMBLEMENTS",
             "zhTw": "震顫衝擊"
           },
           "description": {
@@ -3722,7 +3722,7 @@
             "ko": "철수!",
             "es": "SUÉLTAME",
             "ar": "فك الاشتباك",
-            "fr": "",
+            "fr": "RETRAITE!",
             "zhTw": "撤離戰場"
           },
           "description": {
@@ -3755,7 +3755,7 @@
             "ko": "로켓 피니시",
             "es": "ACABA CON ELLOS",
             "ar": "اقض عليهم !",
-            "fr": "",
+            "fr": "C'EST TERMINÉ !",
             "zhTw": "終結必殺"
           },
           "description": {
@@ -3827,7 +3827,7 @@
             "ko": "사랑의 콩깍지",
             "es": "AMOR CIEGO",
             "ar": "مرأة الحب عمياء",
-            "fr": "",
+            "fr": "AMOUR AVEUGLE",
             "zhTw": "盲目狂戀"
           },
           "description": {
@@ -3860,7 +3860,7 @@
             "ko": "집착",
             "es": "OBSESIÓN",
             "ar": "الهوس",
-            "fr": "",
+            "fr": "OBSESSION",
             "zhTw": "痴心絕對"
           },
           "description": {
@@ -3895,7 +3895,7 @@
             "ko": "오싹한 매력",
             "es": "FAROL EMBRUJADO",
             "ar": "الفانوس المسحور",
-            "fr": "",
+            "fr": "SORTILÈGE",
             "zhTw": "當局者迷"
           },
           "description": {
@@ -3928,7 +3928,7 @@
             "ko": "잠수",
             "es": "BUCEO",
             "ar": "الغوص",
-            "fr": "",
+            "fr": "PLONGEON",
             "zhTw": "潛形匿影"
           },
           "description": {
@@ -3999,7 +3999,7 @@
             "ko": "재빠른 계산",
             "es": "ÁLGEBRA",
             "ar": "التفكك السريع",
-            "fr": "",
+            "fr": "CALCUL MENTAL",
             "zhTw": "高速運算"
           },
           "description": {
@@ -4032,7 +4032,7 @@
             "ko": "녹화 모드",
             "es": "GRABACIÓN",
             "ar": "التسجيل",
-            "fr": "",
+            "fr": "ENREGISTREMENT",
             "zhTw": "機底記錄"
           },
           "description": {
@@ -4067,7 +4067,7 @@
             "ko": "라인 이탈",
             "es": "SIN COBERTURA",
             "ar": "بلا الحدود",
-            "fr": "",
+            "fr": "PLUS POSSIBLE",
             "zhTw": "緊急訊號"
           },
           "description": {
@@ -4100,7 +4100,7 @@
             "ko": "해킹 주의!",
             "es": "CUENTA ATRÁS",
             "ar": "الاختراق",
-            "fr": "",
+            "fr": "HACKS!",
             "zhTw": "駭客入侵"
           },
           "description": {
@@ -4171,7 +4171,7 @@
             "ko": "시야 확보",
             "es": "A LA VISTA",
             "ar": "في مرمى نيراني",
-            "fr": "",
+            "fr": "SUCRE LENT",
             "zhTw": "凝神遠眺"
           },
           "description": {
@@ -4204,7 +4204,7 @@
             "ko": "알사탕",
             "es": "CARAMELO RESISTENTE",
             "ar": "الحلوى الصلبة",
-            "fr": "",
+            "fr": "BONBON DUR",
             "zhTw": "堅硬糖衣"
           },
           "description": {
@@ -4239,7 +4239,7 @@
             "ko": "설탕 코팅",
             "es": "CARAMELIZACIÓN",
             "ar": "الكرملة",
-            "fr": "",
+            "fr": "CARAMÉLISATION",
             "zhTw": "黏人焦糖"
           },
           "description": {
@@ -4272,7 +4272,7 @@
             "ko": "쿠키 부스러기",
             "es": "MIGAS DE GALLETAS",
             "ar": "فتات البسكويت",
-            "fr": "",
+            "fr": "ÉCROULIS DE CHOCOLAT",
             "zhTw": "餅乾碎屑"
           },
           "description": {
@@ -4343,7 +4343,7 @@
             "ko": "할리우드 액션",
             "es": "HERIDA FALSA",
             "ar": "إصابة وهمية",
-            "fr": "",
+            "fr": "BLESSURE FACTICE",
             "zhTw": "虛假傷害"
           },
           "description": {
@@ -4376,7 +4376,7 @@
             "ko": "새로운 관점",
             "es": "NUEVA PERSPECTIVA",
             "ar": "منظور جدید",
-            "fr": "",
+            "fr": "NOUVELLE PERSPECTIVE",
             "zhTw": "煥然一新"
           },
           "description": {
@@ -4411,7 +4411,7 @@
             "ko": "지팡이",
             "es": "BASTÓN",
             "ar": "العكاز",
-            "fr": "",
+            "fr": "CANNE FERRÉE",
             "zhTw": "虛假傷害"
           },
           "description": {
@@ -4444,7 +4444,7 @@
             "ko": "그랜드 피아",
             "es": "PIANO DE COLA",
             "ar": "البيانو الكبير",
-            "fr": "",
+            "fr": "PIANO FORTE",
             "zhTw": "煥然一新"
           },
           "description": {
@@ -4515,7 +4515,7 @@
             "ko": "강력한 한 방울",
             "es": "LLUVIA DE CASCABELES",
             "ar": "جنون الأجراس الفردي",
-            "fr": "",
+            "fr": "GROS GRELOT",
             "zhTw": "獨鈴絕技"
           },
           "description": {
@@ -4548,7 +4548,7 @@
             "ko": "살짝 엿보기",
             "es": "VEO VEO",
             "ar": "نظرة أولية",
-            "fr": "",
+            "fr": "PERSPICACE",
             "zhTw": "料事如神"
           },
           "description": {
@@ -4583,7 +4583,7 @@
             "ko": "주사위 게임",
             "es": "DADO TRUCADO",
             "ar": "النرد العجيب",
-            "fr": "",
+            "fr": "DÉ PIPÉ",
             "zhTw": "隨骰應變"
           },
           "description": {
@@ -4616,7 +4616,7 @@
             "ko": "젤리 빈",
             "es": "GRAGEAS",
             "ar": "حبوب الحلوى",
-            "fr": "",
+            "fr": "JELLY BEAN",
             "zhTw": "奇幻糖果豆"
           },
           "description": {
@@ -4687,7 +4687,7 @@
             "ko": "블록버스터",
             "es": "TAQUILLAZO",
             "ar": "أنجح الأفلام",
-            "fr": "",
+            "fr": "BLOCKBUSTER",
             "zhTw": "強檔鉅作"
           },
           "description": {
@@ -4720,7 +4720,7 @@
             "ko": "방탄 조끼",
             "es": "CHALECO PROTECTOR",
             "ar": "السترة الواقية",
-            "fr": "",
+            "fr": "GILET PARE-BALLES",
             "zhTw": "道具防彈背心"
           },
           "description": {
@@ -4755,7 +4755,7 @@
             "ko": "유틸리티 벨트",
             "es": "CINTURÓN DE HERRAMIENTAS",
             "ar": "حزام الأدوات",
-            "fr": "",
+            "fr": "CEINTURE DE SÉCURITÉ",
             "zhTw": "劇組萬用腰帶"
           },
           "description": {
@@ -4788,7 +4788,7 @@
             "ko": "슬로 모션 리플레이",
             "es": "A CÁMARA LENTA",
             "ar": "إعادة بالتصوير البطيء",
-            "fr": "",
+            "fr": "RALENTI",
             "zhTw": "慢動作重播"
           },
           "description": {
@@ -4858,7 +4858,7 @@
             "ko": "회복뿜뿜",
             "es": "SALUD ABUNDANTE",
             "ar": "منفاخ الصحة",
-            "fr": "",
+            "fr": "GUÉRISON SPIRITUELLE",
             "zhTw": "靈氣吸收"
           },
           "description": {
@@ -4891,7 +4891,7 @@
             "ko": "든든한 내 친구",
             "es": "GUÍA ESPIRITUAL",
             "ar": "الروح العجيبة",
-            "fr": "",
+            "fr": "RENFORT SPECTRAL",
             "zhTw": "靈友助戰"
           },
           "description": {
@@ -4926,7 +4926,7 @@
             "ko": "유령 팡팡",
             "es": "EXPLOSIÓN ESPIRITUAL",
             "ar": "مفرقع البالونات الغريب",
-            "fr": "",
+            "fr": "AIGUILLE CRUELLE",
             "zhTw": "爆裂幽魂"
           },
           "description": {
@@ -4959,7 +4959,7 @@
             "ko": "영혼 교체",
             "es": "CAMBIO DE ALMA",
             "ar": "مبدل الأرواح",
-            "fr": "",
+            "fr": "COMMUTATEUR D'ÂME",
             "zhTw": "靈界契約"
           },
           "description": {
@@ -5030,7 +5030,7 @@
             "ko": "원기회복",
             "es": "SE CURA HOY Y NO MAÑANA",
             "ar": "استدعاء الصحة",
-            "fr": "",
+            "fr": "ROBUSTESSE",
             "zhTw": "鐵血復甦"
           },
           "description": {
@@ -5063,7 +5063,7 @@
             "ko": "원격 충전",
             "es": "RECARGA REMOTA",
             "ar": "إعادة الشحن عن بعد",
-            "fr": "",
+            "fr": "CHARGEMENT À DISTANCE",
             "zhTw": "蓄勢待發"
           },
           "description": {
@@ -5098,7 +5098,7 @@
             "ko": "자기장",
             "es": "CAMPO MAGNÉTICO",
             "ar": "الحقل المغناطيسي",
-            "fr": "",
+            "fr": "CHAMP MAGNÉTIQUE",
             "zhTw": "磁性力場"
           },
           "description": {
@@ -5131,7 +5131,7 @@
             "ko": "전류 분출",
             "es": "PULSO REPELENTE",
             "ar": "النبضات الصاعقة",
-            "fr": "",
+            "fr": "RÉPULSION ÉLECTRIQUE",
             "zhTw": "脈衝驅逐"
           },
           "description": {
@@ -5201,7 +5201,7 @@
             "ko": "스텐실 글루",
             "es": "PEGAMENTO",
             "ar": "صمغ المرسام",
-            "fr": "",
+            "fr": "BAISER TENTACULAIRE",
             "zhTw": "強力吸盤"
           },
           "description": {
@@ -5234,7 +5234,7 @@
             "ko": "먹물 리필",
             "es": "RELLENO DE TINTA",
             "ar": "عبوات الحبر",
-            "fr": "",
+            "fr": "RECHARGE D'ENCRE",
             "zhTw": "墨囊充足"
           },
           "description": {
@@ -5269,7 +5269,7 @@
             "ko": "잠꾸러기 별",
             "es": "ESTRELLA DURMIENTE",
             "ar": "النجم الساكن",
-            "fr": "",
+            "fr": "KIT DE CAMOUFLAGE",
             "zhTw": "海星伏擊"
           },
           "description": {
@@ -5302,7 +5302,7 @@
             "ko": "먹물 웅덩이",
             "es": "SALPICADURAS",
             "ar": "قنبلة الحبر",
-            "fr": "",
+            "fr": "BOMBE À ENCRE",
             "zhTw": "超量墨球"
           },
           "description": {
@@ -5373,7 +5373,7 @@
             "ko": "검은 화약",
             "es": "PÓLVORA",
             "ar": "المسحوق الأسود",
-            "fr": "",
+            "fr": "TIR RECORD",
             "zhTw": "淘氣火藥"
           },
           "description": {
@@ -5406,7 +5406,7 @@
             "ko": "사랑니",
             "es": "MUELA DEL JUICIO",
             "ar": "ضرس العقل",
-            "fr": "",
+            "fr": "DENT DE SAGESSE",
             "zhTw": "爆裂智齒"
           },
           "description": {
@@ -5441,7 +5441,7 @@
             "ko": "슈가 러시",
             "es": "SUBIDÓN DE AZÚCAR",
             "ar": "الاستعجال",
-            "fr": "",
+            "fr": "POUDRE À CANON",
             "zhTw": "甜蜜猛攻"
           },
           "description": {
@@ -5474,7 +5474,7 @@
             "ko": "충돌 테스트",
             "es": "PRUEBA DE CHOQUE",
             "ar": "اختبار الصدمات",
-            "fr": "",
+            "fr": "BRIQUET D'ALLUMAGE",
             "zhTw": "搗蛋衝擊"
           },
           "description": {
@@ -5544,7 +5544,7 @@
             "ko": "무대인사",
             "es": "ARRIBA EL TELÓN",
             "ar": "وراء الستار",
-            "fr": "",
+            "fr": "VUE D'ENSEMBLE",
             "zhTw": "舞台視角"
           },
           "description": {
@@ -5577,7 +5577,7 @@
             "ko": "발성연습",
             "es": "CALENTAMIENTO VOCAL",
             "ar": "إحماء صوتي",
-            "fr": "",
+            "fr": "CORYPHÉE",
             "zhTw": "熱身彩排"
           },
           "description": {
@@ -5612,7 +5612,7 @@
             "ko": "강력한 베이스",
             "es": "ALTAVOZ",
             "ar": "مكبر الصوت",
-            "fr": "",
+            "fr": "AMPLIFICATEUR AUDIO",
             "zhTw": "震撼低音"
           },
           "description": {
@@ -5645,7 +5645,7 @@
             "ko": "백스테이지 통행증",
             "es": "ENTRE BAMBALINAS",
             "ar": "تصريح الكواليس",
-            "fr": "",
+            "fr": "PASS V.I.P.",
             "zhTw": "完美退場"
           },
           "description": {
@@ -5716,7 +5716,7 @@
             "ko": "어색한 순서",
             "es": "DESORDEN NATURAL",
             "ar": "ترتيب غير طبيعي",
-            "fr": "",
+            "fr": "DÉSORDRE NATUREL",
             "zhTw": "不自然規律"
           },
           "description": {
@@ -5749,7 +5749,7 @@
             "ko": "해피 서프라이즈",
             "es": "SORPRESITA",
             "ar": "مفاجأة سارة",
-            "fr": "",
+            "fr": "SURPRISE!",
             "zhTw": "意外驚喜"
           },
           "description": {
@@ -5784,7 +5784,7 @@
             "ko": "이만 가볼게!",
             "es": "CHAO, PESCAO",
             "ar": "الفرار",
-            "fr": "",
+            "fr": "PROPULSEUR",
             "zhTw": "走為上策"
           },
           "description": {
@@ -5817,7 +5817,7 @@
             "ko": "모성애",
             "es": "AMOR MATERNO",
             "ar": "حب الأم",
-            "fr": "",
+            "fr": "AMOUR MATERNEL",
             "zhTw": "偉大母愛"
           },
           "description": {
@@ -5889,7 +5889,7 @@
             "ko": "충전 킥",
             "es": "PUNTAPIÉS FURIOSOS",
             "ar": "ركلات متجددة",
-            "fr": "",
+            "fr": "REMISE SUR PIED",
             "zhTw": "電光追擊"
           },
           "description": {
@@ -5922,7 +5922,7 @@
             "ko": "신성한 신발",
             "es": "SUELAS DIVINAS",
             "ar": "الركلات الساحقة",
-            "fr": "",
+            "fr": "BON PIED BON ŒIL",
             "zhTw": "金鐘罩"
           },
           "description": {
@@ -5957,7 +5957,7 @@
             "ko": "팝콘폭탄",
             "es": "LLUVIA DE MAÍZ",
             "ar": "كورن فو",
-            "fr": "",
+            "fr": "POP-CORN-FU",
             "zhTw": "暴玉梨花"
           },
           "description": {
@@ -5990,7 +5990,7 @@
             "ko": "돌려차기",
             "es": "PATADA CIRCULAR",
             "ar": "الركلة الدائرية",
-            "fr": "",
+            "fr": "SEMELLES EN ACIER",
             "zhTw": "眩暈彈腿"
           },
           "description": {
@@ -6061,7 +6061,7 @@
             "ko": "임기응변",
             "es": "IMPROVISACIÓN",
             "ar": "الارتجال",
-            "fr": "",
+            "fr": "IMPROVISATION",
             "zhTw": "即興演出"
           },
           "description": {
@@ -6094,7 +6094,7 @@
             "ko": "사랑을 담아",
             "es": "LEGIÓN DE FANS",
             "ar": "مع قبلاتي",
-            "fr": "",
+            "fr": "BAISER DE CINÉMA",
             "zhTw": "療傷吻戲"
           },
           "description": {
@@ -6129,7 +6129,7 @@
             "ko": "정지 화면",
             "es": "POSE GLAMUROSA",
             "ar": "صورة تذكارية",
-            "fr": "",
+            "fr": "CLAP",
             "zhTw": "定格鏡頭"
           },
           "description": {
@@ -6162,7 +6162,7 @@
             "ko": "대역",
             "es": "DOBLE DE RIESGO",
             "ar": "الدوبلير",
-            "fr": "",
+            "fr": "DOUBLURE",
             "zhTw": "特技替身"
           },
           "description": {
@@ -6234,7 +6234,7 @@
             "ko": "힘의 장",
             "es": "CAMPO DE FUERZA",
             "ar": "مجال القوة",
-            "fr": "",
+            "fr": "CHAMP DE FORCE",
             "zhTw": "防禦力場"
           },
           "description": {
@@ -6267,7 +6267,7 @@
             "ko": "작별 선물",
             "es": "AUTODESTRUCCIÓN",
             "ar": "معادن ثقيلة",
-            "fr": "",
+            "fr": "HEAVY METAL",
             "zhTw": "重裝機甲"
           },
           "description": {
@@ -6302,7 +6302,7 @@
             "ko": "급속 충전",
             "es": "DESCARGA ELÉCTRICA",
             "ar": "فولت دعم",
-            "fr": "",
+            "fr": "PIÈCE DE REMPLACEMENT",
             "zhTw": "電能補給"
           },
           "description": {
@@ -6335,7 +6335,7 @@
             "ko": "공구함",
             "es": "CAJA DE HERRAMIENTAS",
             "ar": "صندوق الأدوات",
-            "fr": "",
+            "fr": "BOÎTE À OUTILS",
             "zhTw": "維修工具箱"
           },
           "description": {
@@ -6406,7 +6406,7 @@
             "ko": "뜨거운 분노",
             "es": "PRIMER ESCOBAZO",
             "ar": "القصف الأول",
-            "fr": "",
+            "fr": "DÉBORDANT DE RAGE",
             "zhTw": "越掃越氣"
           },
           "description": {
@@ -6439,7 +6439,7 @@
             "ko": "분노 폭발",
             "es": "FUERA DE SÍ",
             "ar": "الغضب الكبير",
-            "fr": "",
+            "fr": "FOU DE RAGE",
             "zhTw": "怒氣衝衝衝"
           },
           "description": {
@@ -6474,7 +6474,7 @@
             "ko": "진정제",
             "es": "TRANQUILIZANTE",
             "ar": "الهدوء",
-            "fr": "",
+            "fr": "PILULE ANTI-STRESS",
             "zhTw": "鎮定劑"
           },
           "description": {
@@ -6507,7 +6507,7 @@
             "ko": "썩은 바나나",
             "es": "PLÁTANO PODRIDO",
             "ar": "الموزة الفاسدة",
-            "fr": "",
+            "fr": "BANANE TROP MÛRE",
             "zhTw": "腐爛香蕉"
           },
           "description": {
@@ -6577,7 +6577,7 @@
             "ko": "잔돈은 가지세요",
             "es": "QUÉDATE CON EL CAMBIO",
             "ar": "احتفظ بالباقي",
-            "fr": "",
+            "fr": "POURBOIRE",
             "zhTw": "不用找了"
           },
           "description": {
@@ -6610,7 +6610,7 @@
             "ko": "경기 회복",
             "es": "RESISTENCIA EMPRESARIAL",
             "ar": "الموارد المتجددة",
-            "fr": "",
+            "fr": "COMMERCE FRUCTUEUX",
             "zhTw": "止跌回升"
           },
           "description": {
@@ -6645,7 +6645,7 @@
             "ko": "돼지 저금통",
             "es": "HUCHA",
             "ar": "الحصالة",
-            "fr": "",
+            "fr": "TIRELIRE",
             "zhTw": "豬公撲滿"
           },
           "description": {
@@ -6678,7 +6678,7 @@
             "ko": "코인 샤워",
             "es": "LLUVIA DE MONEDAS",
             "ar": "سيل النقود",
-            "fr": "",
+            "fr": "PORTE-MONNAIE",
             "zhTw": "沐浴金幣"
           },
           "description": {
@@ -6750,7 +6750,7 @@
             "ko": "더 강한 튜브",
             "es": "BOYA REFORZADA",
             "ar": "الطوربيد الأقوى",
-            "fr": "",
+            "fr": "TORPILLE RENFORCÉE",
             "zhTw": "裝備升級"
           },
           "description": {
@@ -6783,7 +6783,7 @@
             "ko": "날카로운 눈",
             "es": "OJO AVIZOR",
             "ar": "النظر الثاقب",
-            "fr": "",
+            "fr": "QUI-VIVE",
             "zhTw": "目光如炬"
           },
           "description": {
@@ -6818,7 +6818,7 @@
             "ko": "예비 튜브",
             "es": "SALVAVIDAS DE REPUESTO",
             "ar": "عوامة الاحتياط",
-            "fr": "",
+            "fr": "BOUÉE DE SECOURS",
             "zhTw": "備用浮板"
           },
           "description": {
@@ -6851,7 +6851,7 @@
             "ko": "엑스레이 고글",
             "es": "GAFAS DE RAYOS X",
             "ar": "نظارات الأشعة السينية",
-            "fr": "",
+            "fr": "LUNETTES À RAYONS X",
             "zhTw": "X光塁鏡"
           },
           "description": {
@@ -6921,7 +6921,7 @@
             "ko": "도보 순찰",
             "es": "RONDA DE VIGILANCIA",
             "ar": "الدورية المترجلة",
-            "fr": "",
+            "fr": "PATROUILLAGE",
             "zhTw": "徒步巡邏"
           },
           "description": {
@@ -6954,7 +6954,7 @@
             "ko": "X-팩터",
             "es": "FACTOR X",
             "ar": "إكس فاكتور",
-            "fr": "",
+            "fr": "X-FACTOR",
             "zhTw": "X因子"
           },
           "description": {
@@ -6989,7 +6989,7 @@
             "ko": "감시 레이더",
             "es": "TORRE DE VIGILANCIA",
             "ar": "برج المراقبة",
-            "fr": "",
+            "fr": "TOUR DE GARDE",
             "zhTw": "守望塔"
           },
           "description": {
@@ -7022,7 +7022,7 @@
             "ko": "라디오 체크",
             "es": "RADIODIFUSIÓN",
             "ar": "فحص التردد اللاسلكي",
-            "fr": "",
+            "fr": "CHAÎNE DE MONTAGE",
             "zhTw": "通訊檢查"
           },
           "description": {
@@ -7093,7 +7093,7 @@
             "ko": "연쇄 반응",
             "es": "REACCIÓN EN CADENA",
             "ar": "التفاعل المتسلسل",
-            "fr": "",
+            "fr": "RÉACTION EN CHAÎNE",
             "zhTw": "連鎖反應"
           },
           "description": {
@@ -7126,7 +7126,7 @@
             "ko": "초강력 끈끈이",
             "es": "SUPERVISCOSAS",
             "ar": "عالي اللزوجة",
-            "fr": "",
+            "fr": "SUPER COLLANT",
             "zhTw": "黏性驚人"
           },
           "description": {
@@ -7161,7 +7161,7 @@
             "ko": "와인드업",
             "es": "PEGAJOSIDAD",
             "ar": "الصمغ الكثيف",
-            "fr": "",
+            "fr": "ÉLASTIQUE",
             "zhTw": "伸縮自如"
           },
           "description": {
@@ -7194,7 +7194,7 @@
             "ko": "불순물",
             "es": "RESIDUO",
             "ar": "الرواسب",
-            "fr": "",
+            "fr": "RÉSIDUS CHIMIQUES",
             "zhTw": "黏性殘渣"
           },
           "description": {
@@ -7264,7 +7264,7 @@
             "ko": "긍정적인 피드백",
             "es": "RETROEFECTO POSITIVO",
             "ar": "مردود إيجابي",
-            "fr": "",
+            "fr": "CHARGE POSITIVE",
             "zhTw": "正向回饋"
           },
           "description": {
@@ -7297,7 +7297,7 @@
             "ko": "일시 고장",
             "es": "CASTIGADO",
             "ar": "منع التعبئة",
-            "fr": "",
+            "fr": "À PLAT",
             "zhTw": "彈盡糧絕"
           },
           "description": {
@@ -7332,7 +7332,7 @@
             "ko": "예비용 함정",
             "es": "PREVENCIÓN EXPLOSIVA",
             "ar": "مصيدة الفئران",
-            "fr": "",
+            "fr": "ŒUF EXPLOSIF",
             "zhTw": "緩速陷阱"
           },
           "description": {
@@ -7365,7 +7365,7 @@
             "ko": "역극성",
             "es": "POLARIDAD INVERTIDA",
             "ar": "القطبية العكسية",
-            "fr": "",
+            "fr": "GÉNÉRATEUR MAGNÉTIQUE",
             "zhTw": "極性反轉"
           },
           "description": {
@@ -7438,7 +7438,7 @@
             "ko": "제로 드래그",
             "es": "SIN FRENOS",
             "ar": "ممنوع الوقوف",
-            "fr": "",
+            "fr": "DÉRAPAGE",
             "zhTw": "飛速突進"
           },
           "description": {
@@ -7471,7 +7471,7 @@
             "ko": "가스 힐",
             "es": "CHUTE DE ADRENALINA",
             "ar": "تموين الوقود",
-            "fr": "",
+            "fr": "GASOLESSENCE",
             "zhTw": "燃料補給"
           },
           "description": {
@@ -7506,7 +7506,7 @@
             "ko": "스피드존",
             "es": "A TODA MECHA",
             "ar": "منطقة السرعة",
-            "fr": "",
+            "fr": "LEVIER DE VITESSE",
             "zhTw": "加速區域"
           },
           "description": {
@@ -7539,7 +7539,7 @@
             "ko": "파괴적 돌진",
             "es": "DEMOLICIÓN",
             "ar": "الاختراق",
-            "fr": "",
+            "fr": "ROUE LIBRE",
             "zhTw": "爆破表演"
           },
           "description": {
@@ -7610,7 +7610,7 @@
             "ko": "제공권",
             "es": "SUPERIORIDAD AÉREA",
             "ar": "التفوق الجوي",
-            "fr": "",
+            "fr": "AVANTAGE AÉRIEN",
             "zhTw": "制空優勢"
           },
           "description": {
@@ -7643,7 +7643,7 @@
             "ko": "전장 진급",
             "es": "ASCENSO",
             "ar": "الترقية الميدانية",
-            "fr": "",
+            "fr": "PROMOTION",
             "zhTw": "戰地晉升"
           },
           "description": {
@@ -7678,7 +7678,7 @@
             "ko": "엄폐물",
             "es": "A CUBIERTO",
             "ar": "الساتر الرملي",
-            "fr": "",
+            "fr": "SACS DE SABLE",
             "zhTw": "就地掩護"
           },
           "description": {
@@ -7711,7 +7711,7 @@
             "ko": "공중 지원",
             "es": "APOYO AÉREO",
             "ar": "الدعم الجوي",
-            "fr": "",
+            "fr": "RADIO MILITAIRE",
             "zhTw": "空中支援"
           },
           "description": {
@@ -7781,7 +7781,7 @@
             "ko": "하드 랜딩",
             "es": "ATERRIZAJE FORZOSO",
             "ar": "الهبوط العنيف",
-            "fr": "",
+            "fr": "ATTERRISAGE CONTRÔLÉ",
             "zhTw": "強行著陸"
           },
           "description": {
@@ -7814,7 +7814,7 @@
             "ko": "주먹다짐",
             "es": "A PUÑETAZO LIMPIO",
             "ar": "قبضة التعافي",
-            "fr": "",
+            "fr": "RIFIFI",
             "zhTw": "越戰越勇"
           },
           "description": {
@@ -7849,7 +7849,7 @@
             "ko": "플라이 하이",
             "es": "POR LOS AIRES",
             "ar": "الطيران",
-            "fr": "",
+            "fr": "CHARGEUR INDUCTION",
             "zhTw": "跑酷徽章"
           },
           "description": {
@@ -7882,7 +7882,7 @@
             "ko": "하드코어",
             "es": "CORAZA",
             "ar": "الاحتماء",
-            "fr": "",
+            "fr": "PROTECTIONS",
             "zhTw": "核心鍛錬"
           },
           "description": {
@@ -7953,7 +7953,7 @@
             "ko": "부작용",
             "es": "MALESTAR",
             "ar": "الوعكة",
-            "fr": "",
+            "fr": "MALAISE",
             "zhTw": "免疫失調"
           },
           "description": {
@@ -7986,7 +7986,7 @@
             "ko": "관통 주사",
             "es": "INYECCIÓN",
             "ar": "الحقن",
-            "fr": "",
+            "fr": "INJECTION",
             "zhTw": "穿透療法"
           },
           "description": {
@@ -8021,7 +8021,7 @@
             "ko": "활력소",
             "es": "AUTOMEDICACIÓN",
             "ar": "حقنة الذراع",
-            "fr": "",
+            "fr": "COCKTAIL REVIGORANT",
             "zhTw": "緊急注射器"
           },
           "description": {
@@ -8054,7 +8054,7 @@
             "ko": "부스터 샷",
             "es": "INYECCIONES DE REFUERZO",
             "ar": "الجرعات التنشيطية",
-            "fr": "",
+            "fr": "INJECTIONS BOOSTÉES",
             "zhTw": "附加劑量"
           },
           "description": {
@@ -8125,7 +8125,7 @@
             "ko": "빙결 지대",
             "es": "CORAZÓN CONGELADO",
             "ar": "البرد القارس",
-            "fr": "",
+            "fr": "SUPER FRAIS",
             "zhTw": "寒氣逼人"
           },
           "description": {
@@ -8158,7 +8158,7 @@
             "ko": "저체온증",
             "es": "HIPOTERMΙΑ",
             "ar": "هبوط الحرارة",
-            "fr": "",
+            "fr": "HYPOTHERMIE",
             "zhTw": "失溫現象"
           },
           "description": {
@@ -8193,7 +8193,7 @@
             "ko": "얼음 방패",
             "es": "BLOQUE DE HIELO",
             "ar": "الحاجز الجليدي",
-            "fr": "",
+            "fr": "BLOC DE GLACE",
             "zhTw": "巨型冰塊"
           },
           "description": {
@@ -8226,7 +8226,7 @@
             "ko": "냉동 시럽",
             "es": "LÍQUIDO CRIOGÉNICO",
             "ar": "شراب التجميد",
-            "fr": "",
+            "fr": "SIROP CRYO",
             "zhTw": "沁涼冷飲"
           },
           "description": {
@@ -8297,7 +8297,7 @@
             "ko": "야생 불꽃",
             "es": "LLAMAS INCENDIARIAS",
             "ar": "النيران المستعرة",
-            "fr": "",
+            "fr": "FLAMMES FOLLES",
             "zhTw": "熾烈野火"
           },
           "description": {
@@ -8330,7 +8330,7 @@
             "ko": "뜨거운 연료",
             "es": "ABSORCIÓN ÍGNEA",
             "ar": "شفاطة سائل الوقود",
-            "fr": "",
+            "fr": "SIPHON BRÛLANT",
             "zhTw": "火速進攻"
           },
           "description": {
@@ -8365,7 +8365,7 @@
             "ko": "불쏘시개",
             "es": "IGNICIÓN",
             "ar": "مضرمو النيران",
-            "fr": "",
+            "fr": "BRIQUET TEMPÊTE",
             "zhTw": "易燃火種"
           },
           "description": {
@@ -8398,7 +8398,7 @@
             "ko": "춤추는 불꽃",
             "es": "DANZA DE LLAMAS",
             "ar": "ألسنة اللهب الراقصة",
-            "fr": "",
+            "fr": "LIQUIDE ALLUME-FEUX",
             "zhTw": "躍動火舞"
           },
           "description": {
@@ -8470,7 +8470,7 @@
             "ko": "강제 집행",
             "es": "EMPUJÓN",
             "ar": "الدفع العاجل",
-            "fr": "",
+            "fr": "CHARGE DIRECTE",
             "zhTw": "沿途施壓"
           },
           "description": {
@@ -8503,7 +8503,7 @@
             "ko": "보호세",
             "es": "IMPUESTOS A TUTIPLÉN",
             "ar": "الضريبة الشاملة",
-            "fr": "",
+            "fr": "IMPÔT MASSIF",
             "zhTw": "稅賦減免"
           },
           "description": {
@@ -8538,7 +8538,7 @@
             "ko": "부분 청구",
             "es": "LIQUIDACIÓN PARCIAL",
             "ar": "تسوية الحساب",
-            "fr": "",
+            "fr": "CALCULATRICE",
             "zhTw": "納稅證明"
           },
           "description": {
@@ -8571,7 +8571,7 @@
             "ko": "딱 걸렸어!",
             "es": "DISPARO CURATIVO",
             "ar": "طلقات الشفاء",
-            "fr": "",
+            "fr": "POIGNÉE DE PV",
             "zhTw": "抓到你了"
           },
           "description": {
@@ -8642,7 +8642,7 @@
             "ko": "맥시멈 블래스트",
             "es": "MAXIBOOM",
             "ar": "المدى الأقصى",
-            "fr": "",
+            "fr": "EFFET MAXIMUM",
             "zhTw": "爆裂"
           },
           "description": {
@@ -8675,7 +8675,7 @@
             "ko": "업그레이드 백업",
             "es": "ATAQUE REFRESCANTE",
             "ar": "إمكانية الاحتفاظ",
-            "fr": "",
+            "fr": "À SERVIR GLACÉ",
             "zhTw": "急凍冰息"
           },
           "description": {
@@ -8710,7 +8710,7 @@
             "ko": "파워 서지",
             "es": "HIPERACTIVIDAD",
             "ar": "الطاقة القصوى",
-            "fr": "",
+            "fr": "RUSH D'ÉNERGIE",
             "zhTw": "能量奔湧"
           },
           "description": {
@@ -8743,7 +8743,7 @@
             "ko": "파워 실드",
             "es": "ESCUDO DE FUERZA",
             "ar": "درع الطاقة",
-            "fr": "",
+            "fr": "BOUCLIER SURPUISSANT",
             "zhTw": "動能裝甲"
           },
           "description": {
@@ -8814,7 +8814,7 @@
             "ko": "과성장",
             "es": "SOBRECRECIMIENTO",
             "ar": "النمو المفرط",
-            "fr": "",
+            "fr": "Dispersion",
             "zhTw": "種子大爆炸"
           },
           "description": {
@@ -8847,7 +8847,7 @@
             "ko": "광합성",
             "es": "FOTOSÍNTESIS",
             "ar": "التمثيل الضوئي",
-            "fr": "",
+            "fr": "PHOTOSYNTHÈSE",
             "zhTw": "綠能護盾"
           },
           "description": {
@@ -8882,7 +8882,7 @@
             "ko": "잔디깎이",
             "es": "ABONO VEGETAL",
             "ar": "ماكينة جز الحشائش",
-            "fr": "",
+            "fr": "PAILLIS",
             "zhTw": "割草機"
           },
           "description": {
@@ -8915,7 +8915,7 @@
             "ko": "옮겨심기",
             "es": "TRASPLANTE",
             "ar": "غرس الشتلات",
-            "fr": "",
+            "fr": "SÉCATEUR",
             "zhTw": "綠能轉換器"
           },
           "description": {
@@ -8987,7 +8987,7 @@
             "ko": "자동 집중",
             "es": "FOCO AUTOMÁTICO",
             "ar": "الضبط التلقائي",
-            "fr": "",
+            "fr": "AUTOFOCUS",
             "zhTw": "自動對焦"
           },
           "description": {
@@ -9020,7 +9020,7 @@
             "ko": "단련된 강철",
             "es": "ACERO TEMPLADO",
             "ar": "الفولاذ المقسى",
-            "fr": "",
+            "fr": "ACIER TREMPÉ",
             "zhTw": "鋼製機殼"
           },
           "description": {
@@ -9055,7 +9055,7 @@
             "ko": "타임 워프",
             "es": "INSEPARABLES",
             "ar": "حان وقت التزييف",
-            "fr": "",
+            "fr": "SAUT TEMPOREL",
             "zhTw": "位移裝置"
           },
           "description": {
@@ -9088,7 +9088,7 @@
             "ko": "반송",
             "es": "DEVOLUCIÓN AL REMITENTE",
             "ar": "النتيجة العكسية",
-            "fr": "",
+            "fr": "FORMULAIRE DE RETOUR",
             "zhTw": "反射機制"
           },
           "description": {
@@ -9159,7 +9159,7 @@
             "ko": "눈사태 주의",
             "es": "GOLPE TEMPESTUOSO",
             "ar": "الزوبعة القاصمة",
-            "fr": "",
+            "fr": "RAFALE ÉTOURDISSANTE",
             "zhTw": "極地風暴"
           },
           "description": {
@@ -9192,7 +9192,7 @@
             "ko": "눈이 꽁꽁꽁",
             "es": "NIEVE GLACIAL",
             "ar": "كرات التجميد",
-            "fr": "",
+            "fr": "NEIGE GLACÉE",
             "zhTw": "雪上加霜"
           },
           "description": {
@@ -9227,7 +9227,7 @@
             "ko": "스프링 발사기",
             "es": "PROPULSOR AÉREO",
             "ar": "منصة القفز",
-            "fr": "",
+            "fr": "BLOC À RESSORT",
             "zhTw": "緊急彈跳板"
           },
           "description": {
@@ -9260,7 +9260,7 @@
             "ko": "토네이도",
             "es": "TORNADO",
             "ar": "الإعصار الصناعي",
-            "fr": "",
+            "fr": "GÉNÉRATEUR DE TORNADE",
             "zhTw": "嚴防強風"
           },
           "description": {
@@ -9331,7 +9331,7 @@
             "ko": "친절한 반격",
             "es": "NO HAY DE QUÉ",
             "ar": "الضربة المضادة",
-            "fr": "",
+            "fr": "RETOUR À L'ENVOYEUR",
             "zhTw": "以岩還眼"
           },
           "description": {
@@ -9364,7 +9364,7 @@
             "ko": "튼튼한 안전모",
             "es": "CASCO BLINDADO",
             "ar": "الخوذة الصلبة",
-            "fr": "",
+            "fr": "CASQUE DE PROTECTION",
             "zhTw": "防護頭盔"
           },
           "description": {
@@ -9399,7 +9399,7 @@
             "ko": "공기압 부스터",
             "es": "SUBIDÓN NEUMÁTICO",
             "ar": "معزز الحفر",
-            "fr": "",
+            "fr": "BOOST PNEUMATIQUE",
             "zhTw": "噴氣加速器"
           },
           "description": {
@@ -9432,7 +9432,7 @@
             "ko": "재건",
             "es": "RECONSTRUCCIÓN",
             "ar": "إعادة البناء",
-            "fr": "",
+            "fr": "MATÉRIAUX DE BTP",
             "zhTw": "地形重塑"
           },
           "description": {
@@ -9503,7 +9503,7 @@
             "ko": "슈퍼 차지",
             "es": "SÚPER CARGADO",
             "ar": "شحن الزخم",
-            "fr": "",
+            "fr": "CHARGÉ À BLOC",
             "zhTw": "動感蓄能"
           },
           "description": {
@@ -9536,7 +9536,7 @@
             "ko": "런 앤건",
             "es": "¡CORRE Y VUELA!",
             "ar": "الشحن السريع",
-            "fr": "",
+            "fr": "RECHARGE ÉCLAIR",
             "zhTw": "游擊裝彈"
           },
           "description": {
@@ -9571,7 +9571,7 @@
             "ko": "위상 이동",
             "es": "EMPUJE PODEROSO",
             "ar": "جرعة الطاقة المكثفة",
-            "fr": "",
+            "fr": "MODULE DE DÉPHASAGE",
             "zhTw": "相位偏移器"
           },
           "description": {
@@ -9604,7 +9604,7 @@
             "ko": "공간 이동 운동화",
             "es": "ZAPATILLAS MÁGICAS",
             "ar": "الحذاء المسعف",
-            "fr": "",
+            "fr": "BASKETS DE RECUL",
             "zhTw": "超能時空鞋"
           },
           "description": {
@@ -9676,7 +9676,7 @@
             "ko": "취급 주의",
             "es": "EXCESO DE EQUIPAJE",
             "ar": "قابل للانفجار",
-            "fr": "",
+            "fr": "CONTENU EXPLOSIF",
             "zhTw": "小心輕放"
           },
           "description": {
@@ -9709,7 +9709,7 @@
             "ko": "회전문",
             "es": "PUERTA GIRATORIA",
             "ar": "الباب الدوار",
-            "fr": "",
+            "fr": "CHAISES MUSICALES",
             "zhTw": "旋轉門"
           },
           "description": {
@@ -9744,7 +9744,7 @@
             "ko": "서비스 벨",
             "es": "CAMPANA DE SERVICIO",
             "ar": "جرس الخدمة",
-            "fr": "",
+            "fr": "SONNETTE DE TABLE",
             "zhTw": "服務鈴"
           },
           "description": {
@@ -9777,7 +9777,7 @@
             "ko": "짐꾼 보충",
             "es": "BOTONES DE REFUERZO",
             "ar": "تعزيزات البطريق الآلي",
-            "fr": "",
+            "fr": "ROBO-PORTEUR DE RENFORT",
             "zhTw": "貼身助手"
           },
           "description": {
@@ -9849,7 +9849,7 @@
             "ko": "나쁜 냄새",
             "es": "KARMA",
             "ar": "العاقبة السيئة",
-            "fr": "",
+            "fr": "MAUVAIS KARMA",
             "zhTw": "壞運連連"
           },
           "description": {
@@ -9882,7 +9882,7 @@
             "ko": "후원 감사",
             "es": "AUTOBOMBO",
             "ar": "ازدواجية التأثير",
-            "fr": "",
+            "fr": "TENDANCE",
             "zhTw": "食腐復甦"
           },
           "description": {
@@ -9917,7 +9917,7 @@
             "ko": "지독한 향수",
             "es": "ESPACIO PERSONAL",
             "ar": "المساحة الشخصية",
-            "fr": "",
+            "fr": "CORDON DE SÉCURITÉ",
             "zhTw": "好人卡"
           },
           "description": {
@@ -9950,7 +9950,7 @@
             "ko": "산성 스프레이",
             "es": "LACA LETAL",
             "ar": "بخاخ الحمض",
-            "fr": "",
+            "fr": "ACIDE EN SPRAY",
             "zhTw": "酸性毒霧"
           },
           "description": {
@@ -10021,7 +10021,7 @@
             "ko": "벌침 급조",
             "es": "ABEJA REINA",
             "ar": "الشحن الفوري",
-            "fr": "",
+            "fr": "RECHARGE INSTANTANÉE",
             "zhTw": "百蟄不撓"
           },
           "description": {
@@ -10054,7 +10054,7 @@
             "ko": "벌집",
             "es": "PANAL",
             "ar": "قرص العسل",
-            "fr": "",
+            "fr": "RAYON DE MIEL",
             "zhTw": "甜蜜護盾"
           },
           "description": {
@@ -10089,7 +10089,7 @@
             "ko": "벌꿀 함정",
             "es": "MIELES FINALES",
             "ar": "دبس العسل",
-            "fr": "",
+            "fr": "GELÉE PAS TRÈS ROYALE",
             "zhTw": "危險蜂蜜"
           },
           "description": {
@@ -10122,7 +10122,7 @@
             "ko": "성난 벌집",
             "es": "COLMENA AGITADA",
             "ar": "الخلية الثائرة",
-            "fr": "",
+            "fr": "RUCHE ENRAGÉE",
             "zhTw": "黃蜂哨兵"
           },
           "description": {
@@ -10194,7 +10194,7 @@
             "ko": "거친 모래",
             "es": "ARENA SEPULTADORA",
             "ar": "الرمال الخشنة",
-            "fr": "",
+            "fr": "SABLAGE",
             "zhTw": "滾滾黃沙"
           },
           "description": {
@@ -10227,7 +10227,7 @@
             "ko": "치유의 바람",
             "es": "MINERALES CURATIVOS",
             "ar": "رياح التعافي",
-            "fr": "",
+            "fr": "MISTRAL SOIGNANT",
             "zhTw": "復甦之風"
           },
           "description": {
@@ -10262,7 +10262,7 @@
             "ko": "수면 유도제",
             "es": "PASTILLAS PARA DORMIR",
             "ar": "محاكي النوم",
-            "fr": "",
+            "fr": "STIMULATEUR DE SOMMEIL",
             "zhTw": "睡眠模擬器"
           },
           "description": {
@@ -10295,7 +10295,7 @@
             "ko": "달콤한 꿈",
             "es": "DULCES SUEÑOS",
             "ar": "أحلام سعيدة",
-            "fr": "",
+            "fr": "SABLE MAGIQUE",
             "zhTw": "甜蜜好夢"
           },
           "description": {
@@ -10366,7 +10366,7 @@
             "ko": "부스터 증폭",
             "es": "AMPLIFICADAÑO POTENCIADO",
             "ar": "المعزز المحسن",
-            "fr": "",
+            "fr": "AMPLIFICATION DE L'AMPLIFICATEUR",
             "zhTw": "功率全開"
           },
           "description": {
@@ -10399,7 +10399,7 @@
             "ko": "오버클럭",
             "es": "ENCHUFADO",
             "ar": "الطاقة الإضافية",
-            "fr": "",
+            "fr": "COURANT CONTINU",
             "zhTw": "行動電源"
           },
           "description": {
@@ -10434,7 +10434,7 @@
             "ko": "치트키",
             "es": "PUNTOS EXTRA",
             "ar": "قرص الغش",
-            "fr": "",
+            "fr": "CARTOUCHE DE TRICHE",
             "zhTw": "金手指"
           },
           "description": {
@@ -10467,7 +10467,7 @@
             "ko": "추가 코인",
             "es": "CARTUCHO TELETRANSPORTADOR",
             "ar": "القذائف الإضافية",
-            "fr": "",
+            "fr": "MUNITIONS BONUS",
             "zhTw": "補充代幣"
           },
           "description": {
@@ -10539,7 +10539,7 @@
             "ko": "홈런",
             "es": "CORREDORA",
             "ar": "ضربة التسجيل",
-            "fr": "",
+            "fr": "COURS, BILLIE, COURS",
             "zhTw": "全壘打"
           },
           "description": {
@@ -10572,7 +10572,7 @@
             "ko": "타격 자세",
             "es": "A LA DEFENSIVA",
             "ar": "وضعية القتال",
-            "fr": "",
+            "fr": "PARÉ À TIRER",
             "zhTw": "打者就位"
           },
           "description": {
@@ -10607,7 +10607,7 @@
             "ko": "비타민제",
             "es": "SUPLEMENTO VITAMÍNICO",
             "ar": "معزز الفيتامين",
-            "fr": "",
+            "fr": "PAQUET DE VITAMINES",
             "zhTw": "強效維他命"
           },
           "description": {
@@ -10640,7 +10640,7 @@
             "ko": "끈끈이 볼",
             "es": "EXTRAPEGAJOSO",
             "ar": "لزوجة إضافية",
-            "fr": "",
+            "fr": "SUPER GLUE",
             "zhTw": "超黏泡泡糖"
           },
           "description": {
@@ -10710,7 +10710,7 @@
             "ko": "스피디 스로우",
             "es": "LANZAMIENTO VELOZ",
             "ar": "الرمية الخاطفة",
-            "fr": "",
+            "fr": "GRAND JETÉ",
             "zhTw": "全力投擲"
           },
           "description": {
@@ -10743,7 +10743,7 @@
             "ko": "보호 피루엣",
             "es": "PIRUETA PROTECTORA",
             "ar": "الدوران الوقائي",
-            "fr": "",
+            "fr": "PIROUETTE PROTECTRICE",
             "zhTw": "安全駕駛"
           },
           "description": {
@@ -10778,7 +10778,7 @@
             "ko": "가열 장치",
             "es": "ROCAS VOLCÁNICAS",
             "ar": "طارد الحرارة",
-            "fr": "",
+            "fr": "POT D'ÉCHAPPEMENT",
             "zhTw": "炙熱排氣管"
           },
           "description": {
@@ -10811,7 +10811,7 @@
             "ko": "갈고리",
             "es": "GANCHO REMOLCADOR",
             "ar": "الخطاف الطائر",
-            "fr": "",
+            "fr": "GRAPPIN VOLANT",
             "zhTw": "飛行鉤爪"
           },
           "description": {
@@ -10882,7 +10882,7 @@
             "ko": "자연이 좋아",
             "es": "NATURALEZA VIVA",
             "ar": "الحياة النباتية",
-            "fr": "",
+            "fr": "SOIN PAR LES PLANTES",
             "zhTw": "綠茵療癒"
           },
           "description": {
@@ -10915,7 +10915,7 @@
             "ko": "가시 글러브",
             "es": "GUANTES PUNZANTES",
             "ar": "القفازات الشائكة",
-            "fr": "",
+            "fr": "GANTS ÉPINEUX",
             "zhTw": "荊棘拳套"
           },
           "description": {
@@ -10950,7 +10950,7 @@
             "ko": "식물 육성 램프",
             "es": "ARBUSTOS ROBUSTOS",
             "ar": "حبوب الإنبات",
-            "fr": "",
+            "fr": "LAMPE SOLAIRE",
             "zhTw": "植物生長燈"
           },
           "description": {
@@ -10983,7 +10983,7 @@
             "ko": "가시 덤불",
             "es": "ORTIGAS",
             "ar": "الشجيرات العدائية",
-            "fr": "",
+            "fr": "BUISSONS HOSTILES",
             "zhTw": "荊棘草叢"
           },
           "description": {
@@ -11053,7 +11053,7 @@
             "ko": "안개 은신술",
             "es": "HUMAREDA",
             "ar": "ألسنة الدخان",
-            "fr": "",
+            "fr": "FUMÉE SANS FEU",
             "zhTw": "遁走之術"
           },
           "description": {
@@ -11086,7 +11086,7 @@
             "ko": "은신 치유",
             "es": "CURA INVISIBLE",
             "ar": "التعافي المتخفي",
-            "fr": "",
+            "fr": "INVISI-SOINS",
             "zhTw": "隱療之術"
           },
           "description": {
@@ -11121,7 +11121,7 @@
             "ko": "환영 영사기",
             "es": "PROYECTOR CLONADOR",
             "ar": "آلة الاستنساخ",
-            "fr": "",
+            "fr": "PROJECTEUR D'HOLOGRAMME",
             "zhTw": "複製投射器"
           },
           "description": {
@@ -11154,7 +11154,7 @@
             "ko": "막대사탕 드랍",
             "es": "PIRULETA FURTIVA",
             "ar": "مصاصة الاختباء",
-            "fr": "",
+            "fr": "SUCETTE MASQUÉE",
             "zhTw": "神隱結界"
           },
           "description": {
@@ -11225,7 +11225,7 @@
             "ko": "셀프 수리",
             "es": "AUTORREPARACIÓN",
             "ar": "استراحة التعافي",
-            "fr": "",
+            "fr": "BIEN HUILÉ",
             "zhTw": "悉心保養"
           },
           "description": {
@@ -11258,7 +11258,7 @@
             "ko": "오토매틱 재장전",
             "es": "TIC, TAC, TIC, TAC",
             "ar": "إعادة تذخير تيك التلقائية",
-            "fr": "",
+            "fr": "RECHARGE AUTOMATICK",
             "zhTw": "自動自發"
           },
           "description": {
@@ -11293,7 +11293,7 @@
             "ko": "지뢰 마니아",
             "es": "DERROCHE DE MINAS",
             "ar": "جنون الألغام",
-            "fr": "",
+            "fr": "CAISSE DE MINES",
             "zhTw": "地雷大放送"
           },
           "description": {
@@ -11326,7 +11326,7 @@
             "ko": "최후의 저항",
             "es": "ÚLTIMAS PALABRAS",
             "ar": "الهتاف الأخير",
-            "fr": "",
+            "fr": "EXPLOSIF ULTIME",
             "zhTw": "最後狂歡"
           },
           "description": {
@@ -11396,7 +11396,7 @@
             "ko": "매직 오라",
             "es": "CURACIÓN MÁGICA",
             "ar": "النفخات السحرية",
-            "fr": "",
+            "fr": "TOUR DE MAGIE",
             "zhTw": "治癒魔霧"
           },
           "description": {
@@ -11429,7 +11429,7 @@
             "ko": "영혼 따귀",
             "es": "ESPÍRITU ENFADADO",
             "ar": "الصفعة الخفية",
-            "fr": "",
+            "fr": "ESPRIT GIFLEUR",
             "zhTw": "精靈神掌"
           },
           "description": {
@@ -11464,7 +11464,7 @@
             "ko": "요술 램프 폭발",
             "es": "ALÉJATE SÉSAMO",
             "ar": "المصباح السحري",
-            "fr": "",
+            "fr": "PURIFICATEUR D'AIR",
             "zhTw": "救援神燈"
           },
           "description": {
@@ -11497,7 +11497,7 @@
             "ko": "복수의 정령",
             "es": "ESPÍRITUS VENGATIVOS",
             "ar": "أرواح الانتقام",
-            "fr": "",
+            "fr": "GANTS CHERCHEURS",
             "zhTw": "惡作劇之靈"
           },
           "description": {
@@ -11569,7 +11569,7 @@
             "ko": "파워 그랩",
             "es": "TOMA DE FUERZA",
             "ar": "استنزاف القوى",
-            "fr": "",
+            "fr": "TOUR DE FORCE",
             "zhTw": "力量奪取"
           },
           "description": {
@@ -11602,7 +11602,7 @@
             "ko": "스폰지",
             "es": "ESPONJA",
             "ar": "الإسفنج",
-            "fr": "",
+            "fr": "ÉPONGE",
             "zhTw": "強健體魄"
           },
           "description": {
@@ -11637,7 +11637,7 @@
             "ko": "노이즈 캔슬링 헤드폰",
             "es": "CANCELACIÓN DE RUIDO",
             "ar": "كاتم الإزعاج",
-            "fr": "",
+            "fr": "CASQUE ANTIBRUIT",
             "zhTw": "降噪耳機"
           },
           "description": {
@@ -11670,7 +11670,7 @@
             "ko": "거부할 수 없는 이끌림",
             "es": "ATRACCIÓN IRRESISTIBLE",
             "ar": "الانجذاب الهائل",
-            "fr": "",
+            "fr": "MASSUE AIMANTÉE",
             "zhTw": "魅力無法擋"
           },
           "description": {
@@ -11741,7 +11741,7 @@
             "ko": "두둑한 금고",
             "es": "ARCAS LLENAS",
             "ar": "الصناديق الثقيلة",
-            "fr": "",
+            "fr": "GROSSES PIÈCES",
             "zhTw": "大肆揮霍"
           },
           "description": {
@@ -11774,7 +11774,7 @@
             "ko": "블래스터 마스터",
             "es": "TIROTEO MAESTRO",
             "ar": "القذيفة العظيمة",
-            "fr": "",
+            "fr": "MAESTRO DU BLASTER",
             "zhTw": "炸裂炮彈"
           },
           "description": {
@@ -11809,7 +11809,7 @@
             "ko": "소금통",
             "es": "BARRIL DE SAL",
             "ar": "برميل الملح",
-            "fr": "",
+            "fr": "BARIL DE SEL",
             "zhTw": "堅固鹽桶"
           },
           "description": {
@@ -11842,7 +11842,7 @@
             "ko": "든든한 망원경",
             "es": "CATALEJO DE CONFIANZA",
             "ar": "المنظار المتين",
-            "fr": "",
+            "fr": "LONGUE-VUE",
             "zhTw": "佩式追蹤炮"
           },
           "description": {
@@ -11914,7 +11914,7 @@
             "ko": "강철 후프",
             "es": "AROS DE ACERO",
             "ar": "الأطر الفولاذية",
-            "fr": "",
+            "fr": "ANNEAUX DE FER",
             "zhTw": "護身鋼圈"
           },
           "description": {
@@ -11947,7 +11947,7 @@
             "ko": "롤링 리로드",
             "es": "RECARGA RODADORA",
             "ar": "الذخيرة المستمرة",
-            "fr": "",
+            "fr": "RECHARGE QUI ROULE",
             "zhTw": "翻滾填裝"
           },
           "description": {
@@ -11982,7 +11982,7 @@
             "ko": "나선형 회전기",
             "es": "DISPAROS 360",
             "ar": "دوار الارتداد",
-            "fr": "",
+            "fr": "ROTATEUR DE RECUL",
             "zhTw": "反衝螺旋機"
           },
           "description": {
@@ -12015,7 +12015,7 @@
             "ko": "타르 통",
             "es": "BARRIL DE ALQUITRÁN",
             "ar": "برميل القطران",
-            "fr": "",
+            "fr": "TONNEAU DE GOUDRON",
             "zhTw": "柏油桶"
           },
           "description": {
@@ -12085,7 +12085,7 @@
             "ko": "블랙 포털",
             "es": "PORTAL OSCURO",
             "ar": "البوابة السوداء",
-            "fr": "",
+            "fr": "PORTAIL SOMBRE",
             "zhTw": "惡魔分身"
           },
           "description": {
@@ -12118,7 +12118,7 @@
             "ko": "그림자 치유",
             "es": "SOMBRA CURATIVA",
             "ar": "ظل التعافي",
-            "fr": "",
+            "fr": "OMBRE RÉPARATRICE",
             "zhTw": "療傷隱者"
           },
           "description": {
@@ -12153,7 +12153,7 @@
             "ko": "초능력 증폭기",
             "es": "OJO QUE TODO LO VE",
             "ar": "بلورة العرافة",
-            "fr": "",
+            "fr": "PROCESSEUR PSYCHIQUE",
             "zhTw": "超能力增強劑"
           },
           "description": {
@@ -12186,7 +12186,7 @@
             "ko": "그림자 소환",
             "es": "REFUERZOS DEL MÁS ALLÁ",
             "ar": "دعم الظلال",
-            "fr": "",
+            "fr": "SORT D'INVOCATION",
             "zhTw": "異界魔術師"
           },
           "description": {
@@ -12258,7 +12258,7 @@
             "ko": "엄마의 포옹",
             "es": "ZONA DE CONFORT",
             "ar": "حضن الأم",
-            "fr": "",
+            "fr": "CÂLIN MAGIQUE",
             "zhTw": "愛的抱抱"
           },
           "description": {
@@ -12291,7 +12291,7 @@
             "ko": "엄마의 폭풍 압박",
             "es": "CURACIÓN DESTRUCTIVA",
             "ar": "الدفاع السري",
-            "fr": "",
+            "fr": "TRÈS GROS CALIN",
             "zhTw": "愛的禁區"
           },
           "description": {
@@ -12326,7 +12326,7 @@
             "ko": "파동 변조기",
             "es": "MODULADOR SÍSMICO",
             "ar": "منظم النبضات",
-            "fr": "",
+            "fr": "MODULATEUR D'IMPULSION",
             "zhTw": "脈衝調節器"
           },
           "description": {
@@ -12359,7 +12359,7 @@
             "ko": "고철 처리기",
             "es": "ABSORBECHATARRA",
             "ar": "مزيل الذخيرة",
-            "fr": "",
+            "fr": "AIMANT À FERRAILLE",
             "zhTw": "資源回收"
           },
           "description": {
@@ -12463,7 +12463,7 @@
             "ko": "재빠른 저격",
             "es": "ATACA Y VENCERÁS",
             "ar": "القنص السريع",
-            "fr": "",
+            "fr": "TIR DE RECHARGE",
             "zhTw": "命中有禮"
           },
           "description": {
@@ -12498,7 +12498,7 @@
             "ko": "자동 조준기",
             "es": "AUTODISPARO",
             "ar": "المصوب التلقائي",
-            "fr": "",
+            "fr": "VISÉE AUTOMATIQUE",
             "zhTw": "自動瞄準鏡"
           },
           "description": {
@@ -12531,7 +12531,7 @@
             "ko": "가정용 레시피",
             "es": "TRUCO SECRETO",
             "ar": "القذيفة الموجهة",
-            "fr": "",
+            "fr": "RECETTE DE GRAND-MAMAN",
             "zhTw": "家傳秘方"
           },
           "description": {
@@ -12603,7 +12603,7 @@
             "ko": "독수리의 눈",
             "es": "OJO DE ÁGUILA",
             "ar": "النسر الراصد",
-            "fr": "",
+            "fr": "AIGLE SENTINELLE",
             "zhTw": "鷹眼"
           },
           "description": {
@@ -12636,7 +12636,7 @@
             "ko": "곰 사냥",
             "es": "CEPOS",
             "ar": "نصاب الفخاخ",
-            "fr": "",
+            "fr": "PIÈGE IMMOBILISANT",
             "zhTw": "捕熊陷阱"
           },
           "description": {
@@ -12671,7 +12671,7 @@
             "ko": "슈퍼 토템",
             "es": "SUPERTÓTEM",
             "ar": "عمود القوة الخارقة",
-            "fr": "",
+            "fr": "TOTEM DE PUISSANCE",
             "zhTw": "超級圖騰"
           },
           "description": {
@@ -12704,7 +12704,7 @@
             "ko": "와이어 함정",
             "es": "CUERDA DETONANTE",
             "ar": "سلك التفجير",
-            "fr": "",
+            "fr": "CORDON DÉTONNANT",
             "zhTw": "地雷引線"
           },
           "description": {
@@ -12776,7 +12776,7 @@
             "ko": "뮤직 테라피",
             "es": "MUSICOTERAPIA",
             "ar": "شفاء الروح",
-            "fr": "",
+            "fr": "DA CAPO",
             "zhTw": "單曲循環"
           },
           "description": {
@@ -12809,7 +12809,7 @@
             "ko": "불협화음",
             "es": "SIN PLAYBACK",
             "ar": "الصراخ الفتاك",
-            "fr": "",
+            "fr": "TINTAMARRE",
             "zhTw": "驚世獨奏"
           },
           "description": {
@@ -12844,7 +12844,7 @@
             "ko": "소리굽쇠",
             "es": "DIAPASÓN",
             "ar": "الشوكة الرنانة",
-            "fr": "",
+            "fr": "DIAPASON",
             "zhTw": "療癒音叉"
           },
           "description": {
@@ -12877,7 +12877,7 @@
             "ko": "보호의 선율",
             "es": "CANCIÓN PROTECTORA",
             "ar": "أنغام الوقاية",
-            "fr": "",
+            "fr": "CHANT DE PROTECTION",
             "zhTw": "守護進行曲"
           },
           "description": {
@@ -12949,7 +12949,7 @@
             "ko": "맹독",
             "es": "EXTRATÓXICO",
             "ar": "نبتة الحياة",
-            "fr": "",
+            "fr": "EXTRATOXIQUE",
             "zhTw": "致殘毒藥"
           },
           "description": {
@@ -12982,7 +12982,7 @@
             "ko": "약한 먹잇감",
             "es": "CRÍA CUERVOS",
             "ar": "غراب البين",
-            "fr": "",
+            "fr": "RAPACE",
             "zhTw": "毒腐收割"
           },
           "description": {
@@ -13017,7 +13017,7 @@
             "ko": "방어 부스터",
             "es": "PLUMAJE PROTECTOR",
             "ar": "معزز الدفاع",
-            "fr": "",
+            "fr": "BOOST DÉFENSIF",
             "zhTw": "護盾產生器"
           },
           "description": {
@@ -13050,7 +13050,7 @@
             "ko": "둔화 독",
             "es": "TOXINA RALENTIZANTE",
             "ar": "سم البطء",
-            "fr": "",
+            "fr": "TOXINE ENGOURDISSANTE",
             "zhTw": "緩速毒液"
           },
           "description": {
@@ -13122,7 +13122,7 @@
             "ko": "영혼 사냥",
             "es": "RECOLECTOR DE ALMAS",
             "ar": "سارق الأرواح",
-            "fr": "",
+            "fr": "MOISSOMBRE",
             "zhTw": "恐怖收割"
           },
           "description": {
@@ -13155,7 +13155,7 @@
             "ko": "전속력 돌진",
             "es": "ATAQUE INESPERADO",
             "ar": "الثعبان الملتف",
-            "fr": "",
+            "fr": "SERPENT SOURNOIS",
             "zhTw": "腹蛇突襲"
           },
           "description": {
@@ -13190,7 +13190,7 @@
             "ko": "콤보 스피너",
             "es": "PALA ROTATIVA",
             "ar": "الجاروف الدوار",
-            "fr": "",
+            "fr": "BOBINE DE COMBO",
             "zhTw": "連擊轉輪"
           },
           "description": {
@@ -13223,7 +13223,7 @@
             "ko": "생존용 삽",
             "es": "PALA DE SUPERVIVENCIA",
             "ar": "جاروف البقاء",
-            "fr": "",
+            "fr": "PELLE DE SURVIE",
             "zhTw": "特製握柄"
           },
           "description": {
@@ -13294,7 +13294,7 @@
             "ko": "엘 푸에고",
             "es": "EL FUEGO",
             "ar": "الشهاب الحارق",
-            "fr": "",
+            "fr": "EL FUEGO",
             "zhTw": "燃燒摔角魂"
           },
           "description": {
@@ -13327,7 +13327,7 @@
             "ko": "유성 러시",
             "es": "DEPRISA Y CORRIENDO",
             "ar": "اندفاع النيازك",
-            "fr": "",
+            "fr": "MÉTÉORE",
             "zhTw": "流星衝刺"
           },
           "description": {
@@ -13362,7 +13362,7 @@
             "ko": "보충제 수플렉스",
             "es": "VUELTA DE TUERCA",
             "ar": "مقوي العضلات",
-            "fr": "",
+            "fr": "SUPPLÉMENT SUPLEX",
             "zhTw": "高蛋白補品"
           },
           "description": {
@@ -13395,7 +13395,7 @@
             "ko": "유성우 벨트",
             "es": "CINTURÓN DE ASTEROIDES",
             "ar": "حزام النيازك",
-            "fr": "",
+            "fr": "CEINTURE D'ASTÉROÏDES",
             "zhTw": "流星腰帶"
           },
           "description": {
@@ -13466,7 +13466,7 @@
             "ko": "다이너점프",
             "es": "DINASALTO",
             "ar": "القفزة الصاروخية",
-            "fr": "",
+            "fr": "SAUT DYNAMIKE",
             "zhTw": "爆破跳躍"
           },
           "description": {
@@ -13499,7 +13499,7 @@
             "ko": "폭파",
             "es": "DEMOLICIÓN",
             "ar": "الهدم",
-            "fr": "",
+            "fr": "DÉMOLITION",
             "zhTw": "爆破炸翻天"
           },
           "description": {
@@ -13534,7 +13534,7 @@
             "ko": "피젯 스피너",
             "es": "GIROS EXPLOSIVOS",
             "ar": "الدبور الدوار",
-            "fr": "",
+            "fr": "TOUPIE DE MAIN",
             "zhTw": "指尖陀螺"
           },
           "description": {
@@ -13567,7 +13567,7 @@
             "ko": "화약 주머니",
             "es": "PÓLVORA ATURDIDORA",
             "ar": "حقيبة القنابل",
-            "fr": "",
+            "fr": "SACOCHE CHARGÉE",
             "zhTw": "震爆炸彈"
           },
           "description": {
@@ -13638,7 +13638,7 @@
             "ko": "곰과 나",
             "es": "HERMANO OSO",
             "ar": "المنفعة المتبادلة",
-            "fr": "",
+            "fr": "BONNE PATTE",
             "zhTw": "靈魂協同"
           },
           "description": {
@@ -13671,7 +13671,7 @@
             "ko": "하이퍼 베어",
             "es": "ZARPAZO VELOZ",
             "ar": "الدب السريع",
-            "fr": "",
+            "fr": "EXPÉDITIF",
             "zhTw": "熊之狂暴"
           },
           "description": {
@@ -13706,7 +13706,7 @@
             "ko": "곰 발톱",
             "es": "GARRAS DE OSO",
             "ar": "مخالب الدب",
-            "fr": "",
+            "fr": "PATTE D'OURS",
             "zhTw": "震盪熊掌"
           },
           "description": {
@@ -13739,7 +13739,7 @@
             "ko": "인조 모피",
             "es": "PIEL PROTECTORA",
             "ar": "الفرو الواقي",
-            "fr": "",
+            "fr": "FOURRURE SYNTHÉTIQUE",
             "zhTw": "堅硬熊毛"
           },
           "description": {
@@ -13811,7 +13811,7 @@
             "ko": "에너지 충전",
             "es": "ENERGIZANTE",
             "ar": "شحن الطاقة",
-            "fr": "",
+            "fr": "DÉCHARGE",
             "zhTw": "脈衝充能"
           },
           "description": {
@@ -13844,7 +13844,7 @@
             "ko": "쇼키",
             "es": "REBOTE ELECTRIZANTE",
             "ar": "الصاعق",
-            "fr": "",
+            "fr": "CHOQUANT",
             "zhTw": "脈衝炮台"
           },
           "description": {
@@ -13879,7 +13879,7 @@
             "ko": "점화 플러그",
             "es": "BUJÍA",
             "ar": "فتيل الإشعال",
-            "fr": "",
+            "fr": "BOUGIE D'ALLUMAGE",
             "zhTw": "震盪火星塞"
           },
           "description": {
@@ -13912,7 +13912,7 @@
             "ko": "반동 역제 스프링",
             "es": "INTENSIFICADOR",
             "ar": "نابض الارتداد",
-            "fr": "",
+            "fr": "RESSORT DE RECUL",
             "zhTw": "炮台零件"
           },
           "description": {
@@ -13984,7 +13984,7 @@
             "ko": "메디컬 알코올",
             "es": "LICOR CURATIVO",
             "ar": "استعمال طبي",
-            "fr": "",
+            "fr": "USAGE MÉDICAL",
             "zhTw": "療癒特調"
           },
           "description": {
@@ -14017,7 +14017,7 @@
             "ko": "유독성 알코올",
             "es": "LICOR EXTRANOCIVO",
             "ar": "الأذى الإضافي",
-            "fr": "",
+            "fr": "BIEN ARROSÉ",
             "zhTw": "加量不加價"
           },
           "description": {
@@ -14052,7 +14052,7 @@
             "ko": "끈적한 시럽 칵테일",
             "es": "MEJUNJE PEGAJOSO",
             "ar": "خلاط الشراب",
-            "fr": "",
+            "fr": "SIROP GLUANT",
             "zhTw": "黏稠糖漿"
           },
           "description": {
@@ -14085,7 +14085,7 @@
             "ko": "약초 칵테일",
             "es": "TÓNICO DE HIERBAS",
             "ar": "أعشاب علاجية",
-            "fr": "",
+            "fr": "TISANE RÉCONFORTANTE",
             "zhTw": "養生特調"
           },
           "description": {
@@ -14157,7 +14157,7 @@
             "ko": "따뜻한 햇살",
             "es": "FERTILIZANTE",
             "ar": "التخصيب",
-            "fr": "",
+            "fr": "FERTILISANT",
             "zhTw": "療癒派對"
           },
           "description": {
@@ -14190,7 +14190,7 @@
             "ko": "커브볼",
             "es": "CURVATURA",
             "ar": "الضربة المنحنية",
-            "fr": "",
+            "fr": "BALLE COURBE",
             "zhTw": "曲線刺刺球"
           },
           "description": {
@@ -14225,7 +14225,7 @@
             "ko": "가시방석",
             "es": "LLUVIA DE ESPINAS",
             "ar": "الأشواك المنبثقة",
-            "fr": "",
+            "fr": "PIQUE-ÉPINE",
             "zhTw": "尖刺針包"
           },
           "description": {
@@ -14258,7 +14258,7 @@
             "ko": "자연의 신비",
             "es": "VIDA VEGETAL",
             "ar": "نبتة الحياة",
-            "fr": "",
+            "fr": "CACTUS EN POT",
             "zhTw": "生命之樹"
           },
           "description": {
@@ -14330,7 +14330,7 @@
             "ko": "슈퍼 통통탄",
             "es": "SUPERREBOTE",
             "ar": "الرصاص النطاطي",
-            "fr": "",
+            "fr": "SUPER REBOND",
             "zhTw": "超級反彈"
           },
           "description": {
@@ -14363,7 +14363,7 @@
             "ko": "로봇 질주",
             "es": "RETIRADA ROBÓTICA",
             "ar": "انسحاب الروبوتات",
-            "fr": "",
+            "fr": "REPLI ROBOTIQUE",
             "zhTw": "戰術撤退"
           },
           "description": {
@@ -14398,7 +14398,7 @@
             "ko": "통통탄 발사기",
             "es": "PARQUE DE BOLAS",
             "ar": "رشاش الكرات",
-            "fr": "",
+            "fr": "LANCEUR MULTIPLE",
             "zhTw": "連續發球機"
           },
           "description": {
@@ -14431,7 +14431,7 @@
             "ko": "바운시 캐슬",
             "es": "CASTILLO HINCHABLE",
             "ar": "القلعة النطاطة",
-            "fr": "",
+            "fr": "CHÂTEAU GONFLABLE",
             "zhTw": "彈性傷癒"
           },
           "description": {
@@ -14502,7 +14502,7 @@
             "ko": "로켓 샤워!",
             "es": "¡MÁS COHETES!",
             "ar": "المزيد من الصواريخ",
-            "fr": "",
+            "fr": "DÉLUGE DE ROQUETTES",
             "zhTw": "火箭狂潮"
           },
           "description": {
@@ -14535,7 +14535,7 @@
             "ko": "로켓 4호기",
             "es": "CUARTO COНЕТЕ",
             "ar": "الصاروخ رقم 4",
-            "fr": "",
+            "fr": "4E FANTASTIQUE",
             "zhTw": "四號火箭"
           },
           "description": {
@@ -14570,7 +14570,7 @@
             "ko": "로켓 스니커즈",
             "es": "ZAPATILLAS EXPLOSIVAS",
             "ar": "الأحذية الصاروخية",
-            "fr": "",
+            "fr": "LACETS À FUSÉES",
             "zhTw": "火箭推進器"
           },
           "description": {
@@ -14603,7 +14603,7 @@
             "ko": "로켓 연료",
             "es": "MEGACOHETE",
             "ar": "وقود الصواريخ",
-            "fr": "",
+            "fr": "MÉGA ROQUETTE",
             "zhTw": "超級火箭"
           },
           "description": {
@@ -14674,7 +14674,7 @@
             "ko": "버서커",
             "es": "TORO FURIOSO",
             "ar": "الثور الجريح",
-            "fr": "",
+            "fr": "BERSERK",
             "zhTw": "狂牛之怒"
           },
           "description": {
@@ -14707,7 +14707,7 @@
             "ko": "터프가이",
             "es": "TIPO DURO",
             "ar": "الدرع المتين",
-            "fr": "",
+            "fr": "GROS DUR",
             "zhTw": "鋼鐵硬漢"
           },
           "description": {
@@ -14742,7 +14742,7 @@
             "ko": "육즙 가득 스테이크",
             "es": "VIGORIZADOR",
             "ar": "الوجبة المقوية",
-            "fr": "",
+            "fr": "BANANE À INJECTION",
             "zhTw": "丁骨營養針"
           },
           "description": {
@@ -14775,7 +14775,7 @@
             "ko": "발 구르기",
             "es": "PISOTEADOR",
             "ar": "الدهس",
-            "fr": "",
+            "fr": "GROS SABOTS",
             "zhTw": "重踏鐵靴"
           },
           "description": {
@@ -14846,7 +14846,7 @@
             "ko": "스피드 부츠",
             "es": "BOTAS VELOCES",
             "ar": "حذاء السرعة",
-            "fr": "",
+            "fr": "BOTTES NEUVES",
             "zhTw": "速度之靴"
           },
           "description": {
@@ -14879,7 +14879,7 @@
             "ko": "매그넘 스페셜",
             "es": "PISTOLETAZO",
             "ar": "الرصاصة القاتلة",
-            "fr": "",
+            "fr": "SPÉCIAL MAGNUM",
             "zhTw": "特製左輪"
           },
           "description": {
@@ -14914,7 +14914,7 @@
             "ko": "쾌속 장전기",
             "es": "RECARGA RÁPIDA",
             "ar": "مسرع التعبئة",
-            "fr": "",
+            "fr": "CHARGEUR AUTOMATIQUE",
             "zhTw": "快速裝彈器"
           },
           "description": {
@@ -14947,7 +14947,7 @@
             "ko": "실버 불릿",
             "es": "BALA DE PLATA",
             "ar": "الرصاصة الفضية",
-            "fr": "",
+            "fr": "BALLE D'ARGENT",
             "zhTw": "穿甲銀彈"
           },
           "description": {
@@ -15019,7 +15019,7 @@
             "ko": "쉘 쇼크",
             "es": "CHOQUE MATE",
             "ar": "شلل الصدمة",
-            "fr": "",
+            "fr": "ÉTOURDI",
             "zhTw": "震撼彈"
           },
           "description": {
@@ -15052,7 +15052,7 @@
             "ko": "밴드에이드",
             "es": "PRIMEROS AUXILIOS",
             "ar": "الإسعافات الأولية",
-            "fr": "",
+            "fr": "PANSEMENT",
             "zhTw": "緊急救護"
           },
           "description": {
@@ -15087,7 +15087,7 @@
             "ko": "빨리 감기",
             "es": "PASO AL FRENTE",
             "ar": "عامل السرعة",
-            "fr": "",
+            "fr": "AVANCE RAPIDE",
             "zhTw": "衝鋒跑鞋"
           },
           "description": {
@@ -15120,7 +15120,7 @@
             "ko": "집중 사격",
             "es": "TIRO AL PLATO",
             "ar": "الأهداف الطائرة",
-            "fr": "",
+            "fr": "PIGEONS D'ARGILE",
             "zhTw": "射擊飛靶"
           },
           "description": {
