@@ -1,32 +1,30 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
-  Animated,
-  Dimensions,
   Image,
+  Dimensions,
+  ActivityIndicator,
 } from 'react-native';
 import { useSettingsScreenTranslation } from '../i18n/settingsScreen';
+import { 
+  fetchAndProcessCharactersData, 
+  getCharacterData,
+} from '../data/characterData';
+import { useCharacterLocalization } from '../hooks/useCharacterLocalization';
+import { CHARACTER_IMAGES, isValidCharacterName } from '../data/characterImages';
+import { JAPANESE_TO_ENGLISH_MAP } from '../data/characterCompatibility';
 
-const VISIBLE_ITEMS = 5;
-const ITEM_HEIGHT = 80;
-const CONTAINER_HEIGHT = ITEM_HEIGHT * VISIBLE_ITEMS;
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 interface Character {
   id: number;
   name: string;
-  iconUrl: string;
+  localizedName?: string;
+  image: any;
 }
-
-// サンプルキャラクターデータ
-const CHARACTERS: Character[] = Array.from({ length: 88 }, (_, i) => ({
-  id: i + 1,
-  name: `キャラクター${i + 1}`,
-  iconUrl: 'https://via.placeholder.com/50' // 実際のアイコンURLに置き換える
-}));
 
 interface CharacterRouletteScreenProps {
   onClose: () => void;
@@ -34,63 +32,93 @@ interface CharacterRouletteScreenProps {
 
 const CharacterRouletteScreen: React.FC<CharacterRouletteScreenProps> = ({ onClose }) => {
   const { t } = useSettingsScreenTranslation();
-  const [isSpinning, setIsSpinning] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [displayedCharacters, setDisplayedCharacters] = useState<Character[]>([]);
-  const scrollY = useRef(new Animated.Value(0)).current;
-  const spinAnimation = useRef<Animated.CompositeAnimation | null>(null);
+  const { getLocalizedName } = useCharacterLocalization();
+  const [characters, setCharacters] = useState<Character[]>([]);
+  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSelecting, setIsSelecting] = useState(false);
 
-  useEffect(() => {
-    updateDisplayedCharacters(selectedIndex);
-    return () => {
-      if (spinAnimation.current) {
-        spinAnimation.current.stop();
-      }
-    };
-  }, [selectedIndex]);
-
-  const updateDisplayedCharacters = (currentIndex: number) => {
-    const half = Math.floor(VISIBLE_ITEMS / 2);
-    let chars: Character[] = [];
+  // キャラクター名から画像を取得する関数
+  const getCharacterImage = (characterName: string) => {
+    // 日本語名を英語名に変換
+    const englishName = JAPANESE_TO_ENGLISH_MAP[characterName];
     
-    for (let i = -half; i <= half; i++) {
-      let index = currentIndex + i;
-      while (index < 0) index += CHARACTERS.length;
-      while (index >= CHARACTERS.length) index -= CHARACTERS.length;
-      chars.push(CHARACTERS[index]);
+    if (englishName && isValidCharacterName(englishName)) {
+      return CHARACTER_IMAGES[englishName];
     }
     
-    setDisplayedCharacters(chars);
+    // 名前の正規化バリエーション
+    const normalizedName = characterName.toLowerCase();
+    const variations = [
+      normalizedName,
+      normalizedName.replace(/\s+/g, ''),
+      normalizedName.replace(/\s+/g, '-'),
+      normalizedName.replace(/\s+/g, '_'),
+      normalizedName.replace(/-/g, ''),
+      normalizedName.replace(/_/g, '')
+    ];
+    
+    // 各バリエーションで画像を探す
+    for (const variant of variations) {
+      if (isValidCharacterName(variant)) {
+        return CHARACTER_IMAGES[variant];
+      }
+    }
+    
+    // デフォルト画像
+    return CHARACTER_IMAGES.shelly;
   };
 
-  const spin = () => {
-    if (isSpinning) return;
-    
-    setIsSpinning(true);
-    const spins = 20 + Math.floor(Math.random() * 20); // 20-40回のスピン
-    const targetIndex = Math.floor(Math.random() * CHARACTERS.length);
-    const totalDistance = (spins * CHARACTERS.length + targetIndex) * ITEM_HEIGHT;
-    
-    scrollY.setValue(0);
-    
-    spinAnimation.current = Animated.sequence([
-      Animated.timing(scrollY, {
-        toValue: totalDistance,
-        duration: 3000,
-        useNativeDriver: true,
-      }),
-      Animated.spring(scrollY, {
-        toValue: targetIndex * ITEM_HEIGHT,
-        friction: 5,
-        tension: 40,
-        useNativeDriver: true,
-      })
-    ]);
+  useEffect(() => {
+    const loadCharacters = async () => {
+      try {
+        setIsLoading(true);
+        const charsData = await fetchAndProcessCharactersData();
+        
+        // キャラクターデータを整形
+        const formattedChars: Character[] = Object.keys(charsData).map((name, index) => {
+          const characterImage = getCharacterImage(name);
+          
+          return {
+            id: index + 1,
+            name: name,
+            localizedName: getLocalizedName(name),
+            image: characterImage
+          };
+        });
+        
+        setCharacters(formattedChars);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Failed to fetch character data:', error);
+        // エラー時はCHARACTER_IMAGESからダミーデータを生成
+        const characterNames = Object.keys(CHARACTER_IMAGES);
+        const dummyChars: Character[] = characterNames.slice(0, 20).map((name, i) => ({
+          id: i + 1,
+          name: name,
+          localizedName: name.charAt(0).toUpperCase() + name.slice(1),
+          image: CHARACTER_IMAGES[name]
+        }));
+        
+        setCharacters(dummyChars);
+        setIsLoading(false);
+      }
+    };
 
-    spinAnimation.current.start(() => {
-      setIsSpinning(false);
-      setSelectedIndex(targetIndex);
-    });
+    loadCharacters();
+  }, []);
+
+  const selectRandomCharacter = () => {
+    if (characters.length === 0 || isSelecting) return;
+    
+    setIsSelecting(true);
+    
+    // 少し遅延を入れてアニメーション感を出す
+    setTimeout(() => {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      setSelectedCharacter(characters[randomIndex]);
+      setIsSelecting(false);
+    }, 800);
   };
 
   return (
@@ -102,43 +130,60 @@ const CharacterRouletteScreen: React.FC<CharacterRouletteScreenProps> = ({ onClo
         </TouchableOpacity>
       </View>
 
-      <View style={styles.rouletteContainer}>
-        <View style={styles.selectionIndicator} />
-        
-        <Animated.View
-          style={[
-            styles.charactersContainer,
-            {
-              transform: [{
-                translateY: scrollY.interpolate({
-                  inputRange: [0, CHARACTERS.length * ITEM_HEIGHT],
-                  outputRange: [0, -CHARACTERS.length * ITEM_HEIGHT],
-                })
-              }]
-            }
-          ]}
-        >
-          {displayedCharacters.map((char, index) => (
-            <View key={`${char.id}-${index}`} style={styles.characterItem}>
-              <Image
-                source={{ uri: char.iconUrl }}
-                style={styles.characterIcon}
-              />
-              <Text style={styles.characterName}>{char.name}</Text>
+      {isLoading ? (
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color="#21A0DB" />
+          <Text style={styles.loadingText}>キャラクターをロード中...</Text>
+        </View>
+      ) : (
+        <View style={styles.contentContainer}>
+          {selectedCharacter ? (
+            <View style={styles.resultContainer}>
+              <View style={styles.characterCard}>
+                <View style={styles.imageContainer}>
+                  <Image
+                    source={selectedCharacter.image}
+                    style={styles.characterImage}
+                    resizeMode="contain"
+                  />
+                </View>
+                <Text style={styles.characterName}>
+                  {selectedCharacter.localizedName || selectedCharacter.name}
+                </Text>
+              </View>
             </View>
-          ))}
-        </Animated.View>
-      </View>
+          ) : (
+            <View style={styles.placeholderContainer}>
+              <Text style={styles.placeholderText}>
+                ボタンを押して、ランダムなキャラクターを選択してください
+              </Text>
+            </View>
+          )}
 
-      <TouchableOpacity
-        style={[styles.spinButton, isSpinning && styles.spinButtonDisabled]}
-        onPress={spin}
-        disabled={isSpinning}
-      >
-        <Text style={styles.spinButtonText}>
-          {isSpinning ? 'スピン中...' : 'スピン！'}
-        </Text>
-      </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.selectButton, isSelecting && styles.selectButtonDisabled]}
+            onPress={selectRandomCharacter}
+            disabled={isSelecting}
+          >
+            {isSelecting ? (
+              <View style={styles.selectingContainer}>
+                <ActivityIndicator size="small" color="#fff" />
+                <Text style={styles.selectButtonText}>選択中...</Text>
+              </View>
+            ) : (
+              <Text style={styles.selectButtonText}>
+                {selectedCharacter ? 'もう一度選択' : 'ランダム選択'}
+              </Text>
+            )}
+          </TouchableOpacity>
+          
+          <View style={styles.statsContainer}>
+            <Text style={styles.statsText}>
+              合計キャラクター数: {characters.length}
+            </Text>
+          </View>
+        </View>
+      )}
     </View>
   );
 };
@@ -146,7 +191,7 @@ const CharacterRouletteScreen: React.FC<CharacterRouletteScreenProps> = ({ onClo
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f5f5f5',
   },
   header: {
     height: 60,
@@ -170,60 +215,103 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: '#fff',
   },
-  rouletteContainer: {
-    height: CONTAINER_HEIGHT,
-    marginVertical: 20,
-    overflow: 'hidden',
-    position: 'relative',
-  },
-  selectionIndicator: {
-    position: 'absolute',
-    top: '50%',
-    width: '100%',
-    height: ITEM_HEIGHT,
-    backgroundColor: 'rgba(33, 160, 219, 0.1)',
-    borderTopWidth: 2,
-    borderBottomWidth: 2,
-    borderColor: '#21A0DB',
-    transform: [{ translateY: -ITEM_HEIGHT / 2 }],
-  },
-  charactersContainer: {
-    position: 'absolute',
-    width: '100%',
-  },
-  characterItem: {
-    height: ITEM_HEIGHT,
-    flexDirection: 'row',
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 20,
   },
-  characterIcon: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    marginRight: 10,
+  loadingText: {
+    marginTop: 16,
+    fontSize: 16,
+    color: '#666',
+  },
+  contentContainer: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'space-between',
+  },
+  placeholderContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  placeholderText: {
+    fontSize: 16,
+    color: '#666',
+    textAlign: 'center',
+    lineHeight: 24,
+  },
+  resultContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  characterCard: {
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    padding: 20,
+    alignItems: 'center',
+    width: SCREEN_WIDTH - 60,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 5,
+  },
+  imageContainer: {
+    width: 200,
+    height: 200,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 20,
+    backgroundColor: '#f9f9f9',
+    borderRadius: 10,
+  },
+  characterImage: {
+    width: 180,
+    height: 180,
   },
   characterName: {
-    fontSize: 16,
+    fontSize: 24,
+    fontWeight: 'bold',
     color: '#333',
+    textAlign: 'center',
   },
-  spinButton: {
+  selectButton: {
     backgroundColor: '#21A0DB',
-    paddingVertical: 12,
-    paddingHorizontal: 24,
-    borderRadius: 8,
-    marginHorizontal: 20,
+    paddingVertical: 16,
+    borderRadius: 30,
+    marginTop: 30,
     marginBottom: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 3,
   },
-  spinButtonDisabled: {
-    opacity: 0.5,
+  selectButtonDisabled: {
+    opacity: 0.7,
   },
-  spinButtonText: {
+  selectButtonText: {
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  selectingContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  statsContainer: {
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  statsText: {
+    fontSize: 14,
+    color: '#666',
+  },
 });
 
-export default CharacterRouletteScreen;
+export default CharacterRouletteScreen
