@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -7,6 +7,9 @@ import {
   Image,
   Dimensions,
   ActivityIndicator,
+  Animated,
+  Easing,
+  Vibration,
 } from 'react-native';
 import { useSettingsScreenTranslation } from '../i18n/settingsScreen';
 import { 
@@ -37,6 +40,19 @@ const CharacterRouletteScreen: React.FC<CharacterRouletteScreenProps> = ({ onClo
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isSelecting, setIsSelecting] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+  
+  // アニメーション用のRef
+  const spinValue = useRef(new Animated.Value(0)).current;
+  const scaleValue = useRef(new Animated.Value(1)).current;
+  const bounceValue = useRef(new Animated.Value(0)).current;
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  
+  // 回転アニメーション
+  const spin = spinValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '360deg']
+  });
 
   // キャラクター名から画像を取得する関数
   const getCharacterImage = (characterName: string) => {
@@ -112,17 +128,154 @@ const CharacterRouletteScreen: React.FC<CharacterRouletteScreenProps> = ({ onClo
     if (characters.length === 0 || isSelecting) return;
     
     setIsSelecting(true);
+    setShowConfetti(false);
     
-    // 少し遅延を入れてアニメーション感を出す
-    setTimeout(() => {
+    // 回転アニメーションをリセットしてスタート
+    spinValue.setValue(0);
+    Animated.timing(spinValue, {
+      toValue: 5, // 5回転
+      duration: 2000,
+      easing: Easing.out(Easing.quad),
+      useNativeDriver: true
+    }).start();
+    
+    // ランダム選択中の効果音や振動をここに追加可能
+    Vibration.vibrate(100);
+    
+    // 高速にキャラを次々と表示するエフェクト
+    let count = 0;
+    const maxCount = 15; // 表示回数
+    const interval = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * characters.length);
       setSelectedCharacter(characters[randomIndex]);
-      setIsSelecting(false);
-    }, 800);
+      count++;
+      
+      // 表示が終わったら
+      if (count >= maxCount) {
+        clearInterval(interval);
+        
+        // 最終的な選択
+        const finalIndex = Math.floor(Math.random() * characters.length);
+        setSelectedCharacter(characters[finalIndex]);
+        
+        // 選択完了時のアニメーション
+        Animated.sequence([
+          Animated.timing(scaleValue, {
+            toValue: 1.2,
+            duration: 200,
+            useNativeDriver: true
+          }),
+          Animated.timing(scaleValue, {
+            toValue: 1,
+            duration: 200,
+            useNativeDriver: true
+          })
+        ]).start();
+        
+        // 完了時の振動
+        Vibration.vibrate([0, 70, 50, 100]);
+        
+        // コンフェッティ表示
+        setShowConfetti(true);
+        
+        setIsSelecting(false);
+      }
+    }, 100);
   };
+
+  // キャラクター選択後のバウンスアニメーション
+  useEffect(() => {
+    if (selectedCharacter && !isSelecting) {
+      Animated.loop(
+        Animated.sequence([
+          Animated.timing(bounceValue, {
+            toValue: 1,
+            duration: 800,
+            easing: Easing.inOut(Easing.quad),
+            useNativeDriver: true
+          }),
+          Animated.timing(bounceValue, {
+            toValue: 0,
+            duration: 800,
+            easing: Easing.inOut(Easing.quad),
+            useNativeDriver: true
+          })
+        ]),
+        { iterations: -1 }
+      ).start();
+    }
+  }, [selectedCharacter, isSelecting]);
+
+  // コンフェッティのアニメーション
+  useEffect(() => {
+    if (showConfetti) {
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 500,
+        useNativeDriver: true
+      }).start();
+      
+      // 5秒後にフェードアウト
+      setTimeout(() => {
+        Animated.timing(fadeAnim, {
+          toValue: 0,
+          duration: 1000,
+          useNativeDriver: true
+        }).start(() => setShowConfetti(false));
+      }, 2000);
+    }
+  }, [showConfetti]);
+
+  // コンフェッティコンポーネント
+  const Confetti = () => {
+    return (
+      <Animated.View style={[styles.confettiContainer, { opacity: fadeAnim }]}>
+        {Array.from({ length: 50 }).map((_, i) => {
+          const size = Math.random() * 8 + 4;
+          const left = Math.random() * SCREEN_WIDTH;
+          const delay = Math.random() * 3;
+          const duration = Math.random() * 3000 + 2000;
+          
+          return (
+            <Animated.View
+              key={i}
+              style={{
+                position: 'absolute',
+                top: -20,
+                left,
+                width: size,
+                height: size,
+                backgroundColor: [
+                  '#FF5252', '#FF4081', '#E040FB', '#7C4DFF',
+                  '#536DFE', '#448AFF', '#40C4FF', '#18FFFF',
+                  '#64FFDA', '#69F0AE', '#B2FF59', '#EEFF41',
+                  '#FFFF00', '#FFD740', '#FFAB40', '#FF6E40'
+                ][Math.floor(Math.random() * 16)],
+                borderRadius: size / 2,
+                transform: [{
+                  translateY: fadeAnim.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [0, 500]
+                  })
+                }]
+              }}
+            />
+          );
+        })}
+      </Animated.View>
+    );
+  };
+
+  // バウンスアニメーションの値を計算
+  const bounce = bounceValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, -10]
+  });
 
   return (
     <View style={styles.container}>
+      {showConfetti && <Confetti />}
+      
       <View style={styles.header}>
         <Text style={styles.headerTitle}>キャラクタールーレット</Text>
         <TouchableOpacity onPress={onClose} style={styles.backButton}>
@@ -139,21 +292,45 @@ const CharacterRouletteScreen: React.FC<CharacterRouletteScreenProps> = ({ onClo
         <View style={styles.contentContainer}>
           {selectedCharacter ? (
             <View style={styles.resultContainer}>
-              <View style={styles.characterCard}>
+              <Animated.View 
+                style={[
+                  styles.characterCard,
+                  { 
+                    transform: [
+                      { scale: scaleValue },
+                      { translateY: bounce }
+                    ] 
+                  }
+                ]}
+              >
                 <View style={styles.imageContainer}>
-                  <Image
+                  <Animated.Image
                     source={selectedCharacter.image}
-                    style={styles.characterImage}
+                    style={[
+                      styles.characterImage,
+                      { transform: [{ rotate: isSelecting ? spin : '0deg' }] }
+                    ]}
                     resizeMode="contain"
                   />
                 </View>
                 <Text style={styles.characterName}>
                   {selectedCharacter.localizedName || selectedCharacter.name}
                 </Text>
-              </View>
+                
+                {!isSelecting && (
+                  <Text style={styles.characterTagline}>
+                    ルーレットの結果はこのキャラクター！
+                  </Text>
+                )}
+              </Animated.View>
             </View>
           ) : (
             <View style={styles.placeholderContainer}>
+              <Image
+                source={require('../../assets/BrawlerIcons/8bit_pin.png')}
+                style={styles.questionMark}
+                resizeMode="contain"
+              />
               <Text style={styles.placeholderText}>
                 ボタンを押して、ランダムなキャラクターを選択してください
               </Text>
@@ -164,6 +341,7 @@ const CharacterRouletteScreen: React.FC<CharacterRouletteScreenProps> = ({ onClo
             style={[styles.selectButton, isSelecting && styles.selectButtonDisabled]}
             onPress={selectRandomCharacter}
             disabled={isSelecting}
+            activeOpacity={0.7}
           >
             {isSelecting ? (
               <View style={styles.selectingContainer}>
@@ -172,7 +350,7 @@ const CharacterRouletteScreen: React.FC<CharacterRouletteScreenProps> = ({ onClo
               </View>
             ) : (
               <Text style={styles.selectButtonText}>
-                {selectedCharacter ? 'もう一度選択' : 'ランダム選択'}
+                {selectedCharacter ? 'もう一度選択' : 'ルーレットスタート！'}
               </Text>
             )}
           </TouchableOpacity>
@@ -236,6 +414,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
   },
+  questionMark: {
+    width: 120,
+    height: 120,
+    marginBottom: 20,
+    opacity: 0.5,
+  },
   placeholderText: {
     fontSize: 16,
     color: '#666',
@@ -266,17 +450,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 20,
     backgroundColor: '#f9f9f9',
-    borderRadius: 10,
+    borderRadius: 100,
+    overflow: 'hidden',
+    borderWidth: 3,
+    borderColor: '#21A0DB',
   },
   characterImage: {
-    width: 180,
-    height: 180,
+    width: 160,
+    height: 160,
   },
   characterName: {
     fontSize: 24,
     fontWeight: 'bold',
     color: '#333',
     textAlign: 'center',
+  },
+  characterTagline: {
+    fontSize: 14,
+    color: '#666',
+    textAlign: 'center',
+    marginTop: 10,
+    fontStyle: 'italic',
   },
   selectButton: {
     backgroundColor: '#21A0DB',
@@ -292,6 +486,7 @@ const styles = StyleSheet.create({
   },
   selectButtonDisabled: {
     opacity: 0.7,
+    backgroundColor: '#5BBCE0',
   },
   selectButtonText: {
     color: '#fff',
@@ -303,6 +498,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    gap: 10,
   },
   statsContainer: {
     alignItems: 'center',
@@ -312,6 +508,15 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#666',
   },
+  confettiContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 1000,
+    pointerEvents: 'none',
+  },
 });
 
-export default CharacterRouletteScreen
+export default CharacterRouletteScreen;
