@@ -34,10 +34,11 @@ import PickPrediction from './components/PickPrediction';
 import Home from './components/Home';
 // News インポートを削除
 import Gacha from './components/Gacha';
+import TicketScreen from './components/TicketScreen'; // 追加: チケットスクリーンのインポート
 import { BannerAdComponent } from './components/BannerAdComponent';
 
 const { width, height: SCREEN_HEIGHT } = Dimensions.get('window');
-const TAB_WIDTH = width / 5; // タブ数を5に減らす（news削除）
+const TAB_WIDTH = width / 6; // タブ数を6に変更（チケット追加）
 
 const SNAP_POINTS = {
   TOP: 0,
@@ -332,7 +333,7 @@ const TabBar = React.memo<{
   slideAnimation: Animated.Value;
   t: any;
 }>(({ activeTab, onTabPress, animatedValues, slideAnimation, t }) => {
-  // タブ定義から 'news' を削除
+  // タブ定義に 'tickets' を追加
   const tabs = [
     {
       key: 'home',
@@ -358,6 +359,11 @@ const TabBar = React.memo<{
       key: 'rankings',
       label: t.tabs.rankings,
       icon: require('../assets/AppIcon/ranking.png'),
+    },
+    {
+      key: 'tickets',
+      label: t.tabs.tickets,
+      icon: require('../assets/AppIcon/ticket.png'),
     },
   ];
 
@@ -420,8 +426,8 @@ const TabBar = React.memo<{
 
 const App = () => {
   const { t } = useAppTranslation();
-  // activeTab の型定義から 'news' を削除
-  const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings' | 'prediction' | 'gacha'>('home');
+  // activeTab の型定義に 'tickets' を追加
+  const [activeTab, setActiveTab] = useState<'home' | 'single' | 'team' | 'rankings' | 'prediction' | 'gacha' | 'tickets'>('home');
   const [isAdFree, setIsAdFree] = useState(false);
   const [isSlideOverVisible, setIsSlideOverVisible] = useState(false);
   const [previousTab, setPreviousTab] = useState<typeof activeTab>('home');
@@ -431,7 +437,7 @@ const App = () => {
   const [isLanguageSelectorVisible, setIsLanguageSelectorVisible] = useState(false);
   const slideAnimation = useRef(new Animated.Value(0)).current;
 
-  // animatedValues から 'news' を削除
+  // animatedValues に 'tickets' を追加
   const animatedValues = useRef({
     home: new Animated.Value(1),
     single: new Animated.Value(0),
@@ -439,6 +445,7 @@ const App = () => {
     rankings: new Animated.Value(0),
     prediction: new Animated.Value(0),
     gacha: new Animated.Value(0),
+    tickets: new Animated.Value(0), // 追加
   }).current;
 
   const checkVersion = async () => {
@@ -525,10 +532,12 @@ const App = () => {
 
         if (!lastBonusTimestamp) {
           await AsyncStorage.setItem('lastBonusTimestamp', lastResetTime.toString());
+          await giveLoginBonus(); // 初回ログインボーナス
         } else {
           const lastBonus = parseInt(lastBonusTimestamp);
           if (lastBonus < lastResetTime) {
             await AsyncStorage.setItem('lastBonusTimestamp', lastResetTime.toString());
+            await giveLoginBonus(); // 日次ログインボーナス
           }
         }
 
@@ -560,14 +569,22 @@ const App = () => {
     };
   }, []);
 
+  // チケットを使用する関数
   const useTicket = async () => {
-    if (tickets > 0) {
-      const newTickets = tickets - 1;
+    if (tickets >= 100) {
+      const newTickets = tickets - 100;
       setTickets(newTickets);
       await AsyncStorage.setItem('tickets', newTickets.toString());
       return true;
     }
     return false;
+  };
+
+  // チケットを追加する関数
+  const addTickets = async (amount: number) => {
+    const newTickets = tickets + amount;
+    setTickets(newTickets);
+    await AsyncStorage.setItem('tickets', newTickets.toString());
   };
 
   const handleShowSecondaryContent = (content: React.ReactNode) => {
@@ -647,7 +664,15 @@ const App = () => {
             />
           </NavigationContainer>
         );
-      // 'news' のケースを削除
+      case 'tickets':
+        return (
+          <TicketScreen
+            isAdFree={isAdFree}
+            tickets={tickets}
+            onUseTicket={useTicket}
+            onAddTickets={addTickets}
+          />
+        );
       default:
         return null;
     }
@@ -696,7 +721,7 @@ const styles = StyleSheet.create({
   splitContainer: {
     flex: 1,
     flexDirection: 'row',
-  },
+    },
   primaryContent: {
     flex: 1,
   },
@@ -746,7 +771,7 @@ const styles = StyleSheet.create({
   activeIndicator: {
     position: 'absolute',
     top: 0,
-    width: TAB_WIDTH,
+    width: TAB_WIDTH, // タブ幅を更新 (TAB_WIDTHも6タブ用に更新した)
     height: 2,
     backgroundColor: '#65BBE9',
   },

@@ -9,6 +9,7 @@ type AppTranslations = {
     rankings: string;
     news: string;
     gacha: string;
+    tickets: string; // 新しいチケットタブ
   };
   alerts: {
     update: {
@@ -32,7 +33,8 @@ const translations: Record<string, AppTranslations> = {
       prediction: 'ピック想定',
       rankings: 'ランキング',
       news: 'ニュース',
-      gacha: 'ガチャ'
+      gacha: 'ガチャ',
+      tickets: 'チケット' // 追加
     },
     alerts: {
       update: {
@@ -54,7 +56,8 @@ const translations: Record<string, AppTranslations> = {
       prediction: 'Pick',
       rankings: 'Rankings',
       news: 'News',
-      gacha: 'Gacha'
+      gacha: 'Gacha',
+      tickets: 'Tickets' // 追加
     },
     alerts: {
       update: {
@@ -76,7 +79,8 @@ const translations: Record<string, AppTranslations> = {
       prediction: '픽 예상',
       rankings: '랭킹',
       news: '뉴스',
-      gacha: '가챠'
+      gacha: '가챠',
+      tickets: '티켓' // 追加
     },
     alerts: {
       update: {
@@ -98,7 +102,8 @@ const translations: Record<string, AppTranslations> = {
       prediction: 'Predicción',
       rankings: 'Clasificación',
       news: 'Noticias',
-      gacha: 'Gacha'
+      gacha: 'Gacha',
+      tickets: 'Boletos' // 追加
     },
     alerts: {
       update: {
@@ -120,7 +125,8 @@ const translations: Record<string, AppTranslations> = {
       prediction: 'التوقع',
       rankings: 'التصنيفات',
       news: 'الأخبار',
-      gacha: 'غاتشا'
+      gacha: 'غاتشا',
+      tickets: 'تذاكر' // 追加
     },
     alerts: {
       update: {
@@ -142,7 +148,8 @@ const translations: Record<string, AppTranslations> = {
       prediction: 'Prédiction',
       rankings: 'Classements',
       news: 'Actualités',
-      gacha: 'Gacha'
+      gacha: 'Gacha',
+      tickets: 'Tickets' // 追加
     },
     alerts: {
       update: {
@@ -164,7 +171,8 @@ const translations: Record<string, AppTranslations> = {
       prediction: '選角預測',
       rankings: '排行榜',
       news: '新聞',
-      gacha: '轉蛋'
+      gacha: '轉蛋',
+      tickets: '票券' // 追加
     },
     alerts: {
       update: {
