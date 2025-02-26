@@ -8267,6 +8267,426 @@
                     "power": 5
                 }
             ]
+        },
+        {
+            "name": {
+                "ja": "フローラルレイク",
+                "en": "Lilygear_Lakes",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Gem Grab",
+            "image": "require('../../assets/MapImages/Lilygear_Lakes.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "グルメタウン",
+                "en": "Local_Restaurants",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Gem Grab",
+            "image": "require('../../assets/MapImages/Local_Restaurants.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "禁断の33",
+                "en": "Mystical_Thirty_Three",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Showdown",
+            "image": "require('../../assets/MapImages/Mystical_Thirty_Three.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "ウェーブフォーム",
+                "en": "Waveform",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "",
+            "image": "require('../../assets/MapImages/Waveform.png')",
+            "description": "Showdown",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "コスモコア",
+                "en": "Core_Of_Orbit",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Showdown",
+            "image": "require('../../assets/MapImages/Core_Of_Orbit.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "リリーラグーン",
+                "en": "Lilypond_Grove",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Showdown",
+            "image": "require('../../assets/MapImages/Lilypond_Grove.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "ピットストップ",
+                "en": "Pit_Stop",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Heist",
+            "image": "require('../../assets/MapImages/Pit_Stop.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "プレーンテキスト",
+                "en": "Plain_Text",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Heist",
+            "image": "require('../../assets/MapImages/Plain_Text.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "乾燥地帯",
+                "en": "Dry_Season",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Bounty",
+            "image": "require('../../assets/MapImages/Dry_Season.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "インパクトゾーン",
+                "en": "Brace_For_Impact",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Bounty",
+            "image": "require('../../assets/MapImages/Brace_For_Impact.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "サボテン王国",
+                "en": "Priceless_Cactus",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Brawl Ball",
+            "image": "require('../../assets/MapImages/Priceless_Cactus.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "スカイハイランナー",
+                "en": "Rooftop_Runners",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Brawl Ball",
+            "image": "require('../../assets/MapImages/Rooftop_Runners.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "クリスタルホール",
+                "en": "Bejeweled",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Hot Zone",
+            "image": "require('../../assets/MapImages/Bejeweled.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "フィッシングヘイブン",
+                "en": "Fishing_Bed",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Hot Zone",
+            "image": "require('../../assets/MapImages/Fishing_Bed.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "澱みなき泉",
+                "en": "Flowing_Springs",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Knockout",
+            "image": "require('../../assets/MapImages/Flowing_Springs.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "新天地",
+                "en": "New_Horizons",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Knockout",
+            "image": "require('../../assets/MapImages/New_Horizons.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "リスキーロード",
+                "en": "Healthy_Middle_Ground",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Knockout",
+            "image": "require('../../assets/MapImages/Healthy_Middle_Ground.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "一触爆発",
+                "en": "Close_Quarters",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Knockout",
+            "image": "require('../../assets/MapImages/Close_Quarters.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "深緑の古道",
+                "en": "Mossy_Crossing",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Knockout",
+            "image": "require('../../assets/MapImages/Mossy_Crossing.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "シークレットガーデン",
+                "en": "Covered_Garden",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "",
+            "image": "require('../../assets/MapImages/.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
         }
     ]
 }

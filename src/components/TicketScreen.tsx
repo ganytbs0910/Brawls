@@ -1,3 +1,4 @@
+// Import necessary components and libraries
 import React, { useState, useEffect } from 'react';
 import {
   View,
@@ -8,6 +9,7 @@ import {
   SafeAreaView,
   ScrollView,
   Alert,
+  ActivityIndicator,
 } from 'react-native';
 import { useAppTranslation } from '../i18n/app';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -43,6 +45,10 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
   const [nextLotteryDate, setNextLotteryDate] = useState('');
   const [supabaseClient, setSupabaseClient] = useState<any>(null);
   const [participantsCount, setParticipantsCount] = useState(lotteryParticipants);
+  
+  // 新しく追加した状態
+  const [testLotteryRunning, setTestLotteryRunning] = useState(false);
+  const [testLotteryCountdown, setTestLotteryCountdown] = useState(10);
 
   // Supabaseクライアントの初期化
   useEffect(() => {
@@ -218,7 +224,7 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
       
       // 課金ユーザーで無料ポイント入手可能な場合
       if (isAdFree && freeClaimAvailable) {
-        await onAddTickets(10);
+        await onAddTickets(100);
         // 今日の日付を保存
         const today = new Date().toISOString().split('T')[0];
         await AsyncStorage.setItem('lastFreeClaimDate', today);
@@ -241,7 +247,7 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
       
       if (adShown) {
         // 広告表示成功時にチケットを付与
-        await onAddTickets(10);
+        await onAddTickets(1000);
         Alert.alert('チケット獲得', '広告視聴で10チケットを獲得しました！');
       } else {
         Alert.alert('お知らせ', '広告の読み込みに失敗しました。時間をおいて再度お試しください。');
@@ -325,6 +331,160 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
     initializeAdService();
   }, [isAdFree]);
 
+  // テスト抽選のカウントダウンを処理するエフェクト
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    
+    if (testLotteryRunning && testLotteryCountdown > 0) {
+      timer = setTimeout(() => {
+        setTestLotteryCountdown(prev => prev - 1);
+      }, 1000);
+    } else if (testLotteryRunning && testLotteryCountdown === 0) {
+      // カウントダウンが0になったら抽選を実行
+      runTestLottery();
+    }
+    
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [testLotteryRunning, testLotteryCountdown]);
+  
+  // テスト抽選ボタンを押した時の処理
+  const handleTestLottery = () => {
+    if (!supabaseClient) {
+      Alert.alert('エラー', 'データベース接続が確立されていません');
+      return;
+    }
+    
+    setTestLotteryRunning(true);
+    setTestLotteryCountdown(10);
+    Alert.alert('テスト抽選開始', '10秒後に抽選が実行されます！');
+  };
+  
+  // 実際にテスト抽選を実行する関数
+  const runTestLottery = async () => {
+    try {
+      if (!supabaseClient) {
+        throw new Error('データベース接続が確立されていません');
+      }
+      
+      // 参加者がいなければ中止
+      if (participantsCount <= 0) {
+        Alert.alert('抽選中止', '抽選参加者がいません');
+        setTestLotteryRunning(false);
+        return;
+      }
+      
+      // 1. すべての参加者を取得
+      const { data: participants, error: fetchError } = await supabaseClient
+        .from('lottery_participants')
+        .select('*');
+        
+      if (fetchError || !participants || participants.length === 0) {
+        throw new Error('参加者の取得に失敗しました');
+      }
+      
+      // 2. ランダムに1名を選ぶ
+      let winner;
+      
+      // 参加者が1人の場合はその人を当選者にする
+      if (participants.length === 1) {
+        winner = participants[0];
+        console.log('参加者が1人のため、自動的に当選:', winner);
+      } else {
+        // 複数参加者がいる場合はランダム選択
+        const randomIndex = Math.floor(Math.random() * participants.length);
+        winner = participants[randomIndex];
+        console.log('抽選結果:', { totalParticipants: participants.length, winnerIndex: randomIndex, winner });
+      }
+      
+      // 3. メッセージテーブルに当選通知を送信
+      const { error: messageError } = await supabaseClient
+        .from('user_messages')
+        .insert([
+          {
+            user_id: winner.user_id,
+            message: '🎉おめでとうございます！あなたが抽選に当選しました！🎉',
+            title: '抽選当選のお知らせ',
+            is_read: false,
+            created_at: new Date().toISOString()
+          }
+        ]);
+        
+      if (messageError) {
+        throw new Error('当選メッセージの送信に失敗しました');
+      }
+      
+      // 4. 自分が当選者かどうかをチェック
+      console.log('当選チェック:', {
+        winnerUserId: winner.user_id,
+        currentUserId: userId,
+        effectiveUserId: userId || `anonymous_${Date.now()}`
+      });
+      
+      // ユーザーIDの比較 - anonymousプレフィックスも考慮
+      const isCurrentUserWinner = userId === winner.user_id || 
+                                 (userId === null && winner.user_id.startsWith('anonymous_'));
+      
+      // 5. 抽選終了後、抽選参加状態をリセット
+      await AsyncStorage.removeItem('lotteryParticipation');
+      setIsParticipating(false);
+      
+      // 参加者レコードを削除（すべてのユーザーが再度参加できるようにする）
+      const { error: deleteError } = await supabaseClient
+        .from('lottery_participants')
+        .delete()
+        .eq('lottery_date', calculateNextLotteryDateString().dateISO);
+        
+      if (deleteError) {
+        console.error('参加者レコードの削除に失敗しました:', deleteError);
+      }
+      
+      // 抽選参加者カウントをリセット
+      setParticipantsCount(0);
+      
+      // 6. 成功通知 - 自分が当選した場合は特別な演出を表示
+      if (isCurrentUserWinner) {
+        // 特別な当選演出 - 画面全体に大きく表示
+        Alert.alert(
+          '🎉🎉🎉 あなたが当選しました！ 🎉🎉🎉', 
+          '✨✨ おめでとうございます！ ✨✨\n\nあなたが当選者に選ばれました！\n豪華景品が贈られます！',
+          [
+            {
+              text: '受け取る！',
+              onPress: () => {
+                // 追加のお祝い演出をここに入れることも可能
+                console.log('当選おめでとうございます！');
+                // 受け取り処理などを追加できます
+              },
+              style: 'default'
+            }
+          ],
+          { cancelable: false }
+        );
+      } else {
+        // 通常の完了通知 - 自分が当選していないことを明示
+        Alert.alert(
+          '抽選完了', 
+          `参加者${participants.length}名の中から1名が選ばれました。\n\n残念ながら、あなたは当選しませんでした。\n\n当選者ID: ${winner.user_id}\n\n抽選がリセットされました。再度参加できます。`,
+          [
+            {
+              text: '次回に期待',
+              style: 'default'
+            }
+          ]
+        );
+      }
+      
+    } catch (error) {
+      console.error('Test lottery error:', error);
+      Alert.alert('エラー', `抽選処理中にエラーが発生しました: ${error.message || 'Unknown error'}`);
+    } finally {
+      setTestLotteryRunning(false);
+      setTestLotteryCountdown(10);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -354,9 +514,47 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
           <Text style={styles.lotteryInfoLabel}>次回抽選日</Text>
           <Text style={styles.lotteryInfoValue}>{nextLotteryDate}</Text>
         </View>
+        <View style={styles.lotteryInfoItem}>
+          <Text style={styles.lotteryInfoLabel}>参加状況</Text>
+          <Text style={[
+            styles.lotteryInfoValue, 
+            isParticipating ? styles.participatingText : styles.notParticipatingText
+          ]}>
+            {isParticipating ? '参加中' : '未参加'}
+          </Text>
+        </View>
       </View>
       
       <ScrollView style={styles.content}>
+        {/* テスト抽選ボタンセクション（新規追加） */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>テスト抽選</Text>
+          
+          <TouchableOpacity 
+            style={[
+              styles.actionButton, 
+              styles.testLotteryButton,
+              testLotteryRunning && styles.disabledButton
+            ]} 
+            onPress={handleTestLottery}
+            disabled={testLotteryRunning}
+          >
+            <Image source={require('../../assets/AppIcon/ticket.png')} style={styles.actionIcon} />
+            <Text style={styles.actionText}>
+              {testLotteryRunning 
+                ? `テスト抽選実行まで: ${testLotteryCountdown}秒` 
+                : 'テスト抽選を実行する'}
+            </Text>
+            {testLotteryRunning && (
+              <ActivityIndicator size="small" color="#FFFFFF" style={styles.spinner} />
+            )}
+          </TouchableOpacity>
+          
+          <Text style={styles.testLotteryNote}>
+            ※このボタンを押すと10秒後に実際の参加者の中から1名が選ばれ、当選メッセージが送信されます。
+          </Text>
+        </View>
+      
         {/* ログインボーナスセクション - 全ユーザー向け */}
         {loginBonusAvailable && (
           <View style={styles.section}>
@@ -524,6 +722,9 @@ const styles = StyleSheet.create({
   loginBonusButton: {
     backgroundColor: '#4CAF50', // 緑色でログインボーナスを区別
   },
+  testLotteryButton: {
+    backgroundColor: '#FF9800', // オレンジ色でテスト抽選ボタンを区別
+  },
   disabledButton: {
     opacity: 0.7,
     backgroundColor: '#a0a0a0',
@@ -543,6 +744,9 @@ const styles = StyleSheet.create({
   loadingText: {
     fontSize: 12,
     color: '#fff',
+    marginLeft: 8,
+  },
+  spinner: {
     marginLeft: 8,
   },
   rewardItem: {
@@ -605,6 +809,13 @@ const styles = StyleSheet.create({
   lotteryNote: {
     fontSize: 12,
     color: '#666',
+    fontStyle: 'italic',
+    textAlign: 'center',
+    marginTop: 8,
+  },
+  testLotteryNote: {
+    fontSize: 12,
+    color: '#FF5722',
     fontStyle: 'italic',
     textAlign: 'center',
     marginTop: 8,
