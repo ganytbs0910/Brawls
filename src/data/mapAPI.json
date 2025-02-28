@@ -8678,7 +8678,7 @@
                 "zhTw": ""
             },
             "gameMode": "",
-            "image": "require('../../assets/MapImages/.png')",
+            "image": "require('../../assets/MapImages/Covered_Garden.png')",
             "description": "",
             "recommendedBrawlers": [
                 {

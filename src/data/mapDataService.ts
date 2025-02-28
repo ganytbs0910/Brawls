@@ -121,6 +121,26 @@ export const mapImages = {
   "言い訳厳禁": require('../../assets/MapImages/No_Excuses.png'),
   "見えざる大蛇": require('../../assets/MapImages/Shrouding_Serpent.png'),
   "橋の彼方": require('../../assets/MapImages/Bridge_Too_Far.png'),
+  "フローラルレイク": require('../../assets/MapImages/Lilygear_Lakes.png'),
+  "グルメタウン": require('../../assets/MapImages/Local_Restaurants.png'),
+  "禁断の33": require('../../assets/MapImages/Mystical_Thirty_Three.png'),
+  "ウェーブフォーム": require('../../assets/MapImages/Waveform.png'),
+  "コスモコア": require('../../assets/MapImages/Core_Of_Orbit.png'),
+  "リリーラグーン": require('../../assets/MapImages/Lilypond_Grove.png'),
+  "ピットストップ": require('../../assets/MapImages/Pit_Stop.png'),
+  "プレーンテキスト": require('../../assets/MapImages/Plain_Text.png'),
+  "乾燥地帯": require('../../assets/MapImages/Dry_Season.png'),
+  "インパクトゾーン": require('../../assets/MapImages/Brace_For_Impact.png'),
+  "サボテン王国": require('../../assets/MapImages/Priceless_Cactus.png'),
+  "スカイハイランナー": require('../../assets/MapImages/Rooftop_Runners.png'),
+  "クリスタルホール": require('../../assets/MapImages/Bejeweled.png'),
+  "フィッシングヘイブン": require('../../assets/MapImages/Fishing_Bed.png'),
+  "澱みなき泉": require('../../assets/MapImages/Flowing_Springs.png'),
+  "新天地": require('../../assets/MapImages/New_Horizons.png'),
+  "リスキーロード": require('../../assets/MapImages/Healthy_Middle_Ground.png'),
+  "一触爆発": require('../../assets/MapImages/Close_Quarters.png'),
+  "深緑の古道": require('../../assets/MapImages/Mossy_Crossing.png'),
+  "シークレットガーデン": require('../../assets/MapImages/Covered_Garden.png'),
 };
 
 // ゲームモードのアイコン定義
@@ -176,10 +196,8 @@ const RNAKED_MAPS = {
     "ごつごつ坑道",
     "アンダーマイン",
     "ダブルレール",
-    "ラストストップ",
   ],
   brawlBall: [
-    "トリプル・ドリブル",
     "静かな広場",
     "中央コート",
     "ピンボールドリーム",
@@ -194,7 +212,6 @@ const RNAKED_MAPS = {
     "ベルの岩",
     "燃える不死鳥",
     "オープンフィールド",
-    "ゴールドアームの渓谷",
   ],
   bounty: [
     "流れ星",
@@ -203,7 +220,6 @@ const RNAKED_MAPS = {
     "グランドカナル",
   ],
   hotZone: [
-    "炎のリング",
     "ビートルバトル",
     "オープンビジネス",
     "パラレルワールド",
