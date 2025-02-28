@@ -8226,13 +8226,13 @@
             "name": {
                 "ja": "スパイスプロダクション",
                 "en": "Spice Production",
-                "ko": "향신료 제작",
-                "es": "Producción de especias",
-                "ar": "إنتاج التوابل",
-                "fr": "Production d'épices",
-                "zhTw": "盛產香料"
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
             },
-            "gameMode": "Duels",
+            "gameMode": "Wipeout",
             "image": "require('../../assets/MapImages/Spice_Production.png')",
             "description": "",
             "recommendedBrawlers": [
@@ -8263,6 +8263,27 @@
                 },
                 {
                     "name": "Max",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "シークレットガーデン",
+                "en": "Coverd_Garden",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Wipeout",
+            "image": "require('../../assets/MapImages/Coverd_Garden.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
                     "reason": "",
                     "power": 5
                 }
@@ -8669,16 +8690,79 @@
         },
         {
             "name": {
-                "ja": "シークレットガーデン",
-                "en": "Covered_Garden",
+                "ja": "ボヨヨンボウル",
+                "en": "Bouncy_Bowl",
                 "ko": "",
                 "es": "",
                 "ar": "",
                 "fr": "",
                 "zhTw": ""
             },
-            "gameMode": "",
-            "image": "require('../../assets/MapImages/Covered_Garden.png')",
+            "gameMode": "Brawl Hockey",
+            "image": "require('../../assets/MapImages/Bouncy_Bowl.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "氷点下",
+                "en": "Below_Zero",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Brawl Hockey",
+            "image": "require('../../assets/MapImages/Below_Zero.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "クールボックス",
+                "en": "Cool_Box",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Brawl Hockey",
+            "image": "require('../../assets/MapImages/Cool_Box.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
+                "ja": "スターガーデン",
+                "en": "Starr_Garden",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Brawl Hockey",
+            "image": "require('../../assets/MapImages/Starr_Garden.png')",
             "description": "",
             "recommendedBrawlers": [
                 {
