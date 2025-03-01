@@ -2023,7 +2023,7 @@
                     "name": "シェリー",
                     "reason": "",
                     "power": 2
-                },
+                }
             ]
         },
         {
@@ -8703,9 +8703,89 @@
             "description": "",
             "recommendedBrawlers": [
                 {
-                    "name": "",
+                    "name": "メロディー",
                     "reason": "",
                     "power": 5
+                },
+                {
+                    "name": "Max",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ストゥー",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ビー",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ハンク",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ベル",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "モーティス",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "オーリー",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ジャッキー",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "Mr.P",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "グリフ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "グレイ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ミープル",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ダリル",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "チャーリー",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "クロウ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "クランシー",
+                    "reason": "",
+                    "power": 3
                 }
             ]
         },
@@ -8724,9 +8804,89 @@
             "description": "",
             "recommendedBrawlers": [
                 {
-                    "name": "",
+                    "name": "メロディー",
                     "reason": "",
                     "power": 5
+                },
+                {
+                    "name": "Max",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ストゥー",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ビー",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ハンク",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ベル",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "モーティス",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "オーリー",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ジャッキー",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "Mr.P",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "グリフ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "グレイ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ミープル",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ダリル",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "チャーリー",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "クロウ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "クランシー",
+                    "reason": "",
+                    "power": 3
                 }
             ]
         },
@@ -8745,9 +8905,89 @@
             "description": "",
             "recommendedBrawlers": [
                 {
-                    "name": "",
+                    "name": "メロディー",
                     "reason": "",
                     "power": 5
+                },
+                {
+                    "name": "Max",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ストゥー",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ビー",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ハンク",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ベル",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "モーティス",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "オーリー",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ジャッキー",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "Mr.P",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "グリフ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "グレイ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ミープル",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ダリル",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "チャーリー",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "クロウ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "クランシー",
+                    "reason": "",
+                    "power": 3
                 }
             ]
         },
@@ -8766,9 +9006,89 @@
             "description": "",
             "recommendedBrawlers": [
                 {
-                    "name": "",
+                    "name": "メロディー",
                     "reason": "",
                     "power": 5
+                },
+                {
+                    "name": "Max",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ストゥー",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ビー",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ハンク",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ベル",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "モーティス",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "オーリー",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ジャッキー",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "Mr.P",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "グリフ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "グレイ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ミープル",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ダリル",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "チャーリー",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "クロウ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "クランシー",
+                    "reason": "",
+                    "power": 3
                 }
             ]
         },
@@ -8787,9 +9107,89 @@
             "description": "",
             "recommendedBrawlers": [
                 {
-                    "name": "",
+                    "name": "メロディー",
                     "reason": "",
                     "power": 5
+                },
+                {
+                    "name": "Max",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ストゥー",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ビー",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ハンク",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ベル",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "モーティス",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "オーリー",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ジャッキー",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "Mr.P",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "グリフ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "グレイ",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ミープル",
+                    "reason": "",
+                    "power": 4
+                },
+                {
+                    "name": "ダリル",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "チャーリー",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "クロウ",
+                    "reason": "",
+                    "power": 3
+                },
+                {
+                    "name": "クランシー",
+                    "reason": "",
+                    "power": 3
                 }
             ]
         }

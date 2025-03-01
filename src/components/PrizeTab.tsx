@@ -52,70 +52,68 @@ const PrizeTab: React.FC<PrizeTabProps> = ({
   };
   
   // プレイヤータグを送信する
-  const submitPlayerTag = async () => {
-    if (!playerTag || playerTag.trim() === '') {
-      Alert.alert('入力エラー', 'プレイヤータグを入力してください。');
+  // プレイヤータグを送信する
+const submitPlayerTag = async () => {
+  if (!playerTag || playerTag.trim() === '') {
+    Alert.alert('入力エラー', 'プレイヤータグを入力してください。');
+    return;
+  }
+  
+  if (!supabaseClient || !effectiveUserId || !prizeInfo) {
+    Alert.alert('エラー', 'システムエラーが発生しました。');
+    return;
+  }
+  
+  setIsSubmitting(true);
+  
+  try {
+    // プレイヤータグをDBに保存
+    const { error } = await supabaseClient
+      .from('prize_claims')
+      .insert([{
+        user_id: effectiveUserId,
+        lottery_result_id: prizeInfo.id,
+        player_tag: playerTag.trim(),
+        // claimed_atフィールドを削除
+        status: 'pending'
+      }]);
+      
+    if (error) {
+      Alert.alert('エラー', 'データの送信に失敗しました。');
       return;
     }
     
-    if (!supabaseClient || !effectiveUserId || !prizeInfo) {
-      Alert.alert('エラー', 'システムエラーが発生しました。');
-      return;
+    // lottery_resultsテーブルの景品受取状態を更新
+    const { error: updateError } = await supabaseClient
+      .from('lottery_results')
+      .update({ prize_claimed: true })
+      .eq('id', prizeInfo.id);
+      
+    if (updateError) {
+      // 致命的ではないのでエラー表示しない
     }
     
-    setIsSubmitting(true);
-    
-    try {
-      // プレイヤータグをDBに保存
-      const { error } = await supabaseClient
-        .from('prize_claims')
-        .insert([{
-          user_id: effectiveUserId,
-          lottery_result_id: prizeInfo.id,
-          player_tag: playerTag.trim(),
-          claimed_at: new Date().toISOString(),
-          status: 'pending'
-        }]);
-        
-      if (error) {
-        console.error('プレイヤータグ送信エラー:', error);
-        Alert.alert('エラー', 'データの送信に失敗しました。');
-        return;
-      }
-      
-      // lottery_resultsテーブルの景品受取状態を更新
-      const { error: updateError } = await supabaseClient
-        .from('lottery_results')
-        .update({ prize_claimed: true })
-        .eq('id', prizeInfo.id);
-        
-      if (updateError) {
-        console.error('景品受取状態更新エラー:', updateError);
-        // 致命的ではないのでエラー表示しない
-      }
-      
-      // 景品受取完了
-      Alert.alert(
-        '受取完了', 
-        'おめでとうございます！景品の受け取り手続きが完了しました。景品は数日以内に付与されます。',
-        [
-          {
-            text: 'OK',
-            onPress: () => {
-              // 親コンポーネントに通知
-              onPrizeClaimed();
-            }
+    // 景品受取完了
+    Alert.alert(
+      '受取完了', 
+      'おめでとうございます！景品の受け取り手続きが完了しました。景品は数日以内に付与されます。',
+      [
+        {
+          text: 'OK',
+          onPress: () => {
+            // 親コンポーネントに通知
+            onPrizeClaimed();
           }
-        ]
-      );
-      
-    } catch (error) {
-      console.error('景品受取エラー:', error);
-      Alert.alert('エラー', '処理中にエラーが発生しました。');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+        }
+      ]
+    );
+    
+  } catch (error) {
+    Alert.alert('エラー', '処理中にエラーが発生しました。');
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <ScrollView style={styles.content}>

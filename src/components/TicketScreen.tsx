@@ -483,8 +483,8 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
             { 
               user_id: effectiveUserId, 
               lottery_date: dateISO,
-              created_at: new Date().toISOString(),
-              ticket_cost: ticketCost
+              created_at: new Date().toISOString()
+              // ticket_costフィールドを削除
             }
           ]);
           

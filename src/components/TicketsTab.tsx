@@ -71,7 +71,7 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
           await adMobService.loadInterstitial();
         }
       } catch (error) {
-        console.error('Ad initialization error:', error);
+        // 不要なログを削除
       }
     };
 
@@ -112,7 +112,7 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
         setFreeClaimAvailable(false);
       }
     } catch (error) {
-      console.error('Free claim check error:', error);
+      // 不要なログを削除
       setFreeClaimAvailable(false);
     }
   };
@@ -129,7 +129,7 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
         setLoginBonusAvailable(false);
       }
     } catch (error) {
-      console.error('Login bonus check error:', error);
+      // 不要なログを削除
       setLoginBonusAvailable(false);
     }
   };
@@ -147,7 +147,7 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
       setLoginBonusAvailable(false);
       Alert.alert('ログインボーナス獲得', `本日のログインボーナス${TICKET_REWARD_LOGIN}チケットを獲得しました！`);
     } catch (error) {
-      console.error('Login bonus claim error:', error);
+      // 不要なログを削除
       Alert.alert('エラー', 'ログインボーナス獲得中にエラーが発生しました');
     }
   };
@@ -184,7 +184,7 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
         Alert.alert('お知らせ', '広告の読み込みに失敗しました。時間をおいて再度お試しください。');
       }
     } catch (error) {
-      console.error('Ad watching error:', error);
+      // 不要なログを削除
       Alert.alert('エラー', '広告表示中にエラーが発生しました');
     } finally {
       setAdLoading(false);
@@ -233,16 +233,14 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
       // 参加者が1人の場合はその人を当選者にする
       if (participants.length === 1) {
         winner = participants[0];
-        console.log('参加者が1人のため、自動的に当選:', winner);
       } else {
         // 複数参加者がいる場合はランダム選択
         const randomIndex = Math.floor(Math.random() * participants.length);
         winner = participants[randomIndex];
-        console.log('抽選結果:', { totalParticipants: participants.length, winnerIndex: randomIndex, winner });
       }
       
       try {
-        // 3. 抽選結果をDBに記録 - 既存のテーブル構造に合わせて項目を絞る
+        // 2. 抽選結果をDBに記録 - 既存のテーブル構造に合わせて項目を絞る
         const { data: resultRecord, error: resultError } = await supabaseClient
           .from('lottery_results')
           .insert([
@@ -252,68 +250,26 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
               total_participants: participants.length,
               created_at: new Date().toISOString(),
               prize_claimed: false
-              // prize_typeとprize_valueは含めない
             }
           ])
           .select()
           .single();
           
         if (resultError) {
-          console.error('抽選結果保存の詳細エラー:', resultError);
           throw new Error('抽選結果の保存に失敗しました');
         }
         
-        // 4. 当選者にメッセージを送信
-        const messageData = {
-          user_id: winner.user_id,
-          message: '🎉おめでとうございます！あなたが抽選に当選しました！🎉\n\n景品を受け取るにはマイページから手続きを行ってください。',
-          title: '抽選当選のお知らせ',
-          is_read: false,
-          created_at: new Date().toISOString()
-        };
-        
-        // user_messagesテーブルに関連IDフィールドがある場合のみ追加
-        try {
-          const { error: columnCheckError } = await supabaseClient
-            .from('user_messages')
-            .select('message_type')
-            .limit(1);
-          
-          // message_typeカラムがあればそれも含める
-          if (!columnCheckError) {
-            messageData.message_type = 'lottery_win';
-          }
-          
-          // related_idカラムがあればそれも含める
-          if (resultRecord && resultRecord.id) {
-            messageData.related_id = resultRecord.id;
-          }
-        } catch (columnCheckError) {
-          console.log('メッセージテーブルのカラム確認エラー:', columnCheckError);
-          // エラーは無視して続行
-        }
-        
-        const { error: messageError } = await supabaseClient
-          .from('user_messages')
-          .insert([messageData]);
-          
-        if (messageError) {
-          console.error('当選メッセージの送信に失敗しました:', messageError);
-          // メッセージ送信失敗は致命的ではないので続行
-        }
       } catch (dbError) {
-        console.error('DB操作エラー:', dbError);
-        // DB操作エラーを表示
-        Alert.alert('データベースエラー', `操作中にエラーが発生しました: ${dbError.message}`);
+        // 不要なログを削除
+        Alert.alert('データベースエラー', '操作中にエラーが発生しました');
         
         // DB操作が失敗しても抽選自体は完了したものとして処理を続行
-        console.log('DB操作は失敗しましたが、抽選処理は続行します');
       }
       
-      // 5. 自分が当選者かどうかをチェック
+      // 3. 自分が当選者かどうかをチェック
       const isCurrentUserWinner = effectiveUserId === winner.user_id;
       
-      // 6. 抽選終了後、抽選参加状態をリセット
+      // 4. 抽選終了後、抽選参加状態をリセット
       await AsyncStorage.removeItem('lotteryParticipation');
       
       // 参加者レコードを削除（すべてのユーザーが再度参加できるようにする）
@@ -321,13 +277,8 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
         .from('lottery_participants')
         .delete()
         .eq('lottery_date', dateISO);
-        
-      if (deleteError) {
-        console.error('参加者レコードの削除に失敗しました:', deleteError);
-        // 削除失敗は致命的ではないので続行
-      }
       
-      // 7. 成功通知 - 自分が当選した場合は特別な演出を表示
+      // 5. 成功通知 - 自分が当選した場合は特別な演出を表示
       if (isCurrentUserWinner) {
         // 特別な当選演出 - 画面全体に大きく表示
         Alert.alert(
@@ -365,8 +316,8 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
       }
       
     } catch (error) {
-      console.error('Test lottery error:', error);
-      Alert.alert('エラー', `抽選処理中にエラーが発生しました: ${error.message || 'Unknown error'}`);
+      // 不要なログを削除
+      Alert.alert('エラー', '抽選処理中にエラーが発生しました');
     } finally {
       // 状態をリセット
       setTestLotteryRunning(false);
