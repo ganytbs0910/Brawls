@@ -94,8 +94,13 @@ export const calculateNextLotteryDateString = (): { dateString: string, dateISO:
 // チケットを保存する関数
 const saveTickets = async (tickets: number): Promise<void> => {
   try {
-    await AsyncStorage.setItem('user_tickets', tickets.toString());
-    console.log('チケット数を保存しました:', tickets);
+    // 整数値であることを確認（念のため）
+    const ticketValue = Math.floor(tickets);
+    // マイナスにならないよう保証
+    const safeTicketValue = Math.max(0, ticketValue);
+    
+    await AsyncStorage.setItem('user_tickets', safeTicketValue.toString());
+    console.log('チケット数を保存しました:', safeTicketValue);
   } catch (error) {
     console.error('チケット保存エラー:', error);
   }
@@ -107,8 +112,11 @@ const loadTickets = async (): Promise<number> => {
     const storedTickets = await AsyncStorage.getItem('user_tickets');
     if (storedTickets) {
       const tickets = parseInt(storedTickets, 10);
-      console.log('保存されたチケット数を読み込みました:', tickets);
-      return tickets;
+      // NaNや不正な値をチェック
+      if (!isNaN(tickets) && tickets >= 0) {
+        console.log('保存されたチケット数を読み込みました:', tickets);
+        return tickets;
+      }
     }
   } catch (error) {
     console.error('チケット読み込みエラー:', error);
@@ -170,17 +178,29 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
   // 保存されたチケットを読み込む
   useEffect(() => {
     const initTickets = async () => {
-      const savedTickets = await loadTickets();
-      // 保存されたチケットが存在し、初期値より大きい場合のみ使用
-      if (savedTickets > 0 && savedTickets > initialTickets) {
-        setTickets(savedTickets);
+      try {
+        const savedTickets = await loadTickets();
+        // 保存されたチケットと初期値を比較し、大きい方を採用
+        const bestTicketCount = Math.max(savedTickets, initialTickets);
+        
+        // UIの表示を更新
+        setTickets(bestTicketCount);
+        
+        // 値が違う場合は保存し直す
+        if (bestTicketCount !== savedTickets) {
+          await saveTickets(bestTicketCount);
+        }
+        
         // 親コンポーネントに通知
         if (onTicketsUpdated) {
-          onTicketsUpdated(savedTickets);
+          onTicketsUpdated(bestTicketCount);
         }
-      } else {
-        // 初期値を保存
-        saveTickets(initialTickets);
+        
+        console.log('チケット初期化完了:', bestTicketCount);
+      } catch (error) {
+        console.error('チケット初期化エラー:', error);
+        // エラー時は初期値を使用
+        setTickets(initialTickets);
       }
     };
     
@@ -200,20 +220,56 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
   // チケットを使用するラッパー関数
   const useTickets = async (amount: number = 100): Promise<boolean> => {
     try {
-      const success = await onUseTicket(amount);
-      if (success) {
-        const newTickets = tickets - amount;
-        setTickets(newTickets);
-        saveTickets(newTickets);
+      // 正確な現在のチケット数を取得
+      const currentTickets = await loadTickets();
+      
+      // チケット残高が足りるかをチェック
+      if (currentTickets < amount) {
+        Alert.alert('チケット不足', `抽選に参加するには${amount}チケットが必要です`);
         
-        // 親コンポーネントに通知
-        if (onTicketsUpdated) {
-          onTicketsUpdated(newTickets);
-        }
+        // UIの表示を正確なチケット数に更新
+        setTickets(currentTickets);
+        
+        return false;
       }
-      return success;
+
+      // 新しいチケット数を計算
+      const newTickets = currentTickets - amount;
+      
+      // まずAsyncStorageに保存して永続化
+      await saveTickets(newTickets);
+      
+      // 次にステートを更新
+      setTickets(newTickets);
+      
+      // 親コンポーネントのコールバックを実行
+      try {
+        const success = await onUseTicket(amount);
+        if (!success) {
+          console.warn('親コンポーネントのチケット使用が失敗しましたが、ローカルのチケットは減少しています');
+        }
+      } catch (callbackError) {
+        console.error('親コンポーネントのチケット使用コールバックエラー:', callbackError);
+      }
+      
+      // 親コンポーネントに新しいチケット数を通知
+      if (onTicketsUpdated) {
+        onTicketsUpdated(newTickets);
+      }
+      
+      console.log(`${amount}チケットを使用しました。残り:`, newTickets);
+      return true;
     } catch (error) {
       console.error('チケット使用エラー:', error);
+      
+      // エラーが発生した場合も正確なチケット数を再取得して表示を更新
+      try {
+        const actualTickets = await loadTickets();
+        setTickets(actualTickets);
+      } catch (loadError) {
+        console.error('チケット再読込エラー:', loadError);
+      }
+      
       return false;
     }
   };
@@ -221,17 +277,41 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
   // チケットを追加するラッパー関数
   const addTickets = async (amount: number): Promise<void> => {
     try {
-      await onAddTickets(amount);
-      const newTickets = tickets + amount;
-      setTickets(newTickets);
-      saveTickets(newTickets);
+      // 正確な現在のチケット数を取得
+      const currentTickets = await loadTickets();
       
-      // 親コンポーネントに通知
+      // 新しいチケット数を計算（整数値であることを保証）
+      const newTickets = currentTickets + Math.floor(amount);
+      
+      // まずAsyncStorageに保存して永続化
+      await saveTickets(newTickets);
+      
+      // 次にステートを更新
+      setTickets(newTickets);
+      
+      try {
+        // 親コンポーネントに通知
+        await onAddTickets(amount);
+      } catch (callbackError) {
+        console.error('親コンポーネントのチケット追加コールバックエラー:', callbackError);
+      }
+      
+      // 親コンポーネントに新しいチケット数を通知
       if (onTicketsUpdated) {
         onTicketsUpdated(newTickets);
       }
+      
+      console.log(`${amount}チケットを追加しました。合計:`, newTickets);
     } catch (error) {
       console.error('チケット追加エラー:', error);
+      
+      // エラーが発生した場合も正確なチケット数を再取得して表示を更新
+      try {
+        const actualTickets = await loadTickets();
+        setTickets(actualTickets);
+      } catch (loadError) {
+        console.error('チケット再読込エラー:', loadError);
+      }
     }
   };
 
@@ -368,7 +448,11 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
       return;
     }
     
-    if (tickets < 100) {
+    // 現在の正確なチケット数を取得して、UI表示を更新
+    const currentTickets = await loadTickets();
+    setTickets(currentTickets);
+    
+    if (currentTickets < 100) {
       Alert.alert('チケット不足', '抽選に参加するには100チケットが必要です');
       return;
     }
@@ -381,33 +465,36 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
     try {
       const ticketCost = 100;
       
-      // チケットを使用
+      // チケットを使用（修正したuseTickets関数を使用）
       const ticketUsed = await useTickets(ticketCost);
       
       if (!ticketUsed) {
-        Alert.alert('エラー', 'チケットの使用に失敗しました');
+        // エラーはuseTickets内で既に表示されているのでここでは何もしない
         return;
       }
       
       const { dateISO } = calculateNextLotteryDateString();
       
       // Supabaseに抽選参加を記録
-      const { error } = await supabaseClient
-        .from('lottery_participants')
-        .insert([
-          { 
-            user_id: effectiveUserId, 
-            lottery_date: dateISO,
-            created_at: new Date().toISOString(),
-            ticket_cost: ticketCost
-          }
-        ]);
-        
-      if (error) {
-        console.error('Supabase insert error:', error);
-        Alert.alert('エラー', 'データベースへの登録に失敗しました');
-        // チケットを返却する
-        await addTickets(ticketCost);
+      try {
+        const { error } = await supabaseClient
+          .from('lottery_participants')
+          .insert([
+            { 
+              user_id: effectiveUserId, 
+              lottery_date: dateISO,
+              created_at: new Date().toISOString(),
+              ticket_cost: ticketCost
+            }
+          ]);
+          
+        if (error) {
+          throw error;
+        }
+      } catch (dbError) {
+        console.error('Supabase insert error:', dbError);
+        Alert.alert('エラー', 'データベースへの登録に失敗しました。チケットは消費されましたが、抽選には参加できませんでした。');
+        // チケットは既に消費されたままとする（返却しない）
         return;
       }
       

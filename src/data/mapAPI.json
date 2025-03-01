@@ -8754,7 +8754,7 @@
         {
             "name": {
                 "ja": "スーパーセンター",
-                "en": "",
+                "en": "Super_Center",
                 "ko": "",
                 "es": "",
                 "ar": "",
@@ -8762,7 +8762,7 @@
                 "zhTw": ""
             },
             "gameMode": "Brawl Hockey",
-            "image": "require('../../assets/MapImages/.png')",
+            "image": "require('../../assets/MapImages/Super_Center.png')",
             "description": "",
             "recommendedBrawlers": [
                 {

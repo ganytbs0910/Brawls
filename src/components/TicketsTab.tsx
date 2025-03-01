@@ -50,6 +50,10 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
   const [testLotteryRunning, setTestLotteryRunning] = useState(false);
   const [testLotteryCountdown, setTestLotteryCountdown] = useState(10);
 
+  // チケット獲得量の定数
+  const TICKET_REWARD_AD = 20; // 広告視聴で獲得するチケット数
+  const TICKET_REWARD_LOGIN = 20; // ログインボーナスで獲得するチケット数
+
   // 初期化時に各種チェックを実行
   useEffect(() => {
     if (effectiveUserId) {
@@ -133,15 +137,15 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
   // ログインボーナスを受け取る処理
   const handleClaimLoginBonus = async () => {
     try {
-      // ログインボーナスとして5チケットを付与
-      await onAddTickets(5);
+      // ログインボーナスとして20チケットを付与
+      await onAddTickets(TICKET_REWARD_LOGIN);
       
       // 今日の日付を保存
       const today = new Date().toISOString().split('T')[0];
       await AsyncStorage.setItem('lastLoginBonusDate', today);
       
       setLoginBonusAvailable(false);
-      Alert.alert('ログインボーナス獲得', '本日のログインボーナス5チケットを獲得しました！');
+      Alert.alert('ログインボーナス獲得', `本日のログインボーナス${TICKET_REWARD_LOGIN}チケットを獲得しました！`);
     } catch (error) {
       console.error('Login bonus claim error:', error);
       Alert.alert('エラー', 'ログインボーナス獲得中にエラーが発生しました');
@@ -154,12 +158,12 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
       setAdLoading(true);
       
       if (isAdFree && freeClaimAvailable) {
-        // 無料チケット10枚を付与
-        await onAddTickets(10);
+        // 無料チケット20枚を付与
+        await onAddTickets(TICKET_REWARD_AD);
         const today = new Date().toISOString().split('T')[0];
         await AsyncStorage.setItem('lastFreeClaimDate', today);
         setFreeClaimAvailable(false);
-        Alert.alert('チケット獲得', '本日の無料チケット10枚を獲得しました！');
+        Alert.alert('チケット獲得', `本日の無料チケット${TICKET_REWARD_AD}枚を獲得しました！`);
         return;
       }
       
@@ -173,9 +177,9 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
       const adShown = await adMobService.showInterstitial();
       
       if (adShown) {
-        // 広告視聴で10チケットを付与
-        await onAddTickets(10);
-        Alert.alert('チケット獲得', '広告視聴で10チケットを獲得しました！');
+        // 広告視聴で20チケットを付与
+        await onAddTickets(TICKET_REWARD_AD);
+        Alert.alert('チケット獲得', `広告視聴で${TICKET_REWARD_AD}チケットを獲得しました！`);
       } else {
         Alert.alert('お知らせ', '広告の読み込みに失敗しました。時間をおいて再度お試しください。');
       }
@@ -425,7 +429,7 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
               style={styles.actionIcon} 
             />
             <Text style={styles.actionText}>
-              本日のログインボーナスを受け取る (+5)
+              本日のログインボーナスを受け取る (+{TICKET_REWARD_LOGIN})
             </Text>
           </TouchableOpacity>
         </View>
@@ -445,8 +449,8 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
           />
           <Text style={styles.actionText}>
             {isAdFree && freeClaimAvailable 
-              ? '本日の無料チケットを受け取る (+10)' 
-              : '広告を見る (+10)'}
+              ? `本日の無料チケットを受け取る (+${TICKET_REWARD_AD})` 
+              : `広告を見る (+${TICKET_REWARD_AD})`}
           </Text>
           {adLoading && <Text style={styles.loadingText}>読み込み中...</Text>}
         </TouchableOpacity>

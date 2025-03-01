@@ -145,6 +145,7 @@ export const mapImages = {
   "氷点下": require('../../assets/MapImages/Below_Zero.png'),
   "クールボックス": require('../../assets/MapImages/Cool_Box.png'),
   "スターガーデン": require('../../assets/MapImages/Starr_Garden.png'),
+  "スーパーセンター": require('../../assets/MapImages/Super_Center.png'),
 };
 
 // ゲームモードのアイコン定義
