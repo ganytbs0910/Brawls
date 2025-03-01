@@ -71,22 +71,23 @@ const getOrCreateAnonymousUserId = async (): Promise<string> => {
 // 次回の抽選日時を計算する関数
 export const calculateNextLotteryDateString = (): { dateString: string, dateISO: string } => {
   const now = new Date();
-  const nextSunday = new Date();
+  const nextLottery = new Date();
   
-  nextSunday.setDate(now.getDate() + (7 - now.getDay()) % 7);
-  nextSunday.setHours(21, 0, 0, 0);
+  // 毎日0:15に設定
+  nextLottery.setHours(0, 15, 0, 0);
   
-  if (now.getDay() === 0 && now.getHours() < 21) {
-    nextSunday.setDate(now.getDate());
+  // もし現在時刻が0:15を過ぎていたら、翌日の0:15に設定
+  if (now > nextLottery) {
+    nextLottery.setDate(nextLottery.getDate() + 1);
   }
   
-  const dateISO = nextSunday.toISOString().split('T')[0];
+  const dateISO = nextLottery.toISOString().split('T')[0];
   
-  const dayNames = ['日', '月', '火', '水', '木', '金', '土'];
-  const month = nextSunday.getMonth() + 1;
-  const date = nextSunday.getDate();
-  const day = dayNames[nextSunday.getDay()];
-  const dateString = `${month}月${date}日(${day}) 21:00`;
+  const month = nextLottery.getMonth() + 1;
+  const date = nextLottery.getDate();
+  const hours = nextLottery.getHours().toString().padStart(2, '0');
+  const minutes = nextLottery.getMinutes().toString().padStart(2, '0');
+  const dateString = `${month}月${date}日 ${hours}:${minutes}`;
   
   return { dateString, dateISO };
 };
@@ -140,9 +141,9 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
   const [effectiveUserId, setEffectiveUserId] = useState<string | null>(null);
   const [isParticipating, setIsParticipating] = useState(false);
   const [participantsCount, setParticipantsCount] = useState(lotteryParticipants);
-  const [nextLotteryDate, setNextLotteryDate] = useState('');
   const [hasPrize, setHasPrize] = useState(false);
   const [prizeInfo, setPrizeInfo] = useState<any>(null);
+  const [nextLotteryTimeString, setNextLotteryTimeString] = useState<string>("");
 
   // Supabaseクライアントの初期化
   useEffect(() => {
@@ -174,6 +175,12 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
     
     initUserId();
   }, [userId]);
+
+  // 抽選日付を初期化
+  useEffect(() => {
+    const { dateString } = calculateNextLotteryDateString();
+    setNextLotteryTimeString(dateString);
+  }, []);
 
   // 保存されたチケットを読み込む
   useEffect(() => {
@@ -211,7 +218,6 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
   useEffect(() => {
     if (supabaseClient && effectiveUserId) {
       checkLotteryParticipation();
-      calculateNextLotteryDateForUI();
       fetchLotteryParticipantsCount();
       checkWinningStatus();
     }
@@ -367,12 +373,6 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
     }
   };
 
-  // 次回の抽選日時を計算する
-  const calculateNextLotteryDateForUI = () => {
-    const { dateString } = calculateNextLotteryDateString();
-    setNextLotteryDate(dateString);
-  };
-
   // 抽選参加後に状態をリセットする
   const resetLotteryState = async () => {
     try {
@@ -507,7 +507,7 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
       // 参加者数を更新
       fetchLotteryParticipantsCount();
       
-      Alert.alert('抽選参加完了', '抽選に参加しました！結果発表をお待ちください。');
+      Alert.alert('抽選参加完了', `抽選に参加しました！${nextLotteryTimeString}の結果発表をお待ちください。`);
     } catch (error) {
       console.error('Lottery entry error:', error);
       Alert.alert('エラー', '抽選参加中にエラーが発生しました');
@@ -544,10 +544,6 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
           <Text style={styles.lotteryInfoValue}>
             {participantsCount > 0 ? `1/${participantsCount}` : '- '}
           </Text>
-        </View>
-        <View style={styles.lotteryInfoItem}>
-          <Text style={styles.lotteryInfoLabel}>次回抽選日</Text>
-          <Text style={styles.lotteryInfoValue}>{nextLotteryDate}</Text>
         </View>
         <View style={styles.lotteryInfoItem}>
           <Text style={styles.lotteryInfoLabel}>参加状況</Text>
