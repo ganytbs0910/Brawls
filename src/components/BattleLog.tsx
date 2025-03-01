@@ -111,7 +111,8 @@ const normalizeModeName = (modeName: string): keyof typeof GAME_MODES => {
     'showdown': 'BATTLE_ROYALE',
     'basketBrawl': 'BASKET_BRAWL',
     'payLoad': 'PAYLOAD',
-    'friendly': 'FRIENDLY'
+    'friendly': 'FRIENDLY',
+    'brawlHockey': 'BRAWL_HOCKEY',
   };
 
   return modeNameToKey[camelCaseName] || 'GEM_GRAB';

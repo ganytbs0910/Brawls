@@ -134,6 +134,16 @@ const modeNameMapping = {
     fr: "CHASSE OUVERTE 5C5",
     zhTw: "5v5積分爭奪戰",
     icon: require('../../assets/GameModeIcons/5v5wipeout_icon.png')
+  },
+  "ブロスタホッケー": {
+    ja: "ブロスタホッケー",
+    en: "Brawl Hockey",
+    ko: "브롤 하키",
+    es: "HOCKEY BRAWL", 
+    ar: "هوكي العراك",
+    fr: "HOCKEY BRAWL",
+    zhTw: "亂鬥曲棍球",
+    icon: require('../../assets/GameModeIcons/brawl_hockey.png')
   }
 };
 
@@ -195,6 +205,10 @@ const getCurrentModes = (currentLanguage: string) => {
       name: "5vs5殲滅",
       color: "#FFA500",
     },
+    {
+      name: "ブロスタホッケー",
+      color: "#FFA500",
+    }
   ];
 
   return modes.map(mode => ({

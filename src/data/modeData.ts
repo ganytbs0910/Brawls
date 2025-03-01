@@ -252,6 +252,20 @@ export const GAME_MODES: { [key: string]: GameMode } = {
       zhTw: '推車護送'
     },
     icon: require('../../assets/GameModeIcons/payload_icon.png')
+  },
+  BRAWL_HOCKEY: {
+    name: 'brawlHockey',
+    color: "#cccccc",
+    translations: {
+      ja: 'ブロスタホッケー',
+      en: 'Brawl Hockey',
+      ko: '아이스 브롤',
+      es: 'Hockey Brawl',
+      ar: 'هوكي براول',
+      fr: 'Brawl Hockey',
+      zhTw: '冰球'
+    },
+    icon: require('../../assets/GameModeIcons/brawl_hockey.png')
   }
 };
 
@@ -326,6 +340,11 @@ export function getCurrentModes(language: Language) {
       name: getLocalizedModeName('WIPEOUT_5V5', language),
       color: GAME_MODES.WIPEOUT_5V5.color,
       icon: GAME_MODES.WIPEOUT_5V5.icon
+    },
+    {
+      name: getLocalizedModeName('BRAWL_HOCKEY', language),
+      color: GAME_MODES.BRAWL_HOCKEY.color,
+      icon: GAME_MODES.BRAWL_HOCKEY.icon
     }
   ];
 }

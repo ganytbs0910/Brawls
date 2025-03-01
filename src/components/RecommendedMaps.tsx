@@ -22,6 +22,7 @@ const gameModeIcons = {
   showdown: require('../../assets/GameModeIcons/showdown_icon.png'),
   duoShowdown: require('../../assets/GameModeIcons/duo_showdown_icon.png'),
   rankFront: require('../../assets/GameModeIcons/rank_front.png'),
+  brawlHockey: require('../../assets/GameModeIcons/brawl_hockey.png'),
 };
 
 // モードキーのマッピング
@@ -39,7 +40,8 @@ const MODE_MAPPING = {
   'duels': 'DUEL',
   'showdown': 'SOLO_BATTLE_ROYALE',
   'duoshowdown': 'DUO_BATTLE_ROYALE',
-  'rankfront': 'RANK_FRONT'
+  'rankfront': 'RANK_FRONT',
+  'brawlhockey': 'BRAWL_HOCKEY'
 };
 
 // モードカラーの定義
@@ -57,7 +59,8 @@ const MODE_COLORS = {
   'duels': "#DC143C",
   'showdown': "#32CD32",
   'duoshowdown': "#32CD32",
-  'rankfront': "#99ff66"
+  'rankfront': "#99ff66",
+  'brawlhockey': "#4169E1"
 };
 
 // モードアイコンのマッピング
@@ -75,7 +78,8 @@ const MODE_ICONS = {
   'duels': 'duels',
   'showdown': 'showdown',
   'duoshowdown': 'duoShowdown',
-  'rankfront': 'rankFront'
+  'rankfront': 'rankFront',
+  'brawlhockey': 'brawlHockey'
 };
 
 const normalizeGameMode = (mode) => {
@@ -95,7 +99,8 @@ const normalizeGameMode = (mode) => {
     'デュエル': 'duels',
     'バトルロイヤル': 'showdown',
     'デュオバトルロイヤル': 'duoshowdown',
-    'ガチバトル': 'rankfront'
+    'ガチバトル': 'rankfront',
+    'ブロスタホッケー': 'brawlhockey'
   };
 
   return modeMap[mode.trim()] || mode.toLowerCase().replace(/\s+/g, '');

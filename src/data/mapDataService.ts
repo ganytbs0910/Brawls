@@ -141,6 +141,10 @@ export const mapImages = {
   "一触爆発": require('../../assets/MapImages/Close_Quarters.png'),
   "深緑の古道": require('../../assets/MapImages/Mossy_Crossing.png'),
   "シークレットガーデン": require('../../assets/MapImages/Covered_Garden.png'),
+  "ボヨヨンボウル": require('../../assets/MapImages/Bouncy_Bowl.png'),
+  "氷点下": require('../../assets/MapImages/Below_Zero.png'),
+  "クールボックス": require('../../assets/MapImages/Cool_Box.png'),
+  "スターガーデン": require('../../assets/MapImages/Starr_Garden.png'),
 };
 
 // ゲームモードのアイコン定義
@@ -156,6 +160,7 @@ export const gameModeIcons = {
   wipeout5v5: require('../../assets/GameModeIcons/5v5wipeout_icon.png'),
   duels: require('../../assets/GameModeIcons/duels_icon.png'),
   showdown: require('../../assets/GameModeIcons/showdown_icon.png'),
+  brawlHockey: require('../../assets/GameModeIcons/brawl_hockey.png'),
 };
 
 // ゲームモード設定
@@ -166,6 +171,7 @@ export const GAME_MODES = [
   { name: "knockout", color: "#FFA500", icon: gameModeIcons.knockout },
   { name: "bounty", color: "#DA70D6", icon: gameModeIcons.bounty },
   { name: "hotZone", color: "#cccccc", icon: gameModeIcons.hotZone },
+  { name: "brawlHockey", color: "#cccccc", icon: gameModeIcons.brawlHockey },
 ];
 
 // ローテーションモードの定義
@@ -202,27 +208,20 @@ const RNAKED_MAPS = {
     "中央コート",
     "ピンボールドリーム",
   ],
-  heist: [
-    "安全地帯",
-    "ホットポテト",
-    "どんぱち谷",
-    "橋の彼方",
-  ],
   knockout: [
     "ベルの岩",
     "燃える不死鳥",
     "オープンフィールド",
   ],
-  bounty: [
-    "流れ星",
-    "隠れ家",
-    "ジグザグ草原",
-    "グランドカナル",
-  ],
   hotZone: [
     "ビートルバトル",
     "オープンビジネス",
     "パラレルワールド",
+  ],
+  brawlHockey: [
+    "スーパーセンター",
+    "クールボックス",
+    "氷点下",
   ],
 };
 
@@ -262,7 +261,10 @@ export const maps = {
     "言い訳厳禁", "見えざる大蛇", "暴徒のオアシス", "流れ星", "常勝街道",
     "スパイスプロダクション", "ジグザグ草原", "禅の庭園", "大いなる入口", 
     "グランドカナル", "猿の迷路", "果てしなき不運", "隠れ家", "不屈の精神", 
-  ]
+  ],
+  brawlHockey: [
+    "氷点下", "クールボックス", "ボヨヨンボウル", "スターガーデン",
+  ],
 };
 
 // 言語設定の取得
@@ -412,7 +414,16 @@ const getLocalizedModeName = (mode: string, language: string): string => {
       ar: "المنطقة الساخنة",
       fr: "ZONE RÉSERVÉE",
       zhTw: "據點搶奪戰",
-    }
+    },
+    brawlHockey: {
+      ja: "ブロスタホッケー",
+      en: "Brawl Hockey",
+      ko: "브롤 하키",
+      es: "BRAWL HOCKEY",
+      ar: "الهوكي",
+      fr: "BRAWL HOCKEY",
+      zhTw: "亂鬥曲棍球",
+    },
   };
 
   return modeTranslations[mode]?.[language] || mode;

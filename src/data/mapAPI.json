@@ -8753,6 +8753,27 @@
         },
         {
             "name": {
+                "ja": "スーパーセンター",
+                "en": "",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Brawl Hockey",
+            "image": "require('../../assets/MapImages/.png')",
+            "description": "",
+            "recommendedBrawlers": [
+                {
+                    "name": "",
+                    "reason": "",
+                    "power": 5
+                }
+            ]
+        },
+        {
+            "name": {
                 "ja": "スターガーデン",
                 "en": "Starr_Garden",
                 "ko": "",

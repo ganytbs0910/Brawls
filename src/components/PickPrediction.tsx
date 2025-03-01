@@ -25,10 +25,9 @@ type ScreenType = 'home' | 'mapDetail' | 'characterDetail';
 const DISPLAY_MODES = [
   'gemGrab',    // エメラルドハント
   'brawlBall',  // ブロストライカー
-  'heist',      // 強奪
   'knockout',   // ノックアウト
-  'bounty',     // 賞金稼ぎ
-  'hotZone'     // ホットゾーン
+  'hotZone',     // ホットゾーン
+  'brawlHockey', // ブロホッケー
 ];
 
 // モード名から対応するGAME_MODESのキーを取得するヘルパー関数
