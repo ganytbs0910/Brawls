@@ -16,11 +16,6 @@ type AppTranslations = {
       title: string;
       button: string;
     };
-    loginBonus: {
-      title: string;
-      message: string;
-      button: string;
-    };
   };
 };
 
@@ -34,17 +29,12 @@ const translations: Record<string, AppTranslations> = {
       rankings: 'ランキング',
       news: 'ニュース',
       gacha: 'ガチャ',
-      tickets: 'チケット' // 追加
+      tickets: 'チケット'
     },
     alerts: {
       update: {
         title: 'アップデートが必要です',
         button: 'アップデート'
-      },
-      loginBonus: {
-        title: 'ログインボーナス！',
-        message: 'デイリーガチャチケット1枚をプレゼント！',
-        button: 'OK'
       }
     }
   },
@@ -57,17 +47,12 @@ const translations: Record<string, AppTranslations> = {
       rankings: 'Rankings',
       news: 'News',
       gacha: 'Gacha',
-      tickets: 'Tickets' // 追加
+      tickets: 'Tickets'
     },
     alerts: {
       update: {
         title: 'Update Required',
         button: 'Update'
-      },
-      loginBonus: {
-        title: 'Login Bonus!',
-        message: 'You received 1 Daily Gacha Ticket!',
-        button: 'OK'
       }
     }
   },
@@ -80,17 +65,12 @@ const translations: Record<string, AppTranslations> = {
       rankings: '랭킹',
       news: '뉴스',
       gacha: '가챠',
-      tickets: '티켓' // 追加
+      tickets: '티켓'
     },
     alerts: {
       update: {
         title: '업데이트가 필요합니다',
         button: '업데이트'
-      },
-      loginBonus: {
-        title: '로그인 보너스!',
-        message: '데일리 가챠 티켓 1장을 받았습니다!',
-        button: '확인'
       }
     }
   },
@@ -103,17 +83,12 @@ const translations: Record<string, AppTranslations> = {
       rankings: 'Clasificación',
       news: 'Noticias',
       gacha: 'Gacha',
-      tickets: 'Boletos' // 追加
+      tickets: 'Boletos'
     },
     alerts: {
       update: {
         title: 'Actualización Necesaria',
         button: 'Actualizar'
-      },
-      loginBonus: {
-        title: '¡Bono de Inicio de Sesión!',
-        message: '¡Has recibido 1 Ticket de Gacha Diario!',
-        button: 'Aceptar'
       }
     }
   },
@@ -126,17 +101,12 @@ const translations: Record<string, AppTranslations> = {
       rankings: 'التصنيفات',
       news: 'الأخبار',
       gacha: 'غاتشا',
-      tickets: 'تذاكر' // 追加
+      tickets: 'تذاكر'
     },
     alerts: {
       update: {
         title: 'تحديث مطلوب',
         button: 'تحديث'
-      },
-      loginBonus: {
-        title: 'مكافأة تسجيل الدخول!',
-        message: 'لقد استلمت تذكرة غاتشا يومية واحدة!',
-        button: 'موافق'
       }
     }
   },
@@ -149,17 +119,12 @@ const translations: Record<string, AppTranslations> = {
       rankings: 'Classements',
       news: 'Actualités',
       gacha: 'Gacha',
-      tickets: 'Tickets' // 追加
+      tickets: 'Tickets'
     },
     alerts: {
       update: {
         title: 'Mise à jour requise',
         button: 'Mettre à jour'
-      },
-      loginBonus: {
-        title: 'Bonus de connexion !',
-        message: 'Vous avez reçu 1 Ticket Gacha Quotidien !',
-        button: 'OK'
       }
     }
   },
@@ -172,17 +137,12 @@ const translations: Record<string, AppTranslations> = {
       rankings: '排行榜',
       news: '新聞',
       gacha: '轉蛋',
-      tickets: '票券' // 追加
+      tickets: '票券'
     },
     alerts: {
       update: {
         title: '需要更新',
         button: '更新'
-      },
-      loginBonus: {
-        title: '登入獎勵！',
-        message: '獲得1張每日轉蛋券！',
-        button: '確定'
       }
     }
   }

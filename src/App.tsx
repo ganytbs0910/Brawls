@@ -493,18 +493,6 @@ const App = () => {
     }
   };
 
-  const giveLoginBonus = async () => {
-    const newTickets = tickets + 1;
-    setTickets(newTickets);
-    await AsyncStorage.setItem('tickets', newTickets.toString());
-    
-    Alert.alert(
-      t.alerts.loginBonus.title,
-      t.alerts.loginBonus.message,
-      [{ text: t.alerts.loginBonus.button }]
-    );
-  };
-
   useEffect(() => {
     const initializeApp = async () => {
       try {
@@ -523,23 +511,9 @@ const App = () => {
         const isAdFreeStatus = status === 'true';
         setIsAdFree(isAdFreeStatus);
 
-        const currentTimestamp = await getServerTime();
-        const lastResetTime = getLastResetTime(currentTimestamp);
-        const lastBonusTimestamp = await AsyncStorage.getItem('lastBonusTimestamp');
+        // チケット数を読み込む
         const savedTickets = await AsyncStorage.getItem('tickets');
-        
         setTickets(savedTickets ? parseInt(savedTickets) : 0);
-
-        if (!lastBonusTimestamp) {
-          await AsyncStorage.setItem('lastBonusTimestamp', lastResetTime.toString());
-          await giveLoginBonus(); // 初回ログインボーナス
-        } else {
-          const lastBonus = parseInt(lastBonusTimestamp);
-          if (lastBonus < lastResetTime) {
-            await AsyncStorage.setItem('lastBonusTimestamp', lastResetTime.toString());
-            await giveLoginBonus(); // 日次ログインボーナス
-          }
-        }
 
         if (!isAdFreeStatus) {
           const randomValue = Math.random();

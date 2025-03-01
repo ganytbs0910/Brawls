@@ -35,6 +35,7 @@ const PrizeTab: React.FC<PrizeTabProps> = ({
   const [playerTag, setPlayerTag] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPrizeModal, setShowPrizeModal] = useState(false);
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
 
   // Brawl Starsリンクを開く
   const openBrawlStarsLink = async () => {
@@ -51,69 +52,74 @@ const PrizeTab: React.FC<PrizeTabProps> = ({
     }
   };
   
-  // プレイヤータグを送信する
-  // プレイヤータグを送信する
-const submitPlayerTag = async () => {
-  if (!playerTag || playerTag.trim() === '') {
-    Alert.alert('入力エラー', 'プレイヤータグを入力してください。');
-    return;
-  }
-  
-  if (!supabaseClient || !effectiveUserId || !prizeInfo) {
-    Alert.alert('エラー', 'システムエラーが発生しました。');
-    return;
-  }
-  
-  setIsSubmitting(true);
-  
-  try {
-    // プレイヤータグをDBに保存
-    const { error } = await supabaseClient
-      .from('prize_claims')
-      .insert([{
-        user_id: effectiveUserId,
-        lottery_result_id: prizeInfo.id,
-        player_tag: playerTag.trim(),
-        // claimed_atフィールドを削除
-        status: 'pending'
-      }]);
-      
-    if (error) {
-      Alert.alert('エラー', 'データの送信に失敗しました。');
+  // 確認ダイアログを表示する
+  const showConfirmation = () => {
+    if (!playerTag || playerTag.trim() === '') {
+      Alert.alert('入力エラー', 'プレイヤータグを入力してください。');
       return;
     }
     
-    // lottery_resultsテーブルの景品受取状態を更新
-    const { error: updateError } = await supabaseClient
-      .from('lottery_results')
-      .update({ prize_claimed: true })
-      .eq('id', prizeInfo.id);
-      
-    if (updateError) {
-      // 致命的ではないのでエラー表示しない
+    // 確認モーダルを表示
+    setShowConfirmationModal(true);
+  };
+  
+  // プレイヤータグを送信する
+  const submitPlayerTag = async () => {
+    if (!supabaseClient || !effectiveUserId || !prizeInfo) {
+      Alert.alert('エラー', 'システムエラーが発生しました。');
+      return;
     }
     
-    // 景品受取完了
-    Alert.alert(
-      '受取完了', 
-      'おめでとうございます！景品の受け取り手続きが完了しました。景品は数日以内に付与されます。',
-      [
-        {
-          text: 'OK',
-          onPress: () => {
-            // 親コンポーネントに通知
-            onPrizeClaimed();
-          }
-        }
-      ]
-    );
+    setIsSubmitting(true);
+    setShowConfirmationModal(false);
     
-  } catch (error) {
-    Alert.alert('エラー', '処理中にエラーが発生しました。');
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+    try {
+      // プレイヤータグをDBに保存
+      const { error } = await supabaseClient
+        .from('prize_claims')
+        .insert([{
+          user_id: effectiveUserId,
+          lottery_result_id: prizeInfo.id,
+          player_tag: playerTag.trim(),
+          status: 'pending'
+        }]);
+        
+      if (error) {
+        Alert.alert('エラー', 'データの送信に失敗しました。');
+        return;
+      }
+      
+      // lottery_resultsテーブルの景品受取状態を更新
+      const { error: updateError } = await supabaseClient
+        .from('lottery_results')
+        .update({ prize_claimed: true })
+        .eq('id', prizeInfo.id);
+        
+      if (updateError) {
+        // 致命的ではないのでエラー表示しない
+      }
+      
+      // 景品受取完了
+      Alert.alert(
+        '受取完了', 
+        'おめでとうございます！景品の受け取り手続きが完了しました。景品は数日以内に付与されます。',
+        [
+          {
+            text: 'OK',
+            onPress: () => {
+              // 親コンポーネントに通知
+              onPrizeClaimed();
+            }
+          }
+        ]
+      );
+      
+    } catch (error) {
+      Alert.alert('エラー', '処理中にエラーが発生しました。');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <ScrollView style={styles.content}>
@@ -160,7 +166,7 @@ const submitPlayerTag = async () => {
                   styles.submitButton, 
                   (!playerTag || isSubmitting) && styles.disabledButton
                 ]} 
-                onPress={submitPlayerTag}
+                onPress={showConfirmation}
                 disabled={!playerTag || isSubmitting}
               >
                 {isSubmitting ? (
@@ -191,6 +197,45 @@ const submitPlayerTag = async () => {
           </View>
         )}
       </View>
+
+      {/* 確認モーダル */}
+      <Modal
+        visible={showConfirmationModal}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => setShowConfirmationModal(false)}
+      >
+        <View style={styles.modalContainer}>
+          <View style={styles.confirmationModal}>
+            <View style={styles.confirmationIconContainer}>
+              <Text style={styles.confirmationIcon}>⚠️</Text>
+            </View>
+            <Text style={styles.confirmationTitle}>送信の確認</Text>
+            <Text style={styles.confirmationMessage}>
+              以下のプレイヤータグで送信します：
+            </Text>
+            <Text style={styles.tagPreview}>{playerTag}</Text>
+            <Text style={styles.confirmationWarning}>
+              一度送信すると、プレイヤータグの修正はできません。
+              正しいタグを入力したことを確認してください。
+            </Text>
+            <View style={styles.confirmationButtons}>
+              <TouchableOpacity 
+                style={styles.cancelButton} 
+                onPress={() => setShowConfirmationModal(false)}
+              >
+                <Text style={styles.cancelButtonText}>キャンセル</Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={styles.confirmButton} 
+                onPress={submitPlayerTag}
+              >
+                <Text style={styles.confirmButtonText}>送信する</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
 
       {/* プレゼント受け取りモーダル */}
       <Modal
@@ -239,10 +284,7 @@ const submitPlayerTag = async () => {
                   styles.modalSubmitButton, 
                   (!playerTag || isSubmitting) && styles.disabledButton
                 ]} 
-                onPress={() => {
-                  submitPlayerTag();
-                  setShowPrizeModal(false);
-                }}
+                onPress={showConfirmation}
                 disabled={!playerTag || isSubmitting}
               >
                 {isSubmitting ? (
@@ -436,6 +478,80 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalSubmitButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  // 確認モーダルのスタイル
+  confirmationModal: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 20,
+    width: '90%',
+    maxWidth: 400,
+    alignItems: 'center',
+  },
+  confirmationIconContainer: {
+    marginBottom: 12,
+  },
+  confirmationIcon: {
+    fontSize: 40,
+  },
+  confirmationTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 16,
+  },
+  confirmationMessage: {
+    fontSize: 16,
+    color: '#333',
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+  tagPreview: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#FF5722',
+    marginBottom: 16,
+    backgroundColor: '#f5f5f5',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 6,
+    overflow: 'hidden',
+  },
+  confirmationWarning: {
+    fontSize: 14,
+    color: '#F44336',
+    textAlign: 'center',
+    marginBottom: 20,
+    lineHeight: 20,
+  },
+  confirmationButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  cancelButton: {
+    backgroundColor: '#f5f5f5',
+    borderRadius: 8,
+    padding: 12,
+    flex: 1,
+    marginRight: 8,
+    alignItems: 'center',
+  },
+  cancelButtonText: {
+    color: '#666',
+    fontWeight: 'bold',
+  },
+  confirmButton: {
+    backgroundColor: '#FF5722',
+    borderRadius: 8,
+    padding: 12,
+    flex: 1,
+    marginLeft: 8,
+    alignItems: 'center',
+  },
+  confirmButtonText: {
     color: '#fff',
     fontWeight: 'bold',
   },
