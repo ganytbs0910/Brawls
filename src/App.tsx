@@ -32,13 +32,11 @@ import BrawlStarsRankings from './components/BrawlStarsRankings';
 import CharacterDetails from './components/CharacterDetails';
 import PickPrediction from './components/PickPrediction';
 import Home from './components/Home';
-// News インポートを削除
-import Gacha from './components/Gacha';
-import TicketScreen from './components/TicketScreen'; // 追加: チケットスクリーンのインポート
+import TicketScreen from './components/TicketScreen';
 import { BannerAdComponent } from './components/BannerAdComponent';
 
 const { width, height: SCREEN_HEIGHT } = Dimensions.get('window');
-const TAB_WIDTH = width / 6; // タブ数を6に変更（チケット追加）
+const TAB_WIDTH = width / 6;
 
 const SNAP_POINTS = {
   TOP: 0,

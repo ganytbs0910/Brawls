@@ -35,8 +35,8 @@ const calculateNextLotteryTime = (): { time: Date, timeString: string } => {
   const now = new Date();
   const nextLottery = new Date();
   
-  // 毎日0:15に設定
-  nextLottery.setHours(3, 0, 0, 0);
+  // 抽選時間
+  nextLottery.setHours(18, 0, 0, 0);
   
   // もし現在時刻が0:15を過ぎていたら、翌日の0:15に設定
   if (now > nextLottery) {
@@ -650,7 +650,6 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
       {loginBonusAvailable && (
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>ログインボーナス</Text>
-
           <TouchableOpacity 
             style={[styles.actionButton, styles.loginBonusButton]} 
             onPress={handleClaimLoginBonus}
@@ -665,6 +664,43 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
           </TouchableOpacity>
         </View>
       )}
+      
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>抽選に参加</Text>
+        
+        <TouchableOpacity 
+          style={[
+            styles.rewardItem, 
+            (tickets < 100 || isParticipating) && styles.disabledReward
+          ]} 
+          onPress={handleEnterLottery}
+          disabled={tickets < 100 || isParticipating}
+        >
+          <Image 
+            source={require('../../assets/AppIcon/ticket.png')} 
+            style={styles.rewardIcon} 
+          />
+          <View style={styles.rewardInfo}>
+            <Text style={styles.rewardName}>次回の抽選に参加する</Text>
+            <Text style={styles.rewardDesc}>
+              {isParticipating 
+                ? '今回の抽選にすでに参加しています' 
+                : '100チケットで抽選に参加（当選確率 1/' + participantsCount + '）'}
+            </Text>
+          </View>
+          <View style={styles.costContainer}>
+            <Image 
+              source={require('../../assets/AppIcon/ticket.png')} 
+              style={styles.smallTicket} 
+            />
+            <Text style={styles.costText}>100</Text>
+          </View>
+        </TouchableOpacity>
+        
+        <Text style={styles.lotteryNote}>
+          ※毎日1名様にBrawl Starsパスが当たります！抽選は参加者の中から1名のみ選ばれます。チケット100枚で応募でき、当選確率はその日の応募者数で決まります。
+        </Text>
+      </View>
       
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>チケットを獲得</Text>
@@ -691,43 +727,6 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
             本日の無料チケットはすでに受け取り済みです。明日また来てください。
           </Text>
         )}
-      </View>
-      
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>抽選に参加</Text>
-        
-        <TouchableOpacity 
-          style={[
-            styles.rewardItem, 
-            (tickets < 100 || isParticipating) && styles.disabledReward
-          ]} 
-          onPress={handleEnterLottery}
-          disabled={tickets < 100 || isParticipating}
-        >
-          <Image 
-            source={require('../../assets/AppIcon/ticket.png')} 
-            style={styles.rewardIcon} 
-          />
-          <View style={styles.rewardInfo}>
-            <Text style={styles.rewardName}>次回の抽選に参加する</Text>
-            <Text style={styles.rewardDesc}>
-              {isParticipating 
-                ? '今回の抽選にすでに参加しています' 
-                : '100チケットで抽選に参加'}
-            </Text>
-          </View>
-          <View style={styles.costContainer}>
-            <Image 
-              source={require('../../assets/AppIcon/ticket.png')} 
-              style={styles.smallTicket} 
-            />
-            <Text style={styles.costText}>100</Text>
-          </View>
-        </TouchableOpacity>
-        
-        <Text style={styles.lotteryNote}>
-          ※抽選が行われ、参加者の中から1名様に豪華景品をプレゼント！
-        </Text>
       </View>
     </ScrollView>
   );
