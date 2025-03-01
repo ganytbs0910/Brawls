@@ -28,11 +28,16 @@ import { MapDetail, GameMode, ScreenType, ScreenState } from '../types';
 import { GAME_MODES, getLocalizedModeName, generateCombinedModeTranslation } from '../data/modeData';
 import { getMapDetails } from '../data/mapDetails';
 import { initializeMapData, getMapData, mapImages, getGameDataForDateTime } from '../data/mapDataService';
+// Import the UpdateNotification component
+import { UpdateNotification } from '../components/UpdateNotification';
 
 type RankingsScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const UPDATE_HOURS = [5, 11, 17, 23];
+
+// Notification message constant - Easy to update
+const UPDATE_NOTIFICATION_MESSAGE = "大型アップデートによりマップ周期が変更されました。マップ周期が判明し次第修正します。";
 
 const useMapUpdateTimer = (updateHours: number[]) => {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -100,6 +105,8 @@ const Home: React.FC = () => {
   const [isAdFree, setIsAdFree] = useState(false);
   const [mapDetailProps, setMapDetailProps] = useState<MapDetail | null>(null);
   const [isMapDataInitialized, setIsMapDataInitialized] = useState(false);
+  // Add state for the notification
+  const [showNotification, setShowNotification] = useState(true);
 
   const adService = useRef<AdMobService | null>(null);
 
@@ -196,6 +203,32 @@ const Home: React.FC = () => {
       subscription.remove();
     };
   }, []);
+
+  // Add effect to check if notification should be shown (persisting notification state)
+  useEffect(() => {
+    const checkNotificationState = async () => {
+      try {
+        const notificationState = await AsyncStorage.getItem('mapUpdateNotificationShown');
+        if (notificationState === 'false') {
+          setShowNotification(false);
+        }
+      } catch (error) {
+        console.error('Failed to check notification state:', error);
+      }
+    };
+
+    checkNotificationState();
+  }, []);
+
+  // Add function to handle closing the notification and save the state
+  const handleCloseNotification = async () => {
+    setShowNotification(false);
+    try {
+      await AsyncStorage.setItem('mapUpdateNotificationShown', 'false');
+    } catch (error) {
+      console.error('Failed to save notification state:', error);
+    }
+  };
 
   const renderScreen = (screen: ScreenState) => {
     switch (screen.type) {
@@ -504,6 +537,13 @@ const Home: React.FC = () => {
         </View>
 
         <ScrollView style={styles.content}>
+          {/* Add the notification banner here */}
+          <UpdateNotification 
+            visible={showNotification}
+            onClose={handleCloseNotification}
+            message={UPDATE_NOTIFICATION_MESSAGE}
+          />
+          
           <DailyTip />
           <View style={styles.modeContainer}>
             <View style={styles.dateHeader}>
@@ -638,7 +678,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    paddingBottom: 16, // Add padding at the bottom
+    paddingBottom: 16,
   },
   modeCard: {
     width: '48%',
@@ -686,7 +726,7 @@ const styles = StyleSheet.create({
     padding: 8,
     backgroundColor: '#f8f8f8',
     borderRadius: 8,
-    flex: 1, // Add flex: 1 to ensure proper spacing
+    flex: 1,
   },
   mapName: {
     fontSize: 14,
@@ -698,7 +738,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 80,
     borderRadius: 8,
-    marginBottom: 8, // Add margin at the bottom
+    marginBottom: 8,
   },
   overlayScreen: {
     position: 'absolute',
