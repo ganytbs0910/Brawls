@@ -36,7 +36,7 @@ const calculateNextLotteryTime = (): { time: Date, timeString: string } => {
   const nextLottery = new Date();
   
   // 毎日0:15に設定
-  nextLottery.setHours(1, 14, 0, 0);
+  nextLottery.setHours(1, 49, 0, 0);
   
   // もし現在時刻が0:15を過ぎていたら、翌日の0:15に設定
   if (now > nextLottery) {
@@ -362,8 +362,7 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
         return;
       }
       
-      // 自動抽選が実行されることをユーザーに通知
-      Alert.alert('抽選実行中', '本日の抽選が実行されています。結果をお待ちください...');
+      // Alert.alertを削除 - 「抽選実行中です」のポップアップを表示しない
       
       const { dateISO } = calculateNextLotteryDateString();
       
@@ -501,12 +500,7 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
           <Text style={styles.countdownLabel}>抽選まであと</Text>
           <Text style={styles.countdown}>{remainingTime}</Text>
           
-          {isLotteryTime && (
-            <View style={styles.lotteryRunningContainer}>
-              <ActivityIndicator size="large" color="#FF9800" />
-              <Text style={styles.lotteryRunningText}>抽選実行中...</Text>
-            </View>
-          )}
+          {/* 抽選実行中の表示を削除 */}
         </View>
         
         <Text style={styles.lotteryNote}>
@@ -648,20 +642,7 @@ const styles = StyleSheet.create({
     color: '#333',
     marginBottom: 8,
   },
-  lotteryRunningContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 12,
-    backgroundColor: 'rgba(255, 152, 0, 0.1)',
-    padding: 8,
-    borderRadius: 8,
-  },
-  lotteryRunningText: {
-    marginLeft: 8,
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#FF9800',
-  },
+  // lotteryRunningContainer と lotteryRunningText スタイルを削除
   actionButton: {
     flexDirection: 'row',
     alignItems: 'center',
