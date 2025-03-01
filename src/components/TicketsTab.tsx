@@ -36,7 +36,7 @@ const calculateNextLotteryTime = (): { time: Date, timeString: string } => {
   const nextLottery = new Date();
   
   // 毎日0:15に設定
-  nextLottery.setHours(1, 49, 0, 0);
+  nextLottery.setHours(3, 0, 0, 0);
   
   // もし現在時刻が0:15を過ぎていたら、翌日の0:15に設定
   if (now > nextLottery) {
@@ -68,6 +68,7 @@ const formatRemainingTime = (milliseconds: number): string => {
 const isTimeForLottery = (targetTime: Date): boolean => {
   const now = new Date();
   const diff = targetTime.getTime() - now.getTime();
+  
   // 10秒以内かつ、過去になっていない場合は抽選時間と判断
   return diff >= 0 && diff < 10000;
 };
@@ -98,6 +99,8 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
   const timerIdRef = useRef<NodeJS.Timeout | null>(null);
   const updateIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const lastParticipantCheckTimeRef = useRef(0);
+  // 抽選予約時刻を保存するref（同じ時刻の抽選を複数回実行しないため）
+  const lastExecutedLotteryTimeRef = useRef<string>('');
 
   // チケット獲得量の定数
   const TICKET_REWARD_AD = 200; // 広告視聴で獲得するチケット数
@@ -184,35 +187,68 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
 
   // 抽選時間の監視と実行（残り時間の表示とは分離）
   useEffect(() => {
-    // すでに抽選中なら何もしない
-    if (isLotteryTime || hasRunLotteryRef.current) return;
+    // すでに抽選中または実行済みの場合、何もしない
+    if (isLotteryTime || hasRunLotteryRef.current) {
+      console.log('【タイマーログ】抽選中または実行済みのため抽選チェックをスキップ', { 
+        isLotteryTime, hasRunLotteryRef: hasRunLotteryRef.current 
+      });
+      return;
+    }
     
     // 既存のタイマーをクリア
     if (timerIdRef.current) {
+      console.log('【タイマーログ】既存のタイマーをクリア');
       clearTimeout(timerIdRef.current);
+      timerIdRef.current = null;
     }
+    
+    // 現在の抽選時間の一意なID（日時文字列）を生成
+    const lotteryTimeId = nextLotteryTime.time.toISOString();
     
     // 抽選時間をチェックする関数
     const checkLotteryTime = () => {
-      if (isTimeForLottery(nextLotteryTime.time) && !hasRunLotteryRef.current) {
+      console.log('【タイマーログ】抽選時間チェック実行', { 
+        現在時刻: new Date().toISOString(),
+        次回抽選時間: nextLotteryTime.time.toISOString(),
+        前回実行した抽選時間: lastExecutedLotteryTimeRef.current
+      });
+      
+      // この抽選時間がすでに実行済みか確認
+      if (lastExecutedLotteryTimeRef.current === lotteryTimeId) {
+        console.log('【タイマーログ】この抽選時間はすでに実行済みです、スキップします');
+        // 次回の抽選時間までスケジュールしない（別のタイマーで更新）
+        return;
+      }
+      
+      // 抽選実行条件を確認
+      if (isTimeForLottery(nextLotteryTime.time) && !hasRunLotteryRef.current && !isLotteryTime) {
+        console.log('【タイマーログ】抽選時間に到達、抽選処理を開始します');
+        
+        // フラグを先に設定して競合を防止
         hasRunLotteryRef.current = true;
         setIsLotteryTime(true);
+        lastExecutedLotteryTimeRef.current = lotteryTimeId;
         
         // runLottery関数を呼び出す前に少し遅延
+        console.log('【タイマーログ】1秒後に抽選を実行します');
         timerIdRef.current = setTimeout(() => {
+          console.log('【タイマーログ】タイマー発火、executeLottery関数を呼び出します');
           executeLottery();
         }, 1000);
       } else {
         // 次のチェックを5秒後に設定
+        console.log('【タイマーログ】まだ抽選時間ではありません、5秒後に再チェック');
         timerIdRef.current = setTimeout(checkLotteryTime, 5000);
       }
     };
     
     // 初回チェック
+    console.log('【タイマーログ】抽選時間チェックを初期化');
     checkLotteryTime();
     
     return () => {
       if (timerIdRef.current) {
+        console.log('【タイマーログ】クリーンアップ: タイマーをクリア');
         clearTimeout(timerIdRef.current);
         timerIdRef.current = null;
       }
@@ -313,45 +349,80 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
 
   // 参加者数を確認する関数（最小限のチェックを行う）
   const checkParticipants = async (): Promise<number> => {
-    // 最後のチェックから30秒経っていない場合はキャッシュした値を返す
-    const now = Date.now();
-    if (now - lastParticipantCheckTimeRef.current < 30000) {
-      return participantsCount;
-    }
-    
     try {
-      if (!supabaseClient) return 0;
+      console.log('【参加者ログ】参加者数を取得開始');
       
-      lastParticipantCheckTimeRef.current = now;
+      // 抽選中は常にDBから最新の参加者数を取得
+      if (!isLotteryTime) {
+        // 抽選中でない場合、最後のチェックから30秒経っていない場合はキャッシュした値を返す
+        const now = Date.now();
+        if (now - lastParticipantCheckTimeRef.current < 30000) {
+          console.log('【参加者ログ】キャッシュされた参加者数を使用:', participantsCount);
+          return participantsCount;
+        }
+      }
+      
+      if (!supabaseClient) {
+        console.log('【参加者ログ】エラー: supabaseClientが未初期化');
+        return 0;
+      }
+      
+      lastParticipantCheckTimeRef.current = Date.now();
       
       const { dateISO } = calculateNextLotteryDateString();
-      const { count, error } = await supabaseClient
+      console.log(`【参加者ログ】抽選日付: ${dateISO}`);
+      
+      const response = await supabaseClient
         .from('lottery_participants')
         .select('*', { count: 'exact', head: true })
         .eq('lottery_date', dateISO);
+        
+      const { count, error } = response;
       
-      if (error) throw error;
+      console.log('【参加者ログ】参加者数クエリ結果', { 
+        count: count || 0, 
+        エラー: error ? JSON.stringify(error) : 'なし'
+      });
+      
+      if (error) {
+        console.log('【参加者ログ】参加者数取得エラー', error);
+        throw error;
+      }
+      
       return count || 0;
     } catch (error) {
+      console.log('【参加者ログ】致命的なエラー', error);
       return 0;
     }
   };
 
   // 抽選を実行する関数
   const executeLottery = useCallback(async () => {
+    console.log('【抽選ログ】抽選処理開始');
+    
     if (!supabaseClient || !effectiveUserId) {
-      resetLotteryState();
+      console.log('【抽選ログ】エラー: supabaseClientまたはeffectiveUserIdが存在しません', { 
+        supabaseClientExists: !!supabaseClient, 
+        effectiveUserId 
+      });
+      
+      // 状態をリセット
+      await resetLotteryState();
       setIsLotteryTime(false);
       hasRunLotteryRef.current = false;
       return;
     }
     
     try {
+      console.log('【抽選ログ】参加者数を確認中...');
       // 参加者数を確認
       const participantCount = await checkParticipants();
+      console.log(`【抽選ログ】参加者数: ${participantCount}名`);
       
       // 参加者がいない場合は抽選をスキップ
       if (participantCount <= 0) {
+        console.log('【抽選ログ】参加者がいないため抽選をスキップします');
+        
         // 状態をリセット
         hasRunLotteryRef.current = false;
         setIsLotteryTime(false);
@@ -362,18 +433,32 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
         return;
       }
       
-      // Alert.alertを削除 - 「抽選実行中です」のポップアップを表示しない
-      
+      console.log('【抽選ログ】抽選日付の取得');
       const { dateISO } = calculateNextLotteryDateString();
+      console.log(`【抽選ログ】抽選日付: ${dateISO}`);
       
+      console.log('【抽選ログ】参加者データの取得を開始');
       // 1. すべての参加者を取得
-      const { data: participants, error: fetchError } = await supabaseClient
+      const participantsResponse = await supabaseClient
         .from('lottery_participants')
         .select('*')
         .eq('lottery_date', dateISO);
+      
+      const { data: participants, error: fetchError } = participantsResponse;
+      
+      console.log('【抽選ログ】参加者データ取得結果', { 
+        参加者数: participants?.length || 0,
+        エラー: fetchError ? JSON.stringify(fetchError) : 'なし'
+      });
         
-      if (fetchError || !participants || participants.length === 0) {
-        throw new Error('参加者の取得に失敗しました');
+      if (fetchError) {
+        console.log('【抽選ログ】エラー: 参加者データ取得に失敗', fetchError);
+        throw new Error(`参加者の取得に失敗しました: ${JSON.stringify(fetchError)}`);
+      }
+      
+      if (!participants || participants.length === 0) {
+        console.log('【抽選ログ】エラー: 参加者データが空です');
+        throw new Error('参加者データが存在しないか空です');
       }
       
       let winner;
@@ -381,56 +466,89 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
       // 参加者が1人の場合はその人を当選者にする
       if (participants.length === 1) {
         winner = participants[0];
+        console.log('【抽選ログ】参加者が1名のため自動当選', { winnerId: winner.user_id });
       } else {
         // 複数参加者がいる場合はランダム選択
         const randomIndex = Math.floor(Math.random() * participants.length);
         winner = participants[randomIndex];
+        console.log(`【抽選ログ】${participants.length}名からランダム選択`, { 
+          選択インデックス: randomIndex,
+          当選者ID: winner.user_id 
+        });
       }
       
       let resultSaved = false;
       
       try {
+        console.log('【抽選ログ】抽選結果をDBに記録します');
         // 2. 抽選結果をDBに記録
-        const { data: resultRecord, error: resultError } = await supabaseClient
+        const insertData = {
+          lottery_date: dateISO,
+          winner_id: winner.user_id,
+          total_participants: participants.length,
+          created_at: new Date().toISOString(),
+          prize_claimed: false
+        };
+        
+        console.log('【抽選ログ】挿入データ', insertData);
+        
+        const resultResponse = await supabaseClient
           .from('lottery_results')
-          .insert([
-            {
-              lottery_date: dateISO,
-              winner_id: winner.user_id,
-              total_participants: participants.length,
-              created_at: new Date().toISOString(),
-              prize_claimed: false
-            }
-          ])
+          .insert([insertData])
           .select()
           .single();
           
+        const { data: resultRecord, error: resultError } = resultResponse;
+        
+        console.log('【抽選ログ】DB記録結果', { 
+          成功: resultRecord ? 'はい' : 'いいえ',
+          エラー: resultError ? JSON.stringify(resultError) : 'なし',
+          レコードID: resultRecord?.id
+        });
+          
         if (!resultError) {
           resultSaved = true;
+        } else {
+          console.log('【抽選ログ】結果保存エラー', resultError);
         }
       } catch (dbError) {
+        console.log('【抽選ログ】DB操作エラー', dbError);
         Alert.alert('データベースエラー', '操作中にエラーが発生しました');
       }
       
       // 3. 自分が当選者かどうかをチェック
       const isCurrentUserWinner = effectiveUserId === winner.user_id;
+      console.log('【抽選ログ】当選チェック', { 
+        自分のID: effectiveUserId,
+        当選者ID: winner.user_id,
+        自分が当選: isCurrentUserWinner ? 'はい' : 'いいえ'
+      });
       
       // 4. 抽選終了後、抽選参加状態をリセット
       try {
+        console.log('【抽選ログ】抽選参加状態のリセット開始');
         await AsyncStorage.removeItem('lotteryParticipation');
+        console.log('【抽選ログ】AsyncStorageのリセット完了');
         
         // 参加者レコードを削除（すべてのユーザーが再度参加できるようにする）
-        await supabaseClient
+        const deleteResponse = await supabaseClient
           .from('lottery_participants')
           .delete()
           .eq('lottery_date', dateISO);
+          
+        console.log('【抽選ログ】参加者レコードの削除結果', { 
+          エラー: deleteResponse.error ? JSON.stringify(deleteResponse.error) : 'なし'
+        });
       } catch (resetError) {
-        // エラー処理は省略
+        console.log('【抽選ログ】リセット中のエラー', resetError);
       }
       
       // 5. 成功通知 - 自分が当選した場合は特別な演出を表示
+      console.log('【抽選ログ】結果表示の準備、2秒後に表示します');
       setTimeout(() => {
+        console.log('【抽選ログ】結果表示タイマー発火');
         if (isCurrentUserWinner && resultSaved) {
+          console.log('【抽選ログ】当選演出を表示');
           // 特別な当選演出 - 画面全体に大きく表示
           Alert.alert(
             '🎉🎉🎉 あなたが当選しました！ 🎉🎉🎉', 
@@ -439,6 +557,7 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
               {
                 text: '受け取る！',
                 onPress: () => {
+                  console.log('【抽選ログ】当選処理: PrizeTabに切り替え');
                   // 当選タブを表示する
                   setPrizeInfo({
                     id: Date.now().toString(),
@@ -453,6 +572,7 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
             { cancelable: false }
           );
         } else if (!isCurrentUserWinner) {
+          console.log('【抽選ログ】落選通知を表示');
           // 通常の完了通知 - 自分が当選していないことを明示
           Alert.alert(
             '抽選完了', 
@@ -466,26 +586,44 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
           );
         }
         
+        console.log('【抽選ログ】抽選状態をリセット');
         // 抽選状態をリセット
         setIsLotteryTime(false);
         hasRunLotteryRef.current = false;
         
         // 次回の抽選時間を更新
-        setNextLotteryTime(calculateNextLotteryTime());
+        const newNextLottery = calculateNextLotteryTime();
+        setNextLotteryTime(newNextLottery);
         
         // 抽選後の状態リセット
         resetLotteryState();
+        console.log('【抽選ログ】抽選処理が正常に完了しました');
       }, 2000); // 2秒後に結果を表示
       
     } catch (error) {
+      console.log('【抽選ログ】抽選処理中の致命的なエラー', error);
+      // エラーの詳細な情報を表示
+      if (error instanceof Error) {
+        console.log('【抽選ログ】エラー詳細', { 
+          メッセージ: error.message, 
+          スタック: error.stack,
+          名前: error.name
+        });
+      } else {
+        console.log('【抽選ログ】エラーオブジェクト', JSON.stringify(error));
+      }
+      
       Alert.alert('エラー', '抽選処理中にエラーが発生しました');
       
       // エラー発生時も状態をリセット
       setIsLotteryTime(false);
       hasRunLotteryRef.current = false;
-      setNextLotteryTime(calculateNextLotteryTime());
+      // 次回の抽選時間を更新
+      const newNextLottery = calculateNextLotteryTime();
+      setNextLotteryTime(newNextLottery);
+      console.log('【抽選ログ】エラー後の状態リセット完了');
     }
-  }, [supabaseClient, effectiveUserId, setHasPrize, setPrizeInfo, setActiveTab, resetLotteryState]);
+  }, [supabaseClient, effectiveUserId, setHasPrize, setPrizeInfo, setActiveTab, resetLotteryState, participantsCount]);
 
   return (
     <ScrollView style={styles.content}>
@@ -500,7 +638,7 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
           <Text style={styles.countdownLabel}>抽選まであと</Text>
           <Text style={styles.countdown}>{remainingTime}</Text>
           
-          {/* 抽選実行中の表示を削除 */}
+          {/* 抽選実行中の表示は削除 */}
         </View>
         
         <Text style={styles.lotteryNote}>
@@ -512,7 +650,7 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
       {loginBonusAvailable && (
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>ログインボーナス</Text>
-          
+
           <TouchableOpacity 
             style={[styles.actionButton, styles.loginBonusButton]} 
             onPress={handleClaimLoginBonus}
@@ -642,7 +780,6 @@ const styles = StyleSheet.create({
     color: '#333',
     marginBottom: 8,
   },
-  // lotteryRunningContainer と lotteryRunningText スタイルを削除
   actionButton: {
     flexDirection: 'row',
     alignItems: 'center',
