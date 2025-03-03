@@ -1,4 +1,3 @@
-//TicketsTab.tsx
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Alert, ActivityIndicator
@@ -87,7 +86,7 @@ const TicketsTab = ({
     };
   }, [supabaseClient]);
 
-  // 抽選ステータスチェック関数
+  // 抽選ステータスチェック関数 - 修正済み
   const checkLotteryStatus = async () => {
     try {
       if (!supabaseClient) return;
@@ -110,13 +109,25 @@ const TicketsTab = ({
         return;
       }
       
-      // 全体の抽選状態を更新
+      // 抽選状態が変化したかチェック（実行中→完了の変化を検出）
+      const wasRunning = isGlobalLotteryRunning;
       setIsGlobalLotteryRunning(data.is_running);
       
-      // 抽選が実行されたばかりの場合、参加者と当選者情報を更新
+      // 抽選が完了した場合（実行中→完了への変化）
+      if (wasRunning && !data.is_running) {
+        console.log("Lottery status changed from running to completed");
+        // 必要な情報を再読み込み
+        await resetLotteryState();
+        await checkWinningStatus();
+      }
+      
+      // 抽選が実行されたばかりの場合も確認
       if (data.last_executed_at) {
         const lastExecTime = new Date(data.last_executed_at).getTime();
-        if (now - lastExecTime < 30000) { // 30秒以内に実行された場合
+        
+        // 30秒以内に実行された場合
+        if (now - lastExecTime < 30000) {
+          console.log("Recent lottery execution detected");
           // 必要な情報を再読み込み
           await resetLotteryState();
           await checkWinningStatus();
@@ -398,7 +409,7 @@ const TicketsTab = ({
       
       // 抽選終了後、状態リセット
       try {
-        await AsyncStorage.removeItem('lotteryParticipation');
+        await resetLotteryState();
         
         // 参加者レコードを削除
         const deleteResponse = await supabaseClient
@@ -407,6 +418,7 @@ const TicketsTab = ({
           .eq('lottery_date', dateISO);
       } catch (resetError) {
         // エラー処理
+        console.error('Lottery reset error:', resetError);
       }
       
       // 全体の抽選ステータスを「完了」に更新
@@ -458,9 +470,6 @@ const TicketsTab = ({
         // 状態リセット
         setIsLotteryRunning(false);
         setLotteryButtonDisabled(false);
-        
-        // 抽選後状態リセット
-        resetLotteryState();
       }, 2000);
       
     } catch (error) {
@@ -574,7 +583,7 @@ const TicketsTab = ({
             <Text style={styles.rewardDesc}>
               {isParticipating 
                 ? '今回の抽選にすでに参加しています' 
-                : '100チケットで抽選に参加（当選確率 1/' + participantsCount + '）'}
+                : '100チケットで抽選に参加（当選確率 1/' + (participantsCount > 0 ? participantsCount : 1) + '）'}
             </Text>
           </View>
           <View style={styles.costContainer}>

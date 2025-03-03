@@ -231,14 +231,12 @@ const TicketScreen = ({
     }
   };
 
-  // 抽選参加確認
+  // 抽選参加確認 - 修正済み
   const checkLotteryParticipation = async () => {
     try {
       if (!supabaseClient || !effectiveUserId) return;
       
-      const participation = await AsyncStorage.getItem('lotteryParticipation');
-      let isParticipatingLocal = participation === 'true';
-      
+      // 常にデータベースを優先的に確認
       const { dateISO } = calculateNextLotteryDateString();
       
       const { data, error } = await supabaseClient
@@ -247,14 +245,27 @@ const TicketScreen = ({
         .eq('user_id', effectiveUserId)
         .eq('lottery_date', dateISO)
         .maybeSingle();
-        
-      if (!error && data) {
-        isParticipatingLocal = true;
-        await AsyncStorage.setItem('lotteryParticipation', 'true');
+      
+      if (error) {
+        console.error('Participation check error:', error);
+        // DBチェックに失敗した場合はローカルストレージをフォールバックとして使用
+        const participation = await AsyncStorage.getItem('lotteryParticipation');
+        setIsParticipating(participation === 'true');
+        return;
       }
       
-      setIsParticipating(isParticipatingLocal);
+      // DB結果に基づいて参加状態を設定
+      if (data) {
+        // DBに存在する場合 - 参加中
+        await AsyncStorage.setItem('lotteryParticipation', 'true');
+        setIsParticipating(true);
+      } else {
+        // DBに存在しない場合 - 参加していない
+        await AsyncStorage.removeItem('lotteryParticipation');
+        setIsParticipating(false);
+      }
     } catch (error) {
+      console.error('Participation check error:', error);
       setIsParticipating(false);
     }
   };
@@ -275,20 +286,22 @@ const TicketScreen = ({
         setParticipantsCount(count || 0);
       }
     } catch (error) {
-      // エラー処理
+      console.error('Participants count error:', error);
     }
   };
 
-  // 抽選状態リセット
+  // 抽選状態リセット - 修正済み
   const resetLotteryState = async () => {
     try {
+      // ローカル参加状態をクリア
       await AsyncStorage.removeItem('lotteryParticipation');
       setIsParticipating(false);
       
-      checkLotteryParticipation();
-      fetchLotteryParticipantsCount();
+      // データベースと再同期
+      await checkLotteryParticipation();
+      await fetchLotteryParticipantsCount();
     } catch (error) {
-      // エラー処理
+      console.error('Reset lottery state error:', error);
     }
   };
 
