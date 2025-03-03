@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  SafeAreaView,
-  Alert,
-  TouchableOpacity,
+  View, Text, StyleSheet, Image, SafeAreaView, Alert, TouchableOpacity
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
@@ -16,67 +10,44 @@ import { useAppTranslation } from '../i18n/app';
 import TicketsTab from './TicketsTab';
 import PrizeTab from './PrizeTab';
 
-// Supabaseの設定
+// Supabase設定
 const SUPABASE_URL = 'https://llxmsbnqtdlqypnwapzz.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxseG1zYm5xdGRscXlwbndhcHp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc4MjA5MjEsImV4cCI6MjA1MzM5NjkyMX0.EkqepILQU0KgOTW1ZaXpe54ERpZbSRodf24r5022VKs';
 
-interface TicketScreenProps {
-  isAdFree: boolean;
-  tickets: number;
-  onUseTicket: (amount?: number) => Promise<boolean>;
-  onAddTickets: (amount: number) => Promise<void>;
-  lotteryParticipants: number;
-  userId?: string;
-  onTicketsUpdated?: (newTickets: number) => void;
-}
-
-// タブの状態を定義する enum
+// TabState定義
 enum TabState {
   TICKETS = 'tickets',
   PRIZE = 'prize'
 }
 
-// 匿名ユーザーIDを取得または生成する関数
+// 匿名ユーザーID取得/生成関数
 const getOrCreateAnonymousUserId = async (): Promise<string> => {
   try {
     const storedId = await AsyncStorage.getItem('user_anonymous_id');
-    
-    if (storedId) {
-      console.log('保存済みの匿名IDを使用:', storedId);
-      return storedId;
-    }
+    if (storedId) return storedId;
     
     let deviceId;
-    
     try {
       deviceId = await DeviceInfo.getUniqueId();
     } catch (deviceError) {
-      console.warn('デバイスID取得エラー:', deviceError);
       deviceId = `device_${Date.now()}`;
     }
     
     const salt = Math.random().toString(36).substring(2, 9);
     const anonymousId = `anon_${deviceId}_${salt}`;
-    
     await AsyncStorage.setItem('user_anonymous_id', anonymousId);
-    
-    console.log('新しい匿名IDを生成:', anonymousId);
     return anonymousId;
   } catch (error) {
-    console.error('匿名ID生成エラー:', error);
     return `temp_${Date.now()}`;
   }
 };
 
-// 次回の抽選日時を計算する関数
+// 次回抽選日時計算関数
 export const calculateNextLotteryDateString = (): { dateString: string, dateISO: string } => {
   const now = new Date();
   const nextLottery = new Date();
   
-  // 毎日0:15に設定
   nextLottery.setHours(0, 15, 0, 0);
-  
-  // もし現在時刻が0:15を過ぎていたら、翌日の0:15に設定
   if (now > nextLottery) {
     nextLottery.setDate(nextLottery.getDate() + 1);
   }
@@ -92,37 +63,31 @@ export const calculateNextLotteryDateString = (): { dateString: string, dateISO:
   return { dateString, dateISO };
 };
 
-// チケットを保存する関数
+// チケット保存関数
 const saveTickets = async (tickets: number): Promise<void> => {
   try {
-    // 整数値であることを確認（念のため）
     const ticketValue = Math.floor(tickets);
-    // マイナスにならないよう保証
     const safeTicketValue = Math.max(0, ticketValue);
-    
     await AsyncStorage.setItem('user_tickets', safeTicketValue.toString());
-    console.log('チケット数を保存しました:', safeTicketValue);
   } catch (error) {
-    console.error('チケット保存エラー:', error);
+    // エラー処理
   }
 };
 
-// 保存されたチケットを読み込む関数
+// チケット読み込み関数
 const loadTickets = async (): Promise<number> => {
   try {
     const storedTickets = await AsyncStorage.getItem('user_tickets');
     if (storedTickets) {
       const tickets = parseInt(storedTickets, 10);
-      // NaNや不正な値をチェック
       if (!isNaN(tickets) && tickets >= 0) {
-        console.log('保存されたチケット数を読み込みました:', tickets);
         return tickets;
       }
     }
   } catch (error) {
-    console.error('チケット読み込みエラー:', error);
+    // エラー処理
   }
-  return 0; // デフォルト値
+  return 0;
 };
 
 const TicketScreen: React.FC<TicketScreenProps> = ({
@@ -145,7 +110,7 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
   const [prizeInfo, setPrizeInfo] = useState<any>(null);
   const [nextLotteryTimeString, setNextLotteryTimeString] = useState<string>("");
 
-  // Supabaseクライアントの初期化
+  // Supabaseクライアント初期化
   useEffect(() => {
     const initializeClient = async () => {
       const client = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
@@ -162,7 +127,7 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
     initializeClient();
   }, []);
 
-  // 有効なユーザーIDを初期化
+  // ユーザーID初期化
   useEffect(() => {
     const initUserId = async () => {
       if (userId) {
@@ -176,37 +141,29 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
     initUserId();
   }, [userId]);
 
-  // 抽選日付を初期化
+  // 抽選日付初期化
   useEffect(() => {
     const { dateString } = calculateNextLotteryDateString();
     setNextLotteryTimeString(dateString);
   }, []);
 
-  // 保存されたチケットを読み込む
+  // チケット読み込み
   useEffect(() => {
     const initTickets = async () => {
       try {
         const savedTickets = await loadTickets();
-        // 保存されたチケットと初期値を比較し、大きい方を採用
         const bestTicketCount = Math.max(savedTickets, initialTickets);
         
-        // UIの表示を更新
         setTickets(bestTicketCount);
         
-        // 値が違う場合は保存し直す
         if (bestTicketCount !== savedTickets) {
           await saveTickets(bestTicketCount);
         }
         
-        // 親コンポーネントに通知
         if (onTicketsUpdated) {
           onTicketsUpdated(bestTicketCount);
         }
-        
-        console.log('チケット初期化完了:', bestTicketCount);
       } catch (error) {
-        console.error('チケット初期化エラー:', error);
-        // エラー時は初期値を使用
         setTickets(initialTickets);
       }
     };
@@ -214,7 +171,7 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
     initTickets();
   }, [initialTickets, onTicketsUpdated]);
 
-  // 初期化時に各種チェックを実行
+  // 各種チェック実行
   useEffect(() => {
     if (supabaseClient && effectiveUserId) {
       checkLotteryParticipation();
@@ -223,105 +180,74 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
     }
   }, [supabaseClient, effectiveUserId]);
 
-  // チケットを使用するラッパー関数
+  // チケット使用関数
   const useTickets = async (amount: number = 100): Promise<boolean> => {
     try {
-      // 正確な現在のチケット数を取得
       const currentTickets = await loadTickets();
       
-      // チケット残高が足りるかをチェック
       if (currentTickets < amount) {
         Alert.alert('チケット不足', `抽選に参加するには${amount}チケットが必要です`);
-        
-        // UIの表示を正確なチケット数に更新
         setTickets(currentTickets);
-        
         return false;
       }
 
-      // 新しいチケット数を計算
       const newTickets = currentTickets - amount;
       
-      // まずAsyncStorageに保存して永続化
       await saveTickets(newTickets);
-      
-      // 次にステートを更新
       setTickets(newTickets);
       
-      // 親コンポーネントのコールバックを実行
       try {
         const success = await onUseTicket(amount);
-        if (!success) {
-          console.warn('親コンポーネントのチケット使用が失敗しましたが、ローカルのチケットは減少しています');
-        }
       } catch (callbackError) {
-        console.error('親コンポーネントのチケット使用コールバックエラー:', callbackError);
+        // エラー処理
       }
       
-      // 親コンポーネントに新しいチケット数を通知
       if (onTicketsUpdated) {
         onTicketsUpdated(newTickets);
       }
       
-      console.log(`${amount}チケットを使用しました。残り:`, newTickets);
       return true;
     } catch (error) {
-      console.error('チケット使用エラー:', error);
-      
-      // エラーが発生した場合も正確なチケット数を再取得して表示を更新
       try {
         const actualTickets = await loadTickets();
         setTickets(actualTickets);
       } catch (loadError) {
-        console.error('チケット再読込エラー:', loadError);
+        // エラー処理
       }
       
       return false;
     }
   };
 
-  // チケットを追加するラッパー関数
+  // チケット追加関数
   const addTickets = async (amount: number): Promise<void> => {
     try {
-      // 正確な現在のチケット数を取得
       const currentTickets = await loadTickets();
-      
-      // 新しいチケット数を計算（整数値であることを保証）
       const newTickets = currentTickets + Math.floor(amount);
       
-      // まずAsyncStorageに保存して永続化
       await saveTickets(newTickets);
-      
-      // 次にステートを更新
       setTickets(newTickets);
       
       try {
-        // 親コンポーネントに通知
         await onAddTickets(amount);
       } catch (callbackError) {
-        console.error('親コンポーネントのチケット追加コールバックエラー:', callbackError);
+        // エラー処理
       }
       
-      // 親コンポーネントに新しいチケット数を通知
       if (onTicketsUpdated) {
         onTicketsUpdated(newTickets);
       }
-      
-      console.log(`${amount}チケットを追加しました。合計:`, newTickets);
     } catch (error) {
-      console.error('チケット追加エラー:', error);
-      
-      // エラーが発生した場合も正確なチケット数を再取得して表示を更新
       try {
         const actualTickets = await loadTickets();
         setTickets(actualTickets);
       } catch (loadError) {
-        console.error('チケット再読込エラー:', loadError);
+        // エラー処理
       }
     }
   };
 
-  // ユーザーが抽選に参加済みかチェックする
+  // 抽選参加確認
   const checkLotteryParticipation = async () => {
     try {
       if (!supabaseClient || !effectiveUserId) return;
@@ -345,12 +271,11 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
       
       setIsParticipating(isParticipatingLocal);
     } catch (error) {
-      console.error('Lottery participation check error:', error);
       setIsParticipating(false);
     }
   };
 
-  // 抽選参加者数を取得
+  // 参加者数取得
   const fetchLotteryParticipantsCount = async () => {
     try {
       if (!supabaseClient) return;
@@ -363,39 +288,33 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
         .eq('lottery_date', dateISO);
         
       if (!error) {
-        console.log('抽選参加者数:', count);
         setParticipantsCount(count || 0);
-      } else {
-        console.error('Count error:', error);
       }
     } catch (error) {
-      console.error('Fetch lottery participants count error:', error);
+      // エラー処理
     }
   };
 
-  // 抽選参加後に状態をリセットする
+  // 抽選状態リセット
   const resetLotteryState = async () => {
     try {
-      // ローカルストレージの参加フラグをリセット
       await AsyncStorage.removeItem('lotteryParticipation');
       setIsParticipating(false);
       
-      // 参加状態を確認し直す
       checkLotteryParticipation();
       fetchLotteryParticipantsCount();
     } catch (error) {
-      console.error('抽選状態リセットエラー:', error);
+      // エラー処理
     }
   };
 
-  // 当選結果を確認する関数
+  // 当選確認
   const checkWinningStatus = async () => {
     try {
       if (!supabaseClient || !effectiveUserId) {
         return false;
       }
       
-      // 未受け取りの当選を確認
       const { data, error } = await supabaseClient
         .from('lottery_results')
         .select('*')
@@ -405,12 +324,10 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
         .limit(1);
         
       if (error) {
-        console.error('当選確認エラー:', error);
         return false;
       }
       
       if (data && data.length > 0) {
-        // 未受け取りの当選がある場合、通知を表示
         setPrizeInfo(data[0]);
         setHasPrize(true);
         
@@ -425,7 +342,6 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
             {
               text: '受け取る',
               onPress: () => {
-                // 当選タブに切り替える
                 setActiveTab(TabState.PRIZE);
               }
             }
@@ -436,19 +352,17 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
       
       return false;
     } catch (error) {
-      console.error('当選確認エラー:', error);
       return false;
     }
   };
 
-  // 抽選に参加する処理
+  // 抽選参加処理
   const handleEnterLottery = async () => {
     if (!supabaseClient || !effectiveUserId) {
       Alert.alert('エラー', 'システムの初期化中です。しばらくお待ちください。');
       return;
     }
     
-    // 現在の正確なチケット数を取得して、UI表示を更新
     const currentTickets = await loadTickets();
     setTickets(currentTickets);
     
@@ -464,18 +378,14 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
     
     try {
       const ticketCost = 100;
-      
-      // チケットを使用（修正したuseTickets関数を使用）
       const ticketUsed = await useTickets(ticketCost);
       
       if (!ticketUsed) {
-        // エラーはuseTickets内で既に表示されているのでここでは何もしない
         return;
       }
       
       const { dateISO } = calculateNextLotteryDateString();
       
-      // Supabaseに抽選参加を記録
       try {
         const { error } = await supabaseClient
           .from('lottery_participants')
@@ -484,7 +394,6 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
               user_id: effectiveUserId, 
               lottery_date: dateISO,
               created_at: new Date().toISOString()
-              // ticket_costフィールドを削除
             }
           ]);
           
@@ -492,29 +401,21 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
           throw error;
         }
       } catch (dbError) {
-        console.error('Supabase insert error:', dbError);
         Alert.alert('エラー', 'データベースへの登録に失敗しました。チケットは消費されましたが、抽選には参加できませんでした。');
-        // チケットは既に消費されたままとする（返却しない）
         return;
       }
       
-      // ローカルストレージに参加を記録
       await AsyncStorage.setItem('lotteryParticipation', 'true');
-      
-      // 参加状態を更新
       setIsParticipating(true);
-      
-      // 参加者数を更新
       fetchLotteryParticipantsCount();
       
       Alert.alert('抽選参加完了', `抽選に参加しました！${nextLotteryTimeString}の結果発表をお待ちください。`);
     } catch (error) {
-      console.error('Lottery entry error:', error);
       Alert.alert('エラー', '抽選参加中にエラーが発生しました');
     }
   };
 
-  // 景品の受け取り完了時の処理
+  // 景品受け取り完了処理
   const handlePrizeClaimed = () => {
     setHasPrize(false);
     setPrizeInfo(null);
