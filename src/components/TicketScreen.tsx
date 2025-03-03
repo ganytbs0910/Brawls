@@ -21,7 +21,7 @@ enum TabState {
 }
 
 // 匿名ユーザーID取得/生成関数
-const getOrCreateAnonymousUserId = async (): Promise<string> => {
+const getOrCreateAnonymousUserId = async () => {
   try {
     const storedId = await AsyncStorage.getItem('user_anonymous_id');
     if (storedId) return storedId;
@@ -42,29 +42,20 @@ const getOrCreateAnonymousUserId = async (): Promise<string> => {
   }
 };
 
-// 次回抽選日時計算関数
-export const calculateNextLotteryDateString = (): { dateString: string, dateISO: string } => {
+// 抽選日付用関数 (ボタントリガー用に単純化)
+export const calculateNextLotteryDateString = () => {
   const now = new Date();
-  const nextLottery = new Date();
+  const dateISO = now.toISOString().split('T')[0];
   
-  nextLottery.setHours(0, 15, 0, 0);
-  if (now > nextLottery) {
-    nextLottery.setDate(nextLottery.getDate() + 1);
-  }
-  
-  const dateISO = nextLottery.toISOString().split('T')[0];
-  
-  const month = nextLottery.getMonth() + 1;
-  const date = nextLottery.getDate();
-  const hours = nextLottery.getHours().toString().padStart(2, '0');
-  const minutes = nextLottery.getMinutes().toString().padStart(2, '0');
-  const dateString = `${month}月${date}日 ${hours}:${minutes}`;
+  const month = now.getMonth() + 1;
+  const date = now.getDate();
+  const dateString = `${month}月${date}日`;
   
   return { dateString, dateISO };
 };
 
 // チケット保存関数
-const saveTickets = async (tickets: number): Promise<void> => {
+const saveTickets = async (tickets) => {
   try {
     const ticketValue = Math.floor(tickets);
     const safeTicketValue = Math.max(0, ticketValue);
@@ -75,7 +66,7 @@ const saveTickets = async (tickets: number): Promise<void> => {
 };
 
 // チケット読み込み関数
-const loadTickets = async (): Promise<number> => {
+const loadTickets = async () => {
   try {
     const storedTickets = await AsyncStorage.getItem('user_tickets');
     if (storedTickets) {
@@ -90,7 +81,7 @@ const loadTickets = async (): Promise<number> => {
   return 0;
 };
 
-const TicketScreen: React.FC<TicketScreenProps> = ({
+const TicketScreen = ({
   isAdFree,
   tickets: initialTickets,
   onUseTicket,
@@ -101,14 +92,13 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
 }) => {
   const { t } = useAppTranslation();
   const [tickets, setTickets] = useState(initialTickets);
-  const [activeTab, setActiveTab] = useState<TabState>(TabState.TICKETS);
-  const [supabaseClient, setSupabaseClient] = useState<SupabaseClient | null>(null);
-  const [effectiveUserId, setEffectiveUserId] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState(TabState.TICKETS);
+  const [supabaseClient, setSupabaseClient] = useState(null);
+  const [effectiveUserId, setEffectiveUserId] = useState(null);
   const [isParticipating, setIsParticipating] = useState(false);
   const [participantsCount, setParticipantsCount] = useState(lotteryParticipants);
   const [hasPrize, setHasPrize] = useState(false);
-  const [prizeInfo, setPrizeInfo] = useState<any>(null);
-  const [nextLotteryTimeString, setNextLotteryTimeString] = useState<string>("");
+  const [prizeInfo, setPrizeInfo] = useState(null);
 
   // Supabaseクライアント初期化
   useEffect(() => {
@@ -140,12 +130,6 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
     
     initUserId();
   }, [userId]);
-
-  // 抽選日付初期化
-  useEffect(() => {
-    const { dateString } = calculateNextLotteryDateString();
-    setNextLotteryTimeString(dateString);
-  }, []);
 
   // チケット読み込み
   useEffect(() => {
@@ -181,7 +165,7 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
   }, [supabaseClient, effectiveUserId]);
 
   // チケット使用関数
-  const useTickets = async (amount: number = 100): Promise<boolean> => {
+  const useTickets = async (amount = 100) => {
     try {
       const currentTickets = await loadTickets();
       
@@ -220,7 +204,7 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
   };
 
   // チケット追加関数
-  const addTickets = async (amount: number): Promise<void> => {
+  const addTickets = async (amount) => {
     try {
       const currentTickets = await loadTickets();
       const newTickets = currentTickets + Math.floor(amount);
@@ -409,7 +393,7 @@ const TicketScreen: React.FC<TicketScreenProps> = ({
       setIsParticipating(true);
       fetchLotteryParticipantsCount();
       
-      Alert.alert('抽選参加完了', `抽選に参加しました！${nextLotteryTimeString}の結果発表をお待ちください。`);
+      Alert.alert('抽選参加完了', `抽選に参加しました！「抽選を実行する」ボタンで抽選が実行されるまでお待ちください。`);
     } catch (error) {
       Alert.alert('エラー', '抽選参加中にエラーが発生しました');
     }

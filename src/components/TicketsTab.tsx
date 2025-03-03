@@ -8,46 +8,11 @@ import { SupabaseClient } from '@supabase/supabase-js';
 import { TabState } from './types';
 import { calculateNextLotteryDateString } from './TicketScreen';
 
-// 次回抽選時間計算
-const calculateNextLotteryTime = (): { time: Date, timeString: string } => {
-  const now = new Date();
-  const nextLottery = new Date();
-  
-  nextLottery.setHours(18, 0, 0, 0);
-  
-  if (now > nextLottery) {
-    nextLottery.setDate(nextLottery.getDate() + 1);
-  }
-  
-  const month = nextLottery.getMonth() + 1;
-  const date = nextLottery.getDate();
-  const hours = nextLottery.getHours().toString().padStart(2, '0');
-  const minutes = nextLottery.getMinutes().toString().padStart(2, '0');
-  const timeString = `${month}月${date}日 ${hours}:${minutes}`;
-  
-  return { time: nextLottery, timeString };
-};
+// チケット獲得量定数
+const TICKET_REWARD_AD = 200; 
+const TICKET_REWARD_LOGIN = 200;
 
-// 残り時間フォーマット
-const formatRemainingTime = (milliseconds: number): string => {
-  if (milliseconds <= 0) return "0時間0分0秒";
-  
-  const seconds = Math.floor((milliseconds / 1000) % 60);
-  const minutes = Math.floor((milliseconds / (1000 * 60)) % 60);
-  const hours = Math.floor(milliseconds / (1000 * 60 * 60));
-  
-  return `${hours}時間${minutes}分${seconds}秒`;
-};
-
-// 抽選実行時間チェック
-const isTimeForLottery = (targetTime: Date): boolean => {
-  const now = new Date();
-  const diff = targetTime.getTime() - now.getTime();
-  
-  return diff >= 0 && diff < 10000;
-};
-
-const TicketsTab: React.FC<TicketsTabProps> = ({
+const TicketsTab = ({
   tickets,
   isAdFree,
   onAddTickets,
@@ -64,34 +29,11 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
   const [adLoading, setAdLoading] = useState(false);
   const [freeClaimAvailable, setFreeClaimAvailable] = useState(false);
   const [loginBonusAvailable, setLoginBonusAvailable] = useState(false);
-  const [nextLotteryTime, setNextLotteryTime] = useState(calculateNextLotteryTime());
-  const [remainingTime, setRemainingTime] = useState<string>("計算中...");
-  const [isLotteryTime, setIsLotteryTime] = useState(false);
+  const [isLotteryRunning, setIsLotteryRunning] = useState(false);
+  const [lotteryButtonDisabled, setLotteryButtonDisabled] = useState(false);
   
   // refで状態管理
-  const hasRunLotteryRef = useRef(false);
-  const timerIdRef = useRef<NodeJS.Timeout | null>(null);
-  const updateIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const lastParticipantCheckTimeRef = useRef(0);
-  const lastExecutedLotteryTimeRef = useRef<string>('');
-
-  // チケット獲得量定数
-  const TICKET_REWARD_AD = 200; 
-  const TICKET_REWARD_LOGIN = 200; 
-
-  // タイマークリア
-  useEffect(() => {
-    return () => {
-      if (timerIdRef.current) {
-        clearTimeout(timerIdRef.current);
-        timerIdRef.current = null;
-      }
-      if (updateIntervalRef.current) {
-        clearInterval(updateIntervalRef.current);
-        updateIntervalRef.current = null;
-      }
-    };
-  }, []);
 
   // 初期化時チェック
   useEffect(() => {
@@ -116,80 +58,6 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
 
     initializeAdService();
   }, [isAdFree]);
-
-  // 残り時間更新
-  useEffect(() => {
-    if (isLotteryTime) return;
-    
-    if (updateIntervalRef.current) {
-      clearInterval(updateIntervalRef.current);
-    }
-    
-    const updateRemainingTime = () => {
-      const now = new Date();
-      const targetTime = nextLotteryTime.time;
-      const diff = targetTime.getTime() - now.getTime();
-      
-      if (diff > 0) {
-        setRemainingTime(formatRemainingTime(diff));
-      } else {
-        const newNextLottery = calculateNextLotteryTime();
-        setNextLotteryTime(newNextLottery);
-        setRemainingTime(formatRemainingTime(newNextLottery.time.getTime() - now.getTime()));
-      }
-    };
-    
-    updateRemainingTime();
-    updateIntervalRef.current = setInterval(updateRemainingTime, 1000);
-    
-    return () => {
-      if (updateIntervalRef.current) {
-        clearInterval(updateIntervalRef.current);
-        updateIntervalRef.current = null;
-      }
-    };
-  }, [nextLotteryTime, isLotteryTime]);
-
-  // 抽選時間監視と実行
-  useEffect(() => {
-    if (isLotteryTime || hasRunLotteryRef.current) {
-      return;
-    }
-    
-    if (timerIdRef.current) {
-      clearTimeout(timerIdRef.current);
-      timerIdRef.current = null;
-    }
-    
-    const lotteryTimeId = nextLotteryTime.time.toISOString();
-    
-    const checkLotteryTime = () => {
-      if (lastExecutedLotteryTimeRef.current === lotteryTimeId) {
-        return;
-      }
-      
-      if (isTimeForLottery(nextLotteryTime.time) && !hasRunLotteryRef.current && !isLotteryTime) {
-        hasRunLotteryRef.current = true;
-        setIsLotteryTime(true);
-        lastExecutedLotteryTimeRef.current = lotteryTimeId;
-        
-        timerIdRef.current = setTimeout(() => {
-          executeLottery();
-        }, 1000);
-      } else {
-        timerIdRef.current = setTimeout(checkLotteryTime, 5000);
-      }
-    };
-    
-    checkLotteryTime();
-    
-    return () => {
-      if (timerIdRef.current) {
-        clearTimeout(timerIdRef.current);
-        timerIdRef.current = null;
-      }
-    };
-  }, [nextLotteryTime]);
 
   // 1日1回無料ポイントチェック
   const checkDailyFreeClaim = async () => {
@@ -280,301 +148,318 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
   };
 
   // 参加者数確認
-  const checkParticipants = async (): Promise<number> => {
-  try {
-    if (!isLotteryTime) {
+  const checkParticipants = async () => {
+    try {
       const now = Date.now();
       if (now - lastParticipantCheckTimeRef.current < 30000) {
         return participantsCount;
       }
-    }
-    
-    if (!supabaseClient) {
+      
+      if (!supabaseClient) {
+        return 0;
+      }
+      
+      lastParticipantCheckTimeRef.current = Date.now();
+      
+      const { dateISO } = calculateNextLotteryDateString();
+      
+      const response = await supabaseClient
+        .from('lottery_participants')
+        .select('*', { count: 'exact', head: true })
+        .eq('lottery_date', dateISO);
+        
+      const { count, error } = response;
+      
+      if (error) {
+        throw error;
+      }
+      
+      return count || 0;
+    } catch (error) {
       return 0;
     }
-    
-    lastParticipantCheckTimeRef.current = Date.now();
-    
-    const { dateISO } = calculateNextLotteryDateString();
-    
-    const response = await supabaseClient
-      .from('lottery_participants')
-      .select('*', { count: 'exact', head: true })
-      .eq('lottery_date', dateISO);
-      
-    const { count, error } = response;
-    
-    if (error) {
-      throw error;
-    }
-    
-    return count || 0;
-  } catch (error) {
-    return 0;
-  }
-};
+  };
 
-// 抽選実行
-const executeLottery = useCallback(async () => {
-  if (!supabaseClient || !effectiveUserId) {
-    await resetLotteryState();
-    setIsLotteryTime(false);
-    hasRunLotteryRef.current = false;
-    return;
-  }
-  
-  try {
-    // 参加者数確認
-    const participantCount = await checkParticipants();
-    
-    // 参加者がいない場合は抽選スキップ
-    if (participantCount <= 0) {
-      hasRunLotteryRef.current = false;
-      setIsLotteryTime(false);
-      
-      const newNextLottery = calculateNextLotteryTime();
-      setNextLotteryTime(newNextLottery);
+  // 抽選実行ボタンのハンドラ
+  const handleRunLottery = async () => {
+    if (!supabaseClient || !effectiveUserId) {
+      Alert.alert('エラー', 'システムの初期化中です。しばらくお待ちください。');
       return;
     }
     
-    const { dateISO } = calculateNextLotteryDateString();
-    
-    // 参加者データ取得
-    const participantsResponse = await supabaseClient
-      .from('lottery_participants')
-      .select('*')
-      .eq('lottery_date', dateISO);
-    
-    const { data: participants, error: fetchError } = participantsResponse;
-      
-    if (fetchError) {
-      throw new Error(`参加者の取得に失敗しました: ${JSON.stringify(fetchError)}`);
-    }
-    
-    if (!participants || participants.length === 0) {
-      throw new Error('参加者データが存在しないか空です');
-    }
-    
-    let winner;
-    
-    // 参加者が1人の場合はその人を当選者に
-    if (participants.length === 1) {
-      winner = participants[0];
-    } else {
-      // 複数参加者がいる場合はランダム選択
-      const randomIndex = Math.floor(Math.random() * participants.length);
-      winner = participants[randomIndex];
-    }
-    
-    let resultSaved = false;
+    // ボタンを無効化して二重クリック防止
+    setLotteryButtonDisabled(true);
+    setIsLotteryRunning(true);
     
     try {
-      // 抽選結果をDBに記録
-      const insertData = {
-        lottery_date: dateISO,
-        winner_id: winner.user_id,
-        total_participants: participants.length,
-        created_at: new Date().toISOString(),
-        prize_claimed: false
-      };
+      // 参加者数確認
+      const participantCount = await checkParticipants();
       
-      const resultResponse = await supabaseClient
-        .from('lottery_results')
-        .insert([insertData])
-        .select()
-        .single();
-        
-      const { data: resultRecord, error: resultError } = resultResponse;
-        
-      if (!resultError) {
-        resultSaved = true;
+      // 参加者がいない場合は抽選スキップ
+      if (participantCount <= 0) {
+        Alert.alert('抽選中止', '現在の抽選に参加者がいません。参加者がいる場合にのみ抽選が実行されます。');
+        setIsLotteryRunning(false);
+        setLotteryButtonDisabled(false);
+        return;
       }
-    } catch (dbError) {
-      Alert.alert('データベースエラー', '操作中にエラーが発生しました');
-    }
-    
-    // 自分が当選者かチェック
-    const isCurrentUserWinner = effectiveUserId === winner.user_id;
-    
-    // 抽選終了後、状態リセット
-    try {
-      await AsyncStorage.removeItem('lotteryParticipation');
       
-      // 参加者レコードを削除
-      const deleteResponse = await supabaseClient
+      // ユーザーに抽選開始を通知
+      Alert.alert('抽選開始', '抽選を開始します。結果をお待ちください...');
+      
+      const { dateISO } = calculateNextLotteryDateString();
+      
+      // 参加者データ取得
+      const participantsResponse = await supabaseClient
         .from('lottery_participants')
-        .delete()
+        .select('*')
         .eq('lottery_date', dateISO);
-    } catch (resetError) {
-      // エラー処理
-    }
-    
-    // 結果表示
-    setTimeout(() => {
-      if (isCurrentUserWinner && resultSaved) {
-        // 当選演出
-        Alert.alert(
-          '🎉🎉🎉 あなたが当選しました！ 🎉🎉🎉', 
-          '✨✨ おめでとうございます！ ✨✨\n\nあなたが当選者に選ばれました！\n豪華景品が贈られます！',
-          [
-            {
-              text: '受け取る！',
-              onPress: () => {
-                setPrizeInfo({
-                  id: Date.now().toString(),
-                  date: new Date().toISOString()
-                });
-                setHasPrize(true);
-                setActiveTab(TabState.PRIZE);
-              },
-              style: 'default'
-            }
-          ],
-          { cancelable: false }
-        );
-      } else if (!isCurrentUserWinner) {
-        // 落選通知
-        Alert.alert(
-          '抽選完了', 
-          `参加者${participants.length}名の中から1名が選ばれました。\n\n残念ながら、あなたは当選しませんでした。\n\n当選者ID: ${winner.user_id}\n\n抽選がリセットされました。再度参加できます。`,
-          [
-            {
-              text: '次回に期待',
-              style: 'default'
-            }
-          ]
-        );
+      
+      const { data: participants, error: fetchError } = participantsResponse;
+        
+      if (fetchError) {
+        throw new Error(`参加者の取得に失敗しました: ${JSON.stringify(fetchError)}`);
       }
       
-      // 状態リセット
-      setIsLotteryTime(false);
-      hasRunLotteryRef.current = false;
+      if (!participants || participants.length === 0) {
+        throw new Error('参加者データが存在しないか空です');
+      }
       
-      // 次回抽選時間更新
-      const newNextLottery = calculateNextLotteryTime();
-      setNextLotteryTime(newNextLottery);
+      let winner;
       
-      // 抽選後状態リセット
-      resetLotteryState();
-    }, 2000);
-    
-  } catch (error) {
-    Alert.alert('エラー', '抽選処理中にエラーが発生しました');
-    
-    // エラー時も状態リセット
-    setIsLotteryTime(false);
-    hasRunLotteryRef.current = false;
-    
-    // 次回抽選時間更新
-    const newNextLottery = calculateNextLotteryTime();
-    setNextLotteryTime(newNextLottery);
-  }
-}, [supabaseClient, effectiveUserId, setHasPrize, setPrizeInfo, setActiveTab, resetLotteryState, participantsCount]);
+      // 参加者が1人の場合はその人を当選者に
+      if (participants.length === 1) {
+        winner = participants[0];
+      } else {
+        // 複数参加者がいる場合はランダム選択
+        const randomIndex = Math.floor(Math.random() * participants.length);
+        winner = participants[randomIndex];
+      }
+      
+      let resultSaved = false;
+      
+      try {
+        // 抽選結果をDBに記録
+        const insertData = {
+          lottery_date: dateISO,
+          winner_id: winner.user_id,
+          total_participants: participants.length,
+          created_at: new Date().toISOString(),
+          prize_claimed: false
+        };
+        
+        const resultResponse = await supabaseClient
+          .from('lottery_results')
+          .insert([insertData])
+          .select()
+          .single();
+          
+        const { data: resultRecord, error: resultError } = resultResponse;
+          
+        if (!resultError) {
+          resultSaved = true;
+        }
+      } catch (dbError) {
+        Alert.alert('データベースエラー', '操作中にエラーが発生しました');
+      }
+      
+      // 自分が当選者かチェック
+      const isCurrentUserWinner = effectiveUserId === winner.user_id;
+      
+      // 抽選終了後、状態リセット
+      try {
+        await AsyncStorage.removeItem('lotteryParticipation');
+        
+        // 参加者レコードを削除
+        const deleteResponse = await supabaseClient
+          .from('lottery_participants')
+          .delete()
+          .eq('lottery_date', dateISO);
+      } catch (resetError) {
+        // エラー処理
+      }
+      
+      // 結果表示
+      setTimeout(() => {
+        if (isCurrentUserWinner && resultSaved) {
+          // 当選演出
+          Alert.alert(
+            '🎉🎉🎉 あなたが当選しました！ 🎉🎉🎉', 
+            '✨✨ おめでとうございます！ ✨✨\n\nあなたが当選者に選ばれました！\n豪華景品が贈られます！',
+            [
+              {
+                text: '受け取る！',
+                onPress: () => {
+                  setPrizeInfo({
+                    id: Date.now().toString(),
+                    date: new Date().toISOString()
+                  });
+                  setHasPrize(true);
+                  setActiveTab(TabState.PRIZE);
+                },
+                style: 'default'
+              }
+            ],
+            { cancelable: false }
+          );
+        } else if (!isCurrentUserWinner) {
+          // 落選通知
+          Alert.alert(
+            '抽選完了', 
+            `参加者${participants.length}名の中から1名が選ばれました。\n\n残念ながら、あなたは当選しませんでした。\n\n当選者ID: ${winner.user_id}\n\n抽選がリセットされました。再度参加できます。`,
+            [
+              {
+                text: '次回に期待',
+                style: 'default'
+              }
+            ]
+          );
+        }
+        
+        // 状態リセット
+        setIsLotteryRunning(false);
+        setLotteryButtonDisabled(false);
+        
+        // 抽選後状態リセット
+        resetLotteryState();
+      }, 2000);
+      
+    } catch (error) {
+      Alert.alert('エラー', '抽選処理中にエラーが発生しました');
+      
+      // エラー時も状態リセット
+      setIsLotteryRunning(false);
+      setLotteryButtonDisabled(false);
+    }
+  };
 
-return (
-  <ScrollView style={styles.content}>
-    {/* 次回抽選情報セクション */}
-    <View style={styles.section}>
-      <Text style={styles.sectionTitle}>次回の抽選情報</Text>
-      
-      <View style={styles.lotteryInfoBox}>
-        <Text style={styles.nextLotteryTime}>
-          {nextLotteryTime.timeString}
+  return (
+    <ScrollView style={styles.content}>
+      {/* 抽選情報セクション */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>抽選情報</Text>
+        
+        <View style={styles.lotteryInfoBox}>
+          <Text style={styles.participantsInfo}>
+            現在の参加者数: <Text style={styles.participantsCount}>{participantsCount}人</Text>
+          </Text>
+          <Text style={styles.winningOddsInfo}>
+            当選確率: <Text style={styles.winningOdds}>
+              {participantsCount > 0 ? `1/${participantsCount}` : '- '}
+            </Text>
+          </Text>
+          
+          <TouchableOpacity 
+            style={[
+              styles.runLotteryButton,
+              (isLotteryRunning || lotteryButtonDisabled) && styles.disabledButton
+            ]} 
+            onPress={handleRunLottery}
+            disabled={isLotteryRunning || lotteryButtonDisabled}
+          >
+            {isLotteryRunning ? (
+              <ActivityIndicator color="#fff" size="small" />
+            ) : (
+              <>
+                <Image 
+                  source={require('../../assets/AppIcon/ticket.png')} 
+                  style={styles.runLotteryIcon} 
+                />
+                <Text style={styles.runLotteryText}>抽選を実行する</Text>
+              </>
+            )}
+          </TouchableOpacity>
+        </View>
+        
+        <Text style={styles.lotteryNote}>
+          ※ボタンを押すと抽選が実行されます。参加者の中から1名がランダムに選ばれます。
         </Text>
-        <Text style={styles.countdownLabel}>抽選まであと</Text>
-        <Text style={styles.countdown}>{remainingTime}</Text>
+      </View>
+    
+      {/* ログインボーナスセクション */}
+      {loginBonusAvailable && (
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>ログインボーナス</Text>
+          <TouchableOpacity 
+            style={[styles.actionButton, styles.loginBonusButton]} 
+            onPress={handleClaimLoginBonus}
+          >
+            <Image 
+              source={require('../../assets/AppIcon/ticket.png')} 
+              style={styles.actionIcon} 
+            />
+            <Text style={styles.actionText}>
+              本日のログインボーナスを受け取る (+{TICKET_REWARD_LOGIN})
+            </Text>
+          </TouchableOpacity>
+        </View>
+      )}
+      
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>抽選に参加</Text>
+        
+        <TouchableOpacity 
+          style={[
+            styles.rewardItem, 
+            (tickets < 100 || isParticipating) && styles.disabledReward
+          ]} 
+          onPress={handleEnterLottery}
+          disabled={tickets < 100 || isParticipating}
+        >
+          <Image 
+            source={require('../../assets/AppIcon/ticket.png')} 
+            style={styles.rewardIcon} 
+          />
+          <View style={styles.rewardInfo}>
+            <Text style={styles.rewardName}>抽選に参加する</Text>
+            <Text style={styles.rewardDesc}>
+              {isParticipating 
+                ? '今回の抽選にすでに参加しています' 
+                : '100チケットで抽選に参加（当選確率 1/' + participantsCount + '）'}
+            </Text>
+          </View>
+          <View style={styles.costContainer}>
+            <Image 
+              source={require('../../assets/AppIcon/ticket.png')} 
+              style={styles.smallTicket} 
+            />
+            <Text style={styles.costText}>100</Text>
+          </View>
+        </TouchableOpacity>
+        
+        <Text style={styles.lotteryNote}>
+          ※毎回1名様にBrawl Starsパスが当たります！抽選はボタンを押すと実行され、参加者の中から1名のみ選ばれます。チケット100枚で応募でき、当選確率は応募者数で決まります。
+        </Text>
       </View>
       
-      <Text style={styles.lotteryNote}>
-        ※毎日0:15に自動的に抽選が実行されます。抽選前にチケットで参加を忘れずに！
-      </Text>
-    </View>
-  
-    {/* ログインボーナスセクション */}
-    {loginBonusAvailable && (
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>ログインボーナス</Text>
+        <Text style={styles.sectionTitle}>チケットを獲得</Text>
+        
         <TouchableOpacity 
-          style={[styles.actionButton, styles.loginBonusButton]} 
-          onPress={handleClaimLoginBonus}
+          style={[styles.actionButton, adLoading && styles.disabledButton]} 
+          onPress={handleWatchAd}
+          disabled={adLoading}
         >
           <Image 
             source={require('../../assets/AppIcon/ticket.png')} 
             style={styles.actionIcon} 
           />
           <Text style={styles.actionText}>
-            本日のログインボーナスを受け取る (+{TICKET_REWARD_LOGIN})
+            {isAdFree && freeClaimAvailable 
+              ? `本日の無料チケットを受け取る (+${TICKET_REWARD_AD})` 
+              : `広告を見る (+${TICKET_REWARD_AD})`}
           </Text>
+          {adLoading && <Text style={styles.loadingText}>読み込み中...</Text>}
         </TouchableOpacity>
-      </View>
-    )}
-    
-    <View style={styles.section}>
-      <Text style={styles.sectionTitle}>抽選に参加</Text>
-      
-      <TouchableOpacity 
-        style={[
-          styles.rewardItem, 
-          (tickets < 100 || isParticipating) && styles.disabledReward
-        ]} 
-        onPress={handleEnterLottery}
-        disabled={tickets < 100 || isParticipating}
-      >
-        <Image 
-          source={require('../../assets/AppIcon/ticket.png')} 
-          style={styles.rewardIcon} 
-        />
-        <View style={styles.rewardInfo}>
-          <Text style={styles.rewardName}>次回の抽選に参加する</Text>
-          <Text style={styles.rewardDesc}>
-            {isParticipating 
-              ? '今回の抽選にすでに参加しています' 
-              : '100チケットで抽選に参加（当選確率 1/' + participantsCount + '）'}
-          </Text>
-        </View>
-        <View style={styles.costContainer}>
-          <Image 
-            source={require('../../assets/AppIcon/ticket.png')} 
-            style={styles.smallTicket} 
-          />
-          <Text style={styles.costText}>100</Text>
-        </View>
-      </TouchableOpacity>
-      
-      <Text style={styles.lotteryNote}>
-        ※毎日1名様にBrawl Starsパスが当たります！抽選は参加者の中から1名のみ選ばれます。チケット100枚で応募でき、当選確率はその日の応募者数で決まります。
-      </Text>
-    </View>
-    
-    <View style={styles.section}>
-      <Text style={styles.sectionTitle}>チケットを獲得</Text>
-      
-      <TouchableOpacity 
-        style={[styles.actionButton, adLoading && styles.disabledButton]} 
-        onPress={handleWatchAd}
-        disabled={adLoading}
-      >
-        <Image 
-          source={require('../../assets/AppIcon/ticket.png')} 
-          style={styles.actionIcon} 
-        />
-        <Text style={styles.actionText}>
-          {isAdFree && freeClaimAvailable 
-            ? `本日の無料チケットを受け取る (+${TICKET_REWARD_AD})` 
-            : `広告を見る (+${TICKET_REWARD_AD})`}
-        </Text>
-        {adLoading && <Text style={styles.loadingText}>読み込み中...</Text>}
-      </TouchableOpacity>
 
-      {isAdFree && !freeClaimAvailable && (
-        <Text style={styles.freeClaimInfo}>
-          本日の無料チケットはすでに受け取り済みです。明日また来てください。
-        </Text>
-      )}
-    </View>
-  </ScrollView>
-);
-}
+        {isAdFree && !freeClaimAvailable && (
+          <Text style={styles.freeClaimInfo}>
+            本日の無料チケットはすでに受け取り済みです。明日また来てください。
+          </Text>
+        )}
+      </View>
+    </ScrollView>
+  );
+};
 
 const styles = StyleSheet.create({
   content: {
@@ -606,22 +491,46 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 12,
   },
-  nextLotteryTime: {
-    fontSize: 20,
+  participantsInfo: {
+    fontSize: 16,
+    color: '#555',
+    marginBottom: 8,
+  },
+  participantsCount: {
+    fontWeight: 'bold',
+    color: '#21A0DB',
+  },
+  winningOddsInfo: {
+    fontSize: 16,
+    color: '#555',
+    marginBottom: 16,
+  },
+  winningOdds: {
     fontWeight: 'bold',
     color: '#FF9800',
-    marginBottom: 12,
   },
-  countdownLabel: {
-    fontSize: 14,
-    color: '#666',
-    marginBottom: 4,
-  },
-  countdown: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#333',
+  runLotteryButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#FF5722',
+    borderRadius: 8,
+    paddingVertical: 14,
+    paddingHorizontal: 24,
+    width: '100%',
+    marginTop: 8,
     marginBottom: 8,
+  },
+  runLotteryIcon: {
+    width: 24,
+    height: 24,
+    tintColor: '#fff',
+    marginRight: 12,
+  },
+  runLotteryText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#fff',
   },
   actionButton: {
     flexDirection: 'row',
