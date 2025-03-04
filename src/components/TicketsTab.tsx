@@ -9,8 +9,8 @@ import { TabState } from './types';
 import { calculateNextLotteryDateString } from './TicketScreen';
 
 // チケット獲得量定数
-const TICKET_REWARD_AD = 200; 
-const TICKET_REWARD_LOGIN = 200;
+const TICKET_REWARD_AD = 2000; 
+const TICKET_REWARD_LOGIN = 2000;
 
 // 抽選ステータステーブルID定数
 const LOTTERY_STATUS_ID = '00000000-0000-0000-0000-000000000000';
@@ -36,6 +36,8 @@ const TicketsTab = ({
   const [lotteryButtonDisabled, setLotteryButtonDisabled] = useState(false);
   const [isGlobalLotteryRunning, setIsGlobalLotteryRunning] = useState(false);
   const [lastCheckTime, setLastCheckTime] = useState(0);
+  const [showResultCheckButton, setShowResultCheckButton] = useState(false);
+  const [checkingLotteryResults, setCheckingLotteryResults] = useState(false);
   
   // refで状態管理
   const lastParticipantCheckTimeRef = useRef(0);
@@ -46,6 +48,7 @@ const TicketsTab = ({
     if (effectiveUserId) {
       checkDailyFreeClaim();
       checkDailyLoginBonus();
+      checkIfLotteryResultAvailable();
     }
   }, [isAdFree, effectiveUserId]);
 
@@ -119,6 +122,8 @@ const TicketsTab = ({
         // 必要な情報を再読み込み
         await resetLotteryState();
         await checkWinningStatus();
+        // 抽選結果確認ボタンを表示
+        setShowResultCheckButton(true);
       }
       
       // 抽選が実行されたばかりの場合も確認
@@ -131,10 +136,114 @@ const TicketsTab = ({
           // 必要な情報を再読み込み
           await resetLotteryState();
           await checkWinningStatus();
+          // 抽選結果確認ボタンを表示
+          setShowResultCheckButton(true);
         }
       }
     } catch (error) {
       console.error('Lottery status check error:', error);
+    }
+  };
+
+  // 最新の抽選結果があるかチェック
+  const checkIfLotteryResultAvailable = async () => {
+    try {
+      if (!supabaseClient) return;
+      
+      // 最新の抽選結果を取得
+      const { data, error } = await supabaseClient
+        .from('lottery_results')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(1);
+        
+      if (error) {
+        console.error('Lottery result check error:', error);
+        return;
+      }
+      
+      // 抽選結果がある場合
+      if (data && data.length > 0) {
+        setShowResultCheckButton(true);
+      }
+    } catch (error) {
+      console.error('Lottery result check error:', error);
+    }
+  };
+
+  // 抽選結果確認ボタンのハンドラ
+  const handleCheckLotteryResult = async () => {
+    if (!supabaseClient || !effectiveUserId) {
+      Alert.alert('エラー', 'システムの初期化中です。しばらくお待ちください。');
+      return;
+    }
+
+    setCheckingLotteryResults(true);
+
+    try {
+      // 最新の抽選結果を取得
+      const { data, error } = await supabaseClient
+        .from('lottery_results')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(1);
+        
+      if (error) {
+        throw error;
+      }
+
+      if (data && data.length > 0) {
+        const result = data[0];
+        
+        // 自分が当選者かチェック
+        const isWinner = result.winner_id === effectiveUserId;
+        
+        // 既に景品を受け取ったかチェック
+        const alreadyClaimed = result.prize_claimed;
+        
+        // 自分が当選者で未受取の場合はprizeInfoを更新
+        if (isWinner && !alreadyClaimed) {
+          setPrizeInfo(result);
+          setHasPrize(true);
+          
+          Alert.alert(
+            '🏆 当選のお知らせ 🏆',
+            'おめでとうございます！抽選に当選しています。「当選プレゼント」タブから景品を受け取ることができます。',
+            [
+              {
+                text: '後で',
+                style: 'cancel'
+              },
+              {
+                text: '受け取る',
+                onPress: () => {
+                  setActiveTab(TabState.PRIZE);
+                }
+              }
+            ]
+          );
+        } else if (isWinner && alreadyClaimed) {
+          Alert.alert(
+            '当選情報',
+            'おめでとうございます！抽選に当選しましたが、すでに景品を受け取っています。',
+            [{ text: 'OK' }]
+          );
+        } else {
+          // 落選時のメッセージ
+          Alert.alert(
+            '抽選結果',
+            `残念ながら、あなたは当選しませんでした。\n\n当選者: ${result.winner_id}\n参加者数: ${result.total_participants}人`,
+            [{ text: 'OK' }]
+          );
+        }
+      } else {
+        Alert.alert('結果なし', '抽選結果が見つかりませんでした。');
+      }
+    } catch (error) {
+      console.error('Check result error:', error);
+      Alert.alert('エラー', '抽選結果の確認中にエラーが発生しました。');
+    } finally {
+      setCheckingLotteryResults(false);
     }
   };
 
@@ -430,6 +539,9 @@ const TicketsTab = ({
         })
         .eq('id', LOTTERY_STATUS_ID);
       
+      // 抽選結果確認ボタンを表示
+      setShowResultCheckButton(true);
+      
       // 結果表示
       setTimeout(() => {
         if (isCurrentUserWinner && resultSaved) {
@@ -536,6 +648,33 @@ const TicketsTab = ({
               </>
             )}
           </TouchableOpacity>
+
+          {/* 抽選結果確認ボタン */}
+          {showResultCheckButton && (
+            <TouchableOpacity 
+              style={[
+                styles.checkResultButton,
+                checkingLotteryResults && styles.disabledButton
+              ]} 
+              onPress={handleCheckLotteryResult}
+              disabled={checkingLotteryResults}
+            >
+              {checkingLotteryResults ? (
+                <>
+                  <ActivityIndicator color="#fff" size="small" style={styles.buttonSpinner} />
+                  <Text style={styles.checkResultText}>確認中...</Text>
+                </>
+              ) : (
+                <>
+                  <Image 
+                    source={require('../../assets/AppIcon/ticket.png')} 
+                    style={styles.checkResultIcon} 
+                  />
+                  <Text style={styles.checkResultText}>抽選結果を確認する</Text>
+                </>
+              )}
+            </TouchableOpacity>
+          )}
         </View>
         
         <Text style={styles.lotteryNote}>
@@ -689,6 +828,29 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: 8,
     marginBottom: 8,
+  },
+  // 抽選結果確認ボタン
+  checkResultButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#21A0DB',
+    borderRadius: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    width: '100%',
+    marginTop: 8,
+  },
+  checkResultIcon: {
+    width: 24,
+    height: 24,
+    tintColor: '#fff',
+    marginRight: 8,
+  },
+  checkResultText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#fff',
   },
   runLotteryIcon: {
     width: 24,
