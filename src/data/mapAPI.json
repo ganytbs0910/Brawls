@@ -8472,9 +8472,54 @@
             "description": "",
             "recommendedBrawlers": [
                 {
-                    "name": "",
+                    "name": "ガス",
                     "reason": "",
                     "power": 5
+                },
+                {
+                    "name": "グレイ",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "Mr.P",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "エリザベス",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "スプラウト",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ジュジュ",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "バイロン",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ナーニ",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ペニー",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ティック",
+                    "reason": "",
+                    "power": 4
                 }
             ]
         },

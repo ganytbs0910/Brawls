@@ -25,6 +25,7 @@ type ScreenType = 'home' | 'mapDetail' | 'characterDetail';
 const DISPLAY_MODES = [
   'gemGrab',    // エメラルドハント
   'brawlBall',  // ブロストライカー
+  'bounty',     // バウンティ
   'knockout',   // ノックアウト
   'hotZone',     // ホットゾーン
   'brawlHockey', // ブロホッケー

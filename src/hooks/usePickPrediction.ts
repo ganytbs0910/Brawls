@@ -164,72 +164,77 @@ export const usePickPrediction = () => {
 };
 
   const getMapBasedRecommendations = (mapName: string | undefined): CharacterRecommendation[] => {
-    if (!mapName) return [];
-    
-    const mapData = getMapData(mapName);
-    if (!mapData || !mapData.recommendedBrawlers) return [];
+  if (!mapName) return [];
+  
+  const mapData = getMapData(mapName);
+  if (!mapData || !mapData.recommendedBrawlers) return [];
 
-    return mapData.recommendedBrawlers
-      .filter(brawler => brawler.power >= 4)
-      .map(brawler => ({
-        character: brawler.name,
-        score: brawler.power,
-        maxScore: 5
-      }))
-      .sort((a, b) => b.score - a.score);
-  };
+  return mapData.recommendedBrawlers
+    .filter(brawler => brawler.power >= 4)
+    .map(brawler => ({
+      character: brawler.name,
+      // ここでオリジナルのマップパワー値も保持しておく
+      originalScore: brawler.power,
+      // 表示用のスコアとして1.6倍した値を計算し切り上げる
+      score: Math.ceil(brawler.power * 1.6),
+      maxScore: Math.ceil(5 * 1.6) // 最大スコアも更新
+    }))
+    .sort((a, b) => b.score - a.score);
+};
 
   const calculateRecommendations = (
-    currentTeam: Team,
-    opposingTeamChars: string[],
-    ownTeamChars: string[],
-    selectedMap?: string
-  ): CharacterRecommendation[] => {
-    const recommendations: CharacterRecommendation[] = [];
-    const bannedCharacters = [...gameState.bansA, ...gameState.bansB];
-    
-    const mapRecs = getMapBasedRecommendations(selectedMap || gameState.selectedMap);
-    const mapRecScores: { [key: string]: number } = {};
-    
-    mapRecs.forEach(mapRec => {
-      mapRecScores[mapRec.character] = mapRec.score;
-    });
-    
-    Object.values(CHARACTER_MAP).forEach(character => {
-      if (!opposingTeamChars.includes(character) && 
-          !ownTeamChars.includes(character) && 
-          !bannedCharacters.includes(character)) {
+  currentTeam: Team,
+  opposingTeamChars: string[],
+  ownTeamChars: string[],
+  selectedMap?: string
+): CharacterRecommendation[] => {
+  const recommendations: CharacterRecommendation[] = [];
+  const bannedCharacters = [...gameState.bansA, ...gameState.bansB];
+  
+  const mapRecs = getMapBasedRecommendations(selectedMap || gameState.selectedMap);
+  const mapRecScores: { [key: string]: number } = {};
+  
+  mapRecs.forEach(mapRec => {
+    mapRecScores[mapRec.character] = mapRec.score;
+  });
+  
+  Object.values(CHARACTER_MAP).forEach(character => {
+    if (!opposingTeamChars.includes(character) && 
+        !ownTeamChars.includes(character) && 
+        !bannedCharacters.includes(character)) {
+      
+      let totalScore = 0;
+      
+      opposingTeamChars.forEach(opposingChar => {
+        const characterId = getCharacterId(character);
+        const opposingId = getCharacterId(opposingChar);
         
-        let totalScore = 0;
-        
-        opposingTeamChars.forEach(opposingChar => {
-          const characterId = getCharacterId(character);
-          const opposingId = getCharacterId(opposingChar);
-          
-          if (characterId && opposingId && allCharacterData[characterId]) {
-            const score = allCharacterData[characterId].compatibilityScores[opposingChar] || 0;
-            totalScore += score;
-          }
-        });
-
-        const mapScore = mapRecScores[character] || 0;
-        const weightedMapScore = mapScore;
-        
-        const finalScore = totalScore + weightedMapScore;
-        const maxScore = (opposingTeamChars.length * 10) + 10;
-
-        if (finalScore > 0 || opposingTeamChars.length === 0 || mapScore > 0) {
-          recommendations.push({
-            character,
-            score: finalScore,
-            maxScore: maxScore
-          });
+        if (characterId && opposingId && allCharacterData[characterId]) {
+          const score = allCharacterData[characterId].compatibilityScores[opposingChar] || 0;
+          totalScore += score;
         }
-      }
-    });
+      });
 
-    return recommendations.sort((a, b) => b.score - a.score).slice(0, 10);
-  };
+      const mapScore = mapRecScores[character] || 0;
+      // マップスコアを1.6倍して小数点を切り上げる
+      const weightedMapScore = Math.ceil(mapScore * 1.6);
+      
+      const finalScore = totalScore + weightedMapScore;
+      // 最大スコアも更新（マップスコアの最大値が5なので、変更後は最大8になる可能性がある）
+      const maxScore = (opposingTeamChars.length * 10) + Math.ceil(5 * 1.6);
+
+      if (finalScore > 0 || opposingTeamChars.length === 0 || mapScore > 0) {
+        recommendations.push({
+          character,
+          score: finalScore,
+          maxScore: maxScore
+        });
+      }
+    }
+  });
+
+  return recommendations.sort((a, b) => b.score - a.score).slice(0, 10);
+};
 
   const handleBanSelect = (character: string) => {
     if (!gameState.isBanPhaseEnabled) return;
@@ -417,23 +422,24 @@ export const usePickPrediction = () => {
   };
 
   const handleMapSelect = (mapName: string) => {
-    const maps = getMapsByMode(gameState.selectedMode);
-    if (maps.length > 0) {
-      const bannedCharacters = [...gameState.bansA, ...gameState.bansB];
-      const mapRecs = getMapBasedRecommendations(mapName)
-        .filter(rec => !bannedCharacters.includes(rec.character));
-      
-      const newRecommendations = calculateRecommendations('A', [], [], mapName);
-      
-      setGameStateWithHistory(prev => ({
-        ...prev,
-        selectedMap: mapName,
-        recommendations: mapRecs,
-        mapRecommendations: mapRecs
-      }));
-      setShowModeModal(false);
-    }
-  };
+  const maps = getMapsByMode(gameState.selectedMode);
+  if (maps.length > 0) {
+    const bannedCharacters = [...gameState.bansA, ...gameState.bansB];
+    const mapRecs = getMapBasedRecommendations(mapName)
+      .filter(rec => !bannedCharacters.includes(rec.character));
+    
+    // 推奨計算も更新されたマップスコアを使用
+    const newRecommendations = calculateRecommendations('A', [], [], mapName);
+    
+    setGameStateWithHistory(prev => ({
+      ...prev,
+      selectedMap: mapName,
+      recommendations: mapRecs, // すでに1.6倍されたスコアが含まれる
+      mapRecommendations: mapRecs
+    }));
+    setShowModeModal(false);
+  }
+};
 
   const showTurnAnnouncement = (team: Team, phase: GamePhase, isBanPhase: boolean = false) => {
     const message = t.turnAnnouncement.teamTurn(team);
