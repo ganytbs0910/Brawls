@@ -2545,6 +2545,11 @@
                     "power": 5
                 },
                 {
+                    "name": "マンディ",
+                    "reason": "",
+                    "power": 5
+                },
+                {
                     "name": "Mr.P",
                     "reason": "",
                     "power": 5
@@ -3721,11 +3726,6 @@
             "description": "",
             "recommendedBrawlers": [
                 {
-                    "name": "バイロン",
-                    "reason": "",
-                    "power": 5
-                },
-                {
                     "name": "ガス",
                     "reason": "",
                     "power": 5
@@ -4120,6 +4120,16 @@
                 },
                 {
                     "name": "ストゥー",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "ルー",
+                    "reason": "",
+                    "power": 5
+                },
+                {
+                    "name": "Mr.P",
                     "reason": "",
                     "power": 5
                 },
