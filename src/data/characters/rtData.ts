@@ -81,7 +81,7 @@ export const rtData: CharacterCompatibility = {
     "グリフ": 6,
     "ゲイル": 6,
     "ジーン": 2,
-    "ミスターP": 5,
+    "ミスターP": 3,
     "スクウィーク": 5,
     "ルー": 7,
     "オーティス": 6,

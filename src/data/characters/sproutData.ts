@@ -13,7 +13,7 @@ export const sproutData: CharacterCompatibility = {
     "ビビ": 0,
     "アッシュ": 1,
     "サム": 0,
-    "ハンク": 3,
+    "ハンク": 6,
     "バスター": 3,
     "バズ": 3,
     "ダグ": 3,

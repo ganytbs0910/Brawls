@@ -82,7 +82,7 @@ export const charlieData: CharacterCompatibility = {
     "グリフ": 4,
     "ゲイル": 4,
     "ジーン": 8,
-    "ミスターP": 6,
+    "ミスターP": 5,
     "スクウィーク": 2,
     "ルー": 7,
     "オーティス": 4,

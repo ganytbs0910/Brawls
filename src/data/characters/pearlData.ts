@@ -81,7 +81,7 @@ export const pearlData: CharacterCompatibility = {
     "グリフ": 6,
     "ゲイル": 7,
     "ジーン": 7,
-    "ミスターP": 6,
+    "ミスターP": 2,
     "スクウィーク": 4,
     "ルー": 7,
     "オーティス": 4,

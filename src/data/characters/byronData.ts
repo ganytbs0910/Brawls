@@ -81,7 +81,7 @@ export const byronData: CharacterCompatibility = {
     "グリフ": 10,
     "ゲイル": 9,
     "ジーン": 5,
-    "ミスターP": 4,
+    "ミスターP": 3,
     "スクウィーク": 5,
     "ルー": 8,
     "オーティス": 8,

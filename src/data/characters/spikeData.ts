@@ -81,7 +81,7 @@ export const spikeData: CharacterCompatibility = {
     "グリフ": 6,
     "ゲイル": 5,
     "ジーン": 6,
-    "ミスターP": 5,
+    "ミスターP": 3,
     "スクウィーク": 0,
     "ルー": 4,
     "オーティス": 5,

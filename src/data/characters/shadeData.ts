@@ -13,7 +13,7 @@ export const shadeData: CharacterCompatibility = {
     "ビビ": 7,
     "アッシュ": 8,
     "サム": 9,
-    "ハンク": 3,
+    "ハンク": 1,
     "バスター": 8,
     "バズ": 7,
     "ダグ": 0,

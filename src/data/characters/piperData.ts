@@ -81,7 +81,7 @@ export const piperData: CharacterCompatibility = {
     "グリフ": 8,
     "ゲイル": 8,
     "ジーン": 6,
-    "ミスターP": 7,
+    "ミスターP": 6,
     "スクウィーク": 6,
     "ルー": 8,
     "オーティス": 9,

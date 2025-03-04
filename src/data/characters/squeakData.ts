@@ -82,7 +82,7 @@ export const squeakData: CharacterCompatibility = {
     "グリフ": 5,
     "ゲイル": 7,
     "ジーン": 4,
-    "ミスターP": 7,
+    "ミスターP": 6,
     "ルー": 7,
     "オーティス": 5,
     "チャック": 6,

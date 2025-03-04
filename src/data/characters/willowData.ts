@@ -13,7 +13,7 @@ export const willowData: CharacterCompatibility = {
     "ビビ": 3,
     "アッシュ": 3,
     "サム": 3,
-    "ハンク": 4,
+    "ハンク": 8,
     "バスター": 8,
     "バズ": 8,
     "ダグ": 8,

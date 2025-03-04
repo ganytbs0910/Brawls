@@ -81,7 +81,7 @@ export const ruffsData: CharacterCompatibility = {
     "グリフ": 5,
     "ゲイル": 8,
     "ジーン": 10,
-    "ミスターP": 4,
+    "ミスターP": 2,
     "スクウィーク": 0,
     "ルー": 8,
     "オーティス": 6,

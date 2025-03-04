@@ -81,7 +81,7 @@ export const janetData: CharacterCompatibility = {
     "グリフ": 5,
     "ゲイル": 6,
     "ジーン": 4,
-    "ミスターP": 6,
+    "ミスターP": 3,
     "スクウィーク": 3,
     "ルー": 4,
     "オーティス": 4,

@@ -81,7 +81,7 @@ export const stuData: CharacterCompatibility = {
     "グリフ": 6,
     "ゲイル": 6,
     "ジーン": 6,
-    "ミスターP": 1,
+    "ミスターP": 0,
     "スクウィーク": 5,
     "ルー": 9,
     "オーティス": 6,

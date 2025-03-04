@@ -82,7 +82,7 @@ export const amberData: CharacterCompatibility = {
     "グリフ": 8,
     "ゲイル": 6,
     "ジーン": 7,
-    "ミスターP": 4,
+    "ミスターP": 3,
     "スクウィーク": 6,
     "ルー": 7,
     "オーティス": 7,

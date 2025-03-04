@@ -81,7 +81,7 @@ export const coletteData: CharacterCompatibility = {
     "グリフ": 3,
     "ゲイル": 7,
     "ジーン": 3,
-    "ミスターP": 4,
+    "ミスターP": 1,
     "スクウィーク": 4,
     "ルー": 4,
     "オーティス": 3,

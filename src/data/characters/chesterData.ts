@@ -81,7 +81,7 @@ export const chesterData: CharacterCompatibility = {
     "グリフ": 5,
     "ゲイル": 4,
     "ジーン": 4,
-    "ミスターP": 6,
+    "ミスターP": 4,
     "スクウィーク": 5,
     "ルー": 7,
     "オーティス": 4,

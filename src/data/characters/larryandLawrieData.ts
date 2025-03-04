@@ -13,7 +13,7 @@ export const larryandLawrieData: CharacterCompatibility = {
     "ビビ": 4,
     "アッシュ": 8,
     "サム": 9,
-    "ハンク": 8,
+    "ハンク": 9,
     "バスター": 10,
     "バズ": 9,
     "ダグ": 10,

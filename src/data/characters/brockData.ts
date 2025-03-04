@@ -81,7 +81,7 @@ export const brockData: CharacterCompatibility = {
     "グリフ": 7,
     "ゲイル": 7,
     "ジーン": 4,
-    "ミスターP": 7,
+    "ミスターP": 4,
     "スクウィーク": 7,
     "ルー": 6,
     "オーティス": 7,

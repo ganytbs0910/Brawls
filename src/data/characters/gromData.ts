@@ -81,7 +81,7 @@ export const gromData: CharacterCompatibility = {
     "グリフ": 2,
     "ゲイル": 8,
     "ジーン": 6,
-    "ミスターP": 5,
+    "ミスターP": 3,
     "スクウィーク": 5,
     "ルー": 8,
     "オーティス": 7,

@@ -13,7 +13,7 @@ export const dynamikeData: CharacterCompatibility = {
     "ビビ": 0,
     "アッシュ": 6,
     "サム": 0,
-    "ハンク": 10,
+    "ハンク": 8,
     "バスター": 10,
     "バズ": 7,
     "ダグ": 10,

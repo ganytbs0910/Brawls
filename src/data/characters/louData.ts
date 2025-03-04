@@ -82,7 +82,7 @@ export const louData: CharacterCompatibility = {
     "グリフ": 5,
     "ゲイル": 6,
     "ジーン": 3,
-    "ミスターP": 4,
+    "ミスターP": 3,
     "スクウィーク": 3,
     "オーティス": 5,
     "チャック": 8,

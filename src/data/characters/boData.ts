@@ -81,7 +81,7 @@ export const boData: CharacterCompatibility = {
     "グリフ": 5,
     "ゲイル": 5,
     "ジーン": 7,
-    "ミスターP": 6,
+    "ミスターP": 5,
     "スクウィーク": 4,
     "ルー": 5,
     "オーティス": 4,

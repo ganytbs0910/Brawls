@@ -82,7 +82,7 @@ export const otisData: CharacterCompatibility = {
     "グリフ": 4,
     "ゲイル": 5,
     "ジーン": 4,
-    "ミスターP": 7,
+    "ミスターP": 6,
     "スクウィーク": 5,
     "ルー": 5,
     "チャック": 9,

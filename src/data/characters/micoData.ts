@@ -81,7 +81,7 @@ export const micoData: CharacterCompatibility = {
     "グリフ": 1,
     "ゲイル": 3,
     "ジーン": 3,
-    "ミスターP": 7,
+    "ミスターP": 6,
     "スクウィーク": 7,
     "ルー": 2,
     "オーティス": 2,

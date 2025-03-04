@@ -81,7 +81,7 @@ export const crowData: CharacterCompatibility = {
     "グリフ": 6,
     "ゲイル": 5,
     "ジーン": 2,
-    "ミスターP": 3,
+    "ミスターP": 2,
     "スクウィーク": 5,
     "ルー": 7,
     "オーティス": 7,

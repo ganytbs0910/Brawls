@@ -12,7 +12,7 @@ export const frankData: CharacterCompatibility = {
     "ビビ": 9,
     "アッシュ": 10,
     "サム": 10,
-    "ハンク": 9,
+    "ハンク": 10,
     "バスター": 7,
     "バズ": 10,
     "ダグ": 10,

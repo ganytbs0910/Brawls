@@ -81,7 +81,7 @@ export const bonnieData: CharacterCompatibility = {
     "グリフ": 5,
     "ゲイル": 7,
     "ジーン": 6,
-    "ミスターP": 3,
+    "ミスターP": 1,
     "スクウィーク": 6,
     "ルー": 7,
     "オーティス": 8,

@@ -81,7 +81,7 @@ export const nitaData: CharacterCompatibility = {
     "グリフ": 6,
     "ゲイル": 7,
     "ジーン": 6,
-    "ミスターP": 6,
+    "ミスターP": 5,
     "スクウィーク": 4,
     "ルー": 4,
     "オーティス": 5,

@@ -81,7 +81,7 @@ export const mandyData: CharacterCompatibility = {
     "グリフ": 6,
     "ゲイル": 7,
     "ジーン": 6,
-    "ミスターP": 5,
+    "ミスターP": 4,
     "スクウィーク": 6,
     "ルー": 8,
     "オーティス": 7,

@@ -81,7 +81,7 @@ export const emzData: CharacterCompatibility = {
     "グリフ": 5,
     "ゲイル": 4,
     "ジーン": 5,
-    "ミスターP": 4,
+    "ミスターP": 3,
     "スクウィーク": 4,
     "ルー": 4,
     "オーティス": 5,
