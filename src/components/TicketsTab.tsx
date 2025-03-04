@@ -9,8 +9,8 @@ import { TabState } from './types';
 import { calculateNextLotteryDateString } from './TicketScreen';
 
 // チケット獲得量定数
-const TICKET_REWARD_AD = 2000; 
-const TICKET_REWARD_LOGIN = 2000;
+const TICKET_REWARD_AD = 200; 
+const TICKET_REWARD_LOGIN = 200;
 
 // 抽選ステータステーブルID定数
 const LOTTERY_STATUS_ID = '00000000-0000-0000-0000-000000000000';
