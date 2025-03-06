@@ -90,7 +90,9 @@ export const dracoData: CharacterCompatibility = {
     "アンバー": 3,
     "サンディ": 5,
     "ミープル": 1,
-    "オーリー": 10
+    "オーリー": 10,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

@@ -90,7 +90,9 @@ export const ollieData: CharacterCompatibility = {
     "チャーリー": 8,
     "アンバー": 2,
     "サンディ": 1,
-    "ミープル": 2
+    "ミープル": 2,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

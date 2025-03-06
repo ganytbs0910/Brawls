@@ -90,7 +90,9 @@ export const gromData: CharacterCompatibility = {
     "アンバー": 7,
     "サンディ": 6,
     "ミープル": 6,
-    "オーリー": 2
+    "オーリー": 2,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

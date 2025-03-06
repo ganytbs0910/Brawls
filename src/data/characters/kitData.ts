@@ -90,7 +90,9 @@ export const kitData: CharacterCompatibility = {
     "アンバー": 3,
     "サンディ": 3,
     "ミープル": 5,
-    "オーリー": 0
+    "オーリー": 0,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

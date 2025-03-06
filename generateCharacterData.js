@@ -87,7 +87,8 @@ const characters = {
   'コーデリアス': 'cordelius',
   'キット': 'kit',
   'ドラコ': 'draco',
-  'ケンジ': 'kenji'
+  'ケンジ': 'kenji',
+  'フィンクス': 'finx',
 };
 
 const outputDir = path.join(__dirname, 'data', 'characters');

@@ -865,6 +865,10 @@ export const starPowerIcons: IconMapping = {
     1: require('../../assets/StarPowerIcon/ollie_starpower_01.png'),
     2: require('../../assets/StarPowerIcon/ollie_starpower_02.png')
   },
+  "フィンクス": {
+    1: require('../../assets/StarPowerIcon/finx_starpower_01.png'),
+    2: require('../../assets/StarPowerIcon/finx_starpower_02.png')
+  },
 };
 
 export const gadgetIcons: IconMapping = {
@@ -1219,6 +1223,10 @@ export const gadgetIcons: IconMapping = {
   "オーリー": {
     1: require('../../assets/GadgetIcon/ollie_gadget_01.png'),
     2: require('../../assets/GadgetIcon/ollie_gadget_02.png')
+  },
+  "フィンクス": {
+    1: require('../../assets/GadgetIcon/finx_gadget_01.png'),
+    2: require('../../assets/GadgetIcon/finx_gadget_02.png')
   },
 };
 
@@ -1956,6 +1964,14 @@ export const gearIcons: IconMapping = {
     6: gearData.superrareGears.gadget,
   },
   "オーリー": {
+    1: gearData.superrareGears.speed,
+    2: gearData.superrareGears.vision,
+    3: gearData.superrareGears.heal,
+    4: gearData.superrareGears.shield,
+    5: gearData.superrareGears.damage,
+    6: gearData.superrareGears.gadget,
+  },
+  "フィンクス": {
     1: gearData.superrareGears.speed,
     2: gearData.superrareGears.vision,
     3: gearData.superrareGears.heal,

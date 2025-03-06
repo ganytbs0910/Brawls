@@ -90,7 +90,9 @@ export const mrpData: CharacterCompatibility = {
     "アンバー": 7,
     "サンディ": 8,
     "ミープル": 7,
-    "オーリー": 7
+    "オーリー": 7,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

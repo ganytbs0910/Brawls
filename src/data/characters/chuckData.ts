@@ -90,7 +90,9 @@ export const chuckData: CharacterCompatibility = {
     "アンバー": 3,
     "サンディ": 2,
     "ミープル": 3,
-    "オーリー": 0
+    "オーリー": 0,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

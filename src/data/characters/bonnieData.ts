@@ -90,7 +90,9 @@ export const bonnieData: CharacterCompatibility = {
     "アンバー": 7,
     "サンディ": 7,
     "ミープル": 7,
-    "オーリー": 10
+    "オーリー": 10,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

@@ -90,7 +90,9 @@ export const willowData: CharacterCompatibility = {
     "アンバー": 8,
     "サンディ": 7,
     "ミープル": 6,
-    "オーリー": 6
+    "オーリー": 6,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

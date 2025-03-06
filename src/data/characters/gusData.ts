@@ -90,7 +90,9 @@ export const gusData: CharacterCompatibility = {
     "アンバー": 9,
     "サンディ": 8,
     "ミープル": 8,
-    "オーリー": 7
+    "オーリー": 7,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

@@ -90,7 +90,9 @@ export const larryandLawrieData: CharacterCompatibility = {
     "アンバー": 8,
     "サンディ": 10,
     "ミープル": 6,
-    "オーリー": 10
+    "オーリー": 10,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

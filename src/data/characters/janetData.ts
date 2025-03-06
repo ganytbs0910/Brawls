@@ -90,7 +90,9 @@ export const janetData: CharacterCompatibility = {
     "アンバー": 3,
     "サンディ": 3,
     "ミープル": 6,
-    "オーリー": 8
+    "オーリー": 8,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

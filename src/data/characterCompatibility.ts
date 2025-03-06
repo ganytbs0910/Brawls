@@ -86,6 +86,9 @@ import { cordeliusData } from './characters/cordeliusData';
 import { kitData } from './characters/kitData';
 import { dracoData } from './characters/dracoData';
 import { kenjiData } from './characters/kenjiData';
+import { meepleData } from './characters/meepleData';
+import { ollieData } from './characters/ollieData';
+import { finxData } from './characters/finxData';
 
 export const CHARACTER_NAMES = {
   shelly: { 
@@ -879,6 +882,15 @@ export const CHARACTER_NAMES = {
     ar: "أولي",
     fr: "Ollie",
     "zhTw": "奧利"
+  },
+  finx: {
+    ja: "フィンクス",
+    en: "Finx",
+    ko: "핀크스",
+    es: "Finx",
+    ar: "فينكس",
+    fr: "Finx",
+    "zhTw": "芬克斯"
   }
 } as const;
 
@@ -895,7 +907,7 @@ export const CHARACTER_MAP: { [key: number]: string } = {
   62: "バスター", 63: "グレイ", 64: "R-T", 65: "ウィロー", 66: "ダグ", 67: "チャック", 68: "チャーリー",
   69: "ミコ", 70: "メロディー", 71: "リリー", 72: "クランシー", 73: "モー", 74: "ジュジュ", 75: "スパイク",
   76: "クロウ", 77: "レオン", 78: "サンディ", 79: "アンバー", 80: "メグ", 81: "サージ", 82: "チェスター",
-  83: "コーデリアス", 84: "キット", 85: "ドラコ", 86: "ケンジ", 87: "ミープル", 88: "オーリー"
+  83: "コーデリアス", 84: "キット", 85: "ドラコ", 86: "ケンジ", 87: "ミープル", 88: "オーリー", 89: "フィンクス"
 };
 
 export const JAPANESE_TO_ENGLISH_MAP: { [key: string]: string } = {
@@ -916,7 +928,7 @@ export const JAPANESE_TO_ENGLISH_MAP: { [key: string]: string } = {
   "リリー": "lily", "クランシー": "clancy", "モー": "moe", "ジュジュ": "juju", "スパイク": "spike",
   "クロウ": "crow", "レオン": "leon", "サンディ": "sandy", "アンバー": "amber", "メグ": "meg",
   "サージ": "surge", "チェスター": "chester", "コーデリアス": "cordelius", "キット": "kit",
-  "ドラコ": "draco", "ケンジ": "kenji", "ミープル": "meeple", "オーリー": "ollie"
+  "ドラコ": "draco", "ケンジ": "kenji", "ミープル": "meeple", "オーリー": "ollie", "フィンクス": "finx"
 };
 
 export const allCharacterData: { [key: number]: CharacterCompatibility } = {
@@ -932,7 +944,7 @@ export const allCharacterData: { [key: number]: CharacterCompatibility } = {
   63: grayData, 64: rtData, 65: willowData, 66: dougData, 67: chuckData, 68: charlieData, 69: micoData,
   70: melodieData, 71: lilyData, 72: clancyData, 73: moeData, 74: jujuData, 75: spikeData, 76: crowData,
   77: leonData, 78: sandyData, 79: amberData, 80: megData, 81: surgeData, 82: chesterData, 83: cordeliusData,
-  84: kitData, 85: dracoData, 86: kenjiData
+  84: kitData, 85: dracoData, 86: kenjiData, 87: meepleData, 88: ollieData, 89: finxData
 };
 
 export const useCharacterLocalization = () => {

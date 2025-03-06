@@ -90,7 +90,9 @@ export const frankData: CharacterCompatibility = {
     "アンバー": 5,
     "サンディ": 8,
     "ミープル": 3,
-    "オーリー": 10
+    "オーリー": 10,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

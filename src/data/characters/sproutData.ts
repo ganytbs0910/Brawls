@@ -90,7 +90,9 @@ export const sproutData: CharacterCompatibility = {
     "アンバー": 8,
     "サンディ": 8,
     "ミープル": 6,
-    "オーリー": 0
+    "オーリー": 0,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

@@ -90,7 +90,9 @@ export const rosaData: CharacterCompatibility = {
     "アンバー": 0,
     "サンディ": 2,
     "ミープル": 3,
-    "オーリー": 10
+    "オーリー": 10,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

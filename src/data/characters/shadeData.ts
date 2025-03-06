@@ -90,7 +90,9 @@ export const shadeData: CharacterCompatibility = {
     "アンバー": 5,
     "サンディ": 8,
     "ミープル": 4,
-    "オーリー": 7
+    "オーリー": 7,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

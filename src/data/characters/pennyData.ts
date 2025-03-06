@@ -90,7 +90,9 @@ export const pennyData: CharacterCompatibility = {
     "アンバー": 4,
     "サンディ": 7,
     "ミープル": 4,
-    "オーリー": 4
+    "オーリー": 4,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

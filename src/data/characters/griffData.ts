@@ -90,7 +90,9 @@ export const griffData: CharacterCompatibility = {
     "アンバー": 2,
     "サンディ": 6,
     "ミープル": 5,
-    "オーリー": 10
+    "オーリー": 10,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

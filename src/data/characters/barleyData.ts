@@ -90,7 +90,9 @@ export const barleyData: CharacterCompatibility = {
     "アンバー": 7,
     "サンディ": 8,
     "ミープル": 6,
-    "オーリー": 6
+    "オーリー": 6,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

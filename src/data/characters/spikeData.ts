@@ -90,7 +90,9 @@ export const spikeData: CharacterCompatibility = {
     "アンバー": 2,
     "サンディ": 8,
     "ミープル": 4,
-    "オーリー": 8
+    "オーリー": 8,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

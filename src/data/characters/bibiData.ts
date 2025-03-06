@@ -90,7 +90,9 @@ export const bibiData: CharacterCompatibility = {
     "アンバー": 4,
     "サンディ": 7,
     "ミープル": 1,
-    "オーリー": 10
+    "オーリー": 10,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

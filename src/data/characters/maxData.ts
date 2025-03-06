@@ -90,7 +90,9 @@ export const maxData: CharacterCompatibility = {
     "アンバー": 2,
     "サンディ": 6,
     "ミープル": 4,
-    "オーリー": 7
+    "オーリー": 7,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

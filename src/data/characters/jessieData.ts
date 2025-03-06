@@ -90,7 +90,9 @@ export const jessieData: CharacterCompatibility = {
     "アンバー": 3,
     "サンディ": 6,
     "ミープル": 4,
-    "オーリー": 4
+    "オーリー": 4,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

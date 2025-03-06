@@ -90,7 +90,9 @@ export const piperData: CharacterCompatibility = {
     "アンバー": 8,
     "サンディ": 8,
     "ミープル": 8,
-    "オーリー": 10
+    "オーリー": 10,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

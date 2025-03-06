@@ -107,7 +107,10 @@ const characterIcons = {
   cordelius: require('../../assets/BrawlerIcons/cordelius_pin.png'),
   kit: require('../../assets/BrawlerIcons/kit_pin.png'),
   draco: require('../../assets/BrawlerIcons/draco_pin.png'),
-  kenji: require('../../assets/BrawlerIcons/kenji_pin.png')
+  kenji: require('../../assets/BrawlerIcons/kenji_pin.png'),
+  ollie: require('../../assets/BrawlerIcons/ollie_pin.png'),
+  meeple: require('../../assets/BrawlerIcons/meeple_pin.png'),
+  finx: require('../../assets/BrawlerIcons/finx_pin.png'),
 };
 
 // キャラクターデータの配列を作成する関数

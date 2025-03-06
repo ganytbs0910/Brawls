@@ -90,7 +90,9 @@ export const brockData: CharacterCompatibility = {
     "アンバー": 6,
     "サンディ": 7,
     "ミープル": 4,
-    "オーリー": 9
+    "オーリー": 9,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

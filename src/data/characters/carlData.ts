@@ -90,7 +90,9 @@ export const carlData: CharacterCompatibility = {
     "アンバー": 4,
     "サンディ": 3,
     "ミープル": 0,
-    "オーリー": 5
+    "オーリー": 5,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

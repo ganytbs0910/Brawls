@@ -90,7 +90,9 @@ export const pearlData: CharacterCompatibility = {
     "アンバー": 2,
     "サンディ": 7,
     "ミープル": 8,
-    "オーリー": 7
+    "オーリー": 7,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

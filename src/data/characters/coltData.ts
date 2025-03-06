@@ -90,7 +90,9 @@ export const coltData: CharacterCompatibility = {
     "アンバー": 7,
     "サンディ": 8,
     "ミープル": 5,
-    "オーリー": 8
+    "オーリー": 8,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

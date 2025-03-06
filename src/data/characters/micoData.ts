@@ -90,7 +90,9 @@ export const micoData: CharacterCompatibility = {
     "アンバー": 6,
     "サンディ": 7,
     "ミープル": 4,
-    "オーリー": 0
+    "オーリー": 0,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

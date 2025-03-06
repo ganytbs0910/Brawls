@@ -90,7 +90,9 @@ export const squeakData: CharacterCompatibility = {
     "アンバー": 4,
     "サンディ": 6,
     "ミープル": 5,
-    "オーリー": 7
+    "オーリー": 7,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

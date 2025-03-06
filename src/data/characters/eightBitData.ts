@@ -90,7 +90,9 @@ export const eightBitData: CharacterCompatibility = {
     "アンバー": 4,
     "サンディ": 7,
     "ミープル": 5,
-    "オーリー": 9
+    "オーリー": 9,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

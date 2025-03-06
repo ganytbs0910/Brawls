@@ -90,7 +90,9 @@ export const charlieData: CharacterCompatibility = {
     "アンバー": 2,
     "サンディ": 1,
     "ミープル": 10,
-    "オーリー": 2
+    "オーリー": 2,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

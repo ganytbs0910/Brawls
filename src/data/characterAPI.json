@@ -2,6 +2,202 @@
 {
   "list": [
     {
+      "id": 16000091,
+      "name": {
+        "ja": "Lumi",
+        "en": "lumi"
+      },
+      "image": "require('../../assets/BrawlerIcons/lumi_pin.png')",
+      "class": {
+        "id": 1,
+        "name": "Attacker"
+      },
+      "rarity": {
+        "id": 5,
+        "name": "Mystic",
+        "color": "#fe5e72"
+      },
+      "description": {
+        "ja": "ルミはメタル愛に溢れるドラマー出会ったが、スターパークへの就職を機に、ドラムスティックをモーニングスターへと切り替えた。氷と炎を操る彼女の力は、内気な性格と音楽への熱い情熱を映し出している。",
+        "en": "Lumi is a drummer who is full of love for metal, but when she got a job at Starr Park, she switched her drumsticks to a morning star. Her power to control ice and fire reflects her shy personality and her passion for music.",
+      },
+      "starPowers": [
+        {
+          "name": {
+            "ja": "バーンアウト",
+            "en": "42%　BURNT"
+          },
+          "description": {
+            "ja": "a",
+            "en": "a"
+          },
+          "recommendation": {
+            "level": 2,
+            "reason": {
+              "ja": "a",
+              "en": "a"
+            }
+          }
+        },
+        {
+          "name": {
+            "ja": "ハーフタイム",
+            "en": "HALF-TIME"
+          },
+          "description": {
+            "ja": "モーニングスターを引き戻す際に巻き込んだ敵を2秒間スローダウンさせる。",
+            "en": "Enemies caught when pulling back the morning star are slowed down for 2 seconds."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "a",
+              "en": "a"
+            }
+          }
+        }
+      ],
+      "gadgets": [
+        {
+          "name": {
+            "ja": "インフェルノフレイム",
+            "en": "INFERNAL FLAMES"
+          },
+          "description": {
+            "ja": "地面のモーニングスターに炎を纏わせ、3.9秒間にわたって付近の敵にダメージを与える。",
+            "en": "Wrap the morning star on the ground in flames and deal damage to nearby enemies for 3.9 seconds."
+          },
+          "recommendation": {
+            "level": 4,
+            "reason": {
+              "ja": "a",
+              "en": "a"
+            }
+          }
+        },
+        {
+          "name": {
+            "ja": "アイスキューブ",
+            "en": "GRIM　AND FROSTIBITTEN"
+          },
+          "description": {
+            "ja": "地面のモーニングスターに氷を纏わせ、付近を3.9秒間にわたって滑りやすくする。",
+            "en": "Wrap the morning star on the ground in ice and make the area slippery for 3.9 seconds."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "",
+              "en": ""
+            }
+          }
+        }
+      ],
+      "gears": [
+        1,
+        5,
+        6
+      ]
+    },
+    {
+      "id": 16000089,
+      "name": {
+        "ja": "フィンクス",
+        "en": "Finx"
+      },
+      "image": "require('../../assets/BrawlerIcons/finx_pin.png')",
+      "class": {
+        "id": 5,
+        "name": "Controller"
+      },
+      "rarity": {
+        "id": 5,
+        "name": "Mystic",
+        "color": "#fe5e72"
+      },
+      "description": {
+        "ja": "フィンクスはスターパークの脱出ゲームの管理人。本来はお客さんを助けるのが仕事だが、時間を操る能力でイタズラばかりしている。ちなみに、大の猫好きだ。",
+        "en": "Finx is the manager of the escape games at Starr Park. He's supposed to help the guests, but he's always up to mischief with his time manipulation powers. By the way, he loves cats.",
+      },
+      "starPowers": [
+        {
+          "name": {
+            "ja": "ピエログリフ",
+            "en": "HIEROGLYPH HALT"
+          },
+          "description": {
+            "ja": "通常攻撃が命中した敵キャラクターのリロード速度を、3秒にわたって30%低下させる",
+            "en": "Finx's basic attack reduces the reload speed of the enemy character who was hit by 30% for 3 seconds."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "もう一つの効果が弱いのと、リロードの低下率と時間が長くかなり使いやすいためこちらが必須",
+              "en": "The other effect is weak, and the reduction rate and time of reload are long, so this is essential because it is quite easy to use."
+            }
+          }
+        },
+        {
+          "name": {
+            "ja": "プライムタイム",
+            "en": "PRIMER"
+          },
+          "description": {
+            "ja": "必殺技で高速化したフィンクスの弾が命中するたびに、必殺技の効果時間が0.25秒間延びる",
+            "en": "Every time Finx's accelerated bullet hits, the effect time of the super is extended by 0.25 seconds."
+          },
+          "recommendation": {
+            "level": 1,
+            "reason": {
+              "ja": "効果時間が誤差程度しか伸びないためほぼ無意味",
+              "en": "It is almost meaningless because the effect time is extended by only a margin."
+            }
+          }
+        }
+      ],
+      "gadgets": [
+        {
+          "name": {
+            "ja": "バックトゥザパスト",
+            "en": "BACK TO THE FINXTURE"
+          },
+          "description": {
+            "ja": "時間を巻き戻して、自分の位置と弾薬数を3秒前の状態に戻す\nクールダウン:18秒",
+            "en": "Rewind time to return to your position and ammo count from 3 seconds ago."
+          },
+          "recommendation": {
+            "level": 5,
+            "reason": {
+              "ja": "弾薬が満タンかつ不意打ち攻撃ができるためかなり強力",
+              "en": "It is quite powerful because it can be fully loaded with ammunition and can make a surprise attack."
+            }
+          }
+        },
+        {
+          "name": {
+            "ja": "ノーエスケープ",
+            "en": "NO ESCAPE"
+          },
+          "description": {
+            "ja": "次の通常攻撃の中心の球が、敵を2秒間にわたって凍らせる。凍らせた敵は一切の行動を封じられるが、ダメージも受けなくなる。",
+            "en": "The center ball of the next basic attack freezes the enemy for 2 seconds. The frozen enemy is unable to take any action, but also does not take damage."
+          },
+          "recommendation": {
+            "level": 2,
+            "reason": {
+              "ja": "確定シュート以外では全く使用されないため、全く強くない",
+              "en": "It is not used at all except for the confirmed shot, so it is not strong at all."
+            }
+          }
+        }
+      ],
+      "gears": [
+        1,
+        2,
+        6
+      ]
+    },
+    {
       "id": 16000090,
       "name": {
         "ja": "オーリー",

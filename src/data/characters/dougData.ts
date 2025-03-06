@@ -90,7 +90,9 @@ export const dougData: CharacterCompatibility = {
     "アンバー": 2,
     "サンディ": 1,
     "ミープル": 1,
-    "オーリー": 4
+    "オーリー": 4,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

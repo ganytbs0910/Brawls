@@ -90,7 +90,9 @@ export const mandyData: CharacterCompatibility = {
     "アンバー": 7,
     "サンディ": 7,
     "ミープル": 7,
-    "オーリー": 9
+    "オーリー": 9,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

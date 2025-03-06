@@ -90,7 +90,9 @@ export const lolaData: CharacterCompatibility = {
     "アンバー": 3,
     "サンディ": 7,
     "ミープル": 6,
-    "オーリー": 8
+    "オーリー": 8,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

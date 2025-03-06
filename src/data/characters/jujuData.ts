@@ -90,7 +90,9 @@ export const jujuData: CharacterCompatibility = {
     "アンバー": 8,
     "サンディ": 10,
     "ミープル": 8,
-    "オーリー": 8
+    "オーリー": 8,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

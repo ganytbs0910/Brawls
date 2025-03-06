@@ -90,7 +90,9 @@ export const moeData: CharacterCompatibility = {
     "アンバー": 4,
     "サンディ": 8,
     "ミープル": 2,
-    "オーリー": 8
+    "オーリー": 8,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

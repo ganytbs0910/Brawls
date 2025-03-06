@@ -90,7 +90,9 @@ export const pamData: CharacterCompatibility = {
     "アンバー": 3,
     "サンディ": 4,
     "ミープル": 3,
-    "オーリー": 5
+    "オーリー": 5,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

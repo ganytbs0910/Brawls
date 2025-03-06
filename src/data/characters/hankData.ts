@@ -91,7 +91,8 @@ export const hankData: CharacterCompatibility = {
     "サンディ": 3,
     "ミープル": 3,
     "オーリー": 7,
-    "ファインクス": 10
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

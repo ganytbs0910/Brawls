@@ -90,7 +90,9 @@ export const sandyData: CharacterCompatibility = {
     "チャーリー": 9,
     "アンバー": 5,
     "ミープル": 4,
-    "オーリー": 9
+    "オーリー": 9,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

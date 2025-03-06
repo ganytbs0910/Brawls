@@ -90,7 +90,9 @@ export const byronData: CharacterCompatibility = {
     "アンバー": 8,
     "サンディ": 7,
     "ミープル": 8,
-    "オーリー": 9
+    "オーリー": 9,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }

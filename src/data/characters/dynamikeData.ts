@@ -90,7 +90,9 @@ export const dynamikeData: CharacterCompatibility = {
     "アンバー": 8,
     "サンディ": 7,
     "ミープル": 6,
-    "オーリー": 3
+    "オーリー": 3,
+    "ファインクス": 5,
+    "ルミ": 5
   },
   "explanation": {}
 }
