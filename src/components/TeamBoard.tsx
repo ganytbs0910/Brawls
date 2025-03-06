@@ -79,8 +79,9 @@ const DISPLAY_MODES = [
   'bounty',
   'wipeout',
   'hotZone',
+  'brawlHockey',
   'brawlBall5v5',
-  'wipeout5v5'
+  'wipeout5v5',
 ];
 
 // ゲームモード情報を取得する関数
@@ -230,23 +231,7 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
   // 言語に基づいてテーブル名を取得
   const getTableName = (lang: string) => `team_posts_${lang}`;
 
-  // ゲームモードの設定
   const getCurrentModes = (t: TeamBoardTranslation) => {
-  // 表示するゲームモードを限定する
-  const DISPLAY_MODES = [
-    'ranked',
-    'duoShowdown',
-    'gemGrab',
-    'brawlBall',
-    'heist',
-    'knockout',
-    'bounty',
-    'wipeout',
-    'hotZone',
-    'brawlBall5v5',
-    'wipeout5v5'
-  ];
-
   const modes: GameMode[] = DISPLAY_MODES.map(modeId => {
     // modeData.tsからモード情報を取得
     const modeKey = Object.keys(GAME_MODES).find(key => 
