@@ -22,7 +22,8 @@ export const newsTranslations = {
     requiredField: 'This field is required',
     fetchError: 'Failed to fetch data',
     createError: 'Failed to create post',
-    passwordError: 'Invalid password'
+    passwordError: 'Invalid password',
+    noPosts: 'No posts available. Create the first post!' // 追加
   },
   ja: {
     title: 'YouTube News',
@@ -46,7 +47,8 @@ export const newsTranslations = {
     requiredField: 'この項目は必須です',
     fetchError: 'データの取得に失敗しました',
     createError: '投稿の作成に失敗しました',
-    passwordError: 'パスワードが間違っています'
+    passwordError: 'パスワードが間違っています',
+    noPosts: '投稿がありません。最初の投稿を作成しましょう！' // 追加
   },
   ko: {
     title: 'YouTube News',
@@ -70,7 +72,8 @@ export const newsTranslations = {
     requiredField: '필수 입력 항목입니다',
     fetchError: '데이터를 가져오는데 실패했습니다',
     createError: '게시물 작성에 실패했습니다',
-    passwordError: '잘못된 비밀번호입니다'
+    passwordError: '잘못된 비밀번호입니다',
+    noPosts: '게시물이 없습니다. 첫 번째 게시물을 작성해보세요!' // 追加
   },
   ar: {
     title: 'YouTube News',
@@ -94,7 +97,8 @@ export const newsTranslations = {
     requiredField: 'هذا الحقل مطلوب',
     fetchError: 'فشل في جلب البيانات',
     createError: 'فشل في إنشاء المنشور',
-    passwordError: 'كلمة المرور غير صحيحة'
+    passwordError: 'كلمة المرور غير صحيحة',
+    noPosts: 'لا توجد منشورات متاحة. قم بإنشاء أول منشور!' // 追加
   },
   fr: {
     title: 'YouTube News',
@@ -118,7 +122,8 @@ export const newsTranslations = {
     requiredField: 'Ce champ est requis',
     fetchError: 'Échec de récupération des données',
     createError: 'Échec de création de la publication',
-    passwordError: 'Mot de passe invalide'
+    passwordError: 'Mot de passe invalide',
+    noPosts: 'Aucune publication disponible. Créez la première publication !' // 追加
   },
   es: {
     title: 'YouTube News',
@@ -142,7 +147,8 @@ export const newsTranslations = {
     requiredField: 'Este campo es obligatorio',
     fetchError: 'Error al obtener datos',
     createError: 'Error al crear la publicación',
-    passwordError: 'Contraseña inválida'
+    passwordError: 'Contraseña inválida',
+    noPosts: 'No hay publicaciones disponibles. ¡Crea la primera publicación!' // 追加
   },
   zhTw: {
     title: 'YouTube News',
@@ -166,10 +172,10 @@ export const newsTranslations = {
     requiredField: '此欄位為必填',
     fetchError: '無法取得資料',
     createError: '無法建立貼文',
-    passwordError: '密碼錯誤'
+    passwordError: '密碼錯誤',
+    noPosts: '目前沒有任何貼文。快來建立第一個貼文吧！' // 追加
   }
 } as const;
-
 
 export type Language = keyof typeof newsTranslations;
 export type TranslationKey = keyof typeof newsTranslations.en;

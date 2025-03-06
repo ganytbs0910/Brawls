@@ -295,7 +295,7 @@ const News: React.FC<NewsProps> = ({ isAdFree = false }) => {
         ) : (
           <View style={styles.noContentContainer}>
             <Text style={styles.noContentText}>
-              投稿がありません。最初の投稿を作成しましょう！
+              {t.noPosts}
             </Text>
           </View>
         )}
