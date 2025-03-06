@@ -887,10 +887,6 @@ export const CHARACTER_NAMES = {
     ja: "フィンクス",
     en: "Finx",
     ko: "핀크스",
-    es: "Finx",
-    ar: "فينكس",
-    fr: "Finx",
-    "zhTw": "芬克斯"
   }
 } as const;
 

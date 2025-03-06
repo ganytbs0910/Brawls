@@ -106,7 +106,8 @@
       "id": 16000089,
       "name": {
         "ja": "フィンクス",
-        "en": "Finx"
+        "en": "Finx",
+        "ko": "핀크스"
       },
       "image": "require('../../assets/BrawlerIcons/finx_pin.png')",
       "class": {
