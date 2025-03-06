@@ -31,6 +31,8 @@ export type SettingsScreenTranslation = {
     cancel: string;
     confirm: string;
     complete: string;
+    priceDisplay: string;
+    productName: string;
     errors: {
       failed: string;
       alreadyOwned: string;
@@ -84,10 +86,12 @@ export const ja: SettingsScreenTranslation = {
   },
   purchase: {
     title: '広告削除の購入',
-    message: '¥800で広告を完全に削除します。\n購入を続けますか？',
+    message: '{price}で広告を完全に削除します。\n購入を続けますか？',
     cancel: 'キャンセル',
     confirm: '購入する',
     complete: '広告の削除が完了しました！',
+    priceDisplay: '¥800',
+    productName: '広告削除パック',
     errors: {
       failed: '購入処理に失敗しました。',
       alreadyOwned: 'すでに購入済みです。購入の復元をお試しください。',
@@ -141,10 +145,12 @@ export const en: SettingsScreenTranslation = {
   },
   purchase: {
     title: 'Remove Ads',
-    message: 'Remove ads completely for $4.99.\nWould you like to continue?',
+    message: 'Remove ads completely for {price}.\nWould you like to continue?',
     cancel: 'Cancel',
     confirm: 'Purchase',
     complete: 'Ads have been successfully removed!',
+    priceDisplay: '$4.99',
+    productName: 'Ad Removal Pack',
     errors: {
       failed: 'Purchase failed.',
       alreadyOwned: 'Already purchased. Please try restoring your purchase.',
@@ -198,10 +204,12 @@ export const ko: SettingsScreenTranslation = {
   },
   purchase: {
     title: '광고 제거',
-    message: '₩5,500에 광고를 완전히 제거합니다계속하시겠습니까?',
+    message: '{price}에 광고를 완전히 제거합니다\n계속하시겠습니까?',
     cancel: '취소',
     confirm: '구매',
     complete: '광고가 성공적으로 제거되었습니다!',
+    priceDisplay: '₩5,500',
+    productName: '광고 제거 팩',
     errors: {
       failed: '구매에 실패했습니다.',
       alreadyOwned: '이미 구매한 상품입니다. 구매 복원을 시도해주세요.',
@@ -255,10 +263,12 @@ export const es: SettingsScreenTranslation = {
   },
   purchase: {
     title: 'Eliminar Anuncios',
-    message: 'Eliminar anuncios completamente por €4.99.\n¿Desea continuar?',
+    message: 'Eliminar anuncios completamente por {price}.\n¿Desea continuar?',
     cancel: 'Cancelar',
     confirm: 'Comprar',
     complete: '¡Los anuncios se han eliminado exitosamente!',
+    priceDisplay: '€4.99',
+    productName: 'Paquete de eliminación de anuncios',
     errors: {
       failed: 'La compra falló.',
       alreadyOwned: 'Ya comprado. Intente restaurar su compra.',
@@ -312,10 +322,12 @@ export const ar: SettingsScreenTranslation = {
   },
   purchase: {
     title: 'إزالة الإعلانات',
-    message: 'إزالة جميع الإعلانات بمبلغ 4.99 دولار.\nهل ترغب في المتابعة؟',
+    message: 'إزالة جميع الإعلانات بمبلغ {price}.\nهل ترغب في المتابعة؟',
     cancel: 'إلغاء',
     confirm: 'شراء',
     complete: 'تم إزالة الإعلانات بنجاح!',
+    priceDisplay: '$4.99',
+    productName: 'حزمة إزالة الإعلانات',
     errors: {
       failed: 'فشلت عملية الشراء.',
       alreadyOwned: 'تم الشراء مسبقاً. يرجى محاولة استعادة مشترياتك.',
@@ -369,10 +381,12 @@ export const fr: SettingsScreenTranslation = {
   },
   purchase: {
     title: 'Supprimer les Publicités',
-    message: 'Supprimer toutes les publicités pour 4,99 €.\nSouhaitez-vous continuer ?',
+    message: 'Supprimer toutes les publicités pour {price}.\nSouhaitez-vous continuer ?',
     cancel: 'Annuler',
     confirm: 'Acheter',
     complete: 'Les publicités ont été supprimées avec succès !',
+    priceDisplay: '€4.99',
+    productName: 'Pack suppression des publicités',
     errors: {
       failed: 'L\'achat a échoué.',
       alreadyOwned: 'Déjà acheté. Veuillez essayer de restaurer votre achat.',
@@ -426,10 +440,12 @@ export const zhTw: SettingsScreenTranslation = {
   },
   purchase: {
     title: '移除廣告',
-    message: '以 $4.99 完全移除廣告。\n是否要繼續？',
+    message: '以 {price} 完全移除廣告。\n是否要繼續？',
     cancel: '取消',
     confirm: '購買',
     complete: '已成功移除廣告！',
+    priceDisplay: 'NT$150',
+    productName: '移除廣告套件',
     errors: {
       failed: '購買失敗。',
       alreadyOwned: '已經購買過。請嘗試恢復購買。',

@@ -42,12 +42,6 @@ const AD_REMOVAL_SKU_IOS = 'com.brawlstatus.adremoval';
 const AD_REMOVAL_SKU_ANDROID = 'brawl_status_ad_removal';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-const PURCHASE_CONFIG = {
-  PRICE: 800,
-  PRICE_DISPLAY: '¥800',
-  PRODUCT_NAME: '広告削除パック',
-} as const;
-
 // ScreenType に 'news' を追加
 type ScreenType = 'settings' | 'privacy' | 'terms' | 'allTips' | 'punishmentGame' | 'language' | 'mapDetail' | 'roulette' | 'news';
 
@@ -205,7 +199,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
 
     Alert.alert(
       t.purchase.title,
-      t.purchase.message,
+      t.purchase.message.replace('{price}', t.purchase.priceDisplay),
       [
         {
           text: t.purchase.cancel,
@@ -470,7 +464,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
           {!isAdFree && !loading && (
             <View style={styles.priceContainer}>
               <Text style={styles.price}>
-                {PURCHASE_CONFIG.PRICE_DISPLAY}
+                {t.purchase.priceDisplay}
               </Text>
             </View>
           )}
