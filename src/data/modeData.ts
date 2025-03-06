@@ -259,7 +259,7 @@ export const GAME_MODES: { [key: string]: GameMode } = {
     translations: {
       ja: 'ブロスタホッケー',
       en: 'Brawl Hockey',
-      ko: '아이스 브롤',
+      ko: '브롤 하키',
       es: 'Hockey Brawl',
       ar: 'هوكي براول',
       fr: 'Brawl Hockey',

@@ -13,41 +13,41 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
   const { t } = useTeamSectionTranslation();
 
   const renderSlot = (type: 'ban' | 'team', index: number) => {
-    const characters = type === 'ban' 
-      ? (team === 'A' ? gameState.bansA : gameState.bansB)
-      : (team === 'A' ? gameState.teamA : gameState.teamB);
-    
-    const character = characters[index];
-    const isActive = gameState.currentTeam === team;
-    
-    const slotStyle = [
-      styles.slot,
-      type === 'ban' && styles.banSlot,
-      type === 'team' && styles.teamSlot,
-      isActive && type === 'team' && 
-        (team === 'A' ? styles.activeTeamSlotA : styles.activeTeamSlotB)
-    ];
+  const characters = type === 'ban' 
+    ? (team === 'A' ? gameState.bansA : gameState.bansB)
+    : (team === 'A' ? gameState.teamA : gameState.teamB);
+  
+  const character = characters[index];
+  const isActive = gameState.currentTeam === team;
+  
+  const slotStyle = [
+    styles.slot,
+    type === 'ban' && styles.banSlot,
+    type === 'team' && styles.teamSlot,
+    isActive && type === 'team' && 
+      (team === 'A' ? styles.activeTeamSlotA : styles.activeTeamSlotB)
+  ];
 
-    return (
-      <View key={index} style={slotStyle}>
-        {character ? (
-          <View style={styles.selectedCharacter}>
-            <CharacterImage 
-              characterName={character} 
-              size={type === 'ban' ? 30 : 36} 
-            />
-            {type === 'ban' && (
-              <View style={styles.banOverlay}>
-                <Text style={styles.banX}>×</Text>
-              </View>
-            )}
-          </View>
-        ) : (
-          <Text style={styles.emptySlot}>{t.emptySlot}</Text>
-        )}
-      </View>
-    );
-  };
+  return (
+    <View key={`${team}-${type}-${index}`} style={slotStyle}>
+      {character ? (
+        <View style={styles.selectedCharacter}>
+          <CharacterImage 
+            characterName={character} 
+            size={type === 'ban' ? 30 : 36} 
+          />
+          {type === 'ban' && (
+            <View style={styles.banOverlay}>
+              <Text style={styles.banX}>×</Text>
+            </View>
+          )}
+        </View>
+      ) : (
+        <Text style={styles.emptySlot}>{t.emptySlot}</Text>
+      )}
+    </View>
+  );
+};
 
   const renderSection = (type: 'ban' | 'team') => {
     const count = type === 'ban' ? 3 : 3;

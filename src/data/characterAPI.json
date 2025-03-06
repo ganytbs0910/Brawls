@@ -5,7 +5,8 @@
       "id": 16000091,
       "name": {
         "ja": "Lumi",
-        "en": "lumi"
+        "en": "lumi",
+        "ko": "다크 다크 나이트 루미"
       },
       "image": "require('../../assets/BrawlerIcons/lumi_pin.png')",
       "class": {
@@ -20,22 +21,24 @@
       "description": {
         "ja": "ルミはメタル愛に溢れるドラマー出会ったが、スターパークへの就職を機に、ドラムスティックをモーニングスターへと切り替えた。氷と炎を操る彼女の力は、内気な性格と音楽への熱い情熱を映し出している。",
         "en": "Lumi is a drummer who is full of love for metal, but when she got a job at Starr Park, she switched her drumsticks to a morning star. Her power to control ice and fire reflects her shy personality and her passion for music.",
+        "ko": "루미는 메탈을 사랑하는 드러머였지만, 스타파크에서 일을 구하면서 드럼스틱을 모닝스타로 바꿨습니다. 얼음과 불을 조종하는 그녀의 힘은 소심한 성격과 음악에 대한 열정을 반영하고 있습니다."
       },
       "starPowers": [
         {
           "name": {
             "ja": "バーンアウト",
-            "en": "42%　BURNT"
+            "en": "42%　BURNT",
+            "ko": "42% 연소"
           },
           "description": {
-            "ja": "a",
-            "en": "a"
+            "ja": "",
+            "en": ""
           },
           "recommendation": {
             "level": 2,
             "reason": {
-              "ja": "a",
-              "en": "a"
+              "ja": "",
+              "en": ""
             }
           }
         },
@@ -51,8 +54,8 @@
           "recommendation": {
             "level": 5,
             "reason": {
-              "ja": "a",
-              "en": "a"
+              "ja": "",
+              "en": ""
             }
           }
         }
@@ -70,8 +73,8 @@
           "recommendation": {
             "level": 4,
             "reason": {
-              "ja": "a",
-              "en": "a"
+              "ja": "",
+              "en": ""
             }
           }
         },
@@ -122,35 +125,41 @@
       "starPowers": [
         {
           "name": {
-            "ja": "ピエログリフ",
-            "en": "HIEROGLYPH HALT"
+            "ja": "ヒエログリフ",
+            "en": "HIEROGLYPH HALT",
+            "ko": "그대로 멈춰라"
           },
           "description": {
             "ja": "通常攻撃が命中した敵キャラクターのリロード速度を、3秒にわたって30%低下させる",
-            "en": "Finx's basic attack reduces the reload speed of the enemy character who was hit by 30% for 3 seconds."
+            "en": "Finx's basic attack reduces the reload speed of the enemy character who was hit by 30% for 3 seconds.",
+            "ko": "일반 공격에 맞은 모든 적 브롤러의 재장전 속도를 3초 동안 30% 감소시킵니다."
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "もう一つの効果が弱いのと、リロードの低下率と時間が長くかなり使いやすいためこちらが必須",
-              "en": "The other effect is weak, and the reduction rate and time of reload are long, so this is essential because it is quite easy to use."
+              "en": "The other effect is weak, and the reduction rate and time of reload are long, so this is essential because it is quite easy to use.",
+              "ko": "다른 효과가 약하고, 감소율과 시간이 길어 매우 사용하기 쉬우므로 필수입니다."
             }
           }
         },
         {
           "name": {
             "ja": "プライムタイム",
-            "en": "PRIMER"
+            "en": "PRIMER",
+            "ko": "상부상조"
           },
           "description": {
             "ja": "必殺技で高速化したフィンクスの弾が命中するたびに、必殺技の効果時間が0.25秒間延びる",
-            "en": "Every time Finx's accelerated bullet hits, the effect time of the super is extended by 0.25 seconds."
+            "en": "Every time Finx's accelerated bullet hits, the effect time of the super is extended by 0.25 seconds.",
+            "ko": "필살기로 고속화된 피닉스의 탄이 명중할 때마다 필살기의 효과 시간이 0.25초 연장됩니다."
           },
           "recommendation": {
             "level": 1,
             "reason": {
               "ja": "効果時間が誤差程度しか伸びないためほぼ無意味",
-              "en": "It is almost meaningless because the effect time is extended by only a margin."
+              "en": "It is almost meaningless because the effect time is extended by only a margin.",
+              "ko": "효과 시간이 오차 정도만 늘어나기 때문에 거의 무의미합니다."
             }
           }
         }
@@ -159,34 +168,40 @@
         {
           "name": {
             "ja": "バックトゥザパスト",
-            "en": "BACK TO THE FINXTURE"
+            "en": "BACK TO THE FINXTURE",
+            "ko": "과거로의 귀환"
           },
           "description": {
             "ja": "時間を巻き戻して、自分の位置と弾薬数を3秒前の状態に戻す\nクールダウン:18秒",
-            "en": "Rewind time to return to your position and ammo count from 3 seconds ago."
+            "en": "Rewind time to return to your position and ammunition count 3 seconds ago.\nCooldown:18seconds",
+            "ko": "시간을 되감아 자신의 위치와 탄약 수를 3초 전의 상태로 되돌립니다.\n재사용 대기 시간:18초"
           },
           "recommendation": {
             "level": 5,
             "reason": {
               "ja": "弾薬が満タンかつ不意打ち攻撃ができるためかなり強力",
-              "en": "It is quite powerful because it can be fully loaded with ammunition and can make a surprise attack."
+              "en": "It is quite powerful because it can be fully loaded with ammunition and can make a surprise attack.",
+              "ko": "탄약이 가득 차 있고 기습 공격을 할 수 있기 때문에 상당히 강력합니다."
             }
           }
         },
         {
           "name": {
             "ja": "ノーエスケープ",
-            "en": "NO ESCAPE"
+            "en": "NO ESCAPE",
+            "ko": "탈출 불가"
           },
           "description": {
             "ja": "次の通常攻撃の中心の球が、敵を2秒間にわたって凍らせる。凍らせた敵は一切の行動を封じられるが、ダメージも受けなくなる。",
-            "en": "The center ball of the next basic attack freezes the enemy for 2 seconds. The frozen enemy is unable to take any action, but also does not take damage."
+            "en": "The center ball of the next basic attack freezes the enemy for 2 seconds. The frozen enemy is unable to take any action, but also does not take damage.",
+            "ko": "다음 일반 공격의 중심 공이 적을 2초 동안 얼립니다. 얼린 적은 어떤 행동도 할 수 없지만, 데미지도 입지 않습니다."
           },
           "recommendation": {
             "level": 2,
             "reason": {
               "ja": "確定シュート以外では全く使用されないため、全く強くない",
-              "en": "It is not used at all except for the confirmed shot, so it is not strong at all."
+              "en": "It is not used at all except for the confirmed shot, so it is not strong at all.",
+              "ko": "확정 슈트 이외에는 전혀 사용되지 않으므로 전혀 강하지 않습니다."
             }
           }
         }

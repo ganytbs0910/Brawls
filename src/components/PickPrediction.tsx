@@ -175,12 +175,12 @@ const PickPrediction: React.FC = () => {
 
   // モードと言語の関係を処理する関数
   const getGameModeByName = (modeName: string) => {
-    return Object.values(GAME_MODES).find(mode => {
-      // 現在の言語でのモード名と一致するか確認
-      const currentLanguage = t.currentLanguage || 'en';
-      return mode.translations[currentLanguage] === modeName;
-    });
-  };
+  // 最初に見つかったモードのみを返す
+  return Object.values(GAME_MODES).find(mode => {
+    const currentLanguage = t.currentLanguage || 'en';
+    return mode.translations[currentLanguage] === modeName;
+  });
+};
 
   const renderModeAndMapModal = () => {
     return (
@@ -198,34 +198,34 @@ const PickPrediction: React.FC = () => {
           <View style={styles.modeModalContent}>
             <View style={styles.modeGrid}>
               {/* 限定された表示モードのみを使用 */}
-              {displayModes.map((mode) => (
-                <TouchableOpacity
-                  key={mode.name}
-                  style={[
-                    styles.modeModalButton,
-                    gameState.selectedMode === mode.translations[t.currentLanguage] && {
-                      backgroundColor: mode.color
-                    }
-                  ]}
-                  onPress={() => handleModeSelect(mode.name)}
-                >
-                  <Image source={mode.icon} style={styles.modeIcon} />
-                </TouchableOpacity>
-              ))}
+              {displayModes.map((mode, index) => (
+  <TouchableOpacity
+    key={`mode-${mode.name}-${index}`}
+    style={[
+      styles.modeModalButton,
+      gameState.selectedMode === mode.translations[t.currentLanguage] && {
+        backgroundColor: mode.color
+      }
+    ]}
+    onPress={() => handleModeSelect(mode.name)}
+  >
+    <Image source={mode.icon} style={styles.modeIcon} />
+  </TouchableOpacity>
+))}
             </View>
             {gameState.selectedMode && (
               <>
                 <Text style={styles.mapModalTitle}>{t.mapSelection.title}</Text>
                 <View style={styles.mapGrid}>
-                  {getMapsByMode(gameState.selectedMode).map((map) => (
-                    <TouchableOpacity
-                      key={map.name}
-                      style={[
-                        styles.mapModalButton,
-                        gameState.selectedMap === map.name && styles.selectedMapButton
-                      ]}
-                      onPress={() => handleMapSelect(map.name)}
-                    >
+                  {getMapsByMode(gameState.selectedMode).map((map, index) => (
+  <TouchableOpacity
+    key={`map-${map.name}-${index}`}
+    style={[
+      styles.mapModalButton,
+      gameState.selectedMap === map.name && styles.selectedMapButton
+    ]}
+    onPress={() => handleMapSelect(map.name)}
+  >
                       <View style={styles.mapModalImageContainer}>
                         <Image source={map.image} style={styles.mapModalImage} />
                         <TouchableOpacity 

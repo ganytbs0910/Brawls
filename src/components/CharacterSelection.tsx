@@ -93,27 +93,27 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
 };
 
   const renderRecommendation = (rec: CharacterRecommendation, index: number) => {
-    const isSelected = gameState.teamA.includes(rec.character) || 
-                      gameState.teamB.includes(rec.character);
-    
-    // 現在のチームのバン状態のみをチェック
-    const isBannedByCurrentTeam = gameState.currentTeam === 'A' ? 
-      gameState.bansA.includes(rec.character) : 
-      gameState.bansB.includes(rec.character);
+  const isSelected = gameState.teamA.includes(rec.character) || 
+                    gameState.teamB.includes(rec.character);
+  
+  // 現在のチームのバン状態のみをチェック
+  const isBannedByCurrentTeam = gameState.currentTeam === 'A' ? 
+    gameState.bansA.includes(rec.character) : 
+    gameState.bansB.includes(rec.character);
 
-    const isSelectable = !isSelected && !isBannedByCurrentTeam;
+  const isSelectable = !isSelected && !isBannedByCurrentTeam;
 
-    return (
-      <TouchableOpacity
-        key={index}
-        style={[
-          styles.recommendationRow,
-          isSelectable && styles.selectableRecommendation,
-          !isSelectable && styles.disabledRecommendation
-        ]}
-        onPress={() => isSelectable && onCharacterSelect(rec.character)}
-        disabled={!isSelectable}
-      >
+  return (
+    <TouchableOpacity
+      key={`recommendation-${rec.character}-${index}`}
+      style={[
+        styles.recommendationRow,
+        isSelectable && styles.selectableRecommendation,
+        !isSelectable && styles.disabledRecommendation
+      ]}
+      onPress={() => isSelectable && onCharacterSelect(rec.character)}
+      disabled={!isSelectable}
+    >
         <View style={styles.recommendationContent}>
           <View style={styles.characterInfo}>
             <Text style={styles.rankText}>{ct.recommendations.rank(index)}</Text>
@@ -174,28 +174,28 @@ export const CharacterSelection: React.FC<CharacterSelectionProps> = ({
       )}
 
       <View style={styles.characterGrid}>
-        {Object.values(CHARACTER_MAP).map((character) => {
-          const isBannedByTeamA = gameState.bansA.includes(character);
-          const isBannedByTeamB = gameState.bansB.includes(character);
-          const isSelected = gameState.teamA.includes(character) || gameState.teamB.includes(character);
-          
-          // 現在のチームのバン状態のみを考慮
-          const isDisabled = isSelected || 
-                           (gameState.currentTeam === 'A' && isBannedByTeamA) ||
-                           (gameState.currentTeam === 'B' && isBannedByTeamB);
-          
-          return (
-            <TouchableOpacity
-              key={character}
-              style={[
-                styles.characterButton,
-                ((isBannedByTeamA && gameState.currentTeam === 'A') || 
-                 (isBannedByTeamB && gameState.currentTeam === 'B')) && styles.bannedCharacterButton,
-                isSelected && styles.selectedCharacterButton,
-                gameState.recommendations.slice(0, 10).some(rec => rec.character === character) && {
-                  borderColor: '#00BCD4'
-                }
-              ]}
+  {Object.values(CHARACTER_MAP).map((character, index) => {
+    const isBannedByTeamA = gameState.bansA.includes(character);
+    const isBannedByTeamB = gameState.bansB.includes(character);
+    const isSelected = gameState.teamA.includes(character) || gameState.teamB.includes(character);
+    
+    // 現在のチームのバン状態のみを考慮
+    const isDisabled = isSelected || 
+                     (gameState.currentTeam === 'A' && isBannedByTeamA) ||
+                     (gameState.currentTeam === 'B' && isBannedByTeamB);
+    
+    return (
+      <TouchableOpacity
+        key={`character-${character}-${index}`}
+        style={[
+          styles.characterButton,
+          ((isBannedByTeamA && gameState.currentTeam === 'A') || 
+           (isBannedByTeamB && gameState.currentTeam === 'B')) && styles.bannedCharacterButton,
+          isSelected && styles.selectedCharacterButton,
+          gameState.recommendations.slice(0, 10).some(rec => rec.character === character) && {
+            borderColor: '#00BCD4'
+          }
+        ]}
               onPress={() => {
                 if (gameState.isBanPhaseEnabled && (
                   (gameState.bansA.length < 3 && gameState.currentTeam === 'A') ||
