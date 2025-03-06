@@ -84,7 +84,7 @@ export const ja: SettingsScreenTranslation = {
   },
   purchase: {
     title: '広告削除の購入',
-    message: '¥500で広告を完全に削除します。\n購入を続けますか？',
+    message: '¥800で広告を完全に削除します。\n購入を続けますか？',
     cancel: 'キャンセル',
     confirm: '購入する',
     complete: '広告の削除が完了しました！',
@@ -198,7 +198,7 @@ export const ko: SettingsScreenTranslation = {
   },
   purchase: {
     title: '광고 제거',
-    message: '₩5,000으로 광고를 완전히 제거합니다.\n계속 진행하시겠습니까?',
+    message: '₩5,500에 광고를 완전히 제거합니다계속하시겠습니까?',
     cancel: '취소',
     confirm: '구매',
     complete: '광고가 성공적으로 제거되었습니다!',
@@ -312,7 +312,7 @@ export const ar: SettingsScreenTranslation = {
   },
   purchase: {
     title: 'إزالة الإعلانات',
-    message: 'إزالة الإعلانات بالكامل مقابل 19.99 ريال.\nهل تريد المتابعة؟',
+    message: 'إزالة جميع الإعلانات بمبلغ 4.99 دولار.\nهل ترغب في المتابعة؟',
     cancel: 'إلغاء',
     confirm: 'شراء',
     complete: 'تم إزالة الإعلانات بنجاح!',
@@ -426,7 +426,7 @@ export const zhTw: SettingsScreenTranslation = {
   },
   purchase: {
     title: '移除廣告',
-    message: '需支付 NT$150 以完全移除廣告。\n是否要繼續？',
+    message: '以 $4.99 完全移除廣告。\n是否要繼續？',
     cancel: '取消',
     confirm: '購買',
     complete: '已成功移除廣告！',

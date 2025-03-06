@@ -43,8 +43,8 @@ const AD_REMOVAL_SKU_ANDROID = 'brawl_status_ad_removal';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const PURCHASE_CONFIG = {
-  PRICE: 500,
-  PRICE_DISPLAY: '¥500',
+  PRICE: 800,
+  PRICE_DISPLAY: '¥800',
   PRODUCT_NAME: '広告削除パック',
 } as const;
 
