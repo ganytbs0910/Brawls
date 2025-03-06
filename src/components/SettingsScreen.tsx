@@ -34,6 +34,7 @@ import MapDetailScreen from './MapDetailScreen';
 import PunishmentGameScreen from './PunishmentGameScreen';
 import CharacterRouletteScreen from './CharacterRouletteScreen';
 import News from './News';
+import DeveloperInfoScreen from './DeveloperInfoScreen'; // 追加: 開発者情報画面をインポート
 import { MapDetail, ScreenType, ScreenState } from '../types';
 import { LanguageSelector } from './LanguageSelector';
 import { useSettingsScreenTranslation } from '../i18n/settingsScreen';
@@ -42,8 +43,8 @@ const AD_REMOVAL_SKU_IOS = 'com.brawlstatus.adremoval';
 const AD_REMOVAL_SKU_ANDROID = 'brawl_status_ad_removal';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-// ScreenType に 'news' を追加
-type ScreenType = 'settings' | 'privacy' | 'terms' | 'allTips' | 'punishmentGame' | 'language' | 'mapDetail' | 'roulette' | 'news';
+// ScreenType に 'developer' を追加
+type ScreenType = 'settings' | 'privacy' | 'terms' | 'allTips' | 'punishmentGame' | 'language' | 'mapDetail' | 'roulette' | 'news' | 'developer';
 
 interface SettingsScreenProps {
   screen?: ScreenState;
@@ -408,7 +409,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
           <Text style={styles.settingsItemText}>{t.menuItems.punishmentGame}</Text>
         </TouchableOpacity>
 
-        {/* YouTube News 項目を追加 */}
+        {/* YouTube News 項目 */}
         <TouchableOpacity 
           style={styles.settingsItem}
           onPress={() => navigateToScreen('news')}
@@ -416,12 +417,20 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
           <Text style={styles.settingsItemText}>{t.menuItems.news}</Text>
         </TouchableOpacity>
 
-        {/* ルーレット機能の追加 */}
+        {/* ルーレット機能 */}
         <TouchableOpacity 
           style={styles.settingsItem}
           onPress={() => navigateToScreen('roulette')}
         >
           <Text style={styles.settingsItemText}>{t.menuItems.roulette}</Text>
+        </TouchableOpacity>
+
+        {/* 開発者情報タブを追加 */}
+        <TouchableOpacity 
+          style={styles.settingsItem}
+          onPress={() => navigateToScreen('developer')}
+        >
+          <Text style={styles.settingsItemText}>{t.menuItems.developer}</Text>
         </TouchableOpacity>
       </ScrollView>
     </View>
@@ -536,6 +545,9 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
             </View>
           </View>
         );
+      case 'developer':
+        // 開発者情報画面を表示
+        return <DeveloperInfoScreen onClose={goBack} />;
       default:
         return null;
     }

@@ -7,6 +7,7 @@ export type SettingsScreenTranslation = {
     allTips: string;
     roulette: string;
     news: string;
+    developer: string; // 追加：開発者情報ヘッダー
   };
   menuItems: {
     language: string;
@@ -20,6 +21,7 @@ export type SettingsScreenTranslation = {
     punishmentGame: string;
     roulette: string;
     news: string;
+    developer: string; // 追加：開発者情報メニュー項目
   };
   roulette: {
     spin: string;
@@ -65,7 +67,8 @@ export const ja: SettingsScreenTranslation = {
     terms: '利用規約',
     allTips: '豆知識一覧',
     roulette: 'キャラクタールーレット',
-    news: 'YouTubeニュース', 
+    news: 'YouTubeニュース',
+    developer: '開発者について', // 追加
   },
   menuItems: {
     language: '言語設定',
@@ -79,6 +82,7 @@ export const ja: SettingsScreenTranslation = {
     punishmentGame: '罰ゲーム',
     roulette: 'キャラクタールーレット',
     news: 'YouTubeニュース',
+    developer: '開発者について', // 追加
   },
   roulette: {
     spin: 'スピン！',
@@ -125,6 +129,7 @@ export const en: SettingsScreenTranslation = {
     allTips: 'All Tips',
     roulette: 'Character Roulette',
     news: 'YouTube News',
+    developer: 'About Developer', // 追加
   },
   menuItems: {
     language: 'Language Settings',
@@ -138,6 +143,7 @@ export const en: SettingsScreenTranslation = {
     punishmentGame: 'Punishment Game',
     roulette: 'Character Roulette',
     news: 'YouTube News',
+    developer: 'About Developer', // 追加
   },
   roulette: {
     spin: 'Spin!',
@@ -184,6 +190,7 @@ export const ko: SettingsScreenTranslation = {
     allTips: '모든 팁',
     roulette: '캐릭터 룰렛',
     news: 'YouTube 뉴스',
+    developer: '개발자 정보', // 추가
   },
   menuItems: {
     language: '언어 설정',
@@ -197,6 +204,7 @@ export const ko: SettingsScreenTranslation = {
     punishmentGame: '벌칙 게임',
     roulette: '캐릭터 룰렛',
     news: 'YouTube 뉴스',
+    developer: '개발자 정보', // 추가
   },
   roulette: {
     spin: '돌리기!',
@@ -235,6 +243,7 @@ export const ko: SettingsScreenTranslation = {
   },
 };
 
+// 他の言語も同様に追加
 export const es: SettingsScreenTranslation = {
   header: {
     settings: 'Ajustes',
@@ -243,6 +252,7 @@ export const es: SettingsScreenTranslation = {
     allTips: 'Todos los Consejos',
     roulette: 'Ruleta de Personajes',
     news: 'Noticias de YouTube',
+    developer: 'Acerca del Desarrollador', // 追加
   },
   menuItems: {
     language: 'Configuración de Idioma',
@@ -256,7 +266,9 @@ export const es: SettingsScreenTranslation = {
     punishmentGame: 'Juego de Castigo',
     roulette: 'Ruleta de Personajes',
     news: 'Noticias de YouTube',
+    developer: 'Acerca del Desarrollador', // 追加
   },
+  // 残りの項目は省略
   roulette: {
     spin: '¡Girar!',
     spinning: 'Girando...',
@@ -302,6 +314,7 @@ export const ar: SettingsScreenTranslation = {
     allTips: 'جميع النصائح',
     roulette: 'عجلة الشخصيات',
     news: 'أخبار YouTube',
+    developer: 'حول المطور', // 追加
   },
   menuItems: {
     language: 'إعدادات اللغة',
@@ -315,7 +328,9 @@ export const ar: SettingsScreenTranslation = {
     punishmentGame: 'لعبة العقاب',
     roulette: 'عجلة الشخصيات',
     news: 'أخبار YouTube',
+    developer: 'حول المطور', // 追加
   },
+  // 残りの項目は省略
   roulette: {
     spin: 'دوران!',
     spinning: 'يدور...',
@@ -361,6 +376,7 @@ export const fr: SettingsScreenTranslation = {
     allTips: 'Tous les Conseils',
     roulette: 'Roulette des Personnages',
     news: 'Actualités YouTube',
+    developer: 'À propos du Développeur', // 追加
   },
   menuItems: {
     language: 'Paramètres de Langue',
@@ -374,7 +390,9 @@ export const fr: SettingsScreenTranslation = {
     punishmentGame: 'Jeu de Gage',
     roulette: 'Roulette des Personnages',
     news: 'Actualités YouTube',
+    developer: 'À propos du Développeur', // 追加
   },
+  // 残りの項目は省略
   roulette: {
     spin: 'Tourner !',
     spinning: 'En rotation...',
@@ -420,6 +438,7 @@ export const zhTw: SettingsScreenTranslation = {
     allTips: '所有提示',
     roulette: '角色輪盤',
     news: 'YouTube 新聞',
+    developer: '關於開發者', // 追加
   },
   menuItems: {
     language: '語言設定',
@@ -433,7 +452,9 @@ export const zhTw: SettingsScreenTranslation = {
     punishmentGame: '懲罰遊戲',
     roulette: '角色輪盤',
     news: 'YouTube 新聞',
+    developer: '關於開發者', // 追加
   },
+  // 残りの項目は省略
   roulette: {
     spin: '轉動！',
     spinning: '轉動中...',
