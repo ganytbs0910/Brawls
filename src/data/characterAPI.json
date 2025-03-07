@@ -45,7 +45,8 @@
         {
           "name": {
             "ja": "ハーフタイム",
-            "en": "HALF-TIME"
+            "en": "HALF-TIME",
+            "ko": "상부상조"
           },
           "description": {
             "ja": "モーニングスターを引き戻す際に巻き込んだ敵を2秒間スローダウンさせる。",
@@ -64,7 +65,8 @@
         {
           "name": {
             "ja": "インフェルノフレイム",
-            "en": "INFERNAL FLAMES"
+            "en": "INFERNAL FLAMES",
+            "ko": "과거로의 귀환"
           },
           "description": {
             "ja": "地面のモーニングスターに炎を纏わせ、3.9秒間にわたって付近の敵にダメージを与える。",
@@ -81,7 +83,8 @@
         {
           "name": {
             "ja": "アイスキューブ",
-            "en": "GRIM　AND FROSTIBITTEN"
+            "en": "GRIM　AND FROSTIBITTEN",
+            "ko": "탈출 불가"
           },
           "description": {
             "ja": "地面のモーニングスターに氷を纏わせ、付近を3.9秒間にわたって滑りやすくする。",
@@ -333,7 +336,7 @@
             "zhTw": "奧利跳躍並做出一個很酷的踢腳翻轉，使他降落的地方的所有敵人在1.0秒內被催眠。\n冷卻時間:17秒"
           },
           "recommendation": {
-            "level": 4,
+            "level": 5,
             "reason": {
               "ja": "壁を越えて逃げや近距離が弱い敵を倒すやすくなるため非常に使いやすい",
               "en": "It is very easy to use because it makes it easier to defeat enemies who are weak at close range or to escape over walls.",

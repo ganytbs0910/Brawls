@@ -81,7 +81,7 @@ const DISPLAY_MODES = [
   'hotZone',
   'brawlHockey',
   'brawlBall5v5',
-  'wipeout5v5',
+  'wipeout5v5'
 ];
 
 // ゲームモード情報を取得する関数
@@ -112,41 +112,6 @@ const getGameModes = (t: TeamBoardTranslation): GameMode[] => {
       };
     })
     .filter(Boolean) as GameMode[]; // nullを除外
-};
-
-// 招待リンクを抽出して検証する関数
-export const extractValidInviteLink = (text: string): string | null => {
-  if (!text) return null;
-  
-  // Brawl Stars招待リンクのパターン
-  const urlRegex = /(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s.,;!?]+)/i;
-  const match = text.match(urlRegex);
-  
-  if (!match) return null;
-  
-  try {
-    const extractedUrl = match[1];
-    
-    // URL構造をチェック
-    const url = new URL(extractedUrl);
-    
-    // ホスト名が正しいか確認
-    if (url.hostname !== 'link.brawlstars.com') {
-      console.log('Invalid hostname:', url.hostname);
-      return null;
-    }
-    
-    // パスがgameroomへの招待か確認
-    if (!url.pathname.startsWith('/invite/gameroom')) {
-      console.log('Invalid path:', url.pathname);
-      return null;
-    }
-    
-    return url.href; // 完全に検証されたURL
-  } catch (error) {
-    console.error('URL parsing error:', error);
-    return null;
-  }
 };
 
 const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetails }) => {
@@ -231,7 +196,23 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
   // 言語に基づいてテーブル名を取得
   const getTableName = (lang: string) => `team_posts_${lang}`;
 
+  // ゲームモードの設定
   const getCurrentModes = (t: TeamBoardTranslation) => {
+  // 表示するゲームモードを限定する
+  const DISPLAY_MODES = [
+    'ranked',
+    'duoShowdown',
+    'gemGrab',
+    'brawlBall',
+    'heist',
+    'knockout',
+    'bounty',
+    'wipeout',
+    'hotZone',
+    'brawlBall5v5',
+    'wipeout5v5'
+  ];
+
   const modes: GameMode[] = DISPLAY_MODES.map(modeId => {
     // modeData.tsからモード情報を取得
     const modeKey = Object.keys(GAME_MODES).find(key => 
@@ -656,9 +637,12 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
   };
 
   // 招待リンクの検証関数
-  const validateInviteLink = (link: string): boolean => {
-    return extractValidInviteLink(link) !== null;
-  };
+const validateInviteLink = (link: string): boolean => {
+  const baseUrl = 'https://link.brawlstars.com/invite/gameroom';
+  const urlMatch = link.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
+  if (!urlMatch) return false;
+  return urlMatch[1].startsWith(baseUrl);
+};
 
   // 入力の検証
   const validateInputs = () => {
@@ -705,12 +689,12 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
       setIsSubmitting(true); // 処理開始時にフラグを立てる
 
       // 招待リンクの検証と整形
-      const validUrl = extractValidInviteLink(inviteLink);
-      if (!validUrl) {
+      const urlMatch = inviteLink.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
+      if (!urlMatch) {
         Alert.alert('Error', t.errors.invalidLink);
-        setIsSubmitting(false);
         return;
       }
+      const cleanInviteLink = urlMatch[1];
 
       // 広告の準備を先に行う
       let adService;
@@ -733,7 +717,7 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
       // 投稿データの準備
       const postData = {
         selected_mode: selectedMode,
-        invite_link: validUrl, // 検証済みのURL
+        invite_link: cleanInviteLink,
         description: description.trim(),
         selected_character: selectedCharacter!.id,
         character_trophies: Number(characterTrophies),
@@ -1412,5 +1396,4 @@ const styles = StyleSheet.create({
     padding: 16,
   }
 });
-
 export default TeamBoard;

@@ -48,69 +48,9 @@ const timeAgo = (dateString: string, t: any, currentLanguage: string) => {
   }
 };
 
-// 招待リンクを抽出して検証する新しい関数
-const extractValidInviteLink = (text: string): string | null => {
-  if (!text) return null;
-  
-  // 基本的なBrawl Stars招待リンクのパターン
-  // URLの後ろに句読点などの記号が続く場合を考慮してパターンを調整
-  const urlRegex = /(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s.,;!?]+)/i;
-  const match = text.match(urlRegex);
-  
-  if (!match) return null;
-  
-  try {
-    const extractedUrl = match[1];
-    
-    // URL構造をチェック (URL APIを利用)
-    const url = new URL(extractedUrl);
-    
-    // ホスト名が正しいか確認
-    if (url.hostname !== 'link.brawlstars.com') {
-      console.log('Invalid hostname:', url.hostname);
-      return null;
-    }
-    
-    // パスがgameroomへの招待か確認
-    if (!url.pathname.startsWith('/invite/gameroom')) {
-      console.log('Invalid path:', url.pathname);
-      return null;
-    }
-    
-    // クエリパラメータが存在する場合の追加チェックも可能
-    
-    return url.href; // 完全に検証されたURL
-  } catch (error) {
-    console.error('URL parsing error:', error);
-    return null;
-  }
-};
-
 const handleOpenLink = async (url: string, t: any) => {
-  console.log('Attempting to open link:', url);
-  
   try {
-    // まず招待リンクを抽出・検証
-    const validUrl = extractValidInviteLink(url);
-    
-    if (!validUrl) {
-      console.log('Invalid Brawl Stars invite link format');
-      Alert.alert('Error', t.postCard.errors.invalidLink);
-      return;
-    }
-    
-    console.log('Validated URL:', validUrl);
-    
-    // ネットワーク接続を確認するロジックをここに追加することも可能
-    
-    // URLをエンコード
-    const encodedUrl = encodeURI(validUrl);
-    console.log('Encoded URL:', encodedUrl);
-    
-    // リンクが開けるか確認
-    const canOpen = await Linking.canOpenURL(encodedUrl);
-    console.log('Can open URL:', canOpen);
-    
+    const canOpen = await Linking.canOpenURL(url);
     if (canOpen) {
       Alert.alert(
         t.postCard.joinTeam.title,
@@ -123,25 +63,17 @@ const handleOpenLink = async (url: string, t: any) => {
           {
             text: t.postCard.joinTeam.join,
             onPress: async () => {
-              try {
-                // リンクを開く
-                await Linking.openURL(encodedUrl);
-                console.log('URL opened successfully');
-              } catch (openError) {
-                console.error('Error while opening URL:', openError);
-                Alert.alert('Error', t.postCard.errors.openError);
-              }
+              await Linking.openURL(url);
             }
           }
         ],
         { cancelable: true }
       );
     } else {
-      console.log('Cannot open URL - device reports URL cannot be opened');
       Alert.alert('Error', t.postCard.errors.cannotOpen);
     }
   } catch (error) {
-    console.error('Unexpected error handling link:', error);
+    console.error('Error opening link:', error);
     Alert.alert('Error', t.postCard.errors.openError);
   }
 };
