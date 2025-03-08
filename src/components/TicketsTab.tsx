@@ -1,3 +1,5 @@
+// TicketsTab.js の修正
+
 import React, { useState, useEffect, useRef } from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Alert, ActivityIndicator
@@ -13,6 +15,9 @@ const TICKET_REWARD_LOGIN = 200;
 
 // 抽選ステータステーブルID定数
 const LOTTERY_STATUS_ID = '00000000-0000-0000-0000-000000000000';
+
+// 結果確認済みフラグのキー
+const RESULT_CHECKED_KEY = 'lottery_result_checked';
 
 const TicketsTab = ({
   tickets,
@@ -411,6 +416,9 @@ const TicketsTab = ({
       
       // 抽選終了後、状態リセット
       try {
+        // 結果確認済みフラグをリセット
+        await AsyncStorage.removeItem(RESULT_CHECKED_KEY);
+        
         await resetLotteryState();
         
         // 参加者レコードを削除
@@ -518,8 +526,8 @@ const TicketsTab = ({
             )}
           </TouchableOpacity>
 
-          {/* 抽選結果確認ボタン - 親コンポーネントの状態を使用 */}
-          {showResultButton && (
+          {/* 抽選結果確認ボタン - 条件に基づいて表示/非表示 */}
+          {showResultButton && !resultChecked && (
             <TouchableOpacity 
               style={[
                 styles.checkResultButton,

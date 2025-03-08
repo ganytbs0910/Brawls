@@ -13,6 +13,9 @@ import PrizeTab from './PrizeTab';
 const SUPABASE_URL = 'https://llxmsbnqtdlqypnwapzz.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxseG1zYm5xdGRscXlwbndhcHp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc4MjA5MjEsImV4cCI6MjA1MzM5NjkyMX0.EkqepILQU0KgOTW1ZaXpe54ERpZbSRodf24r5022VKs';
 
+// 結果確認済みフラグのキー
+const RESULT_CHECKED_KEY = 'lottery_result_checked';
+
 // TabState定義（enumをTypeScriptのように明示的に定義）
 export const TabState = {
   TICKETS: 'tickets',
@@ -102,7 +105,7 @@ const TicketScreen = ({
   const [hasPrize, setHasPrize] = useState(false);
   const [prizeInfo, setPrizeInfo] = useState(null);
   const [resultChecked, setResultChecked] = useState(false);
-  const [showResultButton, setShowResultButton] = useState(false); // デフォルトでfalseに変更
+  const [showResultButton, setShowResultButton] = useState(false);
 
   // Supabaseクライアント初期化
   useEffect(() => {
@@ -175,6 +178,31 @@ const TicketScreen = ({
       checkLotteryParticipation();
       fetchLotteryParticipantsCount();
       checkWinningStatus();
+      
+      // 初期化時に確認状態をチェックする
+      const initializeResultState = async () => {
+        try {
+          const resultCheckedStr = await AsyncStorage.getItem(RESULT_CHECKED_KEY);
+          const isResultChecked = resultCheckedStr === 'true';
+          setResultChecked(isResultChecked);
+          
+          // 抽選結果が未確認なら、確認ボタンを表示
+          if (!isResultChecked) {
+            // 抽選が実行されたことがあるかを確認（DBに結果があるか）
+            const { count, error } = await supabaseClient
+              .from('lottery_results')
+              .select('*', { count: 'exact', head: true });
+              
+            if (!error && count > 0) {
+              setShowResultButton(true);
+            }
+          }
+        } catch (error) {
+          console.error('Initialize result state error:', error);
+        }
+      };
+      
+      initializeResultState();
     }
   }, [supabaseClient, effectiveUserId]);
 
@@ -325,6 +353,10 @@ const TicketScreen = ({
       await AsyncStorage.removeItem('lotteryParticipation');
       setIsParticipating(false);
       
+      // 結果確認状態をリセット
+      await AsyncStorage.removeItem(RESULT_CHECKED_KEY);
+      setResultChecked(false);
+      
       // データベースと再同期
       await checkLotteryParticipation();
       await fetchLotteryParticipantsCount();
@@ -343,6 +375,11 @@ const TicketScreen = ({
         return false;
       }
       
+      // 抽選結果が確認済みかチェック
+      const resultCheckedStr = await AsyncStorage.getItem(RESULT_CHECKED_KEY);
+      const isResultChecked = resultCheckedStr === 'true';
+      setResultChecked(isResultChecked);
+      
       const { data, error } = await supabaseClient
         .from('lottery_results')
         .select('*')
@@ -356,12 +393,18 @@ const TicketScreen = ({
         return false;
       }
       
+      // 当選情報は常に最新のものをセットするが、
+      // アラート表示は明示的にリクエストされた場合のみ行う
       if (data && data.length > 0) {
         setPrizeInfo(data[0]);
         setHasPrize(true);
         
-        // showAlertがtrueの場合のみアラートを表示
+        // showAlertパラメータがtrueの場合のみアラートを表示
         if (showAlert) {
+          // 結果確認済みに設定
+          await AsyncStorage.setItem(RESULT_CHECKED_KEY, 'true');
+          setResultChecked(true);
+          
           Alert.alert(
             '🏆 当選のお知らせ 🏆',
             'おめでとうございます！抽選に当選しています。「当選プレゼント」タブから景品を受け取ることができます。',
@@ -382,6 +425,8 @@ const TicketScreen = ({
         return true;
       }
       
+      setHasPrize(false);
+      setPrizeInfo(null);
       return false;
     } catch (error) {
       console.error('Winning status check error:', error);
@@ -392,6 +437,7 @@ const TicketScreen = ({
   // 結果確認ハンドラ
   const handleCheckResult = async () => {
     // 結果確認済みに設定
+    await AsyncStorage.setItem(RESULT_CHECKED_KEY, 'true');
     setResultChecked(true);
     setShowResultButton(false);
     
@@ -558,7 +604,7 @@ const TicketScreen = ({
           style={[
             styles.tab, 
             activeTab === TabState.PRIZE && styles.activeTab,
-            hasPrize && styles.prizeTab
+            hasPrize && resultChecked && styles.prizeTab
           ]}
           onPress={() => setActiveTab(TabState.PRIZE)}
         >
@@ -572,10 +618,10 @@ const TicketScreen = ({
           <Text style={[
             styles.tabText,
             activeTab === TabState.PRIZE && styles.activeTabText,
-            hasPrize && styles.prizeTabText
+            hasPrize && resultChecked && styles.prizeTabText
           ]}>
             当選プレゼント
-            {hasPrize && <Text style={styles.newBadge}> NEW</Text>}
+            {hasPrize && resultChecked && <Text style={styles.newBadge}> NEW</Text>}
           </Text>
         </TouchableOpacity>
       </View>

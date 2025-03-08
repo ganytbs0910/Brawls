@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+// PrizeTab.js の修正
+
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -12,10 +14,13 @@ import {
   Linking,
   Modal,
 } from 'react-native';
-import { SupabaseClient } from '@supabase/supabase-js';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Brawl Stars ギフトリンク
 const BRAWL_STARS_GIFT_LINK = 'https://link.brawlstars.com/?supercell_id&p=96-61b0620d-6de4-4848-999d-d97765726124';
+
+// 結果確認済みフラグのキー
+const RESULT_CHECKED_KEY = 'lottery_result_checked';
 
 const validatePlayerTag = (tag) => {
   // 基本的なプレイヤータグのバリデーション
@@ -49,6 +54,27 @@ const PrizeTab = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [validationError, setValidationError] = useState('');
+  const [localResultChecked, setLocalResultChecked] = useState(resultChecked);
+
+  // このコンポーネントがマウントされたときに結果確認状態を確認
+  useEffect(() => {
+    const checkResultStatus = async () => {
+      try {
+        const resultCheckedStr = await AsyncStorage.getItem(RESULT_CHECKED_KEY);
+        const isResultChecked = resultCheckedStr === 'true';
+        setLocalResultChecked(isResultChecked);
+      } catch (error) {
+        console.error('Check result status error:', error);
+      }
+    };
+    
+    checkResultStatus();
+  }, []);
+
+  // resultChecked プロップが変更されたときに更新
+  useEffect(() => {
+    setLocalResultChecked(resultChecked);
+  }, [resultChecked]);
 
   // Brawl Starsリンクを開く
   const openBrawlStarsLink = async () => {
@@ -164,7 +190,7 @@ const PrizeTab = ({
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>当選プレゼント</Text>
         
-        {hasPrize ? (
+        {hasPrize && localResultChecked ? (
           <>
             <View style={styles.prizeInfoContainer}>
               <Image 
