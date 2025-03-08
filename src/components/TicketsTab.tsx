@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Alert, ActivityIndicator
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AdMobService from '../services/AdMobService';
 import { SupabaseClient } from '@supabase/supabase-js';
-import { TabState } from './types';
 import { calculateNextLotteryDateString } from './TicketScreen';
 
 // チケット獲得量定数
@@ -50,8 +49,14 @@ const TicketsTab = ({
     if (effectiveUserId) {
       checkDailyFreeClaim();
       checkDailyLoginBonus();
-      // 結果確認ボタンの表示は親コンポーネントから制御するため削除
     }
+    
+    return () => {
+      // クリーンアップ時にポーリングを停止
+      if (pollingIntervalRef.current) {
+        clearInterval(pollingIntervalRef.current);
+      }
+    };
   }, [isAdFree, effectiveUserId]);
 
   // 広告サービス初期化
@@ -63,7 +68,7 @@ const TicketsTab = ({
           await adMobService.loadInterstitial();
         }
       } catch (error) {
-        // エラー処理
+        console.error('AdMob initialization error:', error);
       }
     };
 
@@ -72,13 +77,15 @@ const TicketsTab = ({
 
   // 抽選ステータスポーリング設定
   useEffect(() => {
+    if (!supabaseClient) return;
+    
     // 初回のステータスチェック
     checkLotteryStatus();
     
-    // 10秒ごとにステータスをチェックするポーリング設定
+    // 30秒ごとにステータスをチェックするポーリング設定（頻度を下げる）
     const interval = setInterval(() => {
       checkLotteryStatus();
-    }, 10000);
+    }, 30000);
     
     pollingIntervalRef.current = interval;
     
@@ -91,14 +98,14 @@ const TicketsTab = ({
     };
   }, [supabaseClient]);
 
-  // 抽選ステータスチェック関数 - 修正済み
+  // 抽選ステータスチェック関数
   const checkLotteryStatus = async () => {
     try {
       if (!supabaseClient) return;
       
       const now = Date.now();
-      // 前回のチェックから3秒以内の場合はスキップ（過剰なリクエスト防止）
-      if (now - lastCheckTime < 3000) return;
+      // 前回のチェックから5秒以内の場合はスキップ（過剰なリクエスト防止）
+      if (now - lastCheckTime < 5000) return;
       
       setLastCheckTime(now);
       
@@ -123,20 +130,17 @@ const TicketsTab = ({
         console.log("Lottery status changed from running to completed");
         // 必要な情報を再読み込み
         await resetLotteryState();
-        // 結果確認ボタンを表示するが、自動的に結果は確認しない
-        // 親コンポーネントのステートを使用
       }
       
       // 抽選が実行されたばかりの場合も確認
       if (data.last_executed_at) {
         const lastExecTime = new Date(data.last_executed_at).getTime();
         
-        // 30秒以内に実行された場合
-        if (now - lastExecTime < 30000) {
+        // 60秒以内に実行された場合
+        if (now - lastExecTime < 60000) {
           console.log("Recent lottery execution detected");
           // 必要な情報を再読み込み
           await resetLotteryState();
-          // 抽選結果確認ボタンを表示（親コンポーネントのメソッドを使用）
         }
       }
     } catch (error) {
@@ -144,7 +148,7 @@ const TicketsTab = ({
     }
   };
 
-  // 抽選結果確認ボタンのハンドラ - 親コンポーネントの関数を呼び出すように変更
+  // 抽選結果確認ボタンのハンドラ
   const handleCheckLotteryResult = async () => {
     if (!supabaseClient || !effectiveUserId) {
       Alert.alert('エラー', 'システムの初期化中です。しばらくお待ちください。');
@@ -188,12 +192,14 @@ const TicketsTab = ({
       const { count, error } = response;
       
       if (error) {
-        throw error;
+        console.error('Participants count error:', error);
+        return participantsCount; // エラー時は前回の値を返す
       }
       
       return count || 0;
     } catch (error) {
-      return 0;
+      console.error('Check participants error:', error);
+      return participantsCount; // エラー時は前回の値を返す
     }
   };
 
@@ -214,6 +220,7 @@ const TicketsTab = ({
         setFreeClaimAvailable(false);
       }
     } catch (error) {
+      console.error('Free claim check error:', error);
       setFreeClaimAvailable(false);
     }
   };
@@ -230,6 +237,7 @@ const TicketsTab = ({
         setLoginBonusAvailable(false);
       }
     } catch (error) {
+      console.error('Login bonus check error:', error);
       setLoginBonusAvailable(false);
     }
   };
@@ -245,6 +253,7 @@ const TicketsTab = ({
       setLoginBonusAvailable(false);
       Alert.alert('ログインボーナス獲得', `本日のログインボーナス${TICKET_REWARD_LOGIN}チケットを獲得しました！`);
     } catch (error) {
+      console.error('Claim login bonus error:', error);
       Alert.alert('エラー', 'ログインボーナス獲得中にエラーが発生しました');
     }
   };
@@ -279,6 +288,7 @@ const TicketsTab = ({
         Alert.alert('お知らせ', '広告の読み込みに失敗しました。時間をおいて再度お試しください。');
       }
     } catch (error) {
+      console.error('Watch ad error:', error);
       Alert.alert('エラー', '広告表示中にエラーが発生しました');
     } finally {
       setAdLoading(false);
@@ -303,6 +313,20 @@ const TicketsTab = ({
       // 参加者がいない場合は抽選スキップ
       if (participantCount <= 0) {
         Alert.alert('抽選中止', '現在の抽選に参加者がいません。参加者がいる場合にのみ抽選が実行されます。');
+        setIsLotteryRunning(false);
+        setLotteryButtonDisabled(false);
+        return;
+      }
+
+      // 全体の抽選ステータスが既に「実行中」の場合はスキップ
+      const { data: statusData } = await supabaseClient
+        .from('lottery_status')
+        .select('is_running')
+        .eq('id', LOTTERY_STATUS_ID)
+        .single();
+        
+      if (statusData && statusData.is_running) {
+        Alert.alert('抽選実行中', '現在、他のユーザーによって抽選が実行されています。しばらくお待ちください。');
         setIsLotteryRunning(false);
         setLotteryButtonDisabled(false);
         return;
@@ -335,7 +359,7 @@ const TicketsTab = ({
       const { data: participants, error: fetchError } = participantsResponse;
         
       if (fetchError) {
-        throw new Error(`参加者の取得に失敗しました: ${JSON.stringify(fetchError)}`);
+        throw new Error('参加者の取得に失敗しました');
       }
       
       if (!participants || participants.length === 0) {
@@ -377,13 +401,13 @@ const TicketsTab = ({
         if (!resultError) {
           resultSaved = true;
           resultRecord = data;
+        } else {
+          console.error('Result save error:', resultError);
         }
       } catch (dbError) {
+        console.error('Database operation error:', dbError);
         Alert.alert('データベースエラー', '操作中にエラーが発生しました');
       }
-      
-      // 自分が当選者かチェック
-      const isCurrentUserWinner = effectiveUserId === winner.user_id;
       
       // 抽選終了後、状態リセット
       try {
@@ -394,21 +418,26 @@ const TicketsTab = ({
           .from('lottery_participants')
           .delete()
           .eq('lottery_date', dateISO);
+          
+        if (deleteResponse.error) {
+          console.error('Participants deletion error:', deleteResponse.error);
+        }
       } catch (resetError) {
-        // エラー処理
         console.error('Lottery reset error:', resetError);
       }
       
       // 全体の抽選ステータスを「完了」に更新
-      await supabaseClient
+      const { error: updateStatusError } = await supabaseClient
         .from('lottery_status')
         .update({ 
           is_running: false,
           last_executed_at: new Date().toISOString()
         })
         .eq('id', LOTTERY_STATUS_ID);
-      
-      // 結果は明かさず、確認ボタンを表示するよう親コンポーネントに通知
+        
+      if (updateStatusError) {
+        console.error('Status update error:', updateStatusError);
+      }
       
       // 結果表示
       setTimeout(() => {

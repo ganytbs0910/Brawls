@@ -13,21 +13,31 @@ import {
   Modal,
 } from 'react-native';
 import { SupabaseClient } from '@supabase/supabase-js';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Brawl Stars ギフトリンク
 const BRAWL_STARS_GIFT_LINK = 'https://link.brawlstars.com/?supercell_id&p=96-61b0620d-6de4-4848-999d-d97765726124';
 
-interface PrizeTabProps {
-  hasPrize: boolean;
-  prizeInfo: any;
-  supabaseClient: SupabaseClient | null;
-  effectiveUserId: string | null;
-  onPrizeClaimed: () => void;
-  resultChecked: boolean; // 親コンポーネントから渡される新しいprop
-}
+const validatePlayerTag = (tag) => {
+  // 基本的なプレイヤータグのバリデーション
+  // "#"で始まり、その後に少なくとも2文字のアルファベットまたは数字が続く形式
+  if (!tag || tag.trim() === '') return false;
+  
+  const cleanTag = tag.trim();
+  const tagRegex = /^#?[0-9A-Z]{2,}$/;
+  return tagRegex.test(cleanTag);
+};
 
-const PrizeTab: React.FC<PrizeTabProps> = ({
+// プレイヤータグを正規化する関数
+const normalizePlayerTag = (tag) => {
+  if (!tag) return '';
+  let cleanTag = tag.trim().toUpperCase();
+  if (!cleanTag.startsWith('#')) {
+    cleanTag = '#' + cleanTag;
+  }
+  return cleanTag;
+};
+
+const PrizeTab = ({
   hasPrize,
   prizeInfo,
   supabaseClient,
@@ -37,29 +47,8 @@ const PrizeTab: React.FC<PrizeTabProps> = ({
 }) => {
   const [playerTag, setPlayerTag] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showPrizeModal, setShowPrizeModal] = useState(false);
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
-
-  // 以下のステートは不要になったため削除
-  // const [checkingResult, setCheckingResult] = useState(false);
-  // const [lastResult, setLastResult] = useState(null);
-  // const [showResultModal, setShowResultModal] = useState(false);
-  // const [showResultCheckButton, setShowResultCheckButton] = useState(false);
-
-  // 抽選日付用関数 
-  const calculateNextLotteryDateString = () => {
-    const now = new Date();
-    const dateISO = now.toISOString().split('T')[0];
-    
-    const month = now.getMonth() + 1;
-    const date = now.getDate();
-    const dateString = `${month}月${date}日`;
-    
-    return { dateString, dateISO };
-  };
-
-  // 以下の関数は不要になったため削除
-  // checkLotteryAvailability関数を削除
+  const [validationError, setValidationError] = useState('');
 
   // Brawl Starsリンクを開く
   const openBrawlStarsLink = async () => {
@@ -71,17 +60,31 @@ const PrizeTab: React.FC<PrizeTabProps> = ({
         Alert.alert('エラー', 'このリンクは開けません。');
       }
     } catch (error) {
-      console.error('リンクオープンエラー:', error);
+      console.error('Link open error:', error);
       Alert.alert('エラー', 'リンクを開く際にエラーが発生しました。');
+    }
+  };
+  
+  // プレイヤータグの入力を処理
+  const handlePlayerTagChange = (text) => {
+    setPlayerTag(text);
+    // 入力時にバリデーションエラーをクリア
+    if (validationError) {
+      setValidationError('');
     }
   };
   
   // 確認ダイアログを表示する
   const showConfirmation = () => {
-    if (!playerTag || playerTag.trim() === '') {
-      Alert.alert('入力エラー', 'プレイヤータグを入力してください。');
+    const normalizedTag = normalizePlayerTag(playerTag);
+    
+    if (!validatePlayerTag(normalizedTag)) {
+      setValidationError('有効なプレイヤータグを入力してください');
       return;
     }
+    
+    setPlayerTag(normalizedTag);
+    setValidationError('');
     
     // 確認モーダルを表示
     setShowConfirmationModal(true);
@@ -91,6 +94,14 @@ const PrizeTab: React.FC<PrizeTabProps> = ({
   const submitPlayerTag = async () => {
     if (!supabaseClient || !effectiveUserId || !prizeInfo) {
       Alert.alert('エラー', 'システムエラーが発生しました。');
+      return;
+    }
+    
+    const normalizedTag = normalizePlayerTag(playerTag);
+    
+    if (!validatePlayerTag(normalizedTag)) {
+      setValidationError('有効なプレイヤータグを入力してください');
+      setShowConfirmationModal(false);
       return;
     }
     
@@ -104,11 +115,12 @@ const PrizeTab: React.FC<PrizeTabProps> = ({
         .insert([{
           user_id: effectiveUserId,
           lottery_result_id: prizeInfo.id,
-          player_tag: playerTag.trim(),
+          player_tag: normalizedTag,
           status: 'pending'
         }]);
         
       if (error) {
+        console.error('Prize claim insert error:', error);
         Alert.alert('エラー', 'データの送信に失敗しました。');
         return;
       }
@@ -120,6 +132,7 @@ const PrizeTab: React.FC<PrizeTabProps> = ({
         .eq('id', prizeInfo.id);
         
       if (updateError) {
+        console.error('Prize status update error:', updateError);
         // 致命的ではないのでエラー表示しない
       }
       
@@ -139,13 +152,12 @@ const PrizeTab: React.FC<PrizeTabProps> = ({
       );
       
     } catch (error) {
+      console.error('Prize claim error:', error);
       Alert.alert('エラー', '処理中にエラーが発生しました。');
     } finally {
       setIsSubmitting(false);
     }
   };
-
-  // 抽選結果確認ボタンのハンドラ関数は削除 (handleCheckLotteryResult)
 
   return (
     <ScrollView style={styles.content}>
@@ -180,12 +192,19 @@ const PrizeTab: React.FC<PrizeTabProps> = ({
               
               <Text style={styles.prizeStepTitle}>手順2: プレイヤータグを入力</Text>
               <TextInput
-                style={styles.playerTagInput}
+                style={[
+                  styles.playerTagInput,
+                  validationError ? styles.inputError : null
+                ]}
                 placeholder="例: #ABC123"
                 value={playerTag}
-                onChangeText={setPlayerTag}
+                onChangeText={handlePlayerTagChange}
                 autoCapitalize="characters"
               />
+              
+              {validationError ? (
+                <Text style={styles.errorText}>{validationError}</Text>
+              ) : null}
               
               <TouchableOpacity 
                 style={[
@@ -220,8 +239,6 @@ const PrizeTab: React.FC<PrizeTabProps> = ({
             <Text style={styles.noPrizeSubText}>
               抽選に参加して、素敵な景品を当てましょう！
             </Text>
-            
-            {/* 抽選結果確認ボタンは削除 - TicketsTabに移動 */}
           </View>
         )}
       </View>
@@ -259,69 +276,6 @@ const PrizeTab: React.FC<PrizeTabProps> = ({
                 onPress={submitPlayerTag}
               >
                 <Text style={styles.confirmButtonText}>送信する</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-      </Modal>
-
-      {/* 抽選結果モーダルは削除 */}
-
-      {/* プレゼント受け取りモーダル */}
-      <Modal
-        visible={showPrizeModal}
-        transparent={true}
-        animationType="slide"
-        onRequestClose={() => setShowPrizeModal(false)}
-      >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>🎉 プレゼント受け取り 🎉</Text>
-            
-            <View style={styles.modalSection}>
-              <Text style={styles.modalSectionTitle}>手順1: ゲーム内リンクを開く</Text>
-              <TouchableOpacity 
-                style={styles.brawlStarsButton} 
-                onPress={openBrawlStarsLink}
-              >
-                <Text style={styles.brawlStarsButtonText}>
-                  Brawl Starsを開く
-                </Text>
-              </TouchableOpacity>
-            </View>
-            
-            <View style={styles.modalSection}>
-              <Text style={styles.modalSectionTitle}>手順2: プレイヤータグを入力</Text>
-              <TextInput
-                style={styles.playerTagInput}
-                placeholder="例: #ABC123"
-                value={playerTag}
-                onChangeText={setPlayerTag}
-                autoCapitalize="characters"
-              />
-            </View>
-            
-            <View style={styles.modalButtonsContainer}>
-              <TouchableOpacity 
-                style={styles.modalCancelButton} 
-                onPress={() => setShowPrizeModal(false)}
-              >
-                <Text style={styles.modalCancelButtonText}>キャンセル</Text>
-              </TouchableOpacity>
-              
-              <TouchableOpacity 
-                style={[
-                  styles.modalSubmitButton, 
-                  (!playerTag || isSubmitting) && styles.disabledButton
-                ]} 
-                onPress={showConfirmation}
-                disabled={!playerTag || isSubmitting}
-              >
-                {isSubmitting ? (
-                  <ActivityIndicator color="#fff" size="small" />
-                ) : (
-                  <Text style={styles.modalSubmitButtonText}>送信</Text>
-                )}
               </TouchableOpacity>
             </View>
           </View>
@@ -404,7 +358,16 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 12,
     fontSize: 16,
-    marginBottom: 16,
+    marginBottom: 8,
+  },
+  inputError: {
+    borderColor: '#F44336',
+    borderWidth: 1,
+  },
+  errorText: {
+    color: '#F44336',
+    fontSize: 12,
+    marginBottom: 8,
   },
   submitButton: {
     backgroundColor: '#4CAF50',
@@ -460,59 +423,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     paddingHorizontal: 20,
   },
-  modalContent: {
-    backgroundColor: '#fff',
-    borderRadius: 12,
-    padding: 20,
-    width: '100%',
-    maxWidth: 400,
-  },
-  modalTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#FF5722',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  modalSection: {
-    marginBottom: 16,
-  },
-  modalSectionTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 8,
-  },
-  modalButtonsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 20,
-  },
-  modalCancelButton: {
-    backgroundColor: '#f5f5f5',
-    borderRadius: 8,
-    padding: 12,
-    flex: 1,
-    marginRight: 8,
-    alignItems: 'center',
-  },
-  modalCancelButtonText: {
-    color: '#666',
-    fontWeight: 'bold',
-  },
-  modalSubmitButton: {
-    backgroundColor: '#4CAF50',
-    borderRadius: 8,
-    padding: 12,
-    flex: 1,
-    marginLeft: 8,
-    alignItems: 'center',
-  },
-  modalSubmitButtonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  // 確認モーダルのスタイル
   confirmationModal: {
     backgroundColor: '#fff',
     borderRadius: 12,

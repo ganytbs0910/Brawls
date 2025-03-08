@@ -3,9 +3,8 @@ import {
   View, Text, StyleSheet, Image, SafeAreaView, Alert, TouchableOpacity
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js';
 import DeviceInfo from 'react-native-device-info';
-import { useAppTranslation } from '../i18n/app';
 
 import TicketsTab from './TicketsTab';
 import PrizeTab from './PrizeTab';
@@ -14,11 +13,11 @@ import PrizeTab from './PrizeTab';
 const SUPABASE_URL = 'https://llxmsbnqtdlqypnwapzz.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxseG1zYm5xdGRscXlwbndhcHp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc4MjA5MjEsImV4cCI6MjA1MzM5NjkyMX0.EkqepILQU0KgOTW1ZaXpe54ERpZbSRodf24r5022VKs';
 
-// TabState定義
-enum TabState {
-  TICKETS = 'tickets',
-  PRIZE = 'prize'
-}
+// TabState定義（enumをTypeScriptのように明示的に定義）
+export const TabState = {
+  TICKETS: 'tickets',
+  PRIZE: 'prize'
+};
 
 // 匿名ユーザーID取得/生成関数
 const getOrCreateAnonymousUserId = async () => {
@@ -30,6 +29,7 @@ const getOrCreateAnonymousUserId = async () => {
     try {
       deviceId = await DeviceInfo.getUniqueId();
     } catch (deviceError) {
+      console.error('Device ID error:', deviceError);
       deviceId = `device_${Date.now()}`;
     }
     
@@ -38,11 +38,12 @@ const getOrCreateAnonymousUserId = async () => {
     await AsyncStorage.setItem('user_anonymous_id', anonymousId);
     return anonymousId;
   } catch (error) {
+    console.error('Anonymous ID generation error:', error);
     return `temp_${Date.now()}`;
   }
 };
 
-// 抽選日付用関数 (ボタントリガー用に単純化)
+// 抽選日付用関数
 export const calculateNextLotteryDateString = () => {
   const now = new Date();
   const dateISO = now.toISOString().split('T')[0];
@@ -60,8 +61,10 @@ const saveTickets = async (tickets) => {
     const ticketValue = Math.floor(tickets);
     const safeTicketValue = Math.max(0, ticketValue);
     await AsyncStorage.setItem('user_tickets', safeTicketValue.toString());
+    return true;
   } catch (error) {
-    // エラー処理
+    console.error('Save tickets error:', error);
+    return false;
   }
 };
 
@@ -76,7 +79,7 @@ const loadTickets = async () => {
       }
     }
   } catch (error) {
-    // エラー処理
+    console.error('Load tickets error:', error);
   }
   return 0;
 };
@@ -90,31 +93,34 @@ const TicketScreen = ({
   userId,
   onTicketsUpdated
 }) => {
-  const { t } = useAppTranslation();
   const [tickets, setTickets] = useState(initialTickets);
   const [activeTab, setActiveTab] = useState(TabState.TICKETS);
   const [supabaseClient, setSupabaseClient] = useState(null);
   const [effectiveUserId, setEffectiveUserId] = useState(null);
   const [isParticipating, setIsParticipating] = useState(false);
-  const [participantsCount, setParticipantsCount] = useState(lotteryParticipants);
+  const [participantsCount, setParticipantsCount] = useState(lotteryParticipants || 0);
   const [hasPrize, setHasPrize] = useState(false);
   const [prizeInfo, setPrizeInfo] = useState(null);
-  // 新しいステート追加
   const [resultChecked, setResultChecked] = useState(false);
-  const [showResultButton, setShowResultButton] = useState(true); // デバッグ用にtrueに設定
+  const [showResultButton, setShowResultButton] = useState(false); // デフォルトでfalseに変更
 
   // Supabaseクライアント初期化
   useEffect(() => {
     const initializeClient = async () => {
-      const client = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-        auth: {
-          storage: AsyncStorage,
-          autoRefreshToken: true,
-          persistSession: true,
-          detectSessionInUrl: false,
-        },
-      });
-      setSupabaseClient(client);
+      try {
+        const client = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+          auth: {
+            storage: AsyncStorage,
+            autoRefreshToken: true,
+            persistSession: true,
+            detectSessionInUrl: false,
+          },
+        });
+        setSupabaseClient(client);
+      } catch (error) {
+        console.error('Supabase client initialization error:', error);
+        Alert.alert('エラー', 'データベース接続エラーが発生しました');
+      }
     };
     
     initializeClient();
@@ -123,11 +129,15 @@ const TicketScreen = ({
   // ユーザーID初期化
   useEffect(() => {
     const initUserId = async () => {
-      if (userId) {
-        setEffectiveUserId(userId);
-      } else {
-        const anonymousId = await getOrCreateAnonymousUserId();
-        setEffectiveUserId(anonymousId);
+      try {
+        if (userId) {
+          setEffectiveUserId(userId);
+        } else {
+          const anonymousId = await getOrCreateAnonymousUserId();
+          setEffectiveUserId(anonymousId);
+        }
+      } catch (error) {
+        console.error('User ID initialization error:', error);
       }
     };
     
@@ -139,7 +149,7 @@ const TicketScreen = ({
     const initTickets = async () => {
       try {
         const savedTickets = await loadTickets();
-        const bestTicketCount = Math.max(savedTickets, initialTickets);
+        const bestTicketCount = Math.max(savedTickets, initialTickets || 0);
         
         setTickets(bestTicketCount);
         
@@ -151,7 +161,8 @@ const TicketScreen = ({
           onTicketsUpdated(bestTicketCount);
         }
       } catch (error) {
-        setTickets(initialTickets);
+        console.error('Ticket initialization error:', error);
+        setTickets(initialTickets || 0);
       }
     };
     
@@ -163,6 +174,7 @@ const TicketScreen = ({
     if (supabaseClient && effectiveUserId) {
       checkLotteryParticipation();
       fetchLotteryParticipantsCount();
+      checkWinningStatus();
     }
   }, [supabaseClient, effectiveUserId]);
 
@@ -179,13 +191,19 @@ const TicketScreen = ({
 
       const newTickets = currentTickets - amount;
       
-      await saveTickets(newTickets);
+      const saveSuccess = await saveTickets(newTickets);
+      if (!saveSuccess) {
+        throw new Error('Failed to save ticket count');
+      }
+      
       setTickets(newTickets);
       
       try {
-        const success = await onUseTicket(amount);
+        if (onUseTicket) {
+          await onUseTicket(amount);
+        }
       } catch (callbackError) {
-        // エラー処理
+        console.error('Use ticket callback error:', callbackError);
       }
       
       if (onTicketsUpdated) {
@@ -194,11 +212,12 @@ const TicketScreen = ({
       
       return true;
     } catch (error) {
+      console.error('Use tickets error:', error);
       try {
         const actualTickets = await loadTickets();
         setTickets(actualTickets);
       } catch (loadError) {
-        // エラー処理
+        console.error('Fallback ticket load error:', loadError);
       }
       
       return false;
@@ -211,29 +230,36 @@ const TicketScreen = ({
       const currentTickets = await loadTickets();
       const newTickets = currentTickets + Math.floor(amount);
       
-      await saveTickets(newTickets);
+      const saveSuccess = await saveTickets(newTickets);
+      if (!saveSuccess) {
+        throw new Error('Failed to save ticket count');
+      }
+      
       setTickets(newTickets);
       
       try {
-        await onAddTickets(amount);
+        if (onAddTickets) {
+          await onAddTickets(amount);
+        }
       } catch (callbackError) {
-        // エラー処理
+        console.error('Add tickets callback error:', callbackError);
       }
       
       if (onTicketsUpdated) {
         onTicketsUpdated(newTickets);
       }
     } catch (error) {
+      console.error('Add tickets error:', error);
       try {
         const actualTickets = await loadTickets();
         setTickets(actualTickets);
       } catch (loadError) {
-        // エラー処理
+        console.error('Fallback ticket load error:', loadError);
       }
     }
   };
 
-  // 抽選参加確認 - 修正済み
+  // 抽選参加確認
   const checkLotteryParticipation = async () => {
     try {
       if (!supabaseClient || !effectiveUserId) return;
@@ -292,7 +318,7 @@ const TicketScreen = ({
     }
   };
 
-  // 抽選状態リセット - 修正済み
+  // 抽選状態リセット
   const resetLotteryState = async () => {
     try {
       // ローカル参加状態をクリア
@@ -302,12 +328,15 @@ const TicketScreen = ({
       // データベースと再同期
       await checkLotteryParticipation();
       await fetchLotteryParticipantsCount();
+      
+      // 自動的に結果確認ボタンを表示
+      setShowResultButton(true);
     } catch (error) {
       console.error('Reset lottery state error:', error);
     }
   };
 
-  // 当選確認 - 修正: showAlertパラメータを追加
+  // 当選確認
   const checkWinningStatus = async (showAlert = false) => {
     try {
       if (!supabaseClient || !effectiveUserId) {
@@ -323,6 +352,7 @@ const TicketScreen = ({
         .limit(1);
         
       if (error) {
+        console.error('Winning status check error:', error);
         return false;
       }
       
@@ -354,11 +384,12 @@ const TicketScreen = ({
       
       return false;
     } catch (error) {
+      console.error('Winning status check error:', error);
       return false;
     }
   };
 
-  // 新規: 結果確認ハンドラ
+  // 結果確認ハンドラ
   const handleCheckResult = async () => {
     // 結果確認済みに設定
     setResultChecked(true);
@@ -387,6 +418,7 @@ const TicketScreen = ({
           Alert.alert('結果なし', '抽選結果が見つかりませんでした。');
         }
       } catch (error) {
+        console.error('Result fetch error:', error);
         Alert.alert('エラー', '抽選結果の確認中にエラーが発生しました。');
       }
     }
@@ -437,7 +469,11 @@ const TicketScreen = ({
           throw error;
         }
       } catch (dbError) {
-        Alert.alert('エラー', 'データベースへの登録に失敗しました。チケットは消費されましたが、抽選には参加できませんでした。');
+        console.error('Participant insert error:', dbError);
+        Alert.alert(
+          'エラー', 
+          'データベースへの登録に失敗しました。チケットは消費されましたが、抽選には参加できませんでした。'
+        );
         return;
       }
       
@@ -447,6 +483,7 @@ const TicketScreen = ({
       
       Alert.alert('抽選参加完了', `抽選に参加しました！「抽選を実行する」ボタンで抽選が実行されるまでお待ちください。`);
     } catch (error) {
+      console.error('Enter lottery error:', error);
       Alert.alert('エラー', '抽選参加中にエラーが発生しました');
     }
   };
