@@ -27,7 +27,10 @@ const TicketsTab = ({
   setHasPrize,
   setPrizeInfo,
   setActiveTab,
-  participantsCount
+  participantsCount,
+  resultChecked,
+  showResultButton,
+  handleCheckResult
 }) => {
   const [adLoading, setAdLoading] = useState(false);
   const [freeClaimAvailable, setFreeClaimAvailable] = useState(false);
@@ -36,7 +39,6 @@ const TicketsTab = ({
   const [lotteryButtonDisabled, setLotteryButtonDisabled] = useState(false);
   const [isGlobalLotteryRunning, setIsGlobalLotteryRunning] = useState(false);
   const [lastCheckTime, setLastCheckTime] = useState(0);
-  const [showResultCheckButton, setShowResultCheckButton] = useState(false);
   const [checkingLotteryResults, setCheckingLotteryResults] = useState(false);
   
   // refで状態管理
@@ -48,7 +50,7 @@ const TicketsTab = ({
     if (effectiveUserId) {
       checkDailyFreeClaim();
       checkDailyLoginBonus();
-      checkIfLotteryResultAvailable();
+      // 結果確認ボタンの表示は親コンポーネントから制御するため削除
     }
   }, [isAdFree, effectiveUserId]);
 
@@ -121,9 +123,8 @@ const TicketsTab = ({
         console.log("Lottery status changed from running to completed");
         // 必要な情報を再読み込み
         await resetLotteryState();
-        await checkWinningStatus();
-        // 抽選結果確認ボタンを表示
-        setShowResultCheckButton(true);
+        // 結果確認ボタンを表示するが、自動的に結果は確認しない
+        // 親コンポーネントのステートを使用
       }
       
       // 抽選が実行されたばかりの場合も確認
@@ -135,9 +136,7 @@ const TicketsTab = ({
           console.log("Recent lottery execution detected");
           // 必要な情報を再読み込み
           await resetLotteryState();
-          await checkWinningStatus();
-          // 抽選結果確認ボタンを表示
-          setShowResultCheckButton(true);
+          // 抽選結果確認ボタンを表示（親コンポーネントのメソッドを使用）
         }
       }
     } catch (error) {
@@ -145,33 +144,7 @@ const TicketsTab = ({
     }
   };
 
-  // 最新の抽選結果があるかチェック
-  const checkIfLotteryResultAvailable = async () => {
-    try {
-      if (!supabaseClient) return;
-      
-      // 最新の抽選結果を取得
-      const { data, error } = await supabaseClient
-        .from('lottery_results')
-        .select('*')
-        .order('created_at', { ascending: false })
-        .limit(1);
-        
-      if (error) {
-        console.error('Lottery result check error:', error);
-        return;
-      }
-      
-      // 抽選結果がある場合
-      if (data && data.length > 0) {
-        setShowResultCheckButton(true);
-      }
-    } catch (error) {
-      console.error('Lottery result check error:', error);
-    }
-  };
-
-  // 抽選結果確認ボタンのハンドラ
+  // 抽選結果確認ボタンのハンドラ - 親コンポーネントの関数を呼び出すように変更
   const handleCheckLotteryResult = async () => {
     if (!supabaseClient || !effectiveUserId) {
       Alert.alert('エラー', 'システムの初期化中です。しばらくお待ちください。');
@@ -179,66 +152,10 @@ const TicketsTab = ({
     }
 
     setCheckingLotteryResults(true);
-
+    
     try {
-      // 最新の抽選結果を取得
-      const { data, error } = await supabaseClient
-        .from('lottery_results')
-        .select('*')
-        .order('created_at', { ascending: false })
-        .limit(1);
-        
-      if (error) {
-        throw error;
-      }
-
-      if (data && data.length > 0) {
-        const result = data[0];
-        
-        // 自分が当選者かチェック
-        const isWinner = result.winner_id === effectiveUserId;
-        
-        // 既に景品を受け取ったかチェック
-        const alreadyClaimed = result.prize_claimed;
-        
-        // 自分が当選者で未受取の場合はprizeInfoを更新
-        if (isWinner && !alreadyClaimed) {
-          setPrizeInfo(result);
-          setHasPrize(true);
-          
-          Alert.alert(
-            '🏆 当選のお知らせ 🏆',
-            'おめでとうございます！抽選に当選しています。「当選プレゼント」タブから景品を受け取ることができます。',
-            [
-              {
-                text: '後で',
-                style: 'cancel'
-              },
-              {
-                text: '受け取る',
-                onPress: () => {
-                  setActiveTab(TabState.PRIZE);
-                }
-              }
-            ]
-          );
-        } else if (isWinner && alreadyClaimed) {
-          Alert.alert(
-            '当選情報',
-            'おめでとうございます！抽選に当選しましたが、すでに景品を受け取っています。',
-            [{ text: 'OK' }]
-          );
-        } else {
-          // 落選時のメッセージ
-          Alert.alert(
-            '抽選結果',
-            `残念ながら、あなたは当選しませんでした。\n\n当選者: ${result.winner_id}\n参加者数: ${result.total_participants}人`,
-            [{ text: 'OK' }]
-          );
-        }
-      } else {
-        Alert.alert('結果なし', '抽選結果が見つかりませんでした。');
-      }
+      // 親コンポーネントのハンドラを呼び出す
+      await handleCheckResult();
     } catch (error) {
       console.error('Check result error:', error);
       Alert.alert('エラー', '抽選結果の確認中にエラーが発生しました。');
@@ -247,51 +164,36 @@ const TicketsTab = ({
     }
   };
 
-  // 当選確認
-  const checkWinningStatus = async () => {
+  // 参加者数確認
+  const checkParticipants = async () => {
     try {
-      if (!supabaseClient || !effectiveUserId) {
-        return false;
+      const now = Date.now();
+      if (now - lastParticipantCheckTimeRef.current < 30000) {
+        return participantsCount;
       }
       
-      const { data, error } = await supabaseClient
-        .from('lottery_results')
-        .select('*')
-        .eq('winner_id', effectiveUserId)
-        .eq('prize_claimed', false)
-        .order('created_at', { ascending: false })
-        .limit(1);
+      if (!supabaseClient) {
+        return 0;
+      }
+      
+      lastParticipantCheckTimeRef.current = Date.now();
+      
+      const { dateISO } = calculateNextLotteryDateString();
+      
+      const response = await supabaseClient
+        .from('lottery_participants')
+        .select('*', { count: 'exact', head: true })
+        .eq('lottery_date', dateISO);
         
+      const { count, error } = response;
+      
       if (error) {
-        return false;
+        throw error;
       }
       
-      if (data && data.length > 0) {
-        setPrizeInfo(data[0]);
-        setHasPrize(true);
-        
-        Alert.alert(
-          '🏆 当選のお知らせ 🏆',
-          'おめでとうございます！抽選に当選しています。「当選プレゼント」タブから景品を受け取ることができます。',
-          [
-            {
-              text: '後で',
-              style: 'cancel'
-            },
-            {
-              text: '受け取る',
-              onPress: () => {
-                setActiveTab(TabState.PRIZE);
-              }
-            }
-          ]
-        );
-        return true;
-      }
-      
-      return false;
+      return count || 0;
     } catch (error) {
-      return false;
+      return 0;
     }
   };
 
@@ -380,39 +282,6 @@ const TicketsTab = ({
       Alert.alert('エラー', '広告表示中にエラーが発生しました');
     } finally {
       setAdLoading(false);
-    }
-  };
-
-  // 参加者数確認
-  const checkParticipants = async () => {
-    try {
-      const now = Date.now();
-      if (now - lastParticipantCheckTimeRef.current < 30000) {
-        return participantsCount;
-      }
-      
-      if (!supabaseClient) {
-        return 0;
-      }
-      
-      lastParticipantCheckTimeRef.current = Date.now();
-      
-      const { dateISO } = calculateNextLotteryDateString();
-      
-      const response = await supabaseClient
-        .from('lottery_participants')
-        .select('*', { count: 'exact', head: true })
-        .eq('lottery_date', dateISO);
-        
-      const { count, error } = response;
-      
-      if (error) {
-        throw error;
-      }
-      
-      return count || 0;
-    } catch (error) {
-      return 0;
     }
   };
 
@@ -539,45 +408,16 @@ const TicketsTab = ({
         })
         .eq('id', LOTTERY_STATUS_ID);
       
-      // 抽選結果確認ボタンを表示
-      setShowResultCheckButton(true);
+      // 結果は明かさず、確認ボタンを表示するよう親コンポーネントに通知
       
       // 結果表示
       setTimeout(() => {
-        if (isCurrentUserWinner && resultSaved) {
-          // 当選演出
-          Alert.alert(
-            '🎉🎉🎉 あなたが当選しました！ 🎉🎉🎉', 
-            '✨✨ おめでとうございます！ ✨✨\n\nあなたが当選者に選ばれました！\n豪華景品が贈られます！',
-            [
-              {
-                text: '受け取る！',
-                onPress: () => {
-                  setPrizeInfo(resultRecord || {
-                    id: Date.now().toString(),
-                    date: new Date().toISOString()
-                  });
-                  setHasPrize(true);
-                  setActiveTab(TabState.PRIZE);
-                },
-                style: 'default'
-              }
-            ],
-            { cancelable: false }
-          );
-        } else if (!isCurrentUserWinner) {
-          // 落選通知
-          Alert.alert(
-            '抽選完了', 
-            `参加者${participants.length}名の中から1名が選ばれました。\n\n残念ながら、あなたは当選しませんでした。\n\n当選者ID: ${winner.user_id}\n\n抽選がリセットされました。再度参加できます。`,
-            [
-              {
-                text: '次回に期待',
-                style: 'default'
-              }
-            ]
-          );
-        }
+        // 結果は明かさず、抽選完了のみ通知
+        Alert.alert(
+          '抽選完了', 
+          '抽選が完了しました。「抽選結果を確認する」ボタンで結果を確認できます。',
+          [{ text: 'OK' }]
+        );
         
         // 状態リセット
         setIsLotteryRunning(false);
@@ -649,8 +489,8 @@ const TicketsTab = ({
             )}
           </TouchableOpacity>
 
-          {/* 抽選結果確認ボタン */}
-          {showResultCheckButton && (
+          {/* 抽選結果確認ボタン - 親コンポーネントの状態を使用 */}
+          {showResultButton && (
             <TouchableOpacity 
               style={[
                 styles.checkResultButton,

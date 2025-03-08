@@ -99,6 +99,9 @@ const TicketScreen = ({
   const [participantsCount, setParticipantsCount] = useState(lotteryParticipants);
   const [hasPrize, setHasPrize] = useState(false);
   const [prizeInfo, setPrizeInfo] = useState(null);
+  // 新しいステート追加
+  const [resultChecked, setResultChecked] = useState(false);
+  const [showResultButton, setShowResultButton] = useState(true); // デバッグ用にtrueに設定
 
   // Supabaseクライアント初期化
   useEffect(() => {
@@ -160,7 +163,6 @@ const TicketScreen = ({
     if (supabaseClient && effectiveUserId) {
       checkLotteryParticipation();
       fetchLotteryParticipantsCount();
-      checkWinningStatus();
     }
   }, [supabaseClient, effectiveUserId]);
 
@@ -305,8 +307,8 @@ const TicketScreen = ({
     }
   };
 
-  // 当選確認
-  const checkWinningStatus = async () => {
+  // 当選確認 - 修正: showAlertパラメータを追加
+  const checkWinningStatus = async (showAlert = false) => {
     try {
       if (!supabaseClient || !effectiveUserId) {
         return false;
@@ -328,28 +330,65 @@ const TicketScreen = ({
         setPrizeInfo(data[0]);
         setHasPrize(true);
         
-        Alert.alert(
-          '🏆 当選のお知らせ 🏆',
-          'おめでとうございます！抽選に当選しています。「当選プレゼント」タブから景品を受け取ることができます。',
-          [
-            {
-              text: '後で',
-              style: 'cancel'
-            },
-            {
-              text: '受け取る',
-              onPress: () => {
-                setActiveTab(TabState.PRIZE);
+        // showAlertがtrueの場合のみアラートを表示
+        if (showAlert) {
+          Alert.alert(
+            '🏆 当選のお知らせ 🏆',
+            'おめでとうございます！抽選に当選しています。「当選プレゼント」タブから景品を受け取ることができます。',
+            [
+              {
+                text: '後で',
+                style: 'cancel'
+              },
+              {
+                text: '受け取る',
+                onPress: () => {
+                  setActiveTab(TabState.PRIZE);
+                }
               }
-            }
-          ]
-        );
+            ]
+          );
+        }
         return true;
       }
       
       return false;
     } catch (error) {
       return false;
+    }
+  };
+
+  // 新規: 結果確認ハンドラ
+  const handleCheckResult = async () => {
+    // 結果確認済みに設定
+    setResultChecked(true);
+    setShowResultButton(false);
+    
+    // 当選確認（アラート表示あり）
+    const isWinner = await checkWinningStatus(true);
+    
+    if (!isWinner) {
+      // 最新の抽選結果を取得して落選通知
+      try {
+        const { data, error } = await supabaseClient
+          .from('lottery_results')
+          .select('*')
+          .order('created_at', { ascending: false })
+          .limit(1);
+          
+        if (!error && data && data.length > 0) {
+          const result = data[0];
+          Alert.alert(
+            '抽選結果',
+            `残念ながら、あなたは当選しませんでした。\n\n当選者: ${result.winner_id}\n参加者数: ${result.total_participants}人`,
+            [{ text: 'OK' }]
+          );
+        } else {
+          Alert.alert('結果なし', '抽選結果が見つかりませんでした。');
+        }
+      } catch (error) {
+        Alert.alert('エラー', '抽選結果の確認中にエラーが発生しました。');
+      }
     }
   };
 
@@ -519,6 +558,9 @@ const TicketScreen = ({
           setPrizeInfo={setPrizeInfo}
           setActiveTab={setActiveTab}
           participantsCount={participantsCount}
+          resultChecked={resultChecked}
+          showResultButton={showResultButton}
+          handleCheckResult={handleCheckResult}
         />
       ) : (
         <PrizeTab 
@@ -527,6 +569,7 @@ const TicketScreen = ({
           supabaseClient={supabaseClient}
           effectiveUserId={effectiveUserId}
           onPrizeClaimed={handlePrizeClaimed}
+          resultChecked={resultChecked}
         />
       )}
     </SafeAreaView>

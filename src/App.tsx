@@ -45,8 +45,8 @@ const SNAP_POINTS = {
 };
 
 const APP_VERSION = Platform.select({
-  ios: "1.41",
-  android: "2.31",
+  ios: "1.42",
+  android: "2.32",
 });
 
 interface UpdateInfo {
@@ -358,13 +358,11 @@ const TabBar = React.memo<{
       label: t.tabs.rankings,
       icon: require('../assets/AppIcon/ranking.png'),
     },
-    /*
     {
       key: 'tickets',
       label: t.tabs.tickets,
       icon: require('../assets/AppIcon/ticket.png'),
     },
-    */
   ];
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -24,8 +24,7 @@ interface PrizeTabProps {
   supabaseClient: SupabaseClient | null;
   effectiveUserId: string | null;
   onPrizeClaimed: () => void;
-  setHasPrize: (hasPrize: boolean) => void;
-  setPrizeInfo: (prizeInfo: any) => void;
+  resultChecked: boolean; // 親コンポーネントから渡される新しいprop
 }
 
 const PrizeTab: React.FC<PrizeTabProps> = ({
@@ -34,24 +33,18 @@ const PrizeTab: React.FC<PrizeTabProps> = ({
   supabaseClient,
   effectiveUserId,
   onPrizeClaimed,
-  setHasPrize,
-  setPrizeInfo
+  resultChecked
 }) => {
   const [playerTag, setPlayerTag] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPrizeModal, setShowPrizeModal] = useState(false);
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
-  const [checkingResult, setCheckingResult] = useState(false);
-  const [lastResult, setLastResult] = useState(null);
-  const [showResultModal, setShowResultModal] = useState(false);
-  const [showResultCheckButton, setShowResultCheckButton] = useState(false);
 
-  // コンポーネントマウント時に抽選結果確認ボタンの表示状態をチェック
-  useEffect(() => {
-    if (supabaseClient && effectiveUserId) {
-      checkLotteryAvailability();
-    }
-  }, [supabaseClient, effectiveUserId]);
+  // 以下のステートは不要になったため削除
+  // const [checkingResult, setCheckingResult] = useState(false);
+  // const [lastResult, setLastResult] = useState(null);
+  // const [showResultModal, setShowResultModal] = useState(false);
+  // const [showResultCheckButton, setShowResultCheckButton] = useState(false);
 
   // 抽選日付用関数 
   const calculateNextLotteryDateString = () => {
@@ -65,47 +58,8 @@ const PrizeTab: React.FC<PrizeTabProps> = ({
     return { dateString, dateISO };
   };
 
-  // 最新の抽選結果が確認可能かチェック
-  const checkLotteryAvailability = async () => {
-    try {
-      if (!supabaseClient) return;
-      
-      // 前回の抽選結果を確認したかどうかのフラグを取得
-      const lastLotteryChecked = await AsyncStorage.getItem('last_lottery_checked');
-      const lastLotteryDate = await AsyncStorage.getItem('last_lottery_date');
-      
-      // 最新の抽選結果を取得
-      const { data, error } = await supabaseClient
-        .from('lottery_results')
-        .select('created_at')
-        .order('created_at', { ascending: false })
-        .limit(1);
-        
-      if (error) {
-        console.error('Lottery result check error:', error);
-        return;
-      }
-      
-      // 抽選結果がある場合
-      if (data && data.length > 0) {
-        const latestResultDate = data[0].created_at;
-        
-        // 最新の抽選日と前回確認した抽選日を比較
-        if (lastLotteryChecked === 'true' && lastLotteryDate === latestResultDate) {
-          // すでに確認済みの抽選結果なので、ボタンを表示しない
-          setShowResultCheckButton(false);
-        } else {
-          // 新しい抽選結果か未確認の結果なので、確認ボタンを表示
-          setShowResultCheckButton(true);
-        }
-      } else {
-        // 抽選結果がない場合は確認ボタンを表示しない
-        setShowResultCheckButton(false);
-      }
-    } catch (error) {
-      console.error('Lottery availability check error:', error);
-    }
-  };
+  // 以下の関数は不要になったため削除
+  // checkLotteryAvailability関数を削除
 
   // Brawl Starsリンクを開く
   const openBrawlStarsLink = async () => {
@@ -191,72 +145,7 @@ const PrizeTab: React.FC<PrizeTabProps> = ({
     }
   };
 
-  // 抽選結果確認ボタンのハンドラ
-  const handleCheckLotteryResult = async () => {
-    if (!supabaseClient || !effectiveUserId) {
-      Alert.alert('エラー', 'システムの初期化中です。しばらくお待ちください。');
-      return;
-    }
-
-    setCheckingResult(true);
-
-    try {
-      // 最新の抽選結果を取得
-      const { data, error } = await supabaseClient
-        .from('lottery_results')
-        .select('*')
-        .order('created_at', { ascending: false })
-        .limit(1);
-        
-      if (error) {
-        throw error;
-      }
-
-      if (data && data.length > 0) {
-        const result = data[0];
-        
-        // 自分が当選者かチェック
-        const isWinner = result.winner_id === effectiveUserId;
-        
-        // 既に景品を受け取ったかチェック
-        const alreadyClaimed = result.prize_claimed;
-        
-        // ここで初めて結果確認済みとしてマーク
-        await AsyncStorage.setItem('lottery_result_checked', 'true');
-        await AsyncStorage.setItem('last_lottery_checked', 'true');
-        await AsyncStorage.setItem('last_lottery_date', result.created_at);
-        
-        // 結果情報をセット
-        setLastResult({
-          isWinner,
-          alreadyClaimed,
-          totalParticipants: result.total_participants,
-          winnerId: result.winner_id,
-          date: result.lottery_date,
-          resultId: result.id
-        });
-        
-        // 自分が当選者で未受取の場合はprizeInfoを更新・hasPrizeをtrueに設定
-        if (isWinner && !alreadyClaimed) {
-          setPrizeInfo(result);
-          setHasPrize(true);
-        }
-        
-        // 結果モーダルを表示
-        setShowResultModal(true);
-        
-        // 結果を確認したので、ボタンを非表示にする
-        setShowResultCheckButton(false);
-      } else {
-        Alert.alert('結果なし', '最新の抽選結果が見つかりませんでした。');
-      }
-    } catch (error) {
-      console.error('Check result error:', error);
-      Alert.alert('エラー', '抽選結果の確認中にエラーが発生しました。');
-    } finally {
-      setCheckingResult(false);
-    }
-  };
+  // 抽選結果確認ボタンのハンドラ関数は削除 (handleCheckLotteryResult)
 
   return (
     <ScrollView style={styles.content}>
@@ -332,29 +221,7 @@ const PrizeTab: React.FC<PrizeTabProps> = ({
               抽選に参加して、素敵な景品を当てましょう！
             </Text>
             
-            {/* 抽選結果確認ボタン */}
-            {showResultCheckButton && (
-              <TouchableOpacity 
-                style={[
-                  styles.checkResultButton,
-                  checkingResult && styles.disabledButton
-                ]} 
-                onPress={handleCheckLotteryResult}
-                disabled={checkingResult}
-              >
-                {checkingResult ? (
-                  <ActivityIndicator color="#fff" size="small" style={styles.buttonSpinner} />
-                ) : (
-                  <Image 
-                    source={require('../../assets/AppIcon/ticket.png')} 
-                    style={styles.checkResultIcon} 
-                  />
-                )}
-                <Text style={styles.checkResultText}>
-                  抽選結果を確認する
-                </Text>
-              </TouchableOpacity>
-            )}
+            {/* 抽選結果確認ボタンは削除 - TicketsTabに移動 */}
           </View>
         )}
       </View>
@@ -398,72 +265,7 @@ const PrizeTab: React.FC<PrizeTabProps> = ({
         </View>
       </Modal>
 
-      {/* 抽選結果モーダル */}
-      <Modal
-        visible={showResultModal}
-        transparent={true}
-        animationType="fade"
-        onRequestClose={() => setShowResultModal(false)}
-      >
-        <View style={styles.modalContainer}>
-          <View style={styles.resultModal}>
-            <Text style={styles.resultModalTitle}>
-              {lastResult?.isWinner ? '🎉 当選結果 🎉' : '抽選結果'}
-            </Text>
-            
-            {lastResult && (
-              <>
-                <View style={styles.resultInfoContainer}>
-                  <Text style={styles.resultInfoLabel}>抽選日</Text>
-                  <Text style={styles.resultInfoValue}>
-                    {new Date(lastResult.date).toLocaleDateString('ja-JP')}
-                  </Text>
-                </View>
-                
-                <View style={styles.resultInfoContainer}>
-                  <Text style={styles.resultInfoLabel}>参加者数</Text>
-                  <Text style={styles.resultInfoValue}>
-                    {lastResult.totalParticipants}人
-                  </Text>
-                </View>
-                
-                {lastResult.isWinner ? (
-                  <View style={styles.winnerContainer}>
-                    <Text style={styles.winnerText}>
-                      あなたが当選しました！
-                    </Text>
-                    {lastResult.alreadyClaimed ? (
-                      <Text style={styles.claimedText}>
-                        ※景品は既に受け取り済みです
-                      </Text>
-                    ) : (
-                      <Text style={styles.notClaimedText}>
-                        景品を受け取ることができます
-                      </Text>
-                    )}
-                  </View>
-                ) : (
-                  <View style={styles.notWinnerContainer}>
-                    <Text style={styles.notWinnerText}>
-                      残念ながら、あなたは当選しませんでした。
-                    </Text>
-                    <Text style={styles.winnerIdText}>
-                      当選者ID: {lastResult.winnerId}
-                    </Text>
-                  </View>
-                )}
-              </>
-            )}
-            
-            <TouchableOpacity 
-              style={styles.closeResultButton} 
-              onPress={() => setShowResultModal(false)}
-            >
-              <Text style={styles.closeResultButtonText}>閉じる</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Modal>
+      {/* 抽選結果モーダルは削除 */}
 
       {/* プレゼント受け取りモーダル */}
       <Modal
@@ -649,118 +451,6 @@ const styles = StyleSheet.create({
     color: '#999',
     textAlign: 'center',
     marginBottom: 24,
-  },
-  // 抽選結果確認ボタン
-  checkResultButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#21A0DB',
-    borderRadius: 8,
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    marginTop: 16,
-    width: '80%',
-  },
-  checkResultIcon: {
-    width: 24,
-    height: 24,
-    tintColor: '#fff',
-    marginRight: 8,
-  },
-  checkResultText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#fff',
-  },
-  buttonSpinner: {
-    marginRight: 8,
-  },
-  // 結果モーダル
-  resultModal: {
-    backgroundColor: '#fff',
-    borderRadius: 12,
-    padding: 20,
-    width: '90%',
-    maxWidth: 400,
-  },
-  resultModalTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#21A0DB',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  resultInfoContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 12,
-    paddingBottom: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
-  },
-  resultInfoLabel: {
-    fontSize: 16,
-    color: '#666',
-  },
-  resultInfoValue: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  winnerContainer: {
-    alignItems: 'center',
-    backgroundColor: '#E8F5E9',
-    borderRadius: 8,
-    padding: 16,
-    marginTop: 8,
-    marginBottom: 20,
-  },
-  winnerText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#4CAF50',
-    marginBottom: 8,
-  },
-  claimedText: {
-    fontSize: 14,
-    color: '#777',
-    fontStyle: 'italic',
-  },
-  notClaimedText: {
-    fontSize: 14,
-    color: '#FF9800',
-    fontWeight: 'bold',
-  },
-  notWinnerContainer: {
-    alignItems: 'center',
-    backgroundColor: '#FFF3E0',
-    borderRadius: 8,
-    padding: 16,
-    marginTop: 8,
-    marginBottom: 20,
-  },
-  notWinnerText: {
-    fontSize: 16,
-    color: '#FF5722',
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  winnerIdText: {
-    fontSize: 14,
-    color: '#666',
-  },
-  closeResultButton: {
-    backgroundColor: '#21A0DB',
-    borderRadius: 8,
-    padding: 14,
-    alignItems: 'center',
-  },
-  closeResultButtonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 16,
   },
   // モーダルのスタイル
   modalContainer: {
