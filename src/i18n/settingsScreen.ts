@@ -1,4 +1,3 @@
-// src/i18n/settingsScreen.ts
 export type SettingsScreenTranslation = {
   header: {
     settings: string;
@@ -44,6 +43,7 @@ export type SettingsScreenTranslation = {
       storeConnect: string;
     };
     restore: {
+      button: string; // 追加：復元ボタンのテキスト
       success: string;
       notFound: string;
       error: string;
@@ -105,6 +105,7 @@ export const ja: SettingsScreenTranslation = {
       storeConnect: 'App Storeに接続できません',
     },
     restore: {
+      button: '購入を復元する', // 追加
       success: '広告削除の購入を復元しました！',
       notFound: '復元可能な購入が見つかりませんでした。',
       error: '購入の復元に失敗しました。',
@@ -166,6 +167,7 @@ export const en: SettingsScreenTranslation = {
       storeConnect: 'Cannot connect to App Store',
     },
     restore: {
+      button: 'Restore Purchase', // 追加
       success: 'Ad removal purchase restored!',
       notFound: 'No restorable purchases found.',
       error: 'Failed to restore purchase.',
@@ -227,6 +229,7 @@ export const ko: SettingsScreenTranslation = {
       storeConnect: 'App Store에 연결할 수 없습니다',
     },
     restore: {
+      button: '구매 복원', // 추가
       success: '광고 제거 구매가 복원되었습니다!',
       notFound: '복원 가능한 구매를 찾을 수 없습니다.',
       error: '구매 복원에 실패했습니다.',
@@ -268,7 +271,6 @@ export const es: SettingsScreenTranslation = {
     news: 'Noticias de YouTube',
     developer: 'Acerca del Desarrollador', // 追加
   },
-  // 残りの項目は省略
   roulette: {
     spin: '¡Girar!',
     spinning: 'Girando...',
@@ -290,6 +292,7 @@ export const es: SettingsScreenTranslation = {
       storeConnect: 'No se puede conectar con App Store',
     },
     restore: {
+      button: 'Restaurar Compra', // 追加
       success: '¡Compra de eliminación de anuncios restaurada!',
       notFound: 'No se encontraron compras restaurables.',
       error: 'Error al restaurar la compra.',
@@ -330,7 +333,6 @@ export const ar: SettingsScreenTranslation = {
     news: 'أخبار YouTube',
     developer: 'حول المطور', // 追加
   },
-  // 残りの項目は省略
   roulette: {
     spin: 'دوران!',
     spinning: 'يدور...',
@@ -352,6 +354,7 @@ export const ar: SettingsScreenTranslation = {
       storeConnect: 'لا يمكن الاتصال بمتجر التطبيقات',
     },
     restore: {
+      button: 'استعادة الشراء', // 追加
       success: 'تمت استعادة شراء إزالة الإعلانات!',
       notFound: 'لم يتم العثور على مشتريات قابلة للاستعادة.',
       error: 'فشل في استعادة المشتريات.',
@@ -392,7 +395,6 @@ export const fr: SettingsScreenTranslation = {
     news: 'Actualités YouTube',
     developer: 'À propos du Développeur', // 追加
   },
-  // 残りの項目は省略
   roulette: {
     spin: 'Tourner !',
     spinning: 'En rotation...',
@@ -414,6 +416,7 @@ export const fr: SettingsScreenTranslation = {
       storeConnect: 'Impossible de se connecter à l\'App Store',
     },
     restore: {
+      button: 'Restaurer l\'Achat', // 追加
       success: 'Achat de suppression des publicités restauré !',
       notFound: 'Aucun achat restaurable trouvé.',
       error: 'Échec de la restauration de l\'achat.',
@@ -454,7 +457,6 @@ export const zhTw: SettingsScreenTranslation = {
     news: 'YouTube 新聞',
     developer: '關於開發者', // 追加
   },
-  // 残りの項目は省略
   roulette: {
     spin: '轉動！',
     spinning: '轉動中...',
@@ -476,6 +478,7 @@ export const zhTw: SettingsScreenTranslation = {
       storeConnect: '無法連接到 App Store',
     },
     restore: {
+      button: '恢復購買', // 追加
       success: '已恢復移除廣告的購買！',
       notFound: '找不到可恢復的購買項目。',
       error: '恢復購買失敗。',

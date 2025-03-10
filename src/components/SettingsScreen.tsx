@@ -34,7 +34,7 @@ import MapDetailScreen from './MapDetailScreen';
 import PunishmentGameScreen from './PunishmentGameScreen';
 import CharacterRouletteScreen from './CharacterRouletteScreen';
 import News from './News';
-import DeveloperInfoScreen from './DeveloperInfoScreen'; // 追加: 開発者情報画面をインポート
+import DeveloperInfoScreen from './DeveloperInfoScreen';
 import { MapDetail, ScreenType, ScreenState } from '../types';
 import { LanguageSelector } from './LanguageSelector';
 import { useSettingsScreenTranslation } from '../i18n/settingsScreen';
@@ -449,36 +449,52 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
               android: t.purchase.errors.storeConnect.replace('App Store', 'Google Play')
             })}
           </Text>
-          </TouchableOpacity>
+        </TouchableOpacity>
       );
     }
 
     return (
-      <TouchableOpacity 
-        style={[
-          styles.settingsItem,
-          (loading || isAdFree) && styles.settingsItemDisabled
-        ]}
-        onPress={handlePurchaseAdRemoval}
-        disabled={loading || isAdFree}
-      >
-        <View>
-          <Text style={[
-            styles.settingsItemText,
-            (loading || isAdFree) && styles.settingsItemTextDisabled
-          ]}>
-            {isAdFree ? t.menuItems.adsRemoved : t.menuItems.removeAds}
-            {loading && ' (処理中...)'}
-          </Text>
-          {!isAdFree && !loading && (
-            <View style={styles.priceContainer}>
-              <Text style={styles.price}>
-                {t.purchase.priceDisplay}
-              </Text>
-            </View>
-          )}
-        </View>
-      </TouchableOpacity>
+      <>
+        {/* 購入ボタン */}
+        <TouchableOpacity 
+          style={[
+            styles.settingsItem,
+            (loading || isAdFree) && styles.settingsItemDisabled
+          ]}
+          onPress={handlePurchaseAdRemoval}
+          disabled={loading || isAdFree}
+        >
+          <View>
+            <Text style={[
+              styles.settingsItemText,
+              (loading || isAdFree) && styles.settingsItemTextDisabled
+            ]}>
+              {isAdFree ? t.menuItems.adsRemoved : t.menuItems.removeAds}
+              {loading && ' (処理中...)'}
+            </Text>
+            {!isAdFree && !loading && (
+              <View style={styles.priceContainer}>
+                <Text style={styles.price}>
+                  {t.purchase.priceDisplay}
+                </Text>
+              </View>
+            )}
+          </View>
+        </TouchableOpacity>
+        
+        {/* 課金復元ボタン (広告削除済みでない場合のみ表示) */}
+        {!isAdFree && (
+          <TouchableOpacity 
+            style={[styles.settingsItem, loading && styles.settingsItemDisabled]}
+            onPress={handleRestorePurchase}
+            disabled={loading}
+          >
+            <Text style={[styles.settingsItemText, loading && styles.settingsItemTextDisabled]}>
+              {t.purchase.restore.button}
+            </Text>
+          </TouchableOpacity>
+        )}
+      </>
     );
   };
 
