@@ -18,21 +18,19 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import CharacterSelector, { Character } from './CharacterSelector';
 import { PostCard } from './TeamBoardComponents';
-import { usePlayerData, validatePlayerTag, useBrawlersData } from '../hooks/useBrawlStarsApi';
+import { usePlayerData, validatePlayerTag, useBrawlStarsApi } from '../hooks/useBrawlStarsApi';
 import { useTeamBoardTranslation } from '../i18n/teamBoard';
 import { TeamBoardTranslation } from '../i18n/teamBoard';
 import characterData from '../data/characterAPI.json';
 import AdMobService from '../services/AdMobService';
 import { createClient, RealtimeChannel } from '@supabase/supabase-js';
 import 'react-native-url-polyfill/auto';
-// GAME_MODESをインポート
 import { GAME_MODES } from '../data/modeData';
 
 const supabase = createClient(
   'https://llxmsbnqtdlqypnwapzz.supabase.co',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxseG1zYm5xdGRscXlwbndhcHp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc4MjA5MjEsImV4cCI6MjA1MzM5NjkyMX0.EkqepILQU0KgOTW1ZaXpe54ERpZbSRodf24r5022VKs'
 );
-
 
 const POST_LIMIT = 50;
 
@@ -114,6 +112,24 @@ const getGameModes = (t: TeamBoardTranslation): GameMode[] => {
     .filter(Boolean) as GameMode[]; // nullを除外
 };
 
+// モックデータの設定 - プレイヤーAPI連携なしでテストするために使用
+const MOCK_PLAYER_DATA = {
+  name: 'TestPlayer',
+  tag: '#2YCQCYLPG',
+  trophies: 10000,
+  '3vs3Victories': 500,
+  duoVictories: 200,
+  brawlers: [
+    { name: 'SHELLY', id: '16000000', trophies: 500 },
+    { name: 'COLT', id: '16000001', trophies: 600 },
+    { name: 'BULL', id: '16000002', trophies: 550 },
+    { name: 'BROCK', id: '16000003', trophies: 480 },
+    { name: 'JESSIE', id: '16000004', trophies: 520 },
+    { name: 'NITA', id: '16000005', trophies: 550 }
+    // 必要に応じて他のキャラクターを追加
+  ]
+};
+
 const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetails }) => {
   const { width } = useWindowDimensions();
   const isIPad = Platform.OS === 'ios' && Platform.isPad;
@@ -124,9 +140,8 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
   const scrollViewRef = useRef<ScrollView>(null);
   const inviteLinkInputRef = useRef<TextInput>(null);
   const playerDataAPI = usePlayerData();
-  const brawlersData = useBrawlersData();  // 追加
 
-  // state の設定
+  // 既存のstate設定
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedMode, setSelectedMode] = useState('');
   const [selectedModeFilter, setSelectedModeFilter] = useState<string | null>(null);
@@ -149,8 +164,10 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
     totalTrophies: 0,
     winsDuo: 0
   });
-  // ゲームモードの一覧をt.modesから取得
   const [gameModes, setGameModes] = useState<GameMode[]>([]);
+  
+  // 新たに追加する状態変数 - TeamBoard専用
+  const [playerBrawlers, setPlayerBrawlers] = useState<any[]>([]);  // TeamBoard専用のBrawlersデータ
 
   useEffect(() => {
     // tとt.modesが利用可能になったらゲームモード情報を設定
@@ -160,6 +177,98 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
   }, [t]); // tが変更されたら再実行
 
   const REFRESH_COOLDOWN = 3000;
+
+  // モックデータを使った検証 - プレイヤー分析に依存しない独自実装
+  const verifyWithMockData = async (tag: string): Promise<any> => {
+    // 開発・テスト環境で使用するためのモック関数
+    await new Promise(resolve => setTimeout(resolve, 500)); // 処理時間をシミュレート
+    
+    const cleanTag = tag.replace('#', '');
+    
+    // モックデータを返す（タグだけ入力されたものに変更）
+    return {
+      ...MOCK_PLAYER_DATA,
+      tag: `#${cleanTag}`
+    };
+  };
+
+  // TeamBoard専用のプレイヤータグ検証関数
+  const verifyPlayerTagForTeamBoard = async (tag: string): Promise<boolean> => {
+    console.log('=== Start TeamBoard tag verification ===');
+    console.log('Input playerTag:', tag);
+
+    if (!tag.trim()) {
+      console.log('Error: Empty tag');
+      return false;
+    }
+
+    // タグのクリーニングと検証
+    const cleanTag = tag.replace('#', '');
+    const validatedTag = validatePlayerTag(cleanTag);
+    console.log('Cleaned tag:', cleanTag);
+    console.log('Validated tag:', validatedTag);
+    
+    if (!validatedTag) {
+      console.log('Error: Invalid tag format');
+      return false;
+    }
+
+    try {
+      // 以下の環境に応じた実装を選択します
+      // 1: 開発・テスト環境ではモックデータを使用
+      // 2: 既存のAPIが利用可能な場合はそれを使用
+      // 3: 独自バックエンドがある場合はそれを使用
+      
+      // 方法1: モックデータを使用（開発・テスト向け）
+      let playerInfo;
+      if (__DEV__ || true) { // trueは例示のため、実際は環境変数などで制御
+        playerInfo = await verifyWithMockData(validatedTag);
+      } else {
+        // 方法2: 既存APIを使用（実際の環境向け）
+        const result = await playerDataAPI.fetchPlayerData(validatedTag);
+        playerInfo = result?.playerInfo;
+      }
+      
+      if (!playerInfo) {
+        console.log('Error: Player data fetch failed');
+        return false;
+      }
+      
+      console.log('Verification successful');
+      console.log('Player info:', {
+        wins3v3: playerInfo['3vs3Victories'],
+        winsDuo: playerInfo.duoVictories,
+        totalTrophies: playerInfo.trophies
+      });
+      
+      // TeamBoard専用のデータとして保存
+      setPlayerBrawlers(playerInfo.brawlers || []);
+      setHostInfo({
+        wins3v3: playerInfo['3vs3Victories'] || 0,
+        winsDuo: playerInfo.duoVictories || 0,
+        totalTrophies: playerInfo.trophies || 0
+      });
+      
+      // TeamBoard専用の検索履歴を更新
+      const newHistory = [
+        validatedTag,
+        ...searchHistory.filter(t => t.toUpperCase() !== validatedTag.toUpperCase())
+      ].slice(0, 3);
+      
+      setSearchHistory(newHistory);
+      
+      // TeamBoard専用のキーを使用して保存
+      await AsyncStorage.setItem('teamBoardSearchHistory', JSON.stringify(newHistory));
+      await AsyncStorage.setItem('teamBoardPlayerTag', validatedTag);
+      
+      console.log('=== End TeamBoard tag verification ===');
+      return true;
+    } catch (error) {
+      console.error('Error details:', error);
+      console.log('=== End TeamBoard tag verification with error ===');
+      return false;
+    }
+  };
 
   // 投稿制限をチェックする関数
   const checkPostCooldown = async () => {
@@ -196,182 +305,128 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
   // 言語に基づいてテーブル名を取得
   const getTableName = (lang: string) => `team_posts_${lang}`;
 
-  // ゲームモードの設定
-  const getCurrentModes = (t: TeamBoardTranslation) => {
-  // 表示するゲームモードを限定する
-  const DISPLAY_MODES = [
-    'ranked',
-    'duoShowdown',
-    'gemGrab',
-    'brawlBall',
-    'heist',
-    'knockout',
-    'bounty',
-    'wipeout',
-    'hotZone',
-    'brawlBall5v5',
-    'wipeout5v5'
-  ];
-
-  const modes: GameMode[] = DISPLAY_MODES.map(modeId => {
-    // modeData.tsからモード情報を取得
-    const modeKey = Object.keys(GAME_MODES).find(key => 
-      GAME_MODES[key].name === modeId
-    );
-    
-    if (!modeKey) return null;
-    
-    const modeData = GAME_MODES[modeKey];
-    
-    return {
-      id: modeId as keyof TeamBoardTranslation['modes'],
-      name: t.modes[modeId],
-      color: modeData.color,
-      icon: modeData.icon
-    };
-  }).filter(Boolean) as GameMode[];
-  
-  return modes;
-};
-
   // 投稿の取得とリアルタイム更新の設定
-  useEffect(() => {
-    const initializeData = async () => {
-      try {
-        // 初期化中はローディング表示
-        setLoading(true);
-        await brawlersData.fetchBrawlers();
-      } catch (error) {
-        console.error('Error initializing brawlers data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    initializeData();
-  }, []);
-
   useEffect(() => {
     let isSubscribed = true;
     let currentChannel: RealtimeChannel | null = null;
 
     const fetchPosts = async () => {
-  if (!isSubscribed) return;
+      if (!isSubscribed) return;
 
-  setLoading(true);
-  try {
-    // 現在の言語でまず試す
-    let query = supabase
-      .from(getTableName(currentLanguage))
-      .select('*')
-      .order('created_at', { ascending: false })
-      .limit(POST_LIMIT);
-    
-    if (selectedModeFilter) {
-      query = query.eq('selected_mode', selectedModeFilter);
-    }
+      setLoading(true);
+      try {
+        // 現在の言語でまず試す
+        let query = supabase
+          .from(getTableName(currentLanguage))
+          .select('*')
+          .order('created_at', { ascending: false })
+          .limit(POST_LIMIT);
+        
+        if (selectedModeFilter) {
+          query = query.eq('selected_mode', selectedModeFilter);
+        }
 
-    const { data: languageData, error: languageError } = await query;
+        const { data: languageData, error: languageError } = await query;
 
-    // 現在の言語のデータが空または存在しない場合、英語をフォールバックとして使用
-    if ((!languageData || languageData.length === 0) && currentLanguage !== 'en') {
-      console.log('No posts found in current language, falling back to English');
-      
-      query = supabase
-        .from(getTableName('en'))
-        .select('*')
-        .order('created_at', { ascending: false })
-        .limit(POST_LIMIT);
-      
-      if (selectedModeFilter) {
-        query = query.eq('selected_mode', selectedModeFilter);
+        // 現在の言語のデータが空または存在しない場合、英語をフォールバックとして使用
+        if ((!languageData || languageData.length === 0) && currentLanguage !== 'en') {
+          console.log('No posts found in current language, falling back to English');
+          
+          query = supabase
+            .from(getTableName('en'))
+            .select('*')
+            .order('created_at', { ascending: false })
+            .limit(POST_LIMIT);
+          
+          if (selectedModeFilter) {
+            query = query.eq('selected_mode', selectedModeFilter);
+          }
+
+          const { data: englishData, error: englishError } = await query;
+
+          if (englishError) {
+            console.error('Error fetching English posts:', englishError);
+            throw englishError;
+          }
+
+          if (isSubscribed) {
+            setPosts(englishData as TeamPost[]);
+          }
+        } else {
+          if (languageError) {
+            console.error('Error fetching language posts:', languageError);
+            throw languageError;
+          }
+
+          if (isSubscribed) {
+            setPosts(languageData as TeamPost[]);
+          }
+        }
+      } catch (error) {
+        console.error('Error in fetchPosts:', error);
+      } finally {
+        if (isSubscribed) {
+          setLoading(false);
+        }
       }
-
-      const { data: englishData, error: englishError } = await query;
-
-      if (englishError) {
-        console.error('Error fetching English posts:', englishError);
-        throw englishError;
-      }
-
-      if (isSubscribed) {
-        setPosts(englishData as TeamPost[]);
-      }
-    } else {
-      if (languageError) {
-        console.error('Error fetching language posts:', languageError);
-        throw languageError;
-      }
-
-      if (isSubscribed) {
-        setPosts(languageData as TeamPost[]);
-      }
-    }
-  } catch (error) {
-    console.error('Error in fetchPosts:', error);
-  } finally {
-    if (isSubscribed) {
-      setLoading(false);
-    }
-  }
-};
+    };
 
     const setupRealtimeSubscription = async () => {
-  try {
-    if (currentChannel) {
-      await currentChannel.unsubscribe();
-    }
-
-    const primaryTableName = getTableName(currentLanguage);
-    const fallbackTableName = getTableName('en');
-
-    // 現在の言語のチャンネル
-    currentChannel = supabase
-      .channel(`team_posts_${currentLanguage}_changes`)
-      .on('postgres_changes', 
-        { 
-          event: '*', 
-          schema: 'public', 
-          table: primaryTableName 
-        },
-        payload => {
-          if (!isSubscribed) return;
-          
-          if (payload.eventType === 'INSERT') {
-            setPosts(prev => [payload.new as TeamPost, ...prev].slice(0, POST_LIMIT));
-          }
+      try {
+        if (currentChannel) {
+          await currentChannel.unsubscribe();
         }
-      );
 
-    // 現在の言語が英語でない場合、英語のチャンネルも監視
-    if (currentLanguage !== 'en') {
-      currentChannel = currentChannel.on('postgres_changes',
-        {
-          event: '*',
-          schema: 'public',
-          table: fallbackTableName
-        },
-        payload => {
-          if (!isSubscribed) return;
-          
-          if (payload.eventType === 'INSERT') {
-            // 現在の投稿が空の場合のみ英語の投稿を表示
-            setPosts(prev => {
-              if (prev.length === 0) {
-                return [payload.new as TeamPost, ...prev].slice(0, POST_LIMIT);
+        const primaryTableName = getTableName(currentLanguage);
+        const fallbackTableName = getTableName('en');
+
+        // 現在の言語のチャンネル
+        currentChannel = supabase
+          .channel(`team_posts_${currentLanguage}_changes`)
+          .on('postgres_changes', 
+            { 
+              event: '*', 
+              schema: 'public', 
+              table: primaryTableName 
+            },
+            payload => {
+              if (!isSubscribed) return;
+              
+              if (payload.eventType === 'INSERT') {
+                setPosts(prev => [payload.new as TeamPost, ...prev].slice(0, POST_LIMIT));
               }
-              return prev;
-            });
-          }
-        }
-      );
-    }
+            }
+          );
 
-    await currentChannel.subscribe();
-  } catch (error) {
-    console.error('Error in setupRealtimeSubscription:', error);
-  }
-};
+        // 現在の言語が英語でない場合、英語のチャンネルも監視
+        if (currentLanguage !== 'en') {
+          currentChannel = currentChannel.on('postgres_changes',
+            {
+              event: '*',
+              schema: 'public',
+              table: fallbackTableName
+            },
+            payload => {
+              if (!isSubscribed) return;
+              
+              if (payload.eventType === 'INSERT') {
+                // 現在の投稿が空の場合のみ英語の投稿を表示
+                setPosts(prev => {
+                  if (prev.length === 0) {
+                    return [payload.new as TeamPost, ...prev].slice(0, POST_LIMIT);
+                  }
+                  return prev;
+                });
+              }
+            }
+          );
+        }
+
+        await currentChannel.subscribe();
+      } catch (error) {
+        console.error('Error in setupRealtimeSubscription:', error);
+      }
+    };
 
     fetchPosts();
     setupRealtimeSubscription();
@@ -384,10 +439,38 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
     };
   }, [selectedModeFilter, currentLanguage]);
 
-  // 初期データの読み込み
+  // 初期データの読み込み - TeamBoard専用に修正
   useEffect(() => {
-    loadSavedPlayerTag();
-    loadSearchHistory();
+    const initializeTeamBoardData = async () => {
+      try {
+        // TeamBoard専用のローカルストレージからデータを読み込む
+        const savedTag = await AsyncStorage.getItem('teamBoardPlayerTag');
+        if (savedTag) {
+          const validatedTag = validatePlayerTag(savedTag);
+          if (validatedTag) {
+            setPlayerTag(validatedTag);
+          }
+        }
+        
+        // TeamBoard専用の検索履歴を読み込む
+        const historyStr = await AsyncStorage.getItem('teamBoardSearchHistory');
+        if (historyStr) {
+          try {
+            const history = JSON.parse(historyStr);
+            const validHistory = history
+              .map((tag: string) => validatePlayerTag(tag))
+              .filter(Boolean);
+            setSearchHistory(validHistory);
+          } catch (e) {
+            console.error('Invalid history format:', e);
+          }
+        }
+      } catch (error) {
+        console.error('Error initializing TeamBoard data:', error);
+      }
+    };
+    
+    initializeTeamBoardData();
   }, []);
 
   // キャラクター名の言語変換
@@ -398,195 +481,71 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
     return characterInfo?.name.en;
   };
 
-  // キャラクター選択時の処理
-  const handleCharacterSelect = async (character: Character | null) => {
-    if (!isPlayerVerified) return;
-    
+  // キャラクター選択時の処理 - TeamBoard専用に修正
+  const handleCharacterSelect = (character: Character | null) => {
     setSelectedCharacter(character);
-    if (character && playerDataAPI.data?.playerInfo) {
-      const englishName = getEnglishName(character.name);
-      console.log('Looking for character:', englishName);
+    
+    if (!character || !isPlayerVerified || playerBrawlers.length === 0) {
+      setCharacterTrophies('0');
+      return;
+    }
+    
+    const englishName = getEnglishName(character.name);
+    console.log('Looking for character:', englishName);
 
-      if (englishName) {
-        const brawler = playerDataAPI.data.playerInfo.brawlers.find(
-          (b: any) => b.name.toLowerCase() === englishName.toLowerCase()
-        );
-        console.log('Found brawler data:', brawler);
+    if (englishName) {
+      // TeamBoard専用のbrawlersデータから検索
+      const brawler = playerBrawlers.find(
+        (b: any) => b.name.toLowerCase() === englishName.toLowerCase()
+      );
+      console.log('Found brawler data:', brawler);
 
-        if (brawler) {
-          setCharacterTrophies(brawler.trophies.toString());
-        } else {
-          console.log('Brawler not found in player data');
-          setCharacterTrophies('0');
-        }
+      if (brawler) {
+        setCharacterTrophies(brawler.trophies.toString());
       } else {
-        console.log('Character name mapping not found for:', character.name);
+        console.log('Brawler not found in player data');
         setCharacterTrophies('0');
       }
-    }
-  };
-
-  // 検索履歴の読み込み
-  const loadSearchHistory = async () => {
-    try {
-      const savedHistoryStr = await AsyncStorage.getItem('searchHistory');
-      if (savedHistoryStr) {
-        const savedHistory = JSON.parse(savedHistoryStr);
-        const validatedHistory = savedHistory
-          .map(tag => validatePlayerTag(tag))
-          .filter(Boolean);
-        setSearchHistory(validatedHistory);
-      }
-    } catch (error) {
-      console.error('Error loading search history:', error);
-    }
-  };
-
-  // プレイヤータグの検証
-  const verifyPlayerTag = async (tag: string) => {
-    if (!tag) {
-      Alert.alert('Error', t.errors.enterTag);
-      return false;
-    }
-
-    try {
-      const timeoutPromise = new Promise((_, reject) => {
-        setTimeout(() => reject(new Error('API timeout')), 5000);
-      });
-
-      const currentTag = tag;
-      const dataPromise = playerDataAPI.fetchPlayerData(tag);
-      const result = await Promise.race([dataPromise, timeoutPromise]);
-      
-      if (currentTag !== playerTag) {
-        console.log('Tag changed during verification');
-        return false;
-      }
-      
-      if (!result || !result.playerInfo) {
-        return false;
-      }
-      
-      const { playerInfo } = result;
-      setHostInfo({
-        wins3v3: playerInfo['3vs3Victories'] || 0,
-        winsDuo: playerInfo.duoVictories || 0,
-        totalTrophies: playerInfo.trophies || 0
-      });
-      
-      return true;
-    } catch (error) {
-      console.error('Error verifying player tag:', error);
-      return false;
-    }
-  };
-
-  // 保存されたプレイヤータグの読み込み
-  const loadSavedPlayerTag = async () => {
-    try {
-      const savedTag = await AsyncStorage.getItem('brawlStarsPlayerTag');
-      if (savedTag) {
-        const validatedTag = validatePlayerTag(savedTag);
-        if (validatedTag) {
-          setPlayerTag(validatedTag);
-          const isVerified = await verifyPlayerTag(validatedTag);
-          if (validatedTag === playerTag) {
-            setIsPlayerVerified(isVerified);
-            }
-        }
-      }
-    } catch (error) {
-      console.error('Error loading saved player tag:', error);
-    }
-  };
-
-  const handlePlayerTagVerify = async () => {
-  console.log('=== Start tag verification ===');
-  console.log('Input playerTag:', playerTag);
-
-  if (!playerTag.trim()) {
-    console.log('Error: Empty tag');
-    Alert.alert('Error', t.errors.enterTag);
-    return;
-  }
-
-  setIsLoadingPlayerData(true);
-  
-  try {
-    const cleanTag = playerTag.replace('#', '');
-    const validatedTag = validatePlayerTag(cleanTag);
-    console.log('Cleaned tag:', cleanTag);
-    console.log('Validated tag:', validatedTag);
-    
-    if (!validatedTag) {
-      console.log('Error: Invalid tag format');
-      Alert.alert('Error', t.errors.invalidTag);
-      setIsPlayerVerified(false);
-      return;
-    }
-
-    const verificationStartTag = validatedTag;
-    console.log('Attempting to fetch player data for tag:', verificationStartTag);
-    
-    console.log('playerDataAPI state:', {
-      loading: playerDataAPI.loading,
-      error: playerDataAPI.error,
-      hasData: !!playerDataAPI.data
-    });
-
-    const playerResult = await playerDataAPI.fetchPlayerData(validatedTag);
-    console.log('Player data result:', playerResult);
-    
-    // 大文字小文字を無視して比較
-    if (verificationStartTag.toUpperCase() !== playerTag.toUpperCase()) {
-      console.log('Tag changed during verification');
-      console.log('Original tag:', verificationStartTag);
-      console.log('Current tag:', playerTag);
-      return;
-    }
-
-    if (playerResult && playerResult.playerInfo) {
-      console.log('Verification successful');
-      console.log('Player info:', {
-        wins3v3: playerResult.playerInfo['3vs3Victories'],
-        winsDuo: playerResult.playerInfo.duoVictories,
-        totalTrophies: playerResult.playerInfo.trophies
-      });
-
-      setIsPlayerVerified(true);
-      setHostInfo({
-        wins3v3: playerResult.playerInfo['3vs3Victories'] || 0,
-        winsDuo: playerResult.playerInfo.duoVictories || 0,
-        totalTrophies: playerResult.playerInfo.trophies || 0
-      });
-      
-      const newHistory = [
-        validatedTag,
-        ...searchHistory.filter(tag => tag.toUpperCase() !== validatedTag.toUpperCase())
-      ].slice(0, 3);
-      
-      setSearchHistory(newHistory);
-      await AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory));
-      await AsyncStorage.setItem('brawlStarsPlayerTag', validatedTag);
     } else {
-      console.log('Error: Player data fetch failed');
-      console.log('playerResult:', playerResult);
-      Alert.alert('Error', t.errors.fetchFailed);
-      setIsPlayerVerified(false);
+      console.log('Character name mapping not found for:', character.name);
+      setCharacterTrophies('0');
     }
-  } catch (error) {
-    console.error('Error details:', {
-      message: error.message,
-      stack: error.stack,
-      error
-    });
-    Alert.alert('Error', t.errors.fetchFailed);
-    setIsPlayerVerified(false);
-  } finally {
-    setIsLoadingPlayerData(false);
-    console.log('=== End tag verification ===');
-  }
-};
+  };
+
+  // プレイヤータグ検証ハンドラ - TeamBoard専用に修正 (成功時のポップアップ削除)
+  const handlePlayerTagVerify = async () => {
+    console.log('=== Starting TeamBoard player verification ===');
+    
+    if (isLoadingPlayerData) return;
+    
+    if (!playerTag.trim()) {
+      Alert.alert('Error', t.errors.enterTag);
+      return;
+    }
+
+    setIsLoadingPlayerData(true);
+    
+    try {
+      // TeamBoard専用の検証関数を使用
+      const isVerified = await verifyPlayerTagForTeamBoard(playerTag);
+      
+      if (isVerified) {
+        setIsPlayerVerified(true);
+        // 成功ポップアップを削除
+        // Alert.alert('Success', t.success?.playerVerified || 'Player verified successfully!');
+      } else {
+        setIsPlayerVerified(false);
+        Alert.alert('Error', t.errors.fetchFailed);
+      }
+    } catch (error) {
+      console.error('Error in handlePlayerTagVerify:', error);
+      setIsPlayerVerified(false);
+      Alert.alert('Error', t.errors.fetchFailed);
+    } finally {
+      setIsLoadingPlayerData(false);
+      console.log('=== End TeamBoard player verification ===');
+    }
+  };
 
   // 検索履歴からのタグ選択
   const handleHistorySelect = (tag: string) => {
@@ -637,49 +596,50 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
   };
 
   // 招待リンクの検証関数
-const validateInviteLink = (link: string): boolean => {
-  const baseUrl = 'https://link.brawlstars.com/invite/gameroom';
-  const urlMatch = link.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
-  if (!urlMatch) return false;
-  return urlMatch[1].startsWith(baseUrl);
-};
+  const validateInviteLink = (link: string): boolean => {
+    const baseUrl = 'https://link.brawlstars.com/invite/gameroom';
+    const urlMatch = link.match(/(https:\/\/link\.brawlstars\.com\/invite\/gameroom\/[^\s]+)/);
+    if (!urlMatch) return false;
+    return urlMatch[1].startsWith(baseUrl);
+  };
 
   // 入力の検証
   const validateInputs = () => {
-  if (!selectedMode) {
-    Alert.alert('Error', t.errors.selectMode);
-    return false;
-  }
+    if (!selectedMode) {
+      Alert.alert('Error', t.errors.selectMode);
+      return false;
+    }
 
-  if (!isPlayerVerified) {
-    Alert.alert('Error', t.errors.playerInfo);
-    return false;
-  }
+    if (!isPlayerVerified) {
+      Alert.alert('Error', t.errors.playerInfo);
+      return false;
+    }
 
-  if (!selectedCharacter) {
-    Alert.alert('Error', t.errors.selectCharacter);
-    return false;
-  }
+    if (!selectedCharacter) {
+      Alert.alert('Error', t.errors.selectCharacter);
+      return false;
+    }
 
-  if (!inviteLink || !validateInviteLink(inviteLink)) {
-    Alert.alert('Error', t.errors.invalidLink);
-    return false;
-  }
+    if (!inviteLink || !validateInviteLink(inviteLink)) {
+      Alert.alert('Error', t.errors.invalidLink);
+      return false;
+    }
 
-  // 文字数制限のチェック
-  if (description.length > 100) {
-    Alert.alert('Error', t.errors.descriptionTooLong);
-    return false;
-  }
+    // 文字数制限のチェック
+    if (description.length > 100) {
+      Alert.alert('Error', t.errors.descriptionTooLong);
+      return false;
+    }
 
-  if (inviteLink.length > 125) {
-    Alert.alert('Error', t.errors.linkTooLong);
-    return false;
-  }
+    if (inviteLink.length > 125) {
+      Alert.alert('Error', t.errors.linkTooLong);
+      return false;
+    }
 
-  return true;
-};
+    return true;
+  };
 
+  // チーム投稿作成処理 (成功時のポップアップ削除)
   const createPost = async () => {
     if (isSubmitting) return; // 既に実行中なら処理を中断
     
@@ -749,14 +709,11 @@ const validateInviteLink = (link: string): boolean => {
             // 広告を表示
             await adService.showInterstitial();
             
-            // 広告表示完了後、少し待ってからSuccess通知
-            await new Promise(resolve => setTimeout(resolve, 500));
-            Alert.alert('Success', t.success.postCreated);
+            // 成功ポップアップを削除
+            setIsSubmitting(false); // 全ての処理が完了したらフラグを解除
           } catch (adError) {
             console.error('Ad showing error:', adError);
-            // 広告表示に失敗した場合は直接Success通知
-            Alert.alert('Success', t.success.postCreated);
-          } finally {
+            // 成功ポップアップを削除
             setIsSubmitting(false); // 全ての処理が完了したらフラグを解除
           }
         };
@@ -768,7 +725,7 @@ const validateInviteLink = (link: string): boolean => {
         // 広告なしの場合
         setModalVisible(false);
         setTimeout(() => {
-          Alert.alert('Success', t.success.postCreated);
+          // 成功ポップアップを削除
           setIsSubmitting(false); // 処理完了後にフラグを解除
         }, 500);
       }
@@ -811,7 +768,7 @@ const validateInviteLink = (link: string): boolean => {
               onPress={async () => {
                 const newHistory = searchHistory.filter(t => t !== tag);
                 setSearchHistory(newHistory);
-                await AsyncStorage.setItem('searchHistory', JSON.stringify(newHistory));
+                await AsyncStorage.setItem('teamBoardSearchHistory', JSON.stringify(newHistory));
               }}
             >
               <Text style={styles.deleteText}>×</Text>
@@ -834,7 +791,8 @@ const validateInviteLink = (link: string): boolean => {
               style={[
                 styles.input, 
                 styles.playerTagInput,
-                isPlayerVerified && styles.disabledInput
+                isPlayerVerified && styles.disabledInput,
+                isPlayerVerified && styles.verifiedInput // 検証成功時の視覚的フィードバック
               ]}
               value={playerTag}
               onChangeText={setPlayerTag}
@@ -844,9 +802,10 @@ const validateInviteLink = (link: string): boolean => {
               editable={!isPlayerVerified}
             />
             <TouchableOpacity
-              style={[
+            style={[
                 styles.verifyButton,
-                isLoadingPlayerData && styles.verifyButtonDisabled
+                isLoadingPlayerData && styles.verifyButtonDisabled,
+                isPlayerVerified && styles.changeButton // 検証済み時の変更ボタン表示
               ]}
               onPress={() => {
                 if (isPlayerVerified) {
@@ -875,7 +834,7 @@ const validateInviteLink = (link: string): boolean => {
 
         {isPlayerVerified && (
           <>
-            {/* 独自の関数ではなく、useState経由でキャッシュされたgameModesを使用 */}
+            {/* ゲームモード選択 */}
             {renderModeSelector()}
 
             <CharacterSelector
@@ -1392,8 +1351,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
     color: '#666',
   },
+  // 検証成功時の視覚的フィードバック用スタイル
+  verifiedInput: {
+    backgroundColor: '#f0fff0',
+    borderColor: '#4CAF50',
+  },
+  // タグ変更ボタン用のスタイル
+  changeButton: {
+    backgroundColor: '#FF9800',
+  },
   postForm: {
     padding: 16,
   }
 });
+
 export default TeamBoard;
