@@ -48,8 +48,6 @@ interface TeamPost {
   created_at: string;
   selected_character: string;
   character_trophies: number;
-  mid_characters: string[];
-  side_characters: string[];
   host_info: HostInfo;
 }
 
@@ -112,24 +110,6 @@ const getGameModes = (t: TeamBoardTranslation): GameMode[] => {
     .filter(Boolean) as GameMode[]; // nullを除外
 };
 
-// モックデータの設定 - プレイヤーAPI連携なしでテストするために使用
-const MOCK_PLAYER_DATA = {
-  name: 'TestPlayer',
-  tag: '#2YCQCYLPG',
-  trophies: 10000,
-  '3vs3Victories': 500,
-  duoVictories: 200,
-  brawlers: [
-    { name: 'SHELLY', id: '16000000', trophies: 500 },
-    { name: 'COLT', id: '16000001', trophies: 600 },
-    { name: 'BULL', id: '16000002', trophies: 550 },
-    { name: 'BROCK', id: '16000003', trophies: 480 },
-    { name: 'JESSIE', id: '16000004', trophies: 520 },
-    { name: 'NITA', id: '16000005', trophies: 550 }
-    // 必要に応じて他のキャラクターを追加
-  ]
-};
-
 const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetails }) => {
   const { width } = useWindowDimensions();
   const isIPad = Platform.OS === 'ios' && Platform.isPad;
@@ -151,8 +131,6 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
   const [loading, setLoading] = useState(true);
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
   const [characterTrophies, setCharacterTrophies] = useState('');
-  const [midCharacters, setMidCharacters] = useState<Character[]>([]);
-  const [sideCharacters, setSideCharacters] = useState<Character[]>([]);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [lastRefreshTime, setLastRefreshTime] = useState(0);
   const [playerTag, setPlayerTag] = useState('');
@@ -166,8 +144,8 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
   });
   const [gameModes, setGameModes] = useState<GameMode[]>([]);
   
-  // 新たに追加する状態変数 - TeamBoard専用
-  const [playerBrawlers, setPlayerBrawlers] = useState<any[]>([]);  // TeamBoard専用のBrawlersデータ
+  // TeamBoard専用のBrawlersデータ
+  const [playerBrawlers, setPlayerBrawlers] = useState<any[]>([]);
 
   useEffect(() => {
     // tとt.modesが利用可能になったらゲームモード情報を設定
@@ -177,20 +155,6 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
   }, [t]); // tが変更されたら再実行
 
   const REFRESH_COOLDOWN = 3000;
-
-  // モックデータを使った検証 - プレイヤー分析に依存しない独自実装
-  const verifyWithMockData = async (tag: string): Promise<any> => {
-    // 開発・テスト環境で使用するためのモック関数
-    await new Promise(resolve => setTimeout(resolve, 500)); // 処理時間をシミュレート
-    
-    const cleanTag = tag.replace('#', '');
-    
-    // モックデータを返す（タグだけ入力されたものに変更）
-    return {
-      ...MOCK_PLAYER_DATA,
-      tag: `#${cleanTag}`
-    };
-  };
 
   // TeamBoard専用のプレイヤータグ検証関数
   const verifyPlayerTagForTeamBoard = async (tag: string): Promise<boolean> => {
@@ -214,20 +178,9 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
     }
 
     try {
-      // 以下の環境に応じた実装を選択します
-      // 1: 開発・テスト環境ではモックデータを使用
-      // 2: 既存のAPIが利用可能な場合はそれを使用
-      // 3: 独自バックエンドがある場合はそれを使用
-      
-      // 方法1: モックデータを使用（開発・テスト向け）
-      let playerInfo;
-      if (__DEV__ || true) { // trueは例示のため、実際は環境変数などで制御
-        playerInfo = await verifyWithMockData(validatedTag);
-      } else {
-        // 方法2: 既存APIを使用（実際の環境向け）
-        const result = await playerDataAPI.fetchPlayerData(validatedTag);
-        playerInfo = result?.playerInfo;
-      }
+      // 既存APIを使用してプレイヤーデータを取得
+      const result = await playerDataAPI.fetchPlayerData(validatedTag);
+      const playerInfo = result?.playerInfo;
       
       if (!playerInfo) {
         console.log('Error: Player data fetch failed');
@@ -512,7 +465,7 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
     }
   };
 
-  // プレイヤータグ検証ハンドラ - TeamBoard専用に修正 (成功時のポップアップ削除)
+  // プレイヤータグ検証ハンドラ - TeamBoard専用に修正
   const handlePlayerTagVerify = async () => {
     console.log('=== Starting TeamBoard player verification ===');
     
@@ -531,8 +484,6 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
       
       if (isVerified) {
         setIsPlayerVerified(true);
-        // 成功ポップアップを削除
-        // Alert.alert('Success', t.success?.playerVerified || 'Player verified successfully!');
       } else {
         setIsPlayerVerified(false);
         Alert.alert('Error', t.errors.fetchFailed);
@@ -639,7 +590,7 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
     return true;
   };
 
-  // チーム投稿作成処理 (成功時のポップアップ削除)
+  // チーム投稿作成処理
   const createPost = async () => {
     if (isSubmitting) return; // 既に実行中なら処理を中断
     
@@ -681,8 +632,6 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
         description: description.trim(),
         selected_character: selectedCharacter!.id,
         character_trophies: Number(characterTrophies),
-        mid_characters: midCharacters.map(c => c.id),
-        side_characters: sideCharacters.map(c => c.id),
         host_info: hostInfo
       };
 
@@ -709,11 +658,9 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
             // 広告を表示
             await adService.showInterstitial();
             
-            // 成功ポップアップを削除
             setIsSubmitting(false); // 全ての処理が完了したらフラグを解除
           } catch (adError) {
             console.error('Ad showing error:', adError);
-            // 成功ポップアップを削除
             setIsSubmitting(false); // 全ての処理が完了したらフラグを解除
           }
         };
@@ -725,7 +672,6 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
         // 広告なしの場合
         setModalVisible(false);
         setTimeout(() => {
-          // 成功ポップアップを削除
           setIsSubmitting(false); // 処理完了後にフラグを解除
         }, 500);
       }
@@ -744,8 +690,6 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
     setDescription('');
     setSelectedCharacter(null);
     setCharacterTrophies('');
-    setMidCharacters([]);
-    setSideCharacters([]);
   };
 
   // 検索履歴の表示
@@ -812,8 +756,6 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
                   setIsPlayerVerified(false);
                   setSelectedCharacter(null);
                   setCharacterTrophies('');
-                  setMidCharacters([]);
-                  setSideCharacters([]);
                 } else {
                   handlePlayerTagVerify();
                 }
@@ -842,48 +784,6 @@ const TeamBoard: React.FC<TeamBoardProps> = ({ isAdFree, isCompact, onShowDetail
               onSelect={handleCharacterSelect}
               selectedCharacterId={selectedCharacter?.id}
               isRequired={true}
-            />
-
-            <Text style={styles.inputLabel}>{t.midCharacters}</Text>
-            <CharacterSelector
-              title=""
-              onSelect={(character) => {
-                if (!character) return;
-                setMidCharacters(prev => {
-                  if (prev.some(c => c.id === character.id)) {
-                    return prev.filter(c => c.id !== character.id);
-                  }
-                  if (prev.length >= 3) {
-                    Alert.alert('Error', t.errors.maxMidChars);
-                    return prev;
-                  }
-                  return [...prev, character];
-                });
-              }}
-              multiSelect={true}
-              selectedCharacters={midCharacters}
-              maxSelections={3}
-            />
-
-            <Text style={styles.inputLabel}>{t.sideCharacters}</Text>
-            <CharacterSelector
-              title=""
-              onSelect={(character) => {
-                if (!character) return;
-                setSideCharacters(prev => {
-                  if (prev.some(c => c.id === character.id)) {
-                    return prev.filter(c => c.id !== character.id);
-                  }
-                  if (prev.length >= 3) {
-                    Alert.alert('Error', t.errors.maxSideChars);
-                    return prev;
-                  }
-                  return [...prev, character];
-                });
-              }}
-              multiSelect={true}
-              selectedCharacters={sideCharacters}
-              maxSelections={3}
             />
 
             <Text style={styles.inputLabel}>{t.inviteLink}</Text>

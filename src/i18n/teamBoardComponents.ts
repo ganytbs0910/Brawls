@@ -1,4 +1,3 @@
-
 // src/i18n/teamBoardComponents.ts
 
 export type TeamBoardComponentsTranslation = {
@@ -8,10 +7,6 @@ export type TeamBoardComponentsTranslation = {
       justNow: string;
       minutesAgo: string;
       hoursAgo: string;
-    };
-    recruiting: {
-      mid: string;
-      side: string;
     };
     hostInfo: {
       title: string;
@@ -45,10 +40,6 @@ export const ja: TeamBoardComponentsTranslation = {
       minutesAgo: '分前',
       hoursAgo: '時間前'
     },
-    recruiting: {
-      mid: 'ミッド募集',
-      side: 'サイド募集'
-    },
     hostInfo: {
       title: 'ホスト情報',
       totalTrophies: '総合トロ',
@@ -79,10 +70,6 @@ export const en: TeamBoardComponentsTranslation = {
       justNow: 'Just now',
       minutesAgo: 'm ago',
       hoursAgo: 'h ago'
-    },
-    recruiting: {
-      mid: 'Mid Recruiting',
-      side: 'Side Recruiting'
     },
     hostInfo: {
       title: 'Host Info',
@@ -115,10 +102,6 @@ export const ko: TeamBoardComponentsTranslation = {
       minutesAgo: '분 전',
       hoursAgo: '시간 전'
     },
-    recruiting: {
-      mid: '미드 모집',
-      side: '사이드 모집'
-    },
     hostInfo: {
       title: '호스트 정보',
       totalTrophies: '총 트로피',
@@ -148,10 +131,6 @@ export const ar: TeamBoardComponentsTranslation = {
       justNow: 'الآن',
       minutesAgo: 'د',
       hoursAgo: 'س'
-    },
-    recruiting: {
-      mid: 'توظيف وسط',
-      side: 'توظيف جانبي'
     },
     hostInfo: {
       title: 'معلومات المضيف',
@@ -183,10 +162,6 @@ export const fr: TeamBoardComponentsTranslation = {
       minutesAgo: 'min',
       hoursAgo: 'h'
     },
-    recruiting: {
-      mid: 'Recrutement Mid',
-      side: 'Recrutement Side'
-    },
     hostInfo: {
       title: 'Info de l\'hôte',
       totalTrophies: 'Trophées totaux',
@@ -217,10 +192,6 @@ export const es: TeamBoardComponentsTranslation = {
       minutesAgo: 'min',
       hoursAgo: 'h'
     },
-    recruiting: {
-      mid: 'Reclutando Mid',
-      side: 'Reclutando Side'
-    },
     hostInfo: {
       title: 'Info del anfitrión',
       totalTrophies: 'Trofeos totales',
@@ -250,10 +221,6 @@ export const zhTw: TeamBoardComponentsTranslation = {
       justNow: '剛剛',
       minutesAgo: '分鐘前',
       hoursAgo: '小時前'
-    },
-    recruiting: {
-      mid: '徵求中路',
-      side: '徵求邊路'
     },
     hostInfo: {
       title: '主持人資訊',

@@ -18,8 +18,6 @@ interface TeamPost {
   created_at: string;
   selected_character: string;
   character_trophies: number;
-  mid_characters: string[];
-  side_characters: string[];
   host_info: HostInfo;
 }
 
@@ -127,40 +125,6 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
 
       <View style={styles.contentContainer}>
         <View style={styles.infoRow}>
-          <View style={styles.recruitSection}>
-            <View style={styles.recruitRow}>
-              <View style={styles.recruitColumn}>
-                <Text style={styles.sectionTitle}>
-                  {t.postCard.recruiting.mid}
-                </Text>
-                <View style={styles.characterList}>
-                  {post.mid_characters.map(charId => (
-                    <Image 
-                      key={charId}
-                      source={characters.find(c => c.id === charId)?.icon}
-                      style={styles.recruitCharIcon}
-                    />
-                  ))}
-                </View>
-              </View>
-              
-              <View style={styles.recruitColumn}>
-                <Text style={styles.sectionTitle}>
-                  {t.postCard.recruiting.side}
-                </Text>
-                <View style={styles.characterList}>
-                  {post.side_characters.map(charId => (
-                    <Image 
-                      key={charId}
-                      source={characters.find(c => c.id === charId)?.icon}
-                      style={styles.recruitCharIcon}
-                    />
-                  ))}
-                </View>
-              </View>
-            </View>
-          </View>
-
           <View style={styles.hostInfoSection}>
             <Text style={styles.sectionTitle}>
               {t.postCard.hostInfo.title}
@@ -245,12 +209,9 @@ export const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   infoRow: {
-    flexDirection: 'row',
-    gap: 6,
     marginVertical: 6,
   },
   hostInfoSection: {
-    flex: 1,
     padding: 6,
     backgroundColor: '#f8f8f8',
     borderRadius: 6,
@@ -271,38 +232,6 @@ export const styles = StyleSheet.create({
     width: 16,
     height: 16,
     resizeMode: 'contain',
-  },
-  favoriteChars: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 2,
-  },
-  recruitSection: {
-    flex: 1,
-    backgroundColor: '#f8f8f8',
-    borderRadius: 6,
-    padding: 4,
-  },
-  recruitRow: {
-    flexDirection: 'column',
-    gap: 4,
-  },
-  recruitColumn: {
-    width: '100%',
-  },
-  characterList: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 2,
-    backgroundColor: '#fff',
-    padding: 4,
-    borderRadius: 6,
-    minHeight: 36,
-    alignItems: 'center',
-  },
-  recruitCharIcon: {
-    width: 26,
-    height: 26,
   },
   descriptionSection: {
     marginTop: 8,
