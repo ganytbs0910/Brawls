@@ -358,11 +358,13 @@ const TabBar = React.memo<{
       label: t.tabs.rankings,
       icon: require('../assets/AppIcon/ranking.png'),
     },
+    /*
     {
       key: 'tickets',
       label: t.tabs.tickets,
       icon: require('../assets/AppIcon/ticket.png'),
     },
+    */
   ];
 
   return (
