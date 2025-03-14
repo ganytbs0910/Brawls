@@ -1,0 +1,6 @@
+{
+  "editor.formatOnSave": false,
+  "[json]": {
+    "editor.formatOnSave": false
+  }
+}
