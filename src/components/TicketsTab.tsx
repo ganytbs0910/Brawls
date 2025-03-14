@@ -1,5 +1,4 @@
-// TicketsTab.js の修正
-
+// TicketsTab.tsx
 import React, { useState, useEffect, useRef } from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Alert, ActivityIndicator
@@ -7,7 +6,8 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AdMobService from '../services/AdMobService';
 import { SupabaseClient } from '@supabase/supabase-js';
-import { calculateNextLotteryDateString } from './TicketScreen';
+import { calculateNextLotteryDateString, TabState } from './TicketScreen';
+import ServerTimeDetector from '../data/serverTimeDetector';
 
 // チケット獲得量定数
 const TICKET_REWARD_AD = 200; 
@@ -19,7 +19,26 @@ const LOTTERY_STATUS_ID = '00000000-0000-0000-0000-000000000000';
 // 結果確認済みフラグのキー
 const RESULT_CHECKED_KEY = 'lottery_result_checked';
 
-const TicketsTab = ({
+// TicketsTabのプロップス型定義
+interface TicketsTabProps {
+  tickets: number;
+  isAdFree: boolean;
+  onAddTickets: (amount: number) => Promise<void>;
+  handleEnterLottery: () => Promise<void>;
+  isParticipating: boolean;
+  supabaseClient: SupabaseClient | null;
+  effectiveUserId: string | null;
+  resetLotteryState: () => Promise<void>;
+  setHasPrize: (hasPrize: boolean) => void;
+  setPrizeInfo: (prizeInfo: any) => void;
+  setActiveTab: (tab: string) => void;
+  participantsCount: number;
+  resultChecked: boolean;
+  showResultButton: boolean;
+  handleCheckResult: () => Promise<void>;
+}
+
+const TicketsTab: React.FC<TicketsTabProps> = ({
   tickets,
   isAdFree,
   onAddTickets,
@@ -36,18 +55,18 @@ const TicketsTab = ({
   showResultButton,
   handleCheckResult
 }) => {
-  const [adLoading, setAdLoading] = useState(false);
-  const [freeClaimAvailable, setFreeClaimAvailable] = useState(false);
-  const [loginBonusAvailable, setLoginBonusAvailable] = useState(false);
-  const [isLotteryRunning, setIsLotteryRunning] = useState(false);
-  const [lotteryButtonDisabled, setLotteryButtonDisabled] = useState(false);
-  const [isGlobalLotteryRunning, setIsGlobalLotteryRunning] = useState(false);
-  const [lastCheckTime, setLastCheckTime] = useState(0);
-  const [checkingLotteryResults, setCheckingLotteryResults] = useState(false);
+  const [adLoading, setAdLoading] = useState<boolean>(false);
+  const [freeClaimAvailable, setFreeClaimAvailable] = useState<boolean>(false);
+  const [loginBonusAvailable, setLoginBonusAvailable] = useState<boolean>(false);
+  const [isLotteryRunning, setIsLotteryRunning] = useState<boolean>(false);
+  const [lotteryButtonDisabled, setLotteryButtonDisabled] = useState<boolean>(false);
+  const [isGlobalLotteryRunning, setIsGlobalLotteryRunning] = useState<boolean>(false);
+  const [lastCheckTime, setLastCheckTime] = useState<number>(0);
+  const [checkingLotteryResults, setCheckingLotteryResults] = useState<boolean>(false);
   
   // refで状態管理
-  const lastParticipantCheckTimeRef = useRef(0);
-  const pollingIntervalRef = useRef(null);
+  const lastParticipantCheckTimeRef = useRef<number>(0);
+  const pollingIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // 初期化時チェック
   useEffect(() => {
@@ -104,7 +123,7 @@ const TicketsTab = ({
   }, [supabaseClient]);
 
   // 抽選ステータスチェック関数
-  const checkLotteryStatus = async () => {
+  const checkLotteryStatus = async (): Promise<void> => {
     try {
       if (!supabaseClient) return;
       
@@ -154,7 +173,7 @@ const TicketsTab = ({
   };
 
   // 抽選結果確認ボタンのハンドラ
-  const handleCheckLotteryResult = async () => {
+  const handleCheckLotteryResult = async (): Promise<void> => {
     if (!supabaseClient || !effectiveUserId) {
       Alert.alert('エラー', 'システムの初期化中です。しばらくお待ちください。');
       return;
@@ -174,7 +193,7 @@ const TicketsTab = ({
   };
 
   // 参加者数確認
-  const checkParticipants = async () => {
+  const checkParticipants = async (): Promise<number> => {
     try {
       const now = Date.now();
       if (now - lastParticipantCheckTimeRef.current < 30000) {
@@ -208,75 +227,125 @@ const TicketsTab = ({
     }
   };
 
-  // 1日1回無料ポイントチェック
-  const checkDailyFreeClaim = async () => {
+  // 1日1回無料ポイントチェック - サーバー時間版
+  const checkDailyFreeClaim = async (): Promise<void> => {
     if (!isAdFree) {
       setFreeClaimAvailable(false);
       return;
     }
 
     try {
-      const lastClaimDate = await AsyncStorage.getItem('lastFreeClaimDate');
-      const today = new Date().toISOString().split('T')[0];
+      const userId = effectiveUserId || 'anonymous';
       
-      if (!lastClaimDate || lastClaimDate !== today) {
-        setFreeClaimAvailable(true);
-      } else {
-        setFreeClaimAvailable(false);
-      }
+      // ServerTimeDetectorで無料チケット獲得可能かチェック
+      const canClaim = await ServerTimeDetector.canClaimDailyBonus(userId, 'freeClaim');
+      setFreeClaimAvailable(canClaim);
     } catch (error) {
       console.error('Free claim check error:', error);
       setFreeClaimAvailable(false);
     }
   };
 
-  // ログインボーナスチェック
-  const checkDailyLoginBonus = async () => {
+  // ログインボーナスチェック - サーバー時間版
+  const checkDailyLoginBonus = async (): Promise<void> => {
     try {
-      const lastLoginBonusDate = await AsyncStorage.getItem('lastLoginBonusDate');
-      const today = new Date().toISOString().split('T')[0];
+      const userId = effectiveUserId || 'anonymous';
       
-      if (!lastLoginBonusDate || lastLoginBonusDate !== today) {
-        setLoginBonusAvailable(true);
-      } else {
-        setLoginBonusAvailable(false);
-      }
+      // ServerTimeDetectorでボーナス獲得可能かチェック
+      const canClaim = await ServerTimeDetector.canClaimDailyBonus(userId, 'login');
+      setLoginBonusAvailable(canClaim);
     } catch (error) {
       console.error('Login bonus check error:', error);
       setLoginBonusAvailable(false);
     }
   };
 
-  // ログインボーナス受け取り
-  const handleClaimLoginBonus = async () => {
+  // ログインボーナス受け取り - サーバー時間版
+  const handleClaimLoginBonus = async (): Promise<void> => {
     try {
+      const userId = effectiveUserId || 'anonymous';
+      
+      // 再度チェック（不正防止）
+      const canClaim = await ServerTimeDetector.canClaimDailyBonus(userId, 'login');
+      
+      if (!canClaim) {
+        Alert.alert(
+          'エラー', 
+          '本日のログインボーナスは既に受け取り済みか、まだ受け取り時間ではありません。\nインターネット接続を確認してください。'
+        );
+        setLoginBonusAvailable(false);
+        return;
+      }
+      
+      // チケット付与
       await onAddTickets(TICKET_REWARD_LOGIN);
       
-      const today = new Date().toISOString().split('T')[0];
-      await AsyncStorage.setItem('lastLoginBonusDate', today);
+      // ボーナス受け取りを記録
+      const recorded = await ServerTimeDetector.recordBonusClaim(userId, 'login');
+      
+      if (!recorded) {
+        Alert.alert(
+          '警告', 
+          'ボーナス記録中にエラーが発生しました。インターネット接続を確認してください。'
+        );
+        // ボーナス記録に失敗した場合はチケットを差し引く
+        await onAddTickets(-TICKET_REWARD_LOGIN);
+        return;
+      }
       
       setLoginBonusAvailable(false);
-      Alert.alert('ログインボーナス獲得', `本日のログインボーナス${TICKET_REWARD_LOGIN}チケットを獲得しました！`);
+      Alert.alert('ログインボーナス獲得', `ログインボーナス${TICKET_REWARD_LOGIN}チケットを獲得しました！`);
     } catch (error) {
       console.error('Claim login bonus error:', error);
       Alert.alert('エラー', 'ログインボーナス獲得中にエラーが発生しました');
     }
   };
 
-  // 広告表示処理
-  const handleWatchAd = async () => {
+  // 広告表示処理 - サーバー時間版
+  const handleWatchAd = async (): Promise<void> => {
     try {
       setAdLoading(true);
       
       if (isAdFree && freeClaimAvailable) {
+        const userId = effectiveUserId || 'anonymous';
+        
+        // 再度チェック（不正防止）
+        const canClaim = await ServerTimeDetector.canClaimDailyBonus(userId, 'freeClaim');
+        
+        if (!canClaim) {
+          Alert.alert(
+            'エラー', 
+            '本日の無料チケットは既に受け取り済みか、まだ受け取り時間ではありません。\nインターネット接続を確認してください。'
+          );
+          setFreeClaimAvailable(false);
+          setAdLoading(false);
+          return;
+        }
+        
+        // チケット付与
         await onAddTickets(TICKET_REWARD_AD);
-        const today = new Date().toISOString().split('T')[0];
-        await AsyncStorage.setItem('lastFreeClaimDate', today);
+        
+        // 無料チケット受け取りを記録
+        const recorded = await ServerTimeDetector.recordBonusClaim(userId, 'freeClaim');
+        
+        if (!recorded) {
+          Alert.alert(
+            '警告', 
+            'チケット記録中にエラーが発生しました。インターネット接続を確認してください。'
+          );
+          // ボーナス記録に失敗した場合はチケットを差し引く
+          await onAddTickets(-TICKET_REWARD_AD);
+          setAdLoading(false);
+          return;
+        }
+        
         setFreeClaimAvailable(false);
-        Alert.alert('チケット獲得', `本日の無料チケット${TICKET_REWARD_AD}枚を獲得しました！`);
+        Alert.alert('チケット獲得', `無料チケット${TICKET_REWARD_AD}枚を獲得しました！`);
+        setAdLoading(false);
         return;
       }
       
+      // 既存の広告表示処理
       let adMobService;
       try {
         adMobService = AdMobService.getInstance();
@@ -301,7 +370,7 @@ const TicketsTab = ({
   };
 
   // 抽選実行ボタンのハンドラ
-  const handleRunLottery = async () => {
+  const handleRunLottery = async (): Promise<void> => {
     if (!supabaseClient || !effectiveUserId) {
       Alert.alert('エラー', 'システムの初期化中です。しばらくお待ちください。');
       return;
@@ -591,7 +660,7 @@ const TicketsTab = ({
           disabled={tickets < 100 || isParticipating}
         >
           <Image 
-            source={require('../../assets/AppIcon/ticket.png')} 
+            source={require('../../assets/AppIcon/ticket.png')}
             style={styles.rewardIcon} 
           />
           <View style={styles.rewardInfo}>
@@ -645,6 +714,8 @@ const TicketsTab = ({
     </ScrollView>
   );
 };
+
+export default TicketsTab;
 
 const styles = StyleSheet.create({
   content: {
