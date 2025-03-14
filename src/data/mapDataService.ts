@@ -135,7 +135,7 @@ export const mapImages = {
   "スカイハイランナー": require('../../assets/MapImages/Rooftop_Runners.png'),
   "クリスタルホール": require('../../assets/MapImages/Bejeweled.png'),
   "フィッシングヘイブン": require('../../assets/MapImages/Fishing_Bed.png'),
-  "澱みなき泉": require('../../assets/MapImages/Flowing_Springs.png'),
+  "淀みなき泉": require('../../assets/MapImages/Flowing_Springs.png'),
   "新天地": require('../../assets/MapImages/New_Horizons.png'),
   "リスキーロード": require('../../assets/MapImages/Healthy_Middle_Ground.png'),
   "一触爆発": require('../../assets/MapImages/Close_Quarters.png'),
@@ -146,6 +146,25 @@ export const mapImages = {
   "クールボックス": require('../../assets/MapImages/Cool_Box.png'),
   "スターガーデン": require('../../assets/MapImages/Starr_Garden.png'),
   "スーパーセンター": require('../../assets/MapImages/Super_Center.png'),
+  "ため池大決戦": require('../../assets/MapImages/Big_Battle_Basin.png'),
+  "ポーラーパーク": require('../../assets/MapImages/Polar_Park.png'),
+  "極寒採掘": require('../../assets/MapImages/Arctic_Extraction.png'),
+  "シズリングチャンバー": require('../../assets/MapImages/Sizzling_Chambers.png'),
+  "ガーデンクラッシャーズ": require('../../assets/MapImages/Courtyard_Clashers.png'),
+  "ハリケーン": require('../../assets/MapImages/Hurricane.png'),
+  "シベリアの決戦": require('../../assets/MapImages/Siberian_Stand_Off.png'),
+  "オープンゾーン": require('../../assets/MapImages/Open_Zone.png'),
+  "幻想の樹海": require('../../assets/MapImages/Shimmering_Forest.png'),
+  "冷血サバイバル": require('../../assets/MapImages/Survival_Of_The_Meanest.png'),
+  "狂気の幻影": require('../../assets/MapImages/Mirages_Of_Madness.png'),
+  "ストレージスタジアム": require('../../assets/MapImages/Stockpile_Stadium.png'),
+  "トレジャーアイランド": require('../../assets/MapImages/Treasure_Island.png'),
+  "一触即発": require('../../assets/MapImages/Close_Quarters.png'),
+  "アンハッピーアリーナ": require('../../assets/MapImages/Unhappy_Arena.png'),
+  "ディープエンド": require('../../assets/MapImages/Deep_End.png'),
+  "フローズントラップ": require('../../assets/MapImages/Arctic_Ambush.png'),
+  "近くの地下室": require('../../assets/MapImages/Crispy_Crypt.png'),
+  
 };
 
 // ゲームモードのアイコン定義
@@ -252,10 +271,10 @@ export const maps = {
     "フィッシングヘイブン", "ピットストップ", "オープンビジネス", "プレーンテキスト", "オープンゾーン", "安全地帯", "炎のリング", "橋の彼方", "クリスタルホール", "ホットポテト", "ビートルバトル", "どんぱち谷", 
   ],
   brawlBall5v5: [
-    "幻想の樹海", "冷血サバイバル", "狂気の幻影", "ストレージスタジアム", "トレジャーアイランド", "アンハッピーアリーナ", "合流地点", "凍てつく波紋", "フローズントラップ", "近くの地下室", "ため池大決戦", "ポーラーパーク", "極寒採掘", "シズリングチャンパー", "ガーデンクラッシャーズ", "シベリアの決戦", 
+    "幻想の樹海", "冷血サバイバル", "狂気の幻影", "ストレージスタジアム", "トレジャーアイランド", "アンハッピーアリーナ", "合流地点", "凍てつく波紋", "フローズントラップ", "近くの地下室", "ため池大決戦", "ポーラーパーク", "極寒採掘", "シズリングチャンバー", "ガーデンクラッシャーズ", "シベリアの決戦", 
   ],
   brawlBall: [
-    "スカイハイランナー", "セカンドチャンス", "静かな広場", "サニーサッカー", "スーパービーチ", "トリッキー", "トリプルドリブル", "鉄壁の護り", "ビーチボール", "ピンボールドリーム", "狭き門", "サボテン王国", 
+    "スカイハイランナー", "セカンドチャンス", "静かな広場", "サニーサッカー", "スーパービーチ", "トリッキー", "トリプル・ドリブル", "鉄壁の護り", "ビーチボール", "ピンボールドリーム", "狭き門", "サボテン王国", 
   ],
   duel: [
     "果てしなき不運", "隠れ家", "不屈の精神", "レイヤーケーキ", "ミルフィーユ", "見えざる大蛇", "暴徒のオアシス", "言い訳厳禁", "常勝街道", "スパイスプロダクション", "流れ星", "禅の庭園", "大いなる入口", "インパクトゾーン", "ハリケーン", "シークレットガーデン", "乾燥地帯", "猿の迷路", 

@@ -10738,6 +10738,81 @@
                     "power": 3
                 }
             ]
+        },
+        {
+            "name": {
+                "ja": "極寒採掘",
+                "en": "",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Gem Grab 5v5",
+            "image": "require('../../assets/MapImages/.png')",
+            "description": "",
+            "recommendedBrawlers": []
+        },
+        {
+            "name": {
+                "ja": "シズリングチャンバー",
+                "en": "",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "Knockout 5v5",
+            "image": "require('../../assets/MapImages/Sizzling_Chambers.png')",
+            "description": "",
+            "recommendedBrawlers": []
+        },
+        {
+            "name": {
+                "ja": "ガーデンクラッシャーズ",
+                "en": "",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "",
+            "image": "require('../../assets/MapImages/.png')",
+            "description": "",
+            "recommendedBrawlers": []
+        },
+        {
+            "name": {
+                "ja": "",
+                "en": "",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "",
+            "image": "require('../../assets/MapImages/.png')",
+            "description": "",
+            "recommendedBrawlers": []
+        },
+        {
+            "name": {
+                "ja": "",
+                "en": "",
+                "ko": "",
+                "es": "",
+                "ar": "",
+                "fr": "",
+                "zhTw": ""
+            },
+            "gameMode": "",
+            "image": "require('../../assets/MapImages/.png')",
+            "description": "",
+            "recommendedBrawlers": []
         }
     ]
 }
