@@ -181,18 +181,24 @@ export const gameModeIcons = {
   duels: require('../../assets/GameModeIcons/duels_icon.png'),
   showdown: require('../../assets/GameModeIcons/showdown_icon.png'),
   brawlHockey: require('../../assets/GameModeIcons/brawl_hockey.png'),
+  battleRoyale: require('../../assets/GameModeIcons/showdown_icon.png'), // 追加: バトルロワイヤル用のアイコン
 };
 
 // ゲームモード設定
-export const GAME_MODES = [
-  { name: "gemGrab", color: "#DA70D6", icon: gameModeIcons.gemGrab },
-  { name: "brawlBall", color: "#cccccc", icon: gameModeIcons.brawlBall },
-  { name: "heist", color: "#cccccc", icon: gameModeIcons.heist },
-  { name: "knockout", color: "#FFA500", icon: gameModeIcons.knockout },
-  { name: "bounty", color: "#DA70D6", icon: gameModeIcons.bounty },
-  { name: "hotZone", color: "#cccccc", icon: gameModeIcons.hotZone },
-  { name: "brawlHockey", color: "#cccccc", icon: gameModeIcons.brawlHockey },
-];
+export const GAME_MODES = {
+  GEM_GRAB: { name: "gemGrab", color: "#DA70D6", icon: gameModeIcons.gemGrab },
+  BRAWL_BALL: { name: "brawlBall", color: "#cccccc", icon: gameModeIcons.brawlBall },
+  HEIST: { name: "heist", color: "#cccccc", icon: gameModeIcons.heist },
+  KNOCKOUT: { name: "knockout", color: "#FFA500", icon: gameModeIcons.knockout },
+  BOUNTY: { name: "bounty", color: "#DA70D6", icon: gameModeIcons.bounty },
+  HOT_ZONE: { name: "hotZone", color: "#cccccc", icon: gameModeIcons.hotZone },
+  BRAWL_HOCKEY: { name: "brawlHockey", color: "#cccccc", icon: gameModeIcons.brawlHockey },
+  WIPEOUT: { name: "wipeout", color: "#FF4500", icon: gameModeIcons.wipeout },
+  BRAWL_BALL_5V5: { name: "brawlBall5v5", color: "#4169E1", icon: gameModeIcons.brawlBall5v5 },
+  WIPEOUT_5V5: { name: "wipeout5v5", color: "#9932CC", icon: gameModeIcons.wipeout5v5 },
+  DUEL: { name: "duel", color: "#FF0000", icon: gameModeIcons.duels },
+  BATTLE_ROYALE: { name: "battleRoyale", color: "#99ff66", icon: gameModeIcons.showdown },
+};
 
 // ローテーションモードの定義
 export const rotatingModes = {
@@ -375,7 +381,7 @@ export const getMapData = (mapId: string): MapData | undefined => {
 };
 
 // モード名のローカライズ
-const getLocalizedModeName = (mode: string, language: string): string => {
+export const getLocalizedModeName = (mode: string, language: string): string => {
   const modeTranslations: { [key: string]: { [key: string]: string } } = {
     gemGrab: {
       ja: "エメラルドハント",
@@ -441,6 +447,51 @@ const getLocalizedModeName = (mode: string, language: string): string => {
       fr: "BRAWL HOCKEY",
       zhTw: "亂鬥曲棍球",
     },
+    battleRoyale: {
+      ja: "バトルロワイヤル",
+      en: "Battle Royale",
+      ko: "배틀 로얄",
+      es: "BATTLE ROYALE",
+      ar: "باتل رويال",
+      fr: "BATTLE ROYALE",
+      zhTw: "大逃殺",
+    },
+    brawlBall5v5: {
+      ja: "5vs5ブロストライカー",
+      en: "5v5 Brawl Ball",
+      ko: "5vs5 브롤 볼",
+      es: "5vs5 BALÓN BRAWL",
+      ar: "5v5 كرة العراك",
+      fr: "5v5 BRAWLBALL",
+      zhTw: "5v5亂鬥足球",
+    },
+    wipeout: {
+      ja: "殲滅",
+      en: "Wipeout",
+      ko: "와이프아웃",
+      es: "ANIQUILACIÓN",
+      ar: "الإبادة",
+      fr: "ÉLIMINATION",
+      zhTw: "殲滅戰",
+    },
+    wipeout5v5: {
+      ja: "5vs5殲滅",
+      en: "5v5 Wipeout",
+      ko: "5vs5 와이프아웃",
+      es: "5vs5 ANIQUILACIÓN",
+      ar: "5v5 الإبادة",
+      fr: "5v5 ÉLIMINATION",
+      zhTw: "5v5殲滅戰",
+    },
+    duel: {
+      ja: "デュエル",
+      en: "Duel",
+      ko: "듀얼",
+      es: "DUELO",
+      ar: "النزال",
+      fr: "DUEL",
+      zhTw: "決鬥",
+    }
   };
 
   return modeTranslations[mode]?.[language] || mode;
@@ -471,7 +522,7 @@ export const createMapsByMode = async (): Promise<MapsByMode> => {
 
 // マップ情報の取得
 export const getMapInfo = (modeName: string, mapName: string) => {
-  const mode = GAME_MODES.find(m => getLocalizedModeName(m.name, 'ja') === modeName);
+  const mode = Object.values(GAME_MODES).find(m => getLocalizedModeName(m.name, 'ja') === modeName);
   if (!mode) return null;
 
   return {
@@ -559,6 +610,72 @@ export const getCurrentMode = (modeType: string, date: Date): GameMode | null =>
   const daysDiff = Math.floor((date.getTime() - baseDate.getTime()) / (1000 * 60 * 60 * 24));
   const rotationIndex = daysDiff % modes.length;
   return modes[rotationIndex >= 0 ? rotationIndex : (modes.length + rotationIndex)];
+};
+
+// 一覧表示用に追加した関数
+
+/**
+ * 特定のゲームモードで利用可能なすべてのマップIDを取得する
+ * @param {string} gameMode - ゲームモード名
+ * @returns {Array} マップIDの配列
+ */
+export const getAvailableMapsForMode = (gameMode: keyof typeof maps): string[] => {
+  return maps[gameMode] || [];
+};
+
+/**
+ * マップIDからゲームモードを特定する
+ * @param {string} mapId - マップID
+ * @returns {string} ゲームモード名
+ */
+export const getGameModeForMap = (mapId: string): string => {
+  // 各モードのマップリストをチェックして、どのモードに属するかを判定
+  for (const [mode, mapList] of Object.entries(maps)) {
+    if (mapList.includes(mapId)) {
+      switch (mode) {
+        case 'battleRoyale': return 'BATTLE_ROYALE';
+        case 'knockout': return 'KNOCKOUT';
+        case 'gemGrab': return 'GEM_GRAB';
+        case 'heist': return 'HEIST';
+        case 'brawlBall5v5': return 'BRAWL_BALL_5V5';
+        case 'brawlBall': return 'BRAWL_BALL';
+        case 'duel': return 'DUEL';
+        case 'brawlHockey': return 'BRAWL_HOCKEY';
+        default: return mode.toUpperCase();
+      }
+    }
+  }
+  
+  return 'UNKNOWN';
+};
+
+/**
+ * マップリストをフィルタリングする関数
+ * @param {Array} mapList - マップリスト
+ * @param {Object} filters - フィルタリング条件
+ * @returns {Array} フィルタリングされたマップリスト
+ */
+export const filterMaps = (mapList, filters) => {
+  return mapList.filter(map => {
+    // モードによるフィルタリング
+    if (filters.modes && filters.modes.length > 0) {
+      const mapMode = getGameModeForMap(map.currentMap);
+      if (!filters.modes.includes(mapMode)) {
+        return false;
+      }
+    }
+    
+    // マップ名によるフィルタリング
+    if (filters.searchText && filters.searchText.length > 0) {
+      const mapName = map.currentMap.toLowerCase();
+      const searchText = filters.searchText.toLowerCase();
+      if (!mapName.includes(searchText)) {
+        return false;
+      }
+    }
+    
+    return true;
+  });
 };
 
 // Interface exports

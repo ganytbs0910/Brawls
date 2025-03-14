@@ -18,6 +18,18 @@ export type HomeTranslation = {
     getModeName: (modeName: keyof typeof GAME_MODES) => string;
     getCombinedModeName: (modes: (keyof typeof GAME_MODES)[]) => string;
   };
+  viewToggle: {
+    list: string;
+    grid: string;
+  };
+  // 検索・フィルター関連の翻訳を追加
+  searchFilter: {
+    searchPlaceholder: string;
+    filterByMode: string;
+    clearFilters: string;
+    resultsFound: string;
+    noResults: string;
+  };
 };
 
 // 日本語翻訳
@@ -37,6 +49,18 @@ export const ja: HomeTranslation = {
   modes: {
     getModeName: (modeName) => getLocalizedModeName(modeName, 'ja'),
     getCombinedModeName: (modes) => generateCombinedModeTranslation(modes, 'ja')
+  },
+  viewToggle: {
+    list: '一覧',
+    grid: '本日'  // 「グリッド」から「本日」に変更
+  },
+  // 検索・フィルター翻訳を追加
+  searchFilter: {
+    searchPlaceholder: 'マップを検索...',
+    filterByMode: 'モードでフィルター',
+    clearFilters: 'フィルターをクリア',
+    resultsFound: '件のマップが見つかりました',
+    noResults: '該当するマップがありません'
   }
 };
 
@@ -58,6 +82,18 @@ export const en: HomeTranslation = {
   modes: {
     getModeName: (modeName) => getLocalizedModeName(modeName, 'en'),
     getCombinedModeName: (modes) => generateCombinedModeTranslation(modes, 'en')
+  },
+  viewToggle: {
+    list: 'List',
+    grid: 'Today'  // 「Grid」から「Today」に変更
+  },
+  // 検索・フィルター翻訳を追加
+  searchFilter: {
+    searchPlaceholder: 'Search maps...',
+    filterByMode: 'Filter by mode',
+    clearFilters: 'Clear filters',
+    resultsFound: 'maps found',
+    noResults: 'No maps found with current filters'
   }
 };
 
@@ -79,6 +115,18 @@ export const ko: HomeTranslation = {
   modes: {
     getModeName: (modeName) => getLocalizedModeName(modeName, 'ko'),
     getCombinedModeName: (modes) => generateCombinedModeTranslation(modes, 'ko')
+  },
+  viewToggle: {
+    list: '목록',
+    grid: '오늘'  // 「그리드」から「오늘」に変更
+  },
+  // 検索・フィルター翻訳を追加
+  searchFilter: {
+    searchPlaceholder: '맵 검색...',
+    filterByMode: '모드별 필터',
+    clearFilters: '필터 지우기',
+    resultsFound: '개의 맵 발견',
+    noResults: '현재 필터로 맵을 찾을 수 없습니다'
   }
 };
 
@@ -99,6 +147,18 @@ export const es: HomeTranslation = {
   modes: {
     getModeName: (modeName) => getLocalizedModeName(modeName, 'es'),
     getCombinedModeName: (modes) => generateCombinedModeTranslation(modes, 'es')
+  },
+  viewToggle: {
+    list: 'Lista',
+    grid: 'Hoy'  // 「Cuadrícula」から「Hoy」に変更
+  },
+  // 検索・フィルター翻訳を追加
+  searchFilter: {
+    searchPlaceholder: 'Buscar mapas...',
+    filterByMode: 'Filtrar por modo',
+    clearFilters: 'Borrar filtros',
+    resultsFound: 'mapas encontrados',
+    noResults: 'No se encontraron mapas con los filtros actuales'
   }
 };
 
@@ -120,6 +180,18 @@ export const ar: HomeTranslation = {
   modes: {
     getModeName: (modeName) => getLocalizedModeName(modeName, 'ar'),
     getCombinedModeName: (modes) => generateCombinedModeTranslation(modes, 'ar')
+  },
+  viewToggle: {
+    list: 'قائمة',
+    grid: 'اليوم'  // 「شبكة」から「اليوم」に変更
+  },
+  // 検索・フィルター翻訳を追加
+  searchFilter: {
+    searchPlaceholder: 'البحث عن الخرائط...',
+    filterByMode: 'تصفية حسب الوضع',
+    clearFilters: 'مسح التصفية',
+    resultsFound: 'خرائط وجدت',
+    noResults: 'لم يتم العثور على خرائط بالمرشحات الحالية'
   }
 };
 
@@ -141,6 +213,18 @@ export const fr: HomeTranslation = {
   modes: {
     getModeName: (modeName) => getLocalizedModeName(modeName, 'fr'),
     getCombinedModeName: (modes) => generateCombinedModeTranslation(modes, 'fr')
+  },
+  viewToggle: {
+    list: 'Liste',
+    grid: 'Aujourd\'hui'  // 「Grille」から「Aujourd'hui」に変更
+  },
+  // 検索・フィルター翻訳を追加
+  searchFilter: {
+    searchPlaceholder: 'Rechercher des cartes...',
+    filterByMode: 'Filtrer par mode',
+    clearFilters: 'Effacer les filtres',
+    resultsFound: 'cartes trouvées',
+    noResults: 'Aucune carte trouvée avec les filtres actuels'
   }
 };
 
@@ -161,6 +245,18 @@ export const zhTw: HomeTranslation = {
   modes: {
     getModeName: (modeName) => getLocalizedModeName(modeName, 'zhTw'),
     getCombinedModeName: (modes) => generateCombinedModeTranslation(modes, 'zhTw')
+  },
+  viewToggle: {
+    list: '列表',
+    grid: '今天'  // 「網格」から「今天」に変更
+  },
+  // 検索・フィルター翻訳を追加
+  searchFilter: {
+    searchPlaceholder: '搜索地圖...',
+    filterByMode: '按模式過濾',
+    clearFilters: '清除過濾',
+    resultsFound: '個地圖找到',
+    noResults: '沒有符合當前過濾條件的地圖'
   }
 };
 
