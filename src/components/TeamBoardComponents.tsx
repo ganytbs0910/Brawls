@@ -98,6 +98,89 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
     icon: require('../../assets/GameModeIcons/4800003.png')
   };
 
+  // 投稿の表示
+  const renderPostContent = () => (
+    <View style={styles.contentContainer}>
+      <View style={styles.infoRow}>
+        <View style={styles.hostInfoSection}>
+          <Text style={[styles.sectionTitle, styles.compactSectionTitle]}>
+            {t.postCard.hostInfo.title}
+          </Text>
+          
+          {/* 2x2グリッドレイアウトに変更 */}
+          <View style={styles.hostStatsGrid}>
+            {/* 上段: トロフィーと3vs3勝利数 */}
+            <View style={styles.gridRow}>
+              {/* 総合トロフィー */}
+              <View style={styles.gridItem}>
+                <View style={styles.hostStatRow}>
+                  <Image 
+                    source={require('../../assets/OtherIcon/trophy_Icon.png')}
+                    style={styles.tinyTrophyIcon}
+                  />
+                  <Text numberOfLines={1} ellipsizeMode="tail" style={styles.statText}>
+                    {t.postCard.hostInfo.totalTrophies}: {post.host_info.totalTrophies}
+                  </Text>
+                </View>
+              </View>
+              
+              {/* 3vs3勝利数 */}
+              <View style={styles.gridItem}>
+                <View style={styles.hostStatRow}>
+                  <Image 
+                    source={require('../../assets/GameModeIcons/gem_grab_icon.png')}
+                    style={styles.tinyTrophyIcon}
+                  />
+                  <Text numberOfLines={1} ellipsizeMode="tail" style={styles.statText}>
+                    {t.postCard.hostInfo.wins3v3}: {post.host_info.wins3v3}
+                  </Text>
+                </View>
+              </View>
+            </View>
+            
+            {/* 下段: デュオ勝利数とキャラクタートロフィー */}
+            <View style={styles.gridRow}>
+              {/* デュオ勝利数 */}
+              <View style={styles.gridItem}>
+                <View style={styles.hostStatRow}>
+                  <Image 
+                    source={require('../../assets/GameModeIcons/duo_showdown_icon.png')}
+                    style={styles.tinyTrophyIcon}
+                  />
+                  <Text numberOfLines={1} ellipsizeMode="tail" style={styles.statText}>
+                    {t.postCard.hostInfo.winsDuo}: {post.host_info.winsDuo}
+                  </Text>
+                </View>
+              </View>
+              
+              {/* キャラクタートロフィー */}
+              <View style={styles.gridItem}>
+                <View style={styles.hostStatRow}>
+                  <Image 
+                    source={characters.find(c => c.id === post.selected_character)?.icon}
+                    style={styles.smallCharIcon}
+                  />
+                  <Text numberOfLines={1} ellipsizeMode="tail" style={styles.statText}>
+                    {t.postCard.hostInfo.useChar}: {post.character_trophies}
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+
+      {post.description && (
+        <View style={styles.descriptionSection}>
+          <Text style={[styles.sectionTitle, styles.compactSectionTitle]}>
+            {t.postCard.comment.title}
+          </Text>
+          <Text style={styles.description}>{post.description}</Text>
+        </View>
+      )}
+    </View>
+  );
+
   return (
     <TouchableOpacity
       style={styles.postCard}
@@ -123,55 +206,7 @@ export const PostCard: React.FC<{ post: TeamPost }> = ({ post }) => {
         </View>
       </View>
 
-      <View style={styles.contentContainer}>
-        <View style={styles.infoRow}>
-          <View style={styles.hostInfoSection}>
-            <Text style={styles.sectionTitle}>
-              {t.postCard.hostInfo.title}
-            </Text>
-            <View style={styles.hostStats}>
-              <View style={styles.hostStatRow}>
-                <Image 
-                  source={require('../../assets/OtherIcon/trophy_Icon.png')}
-                  style={styles.tinyTrophyIcon}
-                />
-                <Text>{t.postCard.hostInfo.totalTrophies}: {post.host_info.totalTrophies}</Text>
-              </View>
-              <View style={styles.hostStatRow}>
-                <Image 
-                  source={require('../../assets/GameModeIcons/gem_grab_icon.png')}
-                  style={styles.tinyTrophyIcon}
-                />
-                <Text>{t.postCard.hostInfo.wins3v3}: {post.host_info.wins3v3}</Text>
-              </View>
-              <View style={styles.hostStatRow}>
-                <Image 
-                  source={require('../../assets/GameModeIcons/duo_showdown_icon.png')}
-                  style={styles.tinyTrophyIcon}
-                />
-                <Text>{t.postCard.hostInfo.winsDuo}: {post.host_info.winsDuo}</Text>
-              </View>
-            </View>
-            <View style={styles.hostStatRow}>
-              <Image 
-                source={characters.find(c => c.id === post.selected_character)?.icon}
-                style={styles.smallCharIcon}
-              />
-              <Text>{t.postCard.hostInfo.useChar}: </Text>
-              <Text>{post.character_trophies}</Text>
-            </View>
-          </View>
-        </View>
-
-        {post.description && (
-          <View style={styles.descriptionSection}>
-            <Text style={styles.sectionTitle}>
-              {t.postCard.comment.title}
-            </Text>
-            <Text style={styles.description}>{post.description}</Text>
-          </View>
-        )}
-      </View>
+      {renderPostContent()}
     </TouchableOpacity>
   );
 };
@@ -187,11 +222,11 @@ export const styles = StyleSheet.create({
   },
   postHeader: {
     width: '100%',
-    padding: 6,
+    padding: 4, // 6→4に削減
     marginBottom: 0,
   },
   contentContainer: {
-    padding: 8,
+    padding: 4, // 6→4にさらに減らす
   },
   modeTagContainer: {
     flexDirection: 'row',
@@ -209,16 +244,31 @@ export const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   infoRow: {
-    marginVertical: 6,
+    marginVertical: 1, // 3→1にさらに減らす
   },
   hostInfoSection: {
-    padding: 6,
+    padding: 4, // 6→4に減らして上下の余白を縮小
     backgroundColor: '#f8f8f8',
     borderRadius: 6,
   },
+  // 以前のスタイルは残しつつ、新しいグリッドレイアウト用のスタイルを追加
   hostStats: {
-    gap: 2,
+    gap: 1, // 2→1に減らして余白をさらに縮小
   },
+  // 2x2グリッドのためのスタイル
+  hostStatsGrid: {
+    marginTop: 2, // 4→2に減らして上部マージンを縮小
+    marginBottom: 0, // 2→0に減らして下部マージンを削除
+  },
+  gridRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 2, // 4→2に減らして行間を縮小
+  },
+  gridItem: {
+    width: '48%', // 少し余白を持たせる
+  },
+  // 既存のスタイルは残す
   hostStatRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -233,21 +283,28 @@ export const styles = StyleSheet.create({
     height: 16,
     resizeMode: 'contain',
   },
+  statText: {
+    fontSize: 12, // テキストサイズを少し小さくして収まりやすくする
+  },
   descriptionSection: {
-    marginTop: 8,
-    padding: 8,
+    marginTop: 3, // 8→3に大幅に削減
+    padding: 4, // 8→4に半減
     backgroundColor: '#f8f8f8',
-    borderRadius: 8,
+    borderRadius: 6, // 8→6に小さく
   },
   description: {
     color: '#333',
-    lineHeight: 20,
+    lineHeight: 16, // 20→16に行間を縮小
+    fontSize: 12, // フォントサイズを小さく
   },
   sectionTitle: {
     fontSize: 11,
     fontWeight: '700',
     marginBottom: 2,
     color: '#333',
+  },
+  compactSectionTitle: {
+    marginBottom: 1, // セクションタイトルの下マージンをさらに縮小
   },
   headerContent: {
     flexDirection: 'row',
