@@ -77,7 +77,8 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
   });
   const [timeSyncState, setTimeSyncState] = useState({
     initialized: false,
-    syncSuccessful: false
+    syncSuccessful: false,
+    manipulationDetected: false
   });
   
   // 現在時刻の状態
@@ -87,6 +88,7 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
   // 時間更新用タイマー参照
   const timeIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const bonusTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const timeCheckIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // ボーナス状態を更新する関数
   const updateBonusState = useCallback(async () => {
@@ -103,9 +105,15 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
     try {
       const userId = effectiveUserId;
       
-      // TimeServiceが同期に成功したか確認
+      // TimeServiceの状態を確認
       const syncSuccessful = TimeService.isSyncSuccessful();
-      setTimeSyncState(prev => ({ ...prev, syncSuccessful }));
+      const manipulationDetected = TimeService.isTimeManipulationDetected();
+      
+      setTimeSyncState(prev => ({ 
+        ...prev, 
+        syncSuccessful, 
+        manipulationDetected 
+      }));
       
       if (!syncSuccessful) {
         setBonusState({
@@ -113,6 +121,16 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
           loginBonusAvailable: false,
           timeToNextFreeClaim: 'インターネット接続エラー',
           timeToNextLogin: 'インターネット接続エラー'
+        });
+        return;
+      }
+      
+      if (manipulationDetected) {
+        setBonusState({
+          freeClaimAvailable: false,
+          loginBonusAvailable: false,
+          timeToNextFreeClaim: '時間設定の異常が検出されました',
+          timeToNextLogin: '時間設定の異常が検出されました'
         });
         return;
       }
@@ -199,10 +217,21 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
       const formattedDate = TimeService.getFormattedJapanTime('date');
       setCurrentTime(formattedTime);
       setCurrentDate(formattedDate);
+      
+      // 関数を実行するたびに時間操作の検出状態を確認
+      const manipulationDetected = TimeService.isTimeManipulationDetected();
+      if (manipulationDetected !== timeSyncState.manipulationDetected) {
+        setTimeSyncState(prev => ({ ...prev, manipulationDetected }));
+        
+        // 操作が検出されたら、ボーナス状態も更新
+        if (manipulationDetected) {
+          updateBonusState();
+        }
+      }
     } catch (error) {
       console.error('Time update error:', error);
     }
-  }, []);
+  }, [timeSyncState.manipulationDetected, updateBonusState]);
 
   // ボーナスタイマーを定期的に更新する関数
   const updateBonusTimers = useCallback(() => {
@@ -220,9 +249,12 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
         
         // 初期化状態と同期状態を取得
         const syncSuccessful = TimeService.isSyncSuccessful();
+        const manipulationDetected = TimeService.isTimeManipulationDetected();
+        
         setTimeSyncState({
           initialized: true,
-          syncSuccessful
+          syncSuccessful,
+          manipulationDetected
         });
         
         // 初回の時間表示更新
@@ -236,6 +268,13 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
         
         // 1分ごとにボーナス状態を更新
         bonusTimerRef.current = setInterval(updateBonusTimers, 60000);
+        
+        // 5分ごとに時間操作チェック
+        timeCheckIntervalRef.current = setInterval(() => {
+          TimeService.periodicTimeCheck().catch(e => 
+            console.error('Periodic time check failed:', e)
+          );
+        }, 5 * 60 * 1000);
       } catch (error) {
         console.error('Time service initialization error:', error);
         // エラーが発生しても時間表示はローカル時間で更新
@@ -244,7 +283,8 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
         
         setTimeSyncState({
           initialized: true,
-          syncSuccessful: false
+          syncSuccessful: false,
+          manipulationDetected: false
         });
       }
     };
@@ -260,6 +300,10 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
       if (bonusTimerRef.current) {
         clearInterval(bonusTimerRef.current);
         bonusTimerRef.current = null;
+      }
+      if (timeCheckIntervalRef.current) {
+        clearInterval(timeCheckIntervalRef.current);
+        timeCheckIntervalRef.current = null;
       }
     };
   }, [updateJapanTime, updateBonusState, updateBonusTimers]);
@@ -322,6 +366,15 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
         return;
       }
       
+      // 時間操作が検出された場合はボーナスを受け取れない
+      if (timeSyncState.manipulationDetected) {
+        Alert.alert(
+          'セキュリティ警告', 
+          '端末の時間設定に異常が検出されました。\n正確な時間設定に修正してから再度お試しください。'
+        );
+        return;
+      }
+      
       const userId = effectiveUserId;
       
       // 再度チェック（不正防止）
@@ -377,6 +430,16 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
         Alert.alert(
           'エラー', 
           'サーバー時間の同期に失敗しているため、チケットを受け取れません。\nインターネット接続を確認してください。'
+        );
+        setAdLoading(false);
+        return;
+      }
+      
+      // 時間操作が検出された場合はフリークレームを受け取れない
+      if (timeSyncState.manipulationDetected) {
+        Alert.alert(
+          'セキュリティ警告', 
+          '端末の時間設定に異常が検出されました。\n正確な時間設定に修正してから再度お試しください。'
         );
         setAdLoading(false);
         return;
@@ -483,6 +546,15 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
   const handleRunLottery = async () => {
     if (!supabaseClient || !effectiveUserId) {
       Alert.alert('エラー', 'システムの初期化中です。しばらくお待ちください。');
+      return;
+    }
+    
+    // 時間操作が検出された場合は抽選実行不可
+    if (timeSyncState.manipulationDetected) {
+      Alert.alert(
+        'セキュリティ警告', 
+        '端末の時間設定に異常が検出されました。\n正確な時間設定に修正してから再度お試しください。'
+      );
       return;
     }
     
@@ -644,7 +716,7 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
 
   // 参加フォーム描画関数（レンダリングロジックを分割）
   const renderParticipationForm = () => {
-    const isDisabled = tickets < CONSTANTS.TICKET_COST_TO_ENTER || isParticipating;
+    const isDisabled = tickets < CONSTANTS.TICKET_COST_TO_ENTER || isParticipating || timeSyncState.manipulationDetected;
     
     return (
       <View style={styles.section}>
@@ -661,7 +733,9 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
             <Text style={styles.rewardDesc}>
               {isParticipating 
                 ? '今回の抽選にすでに参加しています' 
-                : `${CONSTANTS.TICKET_COST_TO_ENTER}チケットで抽選に参加（当選確率 1/${participantsCount > 0 ? participantsCount : 1}）`}
+                : timeSyncState.manipulationDetected
+                  ? '時間設定の異常が検出されています'
+                  : `${CONSTANTS.TICKET_COST_TO_ENTER}チケットで抽選に参加（当選確率 1/${participantsCount > 0 ? participantsCount : 1}）`}
             </Text>
           </View>
           <View style={styles.costContainer}>
@@ -698,13 +772,17 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
         <TouchableOpacity 
           style={[
             styles.actionButton, 
-            (adLoading || (isAdFree && !bonusState.freeClaimAvailable)) && styles.disabledButton
+            (adLoading || (isAdFree && !bonusState.freeClaimAvailable) || timeSyncState.manipulationDetected) && styles.disabledButton
           ]} 
           onPress={handleWatchAd}
-          disabled={adLoading || (isAdFree && !bonusState.freeClaimAvailable)}
+          disabled={adLoading || (isAdFree && !bonusState.freeClaimAvailable) || timeSyncState.manipulationDetected}
         >
           <Image source={IMAGES.TICKET} style={styles.actionIcon} />
-          <Text style={styles.actionText}>{buttonText}</Text>
+          <Text style={styles.actionText}>
+            {timeSyncState.manipulationDetected
+              ? '時間設定の異常が検出されています'
+              : buttonText}
+          </Text>
           {adLoading && <Text style={styles.loadingText}>読み込み中...</Text>}
         </TouchableOpacity>
 
@@ -714,7 +792,9 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
             <Text style={styles.timeInfoText}>
               {timeText === 'インターネット接続エラー' 
                 ? 'インターネット接続エラー' 
-                : `次回受け取り可能まであと: ${timeText}`}
+                : timeText === '時間設定の異常が検出されました'
+                  ? '時間設定の異常が検出されました'
+                  : `次回受け取り可能まであと: ${timeText}`}
             </Text>
           </View>
         )}
@@ -724,11 +804,16 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
             サーバー時間の同期に失敗しています。インターネット接続を確認してください。
           </Text>
         )}
+        
+        {timeSyncState.manipulationDetected && (
+          <Text style={styles.errorText}>
+            端末の時間設定に異常が検出されました。正確な時間設定に修正してください。
+          </Text>
+        )}
       </View>
     );
   };
 
-  // ログインボーナスセクション描画関数
   // ログインボーナスセクション描画関数
   const renderLoginBonusSection = () => {
     // ログインボーナスが利用可能でない場合は、次回の受け取り時間を表示
@@ -743,7 +828,9 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
             <Text style={styles.bonusUnavailableText}>
               {bonusState.timeToNextLogin === 'インターネット接続エラー' 
                 ? 'インターネット接続エラー' 
-                : `次回ログインボーナス受け取りまであと: ${bonusState.timeToNextLogin}`}
+                : bonusState.timeToNextLogin === '時間設定の異常が検出されました'
+                  ? '時間設定の異常が検出されました'
+                  : `次回ログインボーナス受け取りまであと: ${bonusState.timeToNextLogin}`}
             </Text>
           </View>
         </View>
@@ -755,21 +842,33 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>ログインボーナス</Text>
         <TouchableOpacity 
-          style={[styles.actionButton, styles.loginBonusButton]} 
+          style={[
+            styles.actionButton, 
+            styles.loginBonusButton,
+            (!timeSyncState.syncSuccessful || timeSyncState.manipulationDetected) && styles.disabledButton
+          ]} 
           onPress={handleClaimLoginBonus}
-          disabled={!timeSyncState.syncSuccessful}
+          disabled={!timeSyncState.syncSuccessful || timeSyncState.manipulationDetected}
         >
           <Image source={IMAGES.TICKET} style={styles.actionIcon} />
           <Text style={styles.actionText}>
-            {timeSyncState.syncSuccessful 
-              ? `ログインボーナスを受け取る (+${CONSTANTS.TICKET_REWARD_LOGIN})` 
-              : 'インターネット接続エラー'}
+            {!timeSyncState.syncSuccessful
+              ? 'インターネット接続エラー'
+              : timeSyncState.manipulationDetected
+                ? '時間設定の異常が検出されています'
+                : `ログインボーナスを受け取る (+${CONSTANTS.TICKET_REWARD_LOGIN})`}
           </Text>
         </TouchableOpacity>
         
         <Text style={styles.bonusInfoText}>
           ログインボーナスは{CONSTANTS.BONUS_COOLDOWN_HOURS}時間に1回受け取れます。
         </Text>
+        
+        {timeSyncState.manipulationDetected && (
+          <Text style={styles.errorText}>
+            端末の時間設定に異常が検出されました。正確な時間設定に修正してください。
+          </Text>
+        )}
       </View>
     );
   };
@@ -777,6 +876,7 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
   // 抽選情報セクション描画関数
   const renderLotteryInfoSection = () => {
     const { isRunning, isGlobalRunning, buttonDisabled, checkingResults } = lotteryState;
+    const isLotteryDisabled = isRunning || buttonDisabled || isGlobalRunning || timeSyncState.manipulationDetected;
     
     return (
       <View style={styles.section}>
@@ -795,10 +895,10 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
           <TouchableOpacity 
             style={[
               styles.runLotteryButton,
-              (isRunning || buttonDisabled || isGlobalRunning) && styles.disabledButton
+              isLotteryDisabled && styles.disabledButton
             ]} 
             onPress={handleRunLottery}
-            disabled={isRunning || buttonDisabled || isGlobalRunning}
+            disabled={isLotteryDisabled}
           >
             {isRunning || isGlobalRunning ? (
               <>
@@ -806,6 +906,11 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
                 <Text style={styles.runLotteryText}>
                   {isGlobalRunning ? '抽選実行中...' : '抽選処理中...'}
                 </Text>
+              </>
+            ) : timeSyncState.manipulationDetected ? (
+              <>
+                <Image source={IMAGES.TICKET} style={styles.runLotteryIcon} />
+                <Text style={styles.runLotteryText}>時間設定の異常が検出されました</Text>
               </>
             ) : (
               <>
@@ -820,15 +925,20 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
             <TouchableOpacity 
               style={[
                 styles.checkResultButton,
-                checkingResults && styles.disabledButton
+                (checkingResults || timeSyncState.manipulationDetected) && styles.disabledButton
               ]} 
               onPress={handleCheckLotteryResult}
-              disabled={checkingResults}
+              disabled={checkingResults || timeSyncState.manipulationDetected}
             >
               {checkingResults ? (
                 <>
                   <ActivityIndicator color="#fff" size="small" style={styles.buttonSpinner} />
                   <Text style={styles.checkResultText}>確認中...</Text>
+                </>
+              ) : timeSyncState.manipulationDetected ? (
+                <>
+                  <Image source={IMAGES.TICKET} style={styles.checkResultIcon} />
+                  <Text style={styles.checkResultText}>時間設定の異常が検出されました</Text>
                 </>
               ) : (
                 <>
@@ -843,6 +953,7 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
         <Text style={styles.lotteryNote}>
           ※ボタンを押すと抽選が実行されます。参加者の中から1名がランダムに選ばれます。
           {isGlobalRunning && '\n他のユーザーが抽選を実行中です。しばらくお待ちください。'}
+          {timeSyncState.manipulationDetected && '\n端末の時間設定に異常が検出されました。正確な時間設定に修正してください。'}
         </Text>
       </View>
     );
@@ -858,11 +969,15 @@ const TicketsTab: React.FC<TicketsTabProps> = ({
           {!currentTime && (
             <ActivityIndicator color="#fff" size="small" style={styles.timeLoading} />
           )}
+          {timeSyncState.manipulationDetected && (
+            <Text style={styles.timeWarning}>
+              時間設定の異常が検出されました
+            </Text>
+          )}
         </View>
       </View>
     );
   };
-
   return (
     <ScrollView style={styles.content}>
       {renderTimeInfoSection()}
@@ -907,6 +1022,12 @@ const styles = StyleSheet.create({
   },
   timeLoading: {
     marginTop: 4,
+  },
+  timeWarning: {
+    fontSize: 12,
+    color: '#FFC107',
+    marginTop: 4,
+    fontStyle: 'italic',
   },
   section: {
     marginBottom: 24,
@@ -1126,6 +1247,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 12,
     fontStyle: 'italic',
+  },
+  errorText: {
+    fontSize: 14,
+    color: '#D32F2F',
+    textAlign: 'center',
+    marginTop: 12,
+    fontWeight: 'bold',
   },
   lotteryNote: {
     fontSize: 12,
